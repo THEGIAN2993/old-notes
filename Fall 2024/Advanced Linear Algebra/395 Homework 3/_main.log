@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  23 SEP 2024 23:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Homework 3/_main"
-(/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Homework 3/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 3/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 3/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1219,7 +1219,7 @@ Package: unique 2023/05/04 v0.76
 
 )
 \c@exercise=\count429
- (/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex Excluding 'comment' comment.) (./_main.aux)
+ (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.) (./_main.aux)
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
@@ -1453,12 +1453,12 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  48406 strings out of 474116
- 1060176 string characters out of 5743683
+ 1060302 string characters out of 5743683
  1956187 words of memory out of 5000000
  69900 multiletter control sequences out of 15000+600000
  605715 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,23n,117p,1343b,1067s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,23n,117p,1357b,1067s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonari.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on _main.pdf (3 pages, 99360 bytes).
 PDF statistics:

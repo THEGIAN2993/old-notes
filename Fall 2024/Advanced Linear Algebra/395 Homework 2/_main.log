@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Real Analysis/310 Homework 2/_main"
-(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Real Analysis/310 Homework 2/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 2/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 2/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -33,8 +33,8 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 )
 \trimtop=\skip51
 \trimedge=\skip52
- (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/mem10.clo
-File: mem10.clo 2022/07/29 v0.5 memoir class 10pt size option
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/mem9.clo
+File: mem9.clo 2022/07/29 v0.5 memoir class 9pt size option
 )
 \binding=\skip53
 \spinemargin=\skip54
@@ -366,6 +366,12 @@ Package tocloft [2008/07/23] emulated by memoir.
 Package tocvsec2 [2008/07/23] emulated by memoir.
 Package verbatim [2008/07/23] emulated by memoir.
 Package verse [2008/07/23] emulated by memoir.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \ttl@box=\box57
@@ -373,7 +379,7 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \aftertitleunit=\skip191
 \ttl@plus=\dimen185
 \ttl@minus=\dimen186
-\ttl@toksa=\toks25
+\ttl@toksa=\toks27
 \titlewidth=\dimen187
 \titlewidthlast=\dimen188
 \titlewidthfirst=\dimen189
@@ -386,10 +392,10 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 \@fancybox=\box58
 \shadowsize=\dimen190
 \@Sbox=\box59
-\do@VerbBox=\toks26
-\the@fancyput=\toks27
-\this@fancyput=\toks28
-\EndVerbatimTokens=\toks29
+\do@VerbBox=\toks28
+\the@fancyput=\toks29
+\this@fancyput=\toks30
+\EndVerbatimTokens=\toks31
 \Verbatim@Outfile=\write4
 \Verbatim@Infile=\read3
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -419,11 +425,9 @@ File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
 File: svgnam.def 2023/11/15 v3.01 Predefined colors according to SVG 1.1 (UK)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xcolor/x11nam.def
 File: x11nam.def 2023/11/15 v3.01 Predefined colors according to Unix/X11 (UK)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/comment/comment.sty
-\CommentStream=\write5
- Excluding comment 'comment') (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks30
+\@emptytoks=\toks32
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -431,15 +435,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks31
-\thm@bodyfont=\toks32
-\thm@headfont=\toks33
-\thm@notefont=\toks34
-\thm@headpunct=\toks35
+\thm@style=\toks33
+\thm@bodyfont=\toks34
+\thm@headfont=\toks35
+\thm@notefont=\toks36
+\thm@headpunct=\toks37
 \thm@preskip=\skip192
 \thm@postskip=\skip193
 \thm@headsep=\skip194
-\dth@everypar=\toks36
+\dth@everypar=\toks38
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip195
@@ -449,7 +453,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks37
+\@emptytoks=\toks39
 \ex@=\dimen191
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -487,28 +491,25 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \dotsspace@=\muskip16
 \c@parentequation=\count321
 \dspbrk@lvl=\count322
-\tag@help=\toks38
+\tag@help=\toks40
 \row@=\count323
 \column@=\count324
 \maxfields@=\count325
-\andhelp@=\toks39
+\andhelp@=\toks41
 \eqnshift@=\dimen194
 \alignsep@=\dimen195
 \tagshift@=\dimen196
 \tagwidth@=\dimen197
 \totwidth@=\dimen198
 \lineht@=\dimen199
-\@envbody=\toks40
+\@envbody=\toks42
 \multlinegap=\skip196
 \multlinetaggap=\skip197
-\mathdisplay@stack=\toks41
+\mathdisplay@stack=\toks43
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
-Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
-\symrsfs=\mathgroup6
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/local/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -604,13 +605,12 @@ Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip199
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2023/07/08 v1.2f Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup7
-\symboldletters=\mathgroup8
-\symboldsymbols=\mathgroup9
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
 Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
 Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
-Package bm Info: No bold for \U/rsfs/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/cprotect/cprotect.sty
 Package: cprotect 2011/01/27 v1.0e (Bruno Le Floch)
@@ -619,10 +619,10 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/bigfoot/suffix.sty
 Package: suffix 2006/07/15 1.5a Variant command support
 )
-\CPT@WriteOut=\write6
+\CPT@WriteOut=\write5
 \c@CPT@WriteCount=\count338
 \c@CPT@numB=\count339
-\CPT@commandatend@toks=\toks42
+\CPT@commandatend@toks=\toks44
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/fundus-calligra/calligra.sty
 Package: calligra 2012/04/10 v1.9 LaTeX package calligra
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/emptypage/emptypage.sty
@@ -631,12 +631,12 @@ Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty p
 Package: titleps 2023/10/27 v2.16 Page styles
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
-\MT@toks=\toks43
+\MT@toks=\toks45
 \MT@tempbox=\box62
 \MT@count=\count340
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks44
+\MT@prot@toks=\toks46
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
 \MT@outer@kern=\dimen260
@@ -654,9 +654,9 @@ File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count342
-\float@exts=\toks45
+\float@exts=\toks47
 \float@box=\box63
-\@float@everytoks=\toks46
+\@float@everytoks=\toks48
 \@floatcapt=\box64
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/ocgx/ocgx.sty
 Package: ocgx 2012/11/14 v0.5{} manage OCG in PDF document
@@ -673,8 +673,8 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks47
-\XKV@tempa@toks=\toks48
+\XKV@toks=\toks49
+\XKV@tempa@toks=\toks50
 )
 \XKV@depth=\count343
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
@@ -754,7 +754,7 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 Package: soulpos 2021/10/15 v1.2 Fancy underlining
 \ulp@subcnt=\count356
 \ulp@cnt=\count357
-\ulp@out=\write7
+\ulp@out=\write6
 \ulp@in=\read4
 \ulwidth=\dimen267
 )
@@ -768,7 +768,7 @@ Package zref Info: New property: PCPDFOBJID on input line 2736.
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip270
 \enit@outerparindent=\dimen268
-\enit@toks=\toks49
+\enit@toks=\toks51
 \enit@inbox=\box67
 \enit@count@id=\count358
 \enitdp@description=\count359
@@ -791,7 +791,7 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks50
+\pgfutil@everybye=\toks52
 \pgfutil@tempdima=\dimen277
 \pgfutil@tempdimb=\dimen278
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -803,10 +803,10 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks51
-\pgfkeys@temptoks=\toks52
+\pgfkeys@pathtoks=\toks53
+\pgfkeys@temptoks=\toks54
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks53
+\pgfkeys@tmptoks=\toks55
 ))
 \pgf@x=\dimen279
 \pgf@y=\dimen280
@@ -818,15 +818,15 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yc=\dimen286
 \pgf@xd=\dimen287
 \pgf@yd=\dimen288
-\w@pgf@writea=\write8
+\w@pgf@writea=\write7
 \r@pgf@reada=\read5
 \c@pgf@counta=\count361
 \c@pgf@countb=\count362
 \c@pgf@countc=\count363
 \c@pgf@countd=\count364
-\t@pgf@toka=\toks54
-\t@pgf@tokb=\toks55
-\t@pgf@tokc=\toks56
+\t@pgf@toka=\toks56
+\t@pgf@tokb=\toks57
+\t@pgf@tokc=\toks58
 \pgf@sys@id@count=\count365
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
@@ -848,9 +848,9 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 \pgfmath@dimen=\dimen289
 \pgfmath@count=\count368
 \pgfmath@box=\box70
-\pgfmath@toks=\toks57
-\pgfmath@stack@operand=\toks58
-\pgfmath@stack@operation=\toks59
+\pgfmath@toks=\toks59
+\pgfmath@stack@operand=\toks60
+\pgfmath@stack@operation=\toks61
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count369
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
@@ -933,8 +933,8 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen316
 \pgffor@skip=\dimen317
-\pgffor@stack=\toks60
-\pgffor@toks=\toks61
+\pgffor@stack=\toks62
+\pgffor@toks=\toks63
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
@@ -1006,7 +1006,7 @@ Package caption Info: hyperref package is loaded.
 \UL@box=\box80
 \UL@hyphenbox=\box81
 \UL@skip=\skip272
-\UL@hook=\toks62
+\UL@hook=\toks64
 \UL@height=\dimen341
 \UL@pe=\count384
 \UL@pixel=\dimen342
@@ -1016,22 +1016,22 @@ Package: ulem 2019/11/18
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks63
-\t@pgfplots@tokb=\toks64
-\t@pgfplots@tokc=\toks65
+\t@pgfplots@toka=\toks65
+\t@pgfplots@tokb=\toks66
+\t@pgfplots@tokc=\toks67
 \pgfplots@tmpa=\dimen344
 \c@pgfplots@coordindex=\count385
 \c@pgfplots@scanlineindex=\count386
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks66
-\t@pgf@tokb=\toks67
-\t@pgf@tokc=\toks68
+\t@pgf@toka=\toks68
+\t@pgf@tokb=\toks69
+\t@pgf@tokc=\toks70
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
 \c@pgfplotsarray@tmp=\count387
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
 \c@pgfplotstable@counta=\count388
-\t@pgfplotstable@a=\toks69
+\t@pgfplotstable@a=\toks71
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count389
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
@@ -1102,8 +1102,8 @@ Package datetime Info: No datetime.cfg file found, using default settings on inp
 \dayofyear=\count415
 \dayofweek=\count416
 LaTeX Info: Redefining \today on input line 736.
-\dt@a=\toks70
-\dt@b=\toks71
+\dt@a=\toks72
+\dt@b=\toks73
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -1120,21 +1120,15 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen363
 \Gm@layouthoffset=\dimen364
 \Gm@layoutvoffset=\dimen365
-\Gm@dimlist=\toks72
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
-\f@nch@headwidth=\skip273
-\f@nch@O@elh=\skip274
-\f@nch@O@erh=\skip275
-\f@nch@O@olh=\skip276
-\f@nch@O@orh=\skip277
-\f@nch@O@elf=\skip278
-\f@nch@O@erf=\skip279
-\f@nch@O@olf=\skip280
-\f@nch@O@orf=\skip281
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.sty
+\Gm@dimlist=\toks74
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+qbk on input line 112.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/tex-gyre/t1qbk.fd
+File: t1qbk.fd 2009/09/25 v1.2 font definition file for T1/qbk
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.sty
 Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
-\con@length=\skip282
+\con@length=\skip273
 
 Loading configuration file `contour.cfg'.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.cfg
@@ -1143,117 +1137,46 @@ File: contour.cfg 2004/11/18 v2.14 Print contoured text (HH, MH)
 contour: Using driver file `pdftex.cnt'.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/pdftex.cnt
 File: pdftex.cnt 2004/11/18 v2.14 Print contoured text (HH, MH)
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmtools.sty
-Package: thmtools 2023/05/04 v0.76
-\thmt@toks=\toks73
-\c@thmt@dummyctr=\count420
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-patch.sty
-Package: thm-patch 2023/05/04 v0.76
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/parseargs.sty
-Package: parseargs 2023/05/04 v0.76
-\@parsespec=\toks74
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-kv.sty
-Package: thm-kv 2023/05/04 v0.76
-Package thm-kv Info: Theorem names will be uppercased on input line 42.
-Package thm-kv Info: kvsetkeys patch (v1.16 or later) on input line 158.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-autoref.sty
-Package: thm-autoref 2023/05/04 v0.76
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/aliasctr.sty
-Package: aliasctr 2023/05/04 v0.76
-)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-listof.sty
-Package: thm-listof 2023/05/04 v0.76
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-restate.sty
-Package: thm-restate 2023/05/04 v0.76
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
-Package: thm-amsthm 2023/05/04 v0.76
-\thmt@style@headstyle=\toks75
-))
-\c@theorem=\count421
-\c@lemma=\count422
-\c@proposition=\count423
-\c@corollary=\count424
-\c@example=\count425
-\c@definition=\count426
-\c@exercise=\count427
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/unique.sty
-Package: unique 2023/05/04 v0.76
-\uniq@channel=\write9
- (./_main.unq)
-\openout9 = `_main.unq'.
-
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/iwona.sty
-Package: iwona 2005/10/03 v.1.2 Iwona package (MW)
-\c@mv@iwona=\count428
-\c@mv@iwonabold=\count429
-LaTeX Font Info:    Overwriting symbol font `operators' in version `iwona'
-(Font)                  OT1/cmr/m/n --> OT1/iwonam/m/n on input line 58.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `iwona'
-(Font)                  OML/cmm/m/it --> OML/iwona/m/it on input line 59.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `iwona'
-(Font)                  OMS/cmsy/m/n --> OMS/iwona/m/n on input line 60.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `iwona'
-(Font)                  OMX/cmex/m/n --> OMX/iwona/m/n on input line 61.
-LaTeX Font Info:    Overwriting symbol font `operators' in version `iwonabold'
-(Font)                  OT1/cmr/m/n --> OT1/iwonam/b/n on input line 62.
-LaTeX Font Info:    Overwriting symbol font `letters' in version `iwonabold'
-(Font)                  OML/cmm/m/it --> OML/iwona/b/it on input line 63.
-LaTeX Font Info:    Overwriting symbol font `symbols' in version `iwonabold'
-(Font)                  OMS/cmsy/m/n --> OMS/iwona/b/n on input line 64.
-LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `iwonabold'
-(Font)                  OMX/cmex/m/n --> OMX/iwona/b/n on input line 65.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `iwona'
-(Font)                  OT1/cmr/bx/n --> OT1/iwona/bx/n on input line 67.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `iwona'
-(Font)                  OT1/cmss/m/n --> OT1/iwona/m/n on input line 68.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `iwona'
-(Font)                  OT1/cmr/m/it --> OT1/iwona/m/it on input line 69.
-LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `iwona'
-(Font)                  OT1/cmtt/m/n --> OT1/iwona/m/n on input line 70.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `iwonabold'
-(Font)                  OT1/cmss/m/n --> OT1/iwona/bx/n on input line 71.
-LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `iwonabold'
-(Font)                  OT1/cmr/m/it --> OT1/iwona/bx/it on input line 72.
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+iwona on input line 112.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/t1iwona.fd
-File: t1iwona.fd 2008/07/22 v0.995 font definition file for T1/iwona (MW)
-)) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.)
-Package hyperref Info: Option `colorlinks' set `true' on input line 159.
+)) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex)
+\c@theorem=\count420
+\c@definition=\count421
+\c@example=\count422
+\c@exercise=\count423
+\c@note=\count424
  (./_main.aux)
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 173.
-LaTeX Font Info:    ... okay on input line 173.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 116.
+LaTeX Font Info:    ... okay on input line 116.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count430
+\scratchcounter=\count425
 \scratchdimen=\dimen366
 \scratchbox=\box84
-\nofMPsegments=\count431
-\nofMParguments=\count432
-\everyMPshowfont=\toks76
-\MPscratchCnt=\count433
+\nofMPsegments=\count426
+\nofMParguments=\count427
+\everyMPshowfont=\toks75
+\MPscratchCnt=\count428
 \MPscratchDim=\dimen367
-\MPnumerator=\count434
-\makeMPintoPDFobject=\count435
-\everyMPtoPDFconversion=\toks77
+\MPnumerator=\count429
+\makeMPintoPDFobject=\count430
+\everyMPtoPDFconversion=\toks76
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
  (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
@@ -1266,32 +1189,32 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 173.
+Package hyperref Info: Link coloring OFF on input line 116.
  (./_main.out) (./_main.out)
-\@outlinefile=\write10
-\openout10 = `_main.out'.
+\@outlinefile=\write8
+\openout8 = `_main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 173.
-Package microtype Info: Applying patch `item' on input line 173.
-Package microtype Info: Applying patch `toc' on input line 173.
-Package microtype Info: Applying patch `eqnum' on input line 173.
-Package microtype Info: Applying patch `footnote' on input line 173.
-Package microtype Info: Applying patch `verbatim' on input line 173.
+LaTeX Info: Redefining \microtypecontext on input line 116.
+Package microtype Info: Applying patch `item' on input line 116.
+Package microtype Info: Applying patch `toc' on input line 116.
+Package microtype Info: Applying patch `eqnum' on input line 116.
+Package microtype Info: Applying patch `footnote' on input line 116.
+Package microtype Info: Applying patch `verbatim' on input line 116.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 173.
+LaTeX Info: Redefining \showhyphens on input line 116.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `iwona' (encoding: T1).
+(microtype)             `qbk' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package soulpos Info: Loading soulutf8 on input line 173.
+Package soulpos Info: Loading soulutf8 on input line 116.
  (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
 Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
 
@@ -1304,23 +1227,23 @@ Package soulutf8 Warning: This package is obsolete,
 Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soul-ori.sty
 Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
-\SOUL@word=\toks78
-\SOUL@lasttoken=\toks79
-\SOUL@syllable=\toks80
-\SOUL@cmds=\toks81
-\SOUL@buffer=\toks82
-\SOUL@token=\toks83
+\SOUL@word=\toks77
+\SOUL@lasttoken=\toks78
+\SOUL@syllable=\toks79
+\SOUL@cmds=\toks80
+\SOUL@buffer=\toks81
+\SOUL@token=\toks82
 \SOUL@syllgoal=\dimen368
 \SOUL@syllwidth=\dimen369
 \SOUL@charkern=\dimen370
 \SOUL@hyphkern=\dimen371
 \SOUL@dimen=\dimen372
 \SOUL@dimeni=\dimen373
-\SOUL@minus=\count436
-\SOUL@comma=\count437
-\SOUL@apo=\count438
-\SOUL@grave=\count439
-\SOUL@spaceskip=\skip283
+\SOUL@minus=\count431
+\SOUL@comma=\count432
+\SOUL@apo=\count433
+\SOUL@grave=\count434
+\SOUL@spaceskip=\skip274
 \SOUL@ttwidth=\dimen374
 \SOUL@uldp=\dimen375
 \SOUL@ulht=\dimen376
@@ -1330,7 +1253,7 @@ Package caption Info: End \AtBeginDocument code.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 173.
+ on input line 116.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
@@ -1354,9 +1277,9 @@ File: fc-english.def 2016/01/12
 * \topmargin=-7.22743pt
 * \headheight=0.0pt
 * \headsep=30.0pt
-* \topskip=10.0pt
-* \footskip=25.29494pt
-* \marginparwidth=128.0pt
+* \topskip=9.0pt
+* \footskip=23.84923pt
+* \marginparwidth=144.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=12.0pt plus 4.0pt minus 4.0pt
@@ -1369,91 +1292,46 @@ File: fc-english.def 2016/01/12
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+iwonam on input line 177.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/ot1iwonam.fd
-File: ot1iwonam.fd 2005/10/05 v1.2 font definition file for OT1/iwonam (MW)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `iwonam' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+iwona on input line 177.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/omliwona.fd
-File: omliwona.fd 2008/07/22 v0.995 font definition file for OML/iwona (MW)
-)
-LaTeX Font Info:    Trying to load font information for OMS+iwona on input line 177.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/omsiwona.fd
-File: omsiwona.fd 2008/07/22 v0.995 font definition file for OMS/iwona (MW)
-)
-LaTeX Font Info:    Trying to load font information for OMX+iwona on input line 177.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/omxiwona.fd
-File: omxiwona.fd 2008/07/22 v0.995 font definition file for OMX/iwona (MW)
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 177.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 177.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 177.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-)
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 182.
-LaTeX Font Info:    Trying to load font information for OT1+iwona on input line 206.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/iwona/ot1iwona.fd
-File: ot1iwona.fd 2008/07/22 v0.995 font definition file for OT1/iwona (MW)
-)
-LaTeX Font Info:    Font shape `OT1/iwona/bx/n' in size <10> not available
-(Font)              Font shape `OT1/iwona/b/n' tried instead on input line 206.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `iwona' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `OT1/iwona/bx/n' in size <7> not available
-(Font)              Font shape `OT1/iwona/b/n' tried instead on input line 206.
-LaTeX Font Info:    Font shape `OT1/iwona/bx/n' in size <5> not available
-(Font)              Font shape `OT1/iwona/b/n' tried instead on input line 206.
-
 
 Class memoir Warning: The material used in the headers is too large
-(12.0pt) for the given head height (0.0pt), it is recommended to
+(10.0pt) for the given head height (0.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 201.
+
+
+Overfull \vbox (10.0pt too high) has occurred while \output is active []
+
+ [1
+
+\openout6 = `_main.upa'.
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+
+Class memoir Warning: The material used in the headers is too large
+(10.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
 (in both cases you will find help in the memoir manual). on input line 236.
 
 
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
+Overfull \vbox (10.0pt too high) has occurred while \output is active []
 
- [1
-
-\openout7 = `_main.upa'.
-
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/iwona/mi-iwona.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/iwona/sy-iwona.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/iwona/rm-iwona.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/iwona/ex-iwona.enc}]
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
-
- [2]
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
-
- [3]
-
-Class memoir Warning: The material used in the headers is too large
-(12.0pt) for the given head height (0.0pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 414.
-
-
-Overfull \vbox (12.0pt too high) has occurred while \output is active []
-
- [4] (./_main.aux * soulpos - computing points - it may take a few seconds *
-\openout7 = `_main.upb'.
+ [2] (./_main.aux * soulpos - computing points - it may take a few seconds *
+\openout6 = `_main.upb'.
 
  (./_main.upa))
  ***********
@@ -1464,18 +1342,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 48447 strings out of 474116
- 1059725 string characters out of 5743683
- 1954187 words of memory out of 5000000
- 69878 multiletter control sequences out of 15000+600000
- 613763 words of font info for 111 fonts, out of 8000000 for 9000
+ 47373 strings out of 474116
+ 1039916 string characters out of 5743683
+ 1972187 words of memory out of 5000000
+ 68929 multiletter control sequences out of 15000+600000
+ 586907 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,117p,1149b,764s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/nowacki/iwona/iwonari.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on _main.pdf (4 pages, 101713 bytes).
+ 98i,20n,117p,1357b,1136s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkri.pfb>
+Output written on _main.pdf (2 pages, 184679 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 40 named destinations out of 1000 (max. 500000)
- 25617 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 15377 words of extra memory for PDF output out of 17280 (max. 10000000)
 

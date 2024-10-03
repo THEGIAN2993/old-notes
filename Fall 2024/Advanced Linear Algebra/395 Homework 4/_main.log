@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  1 OCT 2024 11:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Homework 4/_main"
-(/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Homework 4/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 4/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Homework 4/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1219,7 +1219,7 @@ Package: unique 2023/05/04 v0.76
  (./_main.unq)
 \openout9 = `_main.unq'.
 
-) (/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex Excluding 'comment' comment.)
+) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.)
 Package hyperref Info: Option `colorlinks' set `true' on input line 160.
  (./_main.aux)
 \openout1 = `_main.aux'.
@@ -1434,12 +1434,12 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  48143 strings out of 474116
- 1054007 string characters out of 5743683
+ 1054133 string characters out of 5743683
  1941187 words of memory out of 5000000
  69662 multiletter control sequences out of 15000+600000
  614725 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,117p,1145b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,15n,117p,1159b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on _main.pdf (1 page, 138756 bytes).
 PDF statistics:

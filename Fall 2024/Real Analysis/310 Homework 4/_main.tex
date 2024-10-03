@@ -173,34 +173,11 @@
 %\end{tabular}
 \begin{document}
 \begin{center}
-    { \Large Math 395 \\[0.1in]Homework 4 \\[0.1in]
-    Due: 10/3/2024}\\[.25in]
+    { \Large Math 310 \\[0.1in]Homework 4 \\[0.1in]
+    Due: 10/9/2024}\\[.25in]
     { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
     \end{center}
     \vspace{4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
-    \begin{exercise}
-        Let $T \in \Hom_F{(V,V)}$. Prove that the intersection of any collection of $T$-invariant subspaces of $V$ is $T$-invariant.
-    \end{exercise}
-        {\color{red} \begin{proof}
-            Let $\{W_i\}_{i \in I}$ be a collection of $T$-stable subspaces of $V$. Let $x \in T \left(\bigcap_{i \in I}W_i\right)$. Then $x \in T(W_i)$ for all $i \in I$. So $x \in W_i$ for all $i \in I$, establishing $x \in \bigcap_{i \in I}W_i$. Thus $T \left(\bigcap_{i \in I}W_i\right) \subseteq \bigcap_{i \in I}W_i$.
-        \end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-    \begin{exercise}
-        Let $T \in \Hom_F{(V,V)}$ and $v \in V$. Prove that if $T^j(v) \in W = \Span_F{(v_1,...,v_n)}$ and $W$ is $T$-invariant, then $T^{j+t}(v) \in W$ for all $t \geq 0$.
-    \end{exercise}
-        {\color{red} \begin{proof}
-            We prove this by induction on $t$. Let $t = 0$ be the base case, then by assumption $T^j(v) \in W$. Assume our hypothesis to be true up to $t - 1$. Then:
-                \begin{equation*}
-                \begin{split}
-                    T^t(T^j(v)) = T(T^{t-1}(T^j(v))).
-                \end{split}
-                \end{equation*}
-            Our induction hypothesis gives $T^{t-1}(T^j(v)) \in W$, and since $T(W) \subseteq W$, we have:
-                \begin{equation*}
-                \begin{split}
-                    T^{j+t}(v) = T(T^{t-1}(T^j(v))) \in W.
-                \end{split}
-                \end{equation*}
-        \end{proof}}
+    
 \end{document}
