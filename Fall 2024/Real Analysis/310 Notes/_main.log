@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Real Analysis/310 Notes/_main"
-(/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Real Analysis/310 Notes/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Real Analysis/310 Notes/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Real Analysis/310 Notes/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1239,7 +1239,7 @@ Package: shadethm 1999/11/23
 \shadesavebox=\box84
 )
 \c@note=\count431
- (/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex Excluding 'comment' comment.) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+ (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 152.
@@ -1817,14 +1817,14 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  50294 strings out of 474116
- 1097609 string characters out of 5743683
+ 1097735 string characters out of 5743683
  1958187 words of memory out of 5000000
  71136 multiletter control sequences out of 15000+600000
  801905 words of font info for 300 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,25n,117p,1134b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,25n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (30 pages, 309793 bytes).
+Output written on _main.pdf (30 pages, 309837 bytes).
 PDF statistics:
  858 PDF objects out of 1000 (max. 8388607)
  796 compressed objects within 8 object streams

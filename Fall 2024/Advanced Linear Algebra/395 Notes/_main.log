@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 12:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Notes/_main"
-(/Users/gcrescenzo/Documents/School/TeX Documents/Fall 2024/Advanced Linear Algebra/395 Notes/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Notes/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Advanced Linear Algebra/395 Notes/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1257,7 +1257,7 @@ Package: unique 2023/05/04 v0.76
 
 )
 \c@note=\count430
- (/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex Excluding 'comment' comment.)
+ (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.)
 Package hyperref Info: Option `colorlinks' set `true' on input line 153.
  (./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux))
 \openout1 = `_main.aux'.
@@ -1855,12 +1855,12 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  50041 strings out of 474116
- 1094585 string characters out of 5743683
+ 1094711 string characters out of 5743683
  1964187 words of memory out of 5000000
  70935 multiletter control sequences out of 15000+600000
  754633 words of font info for 268 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,23n,117p,1140b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,23n,117p,1154b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
 Output written on _main.pdf (41 pages, 348264 bytes).
 PDF statistics:
