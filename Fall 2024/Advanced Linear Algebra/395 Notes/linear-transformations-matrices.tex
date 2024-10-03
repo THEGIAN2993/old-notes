@@ -1,0 +1,599 @@
+\chapter{Linear Transformations and Matrices}\label{chapter:Linear Transformations and Matrices}
+
+\vspace{12pt}
+\section{Choosing Coordinates}\label{sec:Choosing Coordinates}
+    \begin{example}[Choosing Coordinates]
+        Let $V$ be an $F$-vector space with $\dim_F{(V)} < \infty$. Let $\cB = \{v_1,...,v_n\}$ be a basis for $V$. This basis fixes an isomorphism $V \cong F^n$. Let $v \in V$, write $v = \sum_{i = 1}^n a_i v_i$. 
+            \begin{equation*}
+            \begin{split}
+                \text{Define}\hspace{4pt} T_\cB(v) = \bmat a_1 \\ \vdots \\ a_n \emat \in F^n.
+            \end{split}
+            \end{equation*}
+        This is an isomorphism. Given $v \in V$, we write $[v]_\cB = T_\cB(v) = \pmat a_1 \\ \vdots \\ a_n \epmat$. We refer to this as \textit{choosing coordinates} on $V$.
+        asdf
+    \end{example}
+
+    
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V = \bfQ^2$ and $\cB = \{\pmat 1 \\ 1 \epmat, \pmat 1 \\ -1 \epmat \}$. This forms a basis of $V$. Let $v \in V$ with $v = \pmat a \\ b \epmat$. We have:
+            \begin{equation*}
+            \begin{split}
+                v = \frac{a+b}{2} \bmat 1 \\ 1 \emat + \frac{a-b}{2} \bmat 1 \\ -1 \emat, \hspace{4pt} \text{hence} \hspace{4pt} [v]_\cB = \bmat \frac{a+b}{2} \\ \frac{a-b}{2} \emat.
+            \end{split}
+            \end{equation*}
+            Had we considered the standard basis $\cE_2 = \{\pmat 1 \\ 0 \epmat , \pmat 0 \\ 1 \epmat \}$, then $[v]_{\cE_2} = \pmat a \\ b \epmat$.
+
+            \item Let $V = P_2(\bfR)$. Let $\cC = \{1, (x-1), (x-1)^2 \}$. This forms a basis of $V$. Let $f(x) = a + bx + cx^2 \in P_2(\bfR)$. Written in terms of $\cC$, we have $f(x) = (a + b + c) + (b+2c)(x-1) + c(x-1)^2$.
+                \begin{equation*}
+                \begin{split}
+                    \text{Thus} \hspace{4pt} [f(x)]_\cC = \bmat a+b+c \\ b+2c \\ c \emat
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}[Linear Transformations as Matrices]\label{example:linear-transformations-as-matrices}
+        Recall that given a matrix $A \in \Mat_{m,n}(F)$, we obtain a linear map $T_A \in \Hom_F{(F^n, F^m)}$ by $T_A(v) = Av$. This process "works in reverse" \textemdash given a linear transformation $T \in \Hom_F{(F^n,F^m)}$, there is a matrix $A$ so that $T = T_A$.
+
+        Let $\cE_n  = \{e_1,...,e_n\}$ be the standard basis of $F^n$ and $\cF_m = \{f_1,...,f_m\}$ be the standard basis of $F^m$. We have that $T(e_j) \in F^m$ for each $j$, meaning we have elements $a_{ij} \in F$ with $T(e_j) = \sum_{i=1}^m a_{ij}f_i$. Define $A = (a_{ij}) \in Mat_{m,n}(F)$. Observe that:
+            \begin{equation*}
+            \begin{split}
+                T_A(e_j) = A e_j = \sum_{i = 1}^m a_{ij}f_i = a_{1j}f_1 + ... + a_{mj}f_m.
+            \end{split}
+            \end{equation*}
+            \begin{equation*}
+            \begin{split}
+                \bmat 
+                a_{11} & a_{12} & ... & ... &a_{1n} \\
+                \vdots & \ddots & & \\
+                \vdots & & \ddots & \\
+                \vdots & & & \ddots \\
+                a_{m1} & a_{m2} & ... & ... &a_{mn} \\
+                \emat
+                \bmat
+                0 \\ \vdots \\ 1_j \\ \vdots \\ 0 
+                \emat \hspace{4pt}=\hspace{4pt}
+                \bmat
+                a_{1j} \\ a_{2j} \\ a_{3j} \\ \vdots \\  a_{mj}
+                \emat
+            \end{split}
+            \end{equation*}
+        Working "in reverse", let $T \in \Hom_F{(V,W)}$ with $\cB = \{v_1,...,v_n\}$ a basis for $V$ and $\cC = \{w_1,...,w_m\}$ a basis for W. Define:
+            \begin{equation*}
+            \begin{split}
+                P &= T_\cB:V \rightarrow F^n \hspace{4pt}\text{by}\hspace{4pt} v \mapsto [v]_\cB \\
+                Q & = T_\cC: W \rightarrow F^m \hspace{4pt}\text{by}\hspace{4pt} w \mapsto [w]_\cC 
+            \end{split}
+            \end{equation*}
+        From the following diagram:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[r, "T"] \arrow[d, "P"']                 & W \arrow[d, "Q"] \\
+                    F^n \arrow[r, "Q \circ T \circ P^{-1}"', dashed] & F^m             
+                    \end{tikzcd}
+            \end{center}
+        we have that $Q\circ T \circ P^{-1}$ corresponds to a matrix $A \in \Mat_{m,n}(F)$. Write $[T]_\cB ^\cC = A$, this is the unique matrix that satisfies $[T]_\cB ^\cC [v]_\cB = [T(v)]_\cC$. Given $T(v_j) = \sum_{i = 1}^m a_{ij}w_i$, observe that:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_\cB ^\cC v_j = [T(v_j)]_\cC = \left[\sum_{i=1}^m a_{ij}w_i\right]_\cC = \bmat a_{1j} \\ \vdots \\ a_{mj} \emat.
+            \end{split}
+            \end{equation*}
+        So $\left[T\right]_\cB ^\cC v_j$ corresponds to the $j^\text{th}$ column of the matrix $\left[T\right]_\cB ^\cC$ Thus we have:
+            \begin{equation*}
+            \begin{split}
+                \left[ T \right]_\cB ^\cC = 
+                \bmat \left[ T(v_1) \right]_\cC &\mid & ... & \mid & \left[ T(v_n) \right]_\cC \emat
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V = P_3(\bfR)$ with $\cB = \left\{ 1,x,x^2,x^3 \right\}$. Define $T \in \Hom_\bfR{(V,V)}$ by $T(f(x)) = f'(x)$. Following Example~\ref{example:linear-transformations-as-matrices} gives:
+            \begin{equation*}
+            \begin{split}
+                T(1) &=  0 =0\cdot 1 + 0 \cdots x + 0 \cdot x^2 + 0 \cdot x^3 \\
+                T(x) & = 1 = 1 \cdot 1 + 0 \cdot x + 0 \cdot x^2 + 0 \cdot x^3 \\
+                T(x^2) & = 2x = 0 \cdot 1 + 2 \cdot x + 0 \cdot x^2 + 0 \cdot x^3 \\
+                T(x^3) & = 3x^2 = 0 \cdot 1 + 0 \cdot x + 3 \cdot x^2 + 0 \cdot x^3
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                \left[ T(1) \right]_\cB = \pmat 0 \\ 0 \\ 0 \\ 0 \epmat\\
+                \left[ T(x) \right]_\cB = \pmat 1 \\ 0 \\ 0 \\ 0 \epmat\\
+                \left[ T(x^2) \right]_\cB = \pmat 0 \\ 2 \\ 0 \\ 0\epmat\\
+                \left[ T(x^3) \right]_\cB = \pmat 0 \\ 0 \\ 3 \\ 0\epmat\\
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                \left[ T \right]_\cB^\cB =  \bmat 0 & 1 & 0 & 0 \\ 0& 0&2&0\\0&0&0&3\\0&0&0&0\emat.
+            \end{split}
+            \end{equation*}
+
+            \item Let $V = P_3(\bfR)$ with $\cB = \left\{ 1,x,x^2,x^3 \right\}$ with $\cC = \left\{1,(1-x), (1-x)^2, (1-x^3)  \right\}$. Then
+                \begin{equation*}
+                \begin{split}
+                    T(1) &= 0 \\
+                    T(x) &= 1 \\
+                    T(x^2) &= 2 + 2(x-1) \\
+                    T(x^3) &= -9 - 6(x-1) + 3(x-1)^2
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \left[ T(1) \right]_\cC & = \pmat 0 \\ 0 \\ 0 \\ 0\epmat \\
+                    \left[ T(x) \right]_\cC & = \pmat 1 \\ 0 \\ 0 \\ 0\epmat\\
+                    \left[ T(x^2) \right]_\cC & = \pmat 2 \\ 2 \\ 0 \\ 0\epmat\\
+                    \left[ T(x^3) \right]_\cC & = \pmat -9 \\ -6 \\ 3 \\ 0\epmat
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \left[ T \right]_\cB ^\cC = 
+                    \bmat 
+                    0 & 1 & 2 & -9 \\
+                    0 & 0 & 2 & -6 \\
+                    0 & 0 & 0 & 3 \\
+                    0 & 0 & 0 & 0
+                    \emat.
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $\cA$ be a basis of $U$, $\cB$ a basis of $V$ and $\cC$ a basis of $W$. Let $S \in \Hom_F{(U,V)}$ and $T \in \Hom_F{(V,W)}$. Show
+                \begin{equation*}
+                \begin{split}
+                    \left[ T \circ S \right]_\cA ^ \cC = \left[ T \right]_\cB ^\cC \left[ S \right]_\cA ^ \cB.
+                \end{split}
+                \end{equation*}
+            \item Given $A \in \Mat_{m,k}(F)$ and $B \in \Mat_{n,m}(F)$, we have corresponding linear maps $T_A$ and $T_B$. Show that you can recover the definition of matrix multiplication by using part (1).
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{note}
+        Instead of $\left[ T \right]_\cB ^ \cB$ we will write $\left[ T \right]_\cB$.
+    \end{note}
+
+    \begin{example}[Change of Basis]
+        Let $V$ be an $F$-vector space and $\cB,\cB'$ bases of $V$. Given $V$ expressed in terms of $\cB$, we'd like to express it in terms of $\cB'$ (or vice versa).
+
+        Let $\cB = \{v_1,...,v_n\}$ and $\cB' = \{v_1 ' ,...,v_n '\}$. Define:
+            \begin{equation*}
+            \begin{split}
+                T:V \rightarrow F^n \hspace{4pt}\text{by}\hspace{4pt}v \mapsto [v]_\cB\\
+                S:V \rightarrow F^n \hspace{4pt}\text{by}\hspace{4pt}v \mapsto [v]_{\cB'}.\\
+            \end{split}
+            \end{equation*}
+        We obtain a diagram similar to Example~\ref{example:linear-transformations-as-matrices}:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[d, "T"'] \arrow[r, "\id_V"]         & V \arrow[d, "S"] \\
+                    F^n \arrow[r, "S \circ \id_V \circ T^{-1}"'] & F^n             
+                    \end{tikzcd}
+            \end{center}
+        Hence the change of basis matrix is $\left[ \id_V \right]_\cB^{\cB'}$
+    \end{example}
+
+    \begin{exercise}
+        Let $\cB = \{v_1,...,v_n\}$. Show that $\left[ \id_V \right]_\cB ^ {\cB'} = \left( \left[ v_1 \right]_{\cB'} \mid ... \mid \left[ v_n \right]_{\cB'} \right)$.
+    \end{exercise}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V = \bfQ^2$ with $\cB = \{ e_1 = \pmat 1\\0 \epmat , e_2 = \pmat 0 \\ 1 \epmat\}$ and $\cB' = \{ v_1 = \pmat 1\\-1 \epmat, v_2 = \pmat 1\\1\epmat \}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    e_1 &= \frac{1}{2}v_1 + \frac{1}{2}v_2 \\
+                    e_2 &= -\frac{1}{2}v_1 + \frac{1}{2}v_2
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    [e_1]_\cB &= \bmat \frac{1}{2} \\ \frac{1}{2} \emat \\
+                    [e_2]_\cB &= \bmat -\frac{1}{2} \\ \frac{1}{2} \emat \\
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \left[ \id_V \right]_{\cE_2}^{\cB'} = \bmat \frac{1}{2} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \emat.
+                \end{split}
+                \end{equation*}
+            Consider $v = \pmat 2 \\ 3 \epmat \in \bfQ^2$. We can express $v$ in terms of $\cB'$ by doing the following calculation:
+                \begin{equation*}
+                \begin{split}
+                    \left[ \id_V \right]_{\cE_2}^{\cB'}[v_2]_{\cE_2}
+                    & = \bmat \frac{1}{2} & -\frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \emat \bmat 2 \\ 3 \emat \\
+                    & = \bmat -\frac{1}{2} \\ \frac{5}{2} \emat \\
+                    & = [v]_{\cB'}.
+                \end{split}
+                \end{equation*}
+            
+            \item Let $V = P_2(\bfR)$ with $\cB = \{1,x,x^2\}$ and $\cB' = \{1,(x-2),(x-2)^2\}$. Then:
+                \begin{equation*}
+                \begin{split}
+                    1 &= 1 \cdot 1 + 0 \cdot (x-2) + 0 \cdot (x-2)^2 \\
+                    x &= 2 \cdot 1 + 1 \cdot (x-2) + 0 \cdot (x-2)^2 \\
+                    x^2 &= 4 \cdot 1 + 4 \cdot (x-2) + 1 \cdot (x-2)^2 \\
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    [1]_{\cB'} =  \pmat 1 \\ 0 \\ 0\epmat\\
+                    [x]_{\cB'} = \pmat 2 \\ 1 \\ 0\epmat\\
+                    [x^2]_{\cB'} = \pmat 4 \\ 4 \\ 1\epmat
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \left[ \id_V \right]_\cB^{\cB'} = 
+                    \bmat
+                    1 & 2 & 4 \\
+                    0 & 1 & 4 \\
+                    0 & 0 & 1 
+                    \emat.
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}[Similar Matrices]\label{example:similar-matrices}
+        Let $A,B \in \Mat_n(F)$. Let $\cE_n$ be the standard basis for $F^n$ and $T_A \in \Hom_F{(F^n,F^n)}$ such that $A = [T_A]_{\cE_n}$. We can relate $A$ in terms of an arbitrary basis $\cB$ as follows:
+            \begin{center}
+                \begin{tikzcd}
+                    F^n \arrow[d, "T_\cB"'] \arrow[r, "T_A"] & F^n \arrow[d, "T_\cB"] \\
+                    F^n \arrow[r, "{[T_A]_\cB}"']            & F^n .                  
+                    \end{tikzcd}
+            \end{center}
+        But by extending our diagram using our change of basis algorithm, we obtain the following:
+            \begin{center}
+                \begin{tikzcd}
+                    F^n \arrow[d, "T_\cB"'] \arrow[r, "\id_{F^n}"] & F^n \arrow[d, "T_{\cE_n}"'] \arrow[r, "T_A"] & F^n \arrow[d, "T_{\cE_n}"] \arrow[r, "\id_{F^n}"] & F^n \arrow[d, "T_\cB"] \\
+                    F^n \arrow[r, "{[\id_{F^n}]_\cB^{\cE_n}}"'] & F^n \arrow[r, "{[T_A]_{\cE_n}}"'] & F^n \arrow[r, "{[\id_{F^n}]^\cB_{\cE_n}}"'] & F^n
+                \end{tikzcd}
+            \end{center}
+        So $[T_A]_\cB = \left[ \id_{F^n} \right]_\cB^{\cE_n} [T_A]_{\cE_n} \left[ \id_{F^n} \right]^\cB_{\cE_n}$. Assigning $P^{-1} = \left[ \id_{F^n} \right]_\cB^{\cE_n}$ and $P = \left[ \id_{F^n} \right]^\cB_{\cE_n}$ yields the familiar equation $[T_A]_\cB = P^{-1}A P$; i.e., $A = P [T_A]_\cB P^{-1}$. In particular, the matrix $A = [T_A]_{\cE_n}$ is similar to $[T_A]_\cB$ for any basis $\cB$.
+    \end{example}
+
+    \begin{example}
+        Let $A = \pmat 1 & 3 & -5 \\ -2 & -1 & 6 \\ 3 & 2 & 1 \epmat$. Let $\cE_3 = \{e_1,e_2,e_3\}$ be the standard basis of $F^3$. We have:
+            \begin{equation*}
+            \begin{split}
+                T_A(e_1) &= e_1 - 2e_2 + 3e_3 \\
+                T_A(e_2) &= 3e_1 - e_2 + 2 e_3 \\
+                T_A(e_3) &= 3e_1 + 2e_2 + e_3.
+            \end{split}
+            \end{equation*}
+        Now consider $\cB = \{v_1 = \pmat 1 \\ 1 \\ 0 \epmat, v_2 = \pmat -1 \\ 0 \\ 1 \epmat, v_3 = \pmat 0 \\ 2 \\ 3 \epmat \}$. One can check this is indeed a basis. Observe that:
+            \begin{equation*}
+            \begin{split}
+                e_1 &= -2v_1 + -3v_2 + v_3\\
+                e_2 &= 3v_1 + 3v_2 -v_3 \\
+                e_3 &= -2v_1 - 2v_2 + v_3.
+            \end{split}
+            \end{equation*}
+        So the change of basis matrix from $\cE_3$ to $\cB$ is given by $P = \left[ \id_{F^3} \right]_{\cE_3}^\cB = \pmat -2 & 3 & -2 \\ -3 & 3 & -2 \\ 1 & -1 & 1 \epmat$. We have $P^{-1} = \pmat 1 & -1 & 0 \\ 1 & 0 & 2 \\ 0 & 1 & 3 \epmat$. Thus $A$ is similar to the matrix $B = P^{-1}AP = \pmat -29 & 32 & -25 \\ -38 & 45 & -31 \\ -20 & 27 & -15 \epmat$.
+    \end{example}
+
+\section{Row Operations}
+    \begin{definition}
+        Let $A = (a_{ij}) \in \Mat_{m,n}(F)$. We say $a_{kl}$ is a \textui{pivot} of $A$ if $a_{kl} \neq 0$ and $a_{ij} = 0$ if $i > k$ or $j < l$.
+    \end{definition}
+
+    \begin{example}
+        Let $A = \pmat 2 & 1 & 4 & 5 \\ 0 & 0 & 1 & 7 \\ 0 & 0 & 0 & 5 \\ 0 & 0 & 0 & 0 \epmat$. Then 2, 1, and 5 are pivots.
+    \end{example}
+
+    \begin{definition}
+        Let $A \in \Mat_{m,n}(F)$. We say $A$ is in \textui{row echelon form} if all its nonzero rows have a pivot and all its zero rows are located below nonzero rows. We say it is \textui{reduced row echelon form} if it is in row echelon form and all of its pivots are $1$ and the only nonzero elements in the columns containing pivots.
+    \end{definition}
+
+    \begin{example}
+        From the previous example, expressing $A = \pmat 2 & 1 & 4 & 5 \\ 0 & 0 & 1 & 7 \\ 0 & 0 & 0 & 5 \\ 0 & 0 & 0 & 0 \epmat$ in reduced row echelon form yields $A' = \pmat 2 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 \epmat$.
+    \end{example}
+
+    \begin{example}
+        Let $A = \pmat 3 & 4 & 5 & 6 \\ 1 & 2 & 3 & 4 \\ 1 & 1 & 2 & 3 \epmat$. Then $T_A: F^4 \rightarrow F^4$. Let $\cB_4 = \{e_1,e_2,e_3,e_4\}$ and $\cF_3 = \{f_1,f_2,f_3\}$. So $A = \left[ T_A \right]_{\cB_3}^{\cF_3}$. We have the following set of equations:
+            \begin{equation*}
+            \begin{split}
+                T_A(e_1) &= 3f_1 + f_2 + f_3\\
+                T_A(e_2) &= 4f_1 + 2f_2 + f_3\\
+                T_A(e_3) &= 5f_1 + 3f_2 + 2f_3\\
+                T_A(e_4) &= 6f_1 + 4f_2 + 3f_3.
+            \end{split}
+            \end{equation*}
+        We are going to perform row operations of $A$ by making substitutions to its basis elements. Consider the operation $R_1 \leftrightarrow R_3$.
+            \begin{equation*}
+            \begin{split}
+                \cF_3^{(2)} = \{f_1^{(2)} = f_3, f_2^{(2)} = f_2, f_3^{(2)} = f_1\}.
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                T_A(e_1) &= f_1^{(2)} + f_2^{(2)} + 3f_3^{(2)}\\
+                T_A(e_2) &= f_1^{(2)} + 2f_2^{(2)} + 4f_3^{(2)}\\
+                T_A(e_3) &= 2f_1^{(2)} + 3f_2^{(2)} + 5f_3^{(2)}\\
+                T_A(e_4) &= 3f_1^{(2)} + 4f_2^{(2)} + 6f_3^{(2)}.
+            \end{split}
+            \end{equation*}
+        So $\left[ T_A \right]_{\cB_3}^{\cF_3^{(2)}} =\pmat 1 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 3 & 4 & 5 & 6 \epmat $. Now consider the row operation $-R_1 +R_2 \leftrightarrow R_2$.
+            \begin{equation*}
+            \begin{split}
+                \cF_3^{(3)} = \{f_1^{(3)} = f_1^{(2)} + f_2^{(2)}, f_2^{(3)} = f_2^{(2)}, f_3^{(3)} = f_3^{(2)}\}.
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                T_A(e_1) &= f_1^{(2)} + f_2^{(2)} + 3f_3^{(2)} \\
+                &= f_1^{(3)} + 3f_3^{(3)}.\\
+                \\
+                T_A(e_2) &= 
+                f_1^{(2)} + 2f_2^{(2)} + 4f_3^{(2)}\\
+                & = f_1^{(2)} + f_2^{(2)} + f_2^{(2)} + 4f_3^{(2)} \\
+                & = f_1^{(3)} + f_2^{(3)} + 4f_3^{(3)}.\\
+                \\
+                T_A(e_3) &= ... \\
+                T_A(e_4) &= ... 
+            \end{split}
+            \end{equation*}
+        So $\left[ T_A \right]_{\cB_3}^{\cF_3^{(3)}} =\pmat 1 & 1 & 2 & 3 \\ 0 & 1 & 1 & 1 \\ 3 & 4 & 5 & 6 \epmat $. Now consider the row operation $-3R_1 + R_3 \leftrightarrow R_3$.
+            \begin{equation*}
+            \begin{split}
+                \cF_3^{(4)} = \{f_1^{(4)} = f_1^{(3)} + 3f_3^{(3)}, f_2^{(4)} = f_2^{(3)}, f_3^{(4)} = f_3^{(3)} \}.
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                T_A(e_1) &= f_1^{(3)} + 3f_3^{(3)} \\
+                &= f_1^{(4)} \\
+                \\
+                T_A(e_2) &= ... \\
+                T_A(e_3) &= ... \\
+                T_A(e_4) &= ... 
+            \end{split}
+            \end{equation*}
+        The rest of the steps to convert $A$ to reduced row echelon form follow similarly.
+    \end{example}
+
+    \begin{theorem}
+        Let $A \in \Mat_{m,n}(F)$. The matrix $A$ can be put in row echelon form through a series of row operations of the form:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $R_i \leftrightarrow R_j$
+                \item $R_i \leftrightarrow cR_i$
+                \item $cR_i + R_J \leftrightarrow R_j$.
+            \end{enumerate}
+    \end{theorem}
+
+    \begin{example}
+        Instead of directly changing the basis of a matrix, we can use linear maps to perform row operations. Let $\cC = \{w_1,...,w_n\}$ be a basis of $W$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item Define $T_{i,j}: W \rightarrow W$ by
+                    \begin{equation*}
+                    \begin{split}
+                        T_{i,j}(w_k) &= w_k \mtext{if} k \neq i,j, \\
+                        T_{i,j}(w_i) &= w_j,\\
+                        T_{i,j}(w_j) &= w_i.
+                    \end{split}
+                    \end{equation*}
+                Then $E_{i,j} = \left[ T_{i,j} \right]_{\cC}^\cC$ corresponds to the identity matrix except the $i^{\text{th}}$ and $j^{\text{th}}$ rows are switched.
+
+                \item Let $c \in F$, $c \neq 0$. Define $T_i^{(c)}: W \rightarrow W$ by:
+                    \begin{equation*}
+                    \begin{split}
+                        T_i^{(c)}(w_j) &= w_j \mtext{if} j \neq i,\\
+                        T_i^{(c)}(w_i) &= c w_i
+                    \end{split}
+                    \end{equation*}
+                Then $E_i^{(c)} = \left[ T_i^{(c)} \right]_\cC ^ \cC$ corresponds to the identity matrix with the $i^\text{th}$ row multiplied by $c$.
+
+                \item Define $T_{i,j}^{(c)}:W \rightarrow W$ by:
+                    \begin{equation*}
+                    \begin{split}
+                        T_{i,j}^{(c)}(w_k) &= w_k \mtext{if} k \neq j,\\
+                        T_{i,j}^{(c)}(w_j) &= w_j + cw_i
+                    \end{split}
+                    \end{equation*}
+                Then $E_{i,j}^{(c)} = \left[ T_{i,j}^{(c)} \right]_\cC ^ \cC$ corresponds to the identity matrix with the {\color{red} what does this mean?}
+            \end{enumerate}
+
+        Now let $T_A:F^4 \rightarrow F^3$ with $A = \pmat 3 & 4 & 5 & 6 \\ 1 & 2 & 3 & 4 \\ 1 & 1 & 2 & 3 \epmat$ and $\cE_4$ and $\cF_3$ their respective standard bases. Performing the row operation $R_1 \leftrightarrow R_3$ using the above method yields:
+            \begin{equation*}
+            \begin{split}
+                (T_{1,3} \circ T_A)(e_1) &= T_{1,3}(3f_1 + f_2 + f_3)\\
+                & = 3T_{1,3}(f_1) + T_{1,3}(f_2) + T_{1,3}(f_3) \\
+                & = 3f_3 + f_2 + f1
+            \end{split}
+            \end{equation*}
+
+            \begin{equation*}
+            \begin{split}
+                \left[ T_{1,3} \circ {T_A}_{\cE_4}^{\cF_3} \right] 
+                &= \left[ T_{1,3} \right]_{\cF_3}^{\cF_3}\left[ T_A \right]_{\cE_4}^{\cF_3} \\
+                &\phantom{a} \\
+                &= E_{1,3}A \\
+                &\phantom{a} \\
+                &= \bmat 1 & 1 & 2 & 3 \\ 1 & 2 & 3 & 4 \\ 3 & 4 & 5 & 6 \emat.
+            \end{split}
+            \end{equation*}
+        
+        The rest of the row operations follow similarly. The reduced-row echelon form of $A$ can then be expressed as:
+            \begin{equation*}
+            \begin{split}
+                \left[ T_{1,3}^{(-1)} \circ T_{2,3}^{(-1)} \circ T_{(3)}^{(\frac{1}{2})} \circ T_{3,2}^{(-1)} \circ T_{3,1}^{(-3)} \circ T_{1,2}^{(-1)} \circ T_{1,3} \circ T_A \right]_{\cE_4}^{\cF_3}.
+            \end{split}
+            \end{equation*}
+            
+    \end{example}
+
+\section{Column-space and Null-space}
+    \begin{definition}
+        Let $A \in \Mat_{m,n}(F)$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item The \textui{column-space} of $A$ is the $F$-span of the column vectors, denoted as $CS(A)$.
+                \item The \textui{null-space} of $A$ is the $F$-span of vectors $v \in F^n$ such that $Av = 0_V$, denoted as $NS(A)$.
+                \item The \textui{rank} of $A$ is $\rank{A} = \dim_F{CS(A)}$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Let $T_A \in \Hom_F{(F^n,F^m)}$ where $\cE_n = \{e_1,...,e_n\}$ is the standard basis of $F^n$ and $\cF_n = \{f_1,...,f_m\}$ is the standard basis of $F^m$. Since
+            \begin{equation*}
+            \begin{split}
+                \left[T_A\right]_{\cE_n}^{\cF_m} = A = \bmat T_A(e_1) \mid & ... & \mid T_A(e_n) \emat,
+            \end{split}
+            \end{equation*}
+        we have that $CS(A) = \Image{(T_A)}$, so $\rank{A} = \dim_F{\Image{(T_A)}}$. Recall from an introductory linear algebra course that the column space is calculated by:
+            \begin{enumerate}[label = (\alph*)]
+                \item Put $A$ into row echelon form,
+                \item Look at which columns have pivots,
+                \item The same columns in $A$ are then a basis of $CS(A)$.
+            \end{enumerate}
+        Why does this work? There exists an isomorphism $E:F^n \rightarrow F^m$ so that $\left[E \circ T_A\right]_{\cE_n}^{\cF_m} = \left[E\right]_{\cE_n}^{\cF_m} A$   is in row echelon form. The column space of $\left[E \circ T_A\right]_{\cE_n}^{\cF_m}$ has as its basis the columns containing pivots (denoted ${e_i}_1,...,{e_i}_k$):
+            \begin{equation*}
+            \begin{split}
+                \underbrace{\left[E \circ T_A({e_i}_1)\right]_{\cF_m}, \hspace{4pt}... \hspace{5pt},\left[E \circ T_A({e_i}_k)\right]_{\cF_m}}_{\text{this is a basis of $CS(\left[E \circ T_A\right]_{\cE_n}^{\cF_m})$}}
+            \end{split}
+            \end{equation*}
+        Since $E$ is an isomorphism, there is an inverse $E^{-1}:F^m \rightarrow F^m$ with:
+            \begin{equation*}
+            \begin{split}
+                E^{-1}(w_1) &= \left[E \circ T_A({e_i}_1)\right]_{\cF_m} \\
+                &\vdots \\
+                E^{-1}(w_k) & = \left[E \circ T_A({e_i}_k)\right]_{\cF_m}.
+            \end{split}
+            \end{equation*}
+        These are linearly independent since $E^{-1}$ is an isomorphism. If there is a vector $v \in CS(A)$ with \newline$v \not\in \Span_F{\left(\left[E \circ T_A({e_i}_1)\right]_{\cF_m}, ... ,\left[E \circ T_A({e_i}_k)\right]_{\cF_m}\right)}$, then $E(v)$ cannot be in $\Span_F{(w_1,...,w_k)}$. So the columns \newline $\left[E \circ T_A({e_i}_1)\right]_{\cF_m}, ... ,\left[E \circ T_A({e_i}_k)\right]_{\cF_m}$ give a basis for the column space of $A$.
+    \end{example}
+
+    \begin{example}
+        Let $A = \pmat 3 & 4 & 5 & 6 \\ 1 & 2 & 3 & 4 \\ 1 & 1 & 2 & 3 \epmat$. Rewritten in row echelon form is $A' = \pmat 1 & 1 & 2 & 3 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & -2 & -4 \epmat$. Thus:
+            \begin{equation*}
+            \begin{split}
+                CS(B) &= \Span_F{\left(\pmat 1\\ 0 \\ 0 \epmat , \pmat 1 \\ 1 \\ 0 \epmat, \pmat 2 \\ 1 \\ -1 \epmat \right)}\\
+                CS(A) & = \Span_F{\left(\pmat 3\\ 1 \\ 1 \epmat , \pmat 4 \\ 2 \\ 1 \epmat, \pmat 5 \\3 \\ 2 \epmat \right)}.e\\
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{example}
+        We have $v \in NS(A)$ if and only if $Av = 0_{F^m} = T_A(v)$. Note that $T_A(v) = 0_{F^m}$ if and only if $v \in \ker{(T_A)}$, hence $NS(A) = \ker{(T_A)}$. In an introductory algebra class, the null space of a matrix $A$ is calculated by:
+            \begin{enumerate}[label = (\arabic*)]
+                \item Putting $A$ into reduced row echelon form,
+                \item Solving the equation $A'x = 0_{F^n}$.
+            \end{enumerate}
+        This works because given a map $T_A:F^n \rightarrow F^m$, row operations change the basis of the codomain, not the domain. So $NS(A) = NS(A')$.
+    \end{example}
+
+    \begin{example}
+        Let $A = \pmat 4 & -4 & 2 \\ -4 & 4 & -2 \\ 2 & -1 & 1 \epmat$. The reduce row echelon form of $A$ is $A' = \pmat 1 & 0 & \frac{1}{2} \\ 0 & 1 & 0 \\ 0 & 0 & 0 \epmat$. Solving the equation:
+            \begin{equation*}
+            \begin{split}
+                \bmat 1 & 0 & \frac{1}{2} \\ 0 & 1 & 0 \\ 0 & 0 & 0 \emat \bmat x_1 \\ x_2 \\ x_3 \emat = \bmat 0 \\ 0 \\ 0 \emat
+            \end{split}
+            \end{equation*}
+        gives $x_2 = 0$ and $x_1 = -\frac{1}{2}x_3$. Hence $NS(A) = \Span_F{\pmat -\frac{1}{2} \\ 0 \\ 1 \epmat}$.
+    \end{example}
+
+\section{The Transpose of a Matrix}
+    \begin{definition}\label{def:transpose}
+        Let $A \in \Mat_{m,n}(F)$ with $\cE_n = \{e_1,...,e_n\}$ and $\cF_m = \{f_1,...,f_m\}$ as standard bases. Then $A = \left[T_A\right]_{\cE^n}^{\cF_m}$, and furthermore $T_A \in \Hom_F{(F^n, F^m)}$ induces a dual map $T_A^\vee \in \Hom_F{({F^m}^\vee, {F^n}^\vee)}$. The \textui{transpose} of $A$ is defined as:
+            \begin{equation*}
+            \begin{split}
+                A^t = \left[T_A^\vee\right]_{\cF_m^\vee}^{\cE_n^\vee}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{lemma}
+        Let $A = (a_{ij}) \in \Mat_{m,n}(F)$. Then $A^t = (b_{ij}) \in \Mat_n,m(F)$ with $b_{ij} = a_{ji}$.
+    \end{lemma}
+        \begin{proof}
+            We use the same setup as Definition~\ref{def:transpose}. We have:
+                \begin{equation*}
+                \begin{split}
+                    T_A(e_i)&= \sum_{k=1}^m a_{ki}f_k \\
+                    T_A^\vee(f_j^\vee) &= \sum_{k=1}^n b_{kj}e_k^\vee.
+                \end{split}
+                \end{equation*}
+            Applying $f_j^\vee$ to $T_A(e_i)$ yields\footnote{I was really confused about this. In short, given a $T \in \Hom_F{(V,V)}$ and basis $\cB$ we have a matrix representation $[T]_\cB$. It is natural to wonder what, $[T^\vee]_{\cB^\vee}$ looks like, and it turns out to be the "transpose" we were familiar with from 214. Basically, applying $f_j^\vee$ to $T_A(e_i)$ gives us coefficients (by definition of dual basis elements) which correspond to a particular column vector of $[T_A]_\cB$. Likewise, since we have that fancy property from Definition~\ref{def:induced-dual}, naturally we should evaluate $T_A^\vee(f_j^\vee)$ at $e_i$, which gives us coefficients which correspond to column vectors of $[T_A^\vee]_{\cB^\vee}$. The rest is self-explanatory.}:
+                \begin{equation*}
+                \begin{split}
+                    (f_j^\vee \circ T_A)(e_i) &= f_j^\vee \left(\sum_{k=1}^m a_{ki}f_k\right)\\
+                    & = \sum_{k=1}^m a_{ki}f_j^\vee(f_k) \\
+                    &= a_{ji}.
+                \end{split}
+                \end{equation*}
+            Evaluating the $T_A^\vee(f_j^\vee)$ at $e_i$ gives:
+                \begin{equation*}
+                \begin{split}
+                    T_A^\vee(f_j^\vee)(e_i)
+                    & = \sum_{k=1}^n b_{kj}e_k^\vee(e_i) \\
+                    & = b_{ij}.
+                \end{split}
+                \end{equation*}
+            By Definition~\ref{def:induced-dual}, we have $(f_j^\vee \circ T_A)(e_i) = T_A^\vee(f_j^\vee)(e_i)$. Hence $a_{ji} = b_{ij}$
+        \end{proof}
+
+    \begin{exercise}
+        Let $A_1,A_2 \in \Mat_{m,n}(F)$ and $c \in F$. Show that:
+            \begin{equation*}
+            \begin{split}
+                (A_1 + A_2)^t & = A_1^t + A_2^t \\
+                (cA_1)^t &= c A_1^t.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+
+    \begin{lemma}
+        Let $A \in \Mat_{m,n}(F)$ and $B \in \Mat_{p,m}(F)$. Then $(BA)^t = A^t B^t$.
+    \end{lemma}
+        \begin{proof}
+            Let $\cE_m$, $\cE_n$, and $\cE_p$ be standard bases with $\left[T_A\right]_{\cE_n}^{\cE_m} = A$ and $\left[T_B\right]_{\cE_m}^{\cE_p} = B$. Then $BA = \left[T_B \circ T_A\right]_{\cE_n}^{\cE_p}$. Thus:
+                \begin{equation*}
+                \begin{split}
+                    (BA)^t
+                    & = \left[(T_B \circ T_A)^\vee\right]_{\cE_p^\vee}^{\cE_n^\vee} \\
+                    & = \left[T_A^\vee \circ T_B^\vee\right]_{\cE_p^\vee}^{\cE_n^\vee} \\
+                    & = \left[T_A^\vee\right]_{\cE_m^\vee}^{\cE_n^\vee} \left[T_B^\vee\right]_{\cE_p^\vee}^{\cE_m^\vee}\\
+                    & = A^t B^t.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{lemma}
+        Let $A \in \GL_n(F)$. Then $(A^{-1})^t = (A^t)^{-1}$.
+    \end{lemma}
+        \begin{proof}
+            Let $A = \left[T_A\right]_{\cE_n}^{\cE_n}$. Then $A^{-1} = \left[T_A^{-1}\right]_{\cE_n}^{\cE_n}$. We have:
+                \begin{equation*}
+                \begin{split}
+                    1_n 
+                    & = \left[\id_{F^n}^\vee\right]_{\cE_n^\vee}^{\cE_n^\vee} \\
+                    & = \left[(T_A^{-1} \circ T_A)^\vee\right]_{\cE_n^\vee}^{\cE_n^\vee} \\
+                    & = \left[T_A^\vee \circ (T_A^{-1})^\vee\right]_{\cE_n^\vee}^{\cE_n^\vee} \\
+                    & = \left[T_A^\vee\right]_{\cE_n^\vee}^{\cE_n^\vee} \left[(T_A^{-1})^\vee\right]_{\cE_n^\vee}^{\cE_n^\vee} \\
+                    & = A^t(A^{-1})^t.
+                \end{split}
+                \end{equation*}
+            By the uniqueness of inverses, we must have that $(A^{-1})^t = (A^t)^{-1}$ Showing left invertibility follows identically.
+        \end{proof}

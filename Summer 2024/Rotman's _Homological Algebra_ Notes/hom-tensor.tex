@@ -1,0 +1,142 @@
+\chapter{Hom and Tensor}\label{chapter:hom-tensor}
+
+\section{Constructs in \textsubscript{R}Mod}
+    \begin{note}
+        Recall from Exercise~\ref{exer:1-7} that 
+            \begin{equation*}
+            \begin{split}
+                \End_\bfZ(M) = \{\text{homomorphisms}\hspace{4pt}\varphi:M \rightarrow M\}
+            \end{split} 
+            \end{equation*}
+        is a ring under pointwise addition ($\varphi+\psi:m \mapsto \varphi(m) + \psi(m)$) and composition as multiplication.
+    \end{note}
+
+    \begin{definition}\label{def:representations}
+        A \textui{representation} of a ring $R$ is a ring homomorphism $\varphi:R \rightarrow \End_\bfZ(M)$ for some abelian group $M$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $R$ be a ring and let $M$ be an abelian group. If $\varphi:R \rightarrow \End_\bfZ{(M)}$ is a representation, define $\sigma:R \times M \rightarrow M$ by $\sigma(r,m) = \varphi_r(m)$, where we write $\varphi(r) = \varphi_r$; then $\sigma $ is a scalar multiplier making $M$ into a left $R$-module. Conversely, if $M$ is a left $R$-module, then the function $\psi:R \rightarrow \End_\bfZ{(M)}$, given by $\psi(r): m \mapsto rm$, is a representation.
+    \end{proposition}
+        \begin{proof}
+        
+
+        \end{proof}
+
+    \begin{definition}
+        A functor $T: {}_{R}\cMod \rightarrow \cAb$ of either variance is called an \textui{additive functor} if, for every pair of $R$-module homomorphisms $f,g:A \rightarrow B$, we have
+            \begin{equation*}
+            \begin{split}
+                T(f+g) = T(f) + T(g).
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{lemma}\label{lemma:hom-ab-group}
+        If $A,B \in \obj{({}_{R}\cMod)}$, then the set $\Hom_R{(A,B)}$ is an abelian group. Moreover, if $p:A' \rightarrow A$ and $q: B \rightarrow B'$ are $R$-module homomorphisms, then
+            \begin{equation*}
+            \begin{split}
+                (\varphi+\psi)p = \varphi p + \psi p \hspace{8pt} \text{and} \hspace{8pt} q(\varphi+\psi) = q\varphi + q\psi.
+            \end{split}
+            \end{equation*} 
+    \end{lemma}
+        \begin{proof}
+            Let $\varphi,\psi \in \Hom_R{(A,B)}$ and $r\in R$, $x,y\in A$. Observe that 
+                \begin{equation*}
+                \begin{split}
+                    (\varphi+\psi)(x+y) 
+                    & = \varphi(x+y)+\psi(x+y) \\
+                    & = \varphi(x)+\varphi(y) + \psi(x) + \psi(y) \\
+                    & = \varphi(x) + \psi(x) + \varphi(y) + \psi(y) \\
+                    & = (\varphi+\psi)(x) + (\varphi+\psi)(y).
+                \end{split}
+                \end{equation*}
+            Hence $\varphi+\psi$ is an $R$-module homomorphism. The identity element of $\Hom_R{(A,B)}$ is the zero-map : $(\varphi+0_{AB})(x) = \varphi(x) + 0_{AB}(x) = \varphi(x) + 0_B = \varphi(x)$ ($(0_{AB} + \varphi)(x)$ holds similarly). Given any $R$-module homomorphism $\varphi$, the inverse of $\varphi$ is $-\varphi:x \mapsto -(\varphi(x))$: observe that $(\varphi + (-\varphi))(x) = \varphi(x) + (-\varphi)(x) = \varphi(x) - \varphi(x) = 0_B$. It is routine to show that addition is associative, and likewise $(\varphi+\psi)(x) = \varphi(x) + \psi(x) = \psi(x) + \varphi(x) = (\psi+\varphi)(x)$. Hence $\Hom_R{(A,B)}$ is an additive abelian group.
+
+            Let $a' \in A'$ and $b \in B$. Observe that 
+                \begin{equation*}
+                \begin{split}
+                    (\varphi+\psi)(p)(a')
+                    & = (\varphi+\psi)(p(a')) \\
+                    & = \varphi(p(a')) + \psi(p(a')) \\
+                    & = (\varphi p)(a') + (\psi p)(a')\\
+                    & = (\varphi p + \psi p)(a')
+                \end{split}
+                \end{equation*}
+            and
+                \begin{equation*}
+                \begin{split}
+                    (q)(\varphi+g)(b)
+                    & = q((\varphi+g)(b))\\
+                    & = q(\varphi(b) + g(b))\\
+                    & = q(\varphi(b)) + q(g(b))\\
+                    & = (q\varphi)(b) + (q\psi)(b)\\
+                    & = (q\varphi + q\psi)(b).
+                \end{split}
+                \end{equation*}
+            This establishes the lemma.
+        \end{proof}
+
+        \begin{proposition}\label{prop:hom-additive-functor}
+            Let $R$ be a ring, and let $A,B,B'$ be left $R$-modules.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\Hom_R{(A,\square)}$ is an additive functor ${}_{R}\cMod \rightarrow \cAb$.
+            \end{enumerate}
+        \end{proposition}
+            \begin{proof}
+                Lemma~\ref{lemma:hom-ab-group} says that $\Hom_R{(A,B)}$ is an abelian group. This satisfies axiom (1). Define $\Hom_R{(A,q)}: \Hom_R{(A,B)} \rightarrow \Hom_R{(A,B')}$ by $f \mapsto qf$, this clearly satisfies axiom (2).Let $p:B' \rightarrow B''$ be an $R$-module homomorphism. We'd like to show that the following two functions are equivalent:
+                    \begin{equation*}
+                    \begin{split}
+                        \Hom_R{(A,pq)}:\Hom_R{(A,B)} \rightarrow \Hom_R{(A,B'')} \\
+                        \Hom_R{(A,p)}\Hom_R{(A,q)}:\Hom_R{(A,B)} \rightarrow \Hom_R{(A,B'')}
+                    \end{split}
+                    \end{equation*}
+                If $f \in \Hom_R{(A,B)}$, then $\Hom_R{(A,pq)}:f \mapsto (pq)f$. On the other hand, associativity of composition gives that $\Hom_R{(A,p)}\Hom_R{(A,q)}:f \mapsto qf \mapsto p(qf) = (pq)f$, as desired for axiom (3). If $1_B : B \rightarrow B$ is the identity map, then
+                    \begin{equation*}
+                    \begin{split}
+                        \Hom_R{(A,1_B)}:f \mapsto 1_B f = f
+                    \end{split}
+                    \end{equation*}
+                for all $f \in \Hom_R{(A,B)}$\textemdash hence $\Hom_R{(A,1_B)} = 1_{\Hom_R{(A,B)}}$ satisfying axiom (4). Finally, Lemma~\ref{lemma:hom-ab-group} also showed that $\Hom_R{(A,q)}$ is additive: $\Hom_R{(A,q)}:f+g \mapsto q(f+g) = qf + qg$. This establishes the proposition.
+            \end{proof}
+
+        \begin{proposition}
+            Let $R$ be a ring and let $A, A', and B$ be left $R$-modules.
+                \begin{enumerate}[label = (\arabic*)]
+                    \item $\Hom_R(\square, B)$ is an additive (contravariant) functor ${}_{R}\cMod \rightarrow \cAb$.
+                \end{enumerate}
+        \end{proposition}
+            \begin{proof}
+                Similar to the proof of Proposition~\ref{prop:hom-additive-functor}
+            \end{proof}
+
+        \begin{proposition}
+            Let $T:{}_{R}\cMod \rightarrow \cAb$ be an additive functor of either varience.
+                \begin{enumerate}[label = (\arabic*)]
+                    \item If $0_{AB}:A \rightarrow B$ is the zero map, then $T(0) = 0$.
+                    \item $T(\{0\}) = \{0\}$
+                \end{enumerate}
+        \end{proposition}
+
+\section{d and f}
+Throughout this section all rings contain a $1$.
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item The pair of homomorphisms $X \xrightarrow{\alpha} Y \xrightarrow{\beta} Z$ is said to be \textui{exact} (at Y) if $\Image{\alpha} = \ker{\beta}$.
+            \item A sequence $... \rightarrow X_{n-1} \rightarrow X_n \rightarrow X_{n+1} \rightarrow ...$ of homomorphisms is said to be an \textui{exact sequnce} if it is exact at every $X_n$ between a pair of homomorphisms.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $A$, $B$, and $C$ be $R$-modules over some ring $R$. Then
+            \begin{enumerate}[label = (\arabic*)]
+                \item The sequence $0 \rightarrow A \xrightarrow{\psi} B$ is exact (at A) if and only if $\psi$ is injective.
+                \item The sequence $B \xrightarrow{\varphi} C \rightarrow 0$ is exact (at C) if and only if $\varphi$ is surjective.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            The (uniquely defined) homomorphism $0 \rightarrow A$ has image $0$ in $A$. This will be the kernel of $\psi$ if and only if $\psi$ is injective.
+
+            Similarly, the kernel of the (uniquely defined) zero homomorphism $C \rightarrow 0$ is all of $C$, which is the image of $\varphi$ if and only if $\varphi$ is surjective.
+        \end{proof}

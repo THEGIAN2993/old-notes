@@ -1,0 +1,414 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+%\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+    \titlespacing*{\chapter}
+    {0pt} % Left margin
+    {*1} % Space before the chapter number (increase this value for more space)
+    {0pt} % Space after the chapter number and before the title
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{tgbonum}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \fancyhead[R]{\footnotesize \rightmark}
+    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+    \linespread{1.25}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=6pt, spacebelow=6pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=1em
+        %qed=\qedsymbol
+        ]{mystyle}
+
+    \declaretheorem[
+        numberwithin=section,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{theorem}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{lemma}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{proposition}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{233,233,233},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{233,233,233}}
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{definition}
+
+    \declaretheorem[
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{exercise}
+\declaretheorem[numbered=unless unique,style=mystyle]{Note}
+    
+
+
+
+
+\usepackage[math]{iwona}
+\usepackage[T1]{fontenc}
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%DOCUMENT SETUP%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\setsecnumdepth{subsection}
+\definecolor{darkgreen}{rgb}{0, 0.5976, 0}
+\hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Real Analysis I Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
+
+
+%This adds a "front cover" page.
+%{\thispagestyle{empty}
+%\vspace*{\fill}
+%\begin{tabular}{l}
+%\begin{tabular}{l}
+%\includegraphics[scale=0.24]{oxy-logo.png}
+%\end{tabular} \\
+%\begin{tabular}{l}
+%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+%\end{tabular}
+%\end{tabular}
+\begin{document}
+\begin{center}
+    { \Large Math 310 \\[0.1in]Homework 2 \\[0.1in]
+    Due: 9/20/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    \end{center}
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \begin{exercise}
+        Let $F$ be a field. Show that the following hold:
+            \begin{enumerate}[label = (\roman*)]
+                \item $-1(a) = -a$.
+                \item $-(-a) = a$.
+                \item $-(a+b) = (-a) + (-b)$.
+                \item $(-a)^{-1} = -(a^{-1})$.
+                \item $(ab)^{-1} = a^{-1}b^{-1}$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            (i) Note that $(-1 +1)a = 0$. Distributing $a$ gives $(-1)a + a = 0$. Hence $(-1)a = -a$.
+
+            (ii) $-(-a) = -1(-a)$ by part (i). Adding $1(-a)$ to both sides gives $-(-a) + (-a) = 0$. So $-(-a)$ is the additive inverse of $-a$; we denote this $a$. Hence $-(-a) = a$.
+
+            (iii) $-(a+b) = (-1)(a+b) = (-1)a + (-1)b = (-a) + (-b)$.
+
+            (iv) Note that $(-a)\cdot 1 = a$ implies $(-a)(a \cdot a^{-1}) = 1$. Further simplification yields $(-a)(-(a^{-1})) = 1$. So $-(a^{-1})$ is the multiplicative inverse of $-a$, which is denoted $(-a)^{-1}$. Hence $(-a)^{-1} = -(a^{-1})$.
+
+            (v) From $ab = ab$, we have that $1 = ab(ab)^{-1}$. Then $a^{-1} = b(ab)^{-1}$, hence $a^{-1}b^{-1} = (ab)^{-1}$.
+
+        
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the set $K := \{a+b\sqrt{2} \mid a,b \in \bfQ\}$. Show that:
+            \begin{enumerate}[label = (\roman*)]
+                \item If $x,y \in K$, then $x+y \in K$ and $xy \in K$.
+                \item If $x \neq 0$, then $x^{-1} \in K$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $x,y \in K$. Then $x = a+b\sqrt{2}$ and $y = c+d\sqrt{2}$. So $x + y = a+b\sqrt{2} + c + d\sqrt{2} = (a+c) + (b+d)\sqrt{2} \in K$ (since $\bfQ$ is closed under addition). Similarly, $xy = (a+b\sqrt{2})(c+d\sqrt{2}) = (ac+2bd) + (ad+bc)\sqrt{2} \in K$.
+
+            Let $x = (a+b\sqrt{2})$. Suppose there exists a $y \neq 0$ such that $y = c+d\sqrt{2}$. Let $(a+b\sqrt{2})(c+d\sqrt{2}) = 1$. Then $ac + 2bd + (bc  + ad)\sqrt{2} = 1$. We have the following system of equations:
+                \begin{equation*}
+                \begin{split}
+                    bc + ad &= 0 \\
+                    ac+2bd &= 1.
+                \end{split}
+                \end{equation*}
+            Solving for $c$ and $d$ yields:
+                \begin{equation*}
+                \begin{split}
+                    c &= \frac{-a}{-(a^2)+2b^2} \in \bfQ\\
+                    d &= \frac{b}{-(a^2)+2b^2} \in \bfQ.
+                \end{split}
+                \end{equation*}
+            Hence $\displaystyle\left(\frac{-a}{-(a^2)+2b^2}\right) + \left(\frac{b}{-(a^2)+2b^2}\right)\sqrt{2} = x^{-1} \in K$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $F$ is a field admitting a subset $P \subseteq F$ with properties:
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $x,y \in P$, then $x+y \in P$ and $xy \in P$.
+                \item For all $x \in F$, $x \in P$ or $-x \in P$.
+                \item If $x, -x \in P$, then $x=0$. 
+            \end{enumerate}
+        Show that there is an ordering on $F$ making it into an ordered field.
+    \end{exercise}
+        \begin{proof}
+            Define $a \leq_P b$ if and only if $b - a \in P$. This ordering is reflexive because $a \leq_P a$ if and only if $a - a = 0 \in P$. The ordering is also transitive as follows: if $x \leq_p y \leq_p z$, then $y-x \in P$ and $z - y \in P$. Since $P$ is closed under addition, $y-x + (z-y) = z - x \in P$ implies $x \leq_p z$. The ordering is antisymmetric as follows: Let $x \leq_p y$ and $y \leq_p x$. Then $x-y \in P$ and $y-x = -(x-y) \in P$. Hence $x-y = 0$, implying $x = y$. Note that this ordering is total as well: if $x,y\in F$ then $x-y \in F$ by closure of fields under addition. Then either $x-y \in P$ or $-(x-y)=y-x \in P$. Hence $x \leq_P y$ or $y \leq_P x$. Thus $\leq_P$ is a total ordering on $F$. 
+            
+            
+            
+            
+            Suppose $x \leq_P y$ and $s \leq_P t$. Then $y-x \in P$ and $t-s \in P$. Since $P$ is closed under addition, $(y-x) + (t-s) = (y+t) - (x + s) \in P$. Then by our definition $x + s \leq_P y+t$. Now consider $z \in P$, $z \neq 0$. Since $P$ is closed under multiplication, $(y-x)z \in P$. Simplifying yields $yz - xz \in P$, or equivalently $xz \leq_P yz$. This establishes $F$ as an ordered field.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $a,b \in \bfR$.
+            \begin{enumerate}[label = (\roman*)]
+                \item If $0 \leq a \leq \epsilon$ for all $\epsilon > 0$, then $a = 0$.
+                \item If $a \leq b + \epsilon$ for all $\epsilon > 0 $, then $a \leq b$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            (i) If $a = 0$ we are done. If $a > 0$, then $0 \leq \frac{1}{2}a \leq a$. Pick $\epsilon = \frac{1}{2}a$, then $a \leq \frac{1}{2}a$, a contradiction. Thus $a = 0$. (ii) If $a \leq b$ then we are done. If $a > b$, then $a-b \in \bfR^+$, hence $\frac{1}{2}(a-b) \in \bfR^+$. Take $\epsilon = \frac{1}{2}(a-b)$. Then $a \leq b + \frac{1}{2}(a-b)$ is equivalent to $a \leq \frac{1}{2}(a+b) \leq b$, which is a contradiction. Thus $a \leq b$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $a,b \in \bfR$, show that:
+            \begin{equation*}
+            \begin{split}
+            \left(\frac{1}{2}(a+b)\right)^2 \leq \frac{1}{2}(a^2 + b^2)
+            \end{split}
+            \end{equation*}
+        with equality if and only if $a = b$.
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    0
+                    &\leq \frac{1}{4}(a-b)^2 \\
+                    &= \frac{1}{4}(a^2 - 2ab + b^2) \\
+                    &= \frac{1}{4}a^2 - \frac{1}{2}ab + \frac{1}{4}b^2. \\
+                \end{split}
+                \end{equation*}
+            Adding $\frac{1}{4}a^2 + \frac{1}{2}ab + \frac{1}{4}b^2$ to both sides and yields:
+                \begin{equation*}
+                \begin{split}
+                    \frac{1}{4}(a^2 + 2ab + b^2) \leq \frac{1}{2}(a^2 + b^2).
+                \end{split}
+                \end{equation*}
+            And upon further simplification we get the desired result:
+                \begin{equation*}
+                \begin{split}
+                    \left(\frac{1}{2}(a+b)\right)^2 \leq \frac{1}{2}(a^2 + b^2).
+                \end{split}
+                \end{equation*}
+            Note that we have equality if and only if $a=b$ by the first equation.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        For $x \in \bfR$, show that $\sqrt{x^2} = |x|$.
+    \end{exercise}
+        \begin{proof}
+            Observe the following maps:
+                \begin{equation*}
+                \begin{split}
+                    \cdot^2:\bfR \rightarrow \bfR+ \mtext{defined by} x \mapsto x^2 \\
+                    \sqrt{\cdot}:\bfR^+ \rightarrow \bfR^+ \mtext{defined by} x^2 \mapsto x.
+                \end{split}
+                \end{equation*}
+            Let $x \in \bfR^+$. Then $\sqrt{x^2} = x$. Now let $-x \in \bfR^+$. Then $\sqrt{(-x)^2} = -x$. Hence $\sqrt{x^2} = |x|$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+          Let $x,y,a,b \in \bfR$ and $\epsilon > 0$.  
+    \end{exercise}
+        \begin{enumerate}[label = (\roman*)]
+            \item Show that $|x-a| < \epsilon$ if and only if $a - \epsilon < x < a + \epsilon$.
+            \item If $a < x < b$, then $|x| < \max{\{|a|,|b|\}}$.
+            \item If $a<x<b$ and $a < y < b$, show that $|x - y| < b- a$.
+        \end{enumerate}
+            \begin{proof}
+                (i) By definition this is equal to $ - \epsilon < x - a < \epsilon$, which is equivalent to $a -\epsilon < x < a + \epsilon$.
+
+                (ii) Let $a < x < b$. Suppose $x < 0$. Then $a < 0$. So $|x| = -x < -a = |a| \leq \max{\left\{ |a|,|b| \right\}}$. Thus $|x| < |a|$. Now suppose $x > 0$. Then $b > 0$. So $|x| = x < b = |b| \leq \max{\left\{ |a|,|b| \right\}}$. Hence $|x| < \max{\left\{ |a|,|b| \right\}}$.
+
+                (iii) Note that $a < x < b$ is equivalent to $-b < -x < -a$. Hence $a-b < y-x < b-a$. Similarly, $a < y < b$ is equivalent to $-b < -y < -a$. Hence $a-b < x -y < b-a$. Thus $|x-y| < b-a$.
+            \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Find all $x \in \bfR$ that satisfy
+            \begin{equation*}
+            \begin{split}
+                4 < \left| x+2 \right| + \left| x-1 \right| < 5.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            We proceed with cases. Case 1: $x+2 \in \bfR^+$ and $x-1 \in \bfR^+$. Then:
+                \begin{equation*}
+                    4 < x+2 + x-1 < 5,
+                \end{equation*}
+                \begin{equation*}
+                    4 < 2x-1 < 5,
+                \end{equation*}
+                \begin{equation*}
+                    \frac{5}{2} < x < 3.
+                \end{equation*}
+            Case 2: $-(x+2) \in \bfR^+$ and $x-1 \in \bfR^+$. Then:
+                \begin{equation*}
+                    4 < -x-2 + x + 1 <5,
+                \end{equation*}
+                \begin{equation*}
+                    4 < -3 < 5,
+                \end{equation*}
+            which is a contradiction. Case 3: $x+2 \in \bfR^+$ and $-(x-1) \in \bfR^+$. Then:
+                \begin{equation*}
+                    4 < x+2 - x + 1 < 5,
+                \end{equation*}
+                \begin{equation*}
+                    4 < 3 < 5,
+                \end{equation*}
+            which is a contradiction. Case 4: $-(x+2) \in \bfR^+$ and $-(x-1) \in \bfR^+$. Then:
+                \begin{equation*}
+                    4 < -x-2-x+1 < 5,
+                \end{equation*}
+                \begin{equation*}
+                    5< -2x < 6,
+                \end{equation*}
+                \begin{equation*}
+                    -5 > 2x > -6,
+                \end{equation*}
+                \begin{equation*}
+                    -\frac{5}{2} > x > -3.
+                \end{equation*}.
+            Thus $x \in (-3,-\frac{5}{2}) \cup (\frac{5}{2},3)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $a,b \in \bfR$. Show that:
+            \begin{equation*}
+            \begin{split}
+                \max{\{a,b\}} = \frac{1}{2}(a+b+\left|a-b\right|)\mtext{and}\min{\{a,b\}} = \frac{1}{2}(a+b-\left|a-b\right|).
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+          Without loss of generality, suppose $a \leq b$. Then $b - a \in \bfR^+$. Observe that:
+            \begin{equation*}
+            \begin{split}
+                \max{\{a,b\}} = b &= \frac{1}{2}a + \frac{1}{2}b - \frac{1}{2}a +  \frac{1}{2}b \\
+                & =\frac{1}{2}(a + b - a + b) \\
+                & = \frac{1}{2}(a + b  + |a-b|). \\
+            \end{split}
+            \end{equation*}  
+
+            \begin{equation*}
+            \begin{split}
+                \min{\{a,b\}} = a &= \frac{1}{2}a + \frac{1}{2}b + \frac{1}{2}a -  \frac{1}{2}b \\
+                & = \frac{1}{2}(a+b+a-b) \\
+                & = \frac{1}{2}(a+b-(b-a))\\
+                & = \frac{1}{2}(a+b-|a-b|).\\
+            \end{split}
+            \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $x\neq y \in \bfR$, show that there is a $\delta > 0$ such that $V_\delta(x) \cap V_\delta(y) = \emptyset$.
+    \end{exercise}
+        \begin{proof}
+            Without loss of generality suppose $x < y$. Pick $\delta = \frac{|x-y|}{3}$. Suppose towards contradiction $t \in V_\delta(x) \cap V_\delta(y)$. Then $t \in V_\delta(x)$ and $t \in V_\delta(y)$. Hence $t \in (x- \frac{|x-y|}{3}, x + \frac{|x-y|}{3})$ and $t \in (y - \frac{|x-y|}{3}, y + \frac{|x-y|}{3})$. But this gives:
+                \begin{equation*}
+                \begin{split}
+                    t < x+ \frac{|x-y|}{3} < y - \frac{|x-y|}{3} < t,
+                \end{split}
+                \end{equation*}
+            which is a contradiction. Hence $V_\delta(x) \cap V_\delta(y) = \emptyset$.
+        \end{proof}
+\end{document}

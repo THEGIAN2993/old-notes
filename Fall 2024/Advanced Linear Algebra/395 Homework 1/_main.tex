@@ -1,0 +1,372 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{tgbonum}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+%\usepackage{fancyhdr}
+%    \fancyhf{}
+%    \pagestyle{fancy}
+%    \cfoot{\footnotesize \thepage}
+%    \fancyhead[R]{\footnotesize \rightmark}
+%    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+\usepackage{verbatim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+\newcommand{\TBC}{\textbf{TO BE CONTINUED}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{note}{Note}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{noproof}{Proof omitted}
+\numberwithin{equation}{section}
+
+\newenvironment{solution}[1]{\noindent \textbf{#1}:}{}
+
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\FF}{\mathbf{F}}
+
+\newcommand{\bRR}{\overline{\RR}}
+\newcommand{\bRRp}{\overline{\RR}_{\geq 0}}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\textui}[1]{\uline{\textit{#1}}}
+
+%\newcommand{\ov}{\overline}
+%\newcommand{\un}{\underline}
+\newcommand{\fin}{\mathrm{fin}}
+
+\newcommand{\chnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{\centering} % format
+{\Huge \color{black} \shadowbox{\thechapter}} % label
+{-0.5em} % sep (space between the number and title)
+{\LARGE \color{black} \underline} % before-code
+}
+
+\newcommand{\chunnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{} % format
+{} % label
+{0em} % sep
+{ \begin{flushright} \begin{tabular}{r}  \Huge \color{black}
+} % before-code
+[
+\end{tabular} \end{flushright} \normalsize
+] % after-code
+}
+
+\titlespacing*{\chapter}
+{0pt} % Left margin
+{*1} % Space before the chapter number (increase this value for more space)
+{0pt} % Space after the chapter number and before the title
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+    { \Large Math 395 \\[0.1in]Homework 1 \\[0.1in]
+    Due: 9/6/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    { Collaborators:} {\underline{ Avinash Iyer, Noah Smith, Carly Venenciano, Ben Langer \hspace*{1in}}} \\
+    \end{center}
+    For these problems $F$ is assumed to be a field.
+    \vspace{4pt}
+    
+    \begin{comment}
+    \begin{exercise}
+        Define
+            \begin{equation*}
+            \begin{split}
+                \mathfrak{sl}_n(\bfQ) = \{X = (x_{i,j}) \in \Mat_n{(\bfQ)} \mid \Tr{X} = \sum_{i=1}^n x_{i,i} = 0 \}.
+            \end{split}
+            \end{equation*}
+        Show that $\mathfrak{sl}_n(\bfQ)$ is a $\bfQ$-vector space.
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+            Consider the vector space $F^3$. Determine and justify your answer, whether each of the following are subspaces of $F^3$:
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{2}
+    \begin{exercise}
+        Let $V$ be an $F$-vector space.
+        \begin{enumerate}[label = (\alph*)]
+            \item Prove that an arbitrary intersection of subspaces of $V$ is again a subspace of $V$
+            \item Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+        \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $\{W_i\}_{i \in I}$ be an arbitrary collection of subspaces of $V$. Let $x,y \in \bigcap_{i \in I}W_i$ and $\alpha \in F$. Then $x,y \in W_i$ for all $i$. Hence $x+\alpha y \in W_i$ for all $i$ which gives $x+\alpha y \in \bigcap_{i \in I}W_i$, establishing (a).
+
+            Let $U,W$ be subspaces of $V$. Let $u,w \in U \cup W$ and $\alpha \in F$. Without loss of generality suppose $U \subseteq W$ with $u \in U$ and $w\in W$. Then it is also the case that $u \in W$, hence $u + \alpha w \in W \subseteq U \cup W$. Conversely, suppose $U \cup W$ is an $F$-subspace of $V$. Assume towards contradiction that $U \not\subseteq W$ and $W \not\subseteq U$. Let $u \in U$,$u \not\in W$ and $w \in W$, $w \not\in U$. Since $U \cup W$ is an $F$-vector space, $u + w \in  U \cup W$. Without loss of generality, let $u + w \in U$, then $(-u) +u + w = w \in U$, a contradiction. Hence $U \subseteq W$ or $W \subseteq U$, establishing (b).
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \vspace{10pt}
+    \begin{exercise}
+        Let $T \in \Hom_F{(F,F)}$. Prove there exists $\alpha \in F$ so that $T(v) = \alpha v $ for every $v \in F$.
+    \end{exercise}
+        \begin{proof}
+            Let $\beta \in F$, $\beta \neq 0$. Then $\{\beta\}$ forms a basis for $F$ as an $F$-vector space. Let $v \in F$, then $v = \beta v_0$ for some $v_0 \in F$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(v)
+                    & = T(\beta v_0) \\
+                    & = v_0 T(\beta) \\
+                    & = v \beta^{-1}T(\beta) \\
+                    & = v T(\beta^{-1} \beta) \\
+                    & = v T(1).
+                \end{split}
+                \end{equation*}
+            From this, "$\alpha$" is uniquely determined by where $T(1)$ gets mapped to.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $U$, $V$, and $W$ be $F$-vector spaces. Let $S \in \Hom_F{(U,V)}$ and $T \in \Hom_F{(V,W)}$. Prove that $T \circ S \in \Hom_F{(U,W)}$.
+    \end{exercise}
+        {\color{red} \begin{proof}
+            dude fix this shit
+
+
+            Let $S$ and $T$ be as given and let $\alpha \in F$ and $x,y \in U$. Then:
+            \begin{equation*}
+            \begin{split}
+                (T \circ S)(rx+y)
+                & = \psi(\varphi(rx+y)) \\
+                & = \psi(r\varphi(x) + \varphi(y)) \\
+                & = r\psi(\varphi(x)) + \psi(\varphi(y)) \\
+                & = r(\psi \circ \varphi)(x) + (\psi \circ \varphi)(y).
+            \end{split}
+            \end{equation*}
+        Thus $\psi \circ \varphi$ is an $R$-module homomorphism.
+        \end{proof}}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $V$ be an $F$-vector space. Prove that if $\{v_1,...,v_n\}$ is linearly independent in $V$, then so if the set $\{v_1 - v_2, v_2 - v_3,..., v_{n-1} - v_n , v_n \}$.
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $V$ be the subspace of $\bfR^5$ defined by 
+            \begin{equation*}
+            \begin{split}
+                V = \{ (x_1,x_2,...,x_5) \in \bfR^5 \mid x_1 = 4x_4, x_2 = 5x_5 \}.
+            \end{split}
+            \end{equation*}
+        Find a basis for $V$.
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Prove that there does not exist a $T \in \Hom_F{(F^5, F^2)}$ so that
+            \begin{equation*}
+            \begin{split}
+                \ker{(T)} = \{(x_1,x_2,...,x_5) \in F^5 \mid x_1 = x_2 \hspace{4pt} \text{and} \hspace{4pt} x_3 = x_4 = x_5 \}.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \addtocounter{exercise}{4}
+    \begin{exercise}
+        Let $V$ be a finite dimensional vector space and $T \in \Hom_F{(V,V)}$ with $T^2 = T$.
+            \begin{enumerate}[label = (\alph*)]
+                \item Prove that $\Image{(T)} \cap \ker{(T)} = \{0\}$.
+                \item Prove that $V = \Image{(T)} \oplus \ker{(T)}$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $v \in \Image{(T)} \cap \ker{(T)}$. Then $v \in \Image{(T)}$ and $v \in \ker{(T)}$. So there exists an element $w \in V$ such that $T(w) = v$, and $T(v) = 0$. Observe that $v = T(w) = T(T(w)) = T(v) = 0$.
+
+            Let $x+y \in \Image{(T)} + \ker{(T)}$. Since $x \in \Image{(T)} \subseteq V$ and $y \in \ker{(T)} \subseteq V$, $x+y \in V$. Now let $v \in V$. Then $T(v) = w$ for some $w \in \Image{(T)}$. Let $k = v - T(w)$. Then $T(k) = T(v - T(w)) = T(v) - T(T(w)) = T(v) - T(v) = 0$, so $k \in \ker{(T)}$. Hence $v = T(w) + k \in \Image{(T)} + \ker{(T)}$, which gives $V = \Image{(T)} + \ker{(T)}$.
+            
+            We must now show that $\Image{(T)}$ and $\ker{(T)}$ are independent. If $T(w) + k = 0$, then $k = T(-w)$ implies $k \in \Image{(T)}$. So $k \in \Image{(T)} \cap \ker{(T)}$, and by (a) it must be that $k = 0$. Similarly, $T(T(w) + k) = 0$ is equivalent to $T(T(w)) + T(k) = 0$, which simplifies to $T(T(w)) = 0$; i.e., $T(w) \in \ker{(T)}$. So $T(w) \in \Image{(T)} \cap \ker{(T)}$, which gives that $T(w) = 0$. Thus $\Image{(T)}$ and $\ker{(T)}$ are independent, giving $V = \Image{(T)} \oplus \ker{(T)}$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,F)}$. Prove that if $v \in V$ is not in $\ker{(T)}$, then
+            \begin{equation*}
+            \begin{split}
+                V = \ker{(T)} \oplus \{cv \mid c \in F\}.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $V_1$,$V_2$ be subspaces of the finite dimensional vector space $V$. Prove
+            \begin{equation*}
+            \begin{split}
+                \dim_F{(V_1 + V_2)} = \dim_F{(V_1)} + \dim_F{(V_2)} - \dim_F{(V_1 \cap V_2)}.
+            \end{split}
+            \end{equation*}
+    \end{exercise} 
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Suppose that $V$ and $W$ are both $5$-dimensional $\bfR$-subspaces of $\bfR^9$. Prove that $V \cap W \neq \{0\}$. 
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $p$ be a prime and $V$ a dimension $n$ vector space over $\bfF_p$. Show there are
+            \begin{equation*}
+            \begin{split}
+                (p^n - 1)(p^n - p)(p^n - p^2)...(p^n - p^{n-1})
+            \end{split}
+            \end{equation*}
+        distinct bases of $V$.
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{4}
+    \vspace{10pt}
+    \begin{exercise}
+        Let $V$ be an $F$-vector space of dimension $n$. Let $T \in \Hom_F{(V,V)}$ so that $T^2 = 0$. Prove that the image of $T$ is contained in the kernel of $T$ and hence the dimension of the image of $T$ is at most $n/2$.
+    \end{exercise}
+        \begin{proof}
+            Let $v \in \Image{(T)}$. Then there exists a $w \in V$ such that $T(w) = v$. But observe that $T(v) = T(T(w)) = T^2(w) = 0$, hence $v \in \ker{(T)}$ which establishes the containment $\Image{(T)} \subseteq \ker{(T)}$. By the rank-nullity theorem $n = \dim_F{(\Image{(T)})} + \dim_F{(\ker{(T)})}$. If $\Image{(T)} = \ker{(T)}$ then it must be the case that $\dim_F{(\Image{(T)})} = \dim_F{(\ker{(T)})} = n/2$, otherwise (when $\Image{(T)} \subset \ker{(T)}$) $\dim_F{(\Image{(T)})} < n/2$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{comment}
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,V)}$.
+            \begin{enumerate}[label = (\alph*)]
+                \item Give an example to show that one does not always have $V \cong \ker{(T)} \oplus \Image{(T)}$.
+                \item Show that $\ker{(T^j)} \subset \ker{(T^{j+1})}$ for all $j \geq 1$. Prove that this sequence stabilizes; i.e., there exists $m \geq 1$ so that $\ker{(T^{m+j})} = \ker{(T^m)}$ for all $j \geq 1$. The subspace $\ker{(T^m)}$ is called the \textui{eventual kernel} and denoted $\ker{(T^\infty)}$.
+                \item Show that $\Image{(T^{j})} \supset \Image{(T^{j+1})}$ for all $j \geq 1$. Prove that this sequence stabilizes; i.e., there exists $m \geq 1$ so that $\Image{(T^{m+j})} = \Image{(T^{m})}$ for all $j \geq 1$. The subspace $\Image{(T^{m})}$ is called the \textui{eventual image} and denoted $\Image{(T^{\infty})}$.
+                \item Prove that $V \cong \ker{(T^\infty)} \oplus \Image{(T^\infty)}$.
+            \end{enumerate}
+    \end{exercise}
+    \end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $W$ be a subspace of a finite dimensional vector space $V$. Let $T \in \Hom_F{(V,V)}$ so that $T(W) \subset W$. Show that $T$ induces a linear transformation $\overline{T} \in \Hom_F{(V/W,V/W)}$. Prove that $T$ is nonsingular (i.e., injective) on $V$ if and only if $T$ is restricted to $W$ and $\overline{T}$ on $V/W$ are both nonsingular.
+    \end{exercise}
+        \begin{proof}
+            Define $\overline{T}: V/W \rightarrow V/W$ by $v +W \mapsto T(v) + W$. We must first show that $\overline{T}$ is well-defined. Suppose $v_1 + W = v_2 + W$, then $v_1 = v_2 + w$ for some $w \in W$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \overline{T}(v_1 + W)
+                    & = T(v_1) + W \\
+                    & = T(v_2 + w) + W \\
+                    & = T(v_2) + T(w) + W \hspace{15pt} \text{\tiny Since $T \in \Hom_F{(V,V)}$}\\
+                    & = T(v_2) + W \hspace{53pt} \text{\tiny Since $T(W) \subset W$} \\
+                    & = \overline{T}(v_2 + W).
+                \end{split}
+                \end{equation*}
+            Let $v_1 + W , v_2 + W \in V/W$, and $\alpha \in F$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \overline{T}((v_1 + W) + \alpha(v_2 + W))
+                    & = \overline{T}((v_1 + W) + (\alpha v_2 + W)) \\
+                    & = \overline{T}((v_1 + \alpha v_2) + W) \\
+                    & = T(v_1 + \alpha v_2) + W \\
+                    & = T(v_1) + \alpha T(v_2) + W \\
+                    & = (T(v_1) + W) + \alpha(T(v_2) + W) \\
+                    & = \overline{T}(v_1 + W) + \alpha \overline{T}(v_2 + W),
+                \end{split}
+                \end{equation*}
+            hence $\overline{T} \in \Hom_F{(V/W, V/W)}$. Now consider the maps $V \xrightarrow{T} V \xrightarrow{\pi} V/W$, where $\pi:V \rightarrow V/W$ is the projection map. It can be proved that $\pi \circ T = \overline{T} \circ \pi$ as follows: let $v \in V$ and observe that $\pi(T(v)) = T(v) + W$, which is equivalent to $\overline{T}(\pi(v)) = \overline{T}(v + W) = T(v) + W$. We've established that the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[d, "\pi"'] \arrow[r, "T"] & V \arrow[d, "\pi"] \\
+                    V/W \arrow[r, "\overline{T}"']     & V/W \hspace{4pt}.              
+                    \end{tikzcd}
+            \end{center}
+
+            
+            Now assume $T$ is injective \textemdash by inspection one can see that $T\mid_W : W \rightarrow V$ is injective. Since $\overline{T}$ is defined by $v + W \mapsto T(v)+W$, it must be injective as well. Conversely, let $T\mid_W$ and $\overline{T}$ be injective. Let $v \in V$ with $v \in \ker{(T)}$. Then $T(v) = 0$ is equivalent to $\pi(T(v)) = 0 + W$. Using the fact that the above diagram commutes, we can write $\overline{T}(\pi(v)) = 0 + W$. Since $\overline{T}$ is injective, its kernel is trivial, hence it must be the case that $\pi(v) = 0 +W$. Thus $v \in W$, giving $T\mid_W (v) = 0$. Again, since $T\mid_W$ is injective, its kernel is trivial, establshing that $v= 0$. Thus $T$ is injective.
+        \end{proof}
+\end{document}

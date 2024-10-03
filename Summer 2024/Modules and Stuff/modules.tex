@@ -1,0 +1,490 @@
+\chapter{Module Theory}\label{chapter:module-theory}
+
+\pagenumbering{arabic}
+
+\section{Basic Definitions and Examples}\label{sec:basic-defs-examples}
+    \begin{definition}\label{def:module-axioms}
+        Let $R$ be a ring (not necessarily commutative nor with $1$). A \textui{left $R$-module} or a \textui{left module over $R$} is a set $M$ together with:
+        \begin{enumerate}[label = (\arabic*)]
+            \item a binary operation $+$ on $M$ under which $M$ is an abelian group, and
+            \item an action of $R$ on $M$ (that is, a map $R \times M \rightarrow M$) denoted by $rm$ for all $r \in R$ and for all $m \in M$ which satisfies:
+            \begin{enumerate}[label = (\alph*)]
+                \item $(r+s)m = rm + rs$,\quad for all $r,s \in R$, $m \in M$
+                \item $(rs)m = r(sm)$,\quad for all $r,s \in R$, $m \in M$
+                \item $r(m+n) = rm + rn$,\quad for all $r \in R$, $m,n \in M$.
+            \end{enumerate}
+            If the ring $R$ has a $1$ we impose the additional axiom:
+            \begin{enumerate}[label = (\alph*)]
+                \addtocounter{enumii}{3}
+                \item $1m = m$,\quad for all $m \in M$.
+            \end{enumerate}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{note}
+        Modules over a field $F$ and vector spaces over $F$ are the same.
+    \end{note}
+
+    \begin{definition}\label{def:submodule}
+        Let $R$ be a ring and let $M$ be an $R$-module. An \textui{$R$-submodule of $M$} is a subgroup $N$ of $M$ which is closed under the action of ring elements; i.e., $rn \in N$ for all $r \in R$, $n \in N$.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $R$ be any ring. Then $M = R$ is a left $R$-module. The ring action is just normal multiplication in the ring $R$. When $R$ is a left module over itself, the submodules of $R$ are the left ideals of $R$. IF $R$ is not commutative its left and right module structure over itself might be different
+            \item Let $R = F$ be a field. Note that every vector space over $F$ is an $F$-module and vice versa. Define
+                \begin{equation*}
+                \begin{split}
+                F^n = \{(a_1,a_2,...,a_n) \mid a_i \in F, n \in \bfZ^{+}\}
+                \end{split}
+                \end{equation*}
+            as \textui{affine $n$-space over $F$}. We can make $F^n$ into a vector space by defining addition and scalar multiplication componentwise. When $F = \bfR$ we have the familiar Euclidean $n$-space.
+            \item If $M$ is an $R$-module and $S$ is a subring of $R$ with $1_R = 1_S$, then $M$ is an $S$-module as well. For example, the field $\bfR$ is an $\bfR$-module, a $\bfQ$-module, and a $\bfZ$-module.
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}[$\bfZ$-Modules]
+        Let $R = \bfZ$, let $A$ be any abelian group and write the operation of $A$ as $+$. Make $A$ into a $\bfZ$-module as follows: for any $n \in \bfZ$ and $a \in A$ define
+        \begin{equation*}
+        na = 
+        \begin{cases} 
+        a + a + ... + a \text{\quad ($n$ times)} & \quad \text{if}\hskip0.4em\relax n>0 \\
+        0 & \quad \text{if}\hskip0.4em\relax n=0 \\
+        -a - a - ... - a \text{\quad ($n$ times)} & \quad \text{if}\hskip0.4em\relax n<0\hskip0.4em\relax, 
+        \end{cases}
+        \end{equation*}
+        where $0$ is the identity of the additive abelian group $A$. This definition of $\bfZ$ acting on $A$ makes $A$ into a $\bfZ$-module, and furthermore the module axioms show that this is the only action of $\bfZ$ on $A$. Thus every abelian group is a $\bfZ$-module and vice versa. Furthermore $\bfZ$-submodules are the same as subgroups.
+    \end{example}
+
+    \begin{proposition}[The Submodule Criterion]\label{prop:submodule-criterion}
+        Let $R$ be a ring and let $M$ be an $R$-module. A subset $N$ of $M$ is a submodule of $M$ if and only if $N \neq \emptyset$ and $x+ry \in N$ for all $r \in R$ and $x,y \in N$.
+        \begin{proof}
+            If $N$ is a submodule, then $0 \in N$  so $N \neq \emptyset$. Also $N$ is closed under addition and is sent to itself under the action of elements in $R$\footnote{This satisfies axioms $(1)$ and $(2)$ from Definition~\ref{def:module-axioms}}.  
+
+            Conversely, suppose $N \neq \emptyset$ and $x+ry \in N$ for all $r \in R$ and $x,y \in N$. Let $r = -1$, then $x-y \in N$; i.e., $N$ is a subgroup of $M$. This also gives that $0 \in N$. Let $x = 0$, then $ry \in N$; i.e., $N$ is sent to itself under the action of $R$. This establishes the proposition.
+        \end{proof}
+    \end{proposition}
+
+    \begin{definition}\label{def:r-algebra}
+        Let $R$ be a commutative ring with identity. An \textui{$R$-algebra} is a ring $A$ with identity together with a ring homomorphism $f: R \rightarrow A$ mapping $1_R$ to $1_A$ such that the subring $f(R)$ of $A$ is contained in the center of $A$. That is, $f(R) \subseteq \text{Z}(A)$.
+    \end{definition}
+
+    \begin{definition}\label{def:r-algeba-homomorphism}
+        If $A$ and $B$ are two $R$-algebras, an \textui{$R$-algebra homomorphism} (or isomorphism) is a ring homomorphism (isomorphism, respectively) $\varphi:A \rightarrow B$ mapping $1_A$ to $1_B$ such that $\varphi(ra) = r\varphi(a)$ for all $r \in R$ and $a \in A$.
+    \end{definition}
+
+    \begin{definition}\label{def:torsions-and-annihilators}
+        Let $R$ be a ring and $M$ and $R$-module. 
+        \begin{enumerate}[label=(\arabic*)]
+            \item An element $m$ of the $R$-module $M$ is called a \textui{torsion element} if $rm=0$ for some nonzero element $r \in R$. The set of torsion elements is denoted
+                \begin{equation*}
+                \begin{split}
+                    \text{Tor}(M)=\{m \in M \mid rm=0\quad \text{for some nonzero $r \in R$}\}.
+                \end{split}
+                \end{equation*}
+            \item If $N$ is a submodule of $M$ the \textui{annihilator of $N$ in $R$} is defined to be
+                \begin{equation*}
+                \begin{split}
+                    \text{Ann}_R(N) = \{r \in R \mid rn = 0 \quad \text{for all $n \in N$}\}.
+                \end{split}
+                \end{equation*}
+            \item If $I$ is a right ideal of $R$, the \textui{annihilator of $I$ in $M$} is defined to be
+                \begin{equation*}
+                \begin{split}
+                    \text{Ann}_M(I) = \{m \in M \mid am = 0 \quad \text{for all $a \in I$}\}.
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+\section{Quotient Modules and Module Homomorphisms}\label{sec:quotient-homoms}
+    \begin{definition}\label{def:module-homomorphism}
+        Let $R$ be a ring and let $M$ and $N$ be $R$-modules.
+        \begin{enumerate}[label=(\arabic*)]
+            \item A map $\varphi:M \rightarrow N$ is an \textui{$R$-module homomorphism} if it respects the $R$-module structures of $M$ and $N$; i.e.,
+            \begin{enumerate}[label=(\alph*)]
+                \item $\varphi(x+y) = \varphi(x) + \varphi(y)$ for all $x,y \in M$ and
+                \item $\varphi(rx) = r\varphi(x)$ for all $r \in R$, $x \in M$.
+            \end{enumerate}
+            \item An $R$-module homomorphism is an \textui{isomorphism} (of $R$-modules) if it is both injective and surjective. The modules $M$ and $N$ are said to be \textui{isomorphic}, denoted $M \cong N$, if there is some $R$-module isomorphism $\varphi:M \rightarrow N$.
+            \item If $\varphi:M\rightarrow N$ is an $R$-module homomorphism, let $\ker{\varphi} = \{m \in M \mid \varphi(m) = 0\}$ and let $\Image{\varphi}=\{n \in N \mid n = \varphi(m)\quad\text{for some $m \in M$}\}$.
+            \item Let $M$ and $N$ be $R$-modules and define $\Hom_R{(M,N)}$ to be the set of all $R$-module homomorphisms from $M$ into $N$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{note}
+        Any $R$-module homomorphism is also a homomorphism of the additive groups, but not every group homomorphism need be a module homomorphism (condition (b) may not be satisfied).
+    \end{note}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label=(\arabic*)]
+            \item If $R$ is a ring and $M=R$ is a module over itself, then $R$-module homomorphisms need not be ring homomorphisms and vice versa. For example, when $R = \bfZ$ the $\bfZ$-module homomorphism $x \mapsto 2x$ is not a ring homomorphism ($1$ does not get mapped to $1$).
+            \item When $R$ is a field, $R$-module homomorphisms are called \textui{linear transformations}.
+            \item $\bfZ$-module homomorphisms are the same as abelian group homomorphisms; i.e., from Definition~\ref{def:module-homomorphism} condition (b) is implied by condition (a). For example, $\varphi(2x) = \varphi(x + x) = \varphi(x) + \varphi(x) = 2\varphi(x)$.
+            \item Let $R$ be a ring, let $I$ be a two sided ideal of $R$ and suppose $M$ and $N$ are $R$-modules annihilated by $I$ (i.e., $am=0$ and $an=0$ for all $a \in I$, $m \in M$, and $n \in N$). Any $R$-module homomorphism from $N$ to $M$ is then automatically a homomorphism of $(R/I)$-modules.
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}\label{prop:properties-of-hom}
+        Let $M,N$, and $L$ be $R$-modules.
+        \begin{enumerate}[label = (\arabic*)]
+            \item A map $\varphi:M \rightarrow N$ is an $R$-module homomorphism if and only if $\varphi(rx+y) = r\varphi(x) + \varphi(y)$ for all $x,y \in M$ and all $r \in R$.
+            \item Let $\varphi, \psi$ be elements of $\Hom_R{(M,N)}$ Define $\varphi + \psi$ by 
+                \begin{equation*}
+                \begin{split}
+                    (\varphi+\psi)(m) = \varphi(m) + \psi(m) \quad \text{for all $m \in M$}.
+                \end{split}
+                \end{equation*}
+            Then $\varphi + \psi \in \Hom_R{(M,N)}$ and with this operation $\Hom_R{(M,N)}$ is an abelian group. If $R$ is a commutative ring then for $r \in R$ define $r\varphi$ by:
+                \begin{equation*}
+                \begin{split}
+                    (r\varphi)(m) = r\varphi(m) \quad \text{for all $m \in M$}.
+                \end{split}
+                \end{equation*}
+            Then $r\varphi \in \Hom_R{(M,N)}$ and with this action of the commutative ring $R$ the abelian group $\Hom_R{(M,N)}$ is an $R$-module.
+            \item If $\varphi \in \Hom_R{(L,M)}$ and $\psi \in \Hom_R{(M,N)}$ then $\psi \circ \varphi \in \Hom_R{(L,N)}$.
+            \item With addition as above and multiplication defined as function composition, $\Hom_R{(M,M)}$ is a ring with $1$. When $R$ is commutative $\Hom_R{(M,M)}$ is an $R$-algebra.
+        \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+        (1) Certainly if $\varphi$ is an $R$-module homomorphism then $\varphi(rx+y) = r\varphi(x) + \varphi(y)$. Conversely, if $\varphi(rx+y) = r\varphi(x) + \varphi(y)$, take $r = 1$ to see that $\varphi$ is additive and take $y = 0$ to see that $\varphi$ commutes with the action of $R$ on $M$.\footnote{We say $\varphi$ is \textui{homogeneous} in this case.}
+
+        (2) It is straightforward to check that all the abelian group and $R$-module axioms hold with these definitions. For example $r\varphi$ satisfies (b) from Definition~\ref{def:module-axioms} as follows:
+            \begin{equation*}
+            \begin{split}
+                (r_1\varphi)(r_2 m)
+                & = r_1 \varphi(r_2 m) \\
+                & = r_1 r_2 \varphi(m) \\
+                & = r_2 r_1 \varphi(m) \\
+                & = r_2 (r_1\varphi)(m).
+            \end{split}
+            \end{equation*}
+
+        (3) Let $\varphi$ and $\psi$ be as given and let $r \in R$ and $x,y \in L$. Then:
+            \begin{equation*}
+            \begin{split}
+                (\psi \circ \varphi)(rx+y)
+                & = \psi(\varphi(rx+y)) \\
+                & = \psi(r\varphi(x) + \varphi(y)) \\
+                & = r\psi(\varphi(x)) + \psi(\varphi(y)) \\
+                & = r(\psi \circ \varphi)(x) + (\psi \circ \varphi)(y).
+            \end{split}
+            \end{equation*}
+        So, by (1) from this proposition, $\psi \circ \varphi$ is an $R$-module homomorphism.
+
+        (4) Note that since the domain and codomain of the elements of $\Hom_R{(M,M)}$ are the same, function composition is defined. By (3) from this proposition, it is a binary operation on $\Hom_R{(M,M)}$. As usual function composition is associative. The remaining ring axioms are straight foward to check. The identity function, $I$, ($I(x) = x$ for all $x \in M$) is seen to be the multiplicative identity of $\Hom_R{(M,M)}$. If $R$ is commutative, then (2) from this proposition shows that the ring $\Hom_R{(M,M)}$ is a left $R$-module and defining $\varphi r = r\varphi$ for all $\varphi \in \Hom_R{(M,M)}$ and $r \in R$ makes $\Hom_R{(M,M)}$ into an $R$-algebra.
+    \end{proof}
+
+    \begin{definition}\label{def:endomorphism-ring}
+        The ring $\Hom_R{(M,M)}$ is called the \textui{endomorphism ring of $M$} and is denoted $\End_R(M)$. Elements of $\End_R(M)$ are called \textui{endomorphisms}.
+    \end{definition}
+
+    \begin{note}
+        Let $H$ be a subgroup of $G$. If $G$ is abelian then $H$ is normal. This is relevant for the following proposition.
+    \end{note}
+
+    \begin{proposition}
+        Let $R$ be a ring, let $M$ be an $R$-module and let $N$ be a submodule of $M$. The (additive, abelian) quotient group $M/N$ can be made into an $R$-module by defining an action of elements of $R$ by
+            \begin{equation*}
+            \begin{split}
+                r(x+N) = rx + N \quad \text{for all $r \in R$, $x + N \in M/N$}.
+            \end{split}
+            \end{equation*}
+        The natural projection map $\pi:M \rightarrow M/N$ defined by $\pi(x) = x +N$ is an $R$-module homomorphism with kernel $N$.
+    \end{proposition}
+    \begin{proof}
+        Since $M$ is an abelian group under $+$ the quotient group $M/N$ is defined and is an abelian group. We must show that the action of the ring element $r$ on the coset $x + N$ is well defined. Suppose $x + N = y+ N$; i.e., $x-y \in N$. Since $N$ is a (left) $R$-module, $r(x-y) \in N$. Thus $rx-ry \in N$; i.e., $rx + N = ry + N$.
+
+        Since the operations in $M/N$ are "compatible" with those of $M$, the axioms for an $R$-module are easily checked. Likewise, the natural projection map $\pi$ described as above is, in particular, the natural projection of the abelian group $M$ onto the abelian group $M/N$ hence is a group homomorphism with kernel $N$. The kernel of any module homomorphism is the same as its kernel when viewed as a homomorphism of the abelian group structures. It remains to show that $\pi$ is a module homomorphism \textemdash which it is: $\pi(rm) = rm + N = r(m+N) = r\pi(m)$.
+    \end{proof}
+
+    \begin{definition}\label{def:module-sum}
+        Let $A,B$ be submodules of the $R$-module $M$. The \textui{sum} of $A$ and $B$ is the set $A+B = \{a+b \mid a \in A, b\in B\}$.
+    \end{definition}
+
+    \begin{definition}[Isomorphism Theorems]\label{def:module-iso-thms}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item 
+            \item
+            \item 
+            \item
+        \end{enumerate}
+    \end{definition}
+
+\section{Generation of Modules, Direct Sums, and Free Modules}
+    \begin{definition}\label{def:-properties-module-sums}
+        Let $M$ be an $R$-module and let $N_1,...,N_n$ be submodules of $M$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item The \textui{sum} of $N_1,...,N_n$ is the set of all finite sums of elements from the sets $N_i$: $\{a_1 + a_2 + ... + a_n \mid a_i \in N_i \hskip0.4em\relax \text{for all }i\}$. Denote this sum by $N_1 + N_2 + ... + N_n$.
+            \item For any subset $A$ of $M$ let
+            \begin{equation*}
+            \begin{split}
+                RA = \{r_1 a_1 + r_2 a_2 + ... + r_m a_m \mid r_1,...,r_m \in R,\hskip0.4em\relax a_1,...,a_m \in A,\hskip0.4em\relax m \in \bfZ^{+}\}
+            \end{split}
+            \end{equation*}
+            (where by convention $RA = \{0\}$ if $A = \emptyset$). If $A$ is the finite set $\{a_1,a_2,...,a_n\}$ we shall write $Ra_1 + Ra_2 + ... + Ra_n$ for $RA$. Call $RA$ the \textui{submodule of $M$ generated by $A$}. If $N$ is a submodule of $M$ (possibly $N = M$) and $N=RA$ for some subset $A$ of $M$, we call $A$ a \textui{set of generators} or \textui{generating set} for $N$, and we say $N$ is \textui{generated} by $A$.
+            \item A submodule $N$ of $M$ (possibly $N=M$) is \textui{finitely generated} if there is some finite subset $A$ of $M$ such that $N = RA$, that is, if $N$ is generated by some finite subset.
+            \item A submodule $N$ of $M$ (possibly $N=M$) is \textui{cyclic} if there exists an element $a \in M$ such that $N = Ra$, that is, if $N$ is generated by one element:
+            \begin{equation*}
+            \begin{split}
+                N = RA = \{ra \mid r \in R\}.
+            \end{split}
+            \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}\label{def:external-direct-sum}
+        Let $M_1,...,M_k$ be a collection of $R$-modules. The collection of $k$-tuples $(m_1,...,m_k)$ where $m_i \in M_i$ with addition and action of $R$ defined componentwise is called the \textui{direct product} of $M_1,...,M_k$, denoted $M_1 \times ... \times M_k$. The direct product of $M_1,...,M_k$ is also referred to as the (external) \textui{direct sum} of $M_1,...,M_k$ and is denoted $M_1 \oplus ... \oplus M_k$.
+    \end{definition}
+
+    \begin{proposition}\label{prop:properties-of-direct-prods}
+        Let $N_1,N_2,...,N_k$ be submodules of the $R$-module $M$. Then the following are equivalent:
+        \begin{enumerate}[label = (\arabic*)]
+            \item The map $\pi:N_1 \times N_2 \times ... \times N_k \rightarrow N_1 + N_2 + ... + N_k$ defined by 
+                \begin{equation*}
+                \begin{split}
+                    \pi((a_1,a_2,...,a_k)) = a_1 + a_2 + ... +a_k
+                \end{split}
+                \end{equation*}
+            is an isomorphism (of $R$-modules): $N_1 \times N_2 \times ... \times N_k \cong N_1 + N_2 + ... + N_k$.
+            \item $N_j \cap (N_1 + N_2 + ... + N_{j-1} + N_{j+1} + ... + N_k) = 0$ for all $j \in \{1,2,...,k\}$.
+            \item Every $x \in N_1 + N_2 + ... + N_k$ can be written uniquely in the form $a_1 + a_2 + ... + a_k$ with $a_i \in N_i$.
+        \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+        To prove that (1) implies (2), suppose for some $j$ (2) fails to hold and let $a_j \in N_j \cap (N_1 + N_2 + ... + N_{j-1} + N_{j+1} + ... + N_k)$ with $a_j \neq 0$. Then $a_j \in N_j$ and $a_j \in N_1 + N_2 + ... + N_{j-1} + N_{j+1} + ... + N_k$, hence $a_j = a_1 + a_2 + ... + a_{j-1} + a_{j+1} + ... + a_k$ for some $a_i \in N_i$. Subtracting $a_j$ from both sides gives $0 = a_1 + a_2 + ... + a_{j-1} -a_j + a_{j+1} + ... + a_k$, which is equivalent to $\pi(0) = (a_1,a_2,...,a_{j-1},-a_j,a_{j+1},...,a_k)$. Note that this would be a nonzero element of $\ker{\pi}$, which gives a contradiction.
+
+        Assume now that (2) holds. If for some module elements $a_i , b_i \in N_i$ we have: $$a_1+a_2+...+a_k = b_1+b_2+...+b_k$$ then for each $j$ we have: $$a_j - b_j = (b_1 - a_1)+ (b_2 - a_2)+ ... + (b_{j-1} - a_{j-1}) + (b_{j+1} - a_{j+1}) + ... + (b_k - a_k).$$ The left belongs to $N_j$ and the right side belongs to $(N_1 + N_2 + ... + N_{j-1} + N_{j+1} + ... + N_k)$, hence $a_j - b_j \in N_j \cap (N_1 + N_2 + ... + N_{j-1} + N_{j+1} + ... + N_k)$. It must be the case then that $a_j - b_j = 0$; i.e., $a_j = b_j$ for all $j$. Thus (2) implies (3).
+
+        Finally, to see that (3) implies (1), observe first that the map $\pi$ is clearly a surjective $R$-module homomorphism. Then $(3)$ simply implies $\pi$ is injective, hence is an isomorphism, completing the proof.
+    \end{proof}
+
+    \begin{definition}\label{def:internal-direct-sum}
+        If an $R$-module $M$ is the sum of submodules $N_1, N_2, ... , N_k$ of $M$ satisfying the conditions of the proposition above, then $M$ is said to be the (internal) \textui{direct sum} of $N_1, N_2, ..., N_k$, written:
+            \begin{equation*}
+            \begin{split}
+                M = N_1 \oplus N_2 \oplus ... \oplus N_k.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{note}
+        Part (1) of Proposition~\ref{prop:properties-of-direct-prods} is the statement that the internal direct sum of $N_1,N_2,...,N_k$ is isomorphic to their external direct sum (from Definition~\ref{def:external-direct-sum}), which is the reason we identify them and use the same notation for both.
+    \end{note}
+
+    \begin{definition}\label{def:free-modules}
+        An $R$-module $F$ is said to be \textui{free} on the subset $A$ of $F$ if for every nonzero element $x$ of $F$, there exist unique nonzero elements $r_1,r_2,...,r_n$ of $R$ and unique $a_1,a_2,...,a_n$ in A such that $x = r_1 a_1 + r_2 a_2 + .... + r_n a_n$, for some $n \in \bfZ^{+}$. In this situation we say $A$ is a \textui{basis} or \textui{set of free generators} for $F$. If $R$ is a commutative ring the cardinality of $A$ is called the \textui{rank} of $F$.
+    \end{definition}
+
+    \begin{note}
+        To avoid confusion, we reiterate Definition~\ref{def:-properties-module-sums} and Definition~\ref{def:free-modules} as follows: An $R$-module $M$ is called:
+        \begin{itemize}
+            \item \textui{free} if $M \cong R^n = \bigoplus_{i=1}^{n} R$. In other words, the map $\phi:R^n \rightarrow M$ is an $R$-module isomorphism. $n$ is called the \textui{rank} of $M$ and it can be infinite.
+            \item \textui{finitely generated} if $M$ has a finite generating set. In other words, the map $\phi:R^n \rightarrow M$ is only surjective.
+        \end{itemize}
+        The difference boils down to whether $\ker{\phi}=0$ or not. Furthermore, in the case of a direct sum between two modules, the module elements will be unique, whereas in the case of free modules the module elements and ring elements must be unique.
+    \end{note}
+    
+    \begin{theorem}\label{thm:universal-property}
+        For any set $A$ there is a free $R$-module $F(A)$ on the set $A$ where $F(A)$ satisfies the following \textit{universal property}: if $M$ is any $R$-module and $\varphi:A \rightarrow M$ is any map of sets, then there is a unique $R$-module homomorphism $\phi:F(A) \rightarrow M$ such that $\phi(a) = \varphi(a)$ for all $a \in A$, that is, the following diagram commutes:
+        \begin{center}
+                \begin{tikzcd}
+                A \arrow[rr, "\text{inclusion}"] \arrow[rrdd, "\mathlarger{\varphi}"'] &  & F(A) \arrow[dd, "\mathlarger{\phi}"] \\
+                                                          &  &                         \\
+                                                          &  & M                      
+            \end{tikzcd}
+        \end{center}
+    \end{theorem}
+    \begin{proof}
+        Let $F(A)=\{0\}$ if $A = \emptyset$. If $A$ is nonempty let $F(A)$ be the collection of all set functions $f:A \rightarrow R$ such that $f(a) = 0$ for all but finitely many $a \in A$. Make $F(A)$ into an $R$-module by pointwise addition of functions and pointwise multiplication of a ring element times a function. It is an easy matter to check that all $R$-module axioms hold. Identify $A$ as a subset of $F(A)$ by $a \mapsto f_a$, where $f_a$ is the function which is 1 at $a$ and zero elsewhere. We can, in this way, think of $F(A)$ as all finite $R$-linear combinations of elements of $A$ by identifying each function $f$ with the sum $r_1 a_1 + r_2 a_2 + ... + r_n a_n$, where $f$ takes on the value $r_i$ at $a_i$ and is zero at all other elements of $A$. To establish the universal property of $F(A)$ suppose $\varphi:A \rightarrow M$ is a map of the set $A$ into the $R$-module $M$. Define $\phi:F(A) \rightarrow M$ by
+            \begin{equation*}
+            \begin{split}
+                \phi:\sum_{i=1}^{n}r_i a_i \mapsto \sum_{i=1}^{n}r_i \varphi(a_i).
+            \end{split}
+            \end{equation*}
+        By the uniqueness of the expression for the elements of $F(A)$ as linear combinations of the $a_i$ we see easily that $\phi$ is a well defined $R$-module homomorphism. By definition, the restriction of $\phi$ to $A$ equals $\varphi$. Finally, since $F(A)$ is generated by $A$, once we know the values of an $R$-module homomorphism on $A$ its values on every element of $F(A)$ are uniquely determined, so $\phi$ is the unique extension of $\varphi$ to all of $F(A)$.
+    \end{proof}
+
+    \begin{corollary}
+        \phantom{a}
+        \begin{enumerate}[label=(\arabic*)]
+            \item If $F_1$ and $F_2$ are free modules on the same set $A$, there is a unique isomorphism between $F_1$ and $F_2$ which is the identity map on $A$.
+            \item If $F$ is any free $R$-module with basis $A$, then $F \cong F(A)$. In particular, $F$ enjoys the same universal property with respect to $A$ as $F(A)$ does in Theorem~\ref{thm:universal-property}.
+        \end{enumerate}
+    \end{corollary}
+    \begin{proof}
+        Exercise.
+    \end{proof}
+
+\section{Tensor Products of Modules}
+    \begin{definition}\label{def:biadditive-bilinear}
+        Let $R$ be a ring, let $A$ be a right $R$-module, let $B$ be a left $R$-module, and let $G$ be an (additive) abelian group. A function $f:A\times B \rightarrow G$ is called \textui{$R$-biadditive} if, for all $a,a' \in A$, $b,b' \in B$, and $r \in R$ we have
+            \begin{enumerate}[label=(\arabic*)]
+                \item $f(a+a',b) = f(a,b) + f(a',b),$
+                \item $f(a,b+b') = f(a,b) + f(a,b'),$
+                \item $f(ar,b) = f(a,rb).$
+            \end{enumerate}
+        If $R$ is commutative and $A,B$, and $M$ are $R$-modules, then a function $f:A\times B \rightarrow M$ is called \textui{$R$-bilinear} if $f$ is $R$-biadditive and also 
+            \begin{enumerate}[label=(\arabic*)]
+                \addtocounter{enumi}{3}
+                \item $f(ar,b) = f(a,rb) = rf(a,b)$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $R$ is a ring, then its multiplication $\mu:R \times R \rightarrow R$ is $R$-biadditive; the first two axioms from Definition~\ref{def:biadditive-bilinear} are the right and left distributive laws, while the third axiom is associativity:
+                \begin{equation*}
+                \begin{split}
+                    \mu(ar,b)=(ar)b=a(rb)=\mu(a,rb).
+                \end{split}
+                \end{equation*}
+            If $R$ is a commutative ring, then $\mu$ is $R$-bilinear, for $(ar)b=a(rb)=r(ab)$.
+
+            \item If we regard a left $R$-module $M$ as its underlying abelian group, then the scalar multiplication $\sigma: R \times M \rightarrow M$ is $\bfZ$-bilinear.
+
+            \item Recall from Proposition~\ref{prop:properties-of-hom} that $\Hom_R{(M,N)}$ is an $R$-module if $R$ is commutative and we define $(r\varphi)(m)=r(\varphi(m))$ for all $m \in M$. With this definition we can see that \textui{evaluation} $e:M \times \Hom_R{(M,N)} \rightarrow N$ given by $(m,\varphi) \mapsto \varphi(m)$ is $R$-bilinear.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}\label{def:tensor-product}
+        Given a ring $R$, a left $R$-module $A$, and a right $R$-module $B$, then their \textui{tensor product} is an abelian group $A \otimes_R B$ and an $R$-biadditive function
+            \begin{equation*}
+            \begin{split}
+                h:A \times B \rightarrow A \otimes_R B
+            \end{split}
+            \end{equation*}
+        such that, for every abelian group $G$ and every $R$-biadditive function $f:A \times B \rightarrow G$, there exists a unique $\bfZ$-homomorphisms $\tilde{f}:A \otimes_R B \rightarrow G$ making the following diagram commute:
+            \begin{center}
+            \begin{tikzcd}
+                A \times B \arrow[rd, "\mathlarger{f}"'] \arrow[rr, "\mathlarger{h}"] &   & A \otimes_R B \arrow[ld, "\mathlarger{\tilde{f}}", dashed] \\
+                                            & G &                                              
+            \end{tikzcd}
+            \end{center}
+    \end{definition}
+
+    \begin{definition}\label{def:bimodules}
+        Let $R$ and $S$ be rings and let $M$ be an abelian group. Then $M$ is an \textui{$(R,S)$-bimodule}, denoted by $\phantom{.}_R M_S$, if $M$ is a left $R$-module and a right $S$-module, and the two scalar multiplications are related by an associative law:
+            \begin{equation*}
+            \begin{split}
+                r(ms)=(rm)s
+            \end{split}
+            \end{equation*}
+        for all $r \in R$, $m \in M$, and $s \in S$. If $M$ is an $(R,S)$-bimodule, it is permissible to write $rms$ with no parentheses, for the definition of bimodules says that the two possible associations agree.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Every ring $R$ is an $(R,R)$-bimodule; the extra identity is just the associativity of multiplication in $R$. More generally, if $S \subseteq R$ is a subring, then $R$ is an $(R,S)$-bimodule.
+            \item Every two-sided ideal in a ring $R$ is an $(R,R)$-bimodule.
+            \item If $M$ is a left $R$-module, then $M$ is an $(R,\bfZ)$-bimodule. The "reverse" holds if $M$ were a right $R$-module.
+            \item If $R$ is commutative, then every left (or right) $R$-module is an $(R,R)$-bimodule. In more detail, if $M=\phantom{.}_R M$, define a new scalar multiplication $M \times R \rightarrow M$ by $(m,r) \mapsto rm$. To see that $M$ is a right $R$-module, we must show that $m(rr') = (mr)r'$, that is $(rr')m = r'(rm)$, and this is so because $rr' = r'r$. Finally, $M$ is an $(R,R)$-bimodule because both $r(mr')$ and $(rm)r'$ equal to $(rr')m$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}[Extending Scalars]\label{prop:extending scalars}
+        Let $S$ be a subring of a ring $R$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item Given a bimodule $\phantom{.}_R A_S$ and a left module $\phantom{.}_S B$, then the tensor product $A \otimes_S B$ is a left $R$-module, where
+                \begin{equation*}
+                \begin{split}
+                    r(a \otimes b) = (ra) \otimes b.
+                \end{split}
+                \end{equation*}
+            Similarly, given $A_S$ and $\phantom{.}_S B_R$, the tensor product $A \otimes_S B$ is a right $R$-module, where $(a \otimes b)r = a \otimes (br)$.
+
+            \item The ring $R$ is an $(R,S)$-bimodule and, if $M$ is a left $S$-module, then $R \otimes_S M$ is a left $R$-module.
+        \end{enumerate}
+    \end{proposition}
+
+\section{Exact Sequences}
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item The pair of homomorphisms $X \xrightarrow{\alpha} Y \xrightarrow{\beta} Z$ is said to be \textui{exact} (at Y) if $\Image{\alpha} = \ker{\beta}$.
+            \item A sequence $... \rightarrow X_{n-1} \rightarrow X_n \rightarrow X_{n+1} \rightarrow ...$ of homomorphisms is said to be an \textui{exact sequnce} if it is exact at every $X_n$ between a pair of homomorphisms.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $A$, $B$, and $C$ be $R$-modules over some ring $R$. Then
+            \begin{enumerate}[label = (\arabic*)]
+                \item The sequence $0 \rightarrow A \xrightarrow{\psi} B$ is exact (at A) if and only if $\psi$ is injective.
+                \item The sequence $B \xrightarrow{\varphi} C \rightarrow 0$ is exact (at C) if and only if $\varphi$ is surjective.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            The (uniquely defined) homomorphism $0 \rightarrow A$ has image $0$ in $A$. This will be the kernel of $\psi$ if and only if $\psi$ is injective.
+
+            Similarly, the kernel of the (uniquely defined) zero homomorphism $C \rightarrow 0$ is all of $C$, which is the image of $\varphi$ if and only if $\varphi$ is surjective.
+        \end{proof}
+
+    \begin{corollary}
+        The sequence $0 \rightarrow A \xrightarrow{\psi} B \xrightarrow{\varphi} C \rightarrow 0$ is exact if and only if $\psi$ is injective, $\varphi$ is surjective, and $\Image{\psi} = \ker{\varphi}$; i.e., $B$ is an extension of $C$ by $A$.
+    \end{corollary}
+    
+    \begin{definition}
+        The exact sequence $0 \rightarrow A \xrightarrow{\psi} B \xrightarrow{\varphi} C \rightarrow 0$ is called \textui{short exact sequence}.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Given modules $A$ and $C$ we can always form their direct sum $B = A \oplus B$ and the sequence
+                \begin{equation*}
+                \begin{split}
+                    0 \rightarrow A \xrightarrow{\iota} A\oplus C \xrightarrow{\pi} C \rightarrow 0
+                \end{split}
+                \end{equation*}
+            where $\iota(a) = (a,0)$ and $\pi(a,c) = c$ is a short exact sequence. It follows that there always exists at least one extension of $C$ by $A$.
+
+            \item Consider the two $\bfZ$-modules $A = \bfZ$ and $C = \bfZ/n\bfZ$:
+                \begin{center}
+                \begin{tikzcd}
+                    0 \arrow[r] & \bfZ \arrow[r,"\iota"] & \bfZ \oplus (\bfZ/n\bfZ) \arrow[r,"\varphi"] & \bfZ/n\bfZ \arrow[r] & 0
+                \end{tikzcd}
+                \end{center}
+            This is one extension of $\bfZ/n\bfZ$ by $\bfZ$. Another extension is given by the short exact sequence:
+                \begin{center}
+                \begin{tikzcd}
+                    0 \arrow[r] & \bfZ \arrow[r, "n"] & \bfZ \arrow[r,"\pi"] & \bfZ/n\bfZ \arrow[r] & 0
+                \end{tikzcd}
+                \end{center}
+            where $n$ denotes the map $x \mapsto nx$ given by multiplication by $n$, and $\pi$ denotes the natural projection. Note that the modules in the middle of the previous two exact sequences are not isomorphic even though the respective "$A$" and "$C$" terms are isomorphic. Thus there are (at least) two "inequivalent" ways of extending $\bfZ/n\bfZ$ by $\bfZ$.
+
+            \item If $\varphi:B \rightarrow C$ is any homomorphism we may form an exact sequence:
+                \begin{center}
+                \begin{tikzcd}
+                    0 \arrow[r] & \ker{\varphi} \arrow[r, "\iota"] & B \arrow[r, "\varphi"] & \Image{\varphi} \arrow[r] & 0
+                \end{tikzcd}
+                \end{center}
+            where $\iota$ is the inclusion map. In particular, if $\varphi$ is surjective, the sequence $\varphi:B \rightarrow C$ may be extended to a short exact sequence with $A = \ker{\varphi}$.
+
+            \item Let $M$ be an $R$-module and $S$ a set of generators for $M$. Let $F(S)$ be the free $R$-module on $S$. Then
+                \begin{center}
+                \begin{tikzcd}
+                    0 \arrow[r] & K \arrow[r, "\iota"] & F(S) \arrow[r, "\varphi"] & M \arrow[r] & 0
+                \end{tikzcd}
+                \end{center}
+            is the short exact sequence where $\varphi$ is the unique $R$-module homomorphism which is the identity on $S$ (c.f. Theorem~\ref{thm:universal-property}) and $K = \ker{\varphi}$.
+        \end{enumerate}
+
+        \begin{definition}
+            Let $0 \rightarrow A \rightarrow B \rightarrow C \rightarrow 0$ and $0 \rightarrow A' \rightarrow B' \rightarrow C' \rightarrow 0$ be two short exact sequences of modules.
+                \begin{enumerate}[label = (\arabic*)]
+                    \item A \textui{homomorphism of short exact sequences} is a triple $(\alpha , \beta , \gamma)$ of module homomorphisms such that the following diagram commutes:
+                        \begin{center}
+                        \begin{tikzcd}
+                            0 \arrow[r] & A \arrow[r] \arrow[d, "\alpha"] & B \arrow[r] \arrow[d, "\beta"] & C \arrow[r] \arrow[d, "\gamma"] & 0 \\
+                            0 \arrow[r] & A' \arrow[r]                    & B' \arrow[r]                   & C' \arrow[r]                    & 0
+                        \end{tikzcd}
+                        \end{center}
+                    The homomorphism is an \textui{isomorphism of short exact sequences} if $\alpha$,$\beta$,$\gamma$ are all isomorphisms, in which case the extensions $B$ and $B'$ are said to be \textui{isomorphism extensions}.
+                \end{enumerate}
+        \end{definition}
+    \end{example}

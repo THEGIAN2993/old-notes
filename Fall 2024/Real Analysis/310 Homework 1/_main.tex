@@ -1,0 +1,235 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{tgbonum}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+%\usepackage{fancyhdr}
+%    \fancyhf{}
+%    \pagestyle{fancy}
+%    \cfoot{\footnotesize \thepage}
+%    \fancyhead[R]{\footnotesize \rightmark}
+%    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+\usepackage{verbatim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+\newcommand{\TBC}{\textbf{TO BE CONTINUED}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{note}{Note}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{noproof}{Proof omitted}
+\numberwithin{equation}{section}
+
+\newenvironment{solution}[1]{\noindent \textbf{#1}:}{}
+
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\FF}{\mathbf{F}}
+
+\newcommand{\bRR}{\overline{\RR}}
+\newcommand{\bRRp}{\overline{\RR}_{\geq 0}}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+
+
+\titlespacing*{\chapter}
+{0pt} % Left margin
+{*1} % Space before the chapter number (increase this value for more space)
+{0pt} % Space after the chapter number and before the title
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+    { \Large Math 310 \\[0.1in]Homework 1 \\[0.1in]
+    Due: 9/9/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    \end{center}
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \begin{exercise}
+        If $F$ is a finite set and $k:F \rightarrow F$ is a self map, prove that $k$ is injective if and only if $k$ is surjective.
+    \end{exercise}
+        \begin{proof}
+             Let $k$ be injective. Suppose towards contradiction that $k$ is not surjective. Then $k(F) \subset F$. But then there exists $f_i,f_j \in F$ such that $k(f_i) = k(f_j)$ with $f_i \neq f_j$, contradicting the fact that $k$ is injective. Hence $k$ must also be surjective. 
+
+            Now suppose $k$ is not injective. Then there exists \textit{at least} two elements $f_i,f_j$ with $k(f_i) = k(f_j)$ and $f_i \neq f_j$. So $k(F) \subset F$, hence $k$ is not surjective.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}\label{example:2}
+        Prove that a set $A$ is infinite if and only if there is a non-surjective injection $f:A \rightarrow A$.
+    \end{exercise}
+        \begin{proof}
+            Suppose $A$ is infinite. Then there exists an injection $\pi:\bfN \hookrightarrow A$ defined by $\pi(n) = a_n$. Define $f:A \rightarrow A$ by $f(\pi(n)) = \pi(n+1)$. Suppose $f(\pi(i)) = f(\pi(j))$, then $\pi(i+1) = \pi(j+i)$. Simplifying further yields $i+1 = j+1$, or equivalently $i = j$. Hence $\pi(i) = \pi(j)$, establishing $f$ as an injection. Now suppose there exists a surjection $A \twoheadrightarrow A$. This immediately leads to a contradiction, as there does not exist an element $x \in A$ such that $f(x) = \pi(1)$. Hence $f$ is a non-surjective injection.
+
+            Conversely, suppose that $A$ is finite. Then by Exercise 1 there exists a bijection $A \hooktwoheadrightarrow A$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $A,B$, and $C$ be sets and suppose $\card(A) < \card(B) \leq \card(C)$. Prove that $\card(A) < \card(C)$.
+    \end{exercise}
+        \begin{proof}
+            Let $A \xrightarrow{f} B \xrightarrow{g} C$ be functions with $g$ injective and $f$ injective but not surjective. Then $g\circ f$ is injective, but note that $f(A) \subset B$ implies $(g\circ f)(A) \subset C$ (otherwise $g$ would not be a function). Hence there does not exist a surjection $g \circ f : A \rightarrow C$, establishing $\card(A) < \card(C)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $A \subseteq B$ is an inclusion of sets with $A$ countable and $B$ uncountable, show that $B\setminus A$ is uncountable.
+    \end{exercise}
+        \begin{proof}
+            Suppose towards contradiction that $B\setminus A$ is countable. Since countable unions of countable sets is countable, $(B\setminus A) \cup A = B$ is countable, which is a contradiction. Thus $B\setminus A$ is uncountable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Is the set $\{x \in \bfR \mid x > 0 \hspace{4pt}\text{and}\hspace{4pt} x^2 \in \bfQ\}$ countable?
+    \end{exercise}
+        \begin{proof}
+            Let $S$ be the above set. If $x \in S$, then $x>0$ and $x^2 \in \bfQ$. This implies that $x^2 = q$ for some $q \in \bfQ^+$, hence $x = \sqrt{q}$. Define $f:S \rightarrow \bfQ$ by $\sqrt{q} \mapsto q$. Let $f(\sqrt{m}) = f(\sqrt{n})$ for some $\sqrt{m},\sqrt{n} \in S$. Then $m = n$, and square-rooting both sides gives $\sqrt{m} = \sqrt{n}$, establishing an injection. Thus $S$ is countable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the set $\cF(\bfN)$ of all finite subsets of $\bfN$. Is $\cF(\bfN)$ countable?
+    \end{exercise}
+        \begin{proof}
+            Let $A_n = \{A \subseteq \bfN \mid \card(A) = n\hspace{4pt}\text{for some $n \in \bfN$}\}$ Note that $A_n$ by our definition is finite, and $\bigcup_{n \in \bfN}A_n = \cF(\bfN)$. Thus $\cF(\bfN)$ is countable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $k \in \bfN$.
+            \begin{enumerate}[label = (\roman*)]
+                \item Prove that $\bfN ^k : = \underbrace{\bfN \times \bfN \times ... \times \bfN}_{\text{$k$ times}}$ is countable.
+                    \begin{proof}
+                        Let $p_1,p_2,...,p_k$ denote the first $k$ primes. Define $f:\bfN^k \rightarrow \bfN$ by $(e_1,e_2,...,e_k) \mapsto p_1^{e_1} \cdot p_2^{e_2}\cdot ...\cdot p_k^{e_k}$. Then $f((e_1,e_2,...,e_k)) = f((r_1,r_2,...,r_k))$ is equivalent to $p_1^{e_1}\cdot p_2^{e_2}\cdot...\cdot p_k^{e_k} = p_1^{r_1}\cdot p_2^{r_2}\cdot...\cdot p_k^{r_k}$. By the fundamental theorem of arithmetic, every natural number is prime itself or the product of a \textit{unique} combination of prime numbers. Therefore $p_1^{e_1}\cdot p_2^{e_2}\cdot...\cdot p_k^{e_k} = p_1^{r_1}\cdot p_2^{r_2}\cdot...\cdot p_k^{r_k}$ implies $e_i = r_i$ for all $1 \leq i \leq k$. Hence $(e_1,e_2,...,e_k) = (r_1,r_2,...,r_k)$, establishing $f$ as an injection into the natural numbers. Thus $\bfN^k$ is countable.
+                    \end{proof}
+                \item Show that the set
+                    \begin{equation*}
+                    \begin{split}
+                        \bfN^{\infty} := \{(n_k)_{k \geq 1} \mid n_k \in \bfN \}
+                    \end{split}
+                    \end{equation*}
+                consisting of all sequences of natural numbers is uncountable.
+                    \begin{proof}
+                        Note that $2^\bfN = \{f \mid f:\bfN \rightarrow \{0,1\}\} \subseteq \bfN^\infty$. Since $2^\bfN$ is uncountable, $\bfN^\infty$ must be uncountable.
+                    \end{proof}
+                \item Prove that the set of \textbf{finitely-supported} natural sequences
+                    \begin{equation*}
+                    \begin{split}
+                        c_c(\bfN) := \{(n_k)_{k\geq 1} \mid n_k \in \bfN, n_k = 0 \hspace{4pt}\text{for all but finitely many $k$}\}
+                    \end{split}
+                    \end{equation*}
+                is countable.
+                    \begin{proof}
+                        Let $c_i(\bfN) = \{(n_k)_{k\geq 1} \mid n_k \in \bfN , n_k = 0 \hspace{4pt}\text{for all }\hspace{4pt}k > i \in \bfN\}$. Define $f:c_i(\bfN) \rightarrow \bfN^i$ by $(n_k)_{k\geq 1} \mapsto (n_1,n_2,...,n_i)$. If $f((n_k)_{k\geq 1}) = f((p_k)_{p \geq 1})$, then $(n_1,n_2,...,n_i) = (p_1,p_2,...,p_i)$; i.e., $n_j = p_j$ for all $1 \leq j \leq i$. Hence $(n_k)_{k\geq1} = (p_k)_{k\geq1}$. Since $f$ is injective, $c_i(\bfN)$ is countable, therefore $c_c(\bfN) = \bigcup_{i \in \bfN} c_i(\bfN)$ is countable.
+                    \end{proof}
+                \item Is the set of decreasing natural sequences
+                    \begin{equation*}
+                    \begin{split}
+                        D := \{(n_k)_{k \geq 1} \mid n_k \in \bfN, n_{k+1} \leq n_k \hspace{4pt}\text{for all $k \geq 1$}    \}
+                    \end{split}
+                    \end{equation*}
+                countable or uncountable?
+                \begin{proof}
+                    Let $c_{i,j}(\bfN) = \{(n_k)_{k\geq1} \mid n_k \in \bfN, n_{k+1} \leq n_k \hspace{4pt} \text{for all}\hspace{4pt}k \geq 1 \hspace{4pt}\text{terminating in $j$ for all $k >i \in \bfN$}\}$. By (iii) this set is countable, hence $D = \bigcup_{j \in \bfN} \left( \bigcup_{i \in \bfN} c_{i,j}(\bfN)\right)$ is countable.
+                \end{proof}
+            \end{enumerate} 
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f: \bfR \rightarrow \bfR$ be a function that sends rational numbers to irrational  numbers and irrational numbers to rational numbers. Prove that $\Image{(f)}$ can't contain any interval.
+    \end{exercise}
+        \begin{proof}
+            Note that $\bfR = (\bfR \setminus \bfQ)\cup \bfQ$. Then $f(\bfR) = f((\bfR \setminus \bfQ)\cup \bfQ) = f(\bfR \setminus \bfQ) \cup f(\bfQ)$. Since $f(\bfR \setminus \bfQ) \subseteq \bfQ$, it is countable. Likewise, since $\bfQ$ has a countable number of elements, $f(\bfQ)$ must get mapped to a countable subset of $\bfR\setminus \bfQ$ (otherwise $f$ would not be a function). Therefore $f(\bfQ)$ is countable, establishing $f(\bfR \setminus \bfQ) \cup f(\bfQ)$ as countable. Then $\card(\Image{(f)}) \leq \card({\bfN}) < \card(0,1)$, and Exercise 3 gives $\card(\Image{(f)}) < \card(0,1)$. Hence $\Image{(f)}$ cannot contain any interval.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Prove that the set
+            \begin{equation*}
+            \begin{split}
+                \bfQ[x] = \left\{\sum_{k=0}^n a_k x^k \mid n\in \bfN_0 , a_k \in \bfQ \right\},
+            \end{split}
+            \end{equation*}
+        consisting of all polynomials with rational coefficients, is countable.
+    \end{exercise}
+        \begin{proof}
+            Let $P_n(\bfQ) = \{a_0 + a_1 x + ... + a_n x^n \mid a_i \in \bfQ$\} be the set of all polynomials of degree $n$. Define $f:P_n(\bfQ) \rightarrow \bfQ^{n+1}$ by $a_0 + a_1x + ...+ a_nx^n \mapsto (a_0, a_1, ..., a_n)$. Let $f(a_0 + a_1x + ... a_nx^n) = f(b_0 + b_1x + ... b_nx^n)$. We have that $(a_0,a_1,...,a_n) = (b_0,b_1,...,b_n)$, hence $a_i = b_i$ for all $0 \leq i \leq n$. This gives $a_0 + a_1x + ... + a_n x^n = b_0 + b_1x + ... b_nx^n$, establishing that $f$ is injective. Therefore $P_n(\bfQ)$ is countable, and since $\bigcup_{k \in \bfN} P_k(\bfQ) = \bfQ[x]$, we can conclude $\bfQ[x]$ is countable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    \begin{exercise}
+        A real number $t$ is called \textbf{algebraic} if there is a nonzero polynomial $p$ with rational coefficients such that $p(t) = 0$. If $t \in \bfR$ is not algebraic, it is called \textbf{transcendental}. For example, $\sqrt{2}$ is algebraic, but $\pi$ is transcendental. Show that the set of algebraic numbers is countable, and conclude that there are uncountably many transcendental numbers.
+    \end{exercise}
+        \begin{proof}
+            The set containing all such algebraic numbers is denoted $\overline{\bfQ}$, referred to as the \textit{algebraic closure of $\bfQ$ in $\bfR$}. Let $A_n = \{t \mid p(t) = 0\hspace{4pt}\text{for some}\hspace{4pt} p(x) \in P_n(\bfQ)\}$. Since a polynomial of finite degree has a finite number of roots, $A_n$ is countable. Then $\bigcup_{k \in \bfN} A_k = \overline{\bfQ}$, establishing that the algebraic closure of $\bfQ$ over $\bfR$ is countable. Since $\overline{\bfQ} \subseteq \bfR$, Exercise 4 gives that the transcendental numbers $\bfR \setminus \overline{\bfQ}$ are uncountable.
+        \end{proof}
+\end{document}

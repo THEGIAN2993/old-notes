@@ -1,0 +1,206 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+
+
+\usepackage[math]{anttor}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{titlesec}
+    \titlespacing*{\chapter}
+    {0pt} % Left margin
+    {*1} % Space before the chapter number (increase this value for more space)
+    {0pt} % Space after the chapter number and before the title
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \fancyhead[R]{\footnotesize \rightmark}
+    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+    \linespread{1.25}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=6pt, spacebelow=6pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=1em
+        %qed=\qedsymbol
+        ]{mystyle}
+
+    \declaretheorem[
+        numberwithin=section,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{theorem}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{lemma}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{proposition}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{233,233,233},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{233,233,233}}
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{definition}
+
+    \declaretheorem[
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{exercise}
+\declaretheorem[numbered=unless unique,style=mystyle]{Note}
+    
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%DOCUMENT SETUP%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\setsecnumdepth{subsection}
+\definecolor{darkgreen}{rgb}{0, 0.5976, 0}
+\hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Real Analysis I Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
+
+
+%This adds a "front cover" page.
+%{\thispagestyle{empty}
+%\vspace*{\fill}
+%\begin{tabular}{l}
+%\begin{tabular}{l}
+%\includegraphics[scale=0.24]{oxy-logo.png}
+%\end{tabular} \\
+%\begin{tabular}{l}
+%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+%\end{tabular}
+%\end{tabular}
+\begin{document}
+\begin{center}
+    { \Large Math 395 \\[0.1in]Homework 4 \\[0.1in]
+    Due: 10/3/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    \end{center}
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,V)}$. Prove that the intersection of any collection of $T$-invariant subspaces of $V$ is $T$-invariant.
+    \end{exercise}
+        {\color{red} \begin{proof}
+            Let $\{W_i\}_{i \in I}$ be a collection of $T$-stable subspaces of $V$. Let $x \in T \left(\bigcap_{i \in I}W_i\right)$. Then $x \in T(W_i)$ for all $i \in I$. So $x \in W_i$ for all $i \in I$, establishing $x \in \bigcap_{i \in I}W_i$. Thus $T \left(\bigcap_{i \in I}W_i\right) \subseteq \bigcap_{i \in I}W_i$.
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,V)}$ and $v \in V$. Prove that if $T^j(v) \in W = \Span_F{(v_1,...,v_n)}$ and $W$ is $T$-invariant, then $T^{j+t}(v) \in W$ for all $t \geq 0$.
+    \end{exercise}
+        {\color{red} \begin{proof}
+            We prove this by induction on $t$. Let $t = 0$ be the base case, then by assumption $T^j(v) \in W$. Assume our hypothesis to be true up to $t - 1$. Then:
+                \begin{equation*}
+                \begin{split}
+                    T^t(T^j(v)) = T(T^{t-1}(T^j(v))).
+                \end{split}
+                \end{equation*}
+            Our induction hypothesis gives $T^{t-1}(T^j(v)) \in W$, and since $T(W) \subseteq W$, we have:
+                \begin{equation*}
+                \begin{split}
+                    T^{j+t}(v) = T(T^{t-1}(T^j(v))) \in W.
+                \end{split}
+                \end{equation*}
+        \end{proof}}
+\end{document}

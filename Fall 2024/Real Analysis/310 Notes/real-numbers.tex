@@ -1,0 +1,308 @@
+\chapter{The Real Numbers}\label{chapter:the real numbers}
+\vspace{12pt}
+
+\section{The Completion of $\bbQ$}
+    \begin{definition}
+        A \textui{Dedekind cut} is a nonempty subset $D$ of $\bfQ$ with the following properties:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $D \neq \bfQ$;
+                \item If $b \in D$, then $a \in D$ for all $a \in \bfQ$ with $a < b$;
+                \item D does not contain a largest element.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        The following examples are Dedekind cuts:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\{a \in \bfQ \mid a < 3\}$ (the set of all rational numbers less than 3).
+            \item $\{a \in \bfQ \mid a < 0 \hspace{4pt}\text{or}\hspace{4pt} a^2 < 2\}$ (the set of all rational numbers less than $\sqrt{2}$).
+            \item $\{a \in \bfQ \mid a < 1 + \frac{1}{1!} + \frac{1}{2!} + ... + \frac{1}{n!} \hspace{4pt}\text{for some}\hspace{4pt} n \in \bfZ^+\} $ (the set of all rational numbers less than $e$).
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        Let $C$ and $D$ be Dedekind cuts. 
+    \end{definition}
+    {\color{red} will probably not finish this}
+
+\section{Ordering of $\bbR$}
+    \begin{axiom}
+        $\bfR$ is an ordered field.
+    \end{axiom}
+
+    \begin{proposition}
+        $\bfQ^+ \subseteq \bfR^+$.
+    \end{proposition}
+        \begin{proof}
+            If $x \in \bfQ^+$, then $x = \frac{p}{q}$ with $p \in \bfZ^+$ and $q \in \bfN$. Write $p = \underbrace{1 + 1 + ... + 1}_{\mtext{$p$ times}}$, then $p \in \bfR^+$. Similarly, write $q = \underbrace{1 + 1 + ... + 1}_{\mtext{$q$ times}}$. Then $q \in \bfR^+$, which implies that $q^{-1} \in \bfR^+$. Hence $\frac{p}{q} \in \bfR^+$, establishing $\bfQ^+ \subseteq \bfR^+$.
+        \end{proof}
+
+    \begin{proposition}
+        The maps $Z \xhookrightarrow{j} \bfQ \xhookrightarrow{i} \bfR$ are order embeddings (defined in Lemma~\ref{lemma:order-embedding-z-q} and Theorem~\ref{thm:q-total-ordering}).
+    \end{proposition}
+        \begin{proof}
+            Suppose $i(q_1) \leq_Q i(g_2)$. Then $q_1 \leq_\bfR q_2$, hence $q_2 - q_1 \in \bfR^+$. Now If $q_2 - q_2 \in \bfQ^+$, then $q_2 - q_1 \in \bfR^+$. Hence $q_1 \leq_\bfR q_2$. {\color{red} wtf is this saying?}
+        \end{proof}
+
+    \begin{proposition}\label{prop:average}
+        Let $a,b \in \bfR$. If $a \leq b$ (or $a < b$), then $a \leq \frac{1}{2}(a+b) \leq b$ (or $a < \frac{1}{2}(a+b) < b$).
+    \end{proposition}
+        \begin{proof}
+            By the order axioms, $a \leq b$ implies $a + a \leq a + b$. So $2a \leq a + b$, which is equivalent to $a \leq \frac{1}{2}(a+b)$. Similarly, $a + b \leq b + b$, which similarly gives $\frac{1}{2}(a+b) \leq b$, establishing the proposition.
+        \end{proof}
+
+    \begin{corollary}\label{cor:after-average}
+        Given $b>0$, we have $0 < \frac{1}{2}b < b$.
+    \end{corollary}
+        \begin{proof}
+            From Proposition~\ref{prop:average}, setting $a = 0$ yields the desired result.
+        \end{proof}
+
+    \begin{proposition}
+        Suppose $a \in \bfR$. For all $\epsilon > 0$, if $0 \leq a \leq \epsilon$, then $a = 0$.
+    \end{proposition}
+        \begin{proof}
+            If $a = 0$ we are done. If $a > 0$, by Corollary~\ref{cor:after-average} $0 \leq \frac{1}{2}a \leq a$. Pick $\epsilon = \frac{1}{2}a$, then $a \leq \frac{1}{2}a$, a contradiction. Thus $a = 0$.
+        \end{proof}
+
+    \begin{definition}
+        Let $a_1,a_2,...,a_n > 0$. The \textui{arithmetic mean} is $\frac{1}{2} \left(\sum_{j=1}^n a_j\right)$. The \textui{geometric mean} is $\left(\prod_{j = 1}^n a_j\right)^{\frac{1}{n}}$.
+    \end{definition}
+
+    \begin{proposition}[AM-GM Inequality]\label{prop:am-gm}
+        For all $a_1, a_2, ... ,a_n \geq 0$, then $\left(\prod_{j = 1}^n a_j\right)^{\frac{1}{n}} \leq \frac{1}{2} \left(\sum_{j=1}^n a_j\right)$.
+    \end{proposition}
+        \begin{proof}
+            We will only prove the $n = 2$ case. Consider the fact that $(a_1  - a_2)^2 \geq 0$, and expanding gives $a_1^2 - 2a_1a_2 + a_2 ^2$. So $2a_1 a_2 \leq a_1^2 + a_2^2$. Adding $2a_1a_2$ to both sides yields $4a_1a_2 \leq a_1^2 + 2a_1a_2 + a_2^2$, which is equivalent to $4a_1a_2 \leq (a_1 + a_2)^2$. Then simplifying yields the desired result of $(a_1 a_2)^{\frac{1}{2}} \leq \frac{1}{2}(a_1 + a_2)$.
+        \end{proof}
+    
+    \begin{proposition}[Bernoulli's Inequality]\label{prop:bernoulli}
+        If $x > -1$, then $(1+x)^n \geq 1+nx$ for all $n \in \bfN_0$.
+    \end{proposition}
+        \begin{proof}
+            We proceed with induction with base case $n=0$ and $n=1$; these hold by inspection. Assume the inequality holds true for $n = k$. For $n=k+1$:
+                \begin{equation*}
+                \begin{split}
+                    (1+x)^{k+1}
+                    & = (1+x)^k(1+x) \\
+                    & \geq (1+nx)(1+x)\footnotemark \\
+                    & = 1 + (n+1)x + nx^2 \\
+                    & \geq 1 +(n+1)x.
+                \end{split}
+                \end{equation*}
+            \footnotetext{Because order is preserved under multiplication by positive elements.}
+        \end{proof}
+
+    \begin{proposition}[Cauchy-Schwartz Inequality]\label{prop:cauchy-schwartz}
+        Let $a_1,...,a_n$, $b_1,...,b_n \in \bfR^n$. Then:
+            \begin{equation*}
+            \begin{split}
+                \left|\sum_{j=1}^n a_jb_j\right| \leq \left(\sum_{j=1}^n a_j^2\right)^\frac{1}{2} \left(\sum_{j=1}^n b_j^2\right)^\frac{1}{2}.
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+        \begin{proof}
+            Consider the map $F:\bfR^n \rightarrow \bfR^n$ defined by $F(t) = \sum_{j=1}^n(a_j - b_j t)^2$. Note that $\sum_{j=1}^n(a_j - b_j t)^2 \geq 0$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j=1}^n(a_j - b_j t)^2
+                    & = \sum_{j=1}^n(a_j^2 - 2a_jb_j t + b_j^2t^2) \\
+                    & = \sum_{j=1}^n a_j^2 - \sum_{j=1}^n2a_jb_j t + \sum_{j=1}^n b_j^2 t^2.
+                \end{split}
+                \end{equation*}
+            This is a quadratic equation, and since $F(t) \geq 0 $, the discriminant will be less than or equal to 0. Hence:
+                \begin{equation*}
+                \begin{split}
+                    \Delta = \left(\sum_{j=1}^n2a_jb_j\right)^2 - 4 \left(\sum_{j=1}^n b_j^2\right) \left(\sum_{j=1}^na_j^2\right) \leq 0.
+                \end{split}
+                \end{equation*}
+            Simplifying gives:
+                \begin{equation*}
+                \begin{split}
+                    \left(\sum_{j=1}^n2a_jb_j\right)^2 \leq 4\left(\sum_{j=1}^n b_j^2\right) \left(\sum_{j=1}^na_j^2\right).
+                \end{split}
+                \end{equation*}
+            Pulling $2$ out from the left-hand side, dividing both sides by $4$, and then square-rooting gives the desired result.
+        \end{proof}
+    
+    \begin{question}
+        When do we have equality?
+    \end{question} 
+        \begin{answer}
+            When $\Delta = 0$, there exists a $t_0 \in \bfR$ with $F(t_0) = 0$. So $\sum_{j=1}^n(a_j - b_j t_0) = 0$ implies $a_j - b_j t_0 = 0$ for all $j$. Hence there is equality only when $a_j = b_j t_0$ for all $j$.
+        \end{answer}
+
+    \begin{proposition}[Triangle Inequality]\label{prop:triangle-ineq}
+        Let $a_1,...,a_n$, $b_1,...,b_n \in \bfR^n$. Then:
+            \begin{equation*}
+            \begin{split}
+                \left(\sum_{j=1}^n (a_j+b_j)^2 \right)^\frac{1}{2} \leq \left(\sum_{j=1}^n a_j^2\right)^\frac{1}{2} + \left(\sum_{j=1}^n b_j^2 \right)^\frac{1}{2}.
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j=1}^n(a_j + b_j)^2
+                    & = \sum_{j=1}^n(a_j^2 + 2a_jb_j + b_j^2) \\
+                    & = \sum_{j=1}^n a_j^2 + \sum_{j=1}^n2a_jb_j +\sum_{j=1}^nb_j^2 \\
+                    & \leq \sum_{j=1}^n a_j^2 + 2\left(\sum_{j=1}^na_j^2\right)^\frac{1}{2}\left(\sum_{j=1}^nb_j^2\right)^\frac{1}{2} + \sum_{j=1}^n b_j^2. \\
+                    & = \left(\left(\sum_{j=1}^na_j^2\right)^\frac{1}{2} + \left(\sum_{j=1}^n b_j^2\right)^\frac{1}{2}\right)^2.
+                \end{split}
+                \end{equation*}
+            Squaring both sides gives the desired result.
+        \end{proof}
+
+\section{Metrics and Norms on $\bbR^n$}
+    \begin{definition}
+        The \textui{absolute value} is a function $|\cdot|: \bfR \rightarrow \bfR$ defined by:
+            \begin{equation*}
+                |x|=
+            \begin{cases}
+                x, & x \in \bfR^+ \\
+                -x, & -x \in \bfR^+.
+            \end{cases}
+            \end{equation*}
+    \end{definition}
+
+    \begin{proposition}
+        Let $a,b \in \bfR$ and $\delta > 0$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item $|ab| = |a||b|$.
+            \item $|a|^2 = |a^2|$.
+            \item $|-a| = |a|$.
+            \item $|a| \in \bfR+$.
+            \item $-|a| \leq a \leq |a|$.
+            \item $|a| \leq \delta$ if and only if $-\delta \leq a \leq \delta$.
+            \item $|a+b| \leq |a| + |b|$.
+            \item $|a-b| \leq |a| + |b|$.
+            \item $\left||a| - |b|\right| \leq |a - b|$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            {\color{red} do later}
+        \end{proof}
+
+    \begin{lemma}
+        $\pm x \leq \delta$ if and only if $|x| \leq \delta$.
+    \end{lemma}
+        \begin{proof}
+            {\color{red} do lter}
+        \end{proof}
+
+    \begin{lemma}
+        $A \subseteq \bfR$ is bounded if and only if there exists an $r>0$ such that $|a| < r$ for all $a \in A$.
+    \end{lemma}
+        \begin{proof}
+            Suppose $A \subseteq \bfR$ is bounded. Then there exists an $l,u \in \bfR$ with $l \leq a \leq u$ for all $a \in A$. We have that:
+                \begin{equation*}
+                \begin{split}
+                    -|l| \leq l \leq a \leq u \leq |u|.
+                \end{split}
+                \end{equation*}
+            Let $r = \max{\left\{|l|, |u|\right\}} \geq 0$. So $-r \leq |l| \leq a \leq |u| \leq r$. Thus $|a| \leq r$.
+
+            Conversely, suppose there exists an $r > 0$ with $|a| \leq r$ for all $a \in A$. Then $-r \leq  a \leq r$ for all $a \in A$, hence $A$ is bounded.
+        \end{proof}
+    
+    \begin{definition}
+        A function $f:D \rightarrow \bfR$ is \textui{bounded} if $\Image{(f)} \subseteq \bfR$ is a bounded subset. Equivalently, there exists a $c >0$ such that $|f(x)| < c$ for all $x \in D$.
+    \end{definition}
+
+    \begin{example}
+        Consider the function $f:[3,7] \rightarrow \bfR$ defined by $f(x) = \frac{x^2 + 2x + 1}{x-1}$. Since $3 \leq x \leq 7$, observe that:
+            \begin{equation*}
+            \begin{split}
+                |x^2 + 2x + 1| &\leq |x^2| + |2x| + 1 \\
+                & = |x|^2 + 2|x| + 1 \quad{\text{\tiny Evaluate at 7}}\\
+                & = 64
+            \end{split}
+            \end{equation*}
+        Likewise, $3 \leq x \leq 7$ implies $|x-1| \geq 2$, hence $\frac{1}{|x-1|} \leq \frac{1}{2}$. Together, we have that:
+            \begin{equation*}
+            \begin{split}
+                \left|\frac{x^2+2x+1}{x-1}\right| \leq \frac{64}{2} = 32.
+            \end{split}
+            \end{equation*}
+    \end{example}
+    
+    \begin{definition}
+        Let $s,t \in \bfR$. We define the \textui{distance} between $s$ and $t$ as $d(s,t) = |s-t|$.
+    \end{definition}
+
+    \begin{definition}
+        Let $X$ be a nonempty set equipped with a map $d:X \times X \rightarrow \bfR^+$. We say $(X,d)$ is a \textui{semi-metric} if for all $x,y,z \in X$,
+            \begin{enumerate}[label = (\arabic*)]
+                \item $d(x,y) = d(y,x)$,
+                \item $d(x,z) \leq d(x,y) + d(y,z)$, and
+                \item $d(x,x) = 0$.
+            \end{enumerate}
+        We say $(X,d)$ is a \textui{metric space} if it satisfies the additional axiom:
+            \begin{enumerate}[label = (\arabic*)]
+                \addtocounter{enumi}{3}
+                \item $d(x,y) = 0$ implies $x = y$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\left(\bfR , d_1(s,t) = |s-t|\right)$ is a metric space.
+            \item $\left(\bfR^n, d_1(\vec{x},\vec{y}) = \sum_{j=1}^n |y_j - x_j|\right)$ is a metric space.
+            \item $\left(\bfR^n, d_\infty(\vec{x},\vec{y}) = \max_{j=1}^n \left\{|y_j - x_j\right\})\right)$ is a metric space.
+            \item $\left(\bfR^n, d_2(\vec{x},\vec{y}) = \left(\sum_{j=1}^n |y_j - x_j|^2\right)^\frac{1}{2}\right)$ is a metric space.
+            \item $\left(\bfR^n, d_p(\vec{x},\vec{y}) = \left(\sum_{j=1}^n |y_j - x_j|^p\right)^\frac{1}{p}\right)$ for some $p \in \bfQ$ is a metric space.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) We have $d(s,t) = |s-t| = |t-s| = d(t,s)$. Similarly, $d(s,r) = |s-r| = |s-t + t -r| \leq |s-t| + |t-r| = d(s,t) + d(t,r)$. Clearly $d(s,s) = |s-s| = 0$. Lastly, if $d(s,t) =0$, then $|s-t| = 0$, which is equivalent to $s-t = 0$; i.e., $s=t$. Thus $(\bfR,d_1)$ is a metric space.
+
+            (4) Axioms 2 and 3 of metric spaces are clearly satisfied. If $d_2(\vec{x},\vec{y}) = 0$ then $|y_j - x_j|^2 = 0$ for all $j$. Hence $y_j-x_j = 0$; i.e., $y_j = x_j$ for all $j$, establishing axiom 4. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    d_2(\vec{x},\vec{z})
+                    & = \left(\sum_{j=1}^n |z_j - x_j|^2\right)^\frac{1}{2}\\
+                    & = \left(\sum_{j=1}^n |z_j - y_j + y_j - x_j|^2\right)^\frac{1}{2} \\
+                    & = \left(\sum_{j=1}^n (z_j - y_j + y_j -  x_j)^2\right)^\frac{1}{2} \\
+                    & \leq \left(\sum_{j=1}^n (z_j - y_j)^2\right)^\frac{1}{2} + \left(\sum_{j=1}^n (y_j - x_j)^2\right)^\frac{1}{2} \\
+                    & = \left(\sum_{j=1}^n |z_j - y_j|^2\right)^\frac{1}{2} + \left(\sum_{j=1}^n |y_j - x_j|^2\right)^\frac{1}{2} \\
+                    & = d_2(\vec{x},\vec{y}) + d_2(\vec{y},\vec{z}).
+                \end{split}
+                \end{equation*}
+            Thus $(\bfR^n , d_2)$ is a metric space.
+        \end{proof}
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space.
+            \begin{enumerate}[label = (\arabic*)]
+                \item The \textui{open ball} centered at $x_0$ with radius $\delta > 0$ is $U(x_0,\delta) = \{y \in X \mid d(y,x_0) < \delta\}$.
+                \item The \textui{closed ball} centered at $x_0$ with radius $\delta > 0$ is $B(x_0,\delta) = \{y \in X \mid d(y,x_0) \leq \delta\}$.
+                \item A subset $A\subseteq X$ is called \textui{open} if for all $a \in A$, there exists a $\delta >0$ such that $U(a,\delta) \subseteq A$.
+                \item A subset $C \subseteq X$ is called \textui{closed} if $\compl(C) = X \setminus C$ is open.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Consider $X = \bfR$ and $d(s,t) = |s-t|$. Observe that:
+            \begin{equation*}
+            \begin{split}
+                U(t,\delta) 
+                & = \{s \in \bfR \mid d(s,t) < \delta\} \\
+                & = \{s \in \bfR \mid |s-t| < \delta\} \\
+                & = \{s \in \bfR \mid -\delta <s-t < \delta\} \\
+                & = \{s \in \bfR \mid -\delta + t <s < \delta + t\}\\
+                & = (t - \delta , t + \delta).
+            \end{split}
+            \end{equation*}
+        It follows similarly that $B(t, \delta) = [t- \delta,t+\delta]$.
+    \end{example}
+
+    \begin{proposition}
+        If $I$ is an open interval, then $I$ is open.
+    \end{proposition}
+        \begin{proof}
+            Let $I = (a,b)$. Let $x \in I$. Let $\delta_x = \min{\left\{x-a,b-x\right\}} > 0$. Now let $t \in V_\delta(x)$. Then $t \in (x - \delta, x+\delta)$. Case 1: $\min{\left\{x-a,b-x\right\}} = x-a$. Then $x-(x-a) < t < x + x-a$,
+                {\color{red} idk how to do this}
+        \end{proof}
+    

@@ -1,0 +1,11 @@
+\contentsline {chapter}{Contents}{i}{section*.1}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Categories and Functors}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Universal Properties}{5}{section.1.2}%
+\contentsline {section}{\numberline {}Exercises}{6}{Item.35}%
+\contentsline {chapter}{\chapternumberline {2}Module Theory}{1}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Basic Definitions and Examples}{1}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Quotient Modules and Module Homomorphisms}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Generation of Modules, Direct Sums, and Free Modules}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tensor Products of Modules}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Exact Sequences}{9}{section.2.5}%

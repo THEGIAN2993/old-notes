@@ -1,0 +1,564 @@
+\chapter{Orderings and Functions}\label{chapter:orderings-and-functions}
+
+\pagenumbering{arabic}
+\vspace{12pt}
+
+\section{Basic Notation}
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item The \textui{natural numbers} are defined as $\bfN = \{1,2,3,...\}$,
+            \item The \textui{positive integers} are defined as $\bfN_0 = \bfZ^{+} = \{0, 1, 2, 3, ...\}$,
+            \item The \textui{integers} are defined as $\bfZ = \{0, \pm 1, \pm 2, \pm 3,... \}$,
+            \item The \textui{rational numbers} are defined as $\bfQ = \{\frac{a}{b} \mid a,b \in \bfZ, b \neq 0\}$,
+            \item The \textui{real numbers} are "defined" (we will get more into this later) as the set $(-\infty, \infty)$,
+            \item The \textui{complex numbers} are defined as $\bfC = \{a + bi \mid a,b \in \bfR, i^2 = -1\}$.
+        \end{enumerate}
+    \end{definition}
+    \begin{example}
+        Note that $\sqrt{2}, \pi, e \not\in \bfQ$, as they cannot be expressed as fractions.
+    \end{example}
+
+    \begin{definition}
+        Let $A$ and $B$ be sets. The \textui{cartesian product} is defined as $A \times B = \{(a,b) \mid a \in A, b \in B\}$.
+    \end{definition}
+
+    \begin{definition}
+        A \textui{relation} from $A$ to $B$ is a subset $R \subseteq A \times B$. Typically, when one says "a relation on $A$" that means a relation from $A$ to $A$; i.e., $R \subseteq A \times A$.
+    \end{definition}
+
+    \begin{definition}
+        Let $A$ be a set and $R$ a relation on $A$. Then $R$ is:
+            \begin{enumerate}[label = (\arabic*)]
+                \item \textui{reflexive} if $(a,a) \in R$ for all $a \in A$,
+                \item \textui{transitive} if $(a,b),(b,c) \in R$ implies $(a,c) \in R$,
+                \item \textui{symmetric} if $(a,b) \in R$ implies $(b,a) \in R$, and
+                \item \textui{antisymmetric} if $(a,b),(b,a) \in R$ implies $a = b$.
+            \end{enumerate}
+    \end{definition}
+    
+\section{Orderings}
+    \begin{definition}
+        Let $A$ be a set. An \textui{ordering} of $A$ is a relation $R$ on $A$ that is reflexive, transitive, and antisymmetric. If this is the case, we write $(a,b) \in R$ as $a \leq_R b$. If $A$ is an ordered set we write it as the ordered pair $(A,\leq_R)$ (or just $A$ if the ordering is obvious by context).
+    \end{definition}
+
+    \begin{example}\label{example:orderings}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $m,n \in \bfZ$. The \textui{algebraic ordering} $\leq_a$ is defined as follows: $m \leq_a n$ if and only if there exists an element $k \in \bfN_0$ with $m + k = n$.
+            \item The set of natural numbers $\bfN$ equipped with the relation of divisibility form an ordering. Let $m,n \in \bfN$. Then $m \leq_d n$ if and only if $m \mid n$.
+            \item Let $S$ be any set. The subsets of $S$ (i.e., elements of its power set) equipped with the relation of inclusion form an ordering. Let $A,B \in \cP(S)$. Then $A \leq_{\cP(S)} B$ if and only if $A \subseteq B$.
+            \item The set of rational numbers $\bfQ$ form an algebraic ordering as follows: if $\frac{a}{b},\frac{c}{d} \in \bfQ$, then $\frac{a}{b} \leq_a \frac{c}{d}$ if and only if $ad \leq_a bc$ (in $\bfZ$).
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        An ordered set $(A, \leq_R)$ is \textui{total} (or \textui{linear}) if for all $a,b \in A$ we have that $a \leq_R b$ or $b \leq_R a$.
+    \end{definition}
+
+    \begin{example}
+        The ordered sets $(\bfZ,\leq_a)$ and $(\bfQ,\leq_a)$ are total orderings, whereas $(\bfN,\leq_d)$ and $(\cP(S),\leq_{\cP(S)})$ are not total orderings.
+    \end{example}
+
+    \begin{definition}
+        Let $(X,\leq)$ be an ordered set. Let $A \subseteq X$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item $A$ is called \textui{bounded above} if there exists an element $u \in X$ with $a \leq u$ for all $a \in A$. Such a $u$ (not necessarily unique) is called an \textui{upperbound} for $A$.
+            \item $A$ is called \textui{bounded below} if there exists an element $v \in X$ with $v \leq a$ for all $a \in A$. Such a $v$ (not necessarily unique) is called a \textui{lowerbound} for $A$.
+            \item If $A$ admits an upperbound $u$ with $u \in A$, then $u$ is called \textui{the greatest element of $A$}.
+            \item If $A$ admits a lowerbound $v$ with $v \in A$, then $v$ is called \textui{the least element of $A$}.
+            \item Let $A$ be bounded above. The \textui{set of upperbounds of $A$} is defined as \newline $\cU_A = \{u \in X \mid \text{$u$ is an upperbound of $A$}\}$. If $l$ is the least element of $\cU_A$, we write $l = \sup{(A)}$ and call it \textui{the supremum of $A$}.
+            \item Let $A$ be bounded below. The \textui{set of lowerbounds of $A$} is defined as \newline $\mathscr{L}_A = \{v \in X \mid \text{$v$ is a lowerbound of $A$}\}$. If $g$ is the greatest element of $\mathscr{L}_A$, we write $g = \inf{(A)}$ and call it \textui{the infimum of $A$}.
+            \item A \textui{maximal element of $A$} is an element $m \in A$ such that if $a \geq m$, then $a = m$ (not necessarily unique).
+            \item A \textui{minimal element of $A$} is an element $n \in A$ such that if $a \leq n$, then $a = n$ (not necessarily unique).
+            \item If $(A,\leq)$ is a total ordering, then $A$ is called a \textui{chain}.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $(X , \leq)$ be an ordered set and $A \subseteq X$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $A$ admits a greatest element, then it is unique, %i made a small change 
+            \item If $A$ admits a least element, then it is unique,
+            \item If $A$ admits a least upper bound, then it is unique,
+            \item If $A$ admits a greatest lower bound, then it is unique.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            Suppose $u,u'$ are greatest elements of $A$, then $u,u' \in A$. Hence $u \leq u'$ and $u' \leq u$. By antisymmetry, $u = u'$, meaning the greatest element is unique. The proof for least elements being unique is identical, which establishes (1) and (2). 
+
+            Note that $\cU_A  \subseteq X$. By definition the least element of $\cU_A$ is defined to be the supremum of $A$, and since least elements are unique the supremum of $A$ must be unique.  Similarly, $\mathscr{L}_A \subseteq X$. By definition the greatest element of $\mathscr{L}_A$ is defined to be the infimum of $A$, and since greatest elements are unique the infimum of $A$ must be unique. This establishes (3) and (4).
+        \end{proof}
+
+    \begin{lemma}[Zorn's Lemma]\label{lemma:zorns}
+        Let $X$ be an ordered set with the property that every chain has an upperbound. Then $X$ contains a maximal element.
+    \end{lemma}
+
+    \begin{example}
+        Considered the ordered set $(\bfN,\leq_d)$ and the subset $A = \{4,7,12,28,35\}$.
+            \begin{itemize}
+                \item $A$ is bounded above with $4\times7\times12\times28\times35$ as an upperbound.
+                \item The supremum of $A$ is $\lcm{(4,7,12,28,35)}$. 
+                \item There does not exist a greatest element.
+                \item $12,28$, and $35$ are maximal elements (no other element in $A$ divides them).
+            \end{itemize}
+    \end{example}
+
+    \begin{definition}
+        Let $(X,\leq)$ be an ordered set and $A \subseteq X$. If $A$ is bounded above and below, then we say $A$ is \textui{bounded}. 
+    \end{definition}
+
+    \begin{definition}
+        Let $(X,\leq)$ be an ordered set. Then $(X,\leq)$ is \textui{complete} if, for every bounded set $A \subseteq X$, $\sup{(A)}$ and $\inf{(A)}$ exist.
+    \end{definition}
+
+\section{Functions}\label{sec:functions}
+    \begin{definition}
+        Let $X$ and $Y$ be sets. A \textui{function} from $X$ to $Y$ is a relation $f \subseteq X \times Y$ such that for all $x \in X$, there exists a unique $y_x \in Y$ with $(x,y_x) \in f$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item The set $X$ is the \textui{domain} of $f$.
+                \item The set $Y$ is the \textui{codomain} of $f$.
+                \item The \textui{image} of $f$ is defined as $f(X) = \{f(x) \mid x \in X \} \subseteq Y$ (also sometimes denoted $\Image{(f)}$).
+                \item The \textui{preimage} of $f$ is defined as $f^{-1}(Y) = \{x \in X \mid f(x) \in Y\} \subseteq X$.
+                \item The \textui{graph} of $f$ is defined as $\Graph{(f)} = \{(x,f(x)) \mid x \in X \} \subseteq X \times Y$.
+            \end{enumerate}
+        If $f$ is a function, we denote it by $f:X \rightarrow Y$ or $X \xrightarrow{f} Y$.
+    \end{definition}
+
+    \begin{example}\label{example:examples-of-functions}
+        Let $X$ be a set.
+        \begin{enumerate}[label = (\arabic*)]
+            \item The \textit{identity map} $\id_X:X \rightarrow X$ is defined by $\id_X(x) = x$.
+            \item If $X \subseteq Y$, the \textit{inclusion map} $\iota: X \rightarrow Y$ is defined by $\iota(x) = x$.
+            \item If $A \subseteq X$ is a set, the \textit{characteristic function} (or \textit{step function}) $\mathbf{1}_A : X \rightarrow \bfR$  is defined by
+                \begin{equation*}
+                    \mathbf{1}_A(x) = 
+                \begin{cases}
+                    1, & x \in A \\
+                    0, & x \not\in A.
+                \end{cases}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        Given $f,g : X \rightarrow \bfR$ and $\alpha \in \bfR$, the \textui{pointwise operations} on $f$ and $g$ are:
+            \begin{itemize}
+                \item $(f\pm g)(x) = f(x) \pm g(x)$,
+                \item $(\alpha f)(x) = \alpha f(x)$,
+                \item $(fg)(x) = f(x)g(x)$,
+                \item $(f/g)(x) = f(x)/g(x)$.
+            \end{itemize}
+    \end{definition}
+
+    \begin{definition}
+        Let $f:X \rightarrow Y$ and $g: Y \rightarrow Z$ be maps between sets. The \textui{composition} of $f$ and $g$ is denoted $g \circ f :X \rightarrow Z$.
+            \begin{center}
+                \begin{tikzcd}
+                    X \arrow[r, "f"] \arrow[rr, "g \circ f"', bend right] & Y \arrow[r, "g"] & Z
+                    \end{tikzcd}
+            \end{center}
+    \end{definition}
+
+    \begin{definition}
+        Let $f:X \rightarrow Y$ be a map between sets.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is \textui{left-invertible} if there exists a map $g:Y \rightarrow X$ with $g \circ f = \id_X$.
+                \item $f$ is \textui{right-invertible} if there exists a map $h:Y \rightarrow X$ with $f \circ h = \id_Y$.
+                \item $f$ is \textui{invertible} if there exists a map $k:Y \rightarrow X$ with $k\circ f = \id_X$ and $f \circ k = \id_Y$.
+            \end{enumerate}
+    \end{definition}
+    
+    \begin{example}
+        The \textit{shift function} is a map $s: \bfN \rightarrow \bfN$ defined by $s(n) = n+1$. Note that this function is left-invertible: define $g: \bfN \rightarrow \bfN$  by
+            \begin{equation*}
+                g(n) = 
+            \begin{cases}
+                n-1, & n\geq 2 \\
+                n_0, & n = 1,
+            \end{cases}
+            \end{equation*}
+        where $n_0$ is an arbitrary natural number, then $g \circ s = \id_\bfN$. 
+
+        Suppose that $s$ has a right inverse, that is, there exists a function $h:\bfN \rightarrow \bfN$ such that $s \circ h = \id_\bfN$. Observe that:
+            \begin{equation*}
+            \begin{split}
+                (s\circ h)(1) = s(h(1)) = h(1) + 1 = 1.
+            \end{split}
+            \end{equation*}
+        It must be the case that $h(1) = 0$, which is a contradiction. Hence $s$ is not right-invertible.
+    \end{example}
+
+    \begin{example}
+        The function $g$ defined above is right invertible, but not left invertible. 
+    \end{example}
+
+    \begin{proposition}
+        Let $f:X \rightarrow Y$ be a map between sets. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is invertible,
+                \item $f$ is right-invertible and left-invertible.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            Clearly (1) implies (2). Assume $f$ to be left and right-invertible. Then there exists maps $h,g:Y \rightarrow X$ with  $g \circ f = \id_X$ and $f \circ h = \id_Y$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    h &= \id_X \circ h\\
+                     &= (g \circ f) \circ h \\
+                      &= g \circ (f \circ h) \\
+                       &= g \circ \id_Y \\
+                       &= g,
+                \end{split}
+                \end{equation*}
+            establishing the proposition.
+        \end{proof}
+    
+    \begin{definition}
+        Let $f:X \rightarrow Y$ be a map between sets.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is \textui{injective} if $f(x_1) = f(x_2)$ implies $x_1 = x_2$,
+                \item $f$ is \textui{surjective} if $\Image{(f)} = Y$, and 
+                \item $f$ is \textui{bijective} if it is injective and surjective.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $f:X \rightarrow Y$ be a map between sets.
+            \begin{enumerate}
+                \item $f$ is injective if and only if $f$ is left-invertible.
+                \item $f$ is surjective if and only if $f$ is right-invertible.
+                \item $f$ is bijective if and only if $f$ is invertible. 
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) {\color{red} Do the forward direction yourself!} Now assume $f: X \rightarrow Y$ is injective. Define $g:Y \rightarrow X$ by
+                \begin{equation*}
+                    g(y) = 
+                \begin{cases}
+                    x_0, & y \not\in \Image{(f)} \\
+                    x_y, & y \in \Image{(f)},
+                \end{cases}
+                \end{equation*}
+            where $x_y$ is the unique element in $x$ mapping to $y$; i.e., $f(x_y) = y$. By our construction, $(g \circ f)(x) = x$ for all $x \in X$. 
+
+            (2) {\color{red} Do the forward direction yourself!} Now assume $f:X \rightarrow Y$ is onto. Note that the preimage of $f$ is nonempty, so we can define $h:Y \rightarrow X$ by $h(y) = x_y$, where $x_y \in f^{-1}(X)$. By our construction $(f \circ h)(y) = f(x_y) = y$ for all $y \in Y$.
+
+            (3) {\color{red} Do this yourself its easy!}
+        \end{proof}
+
+        \begin{corollary}
+            Let $A,B$ be sets. There exists an injection $A \hookrightarrow B$ if and only if there exists a surjection $B \twoheadrightarrow A$.
+        \end{corollary}
+            \begin{proof}
+                If $f:A \rightarrow B$ is injective, then $f$ is left invertible, that is, there exists a function $g:B \rightarrow A$ with $g \circ f = \id_A$. But this means $g$ is right invertible, so $g$ is onto. The other direction follows identically.
+            \end{proof}
+    
+    \section{Cardinality}
+        \begin{definition}
+            Let $A,B$ be sets. Then $\card(A) = \card(B)$ if there exists a bijection $A \hooktwoheadrightarrow B$.
+        \end{definition}
+
+        \begin{example}\label{example:examples-of-cardiality}
+            \phantom{a}
+            \begin{enumerate}[label = (\arabic*)]
+                \item Define $f:\bfN_0 \rightarrow \bfN$ by $f(n)= n+1$. This is a bijection, hence $\card(\bfN_0) = \card(\bfN)$.
+                \item Let $[a,b]$ and $[c,d]$ be intervals with $a<b$ and $c<d$. Define $f:[a,b] \rightarrow [c,d]$ by $f(x) = (\frac{d-c}{b-a})(x-a)+c$. 
+                    \begin{center}
+                        \begin{tikzpicture}
+                            \begin{axis}[
+                                axis lines = middle,
+                                xmin=-1, xmax=10, % x-axis range
+                                ymin=-1, ymax=10, % y-axis range
+                                xtick={3, 7}, % positions of the ticks
+                                xticklabels={a, b}, % labels for the x-axis ticks
+                                ytick={4, 6}, % positions of the ticks
+                                yticklabels={c, d}, % labels for the y-axis ticks
+                            ]
+                            % Plot the line from (a, c) to (b, d)
+                            \addplot [
+                                color=blue,
+                                mark=*, % open circle marker
+                                mark options={fill=blue}, % set marker style
+                            ]
+                            coordinates {(3, 4) (7, 6)};
+                            \addlegendentry{$f(x)$}
+                            
+                            \end{axis}
+                        \end{tikzpicture}
+                    \end{center}
+                This is a bijection, hence $\card([a,b]) = \card([c,d])$. The result is the same had the intervals been open.
+                \item Recall that $\tan:(-\frac{\pi}{2},\frac{\pi}{2}) \rightarrow \bfR$ is a bijection. Consider the maps $(0,1) \xhooktwoheadrightarrow{g} (-\frac{\pi}{2},\frac{\pi}{2}) \xhooktwoheadrightarrow{\tan} \bfR$. Since $g$ and $\tan$ are bijective, $\tan \circ g$ is bijective, hence $\card((0,1)) = \card(\bfR)$.
+            \end{enumerate}
+        \end{example}
+
+        \begin{definition}
+            A set $A$ is called \textui{finite} if there exists an $N \in \bfN$ such that $\card(A) = \card(\{1,...,N\})$. If not, then $A$ is called \textui{infinite}.
+        \end{definition}
+
+        \begin{proposition}
+            Given $m,n \in \bfN$, $m \neq n$, then $\card(\{1,...,m\}) \neq \card(\{1,...,n\})$.
+        \end{proposition}
+            \begin{proof}
+                Without loss of generality, let $m > n$. By way of contradiction, if there exists a bijection $f: \{1,...,m\} \rightarrow \{1,...,n\}$, then there exists $i,j \in \{1,...,m\}$ with $i \neq j$ and $f(i) = f(j)$. This is a contradiction ($f$ is not injective).
+            \end{proof}
+
+        \begin{proposition}
+            $\bfN$ is infinite.
+        \end{proposition}
+            \begin{proof}
+                Suppose towards contradiction there exists an $N \in \bfN$ and a bijection $f:\bfN \rightarrow \{1,...,N\}$. Note that the inclusion map $\iota:\{1,...,N,N+1\} \rightarrow \bfN$ is injective. Now consider the maps $\{1,...,N,N+1\} \xrightarrow{\iota} \bfN \xrightarrow{f} \{1,...,N\}$. Then $f \circ \iota : \{1,....,N,N+1\} \rightarrow \{1,...,N\}$. But by the previous example this cannot be true, thus $\bfN$ is infinite.
+            \end{proof}
+
+        \begin{exercise}\label{exercise:infinite-implies-injection}
+            If $A$ is infinite, there exists an injection $\bfN \hookrightarrow A$.
+        \end{exercise}
+            \begin{proof}
+                Let $\pi:\bfN \rightarrow A$ be a map. Let $a_1 \in A$. Define $\pi(1) = a_1$. Since $A$ is infinite, $A - \{a_1\}$ is also infinite. Pick $a_2 \in A$ and let $\pi(2) = a_2$. Inductively, we have that an injection $\bfN \hookrightarrow A$.
+            \end{proof}
+
+        \begin{example}\label{example:more-cardinality-examples}
+            \phantom{a}
+            \begin{enumerate}[label = (\arabic*)]
+                \item Define $k:\bfZ \rightarrow \bfN$ by $k(n) = (-1)^{n-1} \left\lfloor \frac{n}{2} \right \rfloor$. This is a bijection, hence $\card(\bfZ) = \card(\bfN)$.
+                \item Let $X$ be any set. Recall that the \textit{power set of $X$} is defined as $\mathcal{P}(X) = \{A \mid A \subseteq X\}$. Define $2^x = \{f \mid f:X \rightarrow \{0,1\}\}$. Let $A \subseteq X$. Define $\varphi:\mathcal{P}(X) \rightarrow 2^X$ by $\varphi(A) = \mathbf{1}_A$, where $\mathbf{1}_A$ is the \textit{characteristc function} defined in Example~\ref{example:examples-of-functions}. Note that $\varphi(A) = \varphi(B)$ if and only if $\mathbf{1}_A = \mathbf{1}_B$. Recall that functions are equal if and only if $\mathbf{1}_A (x) = \mathbf{1}_B (x)$ for all $x \in X$. $x \in A$ if and only if $\mathbf{1}_A (x) = 1$ if and only if $\mathbf{1}_B(x) = 1$, giving $x \in B$. Thus $A = B$ which means $\varphi$ is injective. Now let $f \in 2^X$. Let $A = \{x \in X \mid f(x) =1\}$. Then $\mathbf{1}_A = f$. Thus $\varphi$ is bijective and so $\card(\mathcal{P}(X)) = \card(2^X)$.
+            \end{enumerate}
+        \end{example}
+
+    \begin{exercise}\label{exercise:power-set-2n}
+        Show that $\card(\mathcal{P}(\{1,...,N\})) = 2^N$.
+    \end{exercise}
+        \begin{proof}
+            {\color{red} do this}
+        \end{proof}
+
+    \begin{theorem}[Cantor's Diagonal Argument]\label{thm:cantors-diagonal} $\card(\bfN) < \card((0,1))$.
+    \end{theorem}
+        \begin{proof}
+            Recall that every $\sigma \in (0,1)$ has a decimal expansion $\sigma = 0.\sigma_1 \sigma_2 ... = \sum_{k = 1}^\infty \frac{\sigma_k}{10^k}$, where $\sigma_j \in \{0,1,2,...,9\}$ which does not terminate in $9$'s. By way of contradiction, suppose there exists a surjection $r:\bfN \rightarrow (0,1)$ defined by $r(n) = 0.\sigma_1(n) \sigma_2(n) \sigma_3(n)...$, where $\sigma_j(n) \in \{0,1,2,...,9\}$ is the $j^\text{th}$ digit in the decimal expansion.
+
+            Consider the map $\tau: \bfN \rightarrow \{0,1,...,9\}$ defined by:
+                \begin{equation*}
+                    \tau(n)=
+                \begin{cases}
+                    3,&\sigma_n(n) = 2\\
+                    2,&\sigma_n(n)=3,
+                \end{cases}
+                \end{equation*}
+            
+            and let $t = 0.\tau(1)\tau(2)\tau(3)...$\hspace{5pt}Observe the following:
+                \begin{equation*}
+                \begin{split}
+                    r(1) &= 0.\sigma_1(1) \sigma_2 (1) \sigma_3 (1) \sigma_4(1)... \\
+                    r(2) &= 0.\sigma_1(2) \sigma_2 (2) \sigma_3 (2) \sigma_4 (2)... \\
+                    r(3) &= 0.\sigma_1(3) \sigma_2 (3) \sigma_3 (3) \sigma_4 (3)... \\
+                    r(4) &= 0.\sigma_1(4) \sigma_2 (4) \sigma_3 (4) \sigma_4 (4)... \\
+                    &\vdots \\
+                    r(n) &= 0.\sigma_1(n) \sigma_2 (n) \sigma_3 (n) \sigma_4 (n)\hspace{4pt}... \hspace{4pt}\sigma_n(n).
+                \end{split}
+                \end{equation*}
+            Since $r$ is surjective, there is an $m \in \bfN$ with $r(m) = t$. It follows that:
+                \begin{equation*}
+                \begin{split}
+                    r(m) &= 0.\sigma_1(m)\sigma_2(m)\sigma_3(m)...\sigma_m(m)... \\
+                    & = 0.\tau(1)\tau(2)\tau(3)...\tau(m)...
+                \end{split}
+                \end{equation*}
+            which implies that $\sigma_m(m) = \tau(m)$. But recall how we defined $\tau(n)$ \textemdash if $\sigma_m(m) = 2$, then $\tau(2) = 3$ and if $\sigma_m(m) \neq 2$, then $\tau(2) = 2$. This is a contradiction, hence there does not exist a surjection $\bfN \xrightarrow{r} (0,1)$.
+        \end{proof}
+    
+    \begin{corollary}
+        $\card(\bfN) \neq \card(\bfR)$
+    \end{corollary}
+        \begin{proof}
+            It follows from Example~\ref{example:examples-of-cardiality} that $\card(\bfN) < \card((0,1)) = \card(\bfR)$.
+        \end{proof}
+
+    \begin{definition}
+        Let $A$ and $B$ be sets.
+        \begin{enumerate}[label = (\arabic*)]
+            \item We write $\card(A) \leq \card(B)$ if there exists an injection $A \hookrightarrow B$.
+            \item We write $\card(A) < \card(B)$ if $\card(A) \leq \card(B)$ and $\card(A) \neq \card(B)$
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $A \subseteq B$, then the inclusion map $\iota: A \rightarrow B$ gives $\card(A) \leq \card(B)$.
+            \item If $m > n$, then $\card\{1,...,n\} < \card\{1,...,m\}$ 
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}\label{prop:power-set-bigger}
+        Let $A$ be a set. Then $\card(A) < \card(\cP(A))$.
+    \end{proposition}
+        \begin{proof}
+            Define $f:A \rightarrow \cP(A)$ by $a \mapsto \{a\}$. This is clearly an injective map. Now suppose towards contradiction that there exists a surjection $g:A \rightarrow \cP(A)$ defined by $a \mapsto g(a)$. Then $g(a) \subseteq A$ (by the definition of a power set).
+
+            Let $S = \{a \in A \mid a \not\in g(a) \}$. Then $S \subseteq A$. Since $g$ is onto, there exists an element $x \in A$ with $g(x) = S$. Case 1: $x \in S$. This implies that $x \not\in g(x)$. But $g(x) = S$, so $x \not\in S$, a contradiction. Case 2: $x \not\in S$. This implies that $x \not\in g(x)$. But by definition this means $x \in S$, a contradiction. Since we have exhausted all the necessary cases, it must be that there does not exist a surjection from $A \rightarrow \cP(A)$. Hence $\card(A) < \card(\cP(A))$.
+        \end{proof}
+    
+    \begin{lemma}
+        Let $A$ and $B$ be sets. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\card(A) \leq \card(B)$;
+                \item there exists an injection $A \hookrightarrow B$;
+                \item there exists a surjection $B \twoheadrightarrow A$.
+            \end{enumerate}
+    \end{lemma}
+
+    \begin{example}\label{example:n-z-q}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Define $\bfN \times \bfZ \rightarrow \bfQ$ by $(n,m) \mapsto \frac{m}{n}$. This is surjective, so $\card(\bfQ) \leq \card(\bfN \times \bfZ)$.
+            \item Define $\bfN \times \bfN \rightarrow \bfN$ by $(m,n) \mapsto 2^m \cdot 3^n$. Then $g$ is injective by the fundamental theorem of arithmetic. So $\card(\bfN \times \bfN) \leq \card(\bfN)$.
+            \item Recall from Example~\ref{example:more-cardinality-examples} that $k: \bfN \rightarrow \bfZ$ defined by $k(n) = (-1)^{n-1} \left\lfloor \frac{n}{2} \right \rfloor$ is a bijection. Define $K: \bfZ \times \bfN \rightarrow \bfN \times \bfN$ by $(m,n) \mapsto (k^{-1}(m),n)$. This is a bijection, so $\card(\bfZ \times \bfN) = \card(\bfN \times \bfN)$.
+            \item From the previous examples, we've established that:
+                \begin{equation*}
+                \begin{split}
+                    \card(\bfN) \leq \card(\bfQ) \leq \card(\bfZ \times \bfN) = \card(\bfN \times \bfN) \leq \card(\bfN)
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{theorem}\label{thm:cardinal-orderings}
+        Let $\fN$ denote the class of cardinals. The pair $(\mathfrak{N},\leq)$ forms a total ordering \textemdash where $\leq$ is defined by $\card(A) \leq \card(B)$ if and only if $A \hookrightarrow B$. In particular, if $A,B,C$ are sets with $\card(A),\card(B),\card(C) \in \obj(\fN)$, then we have the following:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\card(A) \leq \card(A)$ (reflexive).
+            \item If $\card(A) \leq \card(B) \leq \card(C)$, then $\card(A) \leq \card(C)$ (transitive).
+            \item If $\card(A) \leq \card(B)$ and $\card(B) \leq \card(A)$, then $\card(A) = \card(B)$ (antisymmetric).
+            \item  Either $\card(A) \leq \card(B)$ or $\card(B) \leq \card(A)$ (total).
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (1) and (2) follow by simply applying definitions. Note that any set bijects into itself, hence $A \hooktwoheadrightarrow A$ implies $A \hookrightarrow A$, establishing $\card(A) \leq \card(A)$. Similarly, if there are bijections $A\hooktwoheadrightarrow B \hooktwoheadrightarrow C$, then clearly there is a bijection $A \hooktwoheadrightarrow C$. Hence $\card(A) = \card(C)$.
+
+            (3) (Cantor-Shr\"{o}der-Bernstein Theorem) We have injections $A \xhookrightarrow{f}$ and $B \xhookrightarrow{g} A$. Let:
+                \begin{equation*}
+                \begin{split}
+                    A_0 &= \Image{(g)}^\complement \\
+                    A_1 &= (g \circ f)(A_0) \\
+                    A_2 & = (g \circ f)(A_1) \\
+                    &\vdots \\
+                    A_n & = (g \circ f)(A_{n-1}).
+                \end{split}
+                \end{equation*}
+            Note that $A_1 \cap A_0 = \emptyset$ because $A_1 \subseteq \Image{(g)}$ and $A_0 = \Image{(g)}^\complement$. We similarly have that $A_2 \cap A_0 = \emptyset$. Claim: $A_1 \cap A_2$. {\color{red} finish this}
+            
+            (4) Let $A \rightarrow B$ be a map. Let $\cF = \{(D,f) \mid D \subseteq A, f:D \hookrightarrow B, \hspace{4pt}\text{$f$ is injective}\}$. Note that $\cF \neq \emptyset$ because $(\emptyset, k) \in \cF$ for some map $k$. Define an ordering on $\cF$ as follows: $(D,f) \leq_\cF (E,g)$ if and only if $D \subseteq E$ and $\restr{g}{D} = f$. Then $\cF$ admits an upperbound of $A$. By \nameref{lemma:zorns}, there exists a maximal element $(M,h) \in \cF$. Suppose towards contradiction there are elements $a \in A$, $a \not\in M$ and $b \in B$, $b \not\in h(M)$. Consider the map:
+                \begin{equation*}
+                    h': M \cup \{a\} \rightarrow B \mtext{defined by} \begin{cases}
+                        h'(M) = h(M) \\
+                        h'(a) = b
+                    \end{cases}.
+                \end{equation*}
+            This set is clearly injective, and furthermore we have that $(M,h) \leq (M \cup \{a\},h')$. This is a contradiction, hence $M = A$ or $h(M) = B$. If $M=A$, then the injection $A \xhookrightarrow{h} B$ implies $\card(A) \leq \card(B)$. If $h(M) = B$, then the map $B \hookrightarrow M \xhookrightarrow{\iota} A$ implies $\card(B) \leq \card(A)$. 
+        \end{proof}
+
+    \begin{corollary}
+        $\card(\bfQ) = \card(\bfN)$.
+    \end{corollary}
+        \begin{proof}
+            This follows directly from Example~\ref{example:n-z-q} and Theorem~\ref{thm:cardinal-orderings}
+        \end{proof}
+
+    \begin{definition}
+        A set $A$ is \textui{countable} if $\card(A) \leq \card(\bfN)$. Equivalently, there exists an injection $A \hookrightarrow \bfN$ and a surjection $\bfN \twoheadrightarrow A$. If $A$ is countable and infinite, $A$ is called \textui{denumerable} (or more commonly referred to as \textui{countably infinity}).
+    \end{definition}
+
+    \begin{definition}
+        We say $\card(\bfN) = \card(\bfZ) = \card(\bfQ) := \aleph_0$, called \textui{aleph naught}. We also define $\card(\bfR) = \mathfrak{c}$, called the \textui{continuum}.
+    \end{definition}
+
+    \begin{example}
+        By Theorem~\ref{thm:cantors-diagonal}, $\aleph_0 < \mathfrak{c}$.
+    \end{example}
+
+    \begin{corollary}
+        There does not exist an infinite set $A$ with $\card(A) < \aleph_0$. In particular, if $A$ is infinite and countable, then $\card(A) = \aleph_0$.
+    \end{corollary}
+        \begin{proof}
+            By Exercise~\ref{exercise:infinite-implies-injection}, $\card(\bfN) \leq \card(A)$, and by definition (since $A$ is countable), $\card(A) \leq \card(\bfN)$. So by Theorem~\ref{thm:cardinal-orderings}, $\card(A) = \card(\bfN) = \aleph_0$.
+        \end{proof}
+
+    \begin{example}
+        $\card(\cP(\bfN)) > \card(\bfN) = \aleph_0$.
+    \end{example}
+
+    \begin{proposition}
+        The countable union of countable sets is countable. More precisely, if $A_i$ is countable for all $i \in \bfN$, then $\bigcup_{i = 1}^\infty A_i$ is countable.
+    \end{proposition}
+        \begin{proof}
+            By definition, there exist surjections $\pi_i : \bfN \rightarrow A_i$. Define $\pi: \bfN \times \bfN \rightarrow \bigcup_{i = 1}^\infty A_i$ by $\pi(i,j) = \pi_i (j)$. Claim: $\pi$ is onto. Let $x \in \bigcup_{i = 1}^\infty A_i$, then there exists an $i_0$ with $x \in A_{i_0}$. Since $\pi_{i_0}$ is onto, there exists a $j_0 \in \bfN$ with $\pi_{i_0}(j_0) = x$. So $\pi(i_0,j_0) = x$, establishing that $\pi$ is surjective as well. Therefore $\card(\bigcup_{i = 1}^\infty A_i) \leq \card(\bfN \times \bfN) = \card(\bfN)$.
+        \end{proof}
+    
+    \begin{lemma}\label{lemma:1}
+        $\card([0,1]) \leq \card(2^\bfN)$.
+    \end{lemma}
+        \begin{proof}
+            Recall that every $\sigma \in [0,1]$ has a binary expansion $\sigma = \sum_{k = 1}^\infty \frac{\sigma_k}{2^k}$, where $\sigma_k \in \{0,1\}$. Consider the map $\varphi: 2^\bfN \rightarrow [0,1]$ defined by $\varphi(f) = \sum_{k = 1}^\infty \frac{f(k)}{2^k}$. Letting $f(k) = \sigma_k$ gives $\varphi$ is surjective.
+        \end{proof}
+    
+    \begin{lemma}\label{lemma:2}
+        $\card(\bfR) = \card([0,1])$.
+    \end{lemma}
+        \begin{proof}
+            By inclusion $[0,1] \xhookrightarrow{\iota} \bfR$, which implies that $\card([0,1]) \leq \card(\bfR)$. Recall that \newline$\bfR \xhooktwoheadrightarrow{\tan} (0,1) \xhookrightarrow{\iota} [0,1]$, which implies that $\card(\bfR) \leq \card([0,1])$. Then Theorem~\ref{thm:cardinal-orderings} gives the desired result.
+        \end{proof}
+
+    \begin{lemma}\label{lemma:3}
+        $\card(2^\bfN) \leq \card([0,1])$.
+    \end{lemma}
+        \begin{proof}
+            Consider the map $\lambda:2^\bfN \rightarrow [0,1]$ defined by $\lambda(f) = \sum_{k = 1}^\infty  \frac{f(k)}{3^k}$. Claim: $\lambda$ is injective. Let $f,g \in 2^\bfN$ with $f\neq g$. Let $k_0$ be the \textit{smallest point $k$ where $f$ and $g$ are different}. So in particular:
+                \begin{equation*}
+                \begin{split}
+                    f(1) &= g(1) \\
+                    f(2) & = g(2) \\
+                    &\vdots \\
+                    f(k_0 - 1) &= g(k_0 - 1) \\
+                    f(k_0) &\neq g(k_0).
+                \end{split}
+                \end{equation*}
+            Let:
+                \begin{equation*}
+                \begin{split}
+                    t_1 &= \sum_{k > k_0} \frac{f(k)}{3^k} \quad {\text{\tiny sum past $k_0$}}\\
+                    t_2 &= \sum_{k > k_0} \frac{g(k)}{3^k} \quad {\text{\tiny sum past $k_0$}}\\
+                    s_1 &= \sum_{k = 1}^{k_0 - 1} \frac{f(k)}{3^k} \quad {\text{\tiny sum before $k_0$}}\\
+                    s_1 &= \sum_{k = 1}^{k_0 - 1} \frac{g(k)}{3^k} \quad {\text{\tiny sum before $k_0$}}
+                \end{split}
+                \end{equation*}
+            We have that:
+                \begin{equation*}
+                \begin{split}
+                    \lambda(f) &= s_1 + \frac{f(k_0)}{3^{k_0}} + t_1 \\
+                    \lambda(g) &= s_2 + \frac{g(k_0)}{3^{k_0}} + t_2
+                \end{split}
+                \end{equation*}
+            Because $f$ and $g$ differ at $k_0$, without loss of generality let $f(k_0) = 0$ and $g(k_0) = 1$. Then $\lambda(g) - \lambda(f) = \frac{1}{3^{k_0}} + t_2 - t_1$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |t_2 - t_2|
+                    & = \left| \sum_{k > k_0} \frac{g(k)-f(k)}{3^k}\right| \\
+                    & \leq \sum_{k > k_0} \frac{|g(k)-f(k)|}{3^k} \quad \quad \text{\tiny By triangle inequality}\\
+                    & \leq \sum_{k > k_0} \frac{1}{3^k} \quad \quad \quad \quad \quad \quad \hspace{5.3pt}\text{\tiny By comparison test}\\
+                    & = \frac{1}{3^{k_0 + 1}}\sum_{k \geq 0}\frac{1}{3^k} \\
+                    & = \frac{1}{3^{k_0 + 1}} \cdot \frac{1}{1-\frac{1}{3}} \\
+                    & = \frac{3}{2 \cdot 3^{k_0 + 1}} \\
+                    & = \frac{1}{2\cdot 3^{k_0}} \\
+                    & < \frac{1}{3^{k_0}}.
+                \end{split}
+                \end{equation*}
+            Since $|t_2 - t_2| < \frac{1}{3^{k_0}}$, $\lambda(g) - \lambda(f) \neq 0$, establishing $\lambda$ as an injection. Thus $\card(2^\bfN) \leq \card([0,1])$.
+        \end{proof}
+    
+    \begin{theorem}
+        $\card(2^\bfN) = \card(\cP(\bfN)) = \card(\bfR)$.
+    \end{theorem}
+        \begin{proof}
+            This follows from Lemma~\ref{lemma:1}, Lemma~\ref{lemma:2}, and Lemma~\ref{lemma:3}.
+        \end{proof}
+    

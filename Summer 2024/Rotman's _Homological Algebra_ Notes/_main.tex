@@ -1,0 +1,203 @@
+%%%%%%%PACKAGES%%%%%%%
+    \documentclass[11pt,twoside,openany]{memoir}
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{titlesec}
+    \usepackage{anyfontsize}
+    \usepackage{fancybox}
+    \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+    \usepackage{enumerate}
+    \usepackage{comment}
+    \usepackage{amsfonts}
+    \usepackage{amsthm}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{hyperref}
+    \usepackage{fullpage}
+    \usepackage{bm}
+    \usepackage{cprotect}
+    \usepackage{calligra}
+    \usepackage{emptypage}
+    \usepackage{titleps}
+    \usepackage{microtype}
+    \usepackage{float}
+    \usepackage{ocgx}
+    \usepackage{appendix}
+    \usepackage{graphicx}
+    \usepackage{pdfcomment}
+    \usepackage{enumitem}
+    \usepackage{mathtools}
+    \usepackage{tikz-cd}
+    \usepackage{relsize}
+    \usepackage[font=footnotesize,labelfont=bf]{caption}
+    \usepackage{changepage}
+    \usepackage{xcolor}
+    \usepackage{ulem}
+    \usepackage{marginnote}
+        \newcommand*{\mnote}[1]{ % <----------
+        \checkoddpage
+        \ifoddpage
+            \marginparmargin{left}
+        \else
+            \marginparmargin{right}
+        \fi
+            \marginnote{\tiny \textcolor{oorange}{#1}}
+        }
+    \usepackage{tgbonum}
+    \usepackage{datetime}
+        \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+    \usepackage[margin=0.9in]{geometry}
+        \setlength{\voffset}{-0.4in}
+        \setlength{\headsep}{30pt}
+    \usepackage{fancyhdr}
+        \fancyhf{}
+        \pagestyle{fancy}
+        \cfoot{\footnotesize \thepage}
+        \fancyhead[R]{\footnotesize \rightmark}
+        \fancyhead[L]{\footnotesize \leftmark}
+    \usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+    \usepackage[outline]{contour}% http://ctan.org/pkg/contour
+        \renewcommand{\arraystretch}{1.5}
+        \contourlength{0.4pt}
+        \contournumber{10}%
+    \usepackage{letterspace}
+
+
+
+
+
+
+
+    
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+    \input{makros}
+    \newcommand{\TBC}{\textbf{TO BE CONTINUED}}
+    \theoremstyle{plain}
+    \newtheorem{theorem}{Theorem}[section]
+    \newtheorem{proposition}[theorem]{Proposition}
+    \newtheorem{corollary}[theorem]{Corollary}
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{open}[theorem]{Open problem}
+    \newtheorem{fact}[theorem]{Fact}
+    
+    \theoremstyle{definition}
+    \newtheorem{definition}[theorem]{Definition}
+    \newtheorem*{definition*}{Definition}
+    \newtheorem{example}{Example}[section]
+    \newtheorem{notation}[theorem]{Notation}
+    \newtheorem{exercise}{Exercise}[chapter]
+    \newtheorem{practice}[exercise]{Practice}
+    \newtheorem{challenge}[exercise]{Challenge}
+    \newtheorem{homework}{Homework}
+    \newtheorem{note}{Note}[section]
+    
+    \theoremstyle{remark}
+    \newtheorem{remark}[theorem]{Remark}
+    \newtheorem*{noproof}{Proof omitted}
+    \numberwithin{equation}{section}
+    
+    \newenvironment{solution}[1]{\noindent \textbf{#1}:}{}
+    
+    \newcommand{\NN}{\mathbf{N}}
+    \newcommand{\ZZ}{\mathbf{Z}}
+    \newcommand{\QQ}{\mathbf{Q}}
+    \newcommand{\RR}{\mathbf{R}}
+    \newcommand{\CC}{\mathbf{C}}
+    \newcommand{\HH}{\mathbf{H}}
+    \newcommand{\KK}{\mathbf{K}}
+    \newcommand{\FF}{\mathbf{F}}
+    
+    \newcommand{\bRR}{\overline{\RR}}
+    \newcommand{\bRRp}{\overline{\RR}_{\geq 0}}
+    
+    \renewcommand{\geq}{\geqslant}
+    \renewcommand{\leq}{\leqslant}
+    
+    \newcommand{\cA}{\mathcal{A}}
+    \newcommand{\cB}{\mathcal{B}}
+    \newcommand{\cC}{\mathcal{C}}
+    \newcommand{\cF}{\mathcal{F}}
+    \newcommand{\cL}{\mathcal{L}}
+    \newcommand{\cM}{\mathcal{M}}
+    \newcommand{\cN}{\mathcal{N}}
+    \newcommand{\cU}{\mathcal{U}}
+    \newcommand{\bone}{\mathbf{1}}
+    \newcommand{\sign}{\mathrm{sign}}
+    \newcommand{\eps}{\varepsilon}
+    \newcommand{\textui}[1]{\uline{\textit{#1}}}
+    
+    %\newcommand{\ov}{\overline}
+    %\newcommand{\un}{\underline}
+    \newcommand{\fin}{\mathrm{fin}}
+    
+    \newcommand{\chnum}{\titleformat
+    {\chapter} % command
+    [display] % shape
+    {} % format
+    {} % label
+    {-8em} % sep
+    { \begin{flushright} \begin{tabular}{r} \fontsize{55}{20}\selectfont \color{black} \shadowbox{\thechapter} \\ \Huge \color{black}
+    } % before-code
+    [
+    \end{tabular} \end{flushright} \normalsize
+    ] % after-code
+    }
+    
+    \newcommand{\chunnum}{\titleformat
+    {\chapter} % command
+    [display] % shape
+    {} % format
+    {} % label
+    {0em} % sep
+    { \begin{flushright} \begin{tabular}{r}  \Huge \color{black}
+    } % before-code
+    [
+    \end{tabular} \end{flushright} \normalsize
+    ] % after-code
+    }
+
+
+
+
+
+    
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%DOCUMENT SETUP%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+    \setsecnumdepth{subsection}
+    \definecolor{bluey}{RGB}{21, 80, 234}
+    \definecolor{darkgreen}{rgb}{0, 0.5976, 0}
+    \hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Rotman's Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
+    
+    \begin{document}
+    
+    %This adds a "front cover" page.
+    %{\thispagestyle{empty}
+    %\vspace*{\fill}
+    %\begin{tabular}{l}
+    %\begin{tabular}{l}
+    %\includegraphics[scale=0.24]{oxy-logo.png}
+    %\end{tabular} \\
+    %\begin{tabular}{l}
+    %\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+    %\end{tabular}
+    %\end{tabular}
+    
+    %\newpage
+    \pagenumbering{roman}
+    \tableofcontents
+    
+    \chunnum
+    \vfill
+    \specialdate
+    Last update: \today
+    \chnum
+
+    \include{introduction}
+    \include{hom-tensor}
+    
+    \end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

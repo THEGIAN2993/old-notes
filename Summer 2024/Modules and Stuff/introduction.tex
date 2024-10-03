@@ -1,0 +1,334 @@
+\chapter{Introduction}\label{chapter:introduction}
+
+\pagenumbering{arabic}
+
+\section{Categories and Functors}\label{sec:categories-and-functors}
+    \begin{definition}\label{def:class}
+        A \textui{class} is a collection of sets (or sometimes other mathematical objects) that can be unambiguously defined by a property that all its members share.
+    \end{definition}
+
+    \begin{definition}\label{def:categories}
+        A \textui{category} $\mathcal{C}$ consists of three ingredients: a class $\obj({\mathcal{C})}$ of \textui{objects}, a set of \textui{morphisms} $\Hom{(A,B)}$ for every ordered pair $(A,B)$ of objects, and \textui{composition} $\Hom{(A,B)} \times \Hom{(B,C)} \rightarrow \Hom{(A,C)}$, denoted by
+            \begin{equation*}
+            \begin{split}
+                (f,g) \mapsto gf,
+            \end{split}
+            \end{equation*}
+        for every ordered tripled $A,B,C$ of objects. These ingredients are subject to the following axioms:
+            \begin{enumerate}[label = (\arabic*)]
+                \item The $\Hom{}$ sets are pairwise disjoint; i.e., each $f \in \Hom{(A,B)}$ has a unique \textui{domain} A and a unique \textui{target} B;
+                \item for each object $A$, there is an \textui{identity morphism} $1_A \in \Hom{(A,A)}$ such that $f 1_A = f$ and $1_B f = f$ for all $f: A \rightarrow B$;
+                \item composition is associative: given morphisms $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h} D$, then 
+                    \begin{equation*}
+                    \begin{split}
+                        h(gf)=(hg)f.
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}\label{ex:categories}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\cSets$. The objects in this category are sets, morphisms are functions, and composition is the usual composition of functions. It is an axiom of set theory that if $A$ and $B$ are sets, then the class $\Hom{(A,B)}$ of all functions from $A$ to $B$ is also a set.
+
+            \item $\cGroups$. Objects are groups, morphisms, are homomorphisms, and composition is the usual composition (as homomorphisms are functions). Part of the verification that $\cGroups$ is a category involves checking that identity functions are homomorphisms and that the composite of two homomorphisms is itself a homomorphism (one needs to know that if $f \in \Hom{(A,B)}$ and $g \in \Hom{(B,C)}$, then $gf \in \Hom{(A,C)}$).
+
+            \item A partially ordered set $X$ can be regarded as the category whose objects are the elements of $X$, whose $\Hom{}$ sets are either empty or have only one element:
+                \begin{equation*}
+                \Hom{(x,y)} = 
+                    \begin{cases} 
+                        \emptyset & \quad \text{if}\hskip0.4em\relax x\npreceq y, \\
+                        \{\iota^{x}_{y}\} & \quad \text{if}\hskip0.4em\relax x\preceq y \\ 
+                    \end{cases}
+                \end{equation*}
+            (the symbol $\iota^{x}_{y}$ is the unique element in the $\Hom{}$ set when $x \preceq y$), and whose composition is given by $\iota^{y}_{z} \iota^{x}_{y} = \iota^{x}_{z}$. Note that $1_x = \iota^{x}_{x}$, by reflexivity, while composition makes sense because $\preceq$ is transitive. We insisted in the definition of a category that each $\Hom{(A,B)}$ be a set, but we did not say it was nonempty. This is an example in which this possibility occurs.
+
+            \item $\cTop$. Objects are topological spaces, morphisms are continous functions, and composition is the usual composition of functions. In checking that $\cTop$ is a category, one must note that identity functions are continuous and that composites of continuous functions are continuous.
+
+            \item The category $\cSets_\ast$ of all \textui{pointed sets} has as its objects all ordered pairs $(X,x_0)$, where $X$ is a nonempty set and $x_0$ is a point in $X$, called the \textui{basepoint}. A morphism $f:(X,x_0) \rightarrow (Y,y_0)$ is called a \textui{pointed map}; it is a function $f:X \rightarrow Y$ with $f(x_0)=y_0$. Composition is the usual composition of functions. One defines the category $\cTop_\ast$ of all \textui{pointed spaces} in a similar way; $\obj{(\cTop_\star)}$ consists of all ordered pairs $(X,x_0)$, where $X$ is a nonempty topological space and $x_0 \in X$, and morphisms $f: (X,x_0) \rightarrow (Y,y_0)$ are continuous functions $f:X \rightarrow Y$ with $f(x_0) = y_0$.
+
+            \item $\cAb$. Objects are abelian groups, morphisms are homomorphisms, and composition is the usual composition.
+
+            \item $\cRings$. Objects are rings, morphisms are ring homomorphisms, and composition is the usual composition. We assume that all rings $R$ have a unit element 1, but we do not assume that $1 \neq 0$. We agree, as part of the definition, that $\varphi(1)=1$ for every ring homomorphism $\varphi$. Since the inclusion map $S \rightarrow R$ of a subring should be a homomorphism, it follows that the unit element $1$ in a subring $S$ must be the same as the unit element $1$ in $R$.
+
+            \item $\cComRings$. Objects are commutative rings, morphisms are ring homomorphisms, and composition is theusual composition.
+
+            \item The category $\prescript{}{R}\cMod$ of all \textui{left $R$-modules} (where $R$ is a ring) has as its objects all left $R$-modules, its morphisms as all $R$-module homomorphisms, and as its composition the usual composition of functions. We denote the sets $\Hom{(A,B)}$ in $\prescript{}{R}\cMod$ by $\Hom_R{(A,B)}$. If $R=\bfZ$, then $\prescript{}{\bfZ}\cMod = \cAb$, for abelian groups are $\bfZ$-modules and homomorphisms are $\bfZ$-maps. There is also a category of right $R$-modules denoted $\cMod_R$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}\label{def:subcategories}
+        A category $\mathcal{S}$ is a \textui{subcategory} of a category $\mathcal{C}$ if
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\obj{(\mathcal{S})} \subseteq \obj{(\mathcal{C})}$;
+                \item $\Hom_{\mathcal{S}}{(A,B)} \subseteq \Hom_{\mathcal{C}}{(A,B)}$ for all $A,B \in \obj{(\mathcal{S})}$, where we denote $\Hom{}$ sets in $\mathcal{S}$ by $\Hom_\mathcal{S}{(\square,\square)}$;
+
+                \item if $f \in \Hom_\mathcal{S}{(A,B)}$ and $g \in \Hom_\mathcal{S}{(B,C)}$, then the composite $gf \in \Hom_\mathcal{S}{(A,C)}$ is equal to the composite $gf \in \Hom_\mathcal{C}{(A,C)}$;
+
+                \item if $A \in \obj{(\mathcal{S})}$, then the identity $1_A \in \Hom_\mathcal{S}{(A,A)}$ is equal to the identity $1_A \in \Hom_\mathcal{C}{(A,A)}$.
+            \end{enumerate}
+        A subcategory $\mathcal{S}$ of $\mathcal{C}$ is a \textui{full subcategory} if, for all $A,B \in \obj{(\mathcal{S})}$, we have $\Hom_\mathcal{S}{(A,B)} = \Hom_\mathcal{C}{(A,B)}$.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}
+            \item $\cAb$ is a full subcategory of $\cGroups$.
+            \item A category is \textui{discrete} if its only morphisms are identity morphisms. If $\mathcal{S}$ is the discrete category with $\obj{(\mathcal{S})} = \obj{(\cSets)}$, then $\mathcal{S}$ is a subcategory of $\cSets$ that is not a full subcategory.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}\label{def:generated-subcategory}
+        Let $\mathcal{C}$ be any category and $\mathcal{S} \subseteq \obj{(\mathcal{C})}$. The \textui{full subcategory generated by $\mathcal{S}$}, also denoted by $\mathcal{S}$, is the subcategory with $\obj{(\mathcal{S})} = \mathcal{S}$ and with $\Hom_\mathcal{S}{(A,B)} = \Hom_\mathcal{C}{(A,B)}$ for all $A,B \in \obj{(\mathcal{S})}$.
+    \end{definition}
+
+    \begin{definition}
+        Let $\mC$ and $\mD$ be categories. 
+        \begin{enumerate}[label = (\arabic*)]
+            \item A \textui{covariant functor} $T:\mC \rightarrow \mD$ is a function satisfying:
+                \begin{enumerate}[label = (\roman*)]
+                    \item if $A \in \obj{(\mC)}$, then $T(A) \in \obj{(\mD)}$,
+                    \item if $f:A \rightarrow A'$ in $\mC$, then $T(f):T(A) \rightarrow T(A')$ in $\mD$,
+                    \item if $A \xrightarrow{f} A' \xrightarrow{g} A''$ in $\mC$, then $T(A) \xrightarrow{T(f)} T(A') \xrightarrow{T(g)} T(A'')$ in $\mD$ and
+                        \begin{equation*}
+                        \begin{split}
+                            T(gf) = T(g)T(f),
+                        \end{split}
+                        \end{equation*}
+                    \item $T(1_A) = 1_{T(A)}$ for every $A \in \obj{(\mC)}$.
+                \end{enumerate}
+            \item A \textui{contravariant functor} is a function $T:\mC \rightarrow \mD$ satisfying:
+                \begin{enumerate}[label = (\roman*)]
+                    \item If $B \in \obj{(\mC)}$, then $T(B) \in \obj{(\mD)}$,
+                    \item if $f: B \rightarrow B'$ in $\mC$, then $T(f): T(B') \rightarrow T(B)$ in $\mD$ (Note the reversal of arrows),
+                    \item if $B \xrightarrow{f} B' \xrightarrow{g} B''$ in $\mC$, then $T(B'') \xrightarrow{T(g)} T(B') \xrightarrow{T(f)} T(B)$ in $\mD$ and 
+                        \begin{equation*}
+                        \begin{split}
+                            T(gf) = T(f)T(g),
+                        \end{split}
+                        \end{equation*}
+                    \item $T(1_A) = 1_{T(A)}$ for every $A \in \obj{(\mC)}$.
+                \end{enumerate}
+                
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $\mC$ be a (locally small) category and $A \in \obj{(\mC)}$. The \textui{$\Hom$ functor} is a function 
+                \begin{equation*}
+                \begin{split}
+                    \Hom{(A,\square)}:\mC \rightarrow \cSets.
+                \end{split}
+                \end{equation*}
+            If $f:B \rightarrow B'$ is in $\mC$, then $\Hom{(A,f)}:\Hom{(A,B)} \rightarrow \Hom{(A,B')}$ is defined by $h \mapsto hf$ for each $h \in \Hom{(A,B)}$.
+
+            \item Let $\mC$ be a (locally small) category and $B \in \obj{(\mC)}$. The \textui{$\Hom$ (contravariant) functor} is a function
+                \begin{equation*}
+                \begin{split}
+                    \Hom{(\square,B)}:\mC \rightarrow \cSets.
+                \end{split}
+                \end{equation*}
+            If $f:A \rightarrow A'$ is in $\mC$, then $\Hom{(f,B)}:\Hom{(A',B)} \rightarrow \Hom{(A,B)}$ is defined by $h \mapsto hf$ for each $h \in \Hom{(A,B)}$.
+        \end{enumerate} 
+    \end{example}
+
+    \begin{example}
+        Recall that a \textui{linear functional} on a vector space $V$ over $k$ is a linear transformation $\varphi:V \rightarrow k$ (note that $k$ is a one-dimensional vector space over itself). For example, let $V = C([0,1])$, then integration $f \mapsto \int_{0}^{1}f(t)dt$ is a linear functional on $V$. If $V$ is a vector space over a field $k$, then its \textui{dual space} is $V^* = \Hom_k{(V,k)}$, the set of all linear functionals on $V$. Note that functions in $V^*$ are closed under pointwise addition \textemdash  $V^*$ is a vector space over $k$ if we define $af: V \rightarrow k$ by $af: v \mapsto a[f(v)]$ for all $f \in V^* $ and $ a \in k$. Moreover, if $f: V \rightarrow W$ is a linear transformation, then the induced map $f^*: W* \rightarrow V*$ is also a linear transformation. The \textui{dual space functor} is $\Hom_k{(\square,k)}: {}_{k}\cMod \rightarrow {}_{k}\cMod$.
+    \end{example}
+
+    \begin{definition}\label{def:opposite-categories}
+        If $\mC$ is a category, define its \textui{opposite category} $\mC^\text{op}$ to be the category with $\obj{(\mC^\text{op})} = \obj{(\mC)}$, with morphisms $\Hom_{\mC^\text{op}}{(A,B)} = \Hom_{\mC}{(B,A)}$ and with composition $g^\text{op}f^\text{op} = (fg)^\text{op}$, where $f^\text{op} , g^\text{op} \in \Hom_{\mC^\text{op}}{(A,B)}$ (note that the composition is the reverse of that in $\mC$).
+    \end{definition}
+
+    \begin{definition}\label{def:isomorphsism}
+        A morphism $f:A \rightarrow B$ in a category $\mC$ is an \textui{isomorphism} if there exists a morphism $g: B \rightarrow A$ in $\mC$ with
+            \begin{equation*}
+            \begin{split}
+                gf = 1_A \hspace{4pt} \text{and} \hspace{4pt} fg = 1_B.
+            \end{split}
+            \end{equation*}
+        The morphism $g$ is called the \textui{inverse} of $f$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $T:\mC \rightarrow \mD$ be a functor of either variance. If $f$ is an isomorphism in $\mC$, then $T(f)$ is an isomorphism in $\mD$.
+    \end{proposition}
+        \begin{proof}
+            If $g$ is the inverse of $f$, apply the functor $T$ to the equations $gf = 1$ and $fg = 1$.
+        \end{proof}
+    
+    \begin{definition}\label{def:natural-transformation}
+        Let $S,T: \mA \rightarrow \mB$ be covariant functors. A \textui{natural transformation} $\tau: S \rightarrow T$ is a one-parameter family of morphisms in $\mB$,
+            \begin{equation*}
+            \begin{split}
+                \tau = (\tau_A : SA \rightarrow TA)_{A \in \obj{(\mA)}},
+            \end{split}
+            \end{equation*}
+        making the following diagram commute for all $f: A \rightarrow A'$ in $\mA$:
+            \begin{center}
+                \begin{tikzcd}
+                    SA \arrow[r, "\tau_A"] \arrow[d, "Sf"'] & TA \arrow[d, "Tf"] \\
+                    SA' \arrow[r, "\tau_{A'}"']             & TA'.               
+                \end{tikzcd}
+            \end{center}
+    \end{definition}
+
+    \begin{definition}
+        Let $X,Y \in \obj{(\cSets)}$ and $f,g \in \Hom{(X,Y)}$ The \textui{equaliser of $f$ and $g$} is the set of elements $x \in X$ such that $f(x)$ is equal to $g(x)$ in $Y$. Symbolically:
+            \begin{equation*}
+            \begin{split}
+                \Eq{(f,g)} = \{x \in X \mid f(x) = g(x) \}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{definition}\label{def:category-kernels}
+        Let $\mC$ be a category with a zero morphism. If $f:X \rightarrow Y$ is an arbitrary morphism in $\mC$, then a \textui{kernel} of $f$ is an equaliser of $f$ and the zero morphism from $X$ to $Y$; i.e., $\ker{f} = \Eq{(f,0_{XY})} = \{x \in X \mid f(x) = 0_Y\}$.
+    \end{definition}
+
+\section{Universal Properties}
+
+    \begin{definition}
+        Include the categorical definition of universal properties here.
+    \end{definition}
+
+    \begin{example}\label{example:universal-properties}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $G$ be a group and $N$ a normal subgroup of $G$. If $K$ is any group and $\varphi:G \rightarrow K$ is a homomorphism which annihilates $N$ (that is, $N \subseteq \ker{\varphi}$), then there is a unique homomorphism $\Phi:G/N \rightarrow K$ such that $\Phi \circ \pi = \varphi$, where $\pi$ is the natural projection map $\pi: G \rightarrow G/N$. The following diagram commutes:
+                    \begin{center}
+                        \begin{tikzcd}
+                            G \arrow[rd, "\varphi"'] \arrow[r, "\pi"] & G/N \arrow[d, "\Phi"] \\
+                                                                      & K                    
+                            \end{tikzcd}
+                    \end{center}
+            
+            \item Let $H$ be a subgroup of $G$. If $G$ is any group and $\varphi: K \rightarrow G$ is a homomorphism whose image is contained in $H$ (that is, $\Image{\varphi} \subseteq H$), then there is a homomorphism $\Phi:K \rightarrow H$ such that $\iota \circ \Phi = \varphi$, where $\iota$ is the inclusion map $\iota : H \rightarrow G$. The following diagram commutes:
+                        \begin{center}
+                            \begin{tikzcd}
+                                K \arrow[rd, "\varphi"'] \arrow[r, "\Phi"] & H \arrow[d, "\iota"] \\
+                                                                           & G                   
+                                \end{tikzcd}
+                        \end{center}
+            
+            \item Let $\mC$ be a category with a zero morphism. If $f:X \rightarrow Y$ is an arbitrary morphism in $\mC$ then Definition~\ref{def:category-kernels} gives rise to the following universal property: a kernel of $f$ is an object $K$ together with a morphism $k:K \rightarrow X$ such that,
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f \circ k$ is the zero morphism from $K$ to $Y$,
+                \item Given any morphism $k':K' \rightarrow X$ such that $f \circ k'$ is the zero morphism, there is a unique morphism $u:K' \rightarrow K$ such that $k \circ u = k'$,
+            \end{enumerate}
+        which make the following diagrams commute:
+        \begin{center}
+        \begin{tabular}{c c c c c c c}
+               (1)\begin{tikzcd}
+                K \arrow[rd, "0_{KY}"'] \arrow[r, "k"] & X \arrow[d, "f"] \\
+                                                       & Y               
+                \end{tikzcd} & & & & & 
+
+               (2)\begin{tikzcd}
+                    & X \arrow[rd, "f"]                     &   \\
+                    & K \arrow[r, "0_{KY}"] \arrow[u, "k"'] & Y \\
+                    K' \arrow[ru, "u" description, dotted] \arrow[ruu, "k'"] \arrow[rru, "0_{K'Y}"'] &                                       &  
+                \end{tikzcd}
+        \end{tabular}
+        \end{center}
+
+        \end{enumerate}
+    \end{example}
+   
+
+\newpage
+\section*{\centering Exercises}
+    \addcontentsline{toc}{section}{\protect\numberline{}Exercises}
+    \begin{exercise}
+        Use parts (1) and (2) of Example~\ref{example:universal-properties} to show that if $\varphi:G \rightarrow H$ is a group homomorphism, then $G/\ker{\varphi} \cong \Image{\varphi}$.
+    \end{exercise}
+        {\color{red} \begin{proof}
+            Since $\Image{\varphi}$ is a subgroup of $H$, the universal property of subgroups gives the correspondence $\varphi = \iota \circ \Phi$, where $\Phi : G \rightarrow \Image{\varphi}$ and $\iota: \Image{\varphi} \rightarrow H$. Now, since $\ker{\Phi}$ is a normal subgroup of $G$, the unversal property of quotient groups gives the correspondence $\Phi = \alpha \circ \pi$, where $\pi : G \rightarrow G/\ker{\Phi}$ and $\alpha: G/\ker{\Phi} \rightarrow \Image{\varphi}$. The following diagram commutes.
+
+                \begin{center}
+                    \begin{tikzcd}
+                        &  & G/\ker{\Phi} \arrow[dd, "\mathlarger{\alpha}"]   \\
+                        &  &                                     \\
+                        G \arrow[rr, "\mathlarger{\Phi}"] \arrow[rruu, "\mathlarger{\pi}"] \arrow[rrdd, "\mathlarger{\varphi}"'] &  & \Image{\varphi} \arrow[dd, "\mathlarger{\iota}"] \\
+                        &  &                                     \\
+                        &  & H                                  
+                    \end{tikzcd}
+                \end{center}
+            
+            Claim: $\ker{\Phi} = \ker{\varphi}$. If $k \in \ker{\Phi}$, then $\Phi(k) = 0_{\Image{\varphi}} = 0_H$, hence $k \in \ker{\varphi}$. Conversely, if $k \in \ker{\varphi}$, then $k$ must get mapped to something inside the image of $\varphi$; i.e., $\varphi(k) = 0_H = 0_{\Image{\varphi}}$ implies $ k \in \ker{\Phi}$.
+
+            Claim: $\alpha$ is an isomorphism. Note that $\Phi$ is clearly surjective, hence it must be the case that $\alpha$ is surjective. It remains to show that $\alpha$ is injective: this can be done by showing the map $\alpha : \G/\ker{\varphi} \rightarrow \Image{\varphi}$ has a trivial kernel. Let $g \in G$ be any element, note that $\alpha(g \ker{\varphi}) = \varphi(g)$ by our definition. Hence when $g \in \ker{\varphi}$, $\alpha(g \ker{\varphi}) = \alpha(\ker{\varphi}) = 0_{\Image{\varphi}}$ (the only element of $G/\ker{\varphi}$ which maps to $0_{\Image{\varphi}}$ is the identity). This establishes the proof that $G/\ker{\varphi} \cong \Image{\varphi}$\footnote{We can write $\varphi = \iota \circ \alpha \circ \pi$. In other words, \textit{every} momorphism takes the form of a quotient map, followed by an isomorphism, followed by an inclusion.}.
+        \end{proof}}
+    \begin{exercise}\label{ex:1-2}
+        \phantom{a}
+        \begin{enumerate}[label = (\roman*)]
+            \item Prove, in every category $\mC$, that each object $A \in \mC$ has a unique identity morphism.
+            \item If $f$ is an isomorphism in this category, prove that its inverse is unique.
+        \end{enumerate}
+    \end{exercise}
+        {\color{red} \begin{proof}
+            Let $f:A \rightarrow B$. Suppose $1_A,1_A' \in \Hom{(A,A)}$ such that $f1_A = f$ and $f1_A' = f$. Take $B=A$ and $f = 1_A'$, then $1_A' 1_A = 1_A '$. Now consider $g:B \rightarrow A$. Then  $1_A'g = g$. Take $B = A$ and $g = 1_A$, then $1_A'1_A = 1_A$. Together, this gives $1_A' = 1_A' 1_A = 1_A$. Hence the identity morphism is unique.
+
+            Let $f:A \rightarrow B$ be an isomorphism. Suppose $g,g' : B \rightarrow A$ are inverses of $f$. Then
+            $g = 1_A g = (g'f)g = g'(fg) = g'1_B = g'$. Hence inverses are unique.
+        \end{proof}}
+
+    \begin{exercise}\label{ex:1-3}
+        If $T:\mA \rightarrow \mB$ is a functor, define $T^\text{op}: \mA^\text{op} \rightarrow \mB$ by $T^\text{op}(A) = T(A)$ for all $A \in \obj{(\mA)}$ and $T^\text{op}(f^\text{op}) = T(f)$ for all morphisms $f$ in $\mA$. Prove that $T^\text{op}$ is a functor having variance opposite to the variance of $T$.
+    \end{exercise}
+    
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\roman*)]
+            \item If $X$ is a set, define $FX$ to be the free group having basis $X$, that is, the elements of $FX$ are reduced words on the alphabet $X$ and multiplication is juxtaposition followed by cancellation. If $\varphi:X \rightarrow Y$ is a function, prove that there is a unique homomorphism $F\varphi:FX \rightarrow FY$ such that $(F\varphi)\mid X = \varphi$.
+            \item Prove that $F:\cSets \rightarrow \cGroups$ is a functor ($F$ is called the \textui{free functor}).
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\roman*)]
+            \item Define $\mC$ to have objects all ordered pairs $(G,H)$, where $G$ is a group and $H$ is a normal subgroup of $G$, and to have morphisms $\varphi_*:(G,H) \rightarrow (G_1,H_1)$, where $\varphi:G \rightarrow G_1$ is a homomorphism with $\varphi(H) \subseteq H_1$. Prove that $\mC$ is a category if composition in $\mC$ is defined to be ordinary composition.
+            \item Construct a functor $Q: \mC \rightarrow \cGroups$ with $Q(G,H) = G/H$.
+            \item Prove that there is a functor $\cGroups \rightarrow \cAb$ taking each group $G$ to $G/G'$, where $G'$ is its commutator subgroup.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $R$ be a ring. An (additive) abelian group $M$ is an \textui{almost left $R$-module} if there is a function $R \times M \rightarrow M$ which satisfies all of the left $R$-module axioms except for Axiom (4): we do not assume that $1m = m$ for all $m \in M$. Prove that if $M$ is an almost left $R$-module then $M = M_1 \oplus M_0$, where $M_1 = \{m \in M:1m = 1\}$ and $M_0 = \{m \in M: rm = 0 \hspace{4pt} \text{for all $r \in R$}\}$ are subgroups of $M$ that are almost left $R$-modules (in fact, $M_1$ is a left $R$-module).
+    \end{exercise}
+        {\color{red}\begin{proof}   
+            
+        \end{proof}}
+
+    \begin{exercise}
+        Prove that every right $R$-module is a left $R^\text{op}$-module and vice versa.
+    \end{exercise}
+
+    \begin{exercise}\label{exer:1-8}
+        Let $M$ be a left $R$-module.
+        \begin{enumerate}[label = (\roman*)]
+            \item Prove that $\Hom_R{(M,M)}$ is a ring with $1$ under pointwise addition and composition as multiplication.
+            \item The ring $\Hom_R{(M,M)}$ is called the \textui{endomorphism ring of $M$} and is denoted $\End_R(M)$. Elements of $\End_R(M)$ are called \textui{endomorphisms}. Prove that $M$ is a left $\End_R(M)$-module.
+            \item If a ring $R$ is regarded as a left $R$-module, prove that $\End_R(R) \cong R^\text{op}$ as rings.
+        \end{enumerate}
+    \end{exercise}
+        {\color{red} \begin{proof}
+            The details of $\Hom_R{(M,M)}$ being an abelian group are left out \textemdash associativity and commutativity are shown easily, the identity is the zero map $0_{MM}$ and inverses follow from this. Let $\varphi,\psi, \gamma \in \Hom_R{(M,M)}$. Note that function composition is automatically associative. "$1$" in this case is the identity morphism: $(\varphi \circ \id_{M})(m) = \varphi(\id_M(m)) = \varphi(m)$ and $(\id_M \circ \varphi)(m) = \id_M(\varphi(m)) = \varphi(m)$. Function composition distributes over pointwise addition as follows:
+                \begin{equation*}
+                \begin{split}
+                    (\varphi \circ (\psi + \gamma))(m)
+                    & = \varphi((\psi + \gamma)(m)) \\
+                    & = \varphi(\psi(m) + \gamma(m)) \\
+                    & = \varphi(\psi(m)) + \varphi(\psi(m))\\
+                    & = (\varphi \circ \psi)(m) + (\varphi \circ \gamma)(m)\\
+                    & = ((\varphi \circ \psi) + (\varphi \circ \gamma))(m).
+                \end{split}
+                \end{equation*}
+            Distribution from the right follows similary, hence $\Hom_R{(M,M)}$ is a unital ring.
+
+
+        \end{proof}}

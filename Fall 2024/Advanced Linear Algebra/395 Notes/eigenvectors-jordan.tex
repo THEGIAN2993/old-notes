@@ -1,0 +1,651 @@
+\chapter{Generalized Eigenvectors and Jordan Canonical Form}
+\vspace{12pt}
+
+\section{Diagonalization}
+    \begin{recall}
+        We say $A \sim B$ if and only if $A = PBP^{-1}$ for some $P \in \GL_n(F)$. In particular, this means $A = [T]_\cA$ and $B = [T]_\cB$ for some bases $\cA$ and $\cB$ (Example~\ref{example:similar-matrices}).
+    \end{recall}
+
+    \begin{definition}
+        We say $A$ is \textui{diagonalizable} if $A \sim D$ for some diagonal matrix $D$. In terms of linear transformations, $A = [T]_\cA$ is diagonalizable if there is a basis $\cB$ such that $[T]_\cB = D$.
+    \end{definition}
+
+    \begin{example}
+        If $A \sim B$ then $A$ is diagonalizable if and only if $B$ is diagonalizable. If $A$ and $B$ are diagonalizable, they must be similar to the same diagonal matrix up to reordering the diagonals. 
+    \end{example}
+
+    \begin{example}
+        Let $V = F^2$ and $T \in \Hom_F{(V,V)}$. Let $T(e_1) = 3e_1$ and $T(e_2) = -2e_2$. We have that:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_{\cE_2} = \bmat 3 & 0 \\ 0 & -2 \emat.
+            \end{split}
+            \end{equation*}
+        It follows that $V = V_1 \oplus V_2$, where $V_1 = \Span_F{(e_1)}$ and $V_2 = \Span_F{(e_2)}$. In this case, we have that $T(V_1) \subseteq V_1$ and $T(V_2) \subseteq V_2$, allowing us to write $T$ as a diagonal matrix.
+    \end{example}
+
+    \begin{example}
+        Let $V = F^2$ and $T \in \Hom_F{(V,V)}$. Consider $T(e_1) = 3e_1$ and $T(e_2) = e_1 + 3e_2$. Then:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_{\cE_2} = \bmat 3 & 1 \\ 0 & 3 \emat.
+            \end{split}
+            \end{equation*}
+        Then $V = V_1 \oplus V_2$ with $V_1 = \Span_F(e_1)$ and $V_2 = \Span_F{(e_2)}$. But while we have $T(V_1) \subseteq V_1$, we do not have $T(V_2) \subseteq V_2$.
+
+        Suppose towards contradiction we have $W_1,W_2 \neq \{0\}$ with $T(W_1) \subseteq W_1$ and $T(W_2) \subseteq W_2$. Write $W_i = \Span_F{(w_i)}$. In particular, this means we can write $T(w_1) = \alpha w_1$ and $T(w_2) = \beta w_2$. For $\cB = \{w_1,w_2\}$, we have:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_\cB = \bmat \alpha & 0 \\ 0 & \beta \emat.
+            \end{split}
+            \end{equation*}
+        Write $w_1 = ae_1 + be_2$ and $w_2 = ce_1 + de_2$. Then:
+            \begin{equation*}
+            \begin{split}
+                \alpha w_1
+                & = T(w_1) \\
+                & = aT(e_1) + bT(e_2) \\
+                & = a(3e_1) + b (e_1 + 3e_2) \\
+                & = (3a+b)e_1 + (3b)e_2.
+            \end{split}
+            \end{equation*}
+        Thus, $\alpha(ae_1 + be_2) = (3a+b)e_1 + (3b) e_2$, meaning $\alpha a = 3b+b$ and $\alpha b = 3b$. Either $b = 0$ or $\alpha = 3$. It must be the case that $\alpha = 3$, hence $T(w_1) = 3w_1$. A similar argument for $w_1$ gives:
+            \begin{equation*}
+            \begin{split}
+                \beta w_2
+                & = T(w_2) \\
+                & = ... \\
+                & = (3c+d)e_1 + (3d)e_2.
+            \end{split}
+            \end{equation*}
+        This implies $\beta c = ec + d$ and $\beta d = 3d$. If $\beta = 3$, then this contradicts the first equation. If $w_2 = ce_1$, this contradicts $w_1,w_2$ being a basis.
+    \end{example}
+
+    \begin{example}\label{example:field-extension-invertible}
+        Let $A = \pmat 1 & 2 \\ 3 & 4 \epmat$. Let $F = \bfQ$. Let $P \in GL_2(\bfQ)$, where $P = \pmat a & b \\ c & d \epmat$. We have:
+            \begin{equation*}
+            \begin{split}
+                P^{-1}AP = \frac{1}{ad-bc}\bmat ad - 2ab + 2cd - 4bc & -3bd - 3b^2 + 2d^2 \\ 3ac + 3a^2 - 2c^2 & -bc + 3ab - 2cd + 4ad \emat.
+            \end{split}
+            \end{equation*}
+        We must have that $3a^2 + 4ac - 2c^2 = 0$. If $c= 0$, then $a = 0$, which contradicts $P$ being invertible. So $c\neq 0$, meaning we can divide by $c^2$ and set $x = \frac{a}{c}$. Then the roots of $3x^2 + 3x - 2 = 0$ are:
+            \begin{equation*}
+            \begin{split}
+                x = \frac{-3 \pm \sqrt{33}}{6},
+            \end{split}
+            \end{equation*}
+        which gives:
+            \begin{equation*}
+            \begin{split}
+                a = \frac{-3 \pm \sqrt{33}}{6} c.
+            \end{split}
+            \end{equation*}
+        Since $c \neq 0$, $a \not\in \bfQ$. Thus we cannot diagonalize $A$ over $\bfQ$. But if we were to take $F = \bfQ(\sqrt{33})$, then we have that:
+            \begin{equation*}
+            \begin{split}
+                \cB = \{v_1 = \pmat 1 \\ \frac{3 + \sqrt{33}}{4} \epmat, v_2 = \pmat 1 \\ \frac{3 - \sqrt{33}}{4} \epmat \},
+            \end{split}
+            \end{equation*}
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_\cB = \bmat \frac{5 + \sqrt{33}}{2} & 0 \\ 0 & \frac{5 - \sqrt{33}}{2} \emat .
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{definition}
+        Let $V$ be an $F$-vector space and $T \in \Hom_F{(V,V)}$. A subspace $W \subseteq V$ is said to be \textui{$T$-invariant} or \textui{$T$-stable} if $T(W) \subseteq W$.
+    \end{definition}
+
+    \begin{theorem}
+        Let $\dim_F{(V)} = n$ and $W \subseteq V$ a $k$-dimensional subspace. Let $\cB_W = \{v_1,...,v_k\}$ be a basis of $W$ and extend to a basis $\cB = \{v_1,...,v_n\}$ of $V$. Let $T \in \Hom_F{(V,V)}$. We have $W$ is $T$-stable if and only if $\left[T\right]_\cB$ is block upper-triangular of the form
+            \begin{equation*}
+            \begin{split}
+                \bmat A & B \\ 0& D \emat
+            \end{split}
+            \end{equation*}
+        where $A = \left[\restr{T}{W}\right]_{\cB_W}$.
+    \end{theorem}
+
+    \begin{example}
+        Let $V = \bfQ^4$ with basis $\cE_4 = \{e_1,e_2,...,e_4\}$ and define $T$ by:
+            \begin{equation*}
+            \begin{split}
+                T(e_1) &= 2e_1 + 3e_3 \\
+                T(e_2) &= e_1 + e_4 \\
+                T(e_3) &= e_1 - e_3 \\
+                T(e_4) &= 2e_1 - 2e_2 + 5e_3 - 4e_4.
+            \end{split}
+            \end{equation*}
+        Set $W = \Span_\bfQ(e_1,e_3)$, then $W$ is $T$-stable. Since $\cB_W = \{e_1,e_3\}$ and $\cB = \{e_1,e_2,e_3,e_4\}$, we have:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_\cB
+                &= \bmat 2 & 1 & 1 & 2 \\ 3 & -1 & 0 & 5 \\ 0 & 0 & 0 & -2 \\ 0 & 0 & 1 & -4 \emat
+                \begin{tikzpicture}[overlay, remember picture]
+                    \draw[gray, thick] (-1.85,-1.32) rectangle (-2.9,-0.1); % Adjust the coordinates for placement
+                \end{tikzpicture}
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{example}
+        A special case is when $\dim_F{W} = 1$. If $W = \Span_F{(w_1)}$ and $W$ is $T$-stable, then $T(w_1) \in W_1$; i.e., $T(w_1) = \lambda w_1$ for some $\lambda \in F$ Equivalently, this can be written as $(T-\lambda \id_V)(w_1) = 0_V$, meaning $w_1 \in \ker{(T-\lambda \id_V)}$.
+    \end{example}
+
+\section{Eigenvalues and Eigenvectors}
+
+    \begin{definition}
+        Let $T \in \Hom_F{(V,V)}$ and $\lambda \in F$. If $\ker{(T-\lambda \id_V)} \neq \{0_V\}$, we say $\lambda$ is an \textui{eigenvalue} of $T$. Any nonzero vector in $\ker{(T-\lambda \id_V)}$ is called a \textui{$\lambda$-eigenvector}. The set $E_\lambda^1 = \ker{(T - \lambda \id_V)}$ is called the \textui{eigenspace} associated with $\lambda$.
+    \end{definition}
+
+    \begin{exercise}
+        Show that $E_\lambda^1$ is a subspace.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,V)}$. If $\lambda_1,\lambda_2 \in F$ with $\lambda_1 \neq \lambda_2$, then $E_{\lambda_1}^1 \cap E_{\lambda_2}^1 = \{0_V\}$.
+    \end{exercise}
+
+    \begin{example}
+        Let $A = \pmat 12 & 35 \\ -6 & 17 \epmat \in \Mat_2{(\bfQ)}$ and $T_A \in \Hom_\bfQ{(\bfQ^2,\bfQ^2)}$. We have:
+            \begin{equation*}
+            \begin{split}
+                \phantom{a}\\
+                \bmat -12 & 35 \\ -6 & 17 \emat \bmat 1 \\ \frac{2}{5} \emat &= 2 \bmat 1 \\ \frac{2}{5} \emat \\
+                \phantom{a}\\
+                \bmat -12 & 35 \\ -6 & 17 \emat \bmat 1 \\ \frac{3}{7} \emat &= 3 \bmat 1 \\ \frac{3}{7} \emat \\
+            \end{split}
+            \end{equation*}
+        So $T_A$ has eigenvalues of $2$ and $3$. Then 
+            \begin{equation*}
+            \begin{split}
+                E_2^1 &= \Span_\bfQ{ \left(v_1 =\pmat 1\\ 2/5 \epmat\right)}\\
+                E_3^1 &= \Span_\bfQ{ \left(v_2 =\pmat 1\\ 3/7 \epmat\right)}\\
+            \end{split}
+            \end{equation*}
+        gives:
+            \begin{equation*}
+            \begin{split}
+                \left[T_A\right]_{\{v_1,v_2\}} = \bmat 2 & 0 \\ 0 & 3 \emat.
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{example}[$F \mathrlap{\lfloor}\lceil x \mathrlap{\rfloor}\rceil$-Modules]
+        Let $T \in \Hom_F{(V,V)}$. Note that $V$ is by definition an $F$-module, but we are able to view $V$ as an $F[x]$-module given some linear transformation $T$. The action $ F[x] \times V \rightarrow V$ is defined by $(f(x),v) \mapsto f(T)(v)$.
+
+        Write $T^m = \underbrace{T \circ T \circ ... \circ T}_{m-\text{times}}$. Write $f(x) \in F[x]$ as $f(x) = a_mx^m + ... + a_1x + a_0$. Then
+            \begin{equation*}
+            \begin{split}
+                f(T) = a_m T^m + ... + a_1 T + a_0 \id_V \in \Hom_F{(V,V)}.
+            \end{split}
+            \end{equation*}
+        For example, let $g(x) = 2x^2 + 3 \in \bfR[x]$. Then $g(T) = 2T^2 + 3\id_V$ and $g(T)(v) = 2T(T(v)) + 3v$. If $f(x) = g(x)h(x)$ for some $g(x),h(x) \in F[x]$, then $f(T) = g(T) \circ h(T)$. Instead of writing $f(T)(v) = g(T)(h(T)(v))$, we will abuse notation and write $g(T)h(T)(v)$. Normally function composition does not commute, but these do {\color{red} for some reason}.
+    \end{example}
+
+    \begin{theorem}
+        Let $\dim_F{(V)} = n$ and $T \in \Hom_F{(V,V)}$. There is a unique monic polynomial $m_T(x) \in F[x]$ of lowest degree so that $m_T(T)(v) = 0_V$ for all $v \in V$. Moreover, $\deg_{m_T}{(T)}\leq n^2$.
+    \end{theorem}
+        \begin{proof}
+            Recall that $\Hom_F{(V,V)}$ is an $F$-vector space. We have $\Hom_F{(V,V)} \cong \Mat_n{(F)}$, hence $\dim_F{(\Hom_F{(V,V)})} = n^2$.
+
+            Given $T \in \Hom_F{(V,V)}$, consider the set $\{\id_V,T,T^2,...,T^{n^2}\} \subseteq \Hom_F{(V,V)}$. This has $n^2 + 1$ elements, so it must be linearly dependent. Let $m$ be the smallest integer so that
+                \begin{equation*}
+                \begin{split}
+                    a_mT^m + ... + a_1T + a_0 \id_V = 0_{\Hom_F{(V,V)}}.
+                \end{split}
+                \end{equation*}
+            We obtain a set $\{\id_V,T,T^2,...,T^m\}$. Since $m$ is minimal, $a_m \neq 0$. Define:
+                \begin{equation*}
+                \begin{split}
+                    m_T(x) = x^m + b_{m-1}x^{m-1} + ... + b_1x + b_0 \in F[x], \mtext{where} b_i = \frac{a_i}{a_m}.
+                \end{split}
+                \end{equation*}
+            This gives $m_T(T) = 0_{\Hom_F{(V,V)}}$; i.e., $m_T(T)(v) = 0_V$ for all $v \in V$. 
+                It remains to that $m_T(x)$ is unique. Suppose there exists an $f(x) \in F[x]$ which satisfies $f(T)(v) = 0_V$ for all $v \in V$. Write:
+                    \begin{equation*}
+                    \begin{split}
+                        f(x) = m_T(x)q(x) + r(x)
+                    \end{split}
+                    \end{equation*}
+                for some $q(x), r(x) \in F[x]$ with $r(x) = 0$ or $\deg{(r(x))} < \deg{(m_T(x))}$. We have for all $v \in V$:
+                    \begin{equation*}
+                    \begin{split}
+                        0_V
+                        & = f(T)(v) \\
+                        & = q(T)m_T(T)(v) + r(T)(v) \\
+                        & = q(T)(0_V) + r(T)(v) \\
+                        & = r(T)(v)
+                    \end{split}
+                    \end{equation*}
+                It must be the case that $r(x) = 0$, otherwise we have a polynomial of lower degree than $m_T(x)$ which kills all vectors. So $f(x) = m_T(x)q(x)$; i.e., $m_T(x) \mid f(x)$. But if $m_T(x)$ and $f(x)$ are both monic and of minimal degree, it must be the case that they are the same degree. This gives $m_T(x) = f(x)$.
+        \end{proof}
+
+    \begin{definition}
+        The unique monic polynomial $m_T(x)$ is called the \textui{minimal polynomial} of $T$.
+    \end{definition}
+
+    \begin{corollary}
+        If $f(x) \in F[x]$ satisfies $f(T)(v) = 0_V$ for all $v \in V$, then $m_T(x) \mid f(x)$.
+    \end{corollary}
+        \begin{proof}
+            {\color{red} wat}
+        \end{proof}
+    
+    \begin{example}
+        Let $F = \bfQ$ and $A = \pmat 1 & 2  \\ 3 & 4 \epmat$. We can see that:
+            \begin{equation*}
+            \begin{split}
+                A - a_0 1_2 \neq 0_2 \mtext{for any} a_0 \in F.
+            \end{split}
+            \end{equation*}
+        But $A^2 = \pmat 7 & 10 \\ 15 & 22 \epmat$ gives $A^2 -5A -2\cdot1_2 = 0_2$. Hence $m_A(x) = x^2 - 5x - 2$. Note the relationship between this example and Example~\ref{example:field-extension-invertible}.
+    \end{example}
+
+    \begin{example}
+        Let $V = \bfQ^3$, $\cE_3 = \{e_1,e_2,e_3\}$, and 
+            \begin{equation*}
+            \begin{split}
+                \left[T_A\right]_{\cE_3} = A = \bmat 1 & 2 & 3 \\  0 & 1 & 4 \\ 0 & 0 & -1 \emat.
+            \end{split}
+            \end{equation*}
+        Let $W = \Span_\bfQ(e_1)$ Then $T(W) = T(\alpha e_1) = \alpha e_1 \in W$. Hence $T(W) \subseteq W$, meaning $W$ is $T$-stable. This gives $1$ as an eigenvalue. On a completely unrelated note, $m_{T_A}(x) = (x-1)^2(x+1)$.
+    \end{example}
+
+    \begin{theorem}
+        Let $V$ be an $F$-vector space and $T \in \Hom_F{(V,V)}$. We have $\lambda$ is an eigenvalue if and only if $\lambda$ is the root of $m_T(x)$. In particular, if $(x-\lambda) \mid m_T(x)$, then $E_\lambda^1 \neq \{0_V\}$ (i.e., there is a nonzero $v \in V$ such that $T(v) = \lambda v$).
+    \end{theorem}
+        \begin{proof}
+            Let $\lambda$ be an eigenvalue with eigenvector $v$ and write $m_T(x) = x^m + ... + a_1 x + a_0$. We have:
+                \begin{equation*}
+                \begin{split}
+                    0_V
+                    & = m_T(T)(v) \\
+                    & = (T^m + a_{m-1}T^{m-1} + ... + a_1 T + a_0 \id_V)(v) \\
+                    & = T^m(v) + a_{m-1}T^{m-1}(v) + ... + a_1T(v) + a_0v \\
+                    & = \lambda^m v + a_{m-1}\lambda^{m-1}v + ... + a_1 \lambda v + a_0 v \\
+                    & = (\lambda^m  + a_{m-1}\lambda^{m-1} + ... + a_1 \lambda  + a_0)v \\
+                    & = m_T(\lambda)\cdot v.
+                \end{split}
+                \end{equation*}
+            Since $v \neq 0$ and $m_T(\lambda) \in F$, it must be the case that $m_T(\lambda) = 0$. Hence $\lambda$ is a root.
+
+            Now suppose $m_T(\lambda) = 0$. This gives $m_T(x) = (x-\lambda)f(x)$ for some $f(x) \in F[x]$. Since $\deg{f(x)} < \deg{m_T(x)}$, this gives a nonzero vector $v \in V$ so that $f(T)(v) \neq 0$ {\color{red} why?}. Set $w = f(T)(v)$, then:
+                \begin{equation*}
+                \begin{split}
+                    0_V
+                    & = (T-\lambda \id_V)f(T) \\
+                    & = (T - \lambda \id_V)w,
+                \end{split}
+                \end{equation*}
+            which simplifies to $T(w) = \lambda w$. Thus $\lambda$ is an eigenvalue.
+        \end{proof}
+
+    \begin{corollary}
+        Let $\lambda_1,...,\lambda_n \in F$ be distinct eigenvalues of $T$. For each $i$, let $v_i$ be an eigenvector with eigenvalue $\lambda_i$. The set $\{v_1,...,v_m\}$ is linearly independent.
+    \end{corollary}
+        \begin{proof}
+            We have $m_T(x) = (x-\lambda_1)(x-\lambda_2)...(x-\lambda_m)f(x)$ for some $f(x) \in F[x]$. Suppose $a_1v_1 + ... + a_mv_m = 0_V$ for some $a_i \in F$. Define $g_1(x) = (x-\lambda_2)...(x-\lambda_m)f(x)$. Note that $g_1(T)(v_i) = 0_V$ for $2 \leq i \leq m$. Then:
+                \begin{equation*}
+                \begin{split}
+                    0_V 
+                    & = g_1(T)(0_V) \\
+                    & = \sum_{j=1}^m a_j g_1(T)(v_j) \\
+                    & = a_1 g_1(T)(v_1) \\
+                    & = a_1 g_1 (\lambda_1) v_1
+                \end{split}
+                \end{equation*}
+            But $g_1(\lambda_1) \neq 0$ and $v\neq 0$,  so it must be that case that $a_1 =0$. Inductively, it follows for $2,...,m$.
+        \end{proof}
+
+    \begin{corollary}
+        If $\deg{(m_T(x))} = \dim_F(V)$ and $m_T(x)$ has distinct roots, all of which are in $F$, then we can find a basis $\cB$ so that $[T]_\cB$ is diagonal.
+    \end{corollary}
+
+    \begin{example}
+        Let $A = \pmat 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \epmat$ and $B = \pmat 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \epmat$. These matrices are not similar, however $m_A(x) = m_B(x) = (x-1)(x-2)$. The minimal polynomial is not enough information on the similarity of matrices.
+    \end{example}
+
+    \begin{example}\label{example:gen-eigen-vec}
+        Let:
+            \begin{equation*}
+            \begin{split}
+                A = \bmat 1 & 2 & 3 \\ 0 & 1 & 4 \\ 0 & 0 & -1 \emat.
+            \end{split}
+            \end{equation*}
+        We have that $m_A(x) = (x-1)^2(x+1)$. Note that $Ae_1 = e_1$, so $E_1^1 \supseteq \Span_F{(e_1)}$ (or, more simply, $e_1 \in E_1^1$). Note that $Ae_2 = \pmat 2 \\ 1 \\ 0 \epmat$. So $e_2 \not\in E_1^1$ (another way of saying this is $(A-1_3)e_2 \neq \pmat 0 \\ 0 \\ 0 \epmat$). But now consider:
+            \begin{equation*}
+            \begin{split}
+                 (A - 1_3)^2 = \bmat 0 & 0 & 2 \\ 0 & 0 & -8 \\ 0 & 0 & 4 \emat.
+            \end{split}
+            \end{equation*}
+        We have $(A-1_3)^2 e_2 = \pmat 0 \\ 0\\ 0 \epmat$. Thus $e_1,e_2 \in \ker{(A-\id_{F^3})^2}$.
+    \end{example}
+
+    \begin{definition}
+        Let $T \in \Hom_F{(V,V)}$. For $k \geq 1$, the \textui{$k^\text{th}$ generalized eigenspace} of $T$ associated to $\lambda$ is $E_\lambda^k = \ker(T - \lambda \id_V)^k = \{v \in V \mid (T-\lambda \id_V)^k v = 0_V \}$. Elements of $E_\lambda^k$ are called \textui{generalized eigenvectors}. Set $E_\lambda^\infty = \bigcup_{k \geq 1} E_\lambda^k$.
+    \end{definition}
+
+    \begin{example}
+        Continuing Example~\ref{example:gen-eigen-vec}, let $\alpha e_1 + \beta e_2 \in \Span_F{(e_1,e_2)}$. Then:
+            \begin{equation*}
+            \begin{split}
+                (A - 1_3)^2 (\alpha e_1 + \beta e_2)
+                & = \alpha (A - 1_3)^2  e_1 + \beta(A - 1_3)^2  e_2
+                 = \pmat 0 \\ 0 \\ 0 \epmat.
+            \end{split}
+            \end{equation*}
+        So $\Span_F{(e_1,e_2)} \subseteq E_1^2$. We also have $-1$ as an eigenvalue with eigenvector $v_3 = \pmat \frac{1}{2} \\ -2 \\ 1 \epmat$. Check that $v_3 \not\in E_1^2$. So $\dim_F{(E_1^2)} \leq 2$; i.e., $E_1^2 = \Span_F{(e_1,e_2)}$. {\color{red} why does $v_3 \not\in E_1^2$ imply the dimension which implies containment in the other direction}.
+    \end{example}
+    
+    \begin{lemma}\label{lemma:eventual-kernel}
+        Let $V$ be a finite dimensional $F$-vector space, $\dim_F{(V)} = n$, and $T \in \Hom_F{(V,V)}$. There exists $m$ with $1 \leq m \leq n$ such that $\ker(T^,) = \ker(T^{m+1})$. Moreover, for such an $m$, $\ker(T^m) = \ker(T^{m+j})$ for all $j \geq 0$.
+    \end{lemma}
+        \begin{proof}
+            We have $\ker(T^1) \subseteq \ker(T^2) \subseteq...$ If these containments are always strict, then the dimension increases indefinitely, which contradicts $\dim_F(V) = n$. Hence we have an $m$ with $1 \leq m \leq n$ and $\ker(T^m) = \ker(T^{m+1})$.
+
+            Let $m$ be the smallest value where $\ker(T^m) = \ker(T^{m+1})$. We use induction on $j$. Base case of $j=1$ is what defines $m$. Assume $\ker(T^m) = \ker(T^{m+j})$ for all $1 \leq j \leq N$. Let $v \in \ker(T^{m+N+1})$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    0_V 
+                    & = T^{m+N+1}(v) \\
+                    & = T^{m+1}(T^N(v)).
+                \end{split}
+                \end{equation*}
+            So $T^N(v) \in \ker(T^{m+1})$. However $\ker(T^{m+1}) = \ker(T^{m})$, so $T^N(v) \in \ker(T^{m})$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    0_V 
+                    & = T^m(T^n(v)) \\
+                    & = T^{m+N}(v), 
+                \end{split}
+                \end{equation*}
+            so $v \in \ker(T^{m+N})$. Induction hypothesis gives $\ker(T^{m+N}) = \ker(T^m)$, giving $v \in \ker{(T^m)}$. Thus $\ker(T^{m+N+1}) \subseteq \ker(T^m)$. The other direction of containment is trivial.
+        \end{proof}
+
+    \begin{example}
+        Let $\cB = \{v_1,...,v_n\}$ be a basis of $V$ and $T \in \Hom_F{(V,V)}$, $\lambda \in F$ such that:
+            \begin{equation*}
+            \begin{split}
+                [T]_\cB = 
+                \bmat
+                \lambda & 1 & 0 & ... & 0 \\
+                0 & \lambda  & 1 & ... & 0 \\
+                0 & 0 & \lambda & ... & 0 \\
+                \vdots & \vdots & \vdots & \ddots & 1 \\
+                0 & 0 & 0 & 0 & \lambda
+                \emat.
+            \end{split}
+            \end{equation*}
+        In other words, $[T]_\cB$ contains $\lambda$ along the diagonal and $1$ along the super-diagonal. Let $A = [T]_\cB$. Consider:
+            \begin{equation*}
+            \begin{split}
+                (A-\lambda 1_n) =
+                \bmat
+                0 & 1 & 0 & ... & 0 \\
+                0 & 0  & 1 & ... & 0 \\
+                0 & 0 & 0 & ... & 0 \\
+                \vdots & \vdots & \vdots & \ddots & 1 \\
+                0 & 0 & 0 & 0 & 0
+                \emat.
+            \end{split}
+            \end{equation*}
+        We get:
+            \begin{equation*}
+            \begin{split}
+                (A - \lambda 1_n)v_1 &= 0_V \\
+                (A - \lambda 1_n)v_2 &= v_1 \\
+                &\vdots \\
+                (A - \lambda 1_n)v_n &= v_{n-1}.
+            \end{split}
+            \end{equation*}
+        This gives $E_\lambda^1 = \Span_F{(v_1)}$ (by the first equation). Now observe:
+            \begin{equation*}
+            \begin{split}
+                (A - \lambda 1_n)^2 v_1 &= 0_V \\
+                \phantom{a} \\
+                (A - \lambda 1_n)^2 v_2 &= (A - \lambda 1_n)(A - \lambda 1_n)v_2 \\
+                & = (A - \lambda 1_n)v_1 \\
+                & = 0_V \\
+                \phantom{a} \\
+                (A - \lambda 1_n)^2 v_3 &= v_1 \\
+                &\vdots \\
+                (A - \lambda 1_n)^2 v_n &= v_{n-2}. 
+            \end{split}
+            \end{equation*}
+        So $E_\lambda^2 = \Span_F{(v_1,v_2)}$. In general, we have that $E_\lambda^k = \Span_F{(v_1,...,v_k)}$. Moreover,  Lemma~\ref{lemma:eventual-kernel} gives $E_\lambda^1 \subseteq E_\lambda^2 \subseteq ... \subseteq E_\lambda^k$.
+    \end{example}
+
+    \begin{corollary}
+        If $\dim_F(V) = n$ and $T \in \Hom_F{(V,V)}$, there exists an $m$ with $1 \leq m \leq n$ so that for any $\lambda \in F$, $E_\lambda^\infty = E_\lambda^m$.
+    \end{corollary}
+
+    \begin{theorem}
+        Let $T \in \Hom_F{(V,V)}$, and $\lambda \in F$ with $(x-\lambda)^j \mid m_T(x)$. We have:
+            \begin{equation*}
+            \begin{split}
+                \dim_F(E_\lambda^j) \geq j.
+            \end{split}
+            \end{equation*}
+    \end{theorem}
+        \begin{proof}
+            Write $m_T(x) = (x-\lambda)^k f(x)$ where $f(x) \in F[x]$, $f(\lambda) \neq 0$. Define $g_j(x) = (x-\lambda)^j$. We have that $(x-\lambda)^{k-1}f(x) = g_{k-1}(x)f(x)$ is \textit{not} the minimal polynomial. So there is a $v \in V$ with $v \neq 0_V$ such that:
+                \begin{equation*}
+                \begin{split}
+                    g_{k-1}(T)f(T)(v) \neq 0_V.
+                \end{split}
+                \end{equation*}
+            Set $v_k = f(T)(v)$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \left(T - \lambda \id_V\right)^k (v_k)
+                    & = (T-\lambda \id_V)^k f(T)(v)\\
+                    & = m_T(T)(v) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            So $v_k \in E_\lambda^k$. Moreover, by our construction:
+                \begin{equation*}
+                \begin{split}
+                    (T-\lambda \id_V)^{k-1}(v_k)
+                    & = g_{k-1}(T)(v_k) \\
+                    & = g_{k-1}(T)f(T)(v) \\
+                    & \neq 0_V.
+                \end{split}
+                \end{equation*}
+            Hence $v_k \in E_\lambda^{k} \setminus E_\lambda^{k-1}$. Now set $v_{k-1} = (T - \lambda \id_V)v_k = (T - \lambda \id_V)f(T)(v)$. Note:
+                \begin{equation*}
+                \begin{split}
+                    (T - \lambda \id_V)^{k-1}(v_{k-1}) 
+                    & = (T - \lambda \id_V)^{k-1} (T - \lambda \id_V)(v_k) \\
+                    & = (T - \lambda \id_V)^k (v_k)\\
+                    & = (T - \lambda \id_V)^k f(T)(v) \\
+                    & = m_T(T)(v) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            So $v_{k-1} \in E_\lambda^{k-1}$. Again, by our construction:
+                \begin{equation*}
+                \begin{split}
+                    (T - \lambda \id_V)^{k-2}(v_{k-1})
+                    & = (T - \lambda \id_V)^{k-2}(T - \lambda \id_V)(v_k) \\
+                    & =(T - \lambda \id_V)^{k-1}(v_k) \\
+                    & \neq 0_V.
+                \end{split}
+                \end{equation*}
+            So $v_{k-1} \in E_\lambda^{k-1} \setminus E_\lambda^{k-2}$. Setting $v_{k-2} = (T - \lambda \id_V)^2v_k$ gives a similar result. By this construction, we obtain a set $\{v_k,v_{k-1},...,v_2,v_1\}$. Claim: this set is linearly independent. Suppose towards contradiction it's not, that is, $a_1v_1 + ... + a_k v_k = 0_V$ does not imply $a_1 = ... = a_k = 0$. This gives $v_k = \frac{-1}{a_k}(a_1v_1 + ... + a_{k-1}v_{k-1}) \in E_\lambda^{k-1}$, which is a contradiction. It follows that $a_1 = ... = a_k = 0$, hence $\{v_k,v_{k-1},...,v_2,v_1\}$ is linearly independent. {\color{red} but why does this establish the theorem}.
+        \end{proof}
+
+    \begin{example}
+        Let $T_A \in \Hom_F{(F^3,F^3)}$ be defined by:
+            \begin{equation*}
+            \begin{split}
+                A = \bmat 2 & 1 & 3  \\ 0 & 2 & 4 \\ 0 & 0 & 2 \emat.
+            \end{split}
+            \end{equation*}
+        We have that $m_T(x) = (x-2)^3$. Now observe:
+            \begin{equation*}
+            \begin{split}
+                (A - 2\cdot 1_3)^2 = \bmat 0 & 0 & 4 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \emat.
+            \end{split}
+            \end{equation*}
+        Note $(A - 2\cdot 1_3)^2 e_3 = 4e_3 \neq 0_F^3$, but $(A - 2 \cdot 1_3)^3 e_3 = 0_{F^3}$. Set $v_3 = e_3$, we have $v_3 \in E_2^3$. Now observe:
+            \begin{equation*}
+            \begin{split}
+                v_2 &= (A - 2 \cdot 1_3)(v_3) \\
+                & = \bmat 0 & 1 & 3 \\ 0 & 0 & 4 \\ 0 & 0 & 0 \emat \bmat 0 \\ 0 \\ 1 \emat \\
+                & = \bmat 3 \\ 4\\ 0 \emat.
+            \end{split}
+            \end{equation*}
+        Similarly:
+            \begin{equation*}
+            \begin{split}
+                v_1 &= (A - 2 \cdot 1_3)(v_2) \\
+                & = ... \\
+                & = \bmat 4 \\ 0\\ 0 \emat.
+            \end{split}
+            \end{equation*}
+        Hence:
+            \begin{equation*}
+            \begin{split}
+                E_2^3 &= \Span_F{(\pmat 0 \\ 0 \\ 1\epmat ,\pmat 3 \\ 4 \\ 0\epmat , \pmat 4 \\ 0 \\ 0\epmat)} \\
+                E_2^2 & = \Span_F{(\pmat 3 \\ 4 \\ 0\epmat , \pmat 4 \\ 0 \\ 0\epmat)} \\
+                E_2^1 & = \Span_F{(\pmat 4 \\ 0 \\ 0\epmat)}.
+            \end{split}
+            \end{equation*}
+        Setting $\cB = \{v_1,v_2,v_3\}$, we have:
+            \begin{equation*}
+            \begin{split}
+                \left[T_A\right]_\cB = \bmat 2& 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \emat.
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \iffalse
+    \begin{definition}
+        Let $A$ be a defective matrix, that is to say, it contains repeated eigenvalues. Then $A$ is similar to a matrix $J$, where $J$ is of the form:
+            \begin{equation*}
+            \begin{split}
+                J = 
+                \bmat
+                \lambda_1 & 1 & \\
+                 & \lambda_1 & 1 \\
+                 & & \lambda_1 \\
+                 & & & \lambda_2 & 1 \\
+                 & & & & \lambda_2 \\
+                 & & & & & \lambda_3 \\
+                 & & & & & & \ddots \\
+                 & & & & & & & \lambda_n & 1\\
+                 & & & & & & & & \lambda_n  \\ 
+                \emat.
+                \begin{tikzpicture}[overlay, remember picture]
+                    \draw[gray, thick] (-1.7,-3.35) rectangle (-0.4,-2); % Adjust the coordinates for placement
+                \end{tikzpicture}
+                \begin{tikzpicture}[overlay, remember picture]
+                    \draw[gray, thick] (-3.18,-1.04) rectangle (-2.6,-0.5); % Adjust the coordinates for placement
+                \end{tikzpicture}
+                \begin{tikzpicture}[overlay, remember picture]
+                    \draw[gray, thick] (-4.64,-0.3) rectangle (-3.4,1.1); % Adjust the coordinates for placement
+                \end{tikzpicture}
+                \begin{tikzpicture}[overlay, remember picture]
+                    \draw[gray, thick] (-6.8,1.3) rectangle (-4.8,3.5); % Adjust the coordinates for placement
+                \end{tikzpicture}
+            \end{split}
+            \end{equation*}
+        We say $J$ is the \textui{Jordan normal form} of $A$. The outlined squares are known as \textui{Jordan blocks}.
+    \end{definition}
+    \fi
+
+\section{Characteristic Polynomials}
+    \begin{definition}
+        Let $A \in \Mat_n(F)$. The \textui{characteristic polynomial} is $c_A(x) = \det(x 1_n - A)$.
+    \end{definition}
+
+    \begin{definition}
+        Let $f(x) = x^n + a_{n-1}x^{n-1} + ... + a_1 x + a_0 \in F[x]$. The \textui{companion matrix} of $f(x)$ is given by:
+            \begin{equation*}
+            \begin{split}
+                C(f(x)) = 
+                \bmat
+                1 \\
+                \emat
+            \end{split}
+            \end{equation*}
+        The companion matrix shows that any polynomial $f(x) \in F[x]$ can be realized as the characteristic polynomial of a matrix.
+    \end{definition}
+
+    \begin{lemma}
+        If $A = C(f(x))$, then $c_A(x) = f(x)$.
+    \end{lemma}
+
+    \begin{lemma}
+        Let $A,B \in \Mat_n(F)$ be similar matrices. Then $c_A(x) = c_B(x)$.
+    \end{lemma}
+        \begin{proof}
+            Let $A = PBP^{-1}$ for some $P \in GL_n(F)$. We have:
+                \begin{equation*}
+                \begin{split}
+                    c_A(x)
+                    & = \det(x1_n - A) \\
+                    & = \det(x1_n - PBP^{-1}) \\
+                    & = \det(P(x1_n)P^{-1} - PBP^{-1}) \\
+                    & = \det(P(x1_n - B)P^{-1}) \\
+                    & = \det(P)\det(x1_n - B)\det(P^{-1}) \\
+                    & = \det(x1_n - B) \\
+                    & = c_B(x).
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{definition}
+        For $T \in \Hom_F(V,V)$, let $\cB$ be a basis of $V$ and set $c_T(x) = c_{\left[T\right]_\cB}(x)$.
+    \end{definition}
+
+    \begin{theorem}
+        Let $v \in V$, $v\neq 0_V$. Let $\dim_F(V) = n$. Then there is a unique monic polynomial $m_{T,v}(x) \in F[x]$ so that $m_{T,v}(T)(v) = 0_V$. Moreover, if $f(x) \in F[x]$ with $f(T)(v) = 0_V$, then $m_{T,v}(x) \mid f(x)$.
+    \end{theorem}
+        \begin{proof}
+            Consider the set $\{v,T(v),T^2(v),...,T^n(V)\}$. Since this set contains $n+1$ elements and the dimension of $V$ is $n$, the set must be linearly dependent. Write:
+                \begin{equation*}
+                \begin{split}
+                    a_mT^m(v) + ... + a_1T(v) + a_0 = 0_V
+                \end{split}
+                \end{equation*}
+            for some $m \leq n$ of minimal order and $a_i \neq 0$ for all $i$. Set:
+                \begin{equation*}
+                \begin{split}
+                    p(x) = x^m + \frac{a_{m-1}}{a_m}x^{m-1} + ... + \frac{a_{1}}{a_m}x + \frac{a_{0}}{a_m} \in F[x].
+                \end{split}
+                \end{equation*}
+            By construction $p(T)(v) = 0_V$. Set $I_v = \{g(x) \in F[x] \mid g(T)(v) = 0_V \}$. We have that $p(x)$ is a monic nonzero polynomial in $I_v$ of minimal degree. Set $m_{T,v}(x) = p(x)$.
+
+            Let $f(x) \in I_v$. We'd like to show that $m_{T,v}(x) \mid f(x)$. Write:
+                \begin{equation*}
+                \begin{split}
+                    f(x) = q(x)m_{T,v}(x) + r(x),
+                \end{split}
+                \end{equation*}
+            with $q(x),r(x) \in F[x]$ and $\deg(r(x)) = 0$ or $deg(r) < \deg(m_{T,v}(x))$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    r(T)(v) &= f(T)(v) - q(T)m_{T,v}(T)(v) \\
+                    & = 0_V - q(T)0_V \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            So $r(x) \in I_v$. But $m_{T,v}(x)$ had minimal degree, so it must be the case that $r(x) = 0$. Thus $f(x) = q(x)m_{T,v}(x)$, implying $m_{T,v}(x) \mid f(x)$\footnote{The proof of $F[x]$ being a P.I.D. follows identically. Instead of considering $I_v$ we would consider an arbitrary polynomial in $F[x]$.}. Now suppose $h(x) \in I_v$ with $\deg(h(x)) = \deg(m_{T,v}(x))$. Since both polynomials are monic and of equal degree, if $m_{T,v}(x) \mid h(x)$ then $m_{T,v}(x) = h(x)$.
+        \end{proof}
+
+    \begin{definition}
+        We refer to $m_{T,v}(x)$ as the \textui{$T$-annihilator} of $v$.
+    \end{definition}
+
+    \begin{example}
+        
+    \end{example}
+    
+
+    
+
+

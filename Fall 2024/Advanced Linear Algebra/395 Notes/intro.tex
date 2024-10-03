@@ -1,0 +1,244 @@
+\chapter{Introduction}\label{chapter:introduction}
+
+\pagenumbering{arabic}
+\vspace{12pt}
+"It is my experience that proofs involving matrices can be shortened by $50\%$ if one throws the matrices out"
+
+\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad -Emil Artin
+\section{Basic Properties of Vector Spaces}
+    \begin{definition}
+        Let $F$ be any field. Let $V$ be a nonempty set with binary operations:
+            \begin{equation*}
+            \begin{split}
+                V \times V \rightarrow B \\
+                (v,w) \mapsto v+w
+            \end{split}
+            \end{equation*}
+        called \textui{vector addition} and
+            \begin{equation*}
+            \begin{split}
+                F \times V \rightarrow V \\
+                (c,v) \mapsto cv
+            \end{split}
+            \end{equation*}
+        called \textui{scalar multiplication}. Then $V$ is an \textui{$F$-vector space} if the following properties are satisfied:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $V$ is an abelian group, that is:
+                    \begin{enumerate}[label = (\roman*)]
+                        \item there exists a $0_v \in V$ such that $0_v + v = v = v + 0v$,
+                        \item for every $v \in V$ there exists a $-v \in V$ such that $v+(-v) = 0_v = (-v) + v$,
+                        \item for every $u,v,w \in V$, $(u+v) + w = u + (w+v)$, and
+                        \item $v + w = w+ v$ for all $v,w \in V$. 
+                    \end{enumerate}
+                \item $c(v+w) = cv + cw$ for all $c \in F$, $v,w \in V$,
+                \item $(c+d)v = cv + dv$ for all $c,d \in F$, $v \in V$,
+                \item $(cd)v = c(dv)$ for all $c,d \in F$, $v \in V$,
+                \item there exists a $1_F \in F$ such that $1_F v = v$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $F$ be any field. Define $F^n = \{(a_1,...,a_n) \mid a_i \in F\}$ as \textui{affine $n$-space}. Then $F^n$ is an $F$-vector space.
+            \item Let $n \in \bfZ_{\geq 0}$. Define $P_n(F) = \{a_0 + a_1 x + ... + a_n x^n \mid a_i \in F\}$. This is an $F$-vector space with polynomial addition and scalar multiplication. Define $F[x] = \bigcup_{n \geq 0} P_n(F)$. This is also an $F$-vector space, but either via polynomial addition \textui{or} polynomial multiplication.
+            \item Let $m,n \in \bfZ_{\geq 0}$. Set $V = \Mat_{n,m}{(F)} = \{\text{all $m \times n$ matrices with entries in $F$}\}$. This is an $F$-vector space with matrix addition and scalar mutliplication. If $m = n$ then write $\Mat_{n}{(F)}$ for $\Mat_{n,n}{(F)}$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{lemma}
+        Let $V$ be an $F$-vector space.
+        \begin{enumerate}
+            \item The element $0_v \in V$ is unique,
+            \item $0v = 0_v$ for all $v \in V$,
+            \item $(-1_F)v = -v$ for all $v \in V$.
+        \end{enumerate}
+    \end{lemma}
+        \begin{proof}
+            (1) Let $0,0'$ satisfy the following properties: $0+v = v$ and $0' + v = v$ for all $v \in V$. Observe that $0 = 0' + 0 = 0 + 0' = 0'$. (2) Note that $0_F v = (0_F + 0_F)v = 0_F v + 0_F v$. Subtracting both sides by $0_F v$ yields $0 = 0_F v$. (3) Observe that $(-1_F)v + v = (-1_F)v + 1_F v = (-1_F + 1_F)v = 0_F v = 0$. Hence $(-1_F)v = -v$.
+        \end{proof}
+    
+    \begin{definition}
+        Let $V$ be an $F$-vector space. We say $W \subseteq V$ is an $\textui{$F$-subspace}$ (or just \textui{subspace} if $F$ is obvious by context) if $W$ is an $F$-vector space under the same addition and scalar multiplication.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Consider the plane $V = \bfR^2$. Let $w_1, w_2$ be subsets of $\bfR^2$ as follows: 
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[
+                        axis lines = middle,
+                        ticks = none, % Remove axis ticks
+                        xlabel = {\textbf{R}}, % Bold x-axis label
+                        ylabel = {\textbf{R}}, % Bold y-axis label
+                        enlargelimits = true, % Ensure the labels aren't cut off
+                    ]
+                    %Below the red parabola is defined
+                    \addplot [
+                        domain=-10:10, 
+                        samples=100, 
+                        color=red,
+                    ]
+                    {2*x};
+                    \addlegendentry{$w_1$}
+                    %Here the blue parabola is defined
+                    \addplot [
+                        domain=-10:10, 
+                        samples=100, 
+                        color=blue,
+                        ]
+                        {0.5 *x + 3};
+                    \addlegendentry{$w_2$}
+                    
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+        Note that $w_2$ is not a subspace, as it does not contain $0_{\bfR^2}$. On the other hand $w_1$ is a subspace; note that every element of $w_1$ is of the form $(x,ax)$, hence $(x_1,a x_1) + (x_2, a x_2) = (x_1 + x_2 , a(x_1 + x_2))$. The other axioms follow similarly.
+
+        \item Let $V = \bfC$ and $W = \{a + 0i \mid a \in \bfR\}$. If $F = \bfR$, then clearly $W$ is an $\bfR$-subspace. If $F = \bfC$, then $W$ is not a $\bfC$-subspace; given $2 \in W$ and $i \in \bfC$, $2i \not\in W$.
+        \item $\Mat_2{(\bfR)}$ is not a subspace of $\Mat_4{(\bfR)}$, as $\Mat_2{(\bfR)} \not\subseteq \Mat_4{(\bfR)}$.
+        \item Let $m,n \in \bfZ_{\geq 0}$. If $m \leq n$, then $P_m(F)$ is a subspace of $P_n(F)$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{lemma}
+        Let $V$ be an $F$-vector space and $W \subseteq V$. Then $W$ is an $F$-subspace of $V$ if:
+            \begin{enumerate}[label = (\arabic*)]
+                \item W is nonempty,
+                \item W is closed under addition, and
+                \item W is closed under scalar multiplication.
+            \end{enumerate}
+    \end{lemma}
+        \begin{proof}
+            Let $x,y \in W$ and $\alpha \in F$, then by assumption $x+\alpha y \in W$. Take $\alpha = -1$, then $x-y \in W$ which implies $W$ is an abelian subgroup of $V$. Then by (3) it must be the case that $W$ is an $F$-subspace of $V$.
+        \end{proof}
+
+    \begin{definition}
+        Let $V,W$ be $F$-vector spaces. Let $T:V \rightarrow W$. We say $T$ is a \newline \textui{linear transformation} (or \textui{linear map}) if for every $v_1,v_2 \in V$ and $c \in F$ we have
+            \begin{equation*}
+            \begin{split}
+                T(v_1 + c v_2) = T(v_1) + c T(v_2).
+            \end{split}
+            \end{equation*}
+        The collection of all linear maps from $V$ to $W$ is denoted $\Hom_{F}{(V,W)}$ (some textbooks write this as $\mathcal{L}(V,W)$).
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V$ be an $F$-vector space. Define $\id_v : V \rightarrow V$ by $\id_v (v) = v$. This is a linear map; i.e., $\id_v \in \Hom_{F}{(V,V)}$ because $\id_v(v_1 + c v_2) = v_1 + c v_2 = \id_v(v_1) + c \id_v (v_2).$
+            \item Let $V = \bfC$. Define $T:V \rightarrow V$ by $z \mapsto \overline{z}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(z_1 + c z_2) &= \overline{z_1 + c z_2} = \overline{z_1} + \overline{c} \hspace{2pt}\overline{z_2} \\
+                    T(z_1) + c T(z_2) &= \overline{z_1} + c \hspace{2pt}\overline{z_2}.
+                \end{split}
+                \end{equation*}
+            Note that these two are only equal if $c = \overline{c}$. Hence $T \in \Hom_{F}{(\bfC, \bfC)}$ if $F = \bfR$ but not if $F = \bfC$.
+            \item Let $A \in \Mat_{m,n}(F)$. Define $T_A : F^n \rightarrow F^m$ by $x \mapsto Ax$. Then $T_A \in \Hom_F{(F^n , F^m)}$.
+            \item Recall that $C^\infty(\bfR)$ is the set of all smooth functions $f:\bfR \rightarrow \bfR$ (another way of saying "smooth" is "infinitely differentiable"). Let $V = C^\infty(\bfR)$. This is an $\bfR$-vector space under pointwise addition and scalar multiplication. If $a \in \bfR$ then:
+                \begin{itemize}
+                    \item $E_a : V \rightarrow \bfR$ defined by $f \mapsto f(a)$ is an element of $\Hom_\bfR{(V,\bfR)}$,
+                    \item $D:V \rightarrow V$ defined by $f \mapsto f'$ is an element of $\Hom_\bfR{(V,V)}$,
+                    \item $I_a : V \rightarrow V$ defined by $f \mapsto \int_{a}^{x}f(t)dt$ is an element of $\Hom_\bfR{(V,V)}$, and
+                    \item $\tilde{E}_a : V \rightarrow V$ defined by $f \mapsto f(a)$ (where $f(a)$ is the constant function) is an element of $\Hom_\bfR{(V,V)}$.
+                \end{itemize}
+            From this, we can express the fundamental theorem of calculus as follows:
+                \begin{equation*}
+                \begin{split}
+                    D \circ I_a &= \id_v \\
+                    I_a \circ D &= \id_v - \tilde{E}_a.
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}
+        $\Hom_F{(V,W)}$ is an $F$-vector space.
+    \end{proposition}
+        \begin{proof}
+            \color{red} do this
+        \end{proof}
+    
+    \begin{lemma}
+        Let $T \in \Hom_F{(V,W)}$. Then $T(0_v) = 0_w$.
+    \end{lemma}
+        \begin{proof}
+            \color{red} do this
+        \end{proof}
+
+    \begin{definition}
+        Let $T \in \Hom_F{(V,W)}$ be invertible; i.e., there exists a linear transformation $T^{-1}:W \rightarrow V$ such that $T \circ T^{-1} = \id_w$ and $T^{-1} \circ T = \id_v$. If this is the case we say $T$ is an \textui{isomorphism} and say $V$ and $W$ are \textui{isomorphic}, written as $V \cong W$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $T \in \Hom_F{(V,W)}$ be an isomorphism. Then $T^{-1} \in \Hom_F{(W,V)}$.
+    \end{proposition}
+        \begin{proof}
+            \color{red} do this
+        \end{proof}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V = \bfR^2$ and $W = \bfC$. Define $T:\bfR^2 \rightarrow \bfC$ by $(x,y) \mapsto x+iy$. This is an isomorphism: note that $T \in \Hom_{\bfR}{(\bfR^2 , \bfC)}$ because 
+                \begin{equation*}
+                \begin{split}
+                    T((x_1,y_1) + r(x_2,y_2)) &= ...\text{\color{red} fill this out}  \\ 
+                    &= T((x_1,y_1))+r T((x_2,y_2)).
+                \end{split}
+                \end{equation*}
+            
+            
+            Defining $T^{-1}:\bfC \rightarrow \bfR^2$ by $x+iy \mapsto (x,y)$ (and showing it's linear) clearly satisfies $(T\circ T^{-1})(x+iy) = x+iy$ and $(T^{-1} \circ T)((x,y)) = (x,y)$, hence $\bfR^2 \cong \bfC$ as $\bfR$-vector spaces.
+            \item Set $V = P_n(F)$ and $W = F^{n+1}$. Define $T:P_n(F) \rightarrow F^{n+1}$ by 
+                \begin{equation*}
+                \begin{split}
+                    a_0 + a_1 x + ... + a_n x^n \mapsto (a_0,a_1,...,a_n).
+                \end{split}
+                \end{equation*}
+            This is an isomorphism; $P_n(F) \cong F^{n+1}$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        Let $T \in \Hom_F{(V,W)}$. Define the \textui{kernel} of $T$ as:
+            \begin{enumerate}[label = (\arabic*)]
+                \item The \textui{kernel of $T$} is defined as $\ker{(T)} = \{v \in V \mid T(v) = 0_w\}$.
+                \item The \textui{image of $T$} is defined as $\Image{(T)} = \{w \in W \mid T(v) = w \hspace{4pt} \text{for some $v \in V$} \}$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}
+        Let $T \in \Hom_F{(V,W)}$. Then:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\ker{(T)}$ is a subspace of $V$,
+            \item $\Image{(T)}$ is a subspace of $W$.
+        \end{enumerate}
+    \end{lemma}
+        \begin{proof}
+            Let $v_1, v_2 \in \ker{(T)}$ and $\alpha \in F$. Observe that $T(v_1 + \alpha v_2) = T(v_1) + \alpha T(v_2) = 0_w + \alpha 0_w = 0_w$, hence $v_1 + \alpha v_2 \in \ker{(T)}$ establishing $\ker{(T)}$ as a subspace of $V$.
+
+            Let $w_1,w_2 \in \Image{(T)}$ and $\alpha \in F$. Then there exists $v_1, v_2 \in V$ such that $T(v_1) = w_1$ and $T(v_2) = w_2$. Observe that $w_1 + \alpha w_2 = T(v_1) + \alpha T(v_2) = T(v_1 + \alpha v_2)$, hence $w_1 + \alpha w_2 \in \Image{(T)}$ establishing $\Image{(T)}$ as a subspace of $W$.
+        \end{proof}
+    
+    \begin{lemma}
+        Let $T \in \Hom_F{(V,W)}$. $T$ is injective if and only if $\ker{(T)} = \{0_v\}$
+    \end{lemma}
+        \begin{proof}
+            Let $T$ be injective. Let $v \in \ker{(T)}$. Then $T(v) = 0_w = T(0_v)$, and since $T$ is injective $v = 0_v$.
+
+            Conversely, assume $\ker{(T)} = 0_v$. Let $v_1,v_2 \in V$ with $T(v_1) = T(v_2)$. Subtracting both sides by $T(v_2)$ gives $T(v_1) - T(v_2) = 0_w $, and since $T$ is a linear transformation yields $T(v_1 - v_2) = 0_w$. Since the kernel is trivial, it must be the case that $v_1 = v_2$. 
+        \end{proof}
+
+    \begin{example}
+        Let $m > n$. Define $T: F^m \rightarrow F^n$ by 
+            \begin{equation*}
+            \begin{split}
+                (a_0,a_1,...,a_{n-1},a_n,a_{n+1},...,a_m) \mapsto (a_0,a_1,...,a_n)
+            \end{split}
+            \end{equation*}
+        Then $\Image{(T)} = F^n$ and $\ker{(T)} = \{(0,...,0,a_{n+1},a_{n+2},...,a_m) \in F^m\} \cong F^{m-n}$.
+    \end{example}

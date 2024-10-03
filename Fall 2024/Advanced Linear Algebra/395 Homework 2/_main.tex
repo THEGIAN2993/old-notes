@@ -1,0 +1,264 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[9pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{tgbonum}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+%\usepackage{fancyhdr}
+%    \fancyhf{}
+%    \pagestyle{fancy}
+%    \cfoot{\footnotesize \thepage}
+%    \fancyhead[R]{\footnotesize \rightmark}
+%    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+\usepackage{verbatim}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+\newcommand{\TBC}{\textbf{TO BE CONTINUED}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{exercise}{Exercise}
+\newtheorem{note}{Note}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{noproof}{Proof omitted}
+\numberwithin{equation}{section}
+
+\newenvironment{solution}[1]{\noindent \textbf{#1}:}{}
+
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\HH}{\mathbf{H}}
+\newcommand{\KK}{\mathbf{K}}
+\newcommand{\FF}{\mathbf{F}}
+
+\newcommand{\bRR}{\overline{\RR}}
+\newcommand{\bRRp}{\overline{\RR}_{\geq 0}}
+
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\textui}[1]{\uline{\textit{#1}}}
+
+%\newcommand{\ov}{\overline}
+%\newcommand{\un}{\underline}
+\newcommand{\fin}{\mathrm{fin}}
+
+\newcommand{\chnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{\centering} % format
+{\Huge \color{black} \shadowbox{\thechapter}} % label
+{-0.5em} % sep (space between the number and title)
+{\LARGE \color{black} \underline} % before-code
+}
+
+\newcommand{\chunnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{} % format
+{} % label
+{0em} % sep
+{ \begin{flushright} \begin{tabular}{r}  \Huge \color{black}
+} % before-code
+[
+\end{tabular} \end{flushright} \normalsize
+] % after-code
+}
+
+\titlespacing*{\chapter}
+{0pt} % Left margin
+{*1} % Space before the chapter number (increase this value for more space)
+{0pt} % Space after the chapter number and before the title
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+    { \Large Math 395 \\[0.1in]Homework 2 \\[0.1in]
+    Due: 9/12/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    { Collaborators:} {\underline{ Avinash Iyer, Noah Smith, Carly Venenciano, Clarissa Ly \hspace*{1in}}} \\
+    \end{center}
+    For these problems $F$ is assumed to be a field.
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,W)}$. We get an induced map $T^\vee \in \Hom_F{(W^\vee , V^\vee)}$ such that $T^\vee(\varphi) = \varphi \circ T$ for some $\varphi \in W^\vee$. The following diagram commutes:
+                \begin{center}
+                    \begin{tikzcd}
+                        V \arrow[r, "T"] \arrow[rd, "T^\vee(\varphi)"', dashed] & W \arrow[d, "\varphi"] \\
+                                                                                     & F                     
+                        \end{tikzcd}
+                \end{center}
+            Prove that $T^\vee \in \Hom_F{(W^\vee,V^\vee)}$.
+            
+    \end{exercise}
+        \begin{proof}
+            Let $\varphi_1,\varphi_2 \in W^\vee$ and $\alpha \in F$. Then 
+                \begin{equation*}
+                \begin{split}
+                    T^\vee(\varphi_1 + \alpha \varphi_2)(v)
+                    & = (\varphi_1 + \alpha \varphi_2)(T(v)) \\
+                    & = \varphi_1(T(v)) + \alpha (\varphi_2(T(v)))\\
+                    & = T^\vee(\varphi_1)(v) + \alpha T^\vee(\varphi_2)(v) \\
+                    & = (T^\vee(\varphi_1) + \alpha T^\vee(\varphi_2))(v).
+                \end{split}
+                \end{equation*}
+            Thus $T^\vee$ is a linear map.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{9}
+    \begin{exercise}
+        Let $T \in \Hom_F{(P_7(F),P_7(F))}$ be defined by $T(f(x)) = f'(x)$, where $f'(x)$ denotes the usual derivative of a polynomial $f(x) \in P_7(F)$. For each of the fields below, determine a basis for the image and kernel of $T$:
+            \begin{enumerate}[label = (\alph*)]
+                \item $F = \bfR$.
+                \item $F = \bfF_3$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $F = \bfR$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(a_0 + a_1 x + a_2 x^2 + a_3 x^3 + a_4 x^4 + a_5 x^5  + a_6 x^6 + a_7 x^7) &= a_1  + 2a_2 x + 3a_3 x^2 + 4a_4 x^3 + 5a_5 x^4  + 6a_6 x^5 + 7a_7 x^6 \\
+                    T(a_0) &= 0.
+                \end{split}
+                \end{equation*}
+            So a basis for $\Image{(T)}$ is $\{1,x,x^2,x^3,x^4,x^5,x^6 \}$ and a basis for $\ker{(T)}$ is $\{1\}$.
+
+            Now let $F = \bfF_3$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(\overline{a_0} + \overline{a_1} x + \overline{a_2} x^2 + \overline{a_3} x^3 + \overline{a_4} x^4 + \overline{a_5} x^5  + \overline{a_6} x^6 + \overline{a_7} x^7) &= \overline{a_1} + \overline{2 a_2} x + \overline{a_4} x^3 + \overline{2a_5} x^4 + \overline{a_7}x^6\\
+                    T(\overline{a_0} + \overline{a_1}x^3 + \overline{a_2}x^6) = \overline{0}.
+                \end{split}
+                \end{equation*}
+                So a basis for $\Image{(T)}$ is $\{1,x,x^3,x^4,x^6\}$ and a basis for $\ker{(T)}$ is $\{1,x^3,x^6\}$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $T \in \Hom_F{(V,F)}$. Prove that if $v \in V$ is not in $\ker{(T)}$, then
+            \begin{equation*}
+            \begin{split}
+                V = \ker{(T)} \oplus \{cv \mid c \in F\}.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            Let $I = \{cv \mid c \in F\}$, we must first show that it is a subspace of $V$. Let $av, bv \in I$ and $c \in F$. Note that $I$ is nonempty because $0v = 0 \in I$. Let $av,bv \in I$ and $c \in F$. Then $av + c(bv) = av + (cb)v = (a+cb)v \in I$.
+
+            Let $x+y \in \ker{(T)} + I$. Since $\ker{(T)}$ and $I$ are subspaces, $x + y \in V$. Now let $w \in V$. If $w \in \ker{(T)}$, then we are done (because $w = w + 0v \in \ker{(T)} + I$). Suppose $w \not\in \ker{(T)}$. Then $T(w) = \alpha$ for some $\alpha \in F, \alpha \neq 0$, which is equivalent to $\alpha^{-1}T(w) = 1$. Since $v \not\in \ker{(T)}$, suppose $T(v) = \beta$ for some $\beta \in F, \beta \neq 0$. It follows that $\alpha^{-1}T(w) = \beta^{-1}T(v)$. Simplifying yields $T(w - \alpha \beta^{-1}v) = 0$, giving $w - \alpha \beta^{-1}v = k$ for some $k \in \ker{(T)}$. Thus $w = k + \alpha \beta^{-1} v \in \ker{(T)} + I$, establishing $V = \ker{(T)} + I$.
+
+            We now need to show that $\ker{(T)}$ and $I$ are independent. Let $k+\alpha \beta^{-1}v = k+cv = 0$. Then $T(k+cv) = T(cv) = cT(v) = 0$. But since $v \not\in \ker{(T)}$, we must have that $c = 0$; i.e., $cv = 0$. Then $k+cv = k = 0$. Since $\ker{(T)}$ and $I$ are independent, $V = \ker{(T)} \oplus I$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocounter{exercise}{6}
+    \begin{exercise}
+        Let $W$ be a subspace of a finite dimensional vector space $V$. Let $T \in \Hom_F{(V,V)}$ so that $T(W) \subset W$. Show that $T$ induces a linear transformation $\overline{T} \in \Hom_F{(V/W,V/W)}$. Prove that $T$ is nonsingular (i.e., injective) on $V$ if and only if $T$ is restricted to $W$ and $\overline{T}$ on $V/W$ are both nonsingular.
+    \end{exercise}
+        \begin{proof}
+            Define $\overline{T}: V/W \rightarrow V/W$ by $v +W \mapsto T(v) + W$. We must first show that $\overline{T}$ is well-defined. Suppose $v_1 + W = v_2 + W$, then $v_1 = v_2 + w$ for some $w \in W$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \overline{T}(v_1 + W)
+                    & = T(v_1) + W \\
+                    & = T(v_2 + w) + W \\
+                    & = T(v_2) + T(w) + W \hspace{15pt} \text{\tiny Since $T \in \Hom_F{(V,V)}$}\\
+                    & = T(v_2) + W \hspace{53pt} \text{\tiny Since $T(W) \subset W$} \\
+                    & = \overline{T}(v_2 + W).
+                \end{split}
+                \end{equation*}
+            Let $v_1 + W , v_2 + W \in V/W$, and $\alpha \in F$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \overline{T}((v_1 + W) + \alpha(v_2 + W))
+                    & = \overline{T}((v_1 + W) + (\alpha v_2 + W)) \\
+                    & = \overline{T}((v_1 + \alpha v_2) + W) \\
+                    & = T(v_1 + \alpha v_2) + W \\
+                    & = T(v_1) + \alpha T(v_2) + W \\
+                    & = (T(v_1) + W) + \alpha(T(v_2) + W) \\
+                    & = \overline{T}(v_1 + W) + \alpha \overline{T}(v_2 + W),
+                \end{split}
+                \end{equation*}
+            hence $\overline{T} \in \Hom_F{(V/W, V/W)}$. Now consider the maps $V \xrightarrow{T} V \xrightarrow{\pi} V/W$, where $\pi:V \rightarrow V/W$ is the canonical projection map. It can be proved that $\pi \circ T = \overline{T} \circ \pi$ as follows: let $v \in V$ and observe that $\pi(T(v)) = T(v) + W$, which is equivalent to $\overline{T}(\pi(v)) = \overline{T}(v + W) = T(v) + W$. We've established that the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[d, "\pi"'] \arrow[r, "T"] & V \arrow[d, "\pi"] \\
+                    V/W \arrow[r, "\overline{T}"']     & V/W \hspace{4pt}.              
+                    \end{tikzcd}
+            \end{center}
+            
+            Let $T$ be injective. Since $T$ is finite dimensional, it must be bijective. Clearly $T\mid_W:W \rightarrow V$ is injective by inclusion. Let $v+W \in \ker{(\overline{T})}$. Then $\overline{T}(v+W) = T(v)+W = 0+W$. This gives that $T(v) \in W$, and from the fact that $T$ is bijective, $T(W) = W$, giving $v \in W$. Hence $v+W = 0+W$.
+
+            Conversely, suppose $T\mid_W$ and $\overline{T}$ are injective. Let $v \in \ker{(T)}$. Then $T(v) = 0$ is equivalent to $\pi(T(v)) = 0 + W$. Using the fact that the above diagram commutes, we can write $\overline{T}(\pi(v)) = 0 + W$. Since $\overline{T}$ is injective, its kernel is trivial, hence it must be the case that $\pi(v) = 0 +W$. Thus $v \in W$, hence $T(v) = T\mid_W (v) = 0$, establishing that $v= 0$. Thus $T$ is injective.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

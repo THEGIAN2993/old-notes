@@ -1,0 +1,199 @@
+\chapter{Ordered Fields}\label{chapter:ordered Fields}
+\vspace{12pt}
+
+\section{Ordering of $\mathbb{Z}$}
+    \begin{definition}
+        Define $\bfZ^+  = \{n \in \bfZ \mid n \geq_a 0\}$, where $\geq_a$ is the \textit{algebraic ordering} from Example~\ref{example:orderings}. We call $\bfZ^+$ the \textui{cone of positive integers}, and they admit the following axioms:
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $m,n \in \bfZ^+$, then $m+n \in \bfZ^+$ and $mn \in \bfZ^+$.
+            \item For all $m \in \bfZ$, $m \in \bfZ^+$ or $-m \in \bfZ^+$.
+            \item If $m \in \bfZ^+$ and $-m \in \bfZ^+$, then $m=0$. 
+        \end{enumerate}
+    \end{definition}
+    
+    \begin{proposition}[Properties of $\leq_a$]
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $m \leq_a n$ if and only if $n - m \in \bfZ^+$.
+            \item If $m \leq_a n$ and $p \leq_a q$, then $m + p \leq_a n + q$.
+            \item If $m \leq_a n$ and $p \in \bfZ^+$, then $pm \leq_a pn$.
+            \item If $m \leq_a n$ then $-n \leq_a -m$.
+            \item $(\bfZ,\leq_a)$ forms a total ordering.
+            \item If $m >_a 0$ and $mn >_a 0$, then $n >_a 0$.
+            \item If $m >_a 0$ and $mn \geq_a mp$, then $n \geq_a p$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (5) Let $m,n \in \bfZ$, since $\bfZ$ is closed under subtraction $m - n \in \bfZ$. So either $m-n \in \bfZ^+$ or $n - m \in \bfZ^+$. Then by (1) $n \leq_a m$ or $m \leq_a n$. Thus $(\bfZ,\leq_a)$ is a total ordering.
+
+            (6) We have $mn >_a 0 $ with $m >_a 0$. If $n = 0$, we are done. So now assume $n \neq 0$. Then either $n \in \bfZ^+$ or $-n \in \bfZ^+$. If $-n \in \bfZ^+$, then $m(-n) = -(mn) \in \bfZ^+$. But we had assumed $mn >_a 0$; i.e., $mn \in \bfZ^+$, hence it must be the case that $mn = 0$, a contradiction. Therefore it must be that $n \in \bfZ^+$.
+        \end{proof}
+
+\section{Ordering of $\mathbb{Q}$}
+    \begin{proposition}
+        Define $Q := \bfZ \times \bfN$. Show that $\sim$ forms an equivalence relation, where $(a,b) \sim (c,d)$ if and only if $ad = bc$.
+    \end{proposition}
+        \begin{proof}
+            {\color{red} I dont wanna do this} %i've made a small change!
+        \end{proof}
+    
+    \begin{definition}
+        The set of equivalence classes of $Q$ is $\bfQ = Q/\sim = \{ [(a,b)] \mid (a,b) \in Q\}$. We call this set the \textui{rational numbers}, and denote the equivalence classes $[(a,b)]$ as $\frac{a}{b}$.
+    \end{definition}
+
+    \begin{proposition}
+        The operations 
+            \begin{equation*}
+            \begin{split}
+                +:\bfQ \times \bfQ &\rightarrow \bfQ \hspace{4pt}\text{defined by}\hspace{4pt} [(a,b)] + [(c,d)] = [(ad+bc,bd)]\\
+                \cdot:\bfQ \times \bfQ &\rightarrow \bfQ \hspace{4pt}\text{defined by}\hspace{4pt} [(a,b)]\cdot[(c,d)] = [(ac,bd)]\\
+            \end{split}
+            \end{equation*}
+        are well-defined. Furthermore, $(\bfQ,+,\cdot)$ forms a field.
+    \end{proposition}
+        \begin{proof}
+            {\color{red} I dont wana}
+        \end{proof}
+    
+    \begin{lemma}\label{lemma:order-embedding-z-q}
+        There is an injective map $\bfZ \xhookrightarrow{j} \bfQ$ defined by $j(n) = \frac{n}{1}$ satisfying the properties
+            \begin{equation*}
+            \begin{split}
+                j(n+m) &= j(n) + j(m)\\
+                j(nm) &= j(n)j(m).
+            \end{split}
+            \end{equation*}
+    \end{lemma}
+        \begin{proof}
+            Note that $j(n) = j(m)$ if and only if $\frac{n}{1} + \frac{m}{1}$. By definition this is equivalent to $n = m$, hence $j$ is injective.
+            
+            Observe that $j(n+m) = \frac{n+m}{1} = \frac{n}{1} + \frac{m}{1} = j(n) + j(m)$ and $j(nm) = \frac{nm}{1} = \frac{n}{1}\cdot\frac{m}{1} = j(n)j(m)$.
+        \end{proof}
+    
+    \begin{theorem}\label{thm:q-total-ordering}
+        $(\bfQ,\leq_Q)$ is a total ordering, where $\leq_Q$ is a well-defined ordering defined by $\frac{a}{b} \leq_Q \frac{c}{d}$ if and only if $ad \leq_a bc$ in $(\bfZ,\leq_a)$. Furthermore, the map $j:\bfZ \hookrightarrow \bfQ$ is \textit{order preserving}, that is, if $n \leq_a m$ in $(\bfZ, \leq_a)$, then $j(n) \leq_Q j(m)$ in $(\bfQ,\leq_Q)$.
+    \end{theorem}
+        \begin{proof}
+            {\color{red} i REALLY dont}
+        \end{proof}
+    
+    \begin{definition}
+        Define $\bfQ_+ := \{q \in \bfQ \mid q \geq_Q 0\}$ as the \textui{cone of positive rationals}, and they admit the following axioms:
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $q_1,q_2 \in \bfQ^+$, then $q_1+q_2 \in \bfZ^+$ and $q_1 q_2 \in \bfZ^+$.
+                \item For all $q \in \bfQ$, $q \in \bfQ^+$ or $-q \in \bfQ^+$.
+                \item If $q \in \bfQ^+$ and $-q \in \bfQ^+$, then $q=0$.
+                \item $q_1 \leq_Q q_2$ if and only if $q_2 - q_1 \in \bfQ^+$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $r,s,t,u \in \bfQ$
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $r \leq_Q s$ and $t \leq_Q u$, then $r+ t \leq_Q s+ u$.
+            \item If $r \leq_Q s$ and $t \geq_Q 0$, then $tr \leq_Q ts$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            {\color{red} do this shi later}
+        \end{proof}
+    
+\section{Rings and Fields}
+    \begin{definition}
+        A \textui{ring} is a non-empty set $R$ equipped with two binary operations: 
+            \begin{equation*}
+            \begin{split}
+                R \times R &\xrightarrow{a} R \hspace{4pt}\text{defined by}\hspace{4pt} a(r,s) = r+s\\
+                R \times R &\xrightarrow{m} R \hspace{4pt}\text{defined by}\hspace{4pt} m(r,s) = rs,
+            \end{split}
+            \end{equation*}
+        such that they admit the following axioms:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $R$ is an \textit{abelian group} under addition:
+                    \begin{enumerate}[label = (\roman*)]
+                        \item $r+(s+t) = (r+s) + t$ for all $r,s,t \in R$,
+                        \item there exists an element $0_R \in R$ with $r + 0_R = r = 0_R = r$ for all $r \in R$,
+                        \item For all $r \in R$ there exists an $s \in R$ such that $r+s = 0_R = s + r$ (such an $s$ is unique, and is denoted $-r$),
+                        \item $r+s = s+r$ for all $r,s \in R$.
+                    \end{enumerate}
+                \item $r(st) = (rs)t$ for all $r,s,t \in R$,
+                \item $(r+s)t = rt + rs$ and $r(s + t)= rs + rt$ for all $r,s,t \in R$.
+            \end{enumerate}
+        If $R$ contains an element $1_R$ such that $1_R r = r = r 1_R$, then we say $R$ is \textui{unital}. If $rs = sr$ for all $r,s \in R$, then we say $R$ is \textui{commutative}. If $R$ is a unital ring such that $1_R \neq 0_R$ \textit{and} for all $r \in R$ there exists an $s \in R$ such that $rs = 1_R = sr$ (such an $s$ is unique, and denoted $r^{-1}$), then we say $R$ is a \textui{division ring}.
+    \end{definition}
+
+    \begin{definition}
+        A \textui{field} is a commutative division ring.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\bfQ$ is a field.
+            \item $\bfZ/p \bfZ$ is a field.
+            \item $\bfC_\bfQ = \{r+si \mid r,s \in \bfQ , i^2 = -1\}$ with addition and multiplication defined by
+                \begin{equation*}
+                \begin{split}
+                    (r+si) + (t+ui) := (r+t) + (s+u)i \\
+                    (r+si)(t+ui) := (rt-su) + (ru+st)i
+                \end{split}
+                \end{equation*}
+            is a field. We call this set the \textit{complex rationals}. 
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        An \textui{ordered field} is a field $F$ equipped with a total ordering $\leq_F$ such that:
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $x \leq_F y$ and $u \leq_F v$, then $x+u \leq_F y+v$.
+                \item If $x \leq_F y$ and $z \geq_F 0$, then $xz \leq_F zy$.
+            \end{enumerate}
+        We similarly define $F^+ = \{x \in F \mid x \geq_F 0\}$ as the \textui{cone of positive elements}.
+    \end{definition}
+
+    \begin{proposition}
+        Let $(F,\leq_F)$ be an ordered field.
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $x,y \in F^+$, then $x+y \in F^+$ and $xy \in F^+$.
+            \item If $x \in F$, then $-x \in F^+$ or $x \in F^+$.
+            \item If $x,-x \in F^+$, then $x = 0$.
+        \end{enumerate}
+    \end{proposition}
+        {\color{red} \begin{proof}
+            need to do
+        \end{proof}}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\bfQ$ is an ordered field.
+            \item Is $\bfC_\bfQ$ an ordered field?
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}
+        Let $(F,\leq)$ be an ordered field with $1_F \neq 0_F$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item For all $a \in F$, $a^2 \in F$.
+                \item $0,1 \in F^+$.
+                \item If $n \in \bfN$, then $n\cdot 1_F := \underbrace{1_F + 1_F + ... + 1_F}_{n\mtext{times}}$, implying $n \cdot 1_F \in F^+$.
+                \item If $x \in F^+$ and $x \neq 0$, then $x^{-1} \in F^+$.
+                \item If $xy \in F^+$ and $xy \neq 0$, then $x,y \in F^+$ or $-x,-y \in F^+$.
+                \item If $0 < x \leq y$, then $y^{-1} \leq x^{-1}$.
+                \item If $x \leq y$, then $-y \leq -x$.
+                \item If $x \geq 1_F$, then $x^2 \geq x$.
+                \item If $x \leq 1_F$, then $x^2 \leq x$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) If $a \in F^+$, then $a \cdot a  = a^2 \in F^+$. If $-a \in F^+$, then $(-a) \cdot (-a) = a^2 \in F^+$.
+
+            (2) From part (1) we have that $0 = 0 \cdot 0 \in F^+$. Similarly, $1 = 1 \cdot 1 \in F^+$ and $(-1) \cdot (-1) \in F^+$
+
+            (3) Since $F^+$ is closed under addition, we can inductively show that $n \cdot 1 = 1 + 1 + ... + 1 \in F^+$.
+
+            (4) Suppose towards contradiction $x^{-1} \not\in F^+$. Then $-(x^{-1}) \in F^+$, so $(-(x^{-1}))\cdot x = -1(x^{-1}\cdot x) = -1 \in F^+$. But $-1,1 \in F^+$ implies $1 = 0$, a contradiction. Thus $x^{-1} \in F^+$.
+
+            (6) $y \geq x > 0$ implies $x,y \in F^+$. So $x^{-1},y^{-1} \in F^+$. Then $y^{-1}xx^{-1} \leq y^{-1}yx^{-1}$, and simplifying yields $y^{-1} \leq x^{-1}$.
+            {\color{red} finish the rest (i'm not going to)}
+        \end{proof}

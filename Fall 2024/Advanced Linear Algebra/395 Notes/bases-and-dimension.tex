@@ -1,0 +1,546 @@
+\chapter{Bases and Dimension}\label{chapter:bases-and-dimension}
+
+\vspace{12pt}
+\section{Basic Definitions}\label{sec:basic-definitions}
+    Unless otherwise stated assume $V$ to be an $F$-vector space.
+    \begin{definition}
+        Let $\cB = \{v_i\}_{i \in I}$ be a subset of $V$ where $I$ is an indexing set (possibly infinite). We say $v \in V$ is an \textui{$F$-linear combination of $\cB$} (or just \textui{linear combination}) if there is a set $\{a_i\}_{i \in I}$ with $a_i = 0$ for all but finitely many $i$ such that $v = \sum_{i \in I}a_i v_i$. The collection of $F$-linear combinations is denoted $\Span_F{(\cB)}$.
+    \end{definition}
+
+    \begin{example}
+        Let $V = P_2(F)$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item Set $\cB = \{1,x,x^2\}$. We have $\Span_F{(\cB)} = P_2(F)$.
+            \item Set $\cC = \{1,(x-1),(x-1)^2\}$. We have $\Span_F{(\cC)} = P_2(F)$. 
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        Let $\cB = \{v_i\}_{i \in I}$ be a subset of $V$. We say $\cB$ is \textui{$F$-linearly independent} (or just \textui{linearly independent}) if whenever $\sum_{i \in I}a_i v_i = 0$ then $a_i = 0$ for all $i \in I$.
+    \end{definition}
+
+    \begin{definition}
+        Let $\cB = \{v_i\}_{i \in I}$ be a subset of $V$. We say $\cB$ is an \textui{$F$-basis} (or just \textui{basis}) of $V$ if:
+            \begin{itemize}
+                \item $\Span_F{(\cB)} = V$, and
+                \item $\cB$ is linearly independent.
+            \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        Let $V = F^n$. Let $\cE_n = \{e_1,...,e_n\}$ with
+            \begin{equation*}
+            \begin{split}
+                e_1 &= (1,0,0,...,0) \\
+                e_2 &= (0,1,0,...,0) \\
+                &\vdots \\
+                e_n &= (0,0,0,...,1).
+            \end{split}
+            \end{equation*}
+        We have that $\cE_n$ is a basis of $F^n$ and is referred to as the \textui{standard basis}.
+    \end{example}
+
+\section{Every Vector Space Admits a Basis}
+    \begin{definition}
+        A \textui{relation} from $A$ to $B$ is a subset $R \subseteq A \times B$. Typically, when one says "a relation on $A$" that means a relation from $A$ to $A$; i.e., $R \subseteq A \times A$.
+    \end{definition}
+
+    \begin{definition}
+        Let $A$ be a set. An \textui{ordering} of $A$ is a relation $R$ on $A$ that is 
+            \begin{enumerate}[label = (\arabic*)]
+                \item \textui{reflexive}: $(a,a) \in R$ for all $a \in A$,
+                \item \textui{transitive}: $(a,b),(b,c) \in R$ implies $(a,c) \in R$, and 
+                \item \textui{antisymmetric}: $(a,b),(b,a) \in R$ implies $a = b$.
+            \end{enumerate}
+        If this is the case, we write $(a,b) \in R$ as $a \leq_R b$. If $A$ is an ordered set we write it as the ordered pair $(A,\leq_R)$ (or just $A$ if the ordering is obvious by context).
+    \end{definition}
+
+    \begin{definition}
+        An ordered set $(X, \leq_R)$ is \textui{total} if for all $a,b \in X$ we have that $a \leq_R b$ or $b \leq_R a$.
+    \end{definition}
+
+    \begin{definition}
+        Let $(X,\leq)$ be an ordered set and $A \subseteq X$ nonempty.
+        \begin{enumerate}[label = (\arabic*)]
+            \item $A$ is called a \textui{chain} if $(A,\leq)$ is a total ordering.
+            \item $A$ is called \textui{bounded above} if there exists an element $u \in X$ with $a \leq u$ for all $a \in A$. Such a $u$ is called an \textui{upperbound} for $A$.
+            \item A \textui{maximal element of $A$} is an element $m \in A$ such that if $a \geq m$, then $a = m$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}[Zorn's Lemma]\label{lemma:zorns}
+        Let $X$ be an ordered set with the property that every chain has an upperbound. Then $X$ contains a maximal element.
+    \end{lemma}
+
+    \begin{theorem}
+        Let $\cA$ and $\cC$ be subsets of $V$ with $\cA \subseteq \cC$. Assume $\cA$ is linearly independent and $\Span_F{(\cC)} = V$. Then there exists a basis $\cB$ of $V$ with $\cA \subseteq \cB \subseteq \cC$\footnote{Given any linearly-independent set $\cA$, we can constructing a basis $\cB$ by adding elements. Given any spanning set $\cC$, we can construct a basis $\cB$ by removing elements.}.
+    \end{theorem}
+        \begin{proof}
+            Let $X = \{\cB' \subseteq V \mid \cA \subseteq \cB' \subseteq \cC, \hspace{4pt} \text{$\cB'$ is linearly independent}\}$. We have $\cA \in X$, so $X \neq \emptyset$. $X$ is ordered with respect to inclusion, and has an upperbound of $\cC$. By \nameref{lemma:zorns} we have a maximal element in $X$, call it $\cB$. 
+            
+            Claim: $\Span_F{(\cB)} = V$. Suppose towards contradiction it's not, then there exists a $v \in \cC$ with $v \not\in \Span_F{(\cB)}$. But then $\cB \cup \{v\}$ is still linearly independent, and $\cB \cup \{v\} \subseteq \cC$. This gives $\cB \subseteq \cB \cup \{v\}$, which is a contradiction because $\cB$ is maximal in $X$. Thus $\Span_F{(\cB)} = V$.
+        \end{proof}
+
+\section{Cardinality and Dimension}
+    \begin{lemma}\label{lemma:homogenous-system}
+        A homogenous system of $m$ linear equations in $n$ unknowns with $m<n$ has a nonzero solution.
+    \end{lemma}
+        \begin{proof}
+            \color{red} do this
+        \end{proof}
+    
+    \begin{corollary}
+        Let $\cB \subseteq V$ with $\Span_F{(\cB)} = V$ and $|\cB |  = m$. Any set with more than $m$ elements cannot be linearly independent.
+    \end{corollary}
+        \begin{proof}
+            Let $\cC = \{w_1,...,w_n\}$ with $n > m$. We will show $\cC$ cannot be linearly independent. Write $\cB = \{v_1,...,v_m\}$ with $\Span_F{(\cB)} = V$. For each $i$, write
+                \begin{equation*}
+                \begin{split}
+                    w_i  = \sum_{j = 1}^m a_{ji}v_j \hspace{4pt} \text{for some $a_{ji} \in F$}.
+                \end{split}
+                \end{equation*}
+            Consider the equations
+                \begin{equation*}
+                \begin{split}
+                    \sum_{i = 1}^{n}a_{ji}x_i = 0.
+                \end{split}
+                \end{equation*}
+            By Lemma~\ref{lemma:homogenous-system} there exists nonzero solutions $(x_1,...,x_n) = (c_1,...,c_n) \neq (0,...,0)$. We have
+                \begin{equation*}
+                \begin{split}
+                    0 & = \sum_{j = 1}^m \left(\sum_{i = 1}^n a_{ji}c_i\right)v_j \\
+                    & = \sum_{i=1}^n c_i \left(\sum_{j=1}^m a_{ji} v_j\right) \\
+                    & = \sum_{i = 1}^n c_i w_i.
+                \end{split}
+                \end{equation*}
+            Thus $\cC = \{w_1,...,w_n\}$ is not linearly independent.
+        \end{proof}
+
+    \begin{corollary}
+        If $\cB$ and $\cC$ are both finite bases of $V$, then $|\cB| = |\cC|$.
+    \end{corollary}
+        \begin{proof}
+            Let $|\cB| = m$ and $|\cC| = n$. Because $\Span_F{(\cB)} = V$ and $\cC$ is linearly independent, it must be the case that $n \leq m$. But since $\Span_F{(\cC)} = V$ and $\cB$ is also linearly independent, it must be the case that $m \leq n$. By antisymmetry, $n = m$.
+        \end{proof}
+
+    \begin{definition}
+        Let $\cB$ be a basis of $V$. The \textui{dimension} of $V$, written $\dim_F{(V)}$, is the cardinality of $\cB$; i.e., $\dim_F{(V)} = |\cB|$.
+    \end{definition}
+
+    \begin{theorem}
+        Let $V$ be a finite dimensional vector space with $\dim_F{(V)} = n$. Let $\cC \subseteq V$ with $|\cC| = m$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $m > n$, then $\cC$ is not linearly independent.
+                \item If $m < n$, then $\Span_F{(\cC)} \neq V$.
+                \item If $m=n$, then the following are equivalent:
+                    \begin{itemize}
+                        \item $\cC$ is a basis;
+                        \item $\cC$ is linearly independent;
+                        \item $\Span_F{(\cC)} = V$.
+                    \end{itemize}
+            \end{enumerate}
+    \end{theorem}
+
+    \begin{corollary}
+        Let $W \subseteq V$ be a subspace. We have $\dim_F{(W)} \leq \dim_F{(V)}$. If $\dim_F{(V)} < \infty$, then $V = W$ if and only if $\dim_F{(V)} = \dim_F{(W)}$.
+    \end{corollary}
+
+    \begin{example}
+        Let $V = \bfC$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $F = \bfC$, then $\cB = \{1\}$ is a basis and $\dim_{\bfC}{(\bfC)} = 1$.
+                \item If $F = \bfR$, then $\cB = \{1,i\}$ is a basis and $\dim_{\bfR}{(\bfC)} = 2$.
+                \item If $F = \bfQ$, then $|\cB| = \fc$ and $\dim_{\bfQ}{(\bfC)} = \fc$ (the \textit{continuum}).
+            \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        Let $V = F[x]$ and let $f(x) \in F[x]$. We can use this polynomial to split $F[x]$ into equivalence classes analogous to how one creates the field $\bfF_p$. Define $g(x) ~ h(x)$ if $f(x) \mid (g(x) - h(x))$. This is an equivalence relation. We let $[g(x)]$ denote the equivalence class containing $g(x) \in F[x]$. Let $F[x]/(f(x)) = \{[g(x)] \mid g(x) \in F[x]\}$ denote the collection of equivalence classes. Define $[g(x)] + [h(x)] = [g(x) + h(x)]$ and $\alpha[g(x)] = [\alpha g(x)]$, this makes $F[x]/(f(x))$ into a vector space.
+
+        Set $n = \deg{(f(x))}$. Let $\cB = \{[1],[x],...,[x^{n-1}]\}$. We will show this is a basis for $F[x]/(f(x))$. Suppose there exists $a_0,...,a_{n-1} \in F$ with $a_0[1] + a_1[x] + ... +a_{n-1}[x^{n-1}] = [0]$. So $[a_0 + a_1 x + ... + a_{n-1}x^{n-1}] = [0]$, hence $f(x) \mid (a_0 + a_1 x + ... + a_{n-1}x^{n-1})$. But $\deg{(f(x))} = n$, so we must have $a_0 = a_1 = ... = 0$ (linear independence).
+
+        Let $[g(x)] \in F[x]/(f(x))$. The Euclidean algorithm of polynomials gives $g(x) = f(x)q(x) + r(x)$ for some $q(x),r(x) \in F[x]/(f(x))$ with $r(x) = 0$ or $\deg{(r(x))} \leq \deg{(g(x))}$. Observe that $[g(x)] = [f(x)q(x) + r(x)] = [f(x)q(x)] + [r(x)] = [r(x)]$. Since $[r(x)]$ can be written as a linear combination of basis elements from $\cB$, we have $[g(x)] \in \Span_F{(\cB)}$. Note that any element of $\Span_F{(\cB)}$ is clearly contained in $F[x]/(f(x))$, establishing $\Span_F{(\cB)} = F[x]/(f(x))$.
+    \end{example}
+
+    \begin{lemma}
+        Let $V$ be an $F$-vector space and $\cC = \{v_i\}_{i \in I}$ be a subset of $V$. Then $\cC$ is a basis if and only if each $v \in V$ can be written uniquely as a linear combination of elements of $\cC$.
+    \end{lemma}
+        \begin{proof}
+            Suppose $\cC$ is a basis. Let $v \in V$ and suppose 
+                \begin{equation*}
+                \begin{split}
+                    v = \sum_{i 
+                    \in I}a_i v_i = \sum_{i 
+                    \in I}b_i v_i,
+                \end{split}
+                \end{equation*}
+            for some $a_i ,b_i \in F$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    0_v = \sum_{i \in I}(a_i - b_i)v_i.
+                \end{split}
+                \end{equation*}
+            Since $\cC$ is a basis, it is linearly independent, so $a_i - b_i = 0$ for all $i$. Thus $a_i = b_i$ for all $i$ establishing that the expansion is unique.
+
+            Conversely, suppose every vector $v \in V$ is a unique linear combination of $\cC$. Certainly we have $\Span_F{(\cC)} = V$. Suppose $0_v = \sum_{i \in I}a_i v_i$ for some $a_i \in F$. We also have that $0_v = \sum_{i \in I}0 \cdot v_i$. Uniqueness gives $a_i = 0$ for all $i \in I$; i.e., $\cC$ is linearly independent.
+        \end{proof}
+    
+    \begin{proposition}\label{prop:basis-sent}
+        Let $V,W$ be $F$-vector spaces.
+            \begin{enumerate}[label=(\arabic*)]
+                \item Let $T \in \Hom_F{(V,W)}$. We have that $T$ is determined by what it does to a basis (where it maps it).
+                \item Let $\cB = \{v_i\}_{i \in I}$ be a basis of $V$ and $\cC = \{w_i\}_{i \in I}$ be a subset of $V$. If $|\cB| = |\cC|$, there is a $T \in \Hom_F{(V,W)}$ such that $T(v_i) = w_i$ for all $i \in I$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) Let $v \in V$. Let $\cB = \{v_i\}_{i \in I}$ be a basis of $V$ and write $v = \sum_{i \in I}a_i v_i$. We have $T(v) = T(\sum_{i \in I}a_i v_i) = \sum_{i \in I}a_i T(v_i)$.
+
+            (2) Define $T:V \rightarrow W$ by $v \mapsto \sum_{i \in I}a_i w_i$. If $v = \sum_{i \in I}a_i v_i$ this map is linear {\color{red} (show this)}.
+        \end{proof}
+    
+    \begin{corollary}
+        Let $T \in \Hom_F{(V,W)}$ with $\cB = \{v_i\}_{i \in I}$ a basis of $V$ and $\cC = \{w_i = T(v_i)\}_{i \in I}$ a subset of $W$. We have $\cC$ is a basis of $W$ if and only if $T$ is an isomorphism.
+    \end{corollary}
+        \begin{proof}
+            Suppose $\cC$ is a basis of $W$. Using the result from Proposition~\ref{prop:basis-sent}, define $S \in \Hom_F{(W,V)}$ with $S(w_i) = v_i$. {\color{red} Check $T\circ S = \id_W$ and $S \circ T = \id_V$}. Thus $T$ is an isomorphism.
+
+            Conversely, let $T$ be an isomorphism. Let $w \in W$. As $T$ is surjective, there exists a $v \in V$ such that $T(v) = w$. Using $\cB$ as a basis of $V$, write $v = \sum_{i \in I}a_i v_i$. So observe that:
+                \begin{equation*}
+                    w = T(v) = T\left(\sum_{i \in I}a_i v_i\right) = \sum_{i \in I}a_i T(v_i) \in \Span_F{(\cC)}, 
+                \end{equation*} 
+            hence $W = \Span_F{(\cC)}$ (note the other direction is trivial \textemdash you never need to show that). Now suppose there exists a collection of elements $a_i \in F$ with $\sum_{i \in I}a_i T(v_i) = 0_W$. Since $T$ is linear, this is equivalent to $T(\sum_{i \in I}a_i v_i) = 0_W$, and since $T$ is injective it must be the case that $\sum_{i \in I}a_i v_i = 0_V$. Since $\cB$ is a basis we get $a_i = 0$ for all $i \in I$, establishing that $\cC$ is linearly independent.
+        \end{proof}
+
+    \begin{theorem}[Rank-Nullity Theorem]
+        Let $V$ be an $F$-vector space with $\dim_F{(V)} < \infty$. Then:
+            \begin{equation*}
+            \begin{split}
+                \dim_F{(V)} = \dim_F{(\ker{(T)})} + \dim_F{(\Image{(T)})}.
+            \end{split}
+            \end{equation*}
+    \end{theorem}
+        \begin{proof}
+            Let $\dim_F{(\ker{(T)})} = k$ and $\dim_F{(V)} = n$. Let $\cA = \{v_1,...,v_k\}$ be a basis of $\ker{(T)}$. Extend this to a basis $\cB = \{v_1,...,v_n\}$ of $V$. We'd like to show that $\cC = \{T(v_{k+1}),...,T(v_n)\}$ is a basis of $\Image{(T)}$.
+
+            Let $w \in \Image{(T)}$. So there exists a $v \in V$ with $T(v) = w$. Write $v = \sum_{i = 1}^n a_i v_i$. We have:
+                \begin{equation*}
+                \begin{split}
+                    w 
+                    & = T(v) \\
+                    & = T\left(\sum_{i = 1}^n a_i v_i\right) \\
+                    & = \sum_{i = 1}^n a_i T(v_i) \\
+                    & = \sum_{i = k+1}^n a_i T(v_i) \in \Span_F{(\cC)}.  \quad\quad \text{\tiny b/c $v_1,...,v_k \in \ker{(T)}$}\\
+                \end{split}
+                \end{equation*}
+            Thus $\Span_F{(\cC)} = \Image{(T)}$. Now suppose we have $\sum_{i = k+1}^n a_i T(v_i) = 0_W$. Since $T$ is linear we have $T(\sum_{i = 1}^n a_i v_i) = 0_w$, which gives $\sum_{i = 1}^n a_i v_i \in \ker{(T)}$. Thus we can write it in terms of the basis $\cA$ of $\ker{(T)}$: there exists $a_1,...,a_k$ such that 
+                \begin{equation*}
+                \begin{split}
+                    \sum_{i = k+1}^n a_i v_i = \sum_{i=1}^k a_i v_i,
+                \end{split}
+                \end{equation*}
+            which is equivalent to $\sum_{i = 1}^k a_i v_i + \sum_{i = k+1}^n a_i v_i = 0_V$. However, $\cB$ is a basis of $V$ so $a_1 = ... = a_n = 0$.
+        \end{proof}
+    
+    \begin{corollary}
+        Let $V,W$ be $F$-vector spaces with $\dim_F{(V)} = n$. Let $V_1 \subseteq V$ be a subspace with $\dim_F{(V_1)} = k$ and $W_1 \subseteq W$ a subspace with $\dim_F{(W_1)} = n-k$. Then there exists a $T \in \Hom_F{(V,W)}$ such that $\ker{(T)} = V_1$ and $\Image{(T)} = W_1$.
+    \end{corollary}
+        \begin{proof}
+            \color{red} do it
+        \end{proof}
+
+    \begin{corollary}
+        Let $T \in \Hom_F{(V,W)}$ with $\dim_F{(V)} = \dim_F{(W)} < \infty$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $T$ is an isomorphism.
+                \item $T$ is injective.
+                \item $T$ is surjective.
+            \end{enumerate}
+    \end{corollary}
+        \begin{proof}
+            \color{red} do it
+        \end{proof}
+    
+    \begin{corollary}
+        Let $A = \Mat_n{(F)}$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $A$ is invertible.
+                \item There exists an element $B \in \Mat_n{(F)}$ such that $BA = 1_n$.
+                \item There exists an element $B \in \Mat_n{(F)}$ such that $AB = 1_n$.
+            \end{enumerate}
+    \end{corollary}
+        \begin{proof}
+            \color{red} do it
+        \end{proof}
+
+    \begin{corollary}
+        Let $\dim_F{(V)} = m$ and $\dim_F{(W)} = n$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $m <n$ and $T \in \Hom_F{(V,W)}$, then $T$ is not surjective.
+                \item If $m > n$ and $T \in \Hom_F{(V,W)}$, then $T$ is not injective.
+                \item If $m=n$ then $V \cong W$.
+            \end{enumerate}
+    \end{corollary}
+
+    \begin{example}
+        {\color{red} This follows shortly after corollary 2.2.30 (write it down later)}
+    \end{example}
+
+\section{Direct Sums and Quotient Spaces}
+    \begin{definition}
+        Let $V$ be an $F$-vector space and $V_1,...,V_k$ be subspaces. The \textui{sum} of $V_1,...,V_k$ is 
+            \begin{equation*}
+            \begin{split}
+                V_1 + ... + V_k = \{v_1 + ... + v_k \mid v_i \in V_i \}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{proposition}
+        Let $V$ be an $F$-vector space and $V_1,...,V_k$ be subspaces. Then $V_1 + ... + V_k$ is also a subspace of $V$.
+    \end{proposition}
+        \begin{proof}
+            \color{red} do this
+        \end{proof}
+    
+    \begin{definition}
+        Let $V_1,...,V_k$ be subspaces of $V$. We say $V_1,...,V_k$ are \textui{independent} if whenever $v_1 + ... + v_k = 0_V$ then $v_i = 0_V$.
+    \end{definition}
+    
+    \begin{definition}
+        Let $V_1,...,V_k$ be subspaces of $V$. We say $V$ is the \textui{direct sum} of $V_1,...,V_k$ and write $V = V_1 \oplus ... \oplus V_k$ if:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $V = V_1 + ... + V_k$, and
+                \item $V_1,...,V_k$ are independent.
+            \end{enumerate}
+        \phantom{a}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $V = F^2$ with $V_1 = \{(x,0) \mid x \in F$\} and $V_2 = \{(0,y) \mid y \in F$\}. Then
+                \begin{equation*}
+                \begin{split}
+                    V_1 + V_2 &= \{(x,0) + (0,y) \mid x,y \in F\} \\
+                    &= \{(x,y) \mid x,y \in F\} \\
+                    & = V
+                \end{split}
+                \end{equation*}
+            If $(x,0) + (y,0) = (0,0)$, then $x=y=0$ which means $V_1$ and $V_2$ are independent. Hence $F^2 = V_1 \oplus V_2$.
+
+            \item Let $V = F[x]$ and $V_1 = F$, $V_2 = Fx = \{\alpha x \mid \alpha \in F \}$, and $V_3 = P_1(F)$. Note that $P_1(F) = V_1 \oplus V_2$. But $V_1,V_3$ are not independent because $1_F \in V_1$ and $-1_F \in V_3$ and $(-1_F) + 1_F = 0$.
+            \item Let $\cB = \{v_1,...,v_n\}$ be a basis of $V$ and $\Span_F{(v_i)} = V_i$. Then $V = V_1 \oplus ... \oplus V_n$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{lemma}
+        Let $V$ be an $F$-vector space with $V_1,...,V_k$ as subspaces. We have $V = V_1 \oplus ... \oplus V_k$ if and only if every $v \in V$ can be written uniquely in the form $v = v_1 + ... + v_k$ for all $v_i \in V_i$.
+    \end{lemma}
+        \begin{proof}
+            Suppose $V = V_1 \oplus ... \oplus V_k$. Let $v \in V$. Suppose $v = v_1 + ... + v_k = \tilde{v_1} + ... + \tilde{v_k}$ for $v_i,\tilde{v_i} \in V_i$. Then $0_V = (v_1 - \tilde{v_1}) + ... + (v_k  - \tilde{v_k})$. Since $V_1,...,V_k$ are independent and $v_i - \tilde{v_i} \in V$, this gives $v_i - \tilde{v_i} = 0_V$ for all $i$. Thus the expansion for $V$ is unique.
+
+            Conversely, suppose every $v \in V$ can be written uniquely in the form $v = v_1 + ... + v_k$ with $v_i \in V_i$. Then $V = V_1 + ... + V_k$ by definition of sums of subspaces. If $0_V = v_1 + ... + v_k$ for some $v_i \in V_i$, and $0_v = 0_v + ... + 0_v$, then (by uniqueness) it must be the case that $v_i = 0_V$ for all $i$.
+        \end{proof}
+
+    \begin{exercise}
+        Let $V_1,...,V_k$ be subspaces of $V$. For each $1\leq i \leq k$, let $\cB_i$ be a basis of $V_i$. Let $\cB = \bigcup_{i = 1}^k \cB_i$. Show that:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\cB$ spans $V$ if and only if $V = V_1 + ... + V_k$.
+                \item $\cB$ is linearly independent if and only if $V_1,...,V_k$ are independent.
+                \item $\cB$ is a basis if and only if $V = V_1 \oplus ... \oplus V_k$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            \color{red} do this shit
+        \end{proof}
+
+    \begin{lemma}
+        Let $U \subseteq V$ be a subspace. Then $U$ has a complement.
+    \end{lemma}
+        \begin{proof}
+            \color{red} do this shit
+        \end{proof}
+
+    \begin{definition}
+        Let $W \subseteq V$ be a subsapce. Define $v_1 ~ v_2$ if $v_1 - v_2 \in W$ for some $v_1,v_2 \in V$. This forms an equivalence relation. Denote the equivalence class containing $v$ as $[v]_W = v + W = \{\tilde{v} \in V \mid v ~ \tilde{v}\} = \{v+w \mid w \in W\}$. The set containing all equivalence classes over $W$ is denoted $V/W = \{v + W \mid v \in V\}$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $v_1 + W, v_2 + W \in V/W$ and $\alpha \in F$. With addition and scalar multiplication defined as follows:
+            \begin{equation*}
+            \begin{split}
+                (v_1 + W) + (v_2 + W) &= (v_1 + v_2) + W\\
+                \alpha(v_1 + W) &= \alpha v_1 + W,
+            \end{split}
+            \end{equation*}
+        it's operations are well-defined and $V/W$ forms an $F$-vector space.
+    \end{proposition}
+        \begin{proof}
+            Let $v_1 + W = \tilde{v_1} + W$ and $v_2 + W = \tilde{v_2} + W$. Then $v_1 = \tilde{v_1} + w_1$ and $v_2 = \tilde{v_2} + w_2$ for some $w_1,w_2 \in W$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    (v_1 + W) + (v_2 + W)
+                    & = (v_1 + v_2 + W) \\
+                    & = (\tilde{v_1} + w_2 + \tilde{v_2} + w_2) + W \\
+                    & = (\tilde{v_1} + \tilde{v_2}) + W \\
+                    & = (\tilde{v_1} + W) + (\tilde{v_2} + W).
+                \end{split}
+                \end{equation*} 
+
+                \begin{equation*}
+                \begin{split}
+                    c(v_1 + W)
+                    & = c v_1 + W \\
+                    & = c(\tilde{v_1} + w) + W \\
+                    & = c\tilde{v_1} + W \\
+                    & = c(\tilde{v_1} + W).
+                \end{split}
+                \end{equation*}
+            Hence addition and scalar multiplication are well-defined. {\color{red} show the vector space axioms here}.
+        \end{proof}
+    
+    \begin{example}
+        Let $V = \bfR^2$ and $W = \{(x,0) \mid x \in \bfR \}$. Let $(x_0 ,y_0) \in V$. We have that $(x_0,y_0) \sim (x,y)$ if $(x_0,y_0) - (x,y) = (x_0 - x, y_0 - y) \in W$. So $(x_0,y_0) + W = \{(x,y_0) \mid x \in \bfR\}$. Then $V/W$ is a vector space only when $y = 0$.
+
+        Define $\tau : \bfR \rightarrow V/W$ by $y \mapsto (0,y) + W$. This is an isomorphism. Let $y_1,y_2,c \in \bfR$. Observe that:
+            \begin{equation*}
+            \begin{split}
+                \tau(y_1 + c y_2)
+                & = (0,y_1 + c y_2) + W \\
+                & = ((0,y_1) + (0,cy_2)) + W \\
+                & = ((0,y_1) + c(0,y_2)) + W \\
+                & = ((0,y_1) + W) + c((0,y_2) + W)\\
+                & = \tau(y_1) + c\tau(y_2).
+            \end{split}
+            \end{equation*}
+        Hence $\tau \in \Hom_F{(\bfR, V/W)}$. Let $(x,y) + W \in V/W$. Then $(x,y) + W = (0,y) + W$. So $\tau$ is surjective because $\tau(y) = (0,y) + W$. Now let $y \in \ker{(\tau)}$. Then $\tau(y) = (0,y)+ W = (0,0) + W$. This implies $y=0$, meaning the kernel is trivial and so $\tau$ is injective.
+        
+        Alternatively, it is routine to show that $\tau^{-1} \in \Hom_F{(V/W,\bfR)}$ with $\tau^{-1} \circ \tau = \id_\bfR$ and $\tau \circ \tau^{-1} = \id_{V/W}$.
+    \end{example}
+
+    \begin{definition}
+        Let $W \subseteq V$ be a subspace. The \textui{canonical projection map} $\pi_W:V \rightarrow V/W$ is defined by $v \mapsto v+W$. Note that $\pi_W \in \Hom_F{(V,V/W)}$.
+    \end{definition}
+
+    \begin{note}
+    To define a map $T:V/W \rightarrow V'$, you always have to check it is well-defined.
+    \end{note}
+
+    \begin{theorem}[First Isomorphism Theorem]
+        Let $T \in \Hom_F{(V,W)}$. Define $\overline{T}:V/\ker{(T)} \rightarrow W$ by $v + \ker{(T)} \mapsto T(v)$. Then $\overline{T}$ is a linear map. Moreover, $V/\ker{(T)} \cong \Image{(T)}$.
+    \end{theorem}
+        \begin{proof}
+            \color{red} finish this
+        \end{proof}
+    
+\section{Dual Spaces}
+    Note that when one refers to something as \textit{"canonical"}, it means the object in question does not depend on a basis.
+    \begin{definition}
+        Let $V$ be an $F$-vector space. The \textui{dual space}, denoted $V^\vee$, is defined to be $V^\vee = \Hom_F{(V,F)}$.
+    \end{definition}
+
+    \begin{theorem}
+        We have $V$ is isomorphic to a subspace of $V^\vee$. If $\dim_F{(V)} < \infty$, then $V \cong V^\vee$.
+    \end{theorem}
+        \begin{proof}
+            Let $\cB = \{v_i\}_{i \in I}$ be a basis (hence this theorem is not canonical). For each $i \in I$, define:
+                \begin{equation*}
+                    v_i^\vee (v_j) =
+                \begin{cases}
+                    1,& i=j \\
+                    0,&\text{otherwise}.
+                \end{cases}
+                \end{equation*}
+            We get $\{v_i ^\vee\}_{i \in}$ are elements of $V^\vee$. We obtain $T \in \Hom_F{(V,V^\vee)}$ by $T(v_i) = v_i^\vee$. To show that $V$ is isomorphic to a subspace of $V^\vee$, it is enough to show $T$ is injective, then by the first isomorphism theorem $V \cong \Image{(T)}$ (a subspace of $V^\vee$).
+
+            Let $v \in \ker{(T)}$, then $T(v) = 0_{V^\vee}$. Write $v = \sum_{i \in I}a_i v_i$. So:
+                \begin{equation*}
+                \begin{split}
+                    0_{V^\vee}
+                    & = T(v) \\
+                    & = T\left(\sum_{i \in I}a_i v_i\right) \\
+                    & = \sum_{i \in I}a_i T(v_i) \\
+                    & = \sum_{i \in I}a_i v_i^\vee.
+                \end{split}
+                \end{equation*}
+            Towards contradiction, pick some $j$ with $a_j \neq 0$. Note that $0_{V^\vee} = \sum_{i \in I}a_i v_i^\vee(v_j) = a_j$ (every term except for $a_jv_j ^\vee (v_j)$ equals 0). This is a contradiction, hence $T$ is injective. 
+
+            Now assume $\dim_F{(V)} = n$ and write $\cB = \{v_1,...,v_n\}$. Let $v^\vee \in V^\vee$. Define $a_i = v^\vee(v_i)$. Set $v = \sum_{i=1}^n a_i v_i$ and define $S:V^\vee \rightarrow V$ by $S(v^\vee) = v = \sum_{i=1}^n v^\vee (v_i) v_i$. We'd like to show that $S \in \Hom_F{(V^\vee,V)}$ and is the inverse of $T$. Let $v^\vee,w^\vee \in V^\vee$ and $c \in F$. Set $a_i = v^\vee(v_i)$ and $b_i = w^\vee(v_i)$. Then:
+                \begin{equation*}
+                \begin{split}
+                    S(v^\vee + cw^\vee)
+                    & = \sum_{i=1}^n \left[(v^\vee + c w^\vee)(v_i) \right]v_i \\
+                    & = \sum_{i=1}^n\left[ v^\vee(v_i) + c w^\vee(v_i)\right]v_i \\
+                    & = \sum_{i=1}^n v^\vee(v_i)v_i + c \sum_{i=1}^n w^\vee(v_i)v_i \\
+                    & = S(v^\vee) + cS(w^\vee).
+                \end{split}
+                \end{equation*}
+            Hence $S$ is linear. Now observe that:
+                \begin{equation*}
+                \begin{split}
+                    (S \circ T)(v_j)
+                    & = S(T(v_j)) \\
+                    & = S(v_j^\vee) \\
+                    & = \sum_{i=1}^n v_j^\vee(v_i)v_i \\
+                    & = v_j
+                \end{split}
+                \end{equation*}
+            Let $v^\vee \in V^\vee$. Note that $(T\circ S)(v^\vee)$ is a function, so it will require an input. Observe that
+                \begin{equation*}
+                \begin{split}
+                    (T\circ S)(v^\vee)(v_j)
+                    & = T(S(v^\vee))(v_j) \\
+                    & = T(\sum_{i=1}^n v^\vee(v_i)v_i)(v_j) \\
+                    & = \left[\sum_{i=1}^n v^\vee(v_i)T(v_i)\right](v_j) \\
+                    & = \sum_{i=1}^n v^\vee(v_i)(v^\vee_i(v_j)) \\
+                    & = v^\vee(v_j).
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{definition}
+        Let $\cB = \{v_1,...,v_n\}$ be a basis of $V$. The \textui{dual basis} for $V^\vee$ is $\cB^\vee = \{v_1^\vee,...,v^\vee_n\}$.
+    \end{definition}
+
+    \begin{proposition}
+        There is a canonical injective linear map from $V$ to $(V^\vee)^\vee$. If $\dim_F{(V)} < \infty$, this is an isomorphism.
+    \end{proposition}
+        \begin{proof}
+            Let $v \in V$. Define $\hat{v}:V^\vee \rightarrow F$ by $\varphi \mapsto \varphi(v)\footnote{\text{This can be notated as $\text{eval}_v$, but $\hat{v}$ appears more often in literature}}$. We can easily verify that $\hat{v}$ is linear. Therefore, we have $\hat{v} \in \Hom_F{(V^\vee,F)} = (V^\vee)^\vee$. We have a map:
+                \begin{equation*}
+                \begin{split}
+                    \Phi:V \rightarrow (V^\vee)^\vee \mtext{defined by} v \mapsto \hat{v}.
+                \end{split}
+                \end{equation*}
+            We want to verify that $\Phi$ is an injective linear map. Let $v_1,v_2 \in V$ and $c \in F$. Let $\varphi \in V^\vee$, then:
+                \begin{equation*}
+                \begin{split}
+                    \Phi(v_1 + c v_2)(\varphi)
+                    & = \widehat{v_1 + cv_2}(\varphi) \\
+                    & = \varphi(v_1 + cv_2) \\
+                    & = \varphi(v_1) + c \varphi(v_2) \\
+                    & = \hat{v_1}(\varphi) + c \hat{v_2}(\varphi) \\
+                    & = \Phi(v_1)(\varphi) + c \Phi(v_2)(\varphi).
+                \end{split}
+                \end{equation*}
+            We will now show that $\Phi$ is injective. Let $v \in V$ and assume $v \neq 0_V$. We will form a basis $\cB$ of $V$ that contains v ({\color{red} why is this still canonical?}). Let $v^\vee \in V^\vee$, then $v^\vee(v) = 1$ and $v^\vee(w) = 0$ for all $w \in \cB$, $w \neq v$. Now assume $v \in \ker{(\Phi)}$. Then $\Phi(v)(\varphi) = \varphi(v) = 0$ for all $\varphi \in V^\vee$. But picking $\varphi = v^\vee$ gives:
+                \begin{equation*}
+                \begin{split}
+                    0
+                    & = \Phi(v)(v^\vee) \\
+                    & = v^\vee(v) \\
+                    & = 1.
+                \end{split}
+                \end{equation*}
+            This is a contradiction, hence $\Phi$ is injective.
+        \end{proof}
+
+    \begin{definition}\label{def:induced-dual}
+        Let $T \in \Hom_F{(V,W)}$. We get an induced map $T^\vee : W^\vee \rightarrow V^\vee$ with $T^\vee(\varphi) = \varphi \circ T$. The following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[r, "T"] \arrow[rd, "T^\vee(\varphi)"', dashed] & W \arrow[d, "\varphi"] \\
+                                                                            & F .                     
+                    \end{tikzcd}
+            \end{center}
+    \end{definition}

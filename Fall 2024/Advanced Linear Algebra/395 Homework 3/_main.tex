@@ -1,0 +1,355 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+%\usepackage[T1]{fontenc} font1
+%\usepackage[utf8]{inputenc}font1
+%\usepackage[math]{tgbonum} font 2
+\usepackage[math]{iwona}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+    \titlespacing*{\chapter}
+    {0pt} % Left margin
+    {*1} % Space before the chapter number (increase this value for more space)
+    {0pt} % Space after the chapter number and before the title
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \fancyhead[R]{\footnotesize \rightmark}
+    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+    \linespread{1.25}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=6pt, spacebelow=6pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=1em
+        %qed=\qedsymbol
+        ]{mystyle}
+
+    \declaretheorem[
+        numberwithin=section,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{theorem}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{lemma}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{proposition}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{233,233,233},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{233,233,233}}
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{definition}
+
+    \declaretheorem[ numbered=unless unique]{exercise}
+
+    \declaretheorem[numbered=no, name=Theorem]{theorem*}
+    \declaretheorem[numbered=no, name=Lemma]{lemma*}
+    \declaretheorem[numbered=no, name=Proposition]{proposition*}
+    \declaretheorem[numbered=no, name=Corollary]{corollary*}
+    \declaretheorem[numbered=no, name=Exercise]{exercise*}
+
+\declaretheorem[numbered=unless unique,style=mystyle]{note}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\input{/Users/gcrescenzo/Documents/School/TeX Documents/makros.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{center}
+    { \Large Math 395 \\[0.1in]Homework 3 \\[0.1in]
+    Due: 9/24/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    { Collaborators:} {\underline{ Avinash Iyer, Noah Smith, Carly Venenciano \hspace*{2in}}} \\
+    \end{center}
+    \vspace{3pt}
+    For these problems $V$ is a finite-dimensional $F$-vector space.
+    \vspace{3pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{exercise*}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $\cE$ be a basis of $U$, $\cF$ a basis of $V$ and $\cG$ a basis of $W$. Let $T_B \in \Hom_F{(U,V)}$ and $T_A \in \Hom_F{(V,W)}$. Show
+            \begin{equation*}
+            \begin{split}
+                \left[ T_A \circ T_B \right]_\cE ^ \cG = \left[ T_A \right]_\cF ^\cG \left[ T_B \right]_\cE ^ \cF.
+            \end{split}
+            \end{equation*}
+        \item Let $\left[ T_A \right]_\cF ^\cG = A \in \Mat_{p,m}(F)$ and $\left[ T_B \right]_\cE ^ \cF = B \in \Mat_{m,n}(F)$. Show that you can recover the definition of matrix multiplication by using part (1).
+    \end{enumerate}
+\end{exercise*}
+    \begin{proof}
+        Since the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    U \arrow[r, "T_B"] \arrow[d, "T_\cE"']            & V \arrow[r, "T_A"] \arrow[d, "T_\cF"']       & W \arrow[d, "T_\cG"'] \\
+                    F^n \arrow[r, "{\left[ T_B\right]_{\cE}^{\cF}}"'] & F^m \arrow[r, "{\left[T_A\right]_\cF^\cG}"'] & F^p ,                 
+                    \end{tikzcd}
+            \end{center}
+        we have that $\left[ T_A \circ T_B \right]_\cE ^ \cG = \left[ T_A \right]_\cF ^\cG \left[ T_B \right]_\cE ^ \cF$. Let $\cE = \{e_1,...,e_n\}$, $\cF = \{f_1,...,f_m\}$, and $\cG = \{g_1,...,g_p\}$. The equations
+            \begin{equation*}
+            \begin{split}
+                T_B(e_j) &= \sum_{k = 1}^m b_{kj}f_k \\
+                T_B(f_k) &= \sum_{i = 1}^p a_{ik}g_i \\
+            \end{split}
+            \end{equation*}
+        give rise to the following:
+            \begin{equation*}
+            \begin{split}
+                T_A(T_B(e_j)) &= \sum_{i=1}^p\left(\sum_{k=1}^m a_{ik}b_{kj}\right)g_i \\
+                & := \sum_{i=1}^pc_{ij}g_i.
+            \end{split}
+            \end{equation*}
+        Hence $\left[ T_A \circ T_B \right]_\cE ^ \cG = AB = (c_{ij}) \in \Mat_{p,n}(F)$.
+    \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Let $V = P_n(F)$. Let $\cB = \{1,x,x^2,...,x^n\}$ be a basis of $V$. Let $\lambda \in F$ and set \newline$\cC = \{1 , (x-\lambda), (x-\lambda)^2,...,(x-\lambda)^n\}$. Define a linear transformation $T \in \Hom_F{(V,V)}$ by defining $T(x^j) = (x-\lambda)^j$. Determine the matrix of this linear transformation. Use this to conclude that $\cC$ is also a basis of $V$.
+    \end{exercise}
+        \begin{proof}
+            Note that $T(x^j) = (x-\lambda)^j = \sum_{k=0}^j {j \choose k}(-\lambda)^{j-k} x^k$ for all $0 \leq j \leq n$. Hence:
+            \begin{equation*}
+                \begin{split}
+                    \left[T\right]_\cB^\cB =
+                    \bmat 
+                    1 & -\lambda & \lambda^2 & ... & (-\lambda)^n  \\
+                    0 & 1 &  -2\lambda & ... & {n \choose 1}(-\lambda)^{n-1}  \\
+                    0 &  0 & 1 & ... & {n \choose 2}(-\lambda)^{n-2} \\
+                    \vdots & & & \ddots & \vdots  \\
+                    0 & 0 & 0 & ... & 1 \\
+                    \emat.
+                \end{split}
+                \end{equation*}
+            Note that this matrix is non-singular, hence it is an isomorphism. Thus there exists a $T^{-1}$ defined by $T^{-1}((x-\lambda)^j) = x^j$, establishing that $\cC$ forms a basis of V.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{2}
+    \begin{exercise}
+        Let $V = P_5(\bfQ)$ and let $\cB = \{1,x,...,x^5\}$. Prove that the following are elements of $V^\vee$ and express them as linear combinations of the dual basis:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\phi_1:V \rightarrow \bfQ$ defined by $\phi(p(x)) = \int_0^1 t^2p(t)dt$.
+                \item $\phi_2:V \rightarrow \bfQ$ defined by $\phi(p(x)) = p'(5)$ where $p'(x)$ denotes the derivative of $p(x)$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $p_1,p_2 \in P_5(\bfQ)$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \phi_1((p_1 + cp_2)(x)) 
+                    & = \int_0^1t^2(p_1 + cp_2)(x) dt \\
+                    & = \int_0^1 t^2(p_1(x) + cp_2(x))dt \\
+                    & = \int_0^1 t^2p_1(x)dt + c \int_0^1 t^2p_2(x)dt \\
+                    & = \phi_1(p_1(x)) + c\phi_1(p_2(x)).
+                \end{split}
+                \end{equation*}
+                
+                \begin{equation*}
+                \begin{split}
+                    \phi_2((p_1 + c p_2)(x))
+                    & = (p_1 + cp_2)'(5)\\
+                    & = p_1'(5) + cp_2'(5) \\
+                    & = \phi_2(p_1(x)) + c \phi_2(p_2(x)).
+                \end{split}
+                \end{equation*}
+            Thus $\phi_1,\phi_2 \in V^\vee$. Note that elements of the dual basis $\cB^\vee = \{1^\vee, x^\vee,...,{x^5}^\vee\}$ are defined as follows:
+                \begin{equation*}
+                    {x^i}^\vee(x^j) = 
+                \begin{cases}
+                    1, & i = j \\
+                    0, & \text{otherwise},
+                \end{cases}
+                \end{equation*}
+            and furthermore ${x^i}^\vee (p) = a_i$ for some $p \in P_5(\bfQ)$ and $i \in \{0,1,...,5\}$. Thus we can express any $\phi \in V^\vee$ in terms of its dual basis as follows:
+                \begin{equation*}
+                \begin{split}
+                    \phi(p) &= \phi \left(\sum_{i=0}^5 a_i x^i\right)\\
+                    &=  \sum_{i=0}^5 a_i \phi(x^i) \\
+                    & = \sum_{i=0}^5{x^i}^\vee(p)\phi(x^i).
+                \end{split}
+                \end{equation*}
+            Hence:
+                \begin{equation*}
+                \begin{split}
+                    \phi_1(p) &= \sum_{i=0}^5 \left[{x^i}^\vee(p) \left( \int_0^1 t^{2+i}dt\right)\right] = \sum_{i=0}^5 {x^i}^\vee(p)\cdot \frac{1}{3+i} \\
+                    \phi_2(p) &= \sum_{i=0}^5 {x^i}^\vee(p) \cdot ix^{i-1}
+                \end{split}
+                \end{equation*}
+
+            \iffalse
+            We can express $\phi_1$ in terms of its dual basis elements as follows:
+                \begin{equation*}
+                \begin{split}
+                    \phi_1(p)
+                    & = \phi_1(a_0 + a_1x + ... + a_5 x^5) \\
+                    & = a_0\phi_1(1) + a_1 \phi_1(x) + ... + a_5 \phi_1(x^5) \\
+                    & = 1^\vee(p)\int_0^1t^2\hspace{2pt}dt \hspace{4pt}+\hspace{4pt} x^\vee(p)\int_0^1t^2x\hspace{2pt}dt \hspace{4pt}+\hspace{4pt}...\hspace{4pt}+\hspace{4pt}{x^5}^\vee(p)\int_0^1t^2x^5\hspace{2pt}dt. 
+                \end{split}
+                \end{equation*}
+            Similarly:
+                \begin{equation*}
+                \begin{split}
+                    \phi_2((p_1 + c p_2)(x))
+                    & = (p_1 + cp_2)'(5)\\
+                    & = p_1'(5) + cp_2'(5) \\
+                    & = \phi_2(p_1(x)) + c \phi_2(p_2(x))
+                \end{split}
+                \end{equation*}
+            Thus $\phi_2 \in V^\vee$. We can express $\phi_2$ in terms of its dual basis as follows:
+                \begin{equation*}
+                \begin{split}
+                    \phi_2(p)
+                    & = \phi_2(a_0 + a_1x + a_2x^2 + ... + a_5x^5) \\
+                    & = a_0\phi_2(1) + a_1\phi_2(x) + a_2 \phi_2(x^2) + ... + a_5\phi_2(x^5) \\
+                    & = 1^\vee(p)\cdot 0 + x^\vee(p)\cdot 1 + {x^2}^\vee(p) \cdot 2(5) + ... + {x^5}^\vee(p) \cdot 5(5)^4 \\
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \phi_2(p)
+                    & = \sum_{i=0}^5 a_i \phi_2(x^i) \\
+                    & = \sum_{i=0}^5 {x^j}^\vee (p) \cdot \phi_2(x^i)
+                \end{split}
+                \end{equation*}
+            \fi
+
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ be a vector space over $F$ and let $T \in \Hom_F{(V,V)}$. A nonzero $v \in V$ satisfying $T(v) = \lambda v$ for some $\lambda \in F$ is called an eigenvector of T with eigenvalue $\lambda$.
+            \begin{enumerate}[label = (\alph*)]
+                \item Prove that for any fixed $\lambda \in F$ the collection of eigenvectors of $T$ with eigenvalue $\lambda$ together with $0_V$ forms a subspace of $V$.
+                \item Prove that if $V$ has a basis $\cB$ consisting of eigenvectors for $T$ then $\left[T\right]_\cB ^\cB$ is a diagonal matrix with the eigenvalues of $T$ as diagonal entries.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Let $E = \{v_i \mid T(v_i) = \lambda v_i,\hspace{3pt} v_i \in V\} \cup \{0_V\}$. Clearly $E$ is nonempty. Let $v_1 ,v_2 \in E$. Then $T(v_1 + cv_2) = T(v_1) + cT(v_2) = \lambda v_1 + c \lambda v_2 = \lambda(v_1 + c v_2)$. Thus $E$ is a subspace of $V$.
+
+            Now let $\cB = \{v_1,...,v_n\}$ where each $v_i$ is an eigenvector associated with a unique eigenvalue $\lambda_i$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(v_1) & = \lambda_1 v_1 = \lambda_1 \cdot v_1 + 0 \cdot v_2 + 0 \cdot v_3 + ... + 0 \cdot v_n \\
+                    T(v_2) & = \lambda_2 v_2 = 0 \cdot v_1 + \lambda_2 \cdot v_2 + 0 \cdot v_3 + ... + 0 \cdot v_n \\
+                    T(v_3) & = \lambda_3 v_3 = 0 \cdot v_1 + 0 \cdot v_2 + \lambda_3 \cdot v_3  + ... + 0 \cdot v_n \\
+                    &\vdots \\
+                    T(v_n) & = \lambda_n v_n = 0 \cdot v_1 + 0 \cdot v_2 + 0 \cdot v_3 + ... + \lambda_n v_n.
+                \end{split}
+                \end{equation*}
+            Hence:
+                \begin{equation*}
+                \begin{split}
+                    \left[T\right]_\cB^\cB =
+                    \bmat 
+                    \lambda_1 & 0 & ... & 0   \\
+                    0 & \lambda_2 &  ... &  0  \\
+                    \vdots &  \vdots & \ddots & \vdots \\
+                    0 & 0& ... & \lambda_n   \\
+                    \emat.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+\end{document}
