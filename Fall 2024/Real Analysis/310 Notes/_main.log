@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 19:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 23:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1789,7 +1789,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [28]
 Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 148.
-)
+
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 11.0pt, for example:
@@ -1797,7 +1797,15 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
 
-[29]
+[29])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 11.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{11.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
+
+[30]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -1816,18 +1824,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: C68D8047F7F5A1899055ED0E749EC274;1278.
  ) 
 Here is how much of TeX's memory you used:
- 50294 strings out of 474116
- 1097735 string characters out of 5743683
+ 50302 strings out of 474116
+ 1097855 string characters out of 5743683
  1958187 words of memory out of 5000000
  71136 multiletter control sequences out of 15000+600000
- 801905 words of font info for 300 fonts, out of 8000000 for 9000
+ 802037 words of font info for 301 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,25n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (30 pages, 310398 bytes).
+Output written on _main.pdf (31 pages, 313193 bytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 797 compressed objects within 8 object streams
- 469 named destinations out of 1000 (max. 500000)
+ 872 PDF objects out of 1000 (max. 8388607)
+ 808 compressed objects within 9 object streams
+ 475 named destinations out of 1000 (max. 500000)
  48305 words of extra memory for PDF output out of 51595 (max. 10000000)
 
