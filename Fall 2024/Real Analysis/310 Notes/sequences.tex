@@ -145,5 +145,11 @@
         Prove that $\left(\frac{1}{n}\right)_{n\geq 1} \rightarrow 0$.
     \end{example}
     \begin{solution}
+        Let $\epsilon > 0$ be given. Find $N_\epsilon$ large so $\frac{1}{N_\epsilon} < \epsilon$ (\nameref{prop:arch-2}). So if $n \geq N_\epsilon$, then $\frac{1}{n} \leq \frac{1}{N_\epsilon}$, implying that:
+            \begin{equation*}
+            \begin{split}
+                \left|\frac{1}{n} - 0\right| = \frac{1}{n} \leq \frac{1}{N_\epsilon} < \epsilon.
+            \end{split}
+            \end{equation*}
     \end{solution}
 
