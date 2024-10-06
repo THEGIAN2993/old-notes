@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 23:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  4 OCT 2024 18:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1210,12 +1210,9 @@ Package: thm-amsthm 2023/05/04 v0.76
 \thmt@style@headstyle=\toks75
 ))
 \c@theorem=\count423
-\c@lemma=\count424
-\c@proposition=\count425
-\c@corollary=\count426
-\c@example=\count427
-\c@definition=\count428
-\c@exercise=\count429
+\c@example=\count424
+\c@definition=\count425
+\c@exercise=\count426
  (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/unique.sty
 Package: unique 2023/05/04 v0.76
 \uniq@channel=\write9
@@ -1223,11 +1220,11 @@ Package: unique 2023/05/04 v0.76
 \openout9 = `_main.unq'.
 
 )
-Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 133.
+Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmdef-shaded.sty
 Package: thmdef-shaded 2023/05/04 v0.76
 )
-\c@axiom=\count430
+\c@axiom=\count427
  (/usr/local/texlive/2024/texmf-dist/tex/latex/shadethm/shadethm.sty
 Package: shadethm 1999/11/23
 \saveparindent=\skip283
@@ -1238,44 +1235,44 @@ Package: shadethm 1999/11/23
 \shaderightshift=\skip288
 \shadesavebox=\box84
 )
-\c@note=\count431
+\c@note=\count428
  (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 152.
+Package hyperref Info: Option `colorlinks' set `true' on input line 149.
  (./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences.aux))
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
-LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 151.
+LaTeX Font Info:    ... okay on input line 151.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count432
+\scratchcounter=\count429
 \scratchdimen=\dimen366
 \scratchbox=\box85
-\nofMPsegments=\count433
-\nofMParguments=\count434
+\nofMPsegments=\count430
+\nofMParguments=\count431
 \everyMPshowfont=\toks76
-\MPscratchCnt=\count435
+\MPscratchCnt=\count432
 \MPscratchDim=\dimen367
-\MPnumerator=\count436
-\makeMPintoPDFobject=\count437
+\MPnumerator=\count433
+\makeMPintoPDFobject=\count434
 \everyMPtoPDFconversion=\toks77
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1283,19 +1280,19 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 154.
-Package microtype Info: Applying patch `item' on input line 154.
-Package microtype Info: Applying patch `toc' on input line 154.
-Package microtype Info: Applying patch `eqnum' on input line 154.
-Package microtype Info: Applying patch `footnote' on input line 154.
-Package microtype Info: Applying patch `verbatim' on input line 154.
+LaTeX Info: Redefining \microtypecontext on input line 151.
+Package microtype Info: Applying patch `item' on input line 151.
+Package microtype Info: Applying patch `toc' on input line 151.
+Package microtype Info: Applying patch `eqnum' on input line 151.
+Package microtype Info: Applying patch `footnote' on input line 151.
+Package microtype Info: Applying patch `verbatim' on input line 151.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 154.
+LaTeX Info: Redefining \showhyphens on input line 151.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1303,7 +1300,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `antt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package soulpos Info: Loading soulutf8 on input line 154.
+Package soulpos Info: Loading soulutf8 on input line 151.
  (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
 Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
 
@@ -1328,16 +1325,16 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@hyphkern=\dimen371
 \SOUL@dimen=\dimen372
 \SOUL@dimeni=\dimen373
-\SOUL@minus=\count438
-\SOUL@comma=\count439
-\SOUL@apo=\count440
-\SOUL@grave=\count441
+\SOUL@minus=\count435
+\SOUL@comma=\count436
+\SOUL@apo=\count437
+\SOUL@grave=\count438
 \SOUL@spaceskip=\skip289
 \SOUL@ttwidth=\dimen374
 \SOUL@uldp=\dimen375
 \SOUL@ulht=\dimen376
 ))
-Package hyperref Info: Link coloring ON on input line 154.
+Package hyperref Info: Link coloring ON on input line 151.
  (./_main.out) (./_main.out)
 \@outlinefile=\write10
 \openout10 = `_main.out'.
@@ -1347,7 +1344,7 @@ Package caption Info: End \AtBeginDocument code.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 154.
+ on input line 151.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
@@ -1427,7 +1424,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 165.
+(in both cases you will find help in the memoir manual). on input line 162.
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
@@ -1797,7 +1794,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
 
-[29])
+[29]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 11.0pt, for example:
@@ -1805,12 +1802,20 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
 
-[30]
+[30])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 11.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{11.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
+
+[31]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 171.
+(in both cases you will find help in the memoir manual). on input line 168.
 
 \tf@toc=\write11
 \openout11 = `_main.toc'.
@@ -1824,18 +1829,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: C68D8047F7F5A1899055ED0E749EC274;1278.
  ) 
 Here is how much of TeX's memory you used:
- 50302 strings out of 474116
- 1097855 string characters out of 5743683
+ 50331 strings out of 474116
+ 1098358 string characters out of 5743683
  1958187 words of memory out of 5000000
- 71136 multiletter control sequences out of 15000+600000
- 802037 words of font info for 301 fonts, out of 8000000 for 9000
+ 71138 multiletter control sequences out of 15000+600000
+ 802340 words of font info for 303 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,25n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (31 pages, 313193 bytes).
+Output written on _main.pdf (32 pages, 319083 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 808 compressed objects within 9 object streams
- 475 named destinations out of 1000 (max. 500000)
+ 904 PDF objects out of 1000 (max. 8388607)
+ 839 compressed objects within 9 object streams
+ 498 named destinations out of 1000 (max. 500000)
  48305 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -93,7 +93,7 @@
         $x_n$ is \textui{monotone} if it is either increasing or decreasing, strictly increasing, or strictly decreasing.
     \end{note}
 
-    \begin{definition}
+    \begin{definition}\label{def:convergence}
         A sequence $(x_n)_n$ in a metric space $X$ \textui{converges} to $x \in X$ if:
             \begin{equation*}
             \begin{split}
@@ -142,7 +142,7 @@
     \end{example}
 
     \begin{example}
-        Prove that $\left(\frac{1}{n}\right)_{n\geq 1} \rightarrow 0$.
+        Prove $\left(\frac{1}{n}\right)_{n\geq 1} \rightarrow 0$.
     \end{example}
     \begin{solution}
         Let $\epsilon > 0$ be given. Find $N_\epsilon$ large so $\frac{1}{N_\epsilon} < \epsilon$ (\nameref{prop:arch-2}). So if $n \geq N_\epsilon$, then $\frac{1}{n} \leq \frac{1}{N_\epsilon}$, implying that:
@@ -175,17 +175,105 @@
             \end{split}
             \end{equation*}
     \end{solution}
-
+    
     \begin{lemma}
-        Let $(x_n)_n$ be a sequence in a metric space $X$ and let $x \in X$. Suppose $(\epsilon_n)_n$ is a real positive sequence with $(\epsilon_n)_n \rightarrow 0$. If $d(x_n - x) \leq c \cdot \epsilon_n$ for some constant $c>0$, then $(x_n)_n \rightarrow x$.
+        Let $(X,d)$ be a metric space. Then $(x_n)_n \rightarrow x$ if and only if $(d(x_n,x))_n \rightarrow 0$.
     \end{lemma}
         \begin{proof}
-            Since $(\epsilon_n)_n \rightarrow 0$, we know:
-                \begin{equation*}
-                \begin{split}
-                    (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) \mtext{s.t.} n \geq N_\epsilon \implies d(\epsilon_n,0) < \epsilon
-                \end{split}
-                \end{equation*}
-            But what if $d(\epsilon_n , 0) < \frac{\epsilon}{n}$? Then for $n \geq N_\epsilon$, $d(x_n,x) \leq c\epsilon < \frac{c\epsilon}{\epsilon} = \epsilon$.
+            Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. Find $N_\epsilon \in \bfN$ such that $n \geq N_\epsilon$ implies $d(x_n , x) \leq \epsilon$. This is equivalent to $|d(x_n, x) - 0 | \leq \epsilon$. The converse follows identically.
         \end{proof}
 
+    \begin{lemma}
+        If $(t_n)_n$ is a real sequence, then $(t_n)_n \rightarrow 0$ if and only if $(|t_n|)_n \rightarrow 0$.
+    \end{lemma}
+        \begin{proof}
+            {\color{red} need to do}
+        \end{proof}
+
+    \begin{lemma}\label{lemma:thething}
+        Let $(X,d)$ be a metric space and $(x_n)_n$ a sequence in $(X,d)$. If $d(x_n,x) \leq c\epsilon_n$, where $c$ is a constant and $(\epsilon_n)_n \rightarrow 0$ with $\epsilon_n > 0$ for all $n$, then $(x_n)_n \rightarrow x$.
+    \end{lemma}
+        \begin{proof}
+        {\color{red} need to do}
+        \end{proof}
+
+    \begin{example}
+        Prove $\left(\frac{\sin(n^2 - 1)}{n^2 + 3}\right)_n \rightarrow 0$.
+    \end{example}
+        \begin{solution}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                \left|\frac{\sin(n^2 - 1)}{n^2 + 3} - 0 \right|
+                 = \frac{|\sin(n^2 - 1)|}{n^2 + 3} 
+                 \leq \frac{1}{n^2 + 3} 
+                 \leq \frac{1}{n^2} 
+                 \leq \frac{1}{n}.
+                \end{split}
+                \end{equation*}
+            By Lemma~\ref{lemma:thething}, take $c=1$ and $\epsilon_n = \frac{1}{n}$.
+        \end{solution}
+
+    \begin{example}
+        Prove $\left(\frac{1}{2^n}\right)_n \rightarrow 0$.
+    \end{example}
+        \begin{solution}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{1}{2^n}\right| = \frac{1}{2^n} \leq \frac{1}{n}.
+                \end{split}
+                \end{equation*}
+        \end{solution}
+    
+    \begin{example}
+        Prove $\left(\frac{1}{n} - \frac{1}{n+1}\right)_n \rightarrow 0$.
+    \end{example}
+        \begin{solution}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{1}{n} - \frac{1}{n+1}\right| = \frac{1}{n} - \frac{1}{n+1} \leq \frac{1}{n}.
+                \end{split}
+                \end{equation*}
+        \end{solution}
+
+    \begin{lemma}
+        Let $k \geq 1$ be fixed. Given a sequence $(x_n)_n$ in a metric space $(X,d)$, $(x_n)_n \rightarrow x$ if and only if $(x_{k+n})_n \rightarrow x$.
+    \end{lemma}
+        \begin{proof}
+            Let $(x_n)_n \rightarrow x$. Let $\epsilon >0$. We know there exists $N_\epsilon \in \bfN$ with $n \geq N_\epsilon$ implying $d(x_n , x) < \epsilon$. But if $n\geq N_\epsilon$, then $n+k \geq N_\epsilon$. Hence $d(x_{n+k}, x) < \epsilon$.
+
+            Conversely, assume that $(x_{n+k})_n \rightarrow 0$. Let $\epsilon > 0$. We know there exists $N_\epsilon \in \bfN$ such that $n \geq N_\epsilon$ implies $d(x_{n+k}, x) < \epsilon$. Consider $M = N_\epsilon + k$. Then $n \geq M$ implies $n \geq N_\epsilon + k$; i.e., $n-k \geq N_\epsilon$. Hence $d(x_{(n-k)+k}, x)= d(x_n , x) < \epsilon$.
+        \end{proof}
+    
+    \begin{proposition}
+        Suppose $(x_n)_n$ is a real sequence with $\left(\left|\frac{x_{n+1}}{x_n}\right|\right)_n \rightarrow L < 1$. Then $(x_n)_n \rightarrow 0$.
+    \end{proposition}
+        \begin{proof}
+            Since $L<1$, let $\rho$ be any number satisfying $L < \rho < 1$. Set $\epsilon = \rho - L$. Since $\left(\left|\frac{x_{n+1}}{x_n}\right|\right)_n \rightarrow L$, we know there exists $N_\epsilon \in \bfN$ such that $n \geq N_\epsilon$ implies $\left|\frac{x_{n+1}}{x_n}\right| < \rho$, or equivalently $|x_{n+1}| < \rho|x_n|$. Now observe that:
+                \begin{equation*}
+                \begin{split}
+                    |x_{N+1}| &< \rho|x_N| \\
+                    |x_{N+2}| &< \rho|x_{N+1}| < \rho \cdot \rho |x_N| = \rho^2 |x_N|\\
+                    &\vdots
+                \end{split}
+                \end{equation*}
+            Inductively, $|x_{N+n}| < \rho^n|x_N|$ for $n \in \bfN$. But note that $|x_{N+n}| = |x_{N+n} - 0|$ is a tail of $(x_n)_n$. So by taking $\epsilon_n = \rho^n$ and $c = |x_N|$, Lemma~\ref{lemma:thething} gives $(x_n)_n \rightarrow 0$.
+        \end{proof}
+
+    \begin{note}
+        The negation of Definition~\ref{def:convergence} is:
+            \begin{equation*}
+            \begin{split}
+                (\exists \epsilon_0 > 0)(\forall N_\epsilon \in \bfN) \mtext{s.t.} \exists n \geq N_\epsilon \implies d(x_n,x) \geq \epsilon_0.
+            \end{split}
+            \end{equation*}
+    \end{note}
+
+    \begin{example}
+        Prove $((-1)^n)_n$ is divergent.
+    \end{example}
+        \begin{solution}
+            
+        \end{solution}

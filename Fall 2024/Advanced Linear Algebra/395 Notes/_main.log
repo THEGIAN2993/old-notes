@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 OCT 2024 16:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  5 OCT 2024 18:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1243,12 +1243,9 @@ Package: thm-amsthm 2023/05/04 v0.76
 \thmt@style@headstyle=\toks75
 ))
 \c@theorem=\count423
-\c@lemma=\count424
-\c@proposition=\count425
-\c@corollary=\count426
-\c@example=\count427
-\c@definition=\count428
-\c@exercise=\count429
+\c@example=\count424
+\c@definition=\count425
+\c@exercise=\count426
  (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/unique.sty
 Package: unique 2023/05/04 v0.76
 \uniq@channel=\write9
@@ -1256,42 +1253,42 @@ Package: unique 2023/05/04 v0.76
 \openout9 = `_main.unq'.
 
 )
-\c@note=\count430
+\c@note=\count427
  (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.)
-Package hyperref Info: Option `colorlinks' set `true' on input line 153.
+Package hyperref Info: Option `colorlinks' set `true' on input line 150.
  (./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux))
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 155.
-LaTeX Font Info:    ... okay on input line 155.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count431
+\scratchcounter=\count428
 \scratchdimen=\dimen366
 \scratchbox=\box84
-\nofMPsegments=\count432
-\nofMParguments=\count433
+\nofMPsegments=\count429
+\nofMParguments=\count430
 \everyMPshowfont=\toks76
-\MPscratchCnt=\count434
+\MPscratchCnt=\count431
 \MPscratchDim=\dimen367
-\MPnumerator=\count435
-\makeMPintoPDFobject=\count436
+\MPnumerator=\count432
+\makeMPintoPDFobject=\count433
 \everyMPtoPDFconversion=\toks77
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1305,24 +1302,24 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 155.
+Package hyperref Info: Link coloring ON on input line 152.
  (./_main.out) (./_main.out)
 \@outlinefile=\write10
 \openout10 = `_main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 155.
-Package microtype Info: Applying patch `item' on input line 155.
-Package microtype Info: Applying patch `toc' on input line 155.
-Package microtype Info: Applying patch `eqnum' on input line 155.
-Package microtype Info: Applying patch `footnote' on input line 155.
-Package microtype Info: Applying patch `verbatim' on input line 155.
+LaTeX Info: Redefining \microtypecontext on input line 152.
+Package microtype Info: Applying patch `item' on input line 152.
+Package microtype Info: Applying patch `toc' on input line 152.
+Package microtype Info: Applying patch `eqnum' on input line 152.
+Package microtype Info: Applying patch `footnote' on input line 152.
+Package microtype Info: Applying patch `verbatim' on input line 152.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 155.
+LaTeX Info: Redefining \showhyphens on input line 152.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1330,7 +1327,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `antt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package soulpos Info: Loading soulutf8 on input line 155.
+Package soulpos Info: Loading soulutf8 on input line 152.
  (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
 Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
 
@@ -1355,10 +1352,10 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@hyphkern=\dimen371
 \SOUL@dimen=\dimen372
 \SOUL@dimeni=\dimen373
-\SOUL@minus=\count437
-\SOUL@comma=\count438
-\SOUL@apo=\count439
-\SOUL@grave=\count440
+\SOUL@minus=\count434
+\SOUL@comma=\count435
+\SOUL@apo=\count436
+\SOUL@grave=\count437
 \SOUL@spaceskip=\skip283
 \SOUL@ttwidth=\dimen374
 \SOUL@uldp=\dimen375
@@ -1369,7 +1366,7 @@ Package caption Info: End \AtBeginDocument code.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 155.
+ on input line 152.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
@@ -1454,7 +1451,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 167.
+(in both cases you will find help in the memoir manual). on input line 164.
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
@@ -1827,7 +1824,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
 
-[39])
+[39]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 11.0pt, for example:
@@ -1837,10 +1834,26 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [40]
 
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 11.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{11.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
+
+[41])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 11.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{11.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-11.0pt}.
+
+[42]
+
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 172.
+(in both cases you will find help in the memoir manual). on input line 169.
 
 \tf@toc=\write11
 \openout11 = `_main.toc'.
@@ -1854,18 +1867,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 28A6EAB88E7735AC1EAD4067CFD4504E;3186.
  ) 
 Here is how much of TeX's memory you used:
- 50041 strings out of 474116
- 1094711 string characters out of 5743683
+ 50062 strings out of 474116
+ 1094985 string characters out of 5743683
  1964187 words of memory out of 5000000
  70935 multiletter control sequences out of 15000+600000
- 754633 words of font info for 268 fonts, out of 8000000 for 9000
+ 755200 words of font info for 272 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,23n,117p,1154b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/yhmath/yhcmex.pfb>
-Output written on _main.pdf (41 pages, 348264 bytes).
+Output written on _main.pdf (43 pages, 356474 bytes).
 PDF statistics:
- 799 PDF objects out of 1000 (max. 8388607)
- 727 compressed objects within 8 object streams
- 414 named destinations out of 1000 (max. 500000)
+ 824 PDF objects out of 1000 (max. 8388607)
+ 749 compressed objects within 8 object streams
+ 427 named destinations out of 1000 (max. 500000)
  44193 words of extra memory for PDF output out of 51595 (max. 10000000)
 
