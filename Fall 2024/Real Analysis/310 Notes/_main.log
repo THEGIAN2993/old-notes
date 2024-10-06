@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  4 OCT 2024 18:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  5 OCT 2024 22:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1829,18 +1829,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: C68D8047F7F5A1899055ED0E749EC274;1278.
  ) 
 Here is how much of TeX's memory you used:
- 50331 strings out of 474116
- 1098358 string characters out of 5743683
+ 50333 strings out of 474116
+ 1098395 string characters out of 5743683
  1958187 words of memory out of 5000000
  71138 multiletter control sequences out of 15000+600000
  802340 words of font info for 303 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,25n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on _main.pdf (32 pages, 319083 bytes).
+Output written on _main.pdf (32 pages, 319654 bytes).
 PDF statistics:
- 904 PDF objects out of 1000 (max. 8388607)
- 839 compressed objects within 9 object streams
- 498 named destinations out of 1000 (max. 500000)
+ 907 PDF objects out of 1000 (max. 8388607)
+ 842 compressed objects within 9 object streams
+ 500 named destinations out of 1000 (max. 500000)
  48305 words of extra memory for PDF output out of 51595 (max. 10000000)
 

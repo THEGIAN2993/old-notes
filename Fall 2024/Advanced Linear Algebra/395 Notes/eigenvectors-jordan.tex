@@ -787,7 +787,7 @@
                     & = r(T)(w_1).
                 \end{split}
                 \end{equation*}
-            So:
+            This gives:
                 \begin{equation*}
                 \begin{split}
                     0_V 
@@ -795,6 +795,42 @@
                     & = r(T)p_2(T)q_2(T)(v_1).
                 \end{split}
                 \end{equation*}
+            So $r(T)p_2(T)q_2(T)(v_1) = 0_V$. Thus $p_1(x)\mid r(x)p_2(x)q_2(x)$. Now note that:
+                \begin{equation*}
+                \begin{split}
+                    \gcd{(p_1(x),p_2(x)q_2(x))} = 1,
+                \end{split}
+                \end{equation*}
+            which means $p_1(x)\mid r(x)$. A similar argument shows $p_2(x) \mid r(x)$. And since $\gcd(p_1(x),p_2(x)) = 1$, this gives $\lcm(p_1(x),p_2(x)) = p_1(x)p_2(x)$. So $p_1(x)p_2(x) \mid r(x)$. Since $r(x)$ was arbitrary, take $r(x) = m_{T,v}(x)$. Then $p_1(x)p_2(x) \mid m_{T,v}(x)$. Finally, since $p_1(x)p_2(x)(v) = 0_V$, $m_{T,v}(x) \mid p_1(x)p_2(x)$, establishing the lemma.
+        \end{proof}
+
+    \begin{exercise}
+        Show inductively that $m_{T,v} = p_1(x)p_2(x)...p_k(x)$.
+    \end{exercise}
+
+    \begin{theorem}
+        Let $T \in \Hom_F(V,V)$. There exists $v \in V$ such that $m_{T,v}(x) = m_T(x)$. In particular, $\deg(m_T(x)) \leq n$.
+    \end{theorem}
+        \begin{proof}
+            Let $\cB = \{v_1,...,v_n\}$ be a basis. We know:
+            \begin{equation*}
+                \begin{split}
+                    m_T(x) = \underset{1 \leq i \leq n}\lcm m_{T,v_i}(x).
+                \end{split}
+                \end{equation*}
+            Factor $m_T(x) = p_1(x)^{e_1}...p_k(x)^{e_k}$, with each $p_i(x)$ relatively prime and $e_1 \geq 1$. For $1 \leq j \leq k$, there exists $i_j \in \{1,...,n\}$ and $q_{i_j}(x) \in F[x]$ with:
+                \begin{equation*}
+                \begin{split}
+                    m_{T,v_{i_j}}(x) = p_j(x)^{e_j}q_{i_j}(x).
+                \end{split}
+                \end{equation*}
+            Set $w_j = q_{i_j}(T)(v_{i_j})$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    m_{T,w_j}(x) = p_j(x)^{e_j}.
+                \end{split}
+                \end{equation*}
+            Now set $w = w_1 + ... + w_k$. The previous result gives $m_{T,w}(x) = p_1(x)^{e_1}...p_k(x)^{e_k} = m_T(x)$.
         \end{proof}
     
 
