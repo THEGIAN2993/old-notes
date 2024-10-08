@@ -2,8 +2,13 @@
 \documentclass[10pt,twoside,openany]{memoir}
 
 
-\usepackage[math]{anttor}
-\usepackage[T1]{fontenc}
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
 
 
 \usepackage{titlesec}
@@ -17,9 +22,6 @@
 \usepackage{enumerate}
 \usepackage{comment}
 \usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{hyperref}
 \usepackage{fullpage}
@@ -174,22 +176,23 @@
 \begin{document}
 \begin{center}
     { \Large Math 395 \\[0.1in]Homework 4 \\[0.1in]
-    Due: 10/3/2024}\\[.25in]
+    Due: 10/8/2024}\\[.25in]
     { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    { Collaborators:} {\underline{Noah Smith, Carly Venenciano, Tim Rainone \hspace*{2in}}} \\
     \end{center}
     \vspace{4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         Let $T \in \Hom_F{(V,V)}$. Prove that the intersection of any collection of $T$-invariant subspaces of $V$ is $T$-invariant.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $\{W_i\}_{i \in I}$ be a collection of $T$-stable subspaces of $V$. Let $x \in T \left(\bigcap_{i \in I}W_i\right)$. Then $x \in T(W_i)$ for all $i \in I$. So $x \in W_i$ for all $i \in I$, establishing $x \in \bigcap_{i \in I}W_i$. Thus $T \left(\bigcap_{i \in I}W_i\right) \subseteq \bigcap_{i \in I}W_i$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
     \begin{exercise}
         Let $T \in \Hom_F{(V,V)}$ and $v \in V$. Prove that if $T^j(v) \in W = \Span_F{(v_1,...,v_n)}$ and $W$ is $T$-invariant, then $T^{j+t}(v) \in W$ for all $t \geq 0$.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             We prove this by induction on $t$. Let $t = 0$ be the base case, then by assumption $T^j(v) \in W$. Assume our hypothesis to be true up to $t - 1$. Then:
                 \begin{equation*}
                 \begin{split}
@@ -198,9 +201,69 @@
                 \end{equation*}
             Our induction hypothesis gives $T^{t-1}(T^j(v)) \in W$, and since $T(W) \subseteq W$, we have:
                 \begin{equation*}
+                    T^{j+t}(v) = T(T^{t-1}(T^j(v))) \in W.\qedhere
+                \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+        \begin{exercise}
+            Let $T$ satisfy $T^2 = T$. Prove that the only possible eigenvalues of $T$ are $0$ and $1$.
+        \end{exercise}
+            \begin{proof}
+                Let $v\neq 0$ be an eigenvector of $\lambda$. Then $T^2 = T$ is equivalent to $T^2 - T = 0$. Then:
+                    \begin{equation*}
+                    \begin{split}
+                        (T^2 - T)(v)
+                        & = T^2(v) - T(v) \\
+                        & = \lambda^2v - \lambda v \\
+                        & = (\lambda(1 - \lambda))(v) \\
+                        & = 0_V.
+                    \end{split}
+                    \end{equation*}
+                Since $v \neq 0$, we have that $\lambda(1-\lambda) = 0_V$, hence $\lambda = 0$ or 1.
+            \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    \begin{exercise}
+        Let $V$ be an $\bfR$-vector space. Let $T \in \Hom_\bfR(V,V)$ satisfy $T^2 + bT + c\id_V = 0_{\Hom_\bfR(V,V)}$ for some $b,c \in \bfR$. Prove that $T$ has an eigenvalue if and only if $b^2 \geq 4c$.
+    \end{exercise}
+        \begin{proof}
+            Let $\lambda \in \bfR$ be an eigenvalue of $T$ with $v \in E_\lambda^1$, $v\neq 0_V$. Then:
+                \begin{equation*}
                 \begin{split}
-                    T^{j+t}(v) = T(T^{t-1}(T^j(v))) \in W.
+                    0_V &= (T^2 +bT + c\id_V)(v) \\
+                    & = T^2(v) + bT(v) + cv \\
+                    & = (\lambda^2 + b\lambda + c)v \\
+                    & = \lambda^2 + b\lambda + c.
                 \end{split}
                 \end{equation*}
-        \end{proof}}
+            Then:
+                \begin{equation*}
+                \begin{split}
+                    \lambda = \frac{-b \pm \sqrt{b^2 - 4c}}{2} \in \bfR.
+                \end{split}
+                \end{equation*}
+            It must be the case that $b^2 \geq 4c$, otherwise $\lambda \not\in \bfR$, which is a contradiction.
+
+            Conversely, let $b^2 \geq 4c$. Then $T^2 + bT + c\id_V$ factors over $\bfR$; i.e., $((T - \alpha \id_V)\circ (T - \beta \id_V)) = 0_{\Hom_\bfR(V,V)}$ for some $\alpha,\beta \in \bfR$. Let $v \in V$, $v\neq 0$. Then:
+                \begin{equation*}
+                \begin{split}
+                    ((T-\alpha\id_V)\circ(T-\beta\id_V))(v) = 0_V.
+                \end{split}
+                \end{equation*}
+            Write $w = (T - \beta\id_V)(v)$. If $w \neq 0$, then:
+                \begin{equation*}
+                \begin{split}
+                    0_V &= (T-\alpha\id_V)(w) \\
+                    & = T(w) - \alpha w.
+                \end{split}
+                \end{equation*}
+            Hence $T(w) = \alpha w$. If $w = 0$, then:
+                \begin{equation*}
+                \begin{split}
+                    0_V &= (T-\beta\id_V)(v) \\
+                    & = T(v) - \beta v.
+                \end{split}
+                \end{equation*}
+            Hence $T(v) = \beta v$, establishing the proof. 
+        \end{proof}
 \end{document}

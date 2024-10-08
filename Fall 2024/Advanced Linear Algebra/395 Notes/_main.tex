@@ -1,26 +1,26 @@
 %%%%%%%PACKAGES%%%%%%%
 \documentclass[11pt,twoside,openany]{memoir}
 
-\usepackage[math]{anttor}
-\usepackage[T1]{fontenc}
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
 
 \usepackage{titlesec}
-    \titlespacing*{\chapter}
-    {0pt} % Left margin
-    {*1} % Space before the chapter number (increase this value for more space)
-    {0pt} % Space after the chapter number and before the title
+        \titlespacing*{\chapter}
+        {0pt} % Left margin
+        {*1} % Space before the chapter number (increase this value for more space)
+        {0pt} % Space after the chapter number and before the title
 \usepackage{anyfontsize}
 \usepackage{fancybox}
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
 \usepackage{enumerate}
 \usepackage{comment}
 \usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{yhmath}
 \usepackage{mathrsfs}
-\usepackage{hyperref}
 \usepackage{fullpage}
 \usepackage{bm}
 \usepackage{cprotect}
@@ -43,92 +43,101 @@
 \usepackage{ulem}
 \usepackage{pgfplots}
 \usepackage{marginnote}
-    \newcommand*{\mnote}[1]{ % <----------
-    \checkoddpage
-    \ifoddpage
-        \marginparmargin{left}
-    \else
-        \marginparmargin{right}
-    \fi
-        \marginnote{\tiny \textcolor{oorange}{#1}}
-    }
+        \newcommand*{\mnote}[1]{ % <----------
+        \checkoddpage
+        \ifoddpage
+            \marginparmargin{left}
+        \else
+            \marginparmargin{right}
+        \fi
+            \marginnote{\tiny \textcolor{oorange}{#1}}
+        }
 
 \usepackage{datetime}
-    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+        \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
 \usepackage[margin=0.9in]{geometry}
-    \setlength{\voffset}{-0.4in}
-    \setlength{\headsep}{30pt}
+        \setlength{\voffset}{-0.4in}
+        \setlength{\headsep}{30pt}
 \usepackage{fancyhdr}
-    \fancyhf{}
-    \pagestyle{fancy}
-    \cfoot{\footnotesize \thepage}
-    \fancyhead[R]{\footnotesize \rightmark}
-    \fancyhead[L]{\footnotesize \leftmark}
+        \fancyhf{}
+        \pagestyle{fancy}
+        \cfoot{\footnotesize \thepage}
+        \fancyhead[R]{\tiny \rightmark}
+        \fancyhead[L]{\tiny \leftmark}
 \usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
 \usepackage[outline]{contour}% http://ctan.org/pkg/contour
-    \renewcommand{\arraystretch}{1.5}
-    \contourlength{0.4pt}
-    \contournumber{10}%
-    \usepackage{letterspace}
-    \linespread{1.1}
+        \renewcommand{\arraystretch}{1.5}
+        \contourlength{0.4pt}
+        \contournumber{10}%
+\usepackage{letterspace}
+        \linespread{1.1}
 \usepackage{thmtools}
-    \declaretheoremstyle[
-        spaceabove=15pt,
-        headfont=\normalfont\bfseries,
-        notefont=\mdseries, notebraces={(}{)},
-        bodyfont=\normalfont,
-        postheadspace=0.5em
-        %qed=\qedsymbol
-        ]{defs}
+        \declaretheoremstyle[
+            spaceabove=15pt,
+            headfont=\normalfont\bfseries,
+            notefont=\mdseries, notebraces={(}{)},
+            bodyfont=\normalfont,
+            postheadspace=0.5em
+            %qed=\qedsymbol
+            ]{defs}
 
-    \declaretheoremstyle[
-        spaceabove=15pt, % space above the theorem
-        headfont=\normalfont\bfseries,
-        bodyfont=\normalfont\itshape,
-        postheadspace=0.5em
-        ]{thmstyle}
-    
-    \declaretheorem[
-        style=thmstyle,
-        numberwithin=section
-    ]{theorem}
+        \declaretheoremstyle[
+            spaceabove=15pt, % space above the theorem
+            headfont=\normalfont\bfseries,
+            bodyfont=\normalfont\itshape,
+            postheadspace=0.5em
+            ]{thmstyle}
+        
+        \declaretheorem[
+            style=thmstyle,
+            numberwithin=section
+        ]{theorem}
 
-    \declaretheorem[
-        style=thmstyle,
-        sibling=theorem,
-    ]{lemma}
+        \declaretheorem[
+            style=thmstyle,
+            sibling=theorem,
+        ]{proposition}
 
-    \declaretheorem[
-        style=thmstyle,
-        sibling=theorem,
-    ]{proposition}
+        \declaretheorem[
+            style=thmstyle,
+            sibling=theorem,
+        ]{lemma}
 
-    \declaretheorem[
-        style=thmstyle,
-        sibling=theorem,
-    ]{corollary}
+        \declaretheorem[
+            style=thmstyle,
+            sibling=theorem,
+        ]{corollary}
 
-    \declaretheorem[
-        numberwithin=section,
-        style=defs,
-    ]{example}
+        \declaretheorem[
+            numberwithin=section,
+            style=defs,
+        ]{example}
 
-    \declaretheorem[
-        numberwithin=section,
-        style=defs,
-    ]{definition}
+        \declaretheorem[
+            numberwithin=section,
+            style=defs,
+        ]{definition}
 
-    \declaretheorem[
-        style=thmstyle,
-        sibling=theorem,
-        numberwithin=section,
-    ]{exercise}
+        \declaretheorem[
+            style=thmstyle,
+            sibling=theorem,
+            numberwithin=section,
+        ]{exercise}
 
-\declaretheorem[numbered=unless unique,style=defs]{note}
-\declaretheorem[numbered=unless unique]{axiom}
-\declaretheorem[numbered=unless unique,style=defs]{question}
-\declaretheorem[numbered=no,style=remark]{answer}
-\declaretheorem[numbered=no,style=defs]{recall}
+        \declaretheorem[
+            numbered=unless unique,
+            shaded={rulecolor=black,
+        rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+        ]{axiom}
+
+    \declaretheorem[numbered=unless unique,style=defs]{note}
+    \declaretheorem[numbered=unless unique,style=defs]{question}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{remark}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=no,style=defs]{recall}
+
+\usepackage{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

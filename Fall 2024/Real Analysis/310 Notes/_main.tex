@@ -1,8 +1,13 @@
 %%%%%%%PACKAGES%%%%%%%
 \documentclass[11pt,twoside,openany]{memoir}
 
-\usepackage[math]{anttor}
-\usepackage[T1]{fontenc}
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
 
 \usepackage{titlesec}
         \titlespacing*{\chapter}
@@ -15,9 +20,6 @@
 \usepackage{enumerate}
 \usepackage{comment}
 \usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}  
 \usepackage{mathrsfs}
 \usepackage{fullpage}
 \usepackage{bm}
@@ -60,8 +62,8 @@
         \fancyhf{}
         \pagestyle{fancy}
         \cfoot{\footnotesize \thepage}
-        \fancyhead[R]{\footnotesize \rightmark}
-        \fancyhead[L]{\footnotesize \leftmark}
+        \fancyhead[R]{\tiny \rightmark}
+        \fancyhead[L]{\tiny \leftmark}
 \usepackage[T1]{fontenc}% http://ctan.org/pkg/fontenc
 \usepackage[outline]{contour}% http://ctan.org/pkg/contour
         \renewcommand{\arraystretch}{1.5}

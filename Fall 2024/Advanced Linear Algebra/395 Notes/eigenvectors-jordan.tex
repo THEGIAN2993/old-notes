@@ -474,7 +474,7 @@
                     & \neq 0_V.
                 \end{split}
                 \end{equation*}
-            So $v_{k-1} \in E_\lambda^{k-1} \setminus E_\lambda^{k-2}$. Setting $v_{k-2} = (T - \lambda \id_V)^2v_k$ gives a similar result. By this construction, we obtain a set $\{v_k,v_{k-1},...,v_2,v_1\}$. Claim: this set is linearly independent. Suppose towards contradiction it's not, that is, $a_1v_1 + ... + a_k v_k = 0_V$ does not imply $a_1 = ... = a_k = 0$. This gives $v_k = \frac{-1}{a_k}(a_1v_1 + ... + a_{k-1}v_{k-1}) \in E_\lambda^{k-1}$, which is a contradiction. It follows that $a_1 = ... = a_k = 0$, hence $\{v_k,v_{k-1},...,v_2,v_1\}$ is linearly independent. {\color{red} but why does this establish the theorem}.
+            So $v_{k-1} \in E_\lambda^{k-1} \setminus E_\lambda^{k-2}$. Setting $v_{k-2} = (T - \lambda \id_V)^2v_k$ gives a similar result. By this construction, we obtain a set $\{v_k,v_{k-1},...,v_2,v_1\}$. Claim: this set is linearly independent. Suppose towards contradiction it's not, that is, $a_1v_1 + ... + a_k v_k = 0_V$ does not imply $a_1 = ... = a_k = 0$. This gives $v_k = \frac{-1}{a_k}(a_1v_1 + ... + a_{k-1}v_{k-1}) \in E_\lambda^{k-1}$, which is a contradiction. It follows that $a_1 = ... = a_k = 0$, hence $\{v_k,v_{k-1},...,v_2,v_1\}$ is linearly independent (linear independent set $\subseteq$ a basis, so thats why the theorem is established).
         \end{proof}
 
     \begin{example}
@@ -805,7 +805,7 @@
         \end{proof}
 
     \begin{exercise}
-        Show inductively that $m_{T,v} = p_1(x)p_2(x)...p_k(x)$.
+        Show inductively that $m_{T,v} = p_1(x)p_2(x)...p_k(x)$ {\color{red} does k have to be even? what does pairwise coprime mean if k = 3}.
     \end{exercise}
 
     \begin{theorem}
@@ -830,7 +830,110 @@
                     m_{T,w_j}(x) = p_j(x)^{e_j}.
                 \end{split}
                 \end{equation*}
-            Now set $w = w_1 + ... + w_k$. The previous result gives $m_{T,w}(x) = p_1(x)^{e_1}...p_k(x)^{e_k} = m_T(x)$.
+            Now set $w = w_1 + ... + w_k$. The previous result gives $m_{T,w}(x) = p_1(x)^{e_1}...p_k(x)^{e_k} = m_T(x)${\color{red} ????}.
+        \end{proof}
+    
+    \begin{lemma}
+        Let $W \subseteq V$ be a $T$-invariant subspace. Then there is an induced map $\overline{T} \in \Hom_F(V/W,V/W)$ defined by $\overline{T}(v+W) = T(v)+W$.
+    \end{lemma}
+
+    \begin{lemma}
+        Let $v \in V$. Then $m_{\overline{T},[v]}(x) \mid m_{T,v}(x)$. Similarly, $m_{\overline{T}}(x) \mid m_T(x)$.
+    \end{lemma}
+        \begin{proof}
+            We have:
+                \begin{equation*}
+                \begin{split}
+                    m_{T,v}(\overline{T})([v])
+                    & = m_{T,v}(\overline{T})(v+W) \\
+                    & = m_{T,v}(T)(v) + W \\
+                    & = 0_V + W \\
+                    & = 0_{V/W}.
+                \end{split}
+                \end{equation*}
+            Then by definition of (in this case, $m_{\overline{T},[v]}(x)$) annihilator polynomials, $m_{\overline{T},[v]}(x) \mid m_{T,v}(x)$.
+        \end{proof}
+
+    \begin{definition}
+        Let $T \in \Hom_F(V,V)$ and $\cA = \{v_1,...,v_k\}$ a set of vectors in $V$. The \textui{$T$-span} of $\cA$ is the subspace:
+            \begin{equation*}
+            \begin{split}
+                W = \left\{\sum_{i=1}^k p_i(T)(v_i) \mid p_i(x) \in F[x]\right\}.
+            \end{split}
+            \end{equation*}
+        We say the subset $W$ is \textui{$T$-generated} by $\cA$.
+    \end{definition}
+
+    \begin{exercise}\label{exercise:t-span}
+        Show $W$ is a $T$-invariant subspace of $V$. Moreover, show it is the smallest $T$-invariant subspace with respect to inclusion of $V$ that contains $\cA$.
+    \end{exercise}
+
+    \begin{example}
+        Let $V = \bfQ^4$. Define $T \in \Hom_\bfQ{(\bfQ^4,\bfQ^4)}$ by:
+            \begin{equation*}
+            \begin{split}
+                T(e_1) &= 2e_1 + 3e_3 \\
+                T(e_2) &= e_1 + e_2 \\
+                T(e_3) &= e_1 - e_3 \\
+                T(e_4) &= 2e_1 - 2e_2 + 5e_3 - 4e_4.\\
+            \end{split}
+            \end{equation*}
+        Let $\cA = \{e_1\}$. Our goal is to find $\Span_{T,\bfQ}(\cA)$. Set $p(x) = 1$, then $p(T)(e_1) = \id_V(e_1) =e_1$. Hence $e_1 \in \Span_{T,F}(\cA)$. Now set $q(x) = \frac{1}{3}(x-2)$. Then:
+            \begin{equation*}
+            \begin{split}
+                q(T)(e_1)
+                & = \frac{1}{3}(T-2\id_V)(e_1)\\
+                & = \frac{1}{3}(T(e_1) - 2e_1) \\
+                & = e_3.
+            \end{split}
+            \end{equation*}
+        Hence $e_3 \in \Span_{T,F}(\cA)$. So $\Span_F{(e_1,e_3)} \subseteq \Span_{T,F}(\cA)$ {\color{red} Why}. Note that $\Span_F(e_1,e_3)$ is $T$-invariant. By Exercise~\ref{exercise:t-span}, since $\Span_{T,F}(\cA)$ is the smallest $T$-invariant subspace by inclusion, it must be the case that $\Span_{T,F}(\cA) \subseteq \Span_F{(e_1,e_3)}$. Hence $\Span_{T,F}(\cA) = \Span_F{(e_1,e_3)}$.
+    \end{example}
+
+    \begin{lemma}\label{lemma:4.3.9}
+        Let $T \in \Hom_F{(V,V)}$, $w \in V$, and $W$ the subspace of $V$ that is $T$-generated by $\{w\}$. Then $\dim_F{(W)} = \deg(m_{T,w}(x))$.
+    \end{lemma}
+        \begin{proof}
+            Let $\deg(m_{T,w}(x)) = k$. Consider the set $\{w,T(w),...,T^{k-1}(w)\}$. This is a basis of the $T$-span of $\{w\}$.
+        \end{proof}
+
+    \begin{theorem}
+        Let $\dim_F(V) = n$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item We have $m_T(x) \mid c_T(x)$.
+            \item Every irreducible factor of $c_T(x)$ is a factor of $m_T(x)$.
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (1) Let $\deg(m_T(x)) = k \leq n$. Let $v \in V$ with $m_T(x) = m_{T,v}(x)$. Let $W_1$ be the $T$-span of $V$. By Lemma~\ref{lemma:4.3.9}, $\dim_F(W_1) = k$. Set $v_k = v$ and $v_{k-i} = T^i(v)$. We have $\cB_1 = \{v_1,...,v_k\}$ is a basis of $W_1$ (see previous lemma), and furthermore $\left[\restr{T}{W}\right]_\cB = C(m_T(x))$ {\color{red} why? where is $\restr{T}{W}$ coming from????}. We proceed with cases.
+
+            Case 1: $k = n$. Then $W_1 = V$, and $[T]_{\cB_1} = C(m_T(x))$, which has characteristic polynomial $m_T(x)$, meaning $m_T(x) = c_T(x)$.
+
+            Case 2: $k < n$. Expand $\cB_1$ to a full basis of $V$ as follows: Let $\cB_2 = \{v_{k+1},...,v_n\}$ and write:
+                \begin{equation*}
+                \begin{split}
+                    \cB = \cB_1 \cup \cB_2.
+                \end{split}
+                \end{equation*}
+            We have:
+                \begin{equation*}
+                \begin{split}
+                    \left[T\right]_\cB = \bmat A & B \\ 0 & D \emat, \hspace{4pt} A = C(m_T(x)).
+                \end{split}
+                \end{equation*}
+            Note that, since $\cB_1$ is a basis for $W_1$ and $W_1$ is $T$-invariant, by Exercise~\ref{exercise:t-span} $[T]_\cB$ is block diagonal. We have:
+                \begin{equation*}
+                \begin{split}
+                    c_T(x)
+                    & = \det(x1_n - \left[T\right]_\cB) \\
+                    & = \det \bmat x1_k - A & -B \\ 0 & x1_{n-k}-D \emat \\
+                    & = \det(x1_k - A)\det(x1_{n-k})-D \\
+                    & = c_A(x)\det(x1_{n-k}-D).
+                \end{split}
+                \end{equation*}
+            Thus $m_T(x) \mid c_T(x)$.
+
+            For (2), we induct on $\dim_F(V) = n$. If $n = 1$, then both character $\cTop$
         \end{proof}
     
 

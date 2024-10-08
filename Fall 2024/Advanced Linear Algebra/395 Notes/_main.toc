@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {3.1}Choosing Coordinates}{17}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Row Operations}{22}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Column-space and Null-space}{25}{section.3.3}%
-\contentsline {section}{\numberline {3.4}The Transpose of a Matrix}{26}{section.3.4}%
+\contentsline {section}{\numberline {3.4}The Transpose of a Matrix}{27}{section.3.4}%
 \contentsline {chapter}{\chapternumberline {4}Generalized Eigenvectors and Jordan Canonical Form}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Diagonalization}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Eigenvalues and Eigenvectors}{31}{section.4.2}%
