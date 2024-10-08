@@ -142,37 +142,12 @@
     ]{exercise}
 \declaretheorem[numbered=unless unique,style=mystyle]{Note}
     
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%MACROS%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%
 \input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-%%%%DOCUMENT SETUP%%%%
-%%%%%%%%%%%%%%%%%%%%%%
 \setsecnumdepth{subsection}
 \definecolor{darkgreen}{rgb}{0, 0.5976, 0}
 \hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Real Analysis I Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
 
-
-%This adds a "front cover" page.
-%{\thispagestyle{empty}
-%\vspace*{\fill}
-%\begin{tabular}{l}
-%\begin{tabular}{l}
-%\includegraphics[scale=0.24]{oxy-logo.png}
-%\end{tabular} \\
-%\begin{tabular}{l}
-%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
-%\end{tabular}
-%\end{tabular}
 \begin{document}
 \begin{center}
     { \Large Math 395 \\[0.1in]Homework 4 \\[0.1in]
@@ -186,7 +161,7 @@
         Let $T \in \Hom_F{(V,V)}$. Prove that the intersection of any collection of $T$-invariant subspaces of $V$ is $T$-invariant.
     \end{exercise}
         \begin{proof}
-            Let $\{W_i\}_{i \in I}$ be a collection of $T$-stable subspaces of $V$. Let $x \in T \left(\bigcap_{i \in I}W_i\right)$. Then $x \in T(W_i)$ for all $i \in I$. So $x \in W_i$ for all $i \in I$, establishing $x \in \bigcap_{i \in I}W_i$. Thus $T \left(\bigcap_{i \in I}W_i\right) \subseteq \bigcap_{i \in I}W_i$.
+            Let $\{W_i\}_{i \in I}$ be a collection of $T$-invariant subspaces of $V$. Since the intersection of an arbitrary collection of subspaces is also a subspace, it only remains to show that $\bigcap_{i \in I}W_i$ is $T$-invariant. Let $x \in T \left(\bigcap_{i \in I}W_i\right)$. Then $x \in T(W_i)$ for all $i \in I$. So $x \in W_i$ for all $i \in I$, establishing $x \in \bigcap_{i \in I}W_i$. Thus $T \left(\bigcap_{i \in I}W_i\right) \subseteq \bigcap_{i \in I}W_i$.
         \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
     \begin{exercise}
@@ -212,16 +187,16 @@
                 Let $v\neq 0$ be an eigenvector of $\lambda$. Then $T^2 = T$ is equivalent to $T^2 - T = 0$. Then:
                     \begin{equation*}
                     \begin{split}
-                        (T^2 - T)(v)
+                        0_V 
+                        & = (T^2 - T)(v) \\
                         & = T^2(v) - T(v) \\
                         & = \lambda^2v - \lambda v \\
                         & = (\lambda(1 - \lambda))(v) \\
-                        & = 0_V.
+                        & = \lambda(\lambda - 1).
                     \end{split}
                     \end{equation*}
-                Since $v \neq 0$, we have that $\lambda(1-\lambda) = 0_V$, hence $\lambda = 0$ or 1.
+                We have that $\lambda(1-\lambda) = 0_V$, hence $\lambda = 0$ or $1$.
             \end{proof}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
     \begin{exercise}
         Let $V$ be an $\bfR$-vector space. Let $T \in \Hom_\bfR(V,V)$ satisfy $T^2 + bT + c\id_V = 0_{\Hom_\bfR(V,V)}$ for some $b,c \in \bfR$. Prove that $T$ has an eigenvalue if and only if $b^2 \geq 4c$.

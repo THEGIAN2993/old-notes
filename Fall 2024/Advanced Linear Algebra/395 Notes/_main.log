@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  7 OCT 2024 18:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  7 OCT 2024 21:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,7 +1470,7 @@ Package: shadethm 1999/11/23
 \shadesavebox=\box84
 )
 \c@note=\count430
- (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex Excluding 'comment' comment.) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+ (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 159.
@@ -2336,8 +2336,6 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [44]
-contour: Using real outline for `$\TTop $' on input line 936.
-)
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2346,6 +2344,22 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [45]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[46])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[47]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -2361,21 +2375,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 2B68E0968B61E5A02460FBAFEBEC5BFA;1326.
+(rerunfilecheck)             Checksum: BC3F679A5DF82CBAA2720DD8F3849FC5;1400.
  ) 
 Here is how much of TeX's memory you used:
- 53319 strings out of 474116
- 1150376 string characters out of 5743683
- 1964187 words of memory out of 5000000
- 73887 multiletter control sequences out of 15000+600000
+ 53356 strings out of 474116
+ 1151035 string characters out of 5743683
+ 1965187 words of memory out of 5000000
+ 73911 multiletter control sequences out of 15000+600000
  746088 words of font info for 532 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,24n,117p,1158b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (46 pages, 344376 bytes).
+Output written on _main.pdf (48 pages, 350246 bytes).
 PDF statistics:
- 888 PDF objects out of 1000 (max. 8388607)
- 799 compressed objects within 8 object streams
- 450 named destinations out of 1000 (max. 500000)
- 77985 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 916 PDF objects out of 1000 (max. 8388607)
+ 824 compressed objects within 9 object streams
+ 463 named destinations out of 1000 (max. 500000)
+ 77993 words of extra memory for PDF output out of 89155 (max. 10000000)
 

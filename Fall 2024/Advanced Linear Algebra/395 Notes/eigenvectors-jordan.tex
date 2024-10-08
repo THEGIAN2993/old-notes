@@ -97,7 +97,7 @@
         Let $V$ be an $F$-vector space and $T \in \Hom_F{(V,V)}$. A subspace $W \subseteq V$ is said to be \textui{$T$-invariant} or \textui{$T$-stable} if $T(W) \subseteq W$.
     \end{definition}
 
-    \begin{theorem}
+    \begin{theorem}\label{thm:stable-block-diagonal}
         Let $\dim_F{(V)} = n$ and $W \subseteq V$ a $k$-dimensional subspace. Let $\cB_W = \{v_1,...,v_k\}$ be a basis of $W$ and extend to a basis $\cB = \{v_1,...,v_n\}$ of $V$. Let $T \in \Hom_F{(V,V)}$. We have $W$ is $T$-stable if and only if $\left[T\right]_\cB$ is block upper-triangular of the form
             \begin{equation*}
             \begin{split}
@@ -190,7 +190,7 @@
         \begin{proof}
             Recall that $\Hom_F{(V,V)}$ is an $F$-vector space. We have $\Hom_F{(V,V)} \cong \Mat_n{(F)}$, hence $\dim_F{(\Hom_F{(V,V)})} = n^2$.
 
-            Given $T \in \Hom_F{(V,V)}$, consider the set $\{\id_V,T,T^2,...,T^{n^2}\} \subseteq \Hom_F{(V,V)}$. This has $n^2 + 1$ elements, so it must be linearly dependent. Let $m$ be the smallest integer so that
+            Given $T \in \Hom_F{(V,V)}$, consider the set $\{\id_V,T,T^2,...,T^{n^2}\} \subseteq \Hom_F{(V,V)}$. This has $n^2 + 1$ elements, so it must be linearly dependent (meaning a linear combination of some subset can equal $0$). Let $m$ be the smallest integer so that
                 \begin{equation*}
                 \begin{split}
                     a_mT^m + ... + a_1T + a_0 \id_V\footnotemark = 0_{\Hom_F{(V,V)}}.
@@ -905,7 +905,7 @@
         \end{enumerate}
     \end{theorem}
         \begin{proof}
-            (1) Let $\deg(m_T(x)) = k \leq n$. Let $v \in V$ with $m_T(x) = m_{T,v}(x)$. Let $W_1$ be the $T$-span of $V$. By Lemma~\ref{lemma:4.3.9}, $\dim_F(W_1) = k$. Set $v_k = v$ and $v_{k-i} = T^i(v)$. We have $\cB_1 = \{v_1,...,v_k\}$ is a basis of $W_1$ (see previous lemma), and furthermore $\left[\restr{T}{W}\right]_\cB = C(m_T(x))$ {\color{red} why? where is $\restr{T}{W}$ coming from????}. We proceed with cases.
+            (1) Let $\deg(m_T(x)) = k \leq n$. Let $v \in V$ with $m_T(x) = m_{T,v}(x)$. Let $W_1$ be the $T$-span of $\{v\}$. By Lemma~\ref{lemma:4.3.9}, $\dim_F(W_1) = k$. Set $v_k = v$ and $v_{k-i} = T^i(v)$. We have $\cB_1 = \{v_1,...,v_k\}$ is a basis of $W_1$ (see proof of previous lemma), and furthermore $\left[\restr{T}{W_1}\right]_\cB = C(m_T(x))$ (See Theorem~\ref{thm:stable-block-diagonal}) {\color{red} I would like an explanation of this}. We proceed with cases.
 
             Case 1: $k = n$. Then $W_1 = V$, and $[T]_{\cB_1} = C(m_T(x))$, which has characteristic polynomial $m_T(x)$, meaning $m_T(x) = c_T(x)$.
 
@@ -921,7 +921,7 @@
                     \left[T\right]_\cB = \bmat A & B \\ 0 & D \emat, \hspace{4pt} A = C(m_T(x)).
                 \end{split}
                 \end{equation*}
-            Note that, since $\cB_1$ is a basis for $W_1$ and $W_1$ is $T$-invariant, by Exercise~\ref{exercise:t-span} $[T]_\cB$ is block diagonal. We have:
+            Note that, since $\cB_1$ is a basis for $W_1$ and $W_1$ is $T$-invariant, by Theorem~\ref{thm:stable-block-diagonal} $[T]_\cB$ is block diagonal. We have:
                 \begin{equation*}
                 \begin{split}
                     c_T(x)
@@ -933,8 +933,110 @@
                 \end{equation*}
             Thus $m_T(x) \mid c_T(x)$.
 
-            For (2), we induct on $\dim_F(V) = n$. If $n = 1$, then both character $\cTop$
+            For (2), we induct on $\dim_F(V) = n$. If $n = 1$, then both the characteristic polynomial and minimal polynomial are monic and of degree $1$, hence they are equal. If $\deg{(m_T(x))} = n$, then $m_T(x) \mid c_T(x)$. Since both are degree $n$ and monic, they must be equal. Now suppose $\deg{m_T(x)} = k < n$ {\color{red}  The rest of this proof is hard and I dont get it. I atleast understand why $m_T(x) \mid c_T(x)$. Maybe I'll do the rest later}.
         \end{proof}
+
+    \begin{example}
+        Consider:
+            \begin{equation*}
+            \begin{split}
+                A = 
+                \bmat
+                1& 2 \\
+                3 & 4 \\
+                & & 3 & 7 \\
+                & & -1 & 2 \\
+                & & & & -5 & 6 \\
+                & & & & 2 & -3 \\
+                \emat \in \Mat_9(\bfQ).
+            \end{split}
+            \end{equation*}
+        We can verify that $c_A(x) = (x^2-5x-2)(x^2-x-1)(x^2+8x+3)$. Since every irreducible factor of $c_T(x)$ is a factor of $m_T(x)$, we have that $m_T(x) = (x^2-5x-2)(x^2-x-1)(x^2+8x+3)$.
+    \end{example}
+
+    \begin{theorem}[Cayley-Hamilton]\label{thm:cayley-hamilton}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $T \in \Hom_F(V,V)$ and $\dim_F(V) < \infty$. Then $c_T(T) = 0_{\Hom_F{(V,V)}}$.
+            \item Let $A \in \Mat_n(F)$. Then $c_A(A) = 0_n$.
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            Write $c_T(x) = f(x)m_T(x)$. Then for any $v \in V$:
+                \begin{equation*}
+                \begin{split}
+                    c_T(T)(v)
+                    & = f(T)m_T(T)(v) \\
+                    & = f(T)(0_V) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+\section{Jordan Canonical Form}
+For this section $V$ is always finite-dimensional.
+
+    \begin{definition}
+        Let $T \in \Hom_F(V,V)$. A \textui{Jordan basis} for $V$ with respect to $T$ is a basis $\cB$ so that:
+            \begin{equation*}
+            \begin{split}
+                \left[T\right]_\cB = 
+                        \bmat
+                        \lambda_1 & 1 & \\
+                        & \lambda_1 & 1 \\
+                        & & \lambda_1 \\
+                        & & & \lambda_2 & 1 \\
+                        & & & & \lambda_2 \\
+                        & & & & & \lambda_3 \\
+                        & & & & & & \ddots \\
+                        & & & & & & & \lambda_n & 1\\
+                        & & & & & & & & \lambda_n  \\ 
+                        \emat.
+                        \begin{tikzpicture}[overlay, remember picture]
+                            \draw[gray, thick] (-1.7,-3.35) rectangle (-0.4,-2); % Adjust the coordinates for placement
+                        \end{tikzpicture}
+                        \begin{tikzpicture}[overlay, remember picture]
+                            \draw[gray, thick] (-3.27,-1.04) rectangle (-2.8,-0.5); % Adjust the coordinates for placement
+                        \end{tikzpicture}
+                        \begin{tikzpicture}[overlay, remember picture]
+                            \draw[gray, thick] (-4.9,-0.3) rectangle (-3.5,1.1); % Adjust the coordinates for placement
+                        \end{tikzpicture}
+                        \begin{tikzpicture}[overlay, remember picture]
+                            \draw[gray, thick] (-7.14,1.3) rectangle (-5.1,3.5); % Adjust the coordinates for placement
+                        \end{tikzpicture}
+            \end{split}
+            \end{equation*}
+        for some $\lambda_1,...,\lambda_n \in F$. More generally, if $V = V_1 \oplus ... \oplus V_k$ is a decomposition into $T$-invariant subspaces, and each $V_i$ has a Jordan basis $\cB_i$, we say $\cB = \bigcup_{i= 1 }^k\cB_i$ is a Jordan basis for $V$.
+    \end{definition}
+
+    \begin{definition}
+        A matrix of the form:
+            \begin{equation*}
+            \begin{split}
+                J_i = 
+                \begin{bmatrix}
+                    \lambda_i & 1            &      &   \\
+                            & \lambda_i    & \ddots &   \\
+                            &            & \ddots & 1   \\
+                            &            &      & \lambda_i       
+                \end{bmatrix}
+            \end{split}
+            \end{equation*}
+        is called a \textui{Jordan block} associated to $\lambda_i$. We say a matrix $J$ is in \textui{Jordan canonical form} if it is a block diagonal matrix with each block representing a Jordan block.
+            \begin{equation*}
+            \begin{split}
+                J = 
+                \begin{bmatrix}
+                    J_1 & \;     & \; \\
+                    \;  & \ddots & \; \\ 
+                    \;  & \;     & J_p
+                \end{bmatrix}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+
+
     
 
     

@@ -16,3 +16,4 @@
 \contentsline {section}{\numberline {4.1}Diagonalization}{29}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Eigenvalues and Eigenvectors}{31}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Characteristic Polynomials}{39}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Jordan Canonical Form}{46}{section.4.4}%
