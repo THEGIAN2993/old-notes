@@ -1,0 +1,45 @@
+\chapter{Categories}
+\vspace{12pt}
+
+\section{Basic Definitions}
+    \begin{definition}
+        A \textui{category} $\cC$ consists of three ingredients:
+            \begin{itemize}
+                \item A class $\obj(\cC)$ of \textit{objects},
+                \item a set of \textit{morphisms} $\Hom(A,B)$ for every ordered pair $(A,B)$ of objects, and
+                \item \textit{composition}: $\Hom(A,B)\times \Hom(B,C) \rightarrow \Hom(A,C)$ defined by $(f,g) \mapsto g \circ f$ for every ordered triple of objects.
+            \end{itemize}
+        These ingredients are subject to the following axioms:
+            \begin{enumerate}[label = (\arabic*)]
+                \item The $\Hom$ sets are pairwise disjoint, that is, each $f \in \Hom(A,B)$ has a unique domain and codomain.
+                \item For each object $A$, there is an \textit{identity morphism} $1_A \in \Hom(A,A)$ and $1_B \in \Hom(B,B)$ such that:
+                    \begin{equation*}
+                    \begin{split}
+                        f\circ1_A &= f \\
+                        1_B \circ f &= f \\
+                    \end{split}
+                    \end{equation*}
+                for all $f:A \rightarrow B$.
+                \item Composition is associative: given $A \xrightarrow{f} B \xrightarrow{g} C \xrightarrow{h}D$, then:
+                    \begin{equation*}
+                    \begin{split}
+                        h\circ(g\circ f) = (h\circ g) \circ f.
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item 
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        A category $\cS$ is a \textui{subcategory} of a category $\cC$ if:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\obj(\cS) \subseteq \obj(\cC)$.
+                \item 
+            \end{enumerate}
+    \end{definition}
