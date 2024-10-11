@@ -1062,6 +1062,139 @@ For this section $V$ is always finite-dimensional.
             \end{equation*}
     \end{definition}
 
+    \begin{lemma}\label{lemma:invariant-eigenspace}
+        Let $T \in \Hom_F(V,V)$. We have that $\ker(T-\lambda \id_V)^j$ and $\Image(T - \lambda \id_V)^j$ are $T$-invariant subspaces for all $j \geq 0$.
+    \end{lemma}
+        \begin{proof}
+            Note that $T\circ (T-\lambda\id_V)^j = (T-\lambda\id_V)^j \circ T$ Let $v \in \ker(T-\lambda\id_V)^j$. We have:
+                \begin{equation*}
+                \begin{split}
+                    (T-\lambda\id_V)^j(T(v))
+                    & = T((T-\lambda\id_V)^j(v)) \\
+                    & = T(0_V) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            So $T(v) \in \ker(T- \lambda \id_V)^j$. Now let $w \in \Image(T -\lambda \id_V)^j$. We can write $w = (T-\lambda\id_V)^j(v)$ for some $v \in V$. Then:
+                \begin{equation*}
+                \begin{split}
+                    T(w) &= T((T-\lambda \id_V)^j(v)) \\
+                    & = (T -\lambda\id_V)(T(v)).
+                \end{split}
+                \end{equation*}
+            Thus $T(w) \in \Image(T -\lambda \id_V)^j$.
+        \end{proof}
+
+    \begin{lemma}\label{lemma:awful}
+        Suppose $m_T(x) = (x- \lambda)^m p(x)$ with $p(\lambda) \neq 0$. Then $E_\lambda^\infty = E_\lambda^m$. 
+    \end{lemma}
+        \begin{proof}
+            Let $E_\lambda^{\infty} = E_\lambda^e$. Let $v \in E_\lambda^{e}\setminus E_\lambda^{e-1}$.
+            Let $v \in E_\lambda^\infty$. Since $(T-\lambda \id_V)^e(v) = 0_V$, we know that $m_{T,v}(x) \mid (x-\lambda)^e$. Note that $m_{T,v}(x) \nmid (x-\lambda)^{e-1}$, otherwise $(T-\lambda \id_V)^{e-1}(v) = q(T)m_{T,v}(T)(v) = 0_V$, implying $v \in E_\lambda^{e-1}$ which is a contradiction. Now since $m_{T,v}$ is by definition the monic polynomial of minimal degree which kills $v$, it must be the case that $m_{T,v}(x) = (x-\lambda)^e$. So we have:
+                \begin{equation*}
+                \begin{split}
+                    (x-\lambda)^e \mid (x-\lambda)^m p(x).
+                \end{split}
+                \end{equation*}
+            Note that $p(x)$ does not have irreducible factors of the form $(x- \lambda)$, hence $(x-\lambda)^e$ and $p(x)$ are coprime, implying:
+                \begin{equation*}
+                \begin{split}
+                    (x-\lambda)^e \mid (x-\lambda)^m.
+                \end{split}
+                \end{equation*}
+            But this is a contradiction if $e > m$, so it must be the case that $e \leq m$. Now if we were to assume that $e < m$, then:
+                \begin{equation*}
+                \begin{split}
+                    (T - \lambda)^m(v)
+                    & = g(T)(T - \lambda)^e(v) \\
+                    & = g(T)(0_V) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            So $m_T(x) \mid (x- \lambda)^m$. Thus $e = m$.
+        \end{proof}
+
+    \begin{lemma}\label{lemma:eigenspace-image}
+        Let $\dim_F(V) = n$. Let $m_T(x) = (x-\lambda)^m p(x)$ with $p(\lambda) \neq 0$. We have $V = E_\lambda^m \oplus \Image(T-\lambda)^m$.
+    \end{lemma}
+        \begin{proof}
+            Recall that $E_\lambda^m = \ker(T - \lambda)^m$. The dimensions are correct by the rank-nullity theorem. It only remains to show that $E_\lambda^m \cap \Image(T-\lambda)^m = \{0_V\}$. 
+
+            Let $v \in E_\lambda^m \cap \Image(T-\lambda)^m$. Since $v \in \Image(T-\lambda)^m$, let $v = (T - \lambda)^m(w)$ for some $w \in V$. Applying $(T-\lambda)^m$ to both sides gives:
+                \begin{equation*}
+                \begin{split}
+                    (T -\lambda)^m(v) = (T-\lambda)^{2m}(w).
+                \end{split}
+                \end{equation*}
+            Since $v \in E_\lambda^m$ by our assumption, we have that $0_V = (T-\lambda)^{2m}(w)$. But Lemma~\ref{lemma:awful} gives that $E_\lambda^\infty = E_\lambda^m$, hence $(T-\lambda)^{2m}(w) = (T-\lambda)^{m}(w) = 0_V$. Thus $v = 0_V$.
+        \end{proof}
+
+    \begin{theorem}
+        Assume $m_T(x) = (x-\lambda_1)^{m_1}...(x-\lambda_k)^{m_k}$ with each $\lambda_i \in F$ distinct and $m_j \geq 1$. We have:
+            \begin{equation*}
+            \begin{split}
+                V = E_{\lambda_1}^{m_1} \oplus ... \oplus E_{\lambda_k}^{m_k}.
+            \end{split}
+            \end{equation*}
+    \end{theorem}
+        \begin{proof}
+            We use induction on $k$. If $k=1$, then $m_T(x) = (x-\lambda_1)^{m_1}$. Since $m_T(T)(v) = 0_V$ for all $v \in V$, we have $V = E_{\lambda_1}^{m_1}$. Now assume the result is true for any vector space $W$ and $S \in \Hom_F(W,W)$ where $m_S(x)$ splits completely over $F$ and has less than $k$ distinct roots. Write:
+                \begin{equation*}
+                \begin{split}
+                    V = E_{\lambda_1}^{m_1} \oplus \Image(T-\lambda_1)^{m_1}.
+                \end{split}
+                \end{equation*}
+            Set $W = \Image(T-\lambda_1)^{m_1}$. Lemma~\ref{lemma:invariant-eigenspace} gives that $W$ is $T$-invariant, so $\restr{T}{W} \in \Hom_F(W,W)$. We want to show that $m_\restr{T}{W}(x) = (x - \lambda_2)^{m_2}...(x-\lambda_k)^{m_k}$. Set $p(x) = (x - \lambda_2)^{m_2}...(x-\lambda_k)^{m_k}$. Suppose $p(T)(w) \neq 0$. We have:
+                \begin{equation*}
+                \begin{split}
+                    0_V
+                    & = m_T(T)(w) \\
+                    & = (T-\lambda_1)^{m_1}p(T)(w).
+                \end{split}
+                \end{equation*}
+            So $p(T)(w) \in E_{\lambda_1}^{m_1}$. But also $p(T)(w) = p(\restr{T}{W})(w) \in W$. So Lemma~\ref{lemma:eigenspace-image}. gives that $p(T)(w) = p(\restr{T}{W})(w) = 0_V$. Thus:
+                \begin{equation*}
+                \begin{split}
+                    m_\restr{T}{W}(x) \mid p(x).
+                \end{split}
+                \end{equation*}
+            Suppose $m_\restr{T}{W}(x)$ is a proper divisor of $p(x)$, that is, $p(x) = \restr{T}{W}(x)h(x)$ where $\deg(h(x)) > 1$. Consider $f(x) = (x-\lambda_1)^{m_1}m_\restr{T}{W}(x)$. Let $v \in V$ and write $v = v_1 + w$ for some $v_1 \in E_{\lambda_1}^{m_1}$ and $w \in W$. Then:
+                \begin{equation*}
+                \begin{split}
+                    f(T)(v)
+                    & = f(T)(v_1) + f(T)(w) \\
+                    & = m_\restr{T}{W}(T)(T-\lambda_1)^{m_1}(v_1) + (T-\lambda_1)^{m_1}m_\restr{T}{W}(T)(w) \\
+                    & = 0_V.
+                \end{split}
+                \end{equation*}
+            Thus $m_T(x) \mid f(x)$. But note that:
+                \begin{equation*}
+                \begin{split}
+                    m_T(x) &= (x-\lambda_1)^{m_1}p(x)\\
+                     & = (x-\lambda_1)^{m_1} m_\restr{T}{W}(x)h(x)\\
+                     f(x) & = (x-\lambda_1)^{m_1}m_\restr{T}{W}(x).
+                \end{split}
+                \end{equation*}
+            This contradicts $m_T(x) \mid f(x)$, so our original assumption that $m_\restr{T}{W}(x)$ is a proper divisor of $p(x)$ is false, it must be the case that $m_\restr{T}{W}(x) = p(x)$. Since $V = E_{\lambda_1}^{m_1} \oplus W$, applying our induction hypothesis to $W$ and $\restr{T}{W}$ gives:
+                \begin{equation*}
+                \begin{split}
+                    V = E_{\lambda_1}^{m_1} \oplus \left(E_{\lambda_1}^{m_2} \oplus ... \oplus E_{\lambda_k}^{m_k}\right).
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+\section{Diagonalization, II}
+    The following theorem relates all that was discussed in this chapter.
+    \begin{theorem}
+        
+    \end{theorem}
+
+
+            
+
+    
+        
+
 
 
     

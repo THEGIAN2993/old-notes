@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  8 OCT 2024 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 OCT 2024 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1480,7 +1480,7 @@ File: T1TeXGyreScholaX-OsF.fd 2017/07/11 (autoinst) Font definitions for T1/TeXG
 )
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 161.
- (./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux))
+ (./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux) (./tensors.aux))
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/zncfmi/m/it on input line 161.
@@ -2358,7 +2358,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[46])
+[46]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2368,35 +2368,62 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [47]
 
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[48])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[49]
+\openout2 = `tensors.aux'.
+
+ (./tensors.tex)
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [50
+
+
+
+
+]
+
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 178.
+(in both cases you will find help in the memoir manual). on input line 179.
 
 \tf@toc=\write11
 \openout11 = `_main.toc'.
 
-(./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux))
+(./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux) (./tensors.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: BC3F679A5DF82CBAA2720DD8F3849FC5;1400.
+(rerunfilecheck)             Checksum: 4AB6CF0F20E56B1CA700ADBC320D1CC1;1619.
  ) 
 Here is how much of TeX's memory you used:
- 53360 strings out of 474116
- 1151145 string characters out of 5743683
+ 53416 strings out of 474116
+ 1152314 string characters out of 5743683
  1964187 words of memory out of 5000000
- 73911 multiletter control sequences out of 15000+600000
- 746236 words of font info for 534 fonts, out of 8000000 for 9000
+ 73935 multiletter control sequences out of 15000+600000
+ 746785 words of font info for 540 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1158b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (48 pages, 350928 bytes).
+Output written on _main.pdf (51 pages, 361270 bytes).
 PDF statistics:
- 917 PDF objects out of 1000 (max. 8388607)
- 825 compressed objects within 9 object streams
- 464 named destinations out of 1000 (max. 500000)
- 77993 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 961 PDF objects out of 1000 (max. 8388607)
+ 866 compressed objects within 9 object streams
+ 480 named destinations out of 1000 (max. 500000)
+ 78017 words of extra memory for PDF output out of 89155 (max. 10000000)
 

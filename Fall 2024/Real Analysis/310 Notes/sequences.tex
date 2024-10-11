@@ -288,3 +288,121 @@
     \begin{exercise}
         Prove $(\sin(n))_n$ is divergent.
     \end{exercise}
+
+    \begin{proposition}
+        Let $(X,d)$ be a metric space. A sequence $(x_n)_n$ can have at most one limit.
+    \end{proposition}
+        \begin{proof}
+            Suppose $(x_n)_n \rightarrow L_1$ and $(x_n)_n \rightarrow L_2$ with $L_1 \neq L_2$. Set $\delta = \frac{|L_1 - L_2|}{2}$. Then $V_\delta(L_1) \cap V_\delta(L_2) = \emptyset$. Since $(x_n)_n \rightarrow L_1$, there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $x_n \in V_\delta(L_1)$. Similarly, since $(x_n)_n \rightarrow L_2$, there exists $N_2 \in \bfN$ such that $n \geq N_2$ implies $x_n \in V_\delta(L_2)$. Pick $N = \max\{N_1,N_2\}$. Then $x_N \in V_\delta(L_1) \cap V_\delta(L_2)$, which is a contradiction.
+        \end{proof}
+
+    \begin{lemma}\label{lemma:abs-convergence}
+        If $(x_n)_n \rightarrow x$, then $(|x_n|)_n \rightarrow |x|$.
+    \end{lemma}
+        \begin{proof}
+            Note that $(|x_n|)_n$ if and only if $(|x_n -x|)_n \rightarrow 0$. Since $||x_n| - |x|| \leq |x_n - x|$, taking $\epsilon_n = |x_n - x|$ and $c = 0$, applying Lemma~\ref{lemma:thething} yields the desired result.
+        \end{proof}
+
+    \begin{question}
+        Does the converse hold in general?
+    \end{question}
+    \begin{answer}
+        No. Consider $(x_n)_n = ((-1)^n)_n$. Then $(|x_n|)_n \rightarrow 1$, but $((-1)^n)_n$ diverges.
+    \end{answer}
+
+    \begin{lemma}\label{lemma:abs-convergence}
+        $(a_n)_n \rightarrow 0$ if and only if $(|a_n|)_n \rightarrow 0$.
+    \end{lemma}
+        \begin{proof}
+            The forward direction follows directly from Lemma~\ref{lemma:abs-convergence}. If $(|a_n|)_n \rightarrow 0$, we have then that $||a_n| - 0| \leq |a_n - 0|$. Taking $\epsilon_n = |a_n - 0|$ and $c = 1$, applying Lemma~\ref{lemma:thething} establishes the proof.
+        \end{proof}
+
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item A sequence $(x_n)_n$ \textui{diverges properly} to $+\infty$ if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall M > 0)(\exists N_M \in \bfN)\mtext{s.t.}n \geq N_M \implies x_n \geq M.
+                \end{split}
+                \end{equation*}
+            We write $(x_n)_n \rightarrow +\infty$.
+
+            \item A sequence $(x_n)_n$ \textui{diverges properly} to $-\infty$ if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall M<0)(\exists N_M \in \bfN)\mtext{s.t.}n \geq N_M \implies x_n \leq M.
+                \end{split}
+                \end{equation*}
+                We write $(x_n)_n \rightarrow -\infty$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Prove $(n-\sqrt{n})_n \rightarrow +\infty$.
+    \end{example}
+        \begin{solution}
+            Write $(n-\sqrt{n})_n = \left(n\left(1-\frac{1}{\sqrt{n}}\right)\right)_n$ {\color{red} help}.
+        \end{solution}
+
+    \begin{example}
+        Prove:
+            \begin{equation*}
+            \begin{split}
+                (b^n)_{n=0}^\infty \rightarrow \begin{cases} 0, & |b| < 1 \\ 1,& b = 1 \\ +\infty, & b > 1 \\ \text{DNE},& b \leq -1\end{cases}
+            \end{split}
+            \end{equation*}
+    \end{example}
+        \begin{solution}
+            We have proven cases $b = 0$, $1$, and $-1$ previously.
+
+            Case 1: $0 < b < 1$. Then $b<1$ implies $\frac{1}{b} > 1$. Then $\frac{1}{b} = 1+a$ for some $a>0$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \left(\frac{1}{b}\right)^n = (1+a)^n \geq 1+na. \quad\mtext{\tiny (\nameref{prop:bernoulli})}
+                \end{split}
+                \end{equation*}
+            Hence:
+                \begin{equation*}
+                \begin{split}
+                    |b^n - 0| \leq \frac{1}{1+na} \leq \frac{1}{na} = \frac{1}{a}\left(\frac{1}{n}\right).
+                \end{split}
+                \end{equation*}
+            Take $\epsilon_n = \frac{1}{n}$ and $c = \frac{1}{a}$, then Lemma~\ref{lemma:thething} establishes our claim.
+
+            Case 2: $-1 < b < 0$. Since $(|b^n|)_n = (|b|^n)_n \rightarrow 0$ by above, Lemma~\ref{lemma:abs-convergence} gives that $(b^n)_n \rightarrow 0$.
+
+            Case 3: $b > 1$. Then $b = 1+a$ for some $a > 0$. Then:
+                \begin{equation*}
+                \begin{split}
+                    b^n = (a+1)^n \geq 1+na \geq na. \quad \mtext{\tiny (\nameref{prop:bernoulli})}
+                \end{split}
+                \end{equation*}
+            Given $M>0$, let $N_M = \frac{\lceil M \rceil}{a}$. This implies that $N_M \geq \frac{M}{a}$. Now if $n\geq N_M$, then $n \geq \frac{M}{a}$, which is equivalent to $na \geq M$. Hence $b^n \geq M$, establishing $(b^n)_n \rightarrow +\infty$.
+
+            Case 4: $b < 1$. If $(b^n)_n \rightarrow L$ for some $L \in \bfR$, then $(|b^n|)_n \rightarrow |L|$. So $(|b|^n)_n \rightarrow |L|$, which contradicts the $b>1$ case. Now if $(b^n)_n \rightarrow +\infty$, then there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $b^n \geq 1$. However, for $n$ odd, $b^n < 0$, which is a contradiction. Assuming $(b^n)_n \rightarrow -\infty$ leads to a similar contradiction.
+        \end{solution}
+
+    \begin{example}
+        Prove that if $c>0$, then $(c^{\frac{1}{n}})_n \rightarrow 1$.
+    \end{example}
+        \begin{solution}
+            If $c=1$ then {\color{red} idk}. Let $c > 1$. Then $c^{\frac{1}{n}} > 1$. Write $c^{\frac{1}{n}} = 1 + a_n$ where $a_n > 0$ for all $n \in \bfN$. So:
+                \begin{equation*}
+                \begin{split}
+                    c = (c^\frac{1}{n})^n = (1+a_n)^n \geq 1+na_n > na_n. \quad \mtext{\tiny (\nameref{prop:bernoulli})}
+                \end{split}
+                \end{equation*}
+            Thus $0 < a_n < \frac{c}{n}$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \left|c^{\frac{1}{n}} - 1\right| = a_n < \frac{c}{n}.
+                \end{split}
+                \end{equation*}
+            Take $\epsilon_n = \frac{1}{n}$. Since $c$ is constant, Lemma~\ref{lemma:thething} gives $(c^\frac{1}{n})_n \rightarrow 1$.
+
+            Now let $0 < c < 1$ {\color{red} dont know!}.
+        \end{solution}
+
+    
+
