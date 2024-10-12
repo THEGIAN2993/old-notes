@@ -312,7 +312,6 @@
                 \item $V = V_1 + ... + V_k$, and
                 \item $V_1,...,V_k$ are independent.
             \end{enumerate}
-        \phantom{a}
     \end{definition}
 
     \begin{example}
@@ -342,6 +341,10 @@
             Conversely, suppose every $v \in V$ can be written uniquely in the form $v = v_1 + ... + v_k$ with $v_i \in V_i$. Then $V = V_1 + ... + V_k$ by definition of sums of subspaces. If $0_V = v_1 + ... + v_k$ for some $v_i \in V_i$, and $0_v = 0_v + ... + 0_v$, then (by uniqueness) it must be the case that $v_i = 0_V$ for all $i$.
         \end{proof}
 
+    \begin{note}
+        It suffices to show that $\dim_F(V) = \dim_F(V_1) + ... + \dim_F(V_k)$ and $V_1 \cap ... \cap V_k = \{0_V\}$.
+    \end{note}
+
     \begin{exercise}
         Let $V_1,...,V_k$ be subspaces of $V$. For each $1\leq i \leq k$, let $\cB_i$ be a basis of $V_i$. Let $\cB = \bigcup_{i = 1}^k \cB_i$. Show that:
             \begin{enumerate}[label = (\arabic*)]
@@ -362,7 +365,7 @@
         \end{proof}
 
     \begin{definition}
-        Let $W \subseteq V$ be a subsapce. Define $v_1 ~ v_2$ if $v_1 - v_2 \in W$ for some $v_1,v_2 \in V$. This forms an equivalence relation. Denote the equivalence class containing $v$ as $[v]_W = v + W = \{\tilde{v} \in V \mid v ~ \tilde{v}\} = \{v+w \mid w \in W\}$. The set containing all equivalence classes over $W$ is denoted $V/W = \{v + W \mid v \in V\}$.
+        Let $W \subseteq V$ be a subsapce. Define $v_1 \sim v_2$ if $v_1 - v_2 \in W$ for some $v_1,v_2 \in V$. This forms an equivalence relation. Denote the equivalence class containing $v$ as $[v]_W = v + W = \{\tilde{v} \in V \mid v ~ \tilde{v}\} = \{v+w \mid w \in W\}$. The set containing all equivalence classes over $W$ is denoted $V/W = \{v + W \mid v \in V\}$.
     \end{definition}
 
     \begin{proposition}

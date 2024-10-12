@@ -1089,8 +1089,7 @@ For this section $V$ is always finite-dimensional.
         Suppose $m_T(x) = (x- \lambda)^m p(x)$ with $p(\lambda) \neq 0$. Then $E_\lambda^\infty = E_\lambda^m$. 
     \end{lemma}
         \begin{proof}
-            Let $E_\lambda^{\infty} = E_\lambda^e$. Let $v \in E_\lambda^{e}\setminus E_\lambda^{e-1}$.
-            Let $v \in E_\lambda^\infty$. Since $(T-\lambda \id_V)^e(v) = 0_V$, we know that $m_{T,v}(x) \mid (x-\lambda)^e$. Note that $m_{T,v}(x) \nmid (x-\lambda)^{e-1}$, otherwise $(T-\lambda \id_V)^{e-1}(v) = q(T)m_{T,v}(T)(v) = 0_V$, implying $v \in E_\lambda^{e-1}$ which is a contradiction. Now since $m_{T,v}$ is by definition the monic polynomial of minimal degree which kills $v$, it must be the case that $m_{T,v}(x) = (x-\lambda)^e$. So we have:
+            Let $E_\lambda^{\infty} = E_\lambda^e$. Let $v \in E_\lambda^{e}\setminus E_\lambda^{e-1}$. Since $(T-\lambda \id_V)^e(v) = 0_V$, we know that $m_{T,v}(x) \mid (x-\lambda)^e$. Note that $m_{T,v}(x) \nmid (x-\lambda)^{e-1}$, otherwise $(T-\lambda \id_V)^{e-1}(v) = q(T)m_{T,v}(T)(v) = 0_V$, implying $v \in E_\lambda^{e-1}$ which is a contradiction. Now since $m_{T,v}$ is by definition the monic polynomial of minimal degree which kills $v$, it must be the case that $m_{T,v}(x) = (x-\lambda)^e$. So we have:
                 \begin{equation*}
                 \begin{split}
                     (x-\lambda)^e \mid (x-\lambda)^m p(x).
@@ -1111,7 +1110,7 @@ For this section $V$ is always finite-dimensional.
                     & = 0_V.
                 \end{split}
                 \end{equation*}
-            So $m_T(x) \mid (x- \lambda)^m$. Thus $e = m$.
+            So $m_T(x) \mid (x- \lambda)^m$, a contradiction. Thus $e = m$.
         \end{proof}
 
     \begin{lemma}\label{lemma:eigenspace-image}

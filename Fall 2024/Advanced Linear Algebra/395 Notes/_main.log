@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 OCT 2024 14:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 OCT 2024 22:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2045,7 +2045,8 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [11]
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 346.
+Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 345.
+Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 349.
 
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -2063,8 +2064,6 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [13]
-Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 426.
-
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2074,7 +2073,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [14]
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 509.
+(Font)              scaled to size 5.5pt on input line 512.
 
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -2412,18 +2411,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 4AB6CF0F20E56B1CA700ADBC320D1CC1;1619.
  ) 
 Here is how much of TeX's memory you used:
- 53416 strings out of 474116
- 1152314 string characters out of 5743683
+ 53418 strings out of 474116
+ 1152343 string characters out of 5743683
  1964187 words of memory out of 5000000
  73935 multiletter control sequences out of 15000+600000
  746785 words of font info for 540 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1158b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (51 pages, 361270 bytes).
+Output written on _main.pdf (51 pages, 361379 bytes).
 PDF statistics:
- 961 PDF objects out of 1000 (max. 8388607)
- 866 compressed objects within 9 object streams
- 480 named destinations out of 1000 (max. 500000)
+ 964 PDF objects out of 1000 (max. 8388607)
+ 869 compressed objects within 9 object streams
+ 482 named destinations out of 1000 (max. 500000)
  78017 words of extra memory for PDF output out of 89155 (max. 10000000)
 

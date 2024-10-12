@@ -404,5 +404,116 @@
             Now let $0 < c < 1$ {\color{red} dont know!}.
         \end{solution}
 
+    \begin{lemma}
+        If $(x_n)_n \rightarrow x \in \bfR$ with $x_n \geq 0$, then $x\geq 0$ and $(\sqrt{x_n})_n \rightarrow \sqrt{x}$.
+    \end{lemma}
+        \begin{proof}
+            If $x<0$, set $\epsilon = \frac{-x}{2} > 0$. For $n$ sufficiently large, $x_n \in V_\epsilon(x) \subseteq (-\infty,0)$, which is contradiction. Hence $x \geq 0$. Now observe that:
+                \begin{equation*}
+                \begin{split}
+                    |\sqrt{x_n} - \sqrt{x}| \leq |\sqrt{x_n} - \sqrt{x}||\sqrt{x_n} + \sqrt{x}| = |x_n - x| < \epsilon.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{example}
+        Prove $(n^\frac{1}{n})_n \rightarrow 1$.
+    \end{example}
+        \begin{solution}
+            Recall that:
+                \begin{equation*}
+                \begin{split}
+                    (x+y)^n = \sum_{k=0}^n {n\choose k}x^{n-k}y^k.
+                \end{split}
+                \end{equation*}
+            Note that $n^\frac{1}{n} > 1$ for all $n> 1$. Write $n^\frac{1}{n} = 1 + a_n$. Then:
+                \begin{equation*}
+                \begin{split}
+                    n = (1+a_n)^n = \sum_{k=0}^n {n \choose k}a_n^k \geq {n \choose 0} + {n \choose 2}a_n^2 = 1 + \frac{n(n-1)}{2}a_n^2.
+                \end{split}
+                \end{equation*}
+            We have:
+                \begin{equation*}
+                \begin{split}
+                    n-1 \geq \frac{n(n-1)}{2}a_n^2,
+                \end{split}
+                \end{equation*}
+            which simplifies to:
+                \begin{equation*}
+                \begin{split}
+                    \frac{2}{n} \geq a_n^2.
+                \end{split}
+                \end{equation*}
+            Hence $a_n \leq \sqrt{2} \hspace{3pt} \displaystyle{\frac{1}{n}}$, thus by our lemma $(a_n)_n^\infty \rightarrow 0$. Therefore:
+                \begin{equation*}
+                \begin{split}
+                    |n^\frac{1}{n} - 1| = d_n,
+                \end{split}
+                \end{equation*}
+            establishing that $(n^\frac{1}{n})_n \rightarrow 1$.
+        \end{solution}
+
+    \begin{proposition}
+        A convergent sequence is bounded.
+    \end{proposition}
+        \begin{proof}
+            Suppose $(x_n)_n \rightarrow x$. Since $(x_n)_n$ is convergent, we know for all $\epsilon > 0$ that $|x_n - x| < \epsilon$. Pick $\epsilon = 1$ and consider the following diagram:
+                \begin{center}
+                \begin{tikzpicture}
+                % Draw the number line
+                \draw[<->] (-3,0) -- (3,0); 
+                
+                % Tick for x
+                \draw (0,0.1) -- (0,-0.1) node[below] {$x$}; 
+                
+                % Parenthesis "(" at x-1
+                \node at (-1.5,0) {$($};
+                \node at (-1.5,-0.3)  {$x-1$};
+                
+                % Parenthesis ")" at x+1
+                \node at (1.5,0)  {$)$};
+                \node at (1.5,-0.3) {$x+1$};
+                \end{tikzpicture}
+                \end{center}
+            Eventually the entire sequence will be contained in $V_1(x)$. More formally, there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $x_n \in V_1(x)$. Define:
+                \begin{equation*}
+                \begin{split}
+                    c = \max \left\{|x_1|,|x_n|,...,|x_{N_1}|,|x-1|,|x+1|\right\}.
+                \end{split}
+                \end{equation*}
+            If $n\leq N_1$, then $|x_n| \leq c$. If $n \geq N_1$, then $x-1 \leq x_n \leq x+1$; i.e., $|x_n| \leq c$. Thus $|x_n| \leq c$ for all $n$, establishing this sequence as bounded.
+        \end{proof}
+
+    \begin{theorem}
+        Let $x_n$, $y_n$, $z_n$ be convergent sequences with $(x_n)_n \rightarrow x$, $(y_n)_n \rightarrow y$, and $(z_n)_n \rightarrow z$ and $t \in \bfR$. Moreover, let $z_n \neq 0$ for all $n$ and $z \neq 0$. We have:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $(x_n \pm y_n)_n \rightarrow x \pm y$. 
+                \item $(tx_n)_n \rightarrow tx$.
+                \item $(x_n y_n)_n \rightarrow xy$.
+                \item $\left(\frac{1}{z_n}\right)_n \rightarrow \frac{1}{z}$.
+                \item $\left(\frac{x_n}{z_n}\right)_n \rightarrow \frac{x}{z}$.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (3) We have:
+                \begin{equation*}
+                \begin{split}
+                    |x_n y_n - xy|
+                    & = |x_n y_n - xy_n + x y_n - xy| \\
+                    & = \left|(x_n - x)y_n + x(y_n - y)\right|\\
+                    & \leq |(x_n - x)y_n |+| x(y_n - y)| \\
+                    & = |x_n - x||y_n| + |x||y_n - y|.
+                \end{split}
+                \end{equation*}
+            Since $y_n$ is convergent, it is bounded. So there exists a $c > 0$ with $|y_n| \leq c$ for all $n \geq 1$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    |x_n - x||y_n| + |x||y_n - y|
+                    & \leq \stackrel{\rightarrow 0}{\cancel{|x_n -x|}}c + |x|\stackrel{\rightarrow 0}{\cancel{|y_n - y|}.}
+                \end{split}
+                \end{equation*}
+            Thus $(|x_n y_n - xy|)_n \rightarrow 0$, which implies $(x_n y_n)_n \rightarrow xy$.
+        \end{proof}
+
     
 
