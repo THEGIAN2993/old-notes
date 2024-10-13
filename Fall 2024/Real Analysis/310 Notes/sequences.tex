@@ -513,6 +513,71 @@
                 \end{split}
                 \end{equation*}
             Thus $(|x_n y_n - xy|)_n \rightarrow 0$, which implies $(x_n y_n)_n \rightarrow xy$.
+
+            (4) We have:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{1}{z_n} - \frac{1}{z}\right| = \frac{|z- z_n|}{|z||z_n|}.
+                \end{split}
+                \end{equation*}
+
+            Since $z \neq 0$, it won't be "near" zero. We have the following picture:
+                \begin{center}
+                \begin{tikzpicture}
+                % Draw the number line
+                \draw[<->] (-3,0) -- (3,0); 
+                
+                % Tick for x
+                \draw (0,0.1) -- (0,-0.1) node[below] {$0$}; 
+                \draw (1,0.1) -- (1,-0.1) node[below] {$z$}; 
+                
+                % Parenthesis ")" at x+1
+                \node at (1.5,0)  {$)$};
+                \node at (0.5,0)  {$($};
+                \end{tikzpicture}
+                \end{center}
+            Let $\delta = \frac{|z|}{2} > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $z_n \in V_\delta(z)$. We have:
+                \begin{equation*}
+                \begin{split}
+                    &\phantom{\implies} z - \delta < z_n < z + \delta \\
+                    &\implies z - \frac{|z|}{2} < z_n \\
+                    & \implies \frac{|z|}{2} < |z_n|.
+                \end{split}
+                \end{equation*}
+            Since $|z_n| \geq \frac{|z|}{2}$, we have $\frac{1}{|z_n|} < \frac{2}{|z|}$. So for $n \geq N$, 
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{1}{z_n} - \frac{1}{z}\right| = \frac{|z- z_n|}{|z||z_n|} \leq \frac{2}{|z|^2}|z - z_n|.
+                \end{split}
+                \end{equation*}
+            By Lemma~\ref{lemma:thething}, $\left(\frac{1}{z_n}\right)_n \rightarrow \frac{1}{z}$.
+        \end{proof}
+
+    \begin{theorem}\label{thm:ordering-of-sequences}
+        Suppose $(x_n) \rightarrow x$ and $(y_n)_n \rightarrow y$ with $x_n \leq y_n$ for all $n$. Then $x \leq y$.
+    \end{theorem}
+        \begin{proof}
+            We have that $(y_n - x_n)_n \rightarrow y-x$, and $y_n - x_n \geq 0$ for all $n$. Thus $y - x \geq 0$.
+        \end{proof}
+
+    \begin{corollary}
+        If $(x_n)_n \rightarrow x$ and $a \leq x_n \leq b$, then $a \leq x \leq b$.
+    \end{corollary}
+        \begin{proof}
+            From Theorem~\ref{thm:ordering-of-sequences}, taking $(y_n)_n = (a,a,a,...)$ and $(y_n)_n = (b,b,b,...)$ gives the desired result.
+        \end{proof}
+
+    \begin{theorem}[Squeeze Theorem]
+        Let $(x_n)_n$, $(y_n)_n$, and $(z_n)_n$ be sequences with $(x_n)_n \leq (y_n)_n \leq (z_n)_n$ for all $n \geq 1$. If $\lim x_n = \lim z_n = L$, then $(y_n)_n \rightarrow L$.
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. There exists $N_1 \in \bfN$ such that $n \geq N_1 $ implies $x_n \in V_\epsilon(L)$. Likewise, there exists $N_2 \in \bfN$ such that $n \geq N_2$ implies $z_n \in V_\epsilon(L)$. So for $n \geq \max \left\{N_1,N_2\right\} := N$, both $x_n,z_n \in V_\epsilon(L)$. We have:
+                \begin{equation*}
+                \begin{split}
+                    L -\epsilon < x_n \leq y_n < z_n \leq L + \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $y_n \in V_\epsilon(L)$ for $n \geq N$.
         \end{proof}
 
     

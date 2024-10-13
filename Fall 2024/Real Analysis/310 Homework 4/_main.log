@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 OCT 2024 00:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  13 OCT 2024 13:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1756,7 +1756,7 @@ Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inpu
 Class memoir Warning: The material used in the headers is too large
 (12.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 263.
+(in both cases you will find help in the memoir manual). on input line 262.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
@@ -1770,7 +1770,7 @@ Overfull \vbox (12.0pt too high) has occurred while \output is active []
 Class memoir Warning: The material used in the headers is too large
 (12.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 267.
+(in both cases you will find help in the memoir manual). on input line 284.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
@@ -1787,18 +1787,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 50845 strings out of 474116
- 1091156 string characters out of 5743683
+ 50848 strings out of 474116
+ 1091225 string characters out of 5743683
  1953187 words of memory out of 5000000
  72248 multiletter control sequences out of 15000+600000
- 608058 words of font info for 143 fonts, out of 8000000 for 9000
+ 608114 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,117p,1149b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,17n,117p,1149b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (2 pages, 123978 bytes).
+Output written on _main.pdf (2 pages, 125826 bytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
+ 24 named destinations out of 1000 (max. 500000)
  19473 words of extra memory for PDF output out of 20736 (max. 10000000)
 
