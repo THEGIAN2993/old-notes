@@ -296,18 +296,18 @@
             A set $A$ is called \textui{finite} if there exists an $N \in \bfN$ such that $\card(A) = \card(\{1,...,N\})$. If not, then $A$ is called \textui{infinite}.
         \end{definition}
 
-        \begin{proposition}
+        \begin{proposition}\label{prop:card-pigeon-hole}
             Given $m,n \in \bfN$, $m \neq n$, then $\card(\{1,...,m\}) \neq \card(\{1,...,n\})$.
         \end{proposition}
             \begin{proof}
-                Without loss of generality, let $m > n$. By way of contradiction, if there exists a bijection $f: \{1,...,m\} \rightarrow \{1,...,n\}$, then there exists $i,j \in \{1,...,m\}$ with $i \neq j$ and $f(i) = f(j)$. This is a contradiction ($f$ is not injective).
+                Without loss of generality, let $m > n$. Suppose towards contradiction we have a bijection $\{1,...,m\} \xhooktwoheadrightarrow[]{f} \{1,...,n\}$. By the pigeon-hole principle, it must be the case that \textemdash given any $i,j \in \{1,...,m\}$ with $i\neq j$, we have that $f(i) = f(j)$. This is a contradiction ($f$ is not injective), hence $\card(\{1,...,m\}) \neq \card(\{1,...,n\})$.
             \end{proof}
 
         \begin{proposition}
             $\bfN$ is infinite.
         \end{proposition}
             \begin{proof}
-                Suppose towards contradiction there exists an $N \in \bfN$ and a bijection $f:\bfN \rightarrow \{1,...,N\}$. Note that the inclusion map $\iota:\{1,...,N,N+1\} \rightarrow \bfN$ is injective. Now consider the maps $\{1,...,N,N+1\} \xrightarrow{\iota} \bfN \xrightarrow{f} \{1,...,N\}$. Then $f \circ \iota : \{1,....,N,N+1\} \rightarrow \{1,...,N\}$. But by the previous example this cannot be true, thus $\bfN$ is infinite.
+                Suppose towards contradiction we have a bijection $f:\bfN \rightarrow \{1,2,...,n\}$, where $n \in \bfN$. Consider the maps $\{1,2,...,n,n+1\} \xhookrightarrow{\iota} \bfN \xhooktwoheadrightarrow{f} \{1,2,...,n\}$, it must be the case that the composition $f \circ \iota$ is injective. However, we established in Proposition~\ref{prop:card-pigeon-hole} that this is false. Having reached a contradiction, it must be the case that $\bfN$ is infinite.
             \end{proof}
 
         \begin{exercise}\label{exercise:infinite-implies-injection}

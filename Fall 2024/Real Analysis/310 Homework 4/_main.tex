@@ -192,6 +192,33 @@
                 \item $\left(\frac{2^{n+1}+3^{n+1}}{2^n + 3^n}\right)_n \rightarrow 3$.
             \end{enumerate}
     \end{exercise}
+        {\color{red} \begin{proof}
+            (1) Let $\epsilon > 0$. There exists $N_\epsilon \in \bfN$ such that $N_\epsilon > \frac{2}{\epsilon} - 1$. If $n \geq N_\epsilon$, then $n > \frac{2}{\epsilon} - 1$ gives:
+                \begin{equation*}
+                \begin{split}
+                    \frac{2}{\epsilon} < n+ 1 
+                    &\implies \frac{2}{n+1} < \epsilon  \\
+                    &\implies \frac{|2n -2n - 2|}{n+1} < \epsilon \\
+                    &\implies \left|\frac{2n - 2(n+1)}{n+1}\right| < \epsilon\\
+                    & \implies \left|\frac{2n}{n+1} - 2\right| < \epsilon.
+                \end{split}
+                \end{equation*}
+
+            (2) Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{\sqrt{n}}{n+1}\right| \leq \frac{\sqrt{n}}{n} = \frac{1}{\sqrt{n}}.
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{1}{\sqrt{n}}\right)_n \rightarrow 0$, by "Lemma" $\left(\frac{\sqrt{n}}{n+1}\right)_n \rightarrow 0$.
+
+            (3) We have:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{(-1)^n}{\sqrt{n+7}}\right| = \frac{1}{\sqrt{n+7}} \leq \frac{1}{\sqrt{n}}.
+                \end{split}
+                \end{equation*}
+        \end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         Show that the sequence $(\cos(n))_n$ does not converge.
@@ -225,6 +252,9 @@
             \end{equation*}
         for all $n \geq N$.
     \end{exercise}
+        {\color{red} \begin{proof}
+            Pick $\epsilon = \frac{x}{2}$. Since $(x_n)_n$ is a convergent sequence, there exists $N_c \in \bfN$ such that $n \geq N_c$ implies $|x_n - x| < \frac{x}{2}$. Simplifying yields $\frac{x}{2} < x_n < \frac{3x}{2}$. Taking $c = \frac{x}{2}$ yields the desired result.
+        \end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         If $(x_n)_n$ is a real sequence of positive terms converging to $x$, show that $x \geq 0$ and
@@ -281,5 +311,23 @@
             \end{split}
             \end{equation*}
     \end{exercise}
+        {\color{red} \begin{proof}
+            Case 1: $\max \left\{a,b\right\} = a$. Then $b < a$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \phantom{implies}(a^n)^\frac{1}{n} &\leq (a^n+b^n)^\frac{1}{n} \leq (2a^n)^\frac{1}{n} \\
+                    \implies a &\leq (a^n+b^n)^\frac{1}{n} \leq (2^\frac{1}{n})a.
+                \end{split}
+                \end{equation*}
+            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow a$. Case 2: $\max \left\{a,b\right\} = b$. Then $a < b$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \phantom{implies}(b^n)^\frac{1}{n} &\leq (a^n+b^n)^\frac{1}{n} \leq (2b^n)^\frac{1}{n} \\
+                    \implies b &\leq (a^n+b^n)^\frac{1}{n} \leq (2^\frac{1}{n})b.
+                \end{split}
+                \end{equation*}
+            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow b$.
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \end{document}
 
