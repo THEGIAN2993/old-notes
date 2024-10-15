@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  14 OCT 2024 15:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  14 OCT 2024 17:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1961,7 +1961,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [6]
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 335.
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 354.
 
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -1987,39 +1987,42 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [9]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[10]
 LaTeX Font Info:    Font shape `OT1/TeXGyreScholaX-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 532.
+(Font)              scaled to size 7.3pt on input line 551.
 LaTeX Font Info:    Font shape `OML/zncfmi/m/it' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `OT1/TeXGyreScholaX-TLF/b/n' will be
-(Font)              scaled to size 7.3pt on input line 532.
+(Font)              scaled to size 7.3pt on input line 551.
 LaTeX Font Info:    Font shape `OML/zncfmi/b/it' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
-(Font)              scaled to size 7.84747pt on input line 532.
+(Font)              scaled to size 7.84747pt on input line 551.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[10])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2027,7 +2030,15 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[11]
+[11])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[12]
 \openout2 = `ordered-fields.aux'.
 
  (./ordered-fields.tex
@@ -2135,7 +2146,7 @@ LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/it' will be
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [12
+ [13
 
 
 
@@ -2148,7 +2159,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[13]
+[14]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2156,7 +2167,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[14])
+[15])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2164,7 +2175,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[15]
+[16]
 \openout2 = `real-numbers.aux'.
 
  (./real-numbers.tex
@@ -2201,7 +2212,7 @@ Overfull \hbox (2.0pt too wide) in paragraph at lines 31--31
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [16
+ [17
 
 
 
@@ -2241,7 +2252,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[17]
+[18]
 Package hyperref Info: bookmark level for unknown question defaults to 0 on input line 129.
 Package hyperref Info: bookmark level for unknown answer defaults to 0 on input line 132.
 
@@ -2268,14 +2279,6 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[18]
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
 [19]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
@@ -2284,7 +2287,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[20])
+[20]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2292,7 +2295,15 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[21]
+[21])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[22]
 \openout2 = `sup-inf.aux'.
 
  (./sup-inf.tex
@@ -2308,7 +2319,7 @@ Overfull \hbox (2.0pt too wide) in paragraph at lines 48--48
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [22
+ [23
 
 
 
@@ -2321,7 +2332,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[23]
+[24]
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 125.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
@@ -2407,7 +2418,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[24]
+[25]
 Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 176.
 
 Overfull \hbox (2.0pt too wide) in paragraph at lines 200--200
@@ -2421,7 +2432,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[25])
+[26])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2429,13 +2440,13 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[26]
+[27]
 \openout2 = `sequences.aux'.
 
  (./sequences.tex
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [27
+ [28
 
 
 
@@ -2450,17 +2461,9 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[28]
+[29]
 Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 148.
 
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[29]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2486,6 +2489,14 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [32]
 
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[33]
+
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 427.
@@ -2497,7 +2508,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[33]
+[34]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2505,7 +2516,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[34])
+[35])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2513,7 +2524,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[35]
+[36]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -2536,18 +2547,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 0EAECA8A4CD1DAA302FADA9A40E24606;1293.
  ) 
 Here is how much of TeX's memory you used:
- 53477 strings out of 474116
- 1151735 string characters out of 5743683
- 1957187 words of memory out of 5000000
+ 53482 strings out of 474116
+ 1151816 string characters out of 5743683
+ 1956187 words of memory out of 5000000
  73984 multiletter control sequences out of 15000+600000
  789749 words of font info for 596 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (36 pages, 327585 bytes).
+Output written on _main.pdf (37 pages, 329292 bytes).
 PDF statistics:
- 1034 PDF objects out of 1200 (max. 8388607)
- 930 compressed objects within 10 object streams
- 545 named destinations out of 1000 (max. 500000)
+ 1046 PDF objects out of 1200 (max. 8388607)
+ 941 compressed objects within 10 object streams
+ 550 named destinations out of 1000 (max. 500000)
  82097 words of extra memory for PDF output out of 89155 (max. 10000000)
 

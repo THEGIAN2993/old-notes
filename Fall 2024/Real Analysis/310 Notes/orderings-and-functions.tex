@@ -314,22 +314,41 @@
             If $A$ is infinite, there exists an injection $\bfN \hookrightarrow A$.
         \end{exercise}
             \begin{proof}
-                Let $\pi:\bfN \rightarrow A$ be a map. Let $a_1 \in A$. Define $\pi(1) = a_1$. Since $A$ is infinite, $A - \{a_1\}$ is also infinite. Pick $a_2 \in A$ and let $\pi(2) = a_2$. Inductively, we have that an injection $\bfN \hookrightarrow A$.
+                Let $\pi:\bfN \rightarrow A$ be a map. Pick $a_1 \in A$ and define $\pi(1) = a_1$. Since $A$ is infinite, $A \setminus \{a_1\}$ is also infinite. Pick $a_2 \in A \setminus \{a_1\}$ and define $\pi(2) = a_2$. Inductively, we have an injection $\bfN \hookrightarrow A$.
             \end{proof}
 
         \begin{example}\label{example:more-cardinality-examples}
-            \phantom{a}
-            \begin{enumerate}[label = (\arabic*)]
-                \item Define $k:\bfZ \rightarrow \bfN$ by $k(n) = (-1)^{n-1} \left\lfloor \frac{n}{2} \right \rfloor$. This is a bijection, hence $\card(\bfZ) = \card(\bfN)$.
-                \item Let $X$ be any set. Recall that the \textit{power set of $X$} is defined as $\mathcal{P}(X) = \{A \mid A \subseteq X\}$. Define $2^x = \{f \mid f:X \rightarrow \{0,1\}\}$. Let $A \subseteq X$. Define $\varphi:\mathcal{P}(X) \rightarrow 2^X$ by $\varphi(A) = \mathbf{1}_A$, where $\mathbf{1}_A$ is the \textit{characteristc function} defined in Example~\ref{example:examples-of-functions}. Note that $\varphi(A) = \varphi(B)$ if and only if $\mathbf{1}_A = \mathbf{1}_B$. Recall that functions are equal if and only if $\mathbf{1}_A (x) = \mathbf{1}_B (x)$ for all $x \in X$. $x \in A$ if and only if $\mathbf{1}_A (x) = 1$ if and only if $\mathbf{1}_B(x) = 1$, giving $x \in B$. Thus $A = B$ which means $\varphi$ is injective. Now let $f \in 2^X$. Let $A = \{x \in X \mid f(x) =1\}$. Then $\mathbf{1}_A = f$. Thus $\varphi$ is bijective and so $\card(\mathcal{P}(X)) = \card(2^X)$.
-            \end{enumerate}
+                Define $k:\bfZ \rightarrow \bfN$ by $k(n) = (-1)^{n-1} \left\lfloor \frac{n}{2} \right \rfloor$. This is a bijection, hence $\card(\bfZ) = \card(\bfN)$.
         \end{example}
 
+    \begin{definition}
+        Let $X$ and $Y$ be sets.
+        \begin{enumerate}[label = (\arabic*)]
+            \item The \textui{power set} of $X$ is $\cP(X) = \{A \mid A \subseteq X\}$.
+            \item The \textui{set of functions} from $X$ to $Y$ is $Y^X = \{f \mid f:X \rightarrow Y\}$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}
+        Let $X$ be a set. There exists a bijection $\cP(X) \hooktwoheadrightarrow 2^X$.
+    \end{lemma}
+        \begin{proof}
+            Let $A \subseteq X$. Define $\varphi:\cP(X) \rightarrow 2^X$ by $A \mapsto \mathbf{1}_A$, where
+                \begin{equation*}
+                \mathbf{1}_A(x) = 
+                \begin{cases}
+                    1, & x \in A \\
+                    0, & x \not\in A
+                \end{cases}
+                \end{equation*}
+            is the \textit{characteristic function} defined in Example~\ref{example:examples-of-functions}. Let $\varphi(A) = \varphi(B)$. This is equivalent to $\mathbf{1}_A = \mathbf{1}_B$. Note that functions are equal if and only if $\mathbf{1}_A(x) = \mathbf{1}_B(x)$ for all $x \in X$. Hence $x \in A$ implies $\mathbf{1}_A(x) = 1 = \mathbf{1}_B(x)$, giving $x \in B$. The reverse inclusion is identical, hence $A = B$. Let $f \in 2^X$. Let $A = \{x \in X \mid f(x) = 1\}$. Then $\varphi(A) = \mathbf{1}_A = f$. Thus $\cP(X) \hooktwoheadrightarrow 2^X$.
+        \end{proof}
+
     \begin{exercise}\label{exercise:power-set-2n}
-        Show that $\card(\mathcal{P}(\{1,...,N\})) = 2^N$.
+        Show that $\card(\mathcal{P}(\{1,...,n\})) = 2^n$.
     \end{exercise}
         \begin{proof}
-            {\color{red} do this}
+            Note that $\card(\mathcal{P}(\{1,...,n\})) = \card(2^{\{1,...,n\}})$. Let $f \in 2^{\{1,...,n\}}$. For each $i \in \{1,...,n\}$, there is a choice of two outputs for $f(i)$. Hence by the fundamental principle of counting \newline$\card(\mathcal{P}(\{1,...,N\})) = \card(2^{\{1,...,n\}}) = 2^n$. 
         \end{proof}
 
     \begin{theorem}[Cantor's Diagonal Argument]\label{thm:cantors-diagonal} $\card(\bfN) < \card((0,1))$.
