@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  14 OCT 2024 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  15 OCT 2024 19:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1756,7 +1756,7 @@ Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inpu
 Class memoir Warning: The material used in the headers is too large
 (12.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 244.
+(in both cases you will find help in the memoir manual). on input line 241.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
@@ -1769,16 +1769,51 @@ Overfull \vbox (12.0pt too high) has occurred while \output is active []
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
  [2]
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 362.
+LaTeX Font Info:    Font shape `OT1/TeXGyreScholaX-TLF/m/n' will be
+(Font)              scaled to size 6.5pt on input line 362.
+LaTeX Font Info:    Font shape `OML/zncfmi/m/it' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `OT1/TeXGyreScholaX-TLF/b/n' will be
+(Font)              scaled to size 6.5pt on input line 362.
+LaTeX Font Info:    Font shape `OML/zncfmi/b/it' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `LMS/ntxsy/b/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
+(Font)              scaled to size 6.98747pt on input line 362.
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 439.
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 439.
+
 
 Class memoir Warning: The material used in the headers is too large
 (12.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 332.
+(in both cases you will find help in the memoir manual). on input line 444.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [3] (./_main.aux * soulpos - computing points - it may take a few seconds *
+ [4] (./_main.aux * soulpos - computing points - it may take a few seconds *
 \openout7 = `_main.upb'.
 
  (./_main.upa))
@@ -1790,18 +1825,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 50849 strings out of 474116
- 1091231 string characters out of 5743683
- 1955187 words of memory out of 5000000
- 72248 multiletter control sequences out of 15000+600000
- 608114 words of font info for 144 fonts, out of 8000000 for 9000
+ 50974 strings out of 474116
+ 1094313 string characters out of 5743683
+ 1960187 words of memory out of 5000000
+ 72346 multiletter control sequences out of 15000+600000
+ 627090 words of font info for 178 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,18n,117p,1149b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,18n,117p,1149b,900s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (3 pages, 129628 bytes).
+Output written on _main.pdf (4 pages, 137052 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
- 25 named destinations out of 1000 (max. 500000)
- 19473 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 115 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 28 named destinations out of 1000 (max. 500000)
+ 26641 words of extra memory for PDF output out of 29859 (max. 10000000)
 

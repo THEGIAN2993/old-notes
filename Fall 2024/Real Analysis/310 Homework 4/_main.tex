@@ -185,40 +185,79 @@
     \begin{exercise}
         Prove the following limits:
             \begin{enumerate}[label = (\arabic*)]
-                \item $\left(\frac{2n}{n+1}\right)_n \rightarrow 2$.
+                \item $\left(\frac{2n}{n+2}\right)_n \rightarrow 2$.
+                    \begin{proof}
+                        Let $\epsilon > 0$. There exists $N_\epsilon \in \bfN$ such that $N_\epsilon > \frac{2}{\epsilon} - 1$. If $n \geq N_\epsilon$, then $n > \frac{2}{\epsilon} - 1$ gives:
+                        \begin{equation*}
+                        \begin{split}
+                            \frac{4}{\epsilon} < n+ 1 
+                            &\implies \frac{4}{n+1} < \epsilon  \\
+                            &\implies \frac{|2n -2n - 4|}{n+1} < \epsilon \\
+                            &\implies \left|\frac{2n - 2(n+1)}{n+2}\right| < \epsilon\\
+                            & \implies \left|\frac{2n}{n+2} - 2\right| < \epsilon.
+                        \end{split}
+                        \end{equation*}
+                    \end{proof}
                 \item $\left(\frac{\sqrt{n}}{n+1}\right)_n \rightarrow 0$.
+                    \begin{proof}
+                        Observe that:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{\sqrt{n}}{n+1}\right| \leq \frac{\sqrt{n}}{n} = \frac{1}{\sqrt{n}}.
+                            \end{split}
+                            \end{equation*}
+                        Claim: $\left(\frac{1}{\sqrt{n}}\right)_n \rightarrow 0$. Let $\epsilon > 0$. There exists $N_\epsilon \in \bfN$ such that $\frac{1}{\epsilon^2} < N_\epsilon$. If $n \geq N_\epsilon$, then $n > \frac{1}{\epsilon^2}$ gives:
+                            \begin{equation*}
+                            \begin{split}
+                                \frac{1}{\epsilon^2} < n 
+                                &\implies \frac{1}{n} < \epsilon^2 \\
+                                &\implies \frac{1}{\sqrt{n}} < \epsilon \\
+                                &\implies \left|\frac{1}{\sqrt{n}}\right| < \epsilon.
+                            \end{split}
+                            \end{equation*}
+                        Since $\left(\frac{1}{\sqrt{n}}\right)_n \rightarrow 0$, by "Lemma" $\left(\frac{\sqrt{n}}{n+1}\right)_n \rightarrow 0$.
+                    \end{proof}
                 \item $\left(\frac{(-1)^n}{\sqrt{n+7}}\right)_n \rightarrow 0$.
+                    \begin{proof}
+                        We have:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{(-1)^n}{\sqrt{n+7}}\right| = \frac{1}{\sqrt{n+7}} \leq \frac{1}{\sqrt{n}}.
+                            \end{split}
+                            \end{equation*}
+                        Since $\left(\frac{1}{\sqrt{n}}\right)_n \rightarrow 0$, by "Lemma" $\left(\frac{(-1)^n}{\sqrt{n+7}}\right)_n \rightarrow 0$.
+                    \end{proof}
                 \item $(n^k b^n)_n \rightarrow 0$, where $0 \leq b < 1$ and $k \in \bfN$.
+                    \begin{proof}
+                        We proceed by using the ratio test. Claim: $\left(\left|\frac{(n+1)^k b^{n+1}}{n^k b^n}\right|\right)_n \rightarrow b$. We have:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{(n+1)^k b^{n+1}}{n^k b^n} - b\right| 
+                                &= \left|\frac{\left((n+1)^k - n^k\right)b}{n^k}\right| \\
+                                &= b \cdot \frac{(n+1)^k - n^k}{n^k} \\
+                                &= b \left( \left(\frac{n+1}{n}\right)^k - 1\right) \\
+                                &= b \left(\left(1 + \frac{1}{n}\right)^k - 1\right).
+                            \end{split}
+                            \end{equation*}
+                        Since $(\frac{1}{n})_n \rightarrow 0$, $\epsilon_n = \left(\left(1 + \frac{1}{n}\right)^k - 1\right)_n \rightarrow 0$. Thus by "Lemma", $\left(\left|\frac{(n+1)^k b^{n+1}}{n^k b^n}\right|\right)_n \rightarrow b$. Since $0 \leq b < 1$, by the ratio test $(n^k b^n)_n \rightarrow 0$.
+                    \end{proof}
                 \item $\left(\frac{2^{n+1}+3^{n+1}}{2^n + 3^n}\right)_n \rightarrow 3$.
+                    \begin{proof}
+                        Observe that:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{2^{n+1} +3^{n+1}}{2^n + 3^n} - 3\right| 
+                                & = \left|\frac{2^{n+1} + 3^{n+1} - 3(2^n + 3^n)}{2^n + 3^n}\right| \\
+                                & = \left|\frac{2 \cdot 2^n - 3 \cdot 2^n}{2^n + 3^n}\right| \\
+                                & = \frac{2^n}{2^n + 3^n} \\
+                                & \leq \frac{2^n}{3^n} \\
+                                & = \left(\frac{2}{3}\right)^n.
+                            \end{split}
+                            \end{equation*}
+                        Since $\left(\left(\frac{2}{3}\right)^n\right)_n \rightarrow 0$, by "Lemma" $\left(\frac{2^{n+1}+3^{n+1}}{2^n + 3^n}\right)_n \rightarrow 3$.
+                    \end{proof}
             \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
-            (1) Let $\epsilon > 0$. There exists $N_\epsilon \in \bfN$ such that $N_\epsilon > \frac{2}{\epsilon} - 1$. If $n \geq N_\epsilon$, then $n > \frac{2}{\epsilon} - 1$ gives:
-                \begin{equation*}
-                \begin{split}
-                    \frac{2}{\epsilon} < n+ 1 
-                    &\implies \frac{2}{n+1} < \epsilon  \\
-                    &\implies \frac{|2n -2n - 2|}{n+1} < \epsilon \\
-                    &\implies \left|\frac{2n - 2(n+1)}{n+1}\right| < \epsilon\\
-                    & \implies \left|\frac{2n}{n+1} - 2\right| < \epsilon.
-                \end{split}
-                \end{equation*}
-
-            (2) Observe that:
-                \begin{equation*}
-                \begin{split}
-                    \left|\frac{\sqrt{n}}{n+1}\right| \leq \frac{\sqrt{n}}{n} = \frac{1}{\sqrt{n}}.
-                \end{split}
-                \end{equation*}
-            Since $\left(\frac{1}{\sqrt{n}}\right)_n \rightarrow 0$, by "Lemma" $\left(\frac{\sqrt{n}}{n+1}\right)_n \rightarrow 0$.
-
-            (3) We have:
-                \begin{equation*}
-                \begin{split}
-                    \left|\frac{(-1)^n}{\sqrt{n+7}}\right| = \frac{1}{\sqrt{n+7}} \leq \frac{1}{\sqrt{n}}.
-                \end{split}
-                \end{equation*}
-        \end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         Show that the sequence $(\cos(n))_n$ does not converge.
@@ -302,6 +341,53 @@
             \end{equation*}
         show that $(x_n)_n$ is not bounded hence not convergent. If $L=1$, can we make any conclusion?
     \end{exercise}
+        {\color{red} \begin{proof}
+            Consider the following picture:
+                \begin{center}
+                \begin{tikzpicture}
+                % Draw the number line
+                \draw[<->] (-3,0) -- (3,0); 
+                
+                % Tick for x
+                \draw (-1.5,0.1) -- (-1.5,-0.1) node[below] {$1$}; 
+                \draw (1,0.1) -- (1,-0.1) node[below] {$L$}; 
+                \draw (1,0.1) -- (1,-0.1) node[below] {$L$}; 
+                
+                % Parenthesis ")" at x+1
+                \node at (2,0)  {$)$};
+                \node at (0,0)  {$($};
+                \node at (-0.05,0)  {$|$};
+
+                % Parenthesis "(" at x-1
+                \node at (-0.05,0.3)  {\text{\tiny $\rho$}};
+                
+                \node at (0,-0.3)  {\text{\tiny $L-\epsilon$}};
+                
+                % Parenthesis ")" at x+1
+                \node at (2,-0.3) {\text{\tiny $L+\epsilon$}};
+
+                \end{tikzpicture}
+                \end{center}
+            Since $\left(\frac{x_{n+1}}{x_n}\right)_n \rightarrow L$, we know there exists some $N \in \bfN$ such that $n \geq N$ implies $L - \epsilon < \frac{x_{n+1}}{x_n} < L + \epsilon$. Pick $\rho = L - \epsilon > 1$, then $\frac{x_{n+1}}{x_n} \geq \rho$. This gives $x_{n+1} \geq \rho x_n$. But inductively we have that:
+                \begin{equation*}
+                \begin{split}
+                    x_{N+1} &\geq \rho x_{N} \\
+                    x_{N+2} &\geq \rho x_{N+1} \geq \rho^2 x_{N} \\
+                    &\vdots \\
+                    x_{N+n} &\geq \rho^n x_N.
+                \end{split}
+                \end{equation*}
+            Note that $x_{N+n}$ is a tail of $(x_n)_n$, and since $(\rho^n)_n \rightarrow +\infty$, it must be the case that $(x_n)_n \rightarrow +\infty$.
+
+            Now consider
+                \begin{equation*}
+                \begin{split}
+                    (n)_n \rightarrow +\infty, \hspace{10pt} \left(\frac{n+1}{n}\right)_n \rightarrow 1,\\
+                    \left(\frac{1}{n}\right)_n \rightarrow 0, \hspace{10pt} \left(\frac{n}{n+1}\right)_n \rightarrow 1. 
+                \end{split}
+                \end{equation*}
+            Hence if $L = 1$, we cannot make any conclusion.
+        \end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         Let $a$ and $b$ be positive numbers. Show that
@@ -319,15 +405,41 @@
                     \implies a &\leq (a^n+b^n)^\frac{1}{n} \leq (2^\frac{1}{n})a.
                 \end{split}
                 \end{equation*}
-            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow a$. Case 2: $\max \left\{a,b\right\} = b$. Then $a < b$. We have:
+            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow a$ by the squeeze theorem. Case 2: $\max \left\{a,b\right\} = b$. Then $a < b$. We have:
                 \begin{equation*}
                 \begin{split}
                     \phantom{implies}(b^n)^\frac{1}{n} &\leq (a^n+b^n)^\frac{1}{n} \leq (2b^n)^\frac{1}{n} \\
                     \implies b &\leq (a^n+b^n)^\frac{1}{n} \leq (2^\frac{1}{n})b.
                 \end{split}
                 \end{equation*}
-            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow b$.
+            Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow b$ by the squeeze theorem.
         \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{exercise}
+            Let $(x_n)_n$ be a sequence of positive terms such that:
+                \begin{equation*}
+                \begin{split}
+                    (x_n^{1/n})_n \rightarrow L <1.
+                \end{split}
+                \end{equation*}
+            Prove that $(x_n)_n \rightarrow 0 $. If $L = 1$ can we make any conclusion? What about $L > 1$?
+        \end{exercise}
+            \begin{proof}
+                Since $(x_n^{1/n})_n$ is a convergent sequence, we have that $L - \epsilon < x_n^{1/n} < L + \epsilon$.
+
+                Case 1: $L < 1$. Then $\rho := L+\epsilon < 1$. Hence $x_n^{1/n} < \rho$; i.e., $x_n = |x_n| < \rho^n$. Since $(\rho^n)_n \rightarrow 0$, we have that $(x_n)_n \rightarrow 0$.
+
+                Case 2: $L > 1$. Then $\rho := L - \epsilon >1$. Hence $x_n^{1/n} \geq \rho$; i.e., $x_n \geq \rho^n$. Since $(\rho^n)_n \rightarrow +\infty$, we have that $(x_n^{1/n})_n \rightarrow +\infty$.
+
+                Case 3: $L = 1$. Observe that:
+                    \begin{equation*}
+                    \begin{split}
+                        &(a)_n \rightarrow a, \hspace{10pt} (a^{1/n})_n \rightarrow 1 \mtext{for some} a > 1, \\
+                        &(n)_n \rightarrow +\infty, \hspace{10pt} (n^{1/n})_n \rightarrow 1.
+                    \end{split}
+                    \end{equation*}
+                Therefore we cannot make any conclusion if $L = 1$.
+            \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \end{document}
 
