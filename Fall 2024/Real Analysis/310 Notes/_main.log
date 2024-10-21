@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  19 OCT 2024 00:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  20 OCT 2024 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,9 +1470,7 @@ Package: shadethm 1999/11/23
 \shadeleftshift=\skip287
 \shaderightshift=\skip288
 \shadesavebox=\box84
-)
-\c@note=\count431
- (/usr/local/texlive/2024/texmf-dist/tex/latex/cancel/cancel.sty
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/cancel/cancel.sty
 Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
@@ -1484,14 +1482,7 @@ File: T1TeXGyreScholaX-OsF.fd 2017/07/11 (autoinst) Font definitions for T1/TeXG
 )
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 153.
- (./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./sequences.aux
-
-LaTeX Warning: Label `chapter:sequences' multiply defined.
-
-
-LaTeX Warning: Label `lemma:abs-convergence' multiply defined.
-
-))
+ (./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux))
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/zncfmi/m/it on input line 153.
@@ -1538,22 +1529,22 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
 LaTeX Font Info:    ... okay on input line 153.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
 LaTeX Font Info:    ... okay on input line 153.
-\c@mv@tabular=\count432
-\c@mv@boldtabular=\count433
+\c@mv@tabular=\count431
+\c@mv@boldtabular=\count432
 LaTeX Info: Command `\dddot' is already robust on input line 153.
 LaTeX Info: Command `\ddddot' is already robust on input line 153.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count434
+\scratchcounter=\count433
 \scratchdimen=\dimen366
 \scratchbox=\box85
-\nofMPsegments=\count435
-\nofMParguments=\count436
+\nofMPsegments=\count434
+\nofMParguments=\count435
 \everyMPshowfont=\toks78
-\MPscratchCnt=\count437
+\MPscratchCnt=\count436
 \MPscratchDim=\dimen367
-\MPnumerator=\count438
-\makeMPintoPDFobject=\count439
+\MPnumerator=\count437
+\makeMPintoPDFobject=\count438
 \everyMPtoPDFconversion=\toks79
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1606,10 +1597,10 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@hyphkern=\dimen371
 \SOUL@dimen=\dimen372
 \SOUL@dimeni=\dimen373
-\SOUL@minus=\count440
-\SOUL@comma=\count441
-\SOUL@apo=\count442
-\SOUL@grave=\count443
+\SOUL@minus=\count439
+\SOUL@comma=\count440
+\SOUL@apo=\count441
+\SOUL@grave=\count442
 \SOUL@spaceskip=\skip289
 \SOUL@ttwidth=\dimen374
 \SOUL@uldp=\dimen375
@@ -2463,8 +2454,8 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [29]
-Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 163.
-)
+Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 164.
+
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2473,19 +2464,14 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [30]
-\openout2 = `sequences.aux'.
 
- (./sequences.tex
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
- [31
-
-
-
-
-]
-Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 89.
-
+[31]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2511,6 +2497,11 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [34]
 
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 461.
+
+
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
 (fancyhdr)                \setlength{\headheight}{8.0pt}.
@@ -2525,12 +2516,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[36]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 427.
-
+[36])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2540,55 +2526,35 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [37]
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[38])
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[39]
-
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 171.
+(in both cases you will find help in the memoir manual). on input line 170.
 
 \tf@toc=\write11
 \openout11 = `_main.toc'.
 
-(./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./sequences.aux))
+(./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: D23ED78145E0BC776B4A085C7F62C7D8;1483.
+(rerunfilecheck)             Checksum: CD151221CFA4CC273F4EDCF9826D0591;1294.
  ) 
 Here is how much of TeX's memory you used:
- 53600 strings out of 474116
- 1154250 string characters out of 5743683
+ 53486 strings out of 474116
+ 1152111 string characters out of 5743683
  1956187 words of memory out of 5000000
- 74029 multiletter control sequences out of 15000+600000
- 790615 words of font info for 606 fonts, out of 8000000 for 9000
+ 73988 multiletter control sequences out of 15000+600000
+ 789532 words of font info for 598 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (40 pages, 342514 bytes).
+Output written on _main.pdf (38 pages, 330275 bytes).
 PDF statistics:
- 1129 PDF objects out of 1200 (max. 8388607)
- 1020 compressed objects within 11 object streams
- 601 named destinations out of 1000 (max. 500000)
- 82121 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1005 PDF objects out of 1200 (max. 8388607)
+ 921 compressed objects within 10 object streams
+ 545 named destinations out of 1000 (max. 500000)
+ 82097 words of extra memory for PDF output out of 89155 (max. 10000000)
 

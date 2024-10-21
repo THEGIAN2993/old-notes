@@ -88,7 +88,7 @@
             \item $(x_n)_n$ \textui{converges} to $x \in X$ if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN)\ni(\forall n \geq N_\epsilon)(d(x_n,x) < \epsilon)).
+                    (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN)\ni(\forall n \in \bfN)(n \geq N_\epsilon \implies d(x_n,x) < \epsilon)).
                 \end{split}
                 \end{equation*}
             We denote this as $(x_n)_n \rightarrow x$ or $\lim_{n \rightarrow \infty} x_n = x$.
@@ -96,7 +96,7 @@
             \item $(x_n)_n$ \textui{does not exist} if:
                 \begin{equation*}
                 \begin{split}
-                    (\exists \epsilon_0 > 0)(\forall N \in \bfN)\ni (\exists n \geq N)(d(x_n,n)\geq \epsilon_0).
+                    (\exists \epsilon_0 > 0)(\forall N \in \bfN)\ni (\exists n \in \bfN)(n \geq N \hspace{2pt}\wedge\hspace{2pt} d(x_n,n)\geq \epsilon_0).
                 \end{split}
                 \end{equation*}
             We abbreviate this as D.N.E.
@@ -104,7 +104,7 @@
             \item $(x_n)_n$ \textui{diverges properly} to $+\infty$ if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall M > 0)(\exists N_M \in \bfN) \ni (\forall n \geq N_M)(x_n \geq M).
+                    (\forall M > 0)(\exists N_M \in \bfN) \ni (\forall n \in \bfN)(n \geq N_M \implies x_n \geq M).
                 \end{split}
                 \end{equation*}
             We write $(x_n)_n \rightarrow +\infty$.
@@ -149,6 +149,7 @@
                     \addplot[only marks,mark=*,mark options={fill=blue},color=blue]coordinates {(8, 4.4)};
                     \addplot[only marks,mark=*,mark options={fill=blue},color=blue]coordinates {(9, 5.3)};
                     \addplot[only marks,mark=*,mark options={fill=blue},color=blue]coordinates {(10, 5)};
+
                     \end{axis}
                 \end{tikzpicture}
             \end{center}
@@ -181,9 +182,414 @@
         \end{enumerate}
     \end{example}
 
-    \begin{lemma}
+    \begin{proposition}
         Let $(X,d)$ be a metric space. Then $(x_n)_n \rightarrow x$ if and only if $(d(x_n,x))_n \rightarrow 0$.
-    \end{lemma}
+    \end{proposition}
+        \begin{proof}
+            Suppose $(x_n)_n \rightarrow x$. Given $\epsilon > 0$, there exists $N \in \bfN$ such that $n \geq N$ implies $d(x_n,x) < \epsilon$. This is equivalent to $|d(x_n,x) - 0| < \epsilon$. The converse follows identically.
+        \end{proof}
 
+    \begin{theorem}
+        Let $(\epsilon_n)_n \rightarrow 0$ and $(x_n)_n$ be real sequences and $x \in \bfR$. If for some $c>0$ and $N \in \bfN$ we have:
+            \begin{equation*}
+            \begin{split}
+                |x_n - x| \leq c|\epsilon_n| \hspace{6pt}\mtext{for all $n \in \bfN$ such that $n \geq N$,}
+            \end{split}
+            \end{equation*}
+        then $(x_n)_n \rightarrow x$.
+    \end{theorem}
+        {\color{red} \begin{proof}
+            Let $\epsilon > 0$ be given. Since $(\epsilon_n)_n \rightarrow 0$ it follows there exists a natural number $K$ such that if $n \geq K$ then
+                \begin{equation*}
+                \begin{split}
+                    |a_n| = |a_n - 0| < \frac{\epsilon}{c}.
+                \end{split}
+                \end{equation*}
+            If both $n \geq K$ and $n\geq N$, then
+                \begin{equation*}
+                \begin{split}
+                    |x_n - x| \leq c|\epsilon_n| < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(x_n)_n \rightarrow x$.
+        \end{proof}}
+    
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove $\left(\frac{\sin(n^2 - 1)}{n^2 + 3}\right)_n \rightarrow 0$.
+                \begin{solution}
+                    Note that:
+                        \begin{equation*}
+                        \begin{split}
+                            \left|\frac{\sin(n^2 - 1)}{n^2 + 3} - 0 \right|
+                            = \frac{|\sin(n^2 - 1)|}{n^2 + 3} 
+                            \leq \frac{1}{n^2 + 3} 
+                            \leq \frac{1}{n^2} 
+                            \leq \frac{1}{n}.
+                        \end{split}
+                        \end{equation*}
+                    Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, we have $\left(\frac{\sin(n^2 - 1)}{n^2 + 3}\right)_n \rightarrow 0$.
+                    \end{solution}
+            
+            \item Prove $\left(\frac{1}{2^n}\right)_n \rightarrow 0$.
+                \begin{solution}
+                    Note that:
+                        \begin{equation*}
+                        \begin{split}
+                            \left|\frac{1}{2^n} - 0\right| \leq \frac{1}{n}.
+                        \end{split}
+                        \end{equation*}
+                    Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, we have $\left(\frac{1}{2^n}\right)_n \rightarrow 0$.
+                \end{solution}
+
+            \item Prove $\left(\frac{1}{n} - \frac{1}{n+1}\right)_n \rightarrow 0$.
+                \begin{solution}
+                    Note that:
+                        \begin{equation*}
+                        \begin{split}
+                            \left|\frac{1}{n} - \frac{1}{n+1} - 0\right| \leq \frac{1}{n}.
+                        \end{split}
+                        \end{equation*}
+                        Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, we have $\left(\frac{1}{n} - \frac{1}{n+1}\right)_n \rightarrow 0$.
+                \end{solution}
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}
+        Let $k\geq 1$ be fixed. Given a sequence $(x_n)_n$ in a metric space $(X,d)$, $(x_n)_n \rightarrow x$ if and only if $(x_{k+n})_n \rightarrow x$.
+    \end{proposition}
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. We know there exists $N_\epsilon \in \bfN$ with $n\geq N_\epsilon$ implying $d(x_n,x) < \epsilon$. But if $n \geq N_\epsilon$, then $n+k \geq N_\epsilon$. Hence $d(x_{n+k},x) < \epsilon$.
+
+            $(\Leftarrow)$ Conversely, assume that $(x_{n+k}) \rightarrow 0$. Let $\epsilon > 0$. We know there exists $N_\epsilon \in \bfN$ such that $n \geq N_\epsilon$ implies $d(x_{n+k},x) < \epsilon$. Consider $M = N_\epsilon + k$. Then if $n \geq M$, we have $n \geq N_\epsilon + k$, or equivalently $n- k \geq N_\epsilon$. Hence $d(x_{(n-k)+k},x) = d(x_n,x) < \epsilon$.
+        \end{proof}
+
+    \begin{proposition}
+        If $(x_n)_n$ is a real sequence with $\left(\left|\frac{x_{n+1}}{x_n}\right|\right)\rightarrow L < 1$, then $(x_n)_n \rightarrow 0$.
+    \end{proposition}
+        \begin{proof}
+            Since $L<1$, let $\rho$ be an number satisfying $L < \rho < 1$. Pick $\epsilon = \rho - L$ Since $\left(\left|\frac{x_{n+1}}{x_n}\right|\right)\rightarrow L$, there exists $N_\epsilon \in \bfN$ such that $n\geq N_\epsilon$ implies $\left|\frac{x_{n+1}}{x_n}\right| \in V_\epsilon(L)$, or equivalently $L - \epsilon < \frac{|x_{n+1}|}{|x_n|} < L + \epsilon$. Then $\frac{|x_{n+1}|}{|x_n|} < \rho$, which gives $|x_{n+1}| < \rho |x_n|$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |x_{N+1}| &< \rho|x_N|\\
+                    |x_{N+2}| &< \rho|x_{N+1}| = \rho^2|x_{N}| \\
+                    |x_{N+3}| &< \rho|x_{N+2}| = \rho^3|x_{N}| \\
+                    &\vdots \\
+                    \mtext{Inductively,}\hspace{6pt}|x_{N+n}| &= \rho^n|x_N|.
+                \end{split}
+                \end{equation*}
+            Since $(\rho^n)_n \rightarrow 0$ (and taking $c = |x_N|$), we have that $(x_{N+n})_n \rightarrow 0$. Thus $(x_n)_n \rightarrow 0$.
+        \end{proof}
+
+    \begin{example}\label{example:sequence-dne}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove $((-1)^n)_n$ does not exist.
+                \begin{solution}
+                    Suppose  $((-1)^n)_n \rightarrow x$. We want to find some $\epsilon_0 > 0$ such that for all $N \in \bfN$, we can find an $n \in \bfN$ satisfying:
+                        \begin{equation*}
+                        \begin{split}
+                            n \geq N \mtext{and} |x_n - x| = |(-1)^n - x| \geq \epsilon_0.
+                        \end{split}
+                        \end{equation*}
+                \end{solution}
+                Pick $\epsilon_0 = \max\left\{|x-1|,|x+1|\right\}$. Let $N \in \bfN$. Set $n = 2N$. This gives:
+                    \begin{equation*}
+                    \begin{split}
+                        (-1)^{2N} &= 1 \\
+                        (-1)^{2N+1} &= -1
+                    \end{split}
+                    \end{equation*}
+                So we have $n \geq N$ and: 
+                    \begin{equation*}
+                    \begin{split}
+                        |(-1)^{2N} - x| = |1 - x| \geq \epsilon_0 \hspace{4pt}\mtext{or}\hspace{4pt} |(-1)^{2N+1} - x| = |1+x| \geq \epsilon_0.
+                    \end{split}
+                    \end{equation*}
+
+            \item Prove $(\sin(n))_n$ does not exist.
+                {\color{red} \begin{solution}
+                    
+                \end{solution}}
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}
+        Let $(X,d)$ be a metric space. A sequence $(x_n)_n$ can have at most one limit.
+    \end{proposition}
+        \begin{proof}
+            Suppose $(x_n)_n \rightarrow L_1$ and $(x_n)_n \rightarrow L_2$. Set $\epsilon = \frac{|L_1 - L_2|}{2}$. Then $V_\epsilon(L_1) \cap V_\epsilon(L_2) = \emptyset$. Since $(x_n)_n \rightarrow L_1$, there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $x_n \in V_\epsilon(L_1)$. Likewise, since $(x_n)_n \rightarrow L_2$, there exists $N_2 \in \bfN$ such that $n \geq N_2$ implies $x_n \in V_\epsilon(L_2)$. Pick $N = \max\{N_1,N_2\}$. Then $x_N \in V_\epsilon(L_1)\cap V_\epsilon(L_2)$, which is a contradiction. 
+        \end{proof}
+
+    \begin{lemma}\label{lemma:blarf}
+        If $(x_n)_n \rightarrow x$, then $(|x_n|)_n \rightarrow |x|$.
+    \end{lemma}
+        \begin{proof}
+            Since $(x_n)_n \rightarrow x$, then there exists $N \in \bfN$ such that $n\geq \bfN$ implies $|x_n - x | < \epsilon$. The triangle inequality gives:
+                \begin{equation*}
+                \begin{split}
+                    ||x_n| - |x|| \leq |x_n - x| < \epsilon,
+                \end{split}
+                \end{equation*}
+            hence $(|x_n|)_n \rightarrow |x|$. Note that the converse does not hold in general, as:
+                \begin{equation*}
+                \begin{split}
+                    (|(-1)^n|)_n \rightarrow 1 \mtext{while} ((-1)^n)_n \mtext{does not exist.} \qedhere
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{lemma}
+        Let $(t_n)_n$ be a sequence in $(X,d)$. $(t_n)_n \rightarrow 0$ if and only if $(|t_n|)_n \rightarrow 0$.
+    \end{lemma}
+        {\color{red} \begin{proof}
+            $(\Rightarrow)$ The forward direction follows from Lemma~\ref{lemma:blarf}.
+            $(\Leftarrow)$ Suppose $(|t_n|)_n \rightarrow 0$. We have that:
+                \begin{equation*}
+                \begin{split}
+                    ||t_n| - 0| \leq 
+                \end{split}
+                \end{equation*}
+        \end{proof}}
+
+    \begin{lemma}
+        If $(x_n)_n \rightarrow x \in \bfR$ with $x_n \geq 0$, then $(\sqrt{x_n})_n \rightarrow \sqrt{x}$.
+    \end{lemma}
+        \begin{proof}
+            Case 1: $x = 0$. Let $\epsilon>0$ be given. Since $(x_n)_n \rightarrow 0$, there exists $N \in \bfN$ such that $n \geq N$ implies $0 \leq x_n = |x_n -0| < \epsilon^2$. Hence $0 \leq \sqrt{x_n} < \epsilon$. Since $\epsilon > 0$, was arbitrary, $(\sqrt{x_n})_n \rightarrow 0$.
+
+            Case 2: $x > 0$. Then $\sqrt{x} > 0$, and:
+                \begin{equation*}
+                \begin{split}
+                    |\sqrt{x_n} - \sqrt{x}| = \left|(\sqrt{x_n}-\sqrt{x})\frac{\sqrt{x_n}+\sqrt{x}}{\sqrt{x_n}+\sqrt{x}}\right| = \left|\frac{x_n - x}{\sqrt{x_n} + \sqrt{x}}\right| \leq \left(\frac{1}{\sqrt{x}}\right)|x_n - x|.
+                \end{split}
+                \end{equation*}
+            Hence the convergence $(\sqrt{x_n})_n$ is a consequence of $(x_n)_n \rightarrow x$.
+        \end{proof}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove $(\sqrt{n})_n \rightarrow +\infty$.
+                \begin{solution}
+                    Let $M > 0$ be given. Find $N_M$ so that $N_M = \lceil M^2 \rceil$. Hence $N_M \geq M^2$. Then $n \geq M$ implies $n \geq M^2$, or equivalently $\sqrt{n} \geq M$.
+                \end{solution}
+            
+            \item Prove $(n -\sqrt{n})_n \rightarrow +\infty$.
+                \begin{solution}
+                    Write $(n -\sqrt{n})_n = (n)_n\stackrel{\rightarrow 1}{\cancel{(1-\frac{1}{\sqrt{n}})_n}} = (n)_n$. Since $(n)_n$ trivially converges to $+\infty$, we have $(n -\sqrt{n})_n \rightarrow +\infty$.
+                \end{solution}
+            
+            \item Prove:
+                \begin{equation*}
+                \begin{split}
+                    (b^n)_{n=0}^\infty \rightarrow \begin{cases} 0, & |b| < 1 \\ 1,& b = 1 \\ +\infty, & b > 1 \\ \text{D.N.E.},& b \leq -1\end{cases}
+                \end{split}
+                \end{equation*}
+
+                \begin{solution}
+                    Cases $b=0$ and $b=1$ are trivial. We showed case $b = -1$ in Example~\ref{example:sequence-dne}.
+
+                    Case 1: $0 < b < 1$. Then $b < 1$ implies $\frac{1}{b} > 1$. We have $\frac{1}{b} = 1 + a$ for some $a>0$, now observe that:
+                        \begin{equation*}
+                        \begin{split}
+                            \left(\frac{1}{b}\right)^n = (1+a)^n \geq 1 + na.
+                        \end{split}
+                        \end{equation*}
+                    This gives:
+                        \begin{equation*}
+                        \begin{split}
+                            |b^n - 0| \leq \frac{1}{1+na} \leq \frac{1}{na} = \left(\frac{1}{a}\right) \frac{1}{n}.
+                        \end{split}
+                        \end{equation*}
+                    Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, we have $(b^n)_n \rightarrow 0$.
+
+                    Case 2: $-1 < b < 0$. Since $(|b^n|)_n = (|b|^n)_n$, case 1 gives $(b^n)_n \rightarrow 0$ when $-1<b<0$.
+
+                    Case 3: $b >1$. Then $b = 1+a$ for some $a > 0$. We have:
+                        \begin{equation*}
+                        \begin{split}
+                            b^n = (1+a)^n \geq 1+na \geq na.
+                        \end{split}
+                        \end{equation*}
+                    Let $M>0$ be given. Pick $N_M = \frac{\lceil M \rceil}{a}$. Then $N_M \geq \frac{M}{a}$. If $n \geq N_M$, then $n \geq \frac{M}{a}$, which simplifies to $na \geq M$. Hence $b^n \geq na \geq M$ gives $(b^n)_n \rightarrow +\infty$.
+
+                    Case 4: $b < 1$. We prove that $(b^n)_n$ does not exist by contradiction. Suppose $(b_n)_n \rightarrow L$ for some $L \in \bfR$. Then $(|b_n|)_n \rightarrow |L|$. But this is a contradiction via the $b>1$ case. Now if $(b^n)_n \rightarrow +\infty$, there exists $N_1 \in \bfN$ such that $n\geq N_1$ implies $b^n \geq 1$. But for $n$ odd, $b^n <0$, which is a contradiction. Assuming $(b^n)_n \rightarrow -\infty$ leads to a similar contradiction, establishing the proof.
+                \end{solution}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove if $c > 0$, $(c^\frac{1}{n})_n \rightarrow 1$.
+                \begin{solution}
+                    If $c=1$, then clearly $(1^\frac{1}{n})_n \rightarrow 1$. Suppose $c > 1$, then $c^\frac{1}{n} > 1$. Write $c^\frac{1}{n} = 1 + a_n$, where $a_n > 0$ for all $n \in \bfN$. We have:
+                        \begin{equation*}
+                        \begin{split}
+                            c = (c^\frac{1}{n})^n = (1+a_n)^n \geq 1 + n a_n \geq na_n.
+                        \end{split}
+                        \end{equation*}
+                    So $0 < na_n \leq c$, giving $a_n \leq \frac{c}{n}$. We have:
+                        \begin{equation*}
+                        \begin{split}
+                            |c^\frac{1}{n} - 1| = a_n \leq \frac{c}{n}.
+                        \end{split}
+                        \end{equation*}
+                    Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, $(c^\frac{1}{n})_n \rightarrow 1$. Now suppose $0<c<1$, then $c^\frac{1}{n} < 1$. Write $c^\frac{1}{n} = 1 + (-a_n)$ with $-1 < -a_n < 0$ for all $n$. Then:
+                        \begin{equation*}
+                        \begin{split}
+                            c = (c^\frac{1}{n})^n = (1 + (-a_n))^n \geq 1 + n(-a_n) \geq n (-a_n).
+                        \end{split}
+                        \end{equation*}
+                    So $n(-a_n) \leq c$, giving $-a_n \leq \frac{c}{n}$. We have:
+                        \begin{equation*}
+                        \begin{split}
+                            |c^\frac{1}{n} - 1| = -a_n \leq \frac{c}{n}.
+                        \end{split}
+                        \end{equation*}
+                    Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, $(c^\frac{1}{n})_n \rightarrow 1$.
+                \end{solution}
+
+            \item Prove $(n^\frac{1}{n})_n \rightarrow 1$.
+                \begin{proof}
+                    Note that $n^\frac{1}{n} > 1$ for all $n> 1$. Write $n^\frac{1}{n} = 1 + a_n$. Then:
+                        \begin{equation*}
+                        \begin{split}
+                            n = (1+a_n)^n = \sum_{k=0}^n {n \choose k}a_n^k \geq {n \choose 0} + {n \choose 2}a_n^2 = 1 + \frac{n(n-1)}{2}a_n^2.
+                        \end{split}
+                        \end{equation*}
+                    We have:
+                        \begin{equation*}
+                        \begin{split}
+                            n-1 \geq \frac{n(n-1)}{2}a_n^2,
+                        \end{split}
+                        \end{equation*}
+                    which simplifies to:
+                        \begin{equation*}
+                        \begin{split}
+                            \frac{2}{n} \geq a_n^2.
+                        \end{split}
+                        \end{equation*}
+                    Hence $a_n \leq \sqrt{2} \hspace{3pt} \displaystyle{\frac{1}{n}}$, thus by our lemma $(a_n)_n^\infty \rightarrow 0$. Therefore:
+                        \begin{equation*}
+                        \begin{split}
+                            |n^\frac{1}{n} - 1| = d_n,
+                        \end{split}
+                        \end{equation*}
+                    establishing that $(n^\frac{1}{n})_n \rightarrow 1$.
+                \end{proof}
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}
+        A convergent sequence is bounded.
+    \end{proposition}
+        \begin{proof}
+            Suppose $(x_n)_n \rightarrow x$. Since $(x_n)_n$ is convergent, we know for all $\epsilon > 0$ that $|x_n - x| < \epsilon$. Pick $\epsilon = 1$. Eventually the entire sequence will be contained in $V_1(x)$. More formally, there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $x_n \in V_1(x)$. Define:
+                \begin{equation*}
+                \begin{split}
+                    c = \max \left\{|x_1|,|x_2|,...,|x_N|,|x-1|,|x+1|\right\}.
+                \end{split}
+                \end{equation*}
+            If $n \leq N$, then $|x_n| \leq c$. If $n \geq N_1$, then $x-1 < x_n < x+1$; i.e., $|x_n| \leq c$.
+        \end{proof}
+
+        \begin{theorem}
+            Let $x_n$, $y_n$, $z_n$ be convergent sequences with $(x_n)_n \rightarrow x$, $(y_n)_n \rightarrow y$, and $(z_n)_n \rightarrow z$ and $t \in \bfR$. Moreover, let $z_n \neq 0$ for all $n$ and $z \neq 0$. We have:
+                \begin{enumerate}[label = (\arabic*)]
+                    \item $(x_n \pm y_n)_n \rightarrow x \pm y$. 
+                    \item $(tx_n)_n \rightarrow tx$.
+                    \item $(x_n y_n)_n \rightarrow xy$.
+                    \item $\left(\frac{1}{z_n}\right)_n \rightarrow \frac{1}{z}$.
+                    \item $\left(\frac{x_n}{z_n}\right)_n \rightarrow \frac{x}{z}$.
+                \end{enumerate}
+        \end{theorem}
+            \begin{proof}
+                (3) We have:
+                    \begin{equation*}
+                    \begin{split}
+                        |x_n y_n - xy|
+                        & = |x_n y_n - xy_n + x y_n - xy| \\
+                        & = \left|(x_n - x)y_n + x(y_n - y)\right|\\
+                        & \leq |(x_n - x)y_n |+| x(y_n - y)| \\
+                        & = |x_n - x||y_n| + |x||y_n - y|.
+                    \end{split}
+                    \end{equation*}
+                Since $y_n$ is convergent, it is bounded. So there exists a $c > 0$ with $|y_n| \leq c$ for all $n \geq 1$. Hence:
+                    \begin{equation*}
+                    \begin{split}
+                        |x_n - x||y_n| + |x||y_n - y|
+                        & \leq \stackrel{\rightarrow 0}{\cancel{|x_n -x|}}c + |x|\stackrel{\rightarrow 0}{\cancel{|y_n - y|}.}
+                    \end{split}
+                    \end{equation*}
+                Thus $(|x_n y_n - xy|)_n \rightarrow 0$, which implies $(x_n y_n)_n \rightarrow xy$.
+    
+                (4) We have:
+                    \begin{equation*}
+                    \begin{split}
+                        \left|\frac{1}{z_n} - \frac{1}{z}\right| = \frac{|z- z_n|}{|z||z_n|}.
+                    \end{split}
+                    \end{equation*}
+    
+                Since $z \neq 0$, it won't be "near" zero. We have the following picture:
+                    \begin{center}
+                    \begin{tikzpicture}
+                    % Draw the number line
+                    \draw[<->] (-3,0) -- (3,0); 
+                    
+                    % Tick for x
+                    \draw (0,0.1) -- (0,-0.1) node[below] {$0$}; 
+                    \draw (1,0.1) -- (1,-0.1) node[below] {$z$}; 
+                    
+                    % Parenthesis ")" at x+1
+                    \node at (1.5,0)  {$)$};
+                    \node at (0.5,0)  {$($};
+                    \end{tikzpicture}
+                    \end{center}
+                Let $\delta = \frac{|z|}{2} > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $z_n \in V_\delta(z)$. We have:
+                    \begin{equation*}
+                    \begin{split}
+                        &\phantom{\implies} z - \delta < z_n < z + \delta \\
+                        &\implies z - \frac{|z|}{2} < z_n \\
+                        & \implies \frac{|z|}{2} < |z_n|.
+                    \end{split}
+                    \end{equation*}
+                Since $|z_n| \geq \frac{|z|}{2}$, we have $\frac{1}{|z_n|} < \frac{2}{|z|}$. So for $n \geq N$, 
+                    \begin{equation*}
+                    \begin{split}
+                        \left|\frac{1}{z_n} - \frac{1}{z}\right| = \frac{|z- z_n|}{|z||z_n|} \leq \frac{2}{|z|^2}|z - z_n|.
+                    \end{split}
+                    \end{equation*}
+                Thus $\left(\frac{1}{z_n}\right)_n \rightarrow \frac{1}{z}$.
+            \end{proof}
+    
+        \begin{theorem}\label{thm:ordering-of-sequences}
+            Suppose $(x_n) \rightarrow x$ and $(y_n)_n \rightarrow y$ with $x_n \leq y_n$ for all $n$. Then $x \leq y$.
+        \end{theorem}
+            \begin{proof}
+                We have that $(y_n - x_n)_n \rightarrow y-x$, and $y_n - x_n \geq 0$ for all $n$. Thus $y - x \geq 0$.
+            \end{proof}
+    
+        \begin{corollary}
+            If $(x_n)_n \rightarrow x$ and $a \leq x_n \leq b$, then $a \leq x \leq b$.
+        \end{corollary}
+            \begin{proof}
+                Taking $(y_n)_n = (a,a,a,...)$ and $(y_n)_n = (b,b,b,...)$ gives the desired result.
+            \end{proof}
+    
+        \begin{theorem}[Squeeze Theorem]
+            Let $(x_n)_n$, $(y_n)_n$, and $(z_n)_n$ be sequences with $(x_n)_n \leq (y_n)_n \leq (z_n)_n$ for all $n \geq 1$. If $\lim x_n = \lim z_n = L$, then $(y_n)_n \rightarrow L$.
+        \end{theorem}
+            \begin{proof}
+                Let $\epsilon > 0$. There exists $N_1 \in \bfN$ such that $n \geq N_1 $ implies $x_n \in V_\epsilon(L)$. Likewise, there exists $N_2 \in \bfN$ such that $n \geq N_2$ implies $z_n \in V_\epsilon(L)$. So for $n \geq \max \left\{N_1,N_2\right\} := N$, both $x_n,z_n \in V_\epsilon(L)$. We have:
+                    \begin{equation*}
+                    \begin{split}
+                        L -\epsilon < x_n \leq y_n < z_n \leq L + \epsilon.
+                    \end{split}
+                    \end{equation*}
+                Thus $y_n \in V_\epsilon(L)$ for $n \geq N$.
+            \end{proof}
     
     
