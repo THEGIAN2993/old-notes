@@ -18,3 +18,4 @@
 \contentsline {chapter}{\chapternumberline {5}Sequences*}{28}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Basic Definitions and Examples}{28}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Convergence}{29}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Subsequences}{39}{section.5.3}%
