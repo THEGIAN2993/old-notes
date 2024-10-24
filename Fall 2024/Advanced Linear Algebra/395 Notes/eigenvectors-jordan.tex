@@ -1185,8 +1185,21 @@ For this section $V$ is always finite-dimensional.
 \section{Diagonalization, II}
     The following theorem relates all that was discussed in this chapter.
     \begin{theorem}
-        
+    If $c_T(x)$ does not split into a product of linear factors over $F$, $T$ is not diagonalizable. If $c_T(x)$ does split into linear factors, the following are equivalent:
+        \begin{enumerate}[label = (\arabic*)]
+            \item T is diagonalizable;
+            \item for every eigenvalue $\lambda, E_\lambda^{\infty}=E_\lambda^1$;
+            \item $\mathrm{m}_{\mathrm{T}}(\mathrm{x})$ splits into a product of (distinct) linear factors;
+            \item for every eigenvalue $\lambda$, if $c_T(x)=(x-\lambda)^{e_\lambda} p(x)$ with $p(\lambda) \neq 0$, then $e_\lambda=\operatorname{dim}_F\left(E_\lambda^1\right)$;
+            \item if we set set $d_\lambda=\operatorname{dim}_F\left(E_\lambda^1\right)$, then $\Sigma_\lambda d_\lambda=\operatorname{dim}_F(V)$;
+            \item if $\lambda_1, \ldots, \lambda_m$ are the distinct eigenvalues of $T$, then
+
+            $$
+            V=E_{\lambda_1}^1 \oplus \cdots \oplus E_{\lambda_m}^1
+            $$
+        \end{enumerate}
     \end{theorem}
+
 
 
             

@@ -15,7 +15,8 @@
 \contentsline {chapter}{\chapternumberline {4}Supremum, Infimum, and Completeness}{23}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Supremum and Infimum}{23}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Nested Intervals}{26}{section.4.2}%
-\contentsline {chapter}{\chapternumberline {5}Sequences*}{28}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}Sequences}{28}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Basic Definitions and Examples}{28}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Convergence}{29}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Subsequences}{39}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Limit Inferior and Limit Superior}{41}{section.5.4}%

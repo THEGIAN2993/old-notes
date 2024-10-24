@@ -1,4 +1,4 @@
-\chapter{Sequences*}\label{chapter:sequences}
+\chapter{Sequences}\label{chapter:sequences}
 \vspace{12pt}
 
 \section{Basic Definitions and Examples}
@@ -790,3 +790,123 @@
                 \end{equation*}
             Thus $(x_{n_k})_k$ is a subsequence with $x_{n_k} \not\in V_{\epsilon_0}(x)$, so $|x_{n_k} - x | \geq \epsilon_0$ for all $k=1,2,3,...$
         \end{proof}
+
+    \begin{definition}
+        If $(x_n)_n$ is a sequence of real numbers, a \textui{peak} of the sequence is a term $x_m$ satisfying $x_m \geq x_n$ for all $n \geq m$.
+    \end{definition}
+
+    \begin{proposition}\label{prop:monotone-subsequence}
+        Let $(x_n)_n$ be a real sequence. There is a subsequence that is monotone.
+    \end{proposition}
+        \begin{proof}
+            Case 1: There are infinitely many peaks. Let $x_{n_1},x_{n_2},x_{n_3}...$ be an enumeration of peaks. Then $(x_{n_k})_k$ is decreasing by definition.
+
+            Case 2: There are finitely many peaks. Let $x_{m_1},x_{m_2},...,x_{m_r}$ be the peaks of our sequence where $m_1 < m_2 < ... < m_r$. Let $n_1 = m_r + 1$. Since $x_{n_1}$ is not a peak, there exists $n_2 > n_1$ such that $x_{n_2} > x_{n_1}$. Since $x_{n_2}$ is not a peak, there exists $n_3 > n_2$ such that $x_{n_3} > x_{n_2}$. Inductively, we obtain a sequence $(x_{n_k})_k = (x_{n_1},x_{n_2},x_{n_3},...)$ with $x_{n_k} < x_{n_{k+1}}$.
+        \end{proof}
+
+    \begin{theorem}[Bolzano-Weierstass Theorem]
+        If $(x_n)_n$ is a real sequence that is bounded, it admits a convergent subsequence.
+    \end{theorem}
+        \begin{proof}
+            By Proposition~\ref{prop:monotone-subsequence}, there exists a subsequence $(x_{n_k})$ which is monotone and bounded. By the \nameref{thm:monotome-conv-thm}, $(x_{n_k})_k$ converges.
+        \end{proof}
+
+\section{Limit Inferior and Limit Superior}
+    \begin{definition}
+        Let $X = (x_n)_n$ be a fixed bounded sequence who's limit may not exist. Then
+            \begin{equation*}
+            \begin{split}
+                \overline{X} = \{t \in \bfR \mid t = \lim_{k \rightarrow \infty}x_{n_k}, \hspace{-3pt}\mtext{$x_{n_k}$ some subsequence} \hspace{-5pt}\}
+            \end{split}
+            \end{equation*}
+        is the set containing all \textui{subsequential limits} (or \textui{limit points}) of $X$.
+    \end{definition}
+
+    \begin{example}
+        Let $X = ((-1)^n)_n$. Then $\overline{X} = \{-1,1\}$.
+    \end{example}
+
+    \iffalse
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $X = ((-1)^n)_n$. Then $\overline{X} = \{-1,1\}$.
+            \item Recall that $\bfQ \cap [0,1]$ is countable, hence we can enumarate $(r_n)_{n=1}^\infty = R$. Claim: $\overline{R} = [0,1]$...f.
+        \end{enumerate}
+    \end{example}
+    \fi
+
+    \begin{example}
+        Fix a bounded sequence $(x_n)_n$. Let
+            \begin{equation*}
+            \begin{split}
+                u_1 &= \sup_{n \geq 1}(x_n), \\
+                l_1 &= \inf_{n \geq 1}(x_n).
+            \end{split}
+            \end{equation*}
+        If a subsequence $(x_{n_k})_k \rightarrow x$, we know $x \in [l_1,u_1]$ because $l_1 \leq x \leq u_1$. Hence $l_1 \leq x_{n_k} \leq u_1$. Now let
+            \begin{equation*}
+            \begin{split}
+                u_2 &= \sup_{n \geq 2}(x_n), \\
+                l_2 &= \inf_{n \geq 1}(x_n).
+            \end{split}
+            \end{equation*}
+        We have $u_2 \leq u_1$ (we know $u_1$ is an upper bound for all $n \geq 2$, hence $u_2$ must be the least upper bound) and $l_1 \leq l_2$. Similarly, if $(x_{n_k})_k \rightarrow x$ for some subsequence, then $x \in [l_2, u_2]$ because $l_2 \leq x_{n_k} \leq u_2$ for $k$ large enough. Inductively:
+            \begin{equation*}
+            \begin{split}
+                u_m = \sup_{n \geq m} x_n, \\
+                l_m = \inf_{n \geq m } x_n.
+            \end{split}
+            \end{equation*}
+        We get:
+            \begin{equation*}
+            \begin{split}
+                l_1 \leq l_2 \leq ... \leq l_m \leq u_m \leq ... \leq u_2 \leq u_1 .
+            \end{split}
+            \end{equation*}
+        This holds for all $m \geq 1$. Let $I_m = [l_m, u_m]$. Then $(I_m)_m$ is a sequence of closed and bounded nested intervals. So
+            \begin{equation*}
+            \begin{split}
+                \bigcap_{m\geq 1} I_m = [l,u]
+            \end{split}
+            \end{equation*}
+        where
+            \begin{equation*}
+            \begin{split}
+                l &= \sup_{m \geq 1}l_m = \sup_{m \geq 1}\left(\inf_{n \geq m}x_n\right), \\
+                u &= \inf_{m \geq 1}u_m  = \inf_{m \geq 1}\left(\sup_{n \geq m}x_n\right). 
+            \end{split}
+            \end{equation*}
+        Note that:
+            \begin{equation*}
+            \begin{split}
+                \sup_{m \geq 1}l_m = \lim_{m \rightarrow \infty} l_m \\
+                \inf_{m \geq 1}u_m = \lim_{m \rightarrow \infty} u_m.
+            \end{split}
+            \end{equation*}
+        This follows from the \nameref{thm:monotome-conv-thm}, as $(l_m)_m$ is an increasing sequence bounded above and $(u_m)_m$ is a decreasing sequence bounded below.
+    \end{example}
+
+    \begin{definition}
+        Let $(x_n)_n$ be a bounded sequence.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\displaystyle l = \lim_{m \rightarrow \infty} l_m = \lim_{m \rightarrow \infty}\left(\inf_{n \geq m}x_n\right) := \liminf x_n$.
+                \item $\displaystyle u = \lim_{m \rightarrow \infty} u_m = \lim_{m \rightarrow \infty}\left(\sup_{n \geq m}x_n\right) := \limsup x_n$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $X = (x_n)_n$ be a bounded sequence with $l = \liminf x_n$ and $u = \limsup x_n$. If $x \in X$, then $x \in [l,u]$. We have:
+            \begin{equation*}
+            \begin{split}
+                l_{n_k} = \inf_{n \geq n_k}x_n \leq x_{n_k}.
+            \end{split}
+            \end{equation*}
+        Taking the limit as $k\rightarrow \infty$ yields $l \leq x$. Similarly, we have:
+            \begin{equation*}
+            \begin{split}
+                u_{n_k} = \sup_{n \geq n_k}x_n \geq x_{n_k}.
+            \end{split}
+            \end{equation*}
+        Taking the limit as $k \rightarrow \infty$ yields $x \leq u$. Thus $x \in [l,u]$.
+    \end{proposition}

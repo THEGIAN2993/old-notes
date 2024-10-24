@@ -18,5 +18,6 @@
 \contentsline {section}{\numberline {4.3}Characteristic Polynomials}{39}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Jordan Canonical Form}{46}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Diagonalization, II}{49}{section.4.5}%
-\contentsline {chapter}{\chapternumberline {5}Tensor Products and Determinants}{50}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Extension of Scalars}{50}{section.5.1}%
+\contentsline {chapter}{\chapternumberline {5}Tensor Products, Exterior Algebras, and Determinants}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Complexification and Free Vector Spaces}{51}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Extension of Scalars}{55}{section.5.2}%

@@ -1,4 +1,271 @@
-\chapter{Tensor Products and Determinants}
+\chapter{Tensor Products, Exterior Algebras, and Determinants}
 \vspace{12pt}
 
+\section{Complexification and Free Vector Spaces}
+    Recall that if $V$ is a $\bfC$-vector space, then $V$ is also an $\bfR$-vector space by restricting the scalars of $\bfC$. A natural question to ask is if $V$ is an $\bfR$-vector space, can we "extend" $V$ to be a $\bfC$-vector space?
+
+    \begin{example}[Complexification of $\bfR$]
+        Let $V = \bfR$. We cannot make $\bfR$ into a $\bfC$-vector space. However, we do have $\bfR \hookrightarrow \bfC$ by $x \mapsto x + 0i$, with $\bfC$ as a $\bfC$-vector space. But note that $z \in \bfC$ can we written as $z = x+yi$. There is an isomorphism $\bfR \oplus \bfR \cong \bfC$ as $\bfR$-vector spaces by:
+            \begin{equation*}
+            \begin{split}
+                x+yi \mapsto (x,y)
+            \end{split}
+            \end{equation*}
+        If we take $z = x+yi \in \bfC$ to be a vector, and $a+bi \in \bfC$ to be a scalar, we have:
+            \begin{equation*}
+            \begin{split}
+                (a+bi)(x+yi) = (ax-by)+(ay+bx)i,
+            \end{split}
+            \end{equation*}
+        meaning in $\bfR \oplus \bfR$ we define:
+            \begin{equation*}
+            \begin{split}
+                (a+bi)(x,y) = (ax-by,ay+bx)
+            \end{split}
+            \end{equation*}
+        With scalar multiplication defined as above, then $\bfR \oplus \bfR$ is a $\bfC$-vector space. Furthermore, we have $\bfR \oplus \bfR \cong \bfC$ as \textit{$\bfC$-vector spaces}!
+    \end{example}
+
+    \begin{definition}
+        Let $V$ be a real vector space. The \textui{complexification} of $V$ is denoted $V_\bfC = V \oplus V$, where complex scalar multiplication is defined by:
+            \begin{equation*}
+            \begin{split}
+                (a+bi)(v_1,v_2) = (av_1 - bv_2, av_2 + bv_1).
+            \end{split}
+            \end{equation*}
+        Upon investigation one can see:
+            \begin{equation*}
+            \begin{split}
+                i(v_1,v_2) = (-v_2,v_1).
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{exercise}
+        Prove that $V_\bfC$ is a $\bfC$-vector space.
+    \end{exercise}
+
+    \begin{proposition}
+        Let $\cB = \{v_i\}_{i \in I}$ be an $\bfR$-basis of $V$. The set $\cB_\bfC = \{(v_j,0_V)\}_{j \in I}$ is a $\bfC$-basis of $V_\bfC$.
+    \end{proposition}
+        \begin{proof}
+            Let $(w_1,w_2) \in V_\bfC$. We can write:
+                \begin{equation*}
+                \begin{split}
+                    w_1 &= \sum_{j \in I}a_j v_j \\
+                    w_2 &= \sum_{j \in I}b_j v_j
+                \end{split}
+                \end{equation*}
+            for some $a_j,b_j \in \bfR$. We have:
+                \begin{equation*}
+                \begin{split}
+                     (w_1,w_2)
+                     & = \left(\sum_{j \in I}a_jv_j, \sum_{j \in I}b_j v_j\right) \\
+                     & = \left(\sum_{j \in I}a_jv_j, 0_V\right) + \left( 0_V, \sum_{j \in I}b_j v_j\right) \\
+                     & = \sum_{j \in I}a_j(v_j,0_V) + \sum_{j \in I}b_j(0_V,v_j) \\
+                     & = \sum_{j \in I}a_j(v_j,0_V) + \sum_{j \in I}ib_j(v_j,0_V) \\
+                     &\in \Span_\bfC \left\{(v_j,0_V)\right\}_{i \in I}.
+                \end{split}
+                \end{equation*}
+            Now suppose we have $(0_V,0_V) = \sum_{j \in I}(a_j + ib_j)(v_j,0_V)$. Then:
+                \begin{equation*}
+                \begin{split}
+                    (0_V,0_V) 
+                    &= \sum_{j \in I}(a_j + ib_j)(v_j,0_V) \\
+                    & = \sum_{j \in I}a_j(v_j,0_V) + \sum_{j \in I}ib_j(v_j,0_V) \\
+                    & = \left(\sum_{j \in I}a_jv_j, 0_V\right) + i \left(\sum_{j \in I}b_jv_j,0_V\right) \\
+                    & = \left(\sum_{j \in I}a_jv_j, 0_V\right) + \left(\sum_{j \in I}0_V,b_jv_j\right) \\
+                    & = \left(\sum_{j \in I}a_jv_j, \sum_{j \in I}b_jv_j\right),
+                \end{split}
+                \end{equation*}
+            meaning:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j \in I}a_jv_j &= 0_V \\
+                    \sum_{j \in I}b_jv_j &= 0_V.
+                \end{split}
+                \end{equation*}
+            So $a_j = 0$ for all $j$ and $b_j = 0$ for all $j$. Thus $\left\{(v_j,0_V)\right\}_{j \in I}$ are linearly independent.
+        \end{proof}
+
+    \begin{proposition}
+        Let $V,W$ be $\bfR$-vector spaces, and let $T \in \Hom_\bfR(V,W)$. There is a unique $T_\bfC \in \Hom_\bfC(V_\bfC,W_\bfC)$ that makes the following diagram commute:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[d, "\iota_V"', hook] \arrow[r, "T"] & W \arrow[d, "\iota_W", hook] \\
+                    V_\bfC \arrow[r, "T_\bfC"']                  & W_\bfC                      
+                \end{tikzcd}
+            \end{center}
+    \end{proposition}
+        \begin{proof}
+            Define 
+                \begin{equation*}
+                \begin{split}
+                    T_\bfC(v_1,v_2) = (T(v_1),T(v_2)).
+                \end{split}
+                \end{equation*}
+            Let $v \in V$. We have $\iota_V(v) = (v,0_V)$, meaning:
+                \begin{equation*}
+                \begin{split}
+                    T_\bfC(\iota_V(v)) 
+                    &= T_\bfC((v,0_V)) \\
+                    & = (T(v),T(0_V)) \\
+                    & = (T(v),0_W),
+                \end{split}
+                \end{equation*}
+            and:
+                \begin{equation*}
+                \begin{split}
+                    \iota_W(T(v)) = (T(v),0_W).
+                \end{split}
+                \end{equation*}
+            Hence the diagram commutes. We claim that $T_\bfC$ is $\bfC$-linear. Let $x+iy \in \bfC$ and $(v_1,v_2),(v_1',v_2
+            ) \in V_\bfC$. Then:
+                \begin{equation*}
+                \begin{aligned}
+                T_{\mathbf{C}}\left(\left(v_1, v_2\right)+(x+\mathrm{iy})\left(v_1^{\prime}, v_2^{\prime}\right)\right) & =T_{\mathbf{C}}\left(\left(v_1, v_2\right)+\left(x v_1^{\prime}-y v_2^{\prime}, x v_2^{\prime}+y v_1^{\prime}\right)\right) \\
+                & =T_{\mathbf{C}}\left(\left(v_1+x v_1^{\prime}-y v_2^{\prime}, v_2+x v_2^{\prime}+y v_1^{\prime}\right)\right) \\
+                & =\left(T\left(v_1+x v_1^{\prime}-y v_2^{\prime}\right), T\left(v_2+x v_2^{\prime}+y v_1^{\prime}\right)\right) \\
+                & =\left(T\left(v_1\right), T\left(v_2\right)\right)+x\left(\mathrm{~T}\left(v_1^{\prime}\right), T\left(v_2^{\prime}\right)\right)+y\left(-T\left(v_2^{\prime}\right), T\left(v_1^{\prime}\right)\right) \\
+                & =\left(T\left(v_1\right), T\left(v_2\right)\right)+(x+i y)\left(T\left(v_1^{\prime}\right), T\left(v_2^{\prime}\right)\right) \\
+                & =T_{\mathbf{C}}\left(v_1, v_2\right)+(x+\mathrm{iy}) T_{\mathbf{C}}\left(v_1^{\prime}, v_2^{\prime}\right) .
+                \end{aligned}
+                \end{equation*}
+            Hence $T_\bfC$ is linear. Now suppose there is an $S \in \Hom_\bfC(V_\bfC,W_\bfC)$ making the following diagram commute:
+                \begin{center}
+                    \begin{tikzcd}
+                        V \arrow[d, "\iota_V"', hook] \arrow[r, "T"] & W \arrow[d, "\iota_W", hook] \\
+                        V_\bfC \arrow[r, "S"']                  & W_\bfC                      
+                    \end{tikzcd}
+                \end{center}
+            Let $v_1,v_2 \in V_\bfC$. Then:
+                \begin{equation*}
+                \begin{split}
+                    S((v_1,v_2))
+                    & = S((v_1,0_V) + (0_V,v_2)) \\
+                    & = S((v_1,0_V) + i(v_2,0_V)) \\
+                    & = S((v_1,0_V)) + iS((v_2,0_V)) \\
+                    & = S(\iota_V(v_1)) + iS(\iota_V(v_2)) \\
+                    & = \iota_W(T(v_1)) + i \iota_W(T(v_2)) \\
+                    & = (T(v_1),0_W) + i(T(v_2),0_W) \\
+                    & = (T(v_1,0_W)) + (0_W,T(v_2)) \\
+                    & = (T(v_1),T(v_2)) \\
+                    & = T_\bfC((v_1,v_2)).
+                \end{split}
+                \end{equation*}
+            Thus $T_\bfC$ is unique.
+        \end{proof}
+
+    \begin{question}
+        We showed in Section~\ref{section:vector-bases} that every vector space has a basis. However, if given a set $X$, can we build a vector space that has $X$ as a basis?
+    \end{question}
+        \begin{answer}
+            Yes.
+        \end{answer}
+
+    \begin{theorem}[Existence of Free Vector Space]
+        Let $F$ be a field and $\Gamma$ a set. There is an $F$-vector space $F(\Gamma)$ that has basis $\cX \cong \Gamma$ (as sets). Moreover, $F(\Gamma)$ has the following universal property: if $W$ is any $F$-vector space and $t:\Gamma \rightarrow W$ is a map of sets, there is a unique $T \in \Hom_F(F(\Gamma),W)$ such that $T(x) = t(x)$ for every $x \in \Gamma$; i.e., the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    \Gamma \arrow[r, "\iota", hook] \arrow[rd, "t"'] & F(\Gamma) \arrow[d, "T"] \\
+                                                                & W                  
+                \end{tikzcd}
+            \end{center}
+    \end{theorem}
+        \begin{proof}
+            If $\Gamma$ is the empty set, we take $F(\Gamma) = \{0\}$. Let $\Gamma \neq \emptyset$. Define:
+                \begin{equation*}
+                \begin{split}
+                    F(\Gamma) = \left\{f:\Gamma \rightarrow F \mid f(x)\mtext{finitely supported}\hspace{-5pt}\right\}.
+                \end{split}
+                \end{equation*}
+            There is a natural vector space structure on this set. Let $c \in F$ and $f,g \in F(\Gamma)$. If $f,g$ are finitely supported then $(f+g)(x)$, and similarly $(cf)(x) = cf(x)$ is finitely supported. The zero element of this set is $f(x) = 0_{F(\Gamma)}$. The rest of the vector space axioms are left as an exercise.
+
+            Given any $y \in \Gamma$, define:
+                \begin{equation*}
+                \begin{split}
+                    f_y(x) = \begin{cases} 1, &x = y \\ 0, &x \neq y\end{cases}.
+                \end{split}
+                \end{equation*}
+            We get an inclusion $\Gamma \hookrightarrow F(\Gamma)$ by $x \mapsto f_x$. Let $\cX = \{f_x \mid x \in \Gamma\}$, this is a subset of $F(\Gamma)$ and furthermore we have a bijection $\Gamma \hooktwoheadrightarrow \cX$.
+
+            We claim that $\cX$ is a basis for $F(\Gamma)$. Note that for any $f \in F(\Gamma)$, {\color{red} we have $f = \sum_{x \in \Gamma}f(x)f_x$. This gives $\Span_F(\cX) = F(\Gamma)$.} Note that:
+                \begin{equation*}
+                \begin{split}
+                    f(y)
+                    & = f(y)f_y(y) \\
+                    & = f(y)f_y(y) + \sum_{x \neq y}f(x)f_x(y) \\
+                    & = \sum_{x \in \Gamma}f(x)f_x(y).
+                \end{split}
+                \end{equation*}
+            Now suppose $\sum_{i = 1}^n a_if_{x_i} = 0_{F(\Gamma)}$. In particular, $\sum_{i = 1}^n a_if_{x_i}(y) = 0$ for all $y \in \Gamma$. Thus:
+                \begin{equation*}
+                \begin{split}
+                    0 
+                    &= \sum_{i=1}^n a_i f_{x_i}(x_j) \\
+                    & = a_j.
+                \end{split}
+                \end{equation*}
+            Hence $\{f_x\}_{x \in \Gamma}$ is a basis for $F(\Gamma)$.
+
+            We'd like to show that $T$ is unique. Given $t:\Gamma \rightarrow W$ as sets, define $T:F(\Gamma) \rightarrow W$ by:
+                \begin{equation*}
+                \begin{split}
+                    T(\sum_{i = 1}^n a_i f_{x_i})
+                    & = \sum_{i=1}^n a_i t(f^{-1}(x_i)) \\
+                    & = \sum_{i = 1}^n a_i t(x_i).
+                \end{split}
+                \end{equation*}
+            Clearly $T$ is linear and makes the above diagram commute. Furthermore, since $T$ is uniquely determined by the basis elements, it is unique.
+        \end{proof}
+
+    \begin{example}
+        If $\Gamma = \bfR$, we can form $F_\bfR(\bfR)$. An example of  an element of $F_\bfR(\bfR)$ is $2 \cdot \pi + 3 \cdot 2$, where $\pi,2$ are basis elements and $2,3$ are scalars. Note that, from this construction, we cannot simplify this expression.
+    \end{example}
+
+    \begin{exercise}
+        Show that if $\Gamma = \{x_1,...,x_n\}$, then $F(\Gamma) \cong F^n$.
+    \end{exercise}
+
 \section{Extension of Scalars}
+    Let $V$ be an $F$-vector space and $K/F$ an extension of fields. We can naturally consider $K$ as an $F$-vector space. As we did with complexification, we want to define a way to "multiply" vectors in $V$ by scalars in $K$. The way we define "multiplication" should be obvious: Let $a, a_1,a_2 \in K$, $c\in F$, and $v,v_1,v_2 \in V$. We want multiplication to satisfy:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $(a_1 + a_2) \star v$;
+            \item $a \star (v_1 + v_2) = a \star v_1 + a \star v_2$;
+            \item $(ac) \star v = a \star (cv)$.
+        \end{enumerate}
+    We will construct a vector space that satisfies exactly this by constructing the \textit{tensor product} of $V$ with $K$.
+
+    \begin{definition}
+        Let $V$ be an $F$-vector space and $K/F$ be an extension of fields. Let $K \times V$ be the Cartesian product of $K$ and $V$ as sets and define:
+            \begin{equation*}
+            \begin{split}
+                \cA_1 &= \{(a_1 + a_2,v)-(a_1,v)-(a_2,v) \mid a_1,a_2 \in K, v\in V\}, \\
+                \cA_2 &= \{(a,v_1 + v_2) - (a,v_1) - (a,v_2) \mid a \in K, v_1,v_2 \in V\}, \\
+                \cA_3 &= \{(ca,v) - (a,cv) \mid c \in F, a \in K, v\in V\}, \\
+                \cA_4 &= \{a_1(a_2,v) - (a_1 a_2,v) \mid a_1,a_2 \in K,v \in V\}.
+            \end{split}
+            \end{equation*}
+        Define $\Rel_K(K \times V) = \Span_F(\cA_1,\cA_2,\cA_3,\cA_4)$. The \textui{tensor product} of $K$ and $V$ over $F$ is:
+            \begin{equation*}
+            \begin{split}
+                K \otimes_F V = F(K \times V)/\Rel_K(K \times V).
+            \end{split}
+            \end{equation*}
+        We denote the equivalence classes $(a,v) + \Rel_K(K \times V)$ by $a \otimes v$ which admit the following properties:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $(a_1 + a_2) \otimes v = a_1 \otimes v + a_2 \otimes v$ for all $a_1,a_2 \in K$, $v \in V$;
+                \item $a \otimes (v_1 + v_2) = a \otimes v_1 + a \otimes v_2$ for all $a \in K$, $v_1,v_2 \in V$;
+                \item $ca \otimes v = a \otimes cv$ for all $c \in F$, $a \in K$, and $v \in V$;
+                \item $a_1(a_2 \otimes v) = (a_1 a_2)\otimes v$ for all $a_1,a_2 \in K$, $v \in V$.
+            \end{enumerate}
+        An element in $K \otimes_F V$ is of the form $\sum_{i \in I}c_i(a_i \otimes v_i)$\footnote{Recall that elements of a free vector space are finitely supported sums. I think this is why we look at sums? Ask Brown}, where $c_i$ is $0$ for all but finitely many $i$. This is typically rewritten as $\sum_{i \in I}c_i a_i(1 \otimes v_i) = \sum_{i \in I}(b_i \otimes v_i)$, where $b_i \in K$ and $b_i = 0$ for all but finitely many $i$. An element of the form $a \otimes v$ is referred to as a \textui{pure tensor}.
+    \end{definition}
+
+    \begin{note}
+        Since $K \otimes_F V$ is a quotient space, there must be care in checking things are well-defined when working with tensor products. Likewise, \textbf{an arbitrary element of $K \otimes_F V$ is a finite sum.} It is a common mistake when working with tensor products to check things for pure tensors without remembering that is not a typical element.
+    \end{note}
+
+    \begin{exercise}
+        Show that $K \otimes_F V$ is a $K$-vector space. (Hint: $0 \otimes 0_V$ is the additive identity in $K \otimes_F V$).
+    \end{exercise}

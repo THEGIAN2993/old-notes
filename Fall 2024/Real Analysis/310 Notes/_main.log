@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  21 OCT 2024 01:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  23 OCT 2024 09:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2543,7 +2543,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[39])
+[39]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2552,6 +2552,22 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [40]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[41])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[42]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -2571,21 +2587,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 45B21DCE241C554ADD2A78F711EEB4D6;1353.
+(rerunfilecheck)             Checksum: 1B3F1E5EA5229C7FDEFDD9F2ED692040;1444.
  ) 
 Here is how much of TeX's memory you used:
- 53547 strings out of 474116
- 1153355 string characters out of 5743683
+ 53576 strings out of 474116
+ 1153891 string characters out of 5743683
  1956187 words of memory out of 5000000
- 73994 multiletter control sequences out of 15000+600000
- 790482 words of font info for 608 fonts, out of 8000000 for 9000
+ 73999 multiletter control sequences out of 15000+600000
+ 790630 words of font info for 610 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (41 pages, 344533 bytes).
+Output written on _main.pdf (43 pages, 350961 bytes).
 PDF statistics:
- 1070 PDF objects out of 1200 (max. 8388607)
- 983 compressed objects within 10 object streams
- 585 named destinations out of 1000 (max. 500000)
- 82105 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1109 PDF objects out of 1200 (max. 8388607)
+ 1019 compressed objects within 11 object streams
+ 606 named destinations out of 1000 (max. 500000)
+ 82113 words of extra memory for PDF output out of 89155 (max. 10000000)
 
