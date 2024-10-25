@@ -910,3 +910,108 @@
             \end{equation*}
         Taking the limit as $k \rightarrow \infty$ yields $x \leq u$. Thus $x \in [l,u]$.
     \end{proposition}
+
+    \begin{question}
+        Does $\overline{X} = [l,u]$?
+    \end{question}
+        \begin{answer}
+            No. Take for example $x_n = (-1)^n$. Then $u = 1$ and $l = -1$ But $\overline{X} = \{-1,1\} \subset [-1,1]$.
+        \end{answer}
+
+    \begin{proposition}
+        Let $(x_n)_n=X$ be a bounded sequence with $u_m = \sup_{n \geq m} x_n$. We have a strictly decreasing sequence $u_1 \geq u_2 \geq ...$ There exists a subsequence $(x_{n_k})_k \rightarrow u$. There exists a subsequence $(x_{n_k})_k \rightarrow l$. Equivalently, $u,l \in \overline{X}$.
+    \end{proposition}
+        \begin{proof}
+            Recall that $u_m = \sup_{n \geq m}x_n$. By the supremum property:
+                \begin{equation*}
+                \begin{split}
+                    \exists n_1 \in \bfN \mtext{with} &u_1-1 < x_{n_1} \leq u_1, \\
+                    \exists n_2 \in \bfN \mtext{with} n_2 > n_1 + 1 > n_1 \mtext{and} &u_{n_1 + 1} - \frac{1}{2} < x_{n_2} \leq u_{n_1 + 1}, \\
+                    \exists n_3 \in \bfN \mtext{with} n_3 \geq n_2 + 1 > n_2 \mtext{and}& u_{n_2 +1} - \frac{1}{3} < x_{n_3} \leq u_{n_2 + 1}.
+                \end{split}
+                \end{equation*}
+            Inductively:
+                \begin{equation*}
+                \begin{split}
+                    u_{n_{k-1} + 1} - \frac{1}{k} < x_{n_k} \leq u_{n_{k-1} + 1}.
+                \end{split}
+                \end{equation*}
+            Let $m_k = n_{k-1} + 1$. We can rewrite the above equation as:
+                \begin{equation*}
+                \begin{split}
+                    u_{m_k} - \frac{1}{k} < x_{n_k} \leq u_{m_k}.
+                \end{split}
+                \end{equation*}
+            Letting $k\rightarrow \infty$ gives:
+                \begin{equation*}
+                    \lim_{k \rightarrow \infty} u_{m_k} - \frac{1}{k} < \lim_{k \rightarrow \infty} x_{n_k} \leq \lim_{k \rightarrow \infty}u_{m_k}
+                    \vspace{3pt}
+                \end{equation*}
+                \begin{equation*}
+                    \iff
+                \end{equation*}
+                \begin{equation*}
+                    u < \lim_{k \rightarrow \infty} x_{n_k} \leq u.
+                \end{equation*}
+            By the squeeze theorem, $(x_{n_k})_k \rightarrow u$.
+        \end{proof}
+
+    \begin{proposition}
+        Let $(x_n)_n$ be bounded.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\liminf x_n \leq \limsup x_n$.
+                \item $(x_n)_n \rightarrow x$\hspace{2pt} if and only if \hspace{2pt}$\liminf x_n = \limsup x_n = x$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            We have $l_m \leq u_m$ for all $m \geq 1$ by the previous motivating example. Letting $m \rightarrow \infty$ gives $l \leq u$.
+
+            {\color{red} I don't know the second part}
+        \end{proof}
+
+\section{Cauchy Sequences}
+    \begin{definition}
+        A sequence $(x_n)_n$ is \textui{Cauchy} if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists N \in \bfN) \ni m,n \geq N \implies d(x_n,x_n) < \epsilon.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{example}
+        Prove $\left(\frac{1}{n}\right)_n$ is Cauchy.
+    \end{example}
+        \begin{solution}
+            For $n > m$:
+                \begin{equation*}
+                \begin{split}
+                    |x_m - x_n| 
+                    = \frac{1}{m} -\frac{1}{n} 
+                    = \frac{n-m}{mn} 
+                    < \frac{n}{nm} 
+                    = \frac{1}{m}.
+                \end{split}
+                \end{equation*}
+            We can start the proof. Given $\epsilon > 0$, by Archimedean property $2$ there exists $N$ large satisfying $\frac{1}{N} < \epsilon$. For $n > m \geq N$, we have $|x_m - x_n| < \frac{1}{m} \leq \frac{1}{N} < \epsilon$.
+        \end{solution}
+
+    \begin{proposition}
+        Cauchy sequences are bounded.
+    \end{proposition}
+        \begin{proof}
+            Pick $\epsilon = 1$. There exists $N \in  \bfN$ such that $m,n \geq N$ implies $|x_n - x_m| < 1$. Let $c = \max \{|x_1|,...,|x_N|\}$. For $n \geq N$, we have $|x_n| = |x_n - x_N + x_N| \leq |x_n - x_N| + |x_N| \leq 1+|x_N|$. So $|x_n| \leq c'$, where $c' = \max\{c, 1 + |x_N|\}$.
+        \end{proof}
+
+    \begin{lemma}
+        If $(x_n)_n$ is Cauchy and there exists a subsequence $(x_{n_k})_k$ with $(x_{n_k})_k \rightarrow x$, then $(x_n)_n \rightarrow x$.
+    \end{lemma}
+
+    \begin{theorem}
+        Let $(x_n)_n$ be a sequence. $(x_n)_n$ is Cauchy if and only if $(x_n)_n$ converges.
+    \end{theorem}
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $|x_n - x| < \frac{\epsilon}{2}$. For $m,n \geq N$, we have $|x_n - x_m| = |x_n - x + x_m - x| \leq |x_n - x| = |x_m - x| < \epsilon$.
+
+            $(\Leftarrow)$ If $(x_n)_n$ is Cauchy then $(x_n)_n$ is bounded. The Bolzano-Weierstass theorem says gives there exists some convergent subsequence $(x_{n_k})_k$. By Lemma~\ref{poop}, $(x_n)_n \rightarrow x$.
+        \end{proof}

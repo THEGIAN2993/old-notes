@@ -163,23 +163,23 @@
             Yes.
         \end{answer}
 
-    \begin{theorem}[Existence of Free Vector Space]
-        Let $F$ be a field and $\Gamma$ a set. There is an $F$-vector space $F(\Gamma)$ that has basis $\cX \cong \Gamma$ (as sets). Moreover, $F(\Gamma)$ has the following universal property: if $W$ is any $F$-vector space and $t:\Gamma \rightarrow W$ is a map of sets, there is a unique $T \in \Hom_F(F(\Gamma),W)$ such that $T(x) = t(x)$ for every $x \in \Gamma$; i.e., the following diagram commutes:
+    \begin{theorem}[Existence of Free Vector Space]\label{thm:free-vectorspace}
+        Let $F$ be a field and $\Gamma$ a set. There is an $F$-vector space $\cF(\Gamma)$ that has basis $\cX \cong \Gamma$ (as sets). Moreover, $\cF(\Gamma)$ has the following universal property: if $W$ is any $F$-vector space and $t:\Gamma \rightarrow W$ is a map of sets, there is a unique $T \in \Hom_F(\cF(\Gamma),W)$ such that $T(x) = t(x)$ for every $x \in \Gamma$; i.e., the following diagram commutes:
             \begin{center}
                 \begin{tikzcd}
-                    \Gamma \arrow[r, "\iota", hook] \arrow[rd, "t"'] & F(\Gamma) \arrow[d, "T"] \\
+                    \Gamma \arrow[r, "\iota", hook] \arrow[rd, "t"'] & \cF(\Gamma) \arrow[d, "T"] \\
                                                                 & W                  
                 \end{tikzcd}
             \end{center}
     \end{theorem}
         \begin{proof}
-            If $\Gamma$ is the empty set, we take $F(\Gamma) = \{0\}$. Let $\Gamma \neq \emptyset$. Define:
+            If $\Gamma$ is the empty set, we take $\cF(\Gamma) = \{0\}$. Let $\Gamma \neq \emptyset$. Define:
                 \begin{equation*}
                 \begin{split}
-                    F(\Gamma) = \left\{f:\Gamma \rightarrow F \mid f(x)\mtext{finitely supported}\hspace{-5pt}\right\}.
+                    \cF(\Gamma) = \left\{f:\Gamma \rightarrow F \mid f(x)\mtext{finitely supported}\hspace{-5pt}\right\}.
                 \end{split}
                 \end{equation*}
-            There is a natural vector space structure on this set. Let $c \in F$ and $f,g \in F(\Gamma)$. If $f,g$ are finitely supported then $(f+g)(x)$, and similarly $(cf)(x) = cf(x)$ is finitely supported. The zero element of this set is $f(x) = 0_{F(\Gamma)}$. The rest of the vector space axioms are left as an exercise.
+            There is a natural vector space structure on this set. Let $c \in F$ and $f,g \in \cF(\Gamma)$. If $f,g$ are finitely supported then $(f+g)(x)$, and similarly $(cf)(x) = cf(x)$ is finitely supported. The zero element of this set is $f(x) = 0_{F(\Gamma)}$. The rest of the vector space axioms are left as an exercise.
 
             Given any $y \in \Gamma$, define:
                 \begin{equation*}
@@ -187,9 +187,9 @@
                     f_y(x) = \begin{cases} 1, &x = y \\ 0, &x \neq y\end{cases}.
                 \end{split}
                 \end{equation*}
-            We get an inclusion $\Gamma \hookrightarrow F(\Gamma)$ by $x \mapsto f_x$. Let $\cX = \{f_x \mid x \in \Gamma\}$, this is a subset of $F(\Gamma)$ and furthermore we have a bijection $\Gamma \hooktwoheadrightarrow \cX$.
+            We get an inclusion $\Gamma \hookrightarrow \cF(\Gamma)$ by $x \mapsto f_x$. Let $\cX = \{f_x \mid x \in \Gamma\}$, this is a subset of $\cF(\Gamma)$ and furthermore we have a bijection $\Gamma \hooktwoheadrightarrow \cX$.
 
-            We claim that $\cX$ is a basis for $F(\Gamma)$. Note that for any $f \in F(\Gamma)$, {\color{red} we have $f = \sum_{x \in \Gamma}f(x)f_x$. This gives $\Span_F(\cX) = F(\Gamma)$.} Note that:
+            We claim that $\cX$ is a basis for $F(\Gamma)$. Note that for any $f \in \cF(\Gamma)$, {\color{red} we have $f = \sum_{x \in \Gamma}f(x)f_x$. This gives $\Span_F(\cX) = F(\Gamma)$.} Note that:
                 \begin{equation*}
                 \begin{split}
                     f(y)
@@ -206,12 +206,12 @@
                     & = a_j.
                 \end{split}
                 \end{equation*}
-            Hence $\{f_x\}_{x \in \Gamma}$ is a basis for $F(\Gamma)$.
+            Hence $\{f_x\}_{x \in \Gamma}$ is a basis for $\cF(\Gamma)$.
 
-            We'd like to show that $T$ is unique. Given $t:\Gamma \rightarrow W$ as sets, define $T:F(\Gamma) \rightarrow W$ by:
+            We'd like to show that $T$ is unique. Given $t:\Gamma \rightarrow W$ as sets, define $T:\cF(\Gamma) \rightarrow W$ by:
                 \begin{equation*}
                 \begin{split}
-                    T(\sum_{i = 1}^n a_i f_{x_i})
+                    T\left(\sum_{i = 1}^n a_i f_{x_i}\right)
                     & = \sum_{i=1}^n a_i t(f^{-1}(x_i)) \\
                     & = \sum_{i = 1}^n a_i t(x_i).
                 \end{split}
@@ -269,3 +269,111 @@
     \begin{exercise}
         Show that $K \otimes_F V$ is a $K$-vector space. (Hint: $0 \otimes 0_V$ is the additive identity in $K \otimes_F V$).
     \end{exercise}
+
+    \begin{proposition}\label{prop:basis-of-tensor}
+        Let $K/F$ be a field extension and $V$ an $F$-vector space with basis $\cB = \{v_i\}_{i \in I}$. We have $\Span_K \left\{1 \otimes v_i\right\}_{i \in I} = K \otimes_F V$.
+    \end{proposition}
+        \begin{proof}
+            Assume all sums in this proof to be finite. Let $a \otimes v \in K\otimes_F V$. Write $v = \sum_{i=1}^n c_i v_i$ for some $c_i \in F$. We have:
+                \begin{equation*}
+                \begin{split}
+                    a \otimes v 
+                    & = a \otimes \left(\sum_{i=1}^n c_i v_i\right) \\
+                    & = \sum_{i = 1}^n a \otimes c_i v_i \\
+                    & = \sum_{i = 1}^n ac_i \otimes v_i \\
+                    & = \sum_{i = 1}^n ac_i(1 \otimes v_i).
+                \end{split}
+                \end{equation*}
+            From this, it follows that every pure tensor $a \otimes v$ is also in the span of $\{1 \otimes v_i\}_{i \in I}$. This gives that all finite sums of the form $\sum_{j \in I}a_j \otimes \tilde{v}_j$ are also in the span of $\{1 \otimes v_i\}_{i \in I}$. Hence $\Span_F \left\{1 \otimes v_i\right\}_{i \in I} = K \otimes_F V$.
+        \end{proof}
+
+    \begin{theorem}
+        Let $K/F$ be an extension of fields, $V$ an $F$-vectorspace, and $\iota_V:V \rightarrow K \otimes_F V$ defined by $\iota_V (v) = 1 \otimes v$. Let $W$ be any $K$-vector space and $S \in \Hom_F(V,W)$. There is a unique $T \in \Hom_K(K \otimes_F V,W)$ so that $S = T \circ \iota_V$; i.e., the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[r, "\iota_V"] \arrow[rd, "S"'] & K \otimes_F V \arrow[d, "T"] \\
+                                                            & W                           
+                \end{tikzcd}
+            \end{center}
+        Conversely, if $T \in \Hom_K(K \otimes_F V,W)$, then $T \circ \iota_V \in \Hom_F(V,W)$.
+    \end{theorem}
+        \begin{proof}
+            Let $S \in \Hom_F(V,W)$. Recall we constructed $K \otimes_F V$ as a quotient of $\cF(K \times V)$. Define:
+                \begin{equation*}
+                \begin{split}
+                    t: K \times V \rightarrow W \mtext{by} (a,v) \mapsto aS(v)
+                \end{split}
+                \end{equation*}
+            as a map of sets. Theorem~\ref{thm:free-vectorspace} tells us that $t$ extends to a map $T \in \Hom_K(\cF(K \times V), W)$ such that $T((a,v)) = t((a,v))$. Since $T$ is linear:
+                \begin{equation*}
+                \begin{split}
+                    T \left(\sum_{i \in I} c_i(a_i,v_i)\right)
+                    & = \sum_{i \in I}T(c_i(a_i,v_i)) \\
+                    & = \sum_{i \in I}c_i T((a_i,v_i)) \\
+                    & = \sum_{i \in I}c_i t((a_i,v_i)) \\
+                    & = \sum_{i \in I}c_i a_i S(v_i). \\
+                \end{split}
+                \end{equation*}
+            We must check that $T$ is the zero map when restricted to $\Rel_K(K \times V)$. We have:
+                \begin{equation*}
+                \begin{split}
+                    T((a+b,v)-(a,v)-(b,v))
+                    & = T((a+b,v)) - T((a,v)) - T((b,v)) \\
+                    & = (a+b)S(v) - aS(v) - bS(v) \\
+                    & = 0_W.
+                \end{split}
+                \end{equation*}
+            The rest of the relations are left as an exercise. Thus we have $T \in \Hom_K(K \otimes_F V , W)$ defined by $T \left(\sum_{i \in I}c_i(a_i \otimes v_i)\right) = \sum_{i \in I}c_i a_i S(v_i)$. To see that the diagram commutes, observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(\iota_V(v)) = T(1 \otimes v) = 1 \cdot S(v) = S(v).
+                \end{split}
+                \end{equation*}
+            From Proposition~\ref{prop:basis-of-tensor}, we saw that $K \otimes_F V$ is spanned by elements of the form $1 \otimes v$. Hence any linear map on $K \otimes_F V$ is determined by the image of these elements. Since $T(1 \otimes v) = S(v)$, we get $T$ is uniquely determined by $S$.
+
+            The converse statement that for any $T \in \Hom_K(K \otimes_F V)$ one has $T \circ \iota_V \in \Hom_F(V,W)$ is left as an exercise.
+        \end{proof}
+
+    \begin{exercise}
+        Complete the proof that $T$ vanishes on all the relations.
+    \end{exercise}
+
+    \begin{exercise}
+        Given $T \in \Hom_K(K \otimes_F V,W)$, show $T \circ \iota_V \in \Hom_F(V,W)$.
+    \end{exercise}
+
+    \begin{proposition}
+        Let $K/F$ be an extension of fields. Then $K \otimes_F F \cong K$ as $K$-vector spaces. 
+    \end{proposition}
+        \begin{proof}
+            There is a natural inclusion map $i: F \rightarrow K$. Let $\iota:F \rightarrow K \otimes_F F$. By the universal property we obtain a unique $K$-linear map $T: K \otimes_F F \rightarrow K$ so that the following diagram commutes:
+                \begin{center}
+                    \begin{tikzcd}
+                        F \arrow[rd, "i"', hook] \arrow[r, "\iota"] & K \otimes_F F \arrow[d, "T"] \\ & K                           
+                    \end{tikzcd}
+                \end{center}
+            We see that $T(1 \otimes x) = i(x)= x$. Since $T$ is $K$-linear this completely determines $T$ because, for $\sum_{i \in I}a_i \otimes x_i \in K \otimes_F F$, we have:
+                \begin{equation*}
+                \begin{split}
+                    T \left(\sum_{i \in I}a_i \otimes x_i\right)
+                    & = \sum_{i \in I}T(a_i \otimes x_i) \\
+                    & = \sum_{i \in I}T(a_i(1 \otimes x_i)) \\
+                    & = \sum_{i \in I} a_i T(1 \otimes x_i) \\
+                    & = \sum_{i \in I}a_i x_i.
+                \end{split}
+                \end{equation*}
+            If we show $T$ has an inverse map, then we obtain an isomorphism. Let $S:K \rightarrow K \otimes_F F$ defined by $y \mapsto y \otimes 1$. Let $a \in K$, and $y_1, y_2 \in K$. Then:
+                \begin{equation*}
+                \begin{split}
+                    S(y_1 + a y_2)
+                    & = ... 
+                \end{split}
+                \end{equation*}
+            Hence $S \in \Hom_K(K,K \otimes_F F)$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    asdf
+                \end{split}
+                \end{equation*}
+            Thus $T^{-1} = S$, and so $K \otimes_F F  \cong K$ as $K$-vector spaces.
+        \end{proof}

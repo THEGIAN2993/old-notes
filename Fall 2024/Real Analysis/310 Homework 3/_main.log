@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  15 OCT 2024 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  24 OCT 2024 23:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1452,15 +1452,15 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 48221 strings out of 474116
- 1055078 string characters out of 5743683
+ 48223 strings out of 474116
+ 1055085 string characters out of 5743683
  1961187 words of memory out of 5000000
- 69675 multiletter control sequences out of 15000+600000
+ 69677 multiletter control sequences out of 15000+600000
  641370 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,17n,117p,1149b,730s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttbi.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/antt/anttri.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on _main.pdf (5 pages, 202988 bytes).
+Output written on _main.pdf (5 pages, 202982 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
