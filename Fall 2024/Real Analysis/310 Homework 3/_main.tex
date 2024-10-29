@@ -2,8 +2,13 @@
 \documentclass[10pt,twoside,openany]{memoir}
 
 
-\usepackage[math]{anttor}
-\usepackage[T1]{fontenc}
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
 
 
 \usepackage{titlesec}
@@ -18,8 +23,6 @@
 \usepackage{comment}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{hyperref}
 \usepackage{fullpage}
@@ -187,15 +190,13 @@
                 \item $A_3 = \left\{ \frac{m}{n} \mid m,n \in \bfN,\hspace{2pt} m+n \leq 10\right\}$.
             \end{enumerate} 
     \end{exercise}
-        {\color{red} \begin{proof}
-            Claim: $\Inf{(A_1)} = \frac{1}{2}$. Note that $\frac{1}{2}$ is a lowerbound because $\frac{1}{2} \leq a$ for all $a \in A_1$. Let $t$ be a lowerbound of $A_1$. If $t \leq \frac{1}{2}$, then we are done. If $t>\frac{1}{2}$, then $t - \frac{1}{2} > 0$. By the Archimedean Property, there exists an element $n \in \bfN$ with $t - \frac{1}{2} > \frac{1}{n}$ This gives $t > \frac{1}{2} + \frac{1}{n}$, which is a contradiction because $\frac{1}{2}+\frac{1}{n} \in A_1$ for all positive natural numbers. Thus $\inf{(A_1)} = \frac{1}{2}$. Note that $2 \geq 1  + \left|  - \frac{(-1)^n}{n}\right| = 1 + \frac{(-1)^n}{n}$ for all $n \in \bfN$. Hence $2$ is an upper bound. Furthermore, since $2 \in A_1$, it must be the case that $\sup(A_1) = 2$.
+        \begin{proof}
+            (1) Claim: $\Inf{(A_1)} = \frac{1}{2}$. Note that $\frac{1}{2}$ is a lowerbound because $\frac{1}{2} \leq a$ for all $a \in A_1$. Let $t$ be a lowerbound of $A_1$. If $t \leq \frac{1}{2}$, then we are done. If $t>\frac{1}{2}$, then $t - \frac{1}{2} > 0$. By the Archimedean Property, there exists an element $n \in \bfN$ with $t - \frac{1}{2} > \frac{1}{n}$ This gives $t > \frac{1}{2} + \frac{1}{n}$, which is a contradiction because $\frac{1}{2}+\frac{1}{n} \in A_1$ for all positive natural numbers. Thus $\inf{(A_1)} = \frac{1}{2}$. Note that $2 \geq 1  + \left|  - \frac{(-1)^n}{n}\right| = 1 + \frac{(-1)^n}{n}$ for all $n \in \bfN$. Hence $2$ is an upper bound. Furthermore, since $2 \in A_1$, it must be the case that $\sup(A_1) = 2$.
 
-            (2) 
+            (2) Claim: $\sup(A_2) = 1$. Note that $1 \geq \frac{1}{n} + \frac{1}{m}$ for all $n,m \in \bfN$. Hence $1$ is an upperbound. Fix $n = 1$. Let $\epsilon > 0$. Then $\epsilon > \frac{1}{m}$ for some $m \in \bfN$. Hence $1 - \epsilon < 1 - \frac{1}{m}$, establishing $\sup(A_2) =1 $. Claim: $\inf(A_2) = -1$. Note that $-1 \leq \frac{1}{n} - \frac{1}{m}$ for all $n,m \in \bfN$. Hence $-1$ is a lower bound. Fix $m=1$. Let $\epsilon > 0$. Then $\epsilon > \frac{1}{n}$ for some $n \in \bfN$. Hence $-1 + \epsilon > \frac{1}{n} - 1$, meaning $\inf(A_2) = -1$. 
 
             (3) Note that $\frac{1}{9} \leq \frac{m}{n} \leq \frac{9}{1}$ for all $m,n \in \bfN$, $m+n \leq 10$. So $\frac{1}{9}$ is a lower bound of $A_3$ and $\frac{9}{1}$ is an upper bound of $A_3$. Since $\frac{1}{9}, \frac{9}{1} \in A_3$, it must be the case that $\inf(A_3) = \frac{1}{9}$ and $\sup{(A_3)} = \frac{9}{1}$.
-
-
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
     \begin{exercise}
         Suppose $u = \Sup{(A)}$ such that $u \not\in A$. Show that there is a strictly increasing sequence
@@ -206,7 +207,7 @@
             \end{equation*}
         with $t_n \in A$ and $t_n + \frac{1}{n} > u$ for all $n \geq 1$.
     \end{exercise}  
-        {\color{red} \begin{proof}
+        \begin{proof}
             Note that for all $\epsilon > 0$, there exists an $a_\epsilon$ with $u - \epsilon < a_\epsilon$. Define:
                 \begin{equation*}
                 \begin{split}
@@ -224,7 +225,7 @@
                 \end{split}
                 \end{equation*}
                 \qedhere
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
     \begin{exercise}
         If $m$ is a lower bound for $A \subseteq \bfR$, show that the following are equivalent:
@@ -234,13 +235,13 @@
                 \item For all $\epsilon > 0$ there exists $a_\epsilon \in A$ with $m+\epsilon > a_\epsilon$.
             \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $m = \Inf{(A)}$. Assuming $t > m$, suppose towards contradiction there does not exist an $a \in A$ with $a < t$. Then it must be the case that $m < t \leq a$ for all $t > m$. This is a contradiction, because $m$ is the greatest lower bound.
 
             Now assume for all $t > m$, there exists $a_t \in A$ with $a_t < t$. Given $\epsilon > 0$, pick $t = m + \epsilon$. Then by (2) there exists an $a_t$ with $m+ \epsilon > a_t$.
 
             Now assume for all $\epsilon >0$ there exists $a_\epsilon \in A$ with $m + \epsilon > a_\epsilon$. Given that $m$ is a lower bound for $A$, assume there exists another lower bound for $A$ with $l > m$. Pick $\epsilon = l - m$, then there exists an $a \in A$ with $m + (l - m) > a$. Simplifying yields $l > a$, which contradicts $l$ being a lower bound. Hence $\inf{(A)} = m$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
     \begin{exercise}
         Let $A,B \subseteq \bfR$ be bounded subsets.
@@ -260,11 +261,11 @@
                     \end{split}
                     \end{equation*}
             \end{enumerate}
-                {\color{red} \begin{proof}
+                \begin{proof}
                     (1) Define $\Sup{(A)} = u$ and $\Sup{(B)} = v$. Then for all $\epsilon > 0$, there exists $a_\epsilon \in A$, $b_\epsilon \in B$ with $u - \epsilon < a_\epsilon$ and $v - \epsilon < b_\epsilon$. Pick $\epsilon = \frac{\epsilon}{2}$. Then adding both inequalities gives $(u + v) - \epsilon < a_\epsilon + b_\epsilon \in A+B$. Hence $\Sup(A+B) = u + v = \Sup(A) + \Sup(B)$. Similarly, define $\Inf(A) = m$ and $\Inf(B) = n$. Then for all $\epsilon > 0$, there exists $a_\epsilon \in A$, $b_\epsilon \in B$ with $m + \epsilon > a_\epsilon$ and $n + \epsilon > b_\epsilon$. Pick $\epsilon = \frac{\epsilon}{2}$. Then adding both inequalities gives $(m+n)+\epsilon > a_\epsilon + b_\epsilon \in A+B$. Hence $\Inf(A+B) = m + n = \Inf(A) + \Inf(B)$.
 
                     (2) Let $\sup(A) = u$. Then $a \leq u $ for all $a \in A$. We have that $u - \epsilon < a$ for some $a \in A$. Pick $\epsilon = \frac{\epsilon}{t}$. Then $t u - \epsilon < ta$ for some $t a \in tA$. Hence $\sup(tA) = tu = t\sup(A)$. Similarly, let $\inf(A) = m$. Then $m \leq a$ for all $a \in A$. We have that $m+\epsilon > a$ for some $a \in A$. Pick $\epsilon = \frac{\epsilon}{t}$. Then $tm + \epsilon > ta$ for some $ta \in tA$. Hence $\inf(tA) = tm = t\inf(A)$.
-                \end{proof}}
+                \end{proof}
     \end{exercise}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
     \begin{exercise}
@@ -288,7 +289,7 @@
             \end{equation*}
         Are they equal?
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Observe that:
                 \begin{equation*}
                 \begin{split}
@@ -307,7 +308,7 @@
                     & = 2.
                 \end{split}
                 \end{equation*}
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $D$ be a nonempty set and consider the set of all bounded functions:
@@ -324,7 +325,7 @@
             \end{equation*}
         defines a metric on $\ell_\infty(D)$. We call $d_u$ the \textbf{uniform metric}.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Observe that:
                 \begin{equation*}
                 \begin{split}
@@ -355,7 +356,7 @@
                 \end{split}
                 \end{equation*}
             Lastly $d_u(f,g)=0$ implies $\sup_{x \in D}\left(\left|f(x) - g(x)\right|\right) = 0$. By definition of the absolute value, $|f(x)-g(x)| \geq 0$, so it must be the case that $|f(x)-g(x)| = 0$. Hence $f(x) = g(x)$, establishing that $(\ell_\infty,d_u)$ forms a metric space.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $f,g:D \rightarrow \bfR$ be bounded functions. Show that
@@ -365,6 +366,25 @@
                 \item $\left|\sup_{x \in D}f(x) - \sup_{x \in D}g(x)\right| \leq \sup_{x\in D}\left|f(x) - g(x)\right|$.
             \end{enumerate}
     \end{exercise}
+        \begin{proof}
+            (1) Note that $f(x) \leq \sup_{x \in D}f(x)$ and $g(x) \leq \sup_{x \in D}g(x)$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    (f+g)(x) = f(x) + g(x) \leq \sup_{x \in D}f(x) + \sup_{x \in D}g(x).
+                \end{split}
+                \end{equation*}
+            However, $\sup_{x \in D}f(x) + \sup_{x \in D}g(x)$ is merely an upper bound of $(f+g)(x)$. Hence $\sup_{x \in D}(f+g)(x) \leq \sup_{x \in D}f(x) + \sup_{x \in D}g(x)$.
+
+            (2) Note that $f(x) \geq \inf_{x \in D}f(x)$ and $g(x) \geq \inf_{x \in D}g(x)$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    (f+g)(x) = f(x) + g(x) \geq \inf_{x \in D}f(x) + \inf_{x \in D}g(x).
+                \end{split}
+                \end{equation*}
+             However, $\inf_{x \in D}f(x) + \inf_{x \in D}g(x)$ is merely a lower bound of $(f+g)(x)$. Hence $\inf_{x \in D}(f+g)(x) \geq \inf_{x \in D}f(x) + \inf_{x \in D}g(x)$.
+
+             (3) Without loss of generality, let $\sup_{x \in D}f(x) - \sup_{x \in D}g(x) > 0$. We have: $$\left|\sup_{x \in D}f(x) - \sup_{x \in D}g(x)\right| = \sup_{x \in D}f(x) - \sup_{x \in D}g(x) = \sup_{x \in D}\left(f(x) - g(x)\right).$$ Since $f(x) - g(x) \leq |f(x) - g(x)|$, we have: $$\sup_{x \in D}\left(f(x) - g(x)\right) \leq \sup_{x \in D}\left|f(x) - g(x)\right|.$$ Hence $$\left|\sup_{x \in D}f(x) - \sup_{x \in D}g(x)\right| \leq \sup_{x\in D}\left|f(x) - g(x)\right|.$$
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Find $\bigcap_{n = 1}^\infty I_n$ where
@@ -374,7 +394,7 @@
                 \item $I_n = \left[n , \infty\right)$.
             \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             (1) Note that $[0,\frac{1}{n}]$ is closed and bounded for all $n \geq 1$. Note that:
                 \begin{equation*}
                 \begin{split}
@@ -393,14 +413,14 @@
             (2) Claim: $\bigcap_{n=1}^\infty \left(0, \frac{1}{n}\right) = \emptyset$. Suppose towards contradiction there exists $t \in \bigcap_{n=1}^\infty \left(0, \frac{1}{n}\right)$. Then $t \in \left(0 ,\frac{1}{n}\right)$ for all $n \geq 1$. So $t < \frac{1}{n}$ implies $\frac{1}{t} > n$ for all $n\geq 1$, meaning $\bfN$ is bounded above. This is a contradiction, hence $\bigcap_{n=1}^\infty \left(0, \frac{1}{n}\right) = \emptyset$.
 
             (3) Claim: $\bigcap_{n=1}^\infty \left[n, \infty\right) = \emptyset$. Suppose towards contradiction there exists $t \in \bigcap_{n=1}^\infty \left[n, \infty\right)$. Then $t \in [n,\infty)$ for all $n \geq 1$. So $t \geq n$ for all $n \geq 1$. Hence $\bfN$ is bounded above, which is a contradiction. Thus $\bigcap_{n=1}^\infty \left[n, \infty\right) = \emptyset$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         If $x>0$, show that there is an $n \in \bfN$ with $\frac{1}{2^n} <x$.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             By the Archimedean Property 2, there exists $n \in \bfN$ such that $0 < \frac{1}{n} < x$. Claim: $\frac{1}{2^n} < \frac{1}{n}$. It suffices to show that $2^n > n$. Bernoulli's inequality gives $(1+1)^n \geq 1 + n$, hence $2^n > n$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         The \textbf{Dyadic Rationals} are defined as 
@@ -411,7 +431,7 @@
             \end{equation*}
         Show that $\bfD \subseteq \bfR$ is dense.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $I = (a,b)$. Then $b-a > 0$. By Archimedean Property 2 there exists $n \in \bfN$ such that $b-a > \frac{1}{n}$. Exercise 9 gives that $b - a > \frac{1}{2^n}$ for some $n \in \bfZ$. This simplifies to $2^nb > 1 + 2^na$. Since $2^na \in \bfR$, there exists $m \in \bfZ$ with $m-1 \leq 2^na < m$, implying that $a < \frac{m}{2^n}$. Furthermore, we also have that $m \leq 1 + 2^n a < m+1$, and substituting for $2^n b$ gives $m < 2^n b$. So $\frac{m}{2^n} < b$, which means $\frac{m}{2^n} \in (a,b)$. Thus $I \cap D \neq \emptyset$.
-        \end{proof}}
+        \end{proof}
 \end{document}

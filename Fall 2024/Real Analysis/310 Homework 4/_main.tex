@@ -262,7 +262,27 @@
     \begin{exercise}
         Show that the sequence $(\cos(n))_n$ does not converge.
     \end{exercise}
-
+        \begin{proof}
+            Suppose towards contradiction that $(\cos(n))_n \rightarrow L$. Then $(\cos(2n))_n \rightarrow L$ and $(\cos(4n))_n \rightarrow L$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    (\cos(2n))_n \rightarrow L 
+                    & \iff \lim_{n\rightarrow \infty}cos(2n) = \lim_{n \rightarrow \infty}2\cos^2(n) - 1 \\
+                    & \iff L = 2L^2 - 1 \\
+                    & \iff L = -\frac{1}{2} \mtext{or} L = 1.
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    (\cos(4n))_n \rightarrow L
+                    & \iff \lim_{n \rightarrow \infty}cos(4n) = \lim_{n \rightarrow \infty} 8\cos^4(n) - 8\cos^2(n) - 1 \\
+                    & \iff L = 8L^4 - 8L^2 - 1 \\
+                    & \iff L = -1 \mtext{or} L \approx 1.1028.
+                \end{split}
+                \end{equation*}
+            This is a contradiction, since $(\cos(2n))_n \neq (\cos(4n))_n$. Hence $(cos(n))_n$ does not converge.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         If $(x_n)_n$ is a real sequence converging to $x$, show that 
             \begin{equation*}
@@ -272,7 +292,7 @@
             \end{equation*}
         Is the converse true?
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Since $(x_n)_n \rightarrow x$ is a convergent sequence, we have:
                 \begin{equation*}
                 \begin{split}
@@ -280,7 +300,7 @@
                 \end{split}
                 \end{equation*}
             Thus $(|x_n|)_n \rightarrow |x|$. Note that the converse is not true: $(|(-1)^n|)_n \rightarrow 1$ converges whereas $((-1)^n)_n$ does not. 
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         If $(x_n)_n$ is a real sequence converging to $x>0$, show that there is an $N \in \bfN$ and $c>0$ such that
@@ -291,9 +311,9 @@
             \end{equation*}
         for all $n \geq N$.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Pick $\epsilon = \frac{x}{2}$. Since $(x_n)_n$ is a convergent sequence, there exists $N_c \in \bfN$ such that $n \geq N_c$ implies $|x_n - x| < \frac{x}{2}$. Simplifying yields $\frac{x}{2} < x_n < \frac{3x}{2}$. Taking $c = \frac{x}{2}$ yields the desired result.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         If $(x_n)_n$ is a real sequence of positive terms converging to $x$, show that $x \geq 0$ and
@@ -303,7 +323,7 @@
             \end{split}
             \end{equation*}
         
-            {\color{red} \begin{proof}
+            \begin{proof}
                 Observe that:
                     \begin{equation*}
                     \begin{split}
@@ -311,7 +331,7 @@
                     \end{split}
                     \end{equation*}
                 Hence $(\sqrt{x_n})_n \rightarrow \sqrt{x}$. If $x < 0$, then $\sqrt{x} \not\in \bfR$, contradicting the definition of a real sequence.
-            \end{proof}}
+            \end{proof}
     \end{exercise}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
@@ -322,7 +342,7 @@
             \end{split}
             \end{equation*}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Since $(y_n)_n$ is bounded, $|y_n| \leq c$ for some $c > 0$. We have:
                 \begin{equation*}
                 \begin{split}
@@ -330,7 +350,7 @@
                 \end{split}
                 \end{equation*}
             Taking $\epsilon_n = |x_n|$ and using "Lemma" gives $(x_n y_n)_n \rightarrow 0$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         If $(x_n)_n$ is a sequence of positive terms such that
@@ -341,7 +361,7 @@
             \end{equation*}
         show that $(x_n)_n$ is not bounded hence not convergent. If $L=1$, can we make any conclusion?
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Consider the following picture:
                 \begin{center}
                 \begin{tikzpicture}
@@ -387,7 +407,7 @@
                 \end{split}
                 \end{equation*}
             Hence if $L = 1$, we cannot make any conclusion.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
     \begin{exercise}
         Let $a$ and $b$ be positive numbers. Show that
@@ -397,7 +417,7 @@
             \end{split}
             \end{equation*}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Case 1: $\max \left\{a,b\right\} = a$. Then $b < a$. We have:
                 \begin{equation*}
                 \begin{split}
@@ -413,7 +433,7 @@
                 \end{split}
                 \end{equation*}
             Hence $\left((a^n + b^n)^\frac{1}{n}\right)_n \rightarrow b$ by the squeeze theorem.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         \begin{exercise}
             Let $(x_n)_n$ be a sequence of positive terms such that:

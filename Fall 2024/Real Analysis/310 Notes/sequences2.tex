@@ -1003,15 +1003,57 @@
             Pick $\epsilon = 1$. There exists $N \in  \bfN$ such that $m,n \geq N$ implies $|x_n - x_m| < 1$. Let $c = \max \{|x_1|,...,|x_N|\}$. For $n \geq N$, we have $|x_n| = |x_n - x_N + x_N| \leq |x_n - x_N| + |x_N| \leq 1+|x_N|$. So $|x_n| \leq c'$, where $c' = \max\{c, 1 + |x_N|\}$.
         \end{proof}
 
-    \begin{lemma}
+    \begin{exercise}\label{exercise:homework3}
         If $(x_n)_n$ is Cauchy and there exists a subsequence $(x_{n_k})_k$ with $(x_{n_k})_k \rightarrow x$, then $(x_n)_n \rightarrow x$.
-    \end{lemma}
+    \end{exercise}
 
     \begin{theorem}
         Let $(x_n)_n$ be a sequence. $(x_n)_n$ is Cauchy if and only if $(x_n)_n$ converges.
     \end{theorem}
         \begin{proof}
-            $(\Rightarrow)$ Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $|x_n - x| < \frac{\epsilon}{2}$. For $m,n \geq N$, we have $|x_n - x_m| = |x_n - x + x_m - x| \leq |x_n - x| = |x_m - x| < \epsilon$.
+            $(\Rightarrow)$ Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $|x_n - x| < \frac{\epsilon}{2}$. For $m,n \geq N$, we have $|x_n - x_m| = |x_n - x + x_m - x| \leq |x_n - x| + |x_m - x| < \epsilon$.
 
-            $(\Leftarrow)$ If $(x_n)_n$ is Cauchy then $(x_n)_n$ is bounded. The Bolzano-Weierstass theorem says gives there exists some convergent subsequence $(x_{n_k})_k$. By Lemma~\ref{poop}, $(x_n)_n \rightarrow x$.
+            $(\Leftarrow)$ If $(x_n)_n$ is Cauchy then $(x_n)_n$ is bounded. The Bolzano-Weierstass theorem says gives there exists some convergent subsequence $(x_{n_k})_k$. By Exercise~\ref{exercise:homework3}, $(x_n)_n \rightarrow x$.
+        \end{proof}
+
+    \begin{example}
+        We will show that $x_n = \sum_{k = 0}^n \frac{(-1)^k}{k!}$ is a convergent sequence. This sequence is not monotone, so we are unable to use the monotone convergence theorem. Instead, we will show that this sequence is Cauchy, which implies that it is convergent. For $m > n$, observe that:
+            \begin{equation*}
+            \begin{split}
+                |x_m - x_n|
+                & = \left|\sum_{k = n + 1}^m \frac{(-1)^k}{k!}\right| \\
+                & \leq \sum_{k = n + 1}^m \left|\frac{(-1)^k}{k!}\right| \\
+                & = \sum_{k = n+1}^m \frac{1}{k!} \\
+                & \leq \sum_{k = n+1}^m \frac{1}{2^{k-1}} \\
+                & = \frac{1}{2^n} + \frac{1}{2^{n+1}} + ... + \frac{1}{2^{m-1}} \\
+                & = \frac{1}{2^n} \left(1 + \frac{1}{2} + ... + \frac{1}{2^{m-n-1}}\right) \\
+                & \leq \frac{1}{2^n}\cdot 2 \\
+                & = \frac{1}{2^{n-1}}.
+            \end{split}
+            \end{equation*}
+        If $\epsilon > 0$ is given, choose $N$ large so that $\frac{1}{2^{N - 1}} < \epsilon$. If $m > n > N$, then $|x_m - x_n| < \epsilon$. Thus $x_n$ is Cauchy, implying that it is convergent.
+    \end{example}
+
+    \begin{definition}
+        A sequence $(x_n)_n$ is \textui{contractive} if there exists $0 < \rho < 1$ with $|x_{n+1} - x_n| \leq \rho |x_n - x_{n-1}|$ for all $n \geq 2$. We say $\rho$ is the \textui{constant of contraction}.
+    \end{definition}
+
+    \begin{proposition}
+        Contractive sequences are Cauchy.
+    \end{proposition}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |x_3 - x_2| &\leq \rho |x_2 - x_1| \\
+                    |x_4 - x_3| &\leq \rho |x_2 - x_1|  \leq \rho^2 |x_2 - x_1|\\
+                \end{split}
+                \end{equation*}
+            Inductively, $|x_{n+1} - x_n| \leq \rho^{n-1}|x_2 - x_1|$. For $m > n$, we have:
+                \begin{equation*}
+                \begin{split}
+                    |x_m - x_n|
+                    & = 
+                \end{split}
+                \end{equation*}
         \end{proof}

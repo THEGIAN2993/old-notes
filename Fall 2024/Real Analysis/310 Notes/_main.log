@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  24 OCT 2024 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  28 OCT 2024 10:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2569,9 +2569,13 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 
 [42]
 
-LaTeX Warning: Reference `poop' on page 43 undefined on input line 1016.
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-)
+[43])
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2579,7 +2583,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[43]
+[44]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -2602,18 +2606,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 7348EDC5D7EAF365B692AB905AB41EE7;1510.
  ) 
 Here is how much of TeX's memory you used:
- 53599 strings out of 474116
- 1154278 string characters out of 5743683
+ 53606 strings out of 474116
+ 1154417 string characters out of 5743683
  1956187 words of memory out of 5000000
  74001 multiletter control sequences out of 15000+600000
  790630 words of font info for 610 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (44 pages, 357580 bytes).
+Output written on _main.pdf (45 pages, 360912 bytes).
 PDF statistics:
- 1142 PDF objects out of 1200 (max. 8388607)
- 1051 compressed objects within 11 object streams
- 627 named destinations out of 1000 (max. 500000)
+ 1154 PDF objects out of 1200 (max. 8388607)
+ 1062 compressed objects within 11 object streams
+ 634 named destinations out of 1000 (max. 500000)
  82121 words of extra memory for PDF output out of 89155 (max. 10000000)
 

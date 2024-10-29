@@ -1,7 +1,7 @@
 \chapter{Tensor Products, Exterior Algebras, and Determinants}
 \vspace{12pt}
 
-\section{Complexification and Free Vector Spaces}
+\section{Complexification}
     Recall that if $V$ is a $\bfC$-vector space, then $V$ is also an $\bfR$-vector space by restricting the scalars of $\bfC$. A natural question to ask is if $V$ is an $\bfR$-vector space, can we "extend" $V$ to be a $\bfC$-vector space?
 
     \begin{example}[Complexification of $\bfR$]
@@ -156,76 +156,105 @@
             Thus $T_\bfC$ is unique.
         \end{proof}
 
-    \begin{question}
-        We showed in Section~\ref{section:vector-bases} that every vector space has a basis. However, if given a set $X$, can we build a vector space that has $X$ as a basis?
-    \end{question}
-        \begin{answer}
-            Yes.
-        \end{answer}
+\section{Free Vector Spaces}
+    We showed in Section~\ref{section:vector-bases} that every vector space has a basis. In this section we show that given a set $X$, we can build a vector space that "has" $X$ as a basis. We will give a few basic definitions before investigating the properties of these spaces.
 
-    \begin{theorem}[Existence of Free Vector Space]\label{thm:free-vectorspace}
-        Let $F$ be a field and $\Gamma$ a set. There is an $F$-vector space $\cF(\Gamma)$ that has basis $\cX \cong \Gamma$ (as sets). Moreover, $\cF(\Gamma)$ has the following universal property: if $W$ is any $F$-vector space and $t:\Gamma \rightarrow W$ is a map of sets, there is a unique $T \in \Hom_F(\cF(\Gamma),W)$ such that $T(x) = t(x)$ for every $x \in \Gamma$; i.e., the following diagram commutes:
+    \begin{definition}
+        Let $f:\Omega \rightarrow F$ be a map whose domain is an arbitrary set $\Omega$. The \textui{support} if $f$, denoted $\supp(f)$ is the set of points in $\Omega$ where $f$ is nonzero:
+            \begin{equation*}
+            \begin{split}
+                \supp(f) = \{x \in \Omega \mid f(x) \neq 0\}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{definition}
+        Let $F$ be a field. The set of all functions from $\Omega$ to $F$ is denoted:
+            \begin{equation*}
+            \begin{split}
+                \cF(\Omega,F) = \{f \mid f:\Omega \rightarrow F\}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{exercise}
+        Show that $\cF(\Omega,F)$ is an $F$-vector space.
+    \end{exercise}
+
+    \begin{example}
+        Fix $t \in \Gamma$. Recall that $\delta_t:\Gamma \rightarrow F$ is defined by:
+            \begin{equation*}
+            \begin{split}
+                \delta_t (s) = \begin{cases} 1, & s = t \\ 0, & s \neq t \end{cases}.
+            \end{split}
+            \end{equation*}
+        We have that $\delta_t \in \cF(\Gamma,F)$, and furthermore $\supp(\delta_t) = \{t \}$. If $f \in \cF(\Gamma,F)$ has finite support, then $\supp(f) = \{t_1,...,t_n\}$ for some $t_i \in F$. If:
+            \begin{equation*}
+            \begin{split}
+                f(t_1) &= \alpha_1 \neq 0 \\
+                f(t_2) &= \alpha_2 \neq 0 \\
+                &\vdots \\
+                f(t_n) &= \alpha_n \neq 0, \\
+            \end{split}
+            \end{equation*}
+        then we can write $f = \sum_{j = 1}^n \alpha_j \delta_{t_j}$.
+    \end{example}
+
+    \begin{theorem}[Existence of Free Vector Spaces]\label{thm:free-vectorspace}
+        Let $F$ be a field and $\Gamma$ a set. There is an $F$-vector space $\bbF(\Gamma)$ that has a basis isomorphic to $\Gamma$ as sets. Moreover, $\bbF(\Gamma)$ has the following universal property: if $W$ is any $F$-vector space and $t:\Gamma \rightarrow W$ is a map of sets, there is a unique $T \in \Hom_F(\bbF(\Gamma),W)$ such that $T(x) = t(x)$ for every $x \in \Gamma$; i.e., the following diagram commutes:
             \begin{center}
-                \begin{tikzcd}
-                    \Gamma \arrow[r, "\iota", hook] \arrow[rd, "t"'] & \cF(\Gamma) \arrow[d, "T"] \\
-                                                                & W                  
-                \end{tikzcd}
+            \begin{tikzcd}
+                \Gamma \arrow[r, "\iota", hook] \arrow[rd, "t"'] & \bbF(\Gamma) \arrow[d, "T"] \\
+                                                            & W                  
+            \end{tikzcd}
             \end{center}
     \end{theorem}
         \begin{proof}
-            If $\Gamma$ is the empty set, we take $\cF(\Gamma) = \{0\}$. Let $\Gamma \neq \emptyset$. Define:
+            If $\Gamma$ is the empty set, take $\bbF(\Gamma) = \{0\}$. Let $\Gamma \neq \emptyset$. Define:
                 \begin{equation*}
                 \begin{split}
-                    \cF(\Gamma) = \left\{f:\Gamma \rightarrow F \mid f(x)\mtext{finitely supported}\hspace{-5pt}\right\}.
+                    \bbF(\Gamma) = \{f:\Gamma \rightarrow F \mid \supp(f) < \infty\}.
                 \end{split}
                 \end{equation*}
-            There is a natural vector space structure on this set. Let $c \in F$ and $f,g \in \cF(\Gamma)$. If $f,g$ are finitely supported then $(f+g)(x)$, and similarly $(cf)(x) = cf(x)$ is finitely supported. The zero element of this set is $f(x) = 0_{F(\Gamma)}$. The rest of the vector space axioms are left as an exercise.
+            Since $\bbF(\Gamma) \subseteq \cF(\Gamma,F)$, this space inherits a natural vector space structure. In particular, if $f,g$ are finitely supported functions and $c \in F$, then $(f+g)(x) = f(x) + f(x)$ and $(cf)(x) = c f(x)$ will be finitely supported. Moreover, the zero element of this set if $f(x) = 0_{\bbF(\Gamma)}$. The rest of the vector space axioms are left as an exercise.
 
-            Given any $y \in \Gamma$, define:
-                \begin{equation*}
-                \begin{split}
-                    f_y(x) = \begin{cases} 1, &x = y \\ 0, &x \neq y\end{cases}.
-                \end{split}
-                \end{equation*}
-            We get an inclusion $\Gamma \hookrightarrow \cF(\Gamma)$ by $x \mapsto f_x$. Let $\cX = \{f_x \mid x \in \Gamma\}$, this is a subset of $\cF(\Gamma)$ and furthermore we have a bijection $\Gamma \hooktwoheadrightarrow \cX$.
+            We obtain an inclusion $\iota: \Gamma \hookrightarrow \bbF(\Gamma)$ by $x \mapsto \delta_x$. Let $\cX = \{\delta_x \mid x \in \Gamma\}$. This a subset of $\bbF(\Gamma)$ and furthermore we have a bijection $\Gamma \hooktwoheadrightarrow \cX$.
 
-            We claim that $\cX$ is a basis for $F(\Gamma)$. Note that for any $f \in \cF(\Gamma)$, {\color{red} we have $f = \sum_{x \in \Gamma}f(x)f_x$. This gives $\Span_F(\cX) = F(\Gamma)$.} Note that:
+            Let $f \in \bbF(\Gamma)$. We can write $f = \sum_{x \in \Gamma}f(x)\delta_x \in \Span_F(\cX)$. Hence $\Span_F(\cX) = \bbF(\Gamma)$. Note that:
                 \begin{equation*}
                 \begin{split}
                     f(y)
-                    & = f(y)f_y(y) \\
-                    & = f(y)f_y(y) + \sum_{x \neq y}f(x)f_x(y) \\
-                    & = \sum_{x \in \Gamma}f(x)f_x(y).
+                    & = f(y)\delta_y(y) \\
+                    & = f(y)\delta(y)(y) + \sum_{x \neq y}f(x)\delta_x(y) \\
+                    & = \sum_{x \in \Gamma}f(y)\delta_x(y).
                 \end{split}
                 \end{equation*}
-            Now suppose $\sum_{i = 1}^n a_if_{x_i} = 0_{F(\Gamma)}$. In particular, $\sum_{i = 1}^n a_if_{x_i}(y) = 0$ for all $y \in \Gamma$. Thus:
+            Note that $f(y)$ is just a scalar in $F$, hence an arbitrary element of $\bbF(\Gamma)$ looks like $\sum_{i = 1}^n a_i \delta_{x_i}$. Suppose then that $\sum_{i = 1}^n a_i \delta_{x_i} = 0_{\bbF(\Gamma)}$. We have that $\sum_{i = 1}^n a_i \delta_{x_i}(y) = 0_F$ for all $y \in \Gamma$. Thus:
                 \begin{equation*}
                 \begin{split}
-                    0 
-                    &= \sum_{i=1}^n a_i f_{x_i}(x_j) \\
+                    0_F 
+                    & = \sum_{i = 1}^n a_i \delta_{x_i}(x_j) \\
                     & = a_j.
                 \end{split}
                 \end{equation*}
-            Hence $\{f_x\}_{x \in \Gamma}$ is a basis for $\cF(\Gamma)$.
+            This establishes $\cX$ as a basis for $\bbF(\Gamma)$.
 
-            We'd like to show that $T$ is unique. Given $t:\Gamma \rightarrow W$ as sets, define $T:\cF(\Gamma) \rightarrow W$ by:
+            Now suppose we have $t: \Gamma \rightarrow W$. Define $T: \bbF(\Gamma) \rightarrow W$ by:
                 \begin{equation*}
                 \begin{split}
-                    T\left(\sum_{i = 1}^n a_i f_{x_i}\right)
-                    & = \sum_{i=1}^n a_i t(f^{-1}(x_i)) \\
-                    & = \sum_{i = 1}^n a_i t(x_i).
+                    T \left(\sum_{i = 1}^n a_i \delta_{x_i}\right) = \sum_{i =1}^n a_i t(\iota^{-1}(\delta_{x_i})).
                 \end{split}
                 \end{equation*}
-            Clearly $T$ is linear and makes the above diagram commute. Furthermore, since $T$ is uniquely determined by the basis elements, it is unique.
+            Because $\cX$ is a basis, this gives a well-defined linear map. It is unique because any linear map that agrees with $t$ on $\cX$ must agree with $T$ on $\bbF(\Gamma)$, establishing the proof.
         \end{proof}
 
-    \begin{example}
-        If $\Gamma = \bfR$, we can form $F_\bfR(\bfR)$. An example of  an element of $F_\bfR(\bfR)$ is $2 \cdot \pi + 3 \cdot 2$, where $\pi,2$ are basis elements and $2,3$ are scalars. Note that, from this construction, we cannot simplify this expression.
-    \end{example}
-
-    \begin{exercise}
-        Show that if $\Gamma = \{x_1,...,x_n\}$, then $F(\Gamma) \cong F^n$.
-    \end{exercise}
+        \begin{example}
+            If $\Gamma = \bfR$, we can form $\bbF_\bfR(\bfR)$. An example of  an element of $\bbF_\bfR(\bfR)$ is $2 \cdot \pi + 3 \cdot 2$, where $\pi,2$ are basis elements and $2,3$ are scalars. Note that, from this construction, we cannot simplify this expression.
+        \end{example}
+    
+        \begin{exercise}
+            Show that if $\Gamma = \{x_1,...,x_n\}$, then $\bbF(\Gamma) \cong F^n$.
+        \end{exercise}
 
 \section{Extension of Scalars}
     Let $V$ be an $F$-vector space and $K/F$ an extension of fields. We can naturally consider $K$ as an $F$-vector space. As we did with complexification, we want to define a way to "multiply" vectors in $V$ by scalars in $K$. The way we define "multiplication" should be obvious: Let $a, a_1,a_2 \in K$, $c\in F$, and $v,v_1,v_2 \in V$. We want multiplication to satisfy:
@@ -237,7 +266,7 @@
     We will construct a vector space that satisfies exactly this by constructing the \textit{tensor product} of $V$ with $K$.
 
     \begin{definition}
-        Let $V$ be an $F$-vector space and $K/F$ be an extension of fields. Let $K \times V$ be the Cartesian product of $K$ and $V$ as sets and define:
+        Let $V$ be an $F$-vector space and $K/F$ be an extension of fields. Let $K \times V$ be the Cartesian product of $K$ and $V$ and define:
             \begin{equation*}
             \begin{split}
                 \cA_1 &= \{(a_1 + a_2,v)-(a_1,v)-(a_2,v) \mid a_1,a_2 \in K, v\in V\}, \\
@@ -249,21 +278,32 @@
         Define $\Rel_K(K \times V) = \Span_F(\cA_1,\cA_2,\cA_3,\cA_4)$. The \textui{tensor product} of $K$ and $V$ over $F$ is:
             \begin{equation*}
             \begin{split}
-                K \otimes_F V = F(K \times V)/\Rel_K(K \times V).
+                K \otimes_F V = \bbF(K \times V)/\Rel_K(K \times V).
             \end{split}
             \end{equation*}
-        We denote the equivalence classes $(a,v) + \Rel_K(K \times V)$ by $a \otimes v$ which admit the following properties:
+        For any arbitrary element $\sum_{\text{\tiny finite}}c_i \delta_{a_i,v_i} \in \bbF(K \times V)$, we denote the equivalence class \newline $\sum_{\text{\tiny finite}}c_i \delta_{a_i,v_i} + \Rel_K(K \times V)$ as:
+            \begin{equation*}
+            \begin{split}
+                \sum_{\text{finite}}c_i(a_i \otimes v_i)
+                & = \sum_{\text{finite}}c_i a_i(1 \otimes v_i) \\
+                & = \sum_{\text{finite}}b_i \otimes v_i
+            \end{split}
+            \end{equation*}
+        for some $b_i \in K$. An element of the form $a \otimes v$ is referred to as a \textui{pure tensor}. Both arbitrary elements of $K \otimes_F V$ and pure tensors admit the following properties:
             \begin{enumerate}[label = (\arabic*)]
                 \item $(a_1 + a_2) \otimes v = a_1 \otimes v + a_2 \otimes v$ for all $a_1,a_2 \in K$, $v \in V$;
                 \item $a \otimes (v_1 + v_2) = a \otimes v_1 + a \otimes v_2$ for all $a \in K$, $v_1,v_2 \in V$;
                 \item $ca \otimes v = a \otimes cv$ for all $c \in F$, $a \in K$, and $v \in V$;
                 \item $a_1(a_2 \otimes v) = (a_1 a_2)\otimes v$ for all $a_1,a_2 \in K$, $v \in V$.
             \end{enumerate}
-        An element in $K \otimes_F V$ is of the form $\sum_{i \in I}c_i(a_i \otimes v_i)$\footnote{Recall that elements of a free vector space are finitely supported sums. I think this is why we look at sums? Ask Brown}, where $c_i$ is $0$ for all but finitely many $i$. This is typically rewritten as $\sum_{i \in I}c_i a_i(1 \otimes v_i) = \sum_{i \in I}(b_i \otimes v_i)$, where $b_i \in K$ and $b_i = 0$ for all but finitely many $i$. An element of the form $a \otimes v$ is referred to as a \textui{pure tensor}.
     \end{definition}
 
     \begin{note}
-        Since $K \otimes_F V$ is a quotient space, there must be care in checking things are well-defined when working with tensor products. Likewise, \textbf{an arbitrary element of $K \otimes_F V$ is a finite sum.} It is a common mistake when working with tensor products to check things for pure tensors without remembering that is not a typical element.
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item An \textbf{arbitrary element of $K \otimes_F V$ is a finite sum.} It is a common mistake when working with tensor products to check things for pure tensors and not with arbitrary elements.
+            \item Since $K \otimes_F V$ is a quotient space, there must be care in checking things are well-defined when working with tensor products. 
+        \end{enumerate}
     \end{note}
 
     \begin{exercise}
@@ -274,7 +314,7 @@
         Let $K/F$ be a field extension and $V$ an $F$-vector space with basis $\cB = \{v_i\}_{i \in I}$. We have $\Span_K \left\{1 \otimes v_i\right\}_{i \in I} = K \otimes_F V$.
     \end{proposition}
         \begin{proof}
-            Assume all sums in this proof to be finite. Let $a \otimes v \in K\otimes_F V$. Write $v = \sum_{i=1}^n c_i v_i$ for some $c_i \in F$. We have:
+            Let $a \otimes v \in K\otimes_F V$. Write $v = \sum_{i=1}^n c_i v_i$ for some $c_i \in F$. We have:
                 \begin{equation*}
                 \begin{split}
                     a \otimes v 
@@ -298,13 +338,13 @@
         Conversely, if $T \in \Hom_K(K \otimes_F V,W)$, then $T \circ \iota_V \in \Hom_F(V,W)$.
     \end{theorem}
         \begin{proof}
-            Let $S \in \Hom_F(V,W)$. Recall we constructed $K \otimes_F V$ as a quotient of $\cF(K \times V)$. Define:
+            Let $S \in \Hom_F(V,W)$. Recall we constructed $K \otimes_F V$ as a quotient of $\bbF(K \times V)$. Define:
                 \begin{equation*}
                 \begin{split}
                     t: K \times V \rightarrow W \mtext{by} (a,v) \mapsto aS(v)
                 \end{split}
                 \end{equation*}
-            as a map of sets. Theorem~\ref{thm:free-vectorspace} tells us that $t$ extends to a map $T \in \Hom_K(\cF(K \times V), W)$ such that $T((a,v)) = t((a,v))$. Since $T$ is linear:
+            as a map of sets. Theorem~\ref{thm:free-vectorspace} tells us that $t$ extends to a map $T \in \Hom_K(\bbF(K \times V), W)$ such that $T((a,v)) = t((a,v))$. Since $T$ is linear:
                 \begin{equation*}
                 \begin{split}
                     T \left(\sum_{i \in I} c_i(a_i,v_i)\right)
@@ -369,11 +409,38 @@
                     & = ... 
                 \end{split}
                 \end{equation*}
-            Hence $S \in \Hom_K(K,K \otimes_F F)$. Observe that:
+            Hence $S \in \Hom_K(K,K \otimes_F F)$. Since $S,T$ are linear, it is enough to check that they are inverses with pure tensors. Observe that:
                 \begin{equation*}
                 \begin{split}
-                    asdf
+                    T(S(y)) &= T(y \otimes 1) = y T(1 \otimes 1) = y \\
+                    S(T(a \otimes x)) &= S(a T(1 \otimes x)) = S(ax) = ax \otimes 1 = a \otimes x.
                 \end{split}
                 \end{equation*}
             Thus $T^{-1} = S$, and so $K \otimes_F F  \cong K$ as $K$-vector spaces.
+        \end{proof}
+
+    \begin{example}
+        From the previous section, we can now see that $\bfR_\bfC = \bfC \otimes_\bfR \bfR \cong \bfC$.
+    \end{example}
+
+    \begin{example}
+        It is not always obvious that an element of $K \otimes_F F$ is nonzero. Take for example $\bfZ/2\bfZ \otimes_\bfZ \bfZ$. We have that $1 \otimes 2 = 2 \otimes 1 = 0_{\bfZ/2\bfZ} \otimes 1 = 0_{\bfZ/2\bfZ \otimes_\bfZ \bfZ}$.
+    \end{example}
+
+    \begin{exercise}
+        Show that $V_\bfC \cong \bfC \otimes_\bfR V$.
+    \end{exercise}
+
+    \begin{proposition}
+        Let $K/F$ be an extension of fields and $V$ an $F$-vector space with $\dim_F V = n$. Then $K \otimes_F V \cong K^n$ as $K$-vector spaces.
+    \end{proposition}
+        \begin{proof}
+            We want a $K$-linear map $K \otimes_F V \rightarrow K^n$. Take $\cB = \{v_1,...,v_n\}$ to be a basis for $V$ and $\cE_n = \{e_1,...,e_n\}$ the standard basis for $K^n$. Define a map $t:V \rightarrow K^n$ by $t(v_i) = e_i$. Since this map is defined on a basis, it extends to an $F$-linear map. So $t \in \Hom_F(V,K^n)$. The universal property gives $T \in \Hom_K(K \otimes_F V, K^n)$ so that $T(1 \otimes v_i) = e_i$. We will show that $T$ has an inverse. Define $S \in \Hom_K(K^n,K \otimes_F V)$ by $S(e_i) = 1 \otimes v_i$. These are clearly inverse maps, so $K \otimes_F V \cong K^n$. Moreover, since $S$ is invertible and the $e_i$ are a basis, $\{S(e_i)\}_{i =1}^n$ gives a basis of $K \otimes_F V$; i.e., $\{1 \otimes v_i\}_{i = 1}^n$ is a basis.
+        \end{proof}
+
+    \begin{proposition}
+        Let $K/F$ be an extension of fields and $V$ an $F$-vector space. Let $\cB = \{v_i\}_{i \in I}$ be an $F$-basis of $V$. We have $\cB_K = \{1 \otimes v_i\}_{i \in I}$ is a basis of $K \otimes_F V$.
+    \end{proposition}
+        \begin{proof}
+            We saw in Proposition~\ref{prop:basis-of-tensor} that $\cB_K$ spans $K \otimes_F V$. Suppose $K \otimes_F V$ is linearly independent, that is:
         \end{proof}

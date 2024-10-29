@@ -1,0 +1,201 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+
+
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
+
+
+\usepackage{titlesec}
+    \titlespacing*{\chapter}
+    {0pt} % Left margin
+    {*1} % Space before the chapter number (increase this value for more space)
+    {0pt} % Space after the chapter number and before the title
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \fancyhead[R]{\footnotesize \rightmark}
+    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+    \linespread{1.25}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=6pt, spacebelow=6pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=1em
+        %qed=\qedsymbol
+        ]{mystyle}
+
+    \declaretheorem[
+        numberwithin=section,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{theorem}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{lemma}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{proposition}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{233,233,233},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{233,233,233}}
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{definition}
+
+    \declaretheorem[
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{exercise}
+\declaretheorem[numbered=unless unique,style=mystyle]{Note}
+
+%%%%%%%%MACROS%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+
+%%%%DOCUMENT SETUP%%%%
+\setsecnumdepth{subsection}
+\definecolor{darkgreen}{rgb}{0, 0.5976, 0}
+\hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Real Analysis I Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
+
+\begin{document}
+\begin{center}
+    { \Large Math 395 \\[0.1in]Homework 6 \\[0.1in]
+    Due: 10/23/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    { Collaborators:} {\underline{Noah Smith, Carly Venenciano, Avinash Iyer\hspace*{2in}}} \\
+    \end{center}
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ be an $\bfR$-vector space. Prove that $\bfC \otimes_\bfR V \cong V_\bfC$
+    \end{exercise}
+        \begin{proof}
+            Define $t:V \rightarrow V \oplus V$ by $v \mapsto (v,0_V)$. Clearly $t \in \Hom_\bfR(V,V \oplus V)$. Define $\iota_V: V \rightarrow \bfC \otimes_\bfR V$ by $v \mapsto 1 \otimes v$; by the universal property of tensor products there exists a unique $T \in \Hom_\bfC(\bfC \otimes_\bfR V , V_\bfC)$ satisfying $t = T \circ \iota_V$. 
+            
+            Claim: Defining $T: \bfC \otimes_\bfR V \rightarrow V_\bfC$ by $1 \otimes v_1 + i \otimes v_2 \mapsto (v_1,v_2)$ satisfies the universal property. We have:
+                \begin{equation*}
+                \begin{split}
+                    T(\iota_V(v))
+                    & = T(1 \otimes v) \\
+                    & = (v,0_V) \\
+                    & = t(v).
+                \end{split}
+                \end{equation*}
+            Now let $S:V_\bfC \rightarrow \bfC \otimes_\bfR V$ be defined by $(v_1,v_2) \mapsto 1 \otimes v_1 + i \otimes v_2$. Given $v_1,v_2,v_1',v_2' \in V$ and $a+bi \in \bfC$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    S((v_1,v_2) + (a+bi)(v_1' + v_2'))
+                    & = S((v_1 + av_1' - bv_2', v_2 + bv_1' + av_2')) \\
+                    & = 1 \otimes (v_1 = av_1' - bv_2') + i \otimes (v_2 = bv_1' + av_2') \\
+                    & = ... \\
+                    & = S((v_1,v_2)) + (a+bi)S((v_1',v_2')).
+                \end{split}
+                \end{equation*}
+            Hence $S \in \Hom_\bfC(V_\bfC,\bfC \otimes_\bfR V)$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    T(S((v_1,v_2))) & = \\
+                    S \left( T \left( \sum_{\text{finite}} (a+bi) \otimes v_j\right)\right) &= 
+                \end{split}
+                \end{equation*}
+            Thus $\bfC \otimes_\bfR V \cong V_\bfC$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
