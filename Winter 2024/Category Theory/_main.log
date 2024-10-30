@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  8 OCT 2024 12:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  29 OCT 2024 19:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Categories, Modules, Homology/_main"
-(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Fall 2024/Categories, Modules, Homology/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Winter 2024/Category Theory/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Winter 2024/Category Theory/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1468,35 +1468,19 @@ Package: shadethm 1999/11/23
 \shadeleftshift=\skip287
 \shaderightshift=\skip288
 \shadesavebox=\box84
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/romanbar/romanbar.sty
+Package: romanbar 2012/01/01 v1.0f Roman numbers with bars (HMM)
 ) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 159.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 159.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 159.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 159.
-
 Package hyperref Info: Option `colorlinks' set `true' on input line 159.
 LaTeX Font Info:    Trying to load font information for T1+TeXGyreScholaX-OsF on input line 161.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/scholax/T1TeXGyreScholaX-OsF.fd
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/scholax/T1TeXGyreScholaX-OsF.fd
 File: T1TeXGyreScholaX-OsF.fd 2017/07/11 (autoinst) Font definitions for T1/TeXGyreScholaX-OsF.
 )
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 161.
- (./_main.aux (./categories.aux))
+ (./_main.aux (./introduction.aux))
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/zncfmi/m/it on input line 161.
@@ -1799,9 +1783,9 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 \openout7 = `_main.upa'.
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_2ulndi.enc}]
-\openout2 = `categories.aux'.
+\openout2 = `introduction.aux'.
 
- (./categories.tex
+ (./introduction.tex
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 17.28pt on input line 1.
 LaTeX Font Info:    Font shape `OT1/TeXGyreScholaX-TLF/m/n' will be
@@ -1877,30 +1861,57 @@ LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
 LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
 (Font)              scaled to size 10.10495pt on input line 1.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 4.
+(Font)              scaled to size 14.4pt on input line 5.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 4.
+(Font)              scaled to size 14.4pt on input line 5.
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 6.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 6.
-LaTeX Font Info:    Trying to load font information for TS1+TeXGyreScholaX-OsF on input line 8.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/scholax/TS1TeXGyreScholaX-OsF.fd
-File: TS1TeXGyreScholaX-OsF.fd 2017/07/11 (autoinst) Font definitions for TS1/TeXGyreScholaX-OsF.
-)
-LaTeX Font Info:    Font shape `TS1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 8.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `TeXGyreScholaX-OsF' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 33.
-)
+(Font)              scaled to size 10.95pt on input line 7.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 31.
+
+contour: Using real outline for `$\Sets $' on input line 32.
+contour: Using real outline for `$\Groups $' on input line 33.
+contour: Using real outline for `$\Ab $' on input line 42.
+contour: Using real outline for `$\Rings $' on input line 43.
+contour: Using real outline for `$\Rings $' on input line 43.
+
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [2
+ [1
 
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_72zhkj.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_fn6vum.enc}]
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_fn6vum.enc}]
+
+Package marginnote Warning: Consecutive odd pages found.
+(marginnote)                Note, it is not recommended to use consecutive
+(marginnote)                odd pages in a double-ended document.
+(marginnote)                The pages of your document should always
+(marginnote)                be a sequence: odd-even-odd-even-...
+(marginnote)                Maybe you've forgotten a \cleardoublepage before
+(marginnote)                changing the page numbering on page 1.
+
+Package marginnote Info: Using workaround for absolute page number on input line 44.
+contour: Using real outline for `$\ComRings $' on input line 44.
+contour: Using real outline for `$\Mod $' on input line 45.
+contour: Using real outline for `$\Mod $' on input line 45.
+contour: Using real outline for `$\Ab $' on input line 45.
+contour: Using real outline for `$\Mod $' on input line 45.
+contour: Using real outline for `$\Sets $' on input line 67.
+contour: Using real outline for `$\Sets $' on input line 68.
+)
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 173.
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 173.
+[2]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
@@ -1910,27 +1921,27 @@ either increase the head height or redesign the header
 \tf@toc=\write11
 \openout11 = `_main.toc'.
 
-(./_main.aux (./categories.aux))
+(./_main.aux (./introduction.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: F36E8983660A53EDA175FB0A7ADFDB63;155.
+(rerunfilecheck)             Checksum: 14FF4ECCD0170577FA872359EF3944F0;166.
  ) 
 Here is how much of TeX's memory you used:
- 51452 strings out of 474116
- 1104893 string characters out of 5743683
- 1941187 words of memory out of 5000000
- 72803 multiletter control sequences out of 15000+600000
- 641432 words of font info for 205 fonts, out of 8000000 for 9000
+ 51519 strings out of 474116
+ 1106091 string characters out of 5743683
+ 1947187 words of memory out of 5000000
+ 72814 multiletter control sequences out of 15000+600000
+ 652427 words of font info for 233 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,15n,117p,1154b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (2 pages, 99667 bytes).
+ 98i,20n,117p,1142b,799s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on _main.pdf (3 pages, 123721 bytes).
 PDF statistics:
- 91 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 41001 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 45097 words of extra memory for PDF output out of 51595 (max. 10000000)
 

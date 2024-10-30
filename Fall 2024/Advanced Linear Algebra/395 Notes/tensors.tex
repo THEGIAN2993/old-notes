@@ -442,5 +442,58 @@
         Let $K/F$ be an extension of fields and $V$ an $F$-vector space. Let $\cB = \{v_i\}_{i \in I}$ be an $F$-basis of $V$. We have $\cB_K = \{1 \otimes v_i\}_{i \in I}$ is a basis of $K \otimes_F V$.
     \end{proposition}
         \begin{proof}
-            We saw in Proposition~\ref{prop:basis-of-tensor} that $\cB_K$ spans $K \otimes_F V$. Suppose $K \otimes_F V$ is linearly independent, that is:
+            We saw in Proposition~\ref{prop:basis-of-tensor} that $\cB_K$ spans $K \otimes_F V$. Suppose there exists a linear dependence $\sum_{i \in I}c_i(1 \otimes v_i) = 0_{K \otimes_F V}$. Given $(b,v) \in K \times V$, write $(b,\sum_{i \in I}a_i v_i)$ for some $a_i \in F$. Fix $i_0 \in I$ and define:
+                \begin{equation*}
+                \begin{split}
+                    t_{i_0}: V \rightarrow K
+                \end{split}
+                \end{equation*}
+            by $t_{i_0}(v) = t_{i_0}(\sum_{i \in I}a_i v_i) = a_{i_0}$. One can check that $t_{i_0} \in \Hom_F(V,K)$. The universal property extends this to $T_{i_0} \in \Hom_K(K \otimes_F V, K)$ so that $T_{i_0}(1 \otimes v) = t_{i_0}(v) = a_{i_0}$. Recall that $\sum_{i \in I}c_i(1 \otimes v_i) = 0_{K \otimes_F V}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    0_K 
+                    &= T_{i_0}(0_{K \otimes_F V}) \\
+                    & = T_{i_0}\left(\sum_{i \in I}c_i (1 \otimes v_i)\right) \\
+                    & = \sum_{i \in I}c_i T_{i_0}(1 \otimes v_i) \\
+                    & = \sum_{i \in I}c_i t_{i_0}(v_i) \\
+                    & = c_{i_0}.
+                \end{split}
+                \end{equation*}
+            Since $i_0 \in I$ was arbitrary, we have that $c_i = 0$ for all $i \in I$; i.e., $\cB_K$ is linearly independent. Thus $\cB_K$ is a basis of $K \otimes_F V$.
         \end{proof}
+
+    \begin{theorem}
+        Let $K/F$ be an extension of fields and $V,W$ both $F$-vector spaces. Given $T \in \Hom_F(V,W)$, there is a unique map $T_K \in \Hom_K(K \otimes_F V, K \otimes_F W)$ so that the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[r, "T"] \arrow[d, "\iota_V"', hook] & W \arrow[d, "\iota_W", hook] \\
+                    K\otimes_F V \arrow[r, "T_K"']               & K\otimes_F W                
+                    \end{tikzcd}
+            \end{center}
+    \end{theorem}
+        \begin{proof}
+            Define $t:V \rightarrow K \otimes_F W$ by $t(v) = 1 \otimes T(v)$. It can be shown that $t \in \Hom_F(V, K\otimes_F W)$. The universal property extends this to a unique map $T_K \in \Hom_K(K \otimes_F V, K\otimes_F W)$ so that $t = T_K \circ \iota_V$. Let $v \in V$. We have that $\iota_W(T(v)) = 1 \otimes T(v) = t(v) = (T_K \circ \iota_V)(v)$, meaning the diagram commutes.
+        \end{proof}
+    
+    \begin{exercise}
+        Let $V$ be an $\bfR$-vector space. We have $\bfC \otimes_\bfR V \cong V_\bfC$.
+    \end{exercise}
+
+\section{Tensor Products of Vector Spaces}
+    \begin{definition}
+        Let $U,V,W$ be $F$-vector spaces. If $t:V \times W \rightarrow U$ satisfies:
+            \begin{enumerate}[label = (\arabic*)]
+                \item ${t}\left(v_1+v_2, w\right)={t}\left(v_1, w\right)+{t}\left(v_2, w\right)$;
+                \item ${t}\left(v, w_1+w_2\right)={t}\left(v, w_1\right)+{t}\left(v, w_2\right)$;
+                \item ${ct}(v, w)={t}({c} v, w)={t}(v, {c} w)$;
+            \end{enumerate}
+        we call $t$ a \textui{bilinear map}. The collection of bilinear maps is denoted $\Hom_F(V,W;U)$. If $t \in \Hom_F(V,V;F)$, then we say $t$ is a \textui{bilinear form}.
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}
+            \item The standard dot product $\bfR^n \times \bfR^n \rightarrow \bfR$ is a bilinear form.
+            \item The standard cross-product in $\bfR^3 \times \bfR^3 \rightarrow \bfR^3$ is a bilinear map.
+        \end{enumerate}
+    \end{example}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  14 AUG 2024 10:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  29 OCT 2024 10:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/TeX Documents/Summer 2024/Rotman's _Homological Algebra_ Notes/_main"
-(/Users/gcrescenzo/Documents/School/TeX Documents/Summer 2024/Rotman's _Homological Algebra_ Notes/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Summer 2024/Rotman's _Homological Algebra_ Notes/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Summer 2024/Rotman's _Homological Algebra_ Notes/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1608,14 +1608,14 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  38697 strings out of 474116
- 723050 string characters out of 5743683
+ 723092 string characters out of 5743683
  1955187 words of memory out of 5000000
  60007 multiletter control sequences out of 15000+600000
  654613 words of font info for 239 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,25n,117p,1149b,1378s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,25n,117p,1163b,1378s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/tex-gyre/qbkri.pfb>
-Output written on _main.pdf (20 pages, 378868 bytes).
+Output written on _main.pdf (20 pages, 378869 bytes).
 PDF statistics:
  496 PDF objects out of 1000 (max. 8388607)
  422 compressed objects within 5 object streams

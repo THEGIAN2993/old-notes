@@ -1056,4 +1056,74 @@
                     & = 
                 \end{split}
                 \end{equation*}
+                {\color{red} finish later}
         \end{proof}
+
+    \begin{example}
+        {\color{red} fibonacci finish later}
+    \end{example}
+
+\section{Sequences of Functions}
+    \begin{definition}
+        Let $\Omega$ be a nonempty set. The set of all functions $\Omega\xrightarrow{f} X$ is denoted $\cF(\Omega,X) = \{f \mid f:\Omega \rightarrow X\}$.
+    \end{definition}
+
+    \begin{exercise}
+        Show that $\cF(\Omega,X)$ is an algebra under pointwise operations.
+    \end{exercise}
+
+    \begin{definition}
+        A sequence in $(f_n)_n : \bfN \rightarrow \cF(\Omega,\bfR)$n converges \textui{pointwise} to $f \in \cF(\Omega,\bfR)$ if for all $x \in \Omega$, $(f_n(x))_n \rightarrow f(x)$. In particular:
+            \begin{equation*}
+            \begin{split}
+                (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) \ni n \geq N \implies |f_n(x) - f(x)| < \epsilon.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $f_n \in \cF([0,1],\bfR)$ be defined by $f_n(x) = x^n$. Given $x \in [0,1)$, we can see that $(f_n(x))_n \rightarrow 0$. If $x = 1$, then $(f_n(x))_n \rightarrow 1$. So let $f: [0,1] \rightarrow \bfR$ be defined as $f = \delta_1$. Then $(f_n)_n \rightarrow f$ converges pointwise.
+            \item Let $f_n \in \cF(\bfR,\bfR)$ be defined by $f_n(x) = \frac{nx}{1+n^2x^2}$. Note that:
+                \begin{equation*}
+                \begin{split}
+                    |f_n(x)|
+                    & = \left|\frac{nx}{1+n^2x^2}\right| \\
+                    & = \frac{n|x|}{1 + n^2 x^2} \\
+                    & \leq \frac{|x|}{nx^2} \\
+                    & = \frac{1}{n|x|}. 
+                \end{split}
+                \end{equation*}
+            Claim: $(f_n)_n \rightarrow 0_{\cF(\bfR, \bfR)}$. If $x = 0$, then $(f_n(0))_n = (0)_n \rightarrow 0$. If $x \neq 0$, then $(f_n(x))_n \rightarrow 0$ because $|f_n(x) - 0| \leq \frac{1}{|x|} \cdot \frac{1}{n}$. Since $x$ is fixed and $\left(\frac{1}{n}\right)_n \rightarrow 0$, by "Lemma" $(f_n(x))_n \rightarrow 0_{\cF(\bfR,\bfR)}$.
+            \item Let $h_n \in \cF([0,\infty),\bfR)$ be defined by $h_n(x) = x^\frac{1}{n}$. If $x > 0$, then $(h_n(x))_n \rightarrow 1$. If $x = 0$, then $(h_n(x))_n \rightarrow 0$. Then $(h_n(x))_n \rightarrow \mathbf{1}_{(0,\infty)}$.
+            \item Let $g_n \in \cF([0,\infty),\bfR)$ be defined by $g_n(x) = e^{-nx}$. If $x = 0$, then $(g_n(x))_n \rightarrow 1$. If $x > 0$, then $(g_n(x))_n \rightarrow 0$. So $(g_n(x))_n \rightarrow \delta_0$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        Our goal in this example is to construct a function $f_n \in \cF([0,\infty),\bfR$ satisfying $(f_n(x))_n \rightarrow 0_{\cF([0,\infty),\bfR)}$ and $\int_{0,\infty}f_n(x)dx = 1$. Let:
+            \begin{equation*}
+            \begin{split}
+                f_n = \begin{cases} 4n^2x , & x < \frac{1}{2n}\\ 4n-4n^2x, & \frac{1}{2} \leq x < \frac{1}{n} \\ 0, & x \geq \frac{1}{n}. \end{cases}
+            \end{split}
+            \end{equation*}
+        Given $x = 0$, $(f_n(0)) = (0)_n \rightarrow 0$. Given $x > 0$, then there exists $N \in \bfN$ such that $\frac{1}{N} < x$ (AP1). If $n \geq N$, then $f_n(x) = 0$, hence $(f_n(x))_n \rightarrow 0$. Thus $(f_n)_n \rightarrow 0_{\cF([0,\infty),\bfR)}$. Furthermore:
+            \begin{equation*}
+            \begin{split}
+                \int_0 ^\infty f_n(x)dx &= \int_0^\frac{1}{2n}f_n(x)dx + \int_\frac{1}{2n}^\frac{1}{n}f_n(x)dx \\
+                & = 1/2 + 1/2 \\
+                & = 1.
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{definition}
+        A sequence $(f_n)_n \in \cF(\Omega,\bfR)$ converges \textui{uniformly} to $f \in \cF(\Omega,\bfR)$ if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) \ni n \geq N &\implies |f_n(x) - f(x)| < \epsilon \hspace{6pt}\forall x \in \Omega \\
+                & \implies \sup_{x \in \Omega}|f_n(x) - f(x)| \leq \epsilon.
+            \end{split}
+            \end{equation*}
+    \end{definition}

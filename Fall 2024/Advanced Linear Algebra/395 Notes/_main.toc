@@ -22,3 +22,4 @@
 \contentsline {section}{\numberline {5.1}Complexification}{51}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Free Vector Spaces}{54}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Extension of Scalars}{55}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Tensor Products of Vector Spaces}{60}{section.5.4}%
