@@ -2272,4 +2272,295 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 [36]
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)              
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[37]
+Underfull \vbox (badness 2418) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[38]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[39]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[40]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[41]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[42]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[43]
+Overfull \hbox (3.11203pt too wide) in paragraph at lines 889--891
+\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) Hence $\OML/zncfmi/m/it/10.95 e[] \LMS/ntxsy/m/n/10.95 2 \OML/zncfmi/m/it/10.95 T[] [][]\LMS/ntxsy/m/n/10.95 ¹Aº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) . So $[][] [] \LMS/ntxsy/m/n/10.95 ^^R \OML/zncfmi/m/it/10.95 T[] [][]\LMS/ntxsy/m/n/10.95 ¹Aº$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) (ba-si-cally $\OML/zncfmi/m/it/10.95 p\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 x\LMS/ntxsy/m/n/10.95 º Ï \OML/zncfmi/m/it/10.95 ^^Lq\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 x\LMS/ntxsy/m/n/10.95 º 2 [][]\OML/zncfmi/m/it/10.95 ; F\LMS/ntxsy/m/n/10.95 ¹Aº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) ,
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[44]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[45]
+Underfull \vbox (badness 2495) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[46]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[47]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[48]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[49])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[50]
+\openout2 = `trace.aux'.
+
+ (./trace.tex
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [51
+
+
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[52]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[53]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[54]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[55]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[56]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[57]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[58]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[59]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[60]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[61]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[62]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[63]
+Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 700.
+
+Underfull \vbox (badness 2261) has occurred while \output is active []
+
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[64])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[65]
+\openout2 = `determinant.aux'.
+
+ (./determinant.tex)
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [66
+
+
+
+
+]
+
+Class memoir Warning: The material used in the headers is too large
+(13.59999pt) for the given head height (0.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 180.
+
+\tf@toc=\write11
+\openout11 = `_main.toc'.
+
+(./_main.aux (./intro.aux) (./bases-and-dimension.aux) (./linear-transformations-matrices.aux) (./eigenvectors-jordan.aux) (./trace.aux) (./determinant.aux))
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `_main.out' has not changed.
+(rerunfilecheck)             Checksum: D3256E6377C91DBFD4600E8F5628163D;2077.
+ ) 
+Here is how much of TeX's memory you used:
+ 54087 strings out of 474116
+ 1167765 string characters out of 5743683
+ 1964187 words of memory out of 5000000
+ 74438 multiletter control sequences out of 15000+600000
+ 749292 words of font info for 556 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 98i,27n,117p,1158b,2573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on _main.pdf (67 pages, 430193 bytes).
+PDF statistics:
+ 1209 PDF objects out of 1440 (max. 8388607)
+ 1094 compressed objects within 11 object streams
+ 614 named destinations out of 1000 (max. 500000)
+ 78065 words of extra memory for PDF output out of 89155 (max. 10000000)
+
