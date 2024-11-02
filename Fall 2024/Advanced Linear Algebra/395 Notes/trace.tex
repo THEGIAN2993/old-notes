@@ -1,4 +1,4 @@
-\chapter{Tensor Products, Exterior Algebras, and Determinants}
+\chapter{Tensor Products and the Trace}
 \vspace{12pt}
 
 \section{Complexification}
@@ -497,3 +497,280 @@
             \item The standard cross-product in $\bfR^3 \times \bfR^3 \rightarrow \bfR^3$ is a bilinear map.
         \end{enumerate}
     \end{example}
+
+    \begin{definition}
+        Let $V,W$ be $F$-vector spaces and consider the Cartesian product $V \times W$. Let:
+            \begin{equation*}
+            \begin{split}
+                asdf
+            \end{split}
+            \end{equation*}
+        and define $\Rel_F(V \times W) = \Span_F\{\cA_1,\cA_2,\cA_3,\cA_4\}$. The \textui{tensor product} of $V$ and $W$ over $F$ is:
+            \begin{equation*}
+            \begin{split}
+                V \otimes_F W = \bbF(V \times W)/\Rel_F(V \times W).
+            \end{split}
+            \end{equation*}
+        For any arbitary element $\sum_{\text{\tiny finite}}c_i \delta_{v_i,w_i} \in \bbF(V \times W)$, we denote the equivalent class $\sum_{\text{\tiny finite}}c_i \delta_{v_i,w_i} + \Rel_F(V \times W)$ as:
+            \begin{equation*}
+            \begin{split}
+                \sum_{\text{finite}}c_i(v_i \times w_i)
+                & = \sum_{\text{finite}}c_i v_i(1 \otimes w_i) \\
+                & = \sum_{\text{finite}}v_i \otimes w_i,
+            \end{split}
+            \end{equation*}
+        where $v_i$ is reassigned as $c_i v_i $. An element of the form $v \otimes w$ is referred to as a \textui{pure tensor}. Both arbitrary elements of $V \otimes_F W$ and pure tensors admit the following properties:
+            \begin{enumerate}[label = (\arabic*)]
+                \item 1
+                \item 2
+                \item 3
+                \item 4
+            \end{enumerate}
+    \end{definition}
+
+    \begin{exercise}
+        Define $\iota:V \times W \rightarrow V \otimes_F W$ by $(v,w) \mapsto v \otimes w$. Show that $\iota \in \Hom_F(V,W;V \otimes_F W)$.
+    \end{exercise}
+
+    \begin{theorem}
+        Let $U,V,W$ be $F$-vector spaces.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $T \in \Hom_F(V \otimes_F W, U)$, then $T \circ \iota \in \Hom_F(V,W;U)$. 
+                \item If $t \in \Hom_F(V,W;U)$, then there exists a unique $T \in \Hom_F(V \otimes_F W,U)$ so that $t = T \otimes \iota$; i.e., the following diagram commutes:
+                    \begin{center}
+                        \begin{tikzcd}
+                            V \times W \arrow[rd, "t"'] \arrow[r, "\iota"] & V \otimes_F W \arrow[d, "T"] \\
+                                                                           & U                           
+                            \end{tikzcd}
+                    \end{center}
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            Let $T \in \Hom_F(V \otimes_F W, U)$ and set $t = T \otimes \iota$. Let $v_1,v_2 \in V$, $w \in W$, and $c \in F$. We have:
+                \begin{equation*}
+                \begin{split}
+                    t(v_1 +cv_2 , w) 
+                    &= T(\iota(v_1 + cv_2,w)) \\
+                    &= T((v_1 + cv_2) \otimes w) \\
+                    & = T(v_1 \otimes w + c(v_2 \otimes w)) \\
+                    & = T(v_1 \otimes w) + cT(v_2 \otimes w) \\
+                    &= t(v_1,w) + ct(v_2,w).
+                \end{split}
+                \end{equation*}
+            The same argument is true for the second variable. Thus $t \in \Hom_F(V,W;U)$.
+
+            Now let $t\in \Hom_F(V,W;U)$. This says that $t:V \times W \rightarrow U$. By the universal property of free vector spaces, $t$ extends to a unique $F$-linear map $T: \bbF(V \times W) \rightarrow U$ that satisfies $t(v,w) = T(v,w)$. Taking the canonical projection $\pi:\bbF(V \times W) \rightarrow \bbF(V \times W)/\Rel_F(V \times W)$, it remains to show that $T$ vanishes on $\Rel_F(V \times W)$. $T$ does indeed vanish, and by diagram chasing we can show that $T(v,w) = t(v,w)$, establishing the proof.
+        \end{proof}
+
+    \begin{exercise}
+        Show that $\Hom_F(V,W;U) \cong \Hom_F(V \otimes_F W, U)$ as $F$-vector spaces.
+    \end{exercise}
+
+    \begin{corollary}
+        Let $U,V,W$ be $F$-vector spaces. We have:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $V \otimes_F W \cong W \otimes_F V$;
+                \item $(U \otimes_F V) \otimes_F W \cong U \otimes_F (V \otimes_F W)$.
+            \end{enumerate}
+    \end{corollary}
+        \begin{proof}
+            (1) is left an exercise. (2) Fix $w \in W$. Define:
+                $t:U \times V \rightarrow U \otimes_F (V \otimes )$
+        \end{proof}
+
+    {\color{red} buncha stuff to rewrite}
+
+\section{The Trace}
+    Given $A \in \Mat_n(F)$ with $A = (a_{ij})$, then $\tr(A) = \sum_{i =1}^n a_{ii}$. But in Chapter~\ref{chapter:Linear Transformations and Matrices} we showed that $A = [T]_\cB$ for some basis $\cB$. We should be able to define the trace on linear maps so that:
+        \begin{equation*}
+        \begin{split}
+            \tr(T) = \tr([T]_{\cB_1}) = \tr([T]_{\cB_2})
+        \end{split}
+        \end{equation*}
+    for different bases $\cB_1$ and $\cB_2$. Normally trace is defined as $\tr(\cdot):\Mat_n(F) \rightarrow F$. We want to "convert this" somehow to $\tr(\cdot):\Hom_F(V,V) \rightarrow F$. Working with $\Hom_F(V,V)$ is rather tedious, so this will be our first obstacle to overcome.
+
+    \begin{lemma}
+        Let $V$ be a finite dimensional $F$-vector space. Then $V \otimes_F V^\vee \cong \Hom_F(V,V)$.
+    \end{lemma}
+        \begin{proof}
+            Define:
+                \begin{equation*}
+                \begin{split}
+                    t: V \times V^\vee \rightarrow \Hom_F(V,V)
+                \end{split}
+                \end{equation*}
+             by:
+                \begin{equation*}
+                \begin{split}
+                    (v,\varphi) \mapsto (v' \mapsto \varphi(v')\cdot v).
+                \end{split}
+                \end{equation*} 
+            Let $v_1,v_2 \in V$ and $c \in F$. We have:
+                \begin{equation*}
+                \begin{split}
+                    t(v,\varphi)(v_1 + cv_2)
+                    & = \varphi(v_1 + cv_2)v \\
+                    & = (\varphi(v_1) + c\varphi(v_2))v \\
+                    & = \varphi(v_1)v + c\varphi(v_2)v \\
+                    & = t(v,\varphi)(v_1) + c t(v,\varphi)(v_2).
+                \end{split}
+                \end{equation*}
+            So for each $(v,\varphi) \in V \times V^\vee$, we have that $t(v,\varphi) \in \Hom_F(V,V)$. We'd like to now show that:
+                \begin{equation*}
+                \begin{split}
+                    t(v_1 + cv_2,\varphi) &= t(v_1,\varphi) + ct(v_2,\varphi) \\
+                    t(v,\varphi_1 + c\varphi_2) &= t(v,\varphi_1) + ct(v,\varphi_2).
+                \end{split}
+                \end{equation*}
+            Since these are both functions, we need to show that they are equal for all $v' \in V$; i.e.:
+                \begin{equation*}
+                \begin{split}
+                    t(v_1 + cv_2,\varphi)(v') = t(v_1,\varphi)(v') + ct(v_2,\varphi)(v').
+                \end{split}
+                \end{equation*}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    t(v_1 + cv_2,\varphi)(v')
+                    & = \varphi(v')(v_1 + cv_2) \\
+                    & = t(v_1,\varphi)(v') + ct(v_2,\varphi)(v').
+                \end{split}
+                \end{equation*}
+            Showing $t$ is linear in the second variable is left as an exercise. This gives a well-defined linear map $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ defined by $v \otimes \varphi \mapsto (v' \mapsto \varphi(v')v)$. Since $\dim_F(V \otimes_F V^\vee) = \dim_F(\Hom_F(V,V)) = n^2$, it is enough to show that $\cT$ is injective. Let $\cB = \{v_1,...,v_n\}$ be a basis of $V$ and $\cB^\vee = \{v_1^\vee,...,v_n^\vee\}$ its dual basis. Suppose $\cT(\sum_{i,j}a_{ij}(v_i \otimes v_j^\vee)) = 0_{\Hom_F(V,V)}$. Take $v_m \in \cB$. We have:
+                \begin{equation*}
+                \begin{split}
+                    0_V
+                    & = \cT(\sum_{i,j}a_{ij}(v_i \otimes v_j^\vee))(v_m) \\
+                    & = \sum_{i,j}a_{ij}(\cT(v_i \otimes v_j^\vee)(v_m)) \\
+                    & = \sum_{i,j}a_{ij}v_j^\vee(v_m)v_i \\
+                    & = \sum_{i}a_{im} v_i.
+                \end{split}
+                \end{equation*}
+            Thus $a_{im} = 0$ for all $i$. Since $m$ was arbitrary, this gives that $a_{ij} = 0$ for all $i,j$. Thus $\cT$ is injective, establishing $V \otimes_F V^\vee \cong \Hom_F(V,V)$.
+        \end{proof}
+
+    \begin{proposition}
+        Let $\cC: \Hom_F(V,V) \times \Hom_F(V,V) \rightarrow \Hom_F(V,V)$ be defined by the usual function composition. 
+        There exists a unique $\Psi: (V \otimes_F V^\vee) \times (V \otimes_F V^\vee) \rightarrow V \otimes_F V^\vee$ making the following diagram commute:
+            \begin{center}
+                \begin{tikzcd}
+                    (V \otimes_F V^\vee) \times (V \otimes_F V^\vee) \arrow[dd, "\cT \times \cT"] \arrow[rr, "\Psi", dotted] &  & V \otimes_F V^\vee \arrow[dd, "\cT"] \\
+                                                                                                                   &  &                                 \\
+                    {\Hom_F(V,V) \times \Hom_F(V,V)} \arrow[rr, "\cC"']                                          &  & {\Hom_F(V,V)}                  
+                    \end{tikzcd}
+            \end{center}
+    \end{proposition}
+        \begin{proof}
+            Define $\Psi: (V \otimes_F V^\vee) \times (V \otimes_F V^\vee) \rightarrow V \otimes_F V^\vee$ by $(v \otimes \varphi, w \otimes \psi) \mapsto \varphi(w)v \otimes \psi$. Given $x \in V$, from the following diagram chase:
+                \begin{center}
+                    \begin{tikzcd}
+                        {(v \otimes \varphi, w \otimes \psi)} \arrow[dd, "\cT \times \cT"]           &  &                                                  \\
+                                                                                   &  &                                                  \\
+                        {(\cT(v \otimes \varphi), \cT(w \otimes \psi))} \arrow[rr, "\cC"] &  & \cT(v \otimes \varphi) \circ \cT(w \otimes \psi),
+                        \end{tikzcd}
+                \end{center}
+            we can see that:
+                \begin{equation*}
+                \begin{split}
+                    \cT(v \otimes \varphi)(\cT(w \otimes \psi)(x))
+                    & = \cT(v \otimes \varphi)(\psi(x)(w)) \\
+                    & = \psi(x)\cT(v \otimes \varphi)(w) \\
+                    & = \psi(x)\varphi(w)v.
+                \end{split}
+                \end{equation*}
+            Another diagram chase:
+                \begin{center}
+                    \begin{tikzcd}
+                        {(v \otimes \varphi,w \otimes \psi)} \arrow[rr, "\Psi"] &  & \varphi(w)v \otimes \psi \arrow[d, "\cT"] \\
+                                                                                &  & \cT(\varphi(w)v \otimes \psi)         
+                        \end{tikzcd}
+                \end{center}
+            gives:
+                \begin{equation*}
+                \begin{split}
+                    \cT(\varphi(w)v \otimes \psi)(x)
+                    & = \varphi(w)\cT(v \otimes \psi)(x) \\
+                    & = \varphi(w)\psi(x)v.
+                \end{split}
+                \end{equation*}
+            Hence our diagram commutes.
+        \end{proof}
+
+        \begin{remark}
+            Note that $\Psi = \cT^{-1} \circ \cC \circ (\cT \times \cT)$ might not necessarily be definable! When we constructed $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ we had to pick a basis for $V$. This is not an issue for vector-spaces, but had we been working over modules it may be impossible to express what $\cT^{-1}$ is.
+        \end{remark}
+
+        \begin{remark}
+            We also did this to show that $V \otimes_F V^\vee$ admits the same properties as $\Hom$; i.e., that there is some semblance of "composition."
+        \end{remark}
+
+    \begin{definition}
+        Let $T \in \Hom_F(V,V)$, $\cB = \{v_1,..,v_n\}$ a basis of $V$, and $A = [T]_\cB$. The \textui{trace} of $A$ is:
+            \begin{equation*}
+            \begin{split}
+                \Tr(A) 
+                &= \sum_{i = 1}^n v_i^\vee(T(v_i)) \\
+                & = \sum_{i = 1}^n v_i^\vee \left(\sum_{j = 1}^n a_{ij}v_j\right) \\
+                & = \sum_{i = 1}^n \left(\sum_{j = 1}^n a_{ij}v_i^\vee (v_j)\right) \\
+                & = \sum_{i = 1}^n a_{ii}.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{definition}
+        Let $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ be defined by $v \otimes \varphi \mapsto \varphi(v')v$. Given $s: V \times V^\vee \rightarrow F$ defined by $(v,\varphi) \mapsto \varphi(v)$ and the induced map $S:V \otimes_F V^\vee \rightarrow F$ defined by $v \otimes \varphi \mapsto \varphi(v)$, the \textui{trace} is $\tr = \cT^{-1} \circ S$.
+            \begin{center}
+                \begin{tikzcd}
+                    {\Hom_F(V,V)} \arrow[r, "\tr"]                  & F \\
+                    V \otimes_F V \arrow[u, "\cT"] \arrow[ru, "S"'] &  
+                    \end{tikzcd}
+            \end{center}
+    \end{definition}
+
+    \begin{proposition}
+        $\tr = \Tr$. 
+    \end{proposition}
+        \begin{proof}
+            Define $\cT(v_i \otimes v_j^\vee) = \cT_{ij} \in \Hom_F(V,V)$. Since $\cT$ is an isomorphism, $\{\cT_{ij}\}_{i,j}$ is a basis of $\Hom_F(V,V)$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \Tr(\cT_{kl})
+                    & = \Tr(\cT(v_k \otimes v_l^\vee)) \\
+                    & = \sum_{i = 1}^n v_i^\vee (\cT(v_k \otimes v_l^\vee)(v_i)) \\
+                    & = \sum_{i = 1}^n v_i^\vee (v_l^\vee (v_i)v_k) \\
+                    & = \sum_{i = 1}v_l^\vee(v_i)v_i^\vee(v_k) \\
+                    & = v_l^\vee v_k
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \tr(\cT_{kl})
+                    & = (S \circ \cT^{-1})(\cT_{kl}) \\
+                    & = S(v_k \otimes v_l^\vee) \\
+                    & = v_l^\vee (v_k)
+                \end{split}
+                \end{equation*}
+            Thus both of our definitions of trace are consistent.
+        \end{proof}
+
+    \begin{corollary}
+        Let $A,B \in \Mat_n(F)$. We have $\Tr(AB) = \Tr(BA)$.
+    \end{corollary}
+        \begin{proof}
+            Define:
+                \begin{equation*}
+                \begin{split}
+                    t_1: \Hom_F(V,V) \times \Hom_F(V,V) &\rightarrow F \hspace{2pt}\mtext{by}\hspace{2pt} (S,T) \mapsto \Tr(S \circ T) \\
+                    t_2: \Hom_F(V,V) \times \Hom_F(V,V) &\rightarrow F \hspace{2pt}\mtext{by}\hspace{2pt} (S,T) \mapsto \Tr(T \circ S).
+                \end{split}
+                \end{equation*}
+            One can check that these are both bilinear. This induces:
+                \begin{equation*}
+                \begin{split}
+                    \tilde{t}_1: \Hom_F(V,V) \otimes_F \Hom_F(V,V) &\rightarrow F \hspace{2pt}\mtext{by}\hspace{2pt} S \otimes T \mapsto \Tr(S \circ T) \\
+                    \tilde{t}_2: \Hom_F(V,V) \otimes_F \Hom_F(V,V) &\rightarrow F \hspace{2pt}\mtext{by}\hspace{2pt} S \otimes T \mapsto \Tr(T \circ S).
+                \end{split}
+                \end{equation*}
+            Let 
+        \end{proof}

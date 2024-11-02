@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  29 OCT 2024 22:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  1 NOV 2024 12:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2591,7 +2591,9 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-[45])
+[45]
+Package hyperref Info: bookmark level for unknown note defaults to 0 on input line 1146.
+)
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -2622,18 +2624,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: B525EF7BF5F99874F4E958A8E283A033;1585.
  ) 
 Here is how much of TeX's memory you used:
- 53636 strings out of 474116
- 1154944 string characters out of 5743683
+ 53658 strings out of 474116
+ 1155422 string characters out of 5743683
  1956187 words of memory out of 5000000
- 74004 multiletter control sequences out of 15000+600000
- 790968 words of font info for 614 fonts, out of 8000000 for 9000
+ 74008 multiletter control sequences out of 15000+600000
+ 791285 words of font info for 618 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (47 pages, 368487 bytes).
+Output written on _main.pdf (47 pages, 372011 bytes).
 PDF statistics:
- 1191 PDF objects out of 1200 (max. 8388607)
- 1097 compressed objects within 11 object streams
- 655 named destinations out of 1000 (max. 500000)
+ 1206 PDF objects out of 1440 (max. 8388607)
+ 1111 compressed objects within 12 object streams
+ 667 named destinations out of 1000 (max. 500000)
  82129 words of extra memory for PDF output out of 89155 (max. 10000000)
 

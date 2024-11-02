@@ -18,8 +18,11 @@
 \contentsline {section}{\numberline {4.3}Characteristic Polynomials}{39}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Jordan Canonical Form}{46}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Diagonalization, II}{49}{section.4.5}%
-\contentsline {chapter}{\chapternumberline {5}Tensor Products, Exterior Algebras, and Determinants}{51}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}Tensor Products and the Trace}{51}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Complexification}{51}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Free Vector Spaces}{54}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Extension of Scalars}{55}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Tensor Products of Vector Spaces}{60}{section.5.4}%
+\contentsline {section}{\numberline {5.5}The Trace}{62}{section.5.5}%
+\contentsline {chapter}{\chapternumberline {6}Tensor Algebras, Exterior Algebras, and the Determinant}{66}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Tensor Algebras}{66}{section.6.1}%

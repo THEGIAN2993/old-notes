@@ -1073,7 +1073,7 @@
     \end{exercise}
 
     \begin{definition}
-        A sequence in $(f_n)_n : \bfN \rightarrow \cF(\Omega,\bfR)$n converges \textui{pointwise} to $f \in \cF(\Omega,\bfR)$ if for all $x \in \Omega$, $(f_n(x))_n \rightarrow f(x)$. In particular:
+        A sequence in $(f_n)_n : \bfN \rightarrow \cF(\Omega,\bfR)$ converges \textui{pointwise} to $f \in \cF(\Omega,\bfR)$ if, for all $x \in \Omega$, $(f_n(x))_n \rightarrow f(x)$. In particular:
             \begin{equation*}
             \begin{split}
                 (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) \ni n \geq N \implies |f_n(x) - f(x)| < \epsilon.
@@ -1084,7 +1084,7 @@
     \begin{example}
         \phantom{a}
         \begin{enumerate}[label = (\arabic*)]
-            \item Let $f_n \in \cF([0,1],\bfR)$ be defined by $f_n(x) = x^n$. Given $x \in [0,1)$, we can see that $(f_n(x))_n \rightarrow 0$. If $x = 1$, then $(f_n(x))_n \rightarrow 1$. So let $f: [0,1] \rightarrow \bfR$ be defined as $f = \delta_1$. Then $(f_n)_n \rightarrow f$ converges pointwise.
+            \item Let $f_n \in \cF([0,1],\bfR)$ be defined by $f_n(x) = x^n$. Given $x \in [0,1)$, we can see that $(f_n(x))_n \rightarrow 0$ (since $f^n$ is geometric). If $x = 1$, then $(f_n(x))_n \rightarrow 1$. So let $f: [0,1] \rightarrow \bfR$ be defined as $f = \delta_1$. Then $(f_n)_n \rightarrow f$ converges pointwise.
             \item Let $f_n \in \cF(\bfR,\bfR)$ be defined by $f_n(x) = \frac{nx}{1+n^2x^2}$. Note that:
                 \begin{equation*}
                 \begin{split}
@@ -1127,3 +1127,54 @@
             \end{split}
             \end{equation*}
     \end{definition}
+
+    \begin{example}
+        Consider the sequence of functions $f_n: \bfR \rightarrow \bfR$ defined by $f_n = \mathbf{1}_{[n,n+1]}$ for $n \in \bfN_0$. Claim: $(f_n)_n \rightarrow 0_{\cF(\bfR,\bfR)}$ point-wise. Let $x \in \bfR$. Given $\epsilon > 0$, find $N$ large so that $N > x$ (AP1). Then if $n \geq N$, $|f_n(x) - 0_{\cF(\bfR,\bfR)}| = |f_n(x)| = |\mathbf{1}_{[n,n+1]}(x)| = 0$.
+
+        However, $(f_n)_n \not\rightarrow 0_{\cF(\bfR,\bfR)}$ uniformly. Notice that $\sup_{x \in \bfR}|f_n(x) - 0_{\cF(\bfR,\bfR)}| = 1$ no matter how large $N$ is.
+    \end{example}
+
+    \begin{proposition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item $(f_n)_n \rightarrow f$ uniformly implies $(f_n)_n \rightarrow f$ point-wise.
+            \item If $(f_n)_n \rightarrow f$ point-wise and $(f_n)_n \rightarrow g$ point-wise, then $f = g$.
+        \end{enumerate}
+    \end{proposition}
+
+    \begin{note}
+        Recall that $(\ell_\infty(\Omega),d_u)$ where $d_u(f,g) = \sup_{x \in \Omega}|f(x)-g(x)|$ forms a metric space, where $d_u$ is called the \textit{uniform norm}. Note that $(f_n)_n \rightarrow f$ uniformly if and only if $(f_n)_n \rightarrow f$ in $(\ell_\infty(\Omega),d_u)$; i.e., $d_u(f_n,f) \rightarrow 0$.
+    \end{note}
+
+    \begin{example}
+        Consider the sequence of functions $h_n: [0,\infty) \rightarrow \bfR$ defined by $h_n(x) = e^{-nx}$. We saw that $(h_n)_n \rightarrow \delta_0$. Claim: $\sup_{x \geq 0}|h_n(x) - \delta_0(x)| = 1$. It suffices to show for $x>0$, because:
+            \begin{equation*}
+            \begin{split}
+                \sup_{x > 0}|e^{-nx} - \delta_0(x)|
+                & = \sup_{x > 0 }|e^{-nx} - 0| \\
+                & = \sup_{x > 0}\frac{1}{e^nx} \\
+                & = 1.
+            \end{split}
+            \end{equation*}
+        We prove this rigorously as follows: Given $0 < t < 1$, we want to find $x > 0$ such that $t < \frac{1}{e^{nx}}$. This gives:
+            \begin{equation*}
+            \begin{split}
+                e^{nx} < \frac{1}{t} 
+                &\iff nx < \ln\left(\frac{1}{t}\right) \\
+                &\iff x < \frac{1}{n}\ln\left(\frac{1}{t}\right).
+            \end{split}
+            \end{equation*}
+        Given $0 < t< 1$, by AP$1$ we have that $x < \frac{1}{n}\ln\left(\frac{1}{t}\right)$. This gives ...
+    \end{example}
+
+    \begin{lemma}
+        $(f_n)_n \not\rightarrow f$ uniformly if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\exists \epsilon_0 > 0)(\exists (f_{n_k})_k)(\exists(x_k)_k) \mtext{s.t.} |f_{n_k}(x_k) - f(x_k)| \geq \epsilon_0.
+            \end{split}
+            \end{equation*}
+    \end{lemma}
+        \begin{remark}
+            It suffices to show that $|f_{n_k}(x_k) - f(x_k)| > 0$ by constructing a sequence 
+        \end{remark}

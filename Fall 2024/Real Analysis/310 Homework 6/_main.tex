@@ -1,0 +1,324 @@
+%%%%%%%PACKAGES%%%%%%%
+\documentclass[10pt,twoside,openany]{memoir}
+
+
+\usepackage[p,osf]{scholax}
+% T1 and textcomp are loaded by package. Change that here, if you want
+% load sans and typewriter packages here, if needed
+\usepackage{amsmath,amsthm}% must be loaded before newtxmath
+% amssymb should not be loaded
+\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
+% vvarbb selects the STIX version of blackboard bold.
+
+
+\usepackage{titlesec}
+    \titlespacing*{\chapter}
+    {0pt} % Left margin
+    {*1} % Space before the chapter number (increase this value for more space)
+    {0pt} % Space after the chapter number and before the title
+\usepackage{anyfontsize}
+\usepackage{fancybox}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{cprotect}
+\usepackage{calligra}
+\usepackage{emptypage}
+\usepackage{titleps}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{ocgx}
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{pdfcomment}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+\usepackage{relsize}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{ulem}
+\usepackage{pgfplots}
+\usepackage{marginnote}
+    \newcommand*{\mnote}[1]{ % <----------
+    \checkoddpage
+    \ifoddpage
+        \marginparmargin{left}
+    \else
+        \marginparmargin{right}
+    \fi
+        \marginnote{\tiny \textcolor{oorange}{#1}}
+    }
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=0.9in]{geometry}
+    \setlength{\voffset}{-0.4in}
+    \setlength{\headsep}{30pt}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \fancyhead[R]{\footnotesize \rightmark}
+    \fancyhead[L]{\footnotesize \leftmark}
+\usepackage[outline]{contour}% http://ctan.org/pkg/contour
+    \renewcommand{\arraystretch}{1.5}
+    \contourlength{0.4pt}
+    \contournumber{10}%
+\usepackage{letterspace}
+    \linespread{1.25}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=6pt, spacebelow=6pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=1em
+        %qed=\qedsymbol
+        ]{mystyle}
+
+    \declaretheorem[
+        numberwithin=section,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{theorem}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{lemma}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{proposition}
+
+    \declaretheorem[
+        sibling=theorem,
+        numberwithin=section,
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{233,233,233},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{233,233,233}}
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=mystyle,
+        %shaded={
+        %    rulecolor={RGB}{255,250,177},
+        %    rulewidth=5pt, 
+        %    bgcolor={RGB}{255,250,177}}
+    ]{definition}
+
+    \declaretheorem[
+        %shaded={
+        %    rulecolor=Lavender,
+        %    rulewidth=5pt, 
+        %    bgcolor=Lavender}
+    ]{exercise}
+\declaretheorem[numbered=unless unique,style=mystyle]{Note}
+    
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%MACROS%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%DOCUMENT SETUP%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\setsecnumdepth{subsection}
+\definecolor{darkgreen}{rgb}{0, 0.5976, 0}
+\hypersetup{pdfauthor=Gianluca Crescenzo, pdftitle=Real Analysis I Notes, pdfstartview=FitH, colorlinks=true, linkcolor=darkgreen, citecolor=darkgreen}
+
+\begin{document}
+\begin{center}
+    { \Large Math 310 \\[0.1in]Homework 6 \\[0.1in]
+    Due: 10/9/2024}\\[.25in]
+    { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+    \end{center}
+    \vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(x_k)_k$ be a sequence of strictly positive numbers such that  
+            \begin{equation*}
+            \begin{split}
+                (kx_k)_k \rightarrow L > 0/.
+            \end{split}
+            \end{equation*}
+        Show that the infinite series $\sum_{k}x_k$ diverges.
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(x_k)_k$ be a sequence of strictly positive numbers.
+            \begin{enumerate}[label = (\roman*)]
+                \item If $\limsup_{n \rightarrow \infty}\frac{x_{k+1}}{x_k} < 1$, then the infinite series $\sum_k x_k$ converges.
+                \item If $\liminf_{n \rightarrow \infty} \frac{x_{k+1}}{x_k} > 1$, then the infinite series $\sum_k x_k$ diverges.
+            \end{enumerate}
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the sequence of functions:
+            \begin{equation*}
+            \begin{split}
+                f_n: \bfR \rightarrow \bfR; \hspace{10pt} f_n(x) = \arctan(nx).
+            \end{split}
+            \end{equation*}
+            \begin{enumerate}[label = (\roman*)]
+                \item Show that $(f_n)_n \rightarrow \frac{\pi}{2}\text{sgn}$ point-wise.
+                \item Show that the convergence in (i) is nonuniform on $(0,\infty)$.
+                \item Show that the convergence in (i) is uniform on $[a,\infty)$ for a fixed $a > 0$.
+            \end{enumerate}
+    \end{exercise} 
+        \begin{proof}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    (\arctan(n))_n &\rightarrow \frac{\pi}{2}, \\
+                    (\arctan(-n))_n &\rightarrow -\frac{\pi}{2}.
+                \end{split}
+                \end{equation*}
+            So given $x > 0$, there exists $N_x \in \bfN$ such that $n \geq N_x$ implies $|\arctan(nx) - \frac{\pi}{2}| < \epsilon$. Similarly, given $x < 0$, there exists $N_x \in \bfN$ such that $n \geq N_x$ implies $|\arctan(nx) + \frac{\pi}{2}| < \epsilon$. For $x = 0$, we have that $(\arctan(0))_n = (0)_n \rightarrow 0_{\cF(\bfR,\bfR)}$. Hence $(\arctan(nx))_n \rightarrow \sgn \frac{\pi}{2}$.
+
+            Let $(x_k)_k = \frac{1}{k}$ and $n_k = k$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f_{n_k}(x_k) - f(x_k)|
+                    & = |\arctan\left(k \cdot \frac{1}{k}\right) - \sgn\left(\frac{1}{k}\right)\cdot \frac{\pi}{2}| \\
+                    & = \arctan(1).
+                \end{split}
+                \end{equation*}
+            Picking $\epsilon_0 = \arctan(1)$ gives that $(\arctan(nx))_n$ does not converge uniformly on $(0,\infty)$.
+
+            Fix $a > 0$. Since $(d_u(f_n,f))_n = \left(\sup_{x \in [a,\infty)}\left|\arctan(nx) - \sgn(x)\frac{\pi}{2}\right|\right)_n$, we have:
+                \begin{equation*}
+                \begin{split}
+                    \left|\sup_{x \in [a,\infty)} \left|\arctan(nx) - \sgn(x)\frac{\pi}{2}\right|\right|
+                    & \leq \sup_{x \in [a,\infty)} \left|\arctan(nx) - \sgn(x)\frac{\pi}{2} \right| \\
+                    & = \sup_{x \in [a,\infty)}\left|\arctan(nx) - \frac{\pi}{2}\right| \\
+                    & = 0.
+                \end{split}
+                \end{equation*}
+            Thus $(f_n)_n$ converges uniformly on $[a,\infty)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the sequence of functions:
+            \begin{equation*}
+            \begin{split}
+                f_n:[0,\infty) \rightarrow \bfR; \hspace{10pt}f_n(x) = \frac{\sin(nx)}{1 + nx}.
+            \end{split}
+            \end{equation*}
+            \begin{enumerate}[label = (\roman*)]
+                \item Show that $(f_n)_n \rightarrow 0$ point-wise.
+                \item Show that the convergence in (i) is nonuniform on $(0,\infty)$.
+                \item Show that the convergence in (i) is uniform on $[a,\infty)$ for a fixed $a > 0$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            For $x = 0$, we have that $(f_n(0))_n = 0_{\cF([0,\infty),\bfR)}$. For $x> 0$:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{\sin(nx)}{1+nx}\right| \leq \frac{1}{1 + n|x|} \leq \frac{1}{n|x|}.
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{1}{n|x|}\right)_n \rightarrow 0$, we have that $\left(\frac{\sin(nx)}{1+nx}\right)_n \rightarrow 0$. Hence $(f_n)_n \rightarrow 0_{\cF([0,\infty),\bfR)}$ pointwise.
+
+            Consider $x_k = \frac{\pi}{2k}$ and $n_k = k$. We have:
+                \begin{equation*}
+                \begin{split}
+                    |f_{n_k}(x_k) - f(x_k)|
+                    & = \left|\frac{\sin(k x_k)}{1 + k x_k}\right| \\
+                    & = \frac{\sin \left(k \cdot \frac{\pi}{2k}\right)}{1 + k \cdot \frac{\pi}{2k}} \\
+                    & = \frac{\sin \left(\frac{\pi}{2}\right)}{1 + \frac{\pi}{2}} \\
+                    & = \frac{1}{1 + \frac{\pi}{2}}.
+                \end{split}
+                \end{equation*}
+            Picking $\epsilon_0 = \frac{1}{1 + \frac{\pi}{2}}$ gives that $(f_n)_n$ does not converge uniformly on $(0,\infty)$.
+
+            Fix $a > 0$. Since $(d_u(f_n,f))_n = \left(\sup_{x \in [a,\infty)}\left|\frac{\sin(nx)}{1+nx}\right|\right)$, we have:
+                \begin{equation*}
+                \begin{split}
+                    \left|\sup_{x \in [a,\infty)} \left| \frac{\sin(nx)}{1+nx}\right|\right|
+                    & \leq \sup_{x \in [a,\infty)}\left|\frac{\sin(nx)}{1+nx}\right| \\
+                    & \leq \sup_{x \in [a,\infty)}\left|\frac{1}{1 + nx}\right| \\
+                    & = \frac{1}{1 + na} \\
+                    & \leq \frac{1}{na}.
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{1}{na}\right)_n \rightarrow 0$, then $(d_u(f_n,f) )_n \rightarrow 0$. Thus $f_n$ converges uniformly on $[a,\infty)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the sequence of functions:
+            \begin{equation*}
+            \begin{split}
+                f_n: [0,\infty) \rightarrow \bfR; \hspace{10pt}f_n(x)=x^2e^{-nx}
+            \end{split}
+            \end{equation*}
+        converges uniformly to $0$.
+    \end{exercise}
+        \begin{proof}
+            Note that $(f_n)_n \rightarrow 0_{\cF\left([0,\infty),\bfR\right)}$. We have that $(d_u(f_n,f))_n = \left(\sup_{x \in [0,\infty)} \left|x^2 e^{-nx}\right|\right)_n$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \left|\sup_{x \in [0,\infty)} \left|x^2 e^{-nx}\right|\right|
+                    & \leq \sup_{x \in [0,\infty)} |x^2 e^{-nx}| \\
+                    & \leq \sup_{x \in [0,\infty)} \left|\frac{x^2}{1+x+\frac{n^2x^2}{2}}\right| \\ 
+                    & \leq \sup_{x \in [0,\infty)} \left|\frac{x^2}{\frac{n^2}{2} x^2}\right| \\
+                    &= \sup_{x \in [0,\infty)} \left|\frac{2}{n^2}\right| \\
+                    & = \frac{2}{n^2}.
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{2}{n^2}\right)_n \rightarrow 0$, $(d_u(f_n,f))_n \rightarrow 0$. Thus $(f_n)_n$ converges uniformly on $[0,\infty)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f_n = \mathbf{1}_{[n,n+1]}$. Show that $(f_n)_n \rightarrow 0$ point-wise on $\bfR$. Is the convergence uniform?
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(f_n)_n$ and $(g_n)_n$ be sequences in $\ell_\infty(\Omega)$ with $(f_n)_n \rightarrow f$ and $(g_n)_n \rightarrow g$ uniformly on $\Omega$. Prove that $(f_n g_n)_n \rightarrow fg$ uniformly on $\Omega$.
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Find a sequence of functions $(f_n)_n$ defined on $[0,\infty)$ such that $\lVert f_n\rVert _u \geq n$ but with $(f_n)_n \rightarrow 0$ point-wise.
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the series $\sum_{k = 0}^\infty \frac{x^k}{k!}$ converges absolutely and uniformly on any closed and bounded interval $[a,b]$.
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
