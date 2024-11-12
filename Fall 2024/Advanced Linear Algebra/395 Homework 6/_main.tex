@@ -154,9 +154,9 @@
 \begin{document}
 \begin{center}
     { \Large Math 395 \\[0.1in]Homework 6 \\[0.1in]
-    Due: 10/23/2024}\\[.25in]
+    Due: 11/05/2024}\\[.25in]
     { Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
-    { Collaborators:} {\underline{Noah Smith, Carly Venenciano, Avinash Iyer\hspace*{2in}}} \\
+    { Collaborators:} {\underline{Noah Smith, Carly Venenciano, Avinash Iyer, Tim Rainone\hspace*{1in}}} \\
     \end{center}
     \vspace{4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,35 +164,213 @@
         Let $V$ be an $\bfR$-vector space. Prove that $\bfC \otimes_\bfR V \cong V_\bfC$
     \end{exercise}
         \begin{proof}
-            Define $t:V \rightarrow V \oplus V$ by $v \mapsto (v,0_V)$. Clearly $t \in \Hom_\bfR(V,V \oplus V)$. Define $\iota_V: V \rightarrow \bfC \otimes_\bfR V$ by $v \mapsto 1 \otimes v$; by the universal property of tensor products there exists a unique $T \in \Hom_\bfC(\bfC \otimes_\bfR V , V_\bfC)$ satisfying $t = T \circ \iota_V$. 
-            
-            Claim: Defining $T: \bfC \otimes_\bfR V \rightarrow V_\bfC$ by $1 \otimes v_1 + i \otimes v_2 \mapsto (v_1,v_2)$ satisfies the universal property. We have:
+            Define $t:V \rightarrow V \oplus V$ by $v \mapsto (v,0_V)$. Clearly $t \in \Hom_\bfR(V, V \oplus V)$. This extends to a map $T \in \Hom_\bfC(\bfC \otimes_\bfR V, V_\bfC)$ satisfying $t = T \circ \iota$, where $\iota:V \rightarrow \bfC \otimes_\bfR V$ is defined by $v \mapsto 1 \otimes v$. Claim: defining $T$ by $1 \otimes v_1 + i \otimes v_2 \mapsto (v_1,v_2)$ satisfies the universal property. Observe that:
                 \begin{equation*}
                 \begin{split}
-                    T(\iota_V(v))
-                    & = T(1 \otimes v) \\
-                    & = (v,0_V) \\
-                    & = t(v).
+                    T(\iota(v)) = T(1 \otimes v) = (v,0_V) = t(v).
                 \end{split}
                 \end{equation*}
-            Now let $S:V_\bfC \rightarrow \bfC \otimes_\bfR V$ be defined by $(v_1,v_2) \mapsto 1 \otimes v_1 + i \otimes v_2$. Given $v_1,v_2,v_1',v_2' \in V$ and $a+bi \in \bfC$, observe that:
+            Furthermore, given $a \in \bfC$ we have:
                 \begin{equation*}
                 \begin{split}
-                    S((v_1,v_2) + (a+bi)(v_1' + v_2'))
-                    & = S((v_1 + av_1' - bv_2', v_2 + bv_1' + av_2')) \\
-                    & = 1 \otimes (v_1 = av_1' - bv_2') + i \otimes (v_2 = bv_1' + av_2') \\
-                    & = ... \\
+                    T(a \otimes v)
+                    & = T(a (1 \otimes v)) \\
+                    & = aT(1 \otimes v) \\
+                    & = a(v,0_V).
+                \end{split}
+                \end{equation*}
+            Define $S: V_\bfC \rightarrow \bfC \otimes_\bfR V$ by $(v_1,v_2) \mapsto 1 \otimes v_1 + i \otimes v_2$. Given $v_1,v_2,v_1',v_2' \in V$ and $a+bi \in \bfC$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    S((v_1,v_2)+(a+bi)(v_1',v_2'))
+                    & = S((v_1,v_2) + (av_1' - bv_2',bv_1' + av_2')) \\
+                    & = S((v_1 + av_1' - bv_2',v_2 + bv_1' + av_2')) \\
+                    & = 1 \otimes (v_1 + av_1' - bv_2') + i \otimes (v_2 + bv_1' + av_2') \\
+                    & = 1 \otimes v_1 + 1 \otimes (av_1' - bv_2') + i \otimes v_2 + i \otimes (bv_1' + av_2')\\
+                    & = (1\otimes v_1 + i \otimes v_2) + (a \otimes v_1' + bi \otimes v_1' + ai\otimes v_2' + (-b)\otimes v_2') \\
+                    & = (1\otimes v_1 + i \otimes v_2) + ((a+bi) \otimes v_1' + (ai-b) \otimes v_2') \\
+                    & = (1\otimes v_1 + i \otimes v_2) + ((a+bi)(1 \otimes v_1') + (a+bi)(i \otimes v_2')) \\
+                    & = (1\otimes v_1 + i \otimes v_2) + (a+bi)(1 \otimes v_1' + i \otimes v_2') \\
                     & = S((v_1,v_2)) + (a+bi)S((v_1',v_2')).
                 \end{split}
                 \end{equation*}
-            Hence $S \in \Hom_\bfC(V_\bfC,\bfC \otimes_\bfR V)$. This gives:
+            Hence $S \in \Hom_\bfC(V_\bfC, \bfC \otimes_\bfR V)$. Now consider:
                 \begin{equation*}
                 \begin{split}
-                    T(S((v_1,v_2))) & = \\
-                    S \left( T \left( \sum_{\text{finite}} (a+bi) \otimes v_j\right)\right) &= 
+                    T(S((v_1,v_2)))
+                    & = T(1 \otimes v_1 + i \otimes v_2) \\
+                    & = T(1 \otimes v_1) + T(i \otimes v_2) \\
+                    & = (v_1,0_V) + (0_V,v_2) \\
+                    & = (v_1,v_2).
                 \end{split}
                 \end{equation*}
-            Thus $\bfC \otimes_\bfR V \cong V_\bfC$.
+            Moreover, since $\{1 \otimes v_k , i \otimes v_j\}_{k,j}$ is a basis of $\bfC \otimes_\bfR V$, it suffices to show:
+                \begin{equation*}
+                \begin{split}
+                    S(T(1 \otimes v_k)) &= S((v_k,0_V)) = 1 \otimes v_k \\
+                    S(T(i \otimes v_j)) &= S((0_V,v_j)) = i \otimes v_j.
+                \end{split}
+                \end{equation*}
+            Thus $T \circ S = \id_{V_\bfC}$ and $S \circ T = \id_{\bfC \otimes_\bfR V}$, establishing $\bfC \otimes_\bfR V \cong V_\bfC$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $t: \bfR^3 \times \bfR^3 \rightarrow \bfR^3$ be defined by $t(v,w) = v \times w$. Let $\cE_3$ be the standard basis of $\bfR^3$ and $\cB = \{e_i \otimes e_j\}_{1 \leq i,j \leq 3}$. Let $T \in \Hom_F(\bfR^3 \otimes_\bfR \bfR^3 , \bfR^3)$ be the linear map associated to $t$. Calculate $\left[T\right]_\cB^{\cE_3}$.
+    \end{exercise}
+        \begin{proof}
+            We have:
+                \begin{equation*}
+                \begin{split}
+                    T(e_1 \otimes e_1) &=e_1 \times e_1 = 0 \\
+                    T(e_1 \otimes e_2) &=e_1 \times e_2 = e_3\\
+                    T(e_1 \otimes e_3) &=e_1 \times e_3 = -e_2\\
+                    T(e_2 \otimes e_1) &=e_2 \times e_1 = -e_3\\
+                    T(e_2 \otimes e_2) &=e_2 \times e_2 = 0 \\
+                    T(e_2 \otimes e_3) &=e_2 \times e_3  =e_1\\
+                    T(e_3 \otimes e_1) &=e_3 \times e_1 = e_2\\
+                    T(e_3 \otimes e_2) &=e_3 \times e_2  = -e_1\\
+                    T(e_3 \otimes e_3) &=e_3 \times e_3 = 0.
+                \end{split}
+                \end{equation*}
+            Hence:
+                \begin{equation*}
+                \begin{split}
+                    \left[T\right]_\cB^{\cE_3}=
+                    \bmat
+                    0 &  0  &  0   &  0   &  0     &   1   &  0   &  -1 &  0\\
+                    0 &  0  &  -1  &  0   &   0    &   0   &  1   &  0  &  0 \\
+                    0 &  1  &  0   &  -1  &   0    &   0   &  0   &  0  &  0
+                    \emat
+                \end{split}
+                \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ and $W$ be $F$-vector spaces. Prove that $V \otimes_F W \cong W \otimes_F V$.
+    \end{exercise}
+        \begin{proof}
+            Define $t_1:V \times W \rightarrow W \otimes_F V$ by $(v,w) \mapsto w \otimes v$. We have:
+                \begin{equation*}
+                \begin{split}
+                    t_1(v_1 + cv_2,w)
+                    & = w \otimes (v_1 + cv_2) \\
+                    & = w \otimes v_1 + c(w \otimes v_2) \\
+                    & = t_1(v_1,w) + ct(v_2,w).
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    t_1(v,w_1 + cw_2)
+                    & = (w_1 + cw_2) \otimes v \\
+                    & = w_1 \otimes v + c(w_2 \otimes v) \\
+                    &= t_1(v,w_1) + ct_1(v,w_2).
+                \end{split}
+                \end{equation*}
+            Thus $t_1 \in \Hom_F(V,W;W \otimes_F V)$. This extends to a map $T \in \Hom_F(V \otimes_F W, W \otimes_F V)$ defined by $v \otimes w \mapsto w \otimes v$. Now define $t_2:W \times V \mapsto V \otimes_F W$ by $(w,v) \mapsto v \otimes w$. We have:
+                \begin{equation*}
+                \begin{split}
+                    t_2(w_1 + cw_2,v)
+                    & = v \otimes (w_1 + cw_2) \\
+                    & = v \otimes w_1 + c(v \otimes w_2) \\
+                    & = t_2(w_1,v) + ct(w_1,v).
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    t_2(w,v_1 + cv_2)
+                    & = (v_1 + cv_2) \otimes w \\
+                    & = v_1 \otimes w + c(v_2 \otimes w) \\
+                    & = t_2(w,v_1) + ct(w, v_2).
+                \end{split}
+                \end{equation*}
+            Thus $t_2 \in \Hom_F(W,V;V \otimes_F W)$. This extends to a map $S \in \Hom_F(W \otimes_F V, V \otimes_F W)$. Now consider:
+                \begin{equation*}
+                \begin{split}
+                    S(T(v \otimes w)) &= S(w \otimes v) = v \otimes w \\
+                    T(S(w \otimes v)) &= T(v \otimes w) = w \otimes v.
+                \end{split}
+                \end{equation*}
+            Thus $S \circ T = \id_{V \otimes_F W}$ and $T \circ S = \id_{W \otimes_F V}$, establishing $V \otimes_F W \cong W \otimes_F V$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\alph*)]
+            \item Let $\varphi \in V^\vee$ and $\psi \in W^\vee$. Define a map
+                \begin{equation*}
+                \begin{split}
+                    B_{\varphi,\psi}: V \times W \rightarrow F \mtext{by} (v,w) \mapsto \varphi(v)\psi(w).
+                \end{split}
+                \end{equation*}
+            Show that $B_{\varphi,\psi}$ is a bilinear form.
+            \item Prove that there is a natural isomorphism between $(V \otimes_F W)^\vee$ and $V^\vee \otimes_F W^\vee$ (note that a natural isomorphism means it does not depend on a choice of basis).
+        \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Given $v,v_1,v_2 \in V$, $w,w_1,w_2 \in W$, and $c \in F$, we have:
+                \begin{equation*}
+                \begin{split}
+                    B_{\varphi,\psi}(v_1 + cv_2,w)
+                    & = \varphi(v_1 + cv_2)\psi(w)\\
+                    & = \varphi(v_1)\psi(w) + c\varphi(v_2)\psi(w) \\
+                    & = B_{\varphi,\psi}(v_1,w) + c B_{\varphi,\psi}(v_2,w).
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    B_{\varphi,\psi}(v,w_1 + cw_2)
+                    & = \varphi(v)\psi(w_1 +c w_2) \\
+                    & = \varphi(v)\psi(w_1) + c\varphi(v)\psi(w_2) \\
+                    & = B_{\varphi,\psi}(v,w_1) +c B_{\varphi,\psi}(v,w_2).
+                \end{split}
+                \end{equation*}
+            Thus $B_{\varphi,\psi} \in \Hom_F(V,W;F)$. This induces a unique $T_{\varphi,\psi} \in \Hom_F(V \otimes_F W,F)$ defined by $T_{\varphi,\psi}(v \otimes w) = \varphi(v)\psi(w)$. Define $s:V^\vee \times W^\vee \rightarrow (V \otimes_F W)^\vee$ by $t(\varphi,\psi) \mapsto T_{\varphi,\psi}$. Given $\varphi,\varphi_1,\varphi_2 \in V^\vee$, $\psi,\psi_1,\psi_2 \in W^\vee$, and $c \in F$, we have:
+                \begin{equation*}
+                \begin{split}
+                    s(\varphi,\psi_1 + c\psi_2)
+                    & = T_{\varphi,\psi_1 + c \psi_2}(v \otimes w) \\
+                    & = \varphi(v)(\psi_1 + c\psi_2)(w) \\
+                    & = \varphi(v)\psi_1(w) + c \varphi(v)\psi_2(w) \\
+                    & = T_{\varphi,\psi_1}(v \otimes w) + c T_{\varphi,\psi_2}(v \otimes w) \\
+                    & = s(\varphi,\psi_1) + c s(\varphi,\psi_2).
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    s(\varphi_1 + c \varphi_2,\psi)
+                    & = T_{\varphi_1 + c\varphi_2,\psi}(v \otimes w) \\
+                    & = (\varphi_1 + c\varphi_2)(v)\psi(w) \\
+                    & = \varphi_1(v)\psi(w) + c\varphi_2(v)\psi(w) \\
+                    & = T_{\varphi_1,\psi}(v \otimes w) + cT_{\varphi_2,\psi}(v \otimes w) \\
+                    & = s(\varphi_1,\psi) + c s(\varphi_2,\psi).
+                \end{split}
+                \end{equation*}
+            Thus $s \in \Hom_F(V^\vee,W^\vee;(V \otimes_F W)^\vee )$. This induces a unique $S \in \Hom_F(V^\vee \otimes_F W^\vee, (V \otimes_F W)^\vee)$ defined by $\varphi \otimes \psi \mapsto T_{\varphi,\psi}$.
+
+            Let $\{v_i\}_{i \in I}$ be a basis for $V$ and $\{w_j\}_{j \in I}$ a basis for $W$. We have that $\{v_i^\vee \otimes w_j^\vee\}_{i,j}$ is a basis for $V^\vee \otimes_F W^\vee$ and $\{(v_i \otimes w_j)^\vee \}_{i,j}$ is a basis for $(V \otimes_F W)^\vee$. Given $v \in V$ and $w \in W$, we have:
+                \begin{equation*}
+                \begin{split}
+                    S(v_i^\vee \otimes w_j^\vee)(v \otimes w)
+                    & = T_{{v_i^\vee},{w_j^\vee}}(v \otimes w) \\
+                    & = v_i^\vee (v)w_j^\vee(w) \\
+                    & = \begin{cases} 1, & v_i = v \mtext{and} w_j = w \\ 0, & \text{otherwise}\end{cases} \\
+                    & = (v_i \otimes w_j)^\vee
+                    (v \otimes w)
+                \end{split}
+                \end{equation*}
+            we have that $\Image(S) \supseteq \{(v_i \otimes w_j)\}_{i,j}$, which implies that $S$ is surjective. Now suppose:
+                \begin{equation*}
+                \begin{split}
+                    S\left(\sum_{\text{\tiny finite}}a_{i,j} (v_i^\vee \otimes w_j ^\vee) \right) = 0.
+                \end{split}
+                \end{equation*}
+            Then:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{\text{\tiny finite}}a_{i,j}(v_i \otimes w_j)^\vee = 0,
+                \end{split}
+                \end{equation*}
+            which implies that $a_{i,j} = 0$ for all $i,j$ since $\{(v_i \otimes w_j)^\vee \}_{i,j}$ is a basis. Hence $\sum_{\text{\tiny finite}}a_{i,j} (v_i^\vee \otimes w_j ^\vee) = 0$. Thus $V^\vee \otimes_F W^\vee \cong (V \otimes_F W)^\vee$.
         \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

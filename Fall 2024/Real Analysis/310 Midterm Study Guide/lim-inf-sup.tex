@@ -1,0 +1,86 @@
+\chapter*{Limit Inferior \& Limit Superior}
+\vspace{12pt}
+
+\section*{Definitions}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $X = (x_n)_n$ be a fixed bounded sequence who's limit may not exist. Then $\overline{X} = \{t \in \bfR \mid t = \lim_{k \rightarrow \infty} x_{n_k}, x_{n_k} \mtext{some subsequence}\hspace{-5pt}\}$ is the set containing all \textui{subsequential limits} (or \textui{limit points}) of $X$. 
+        
+        \item Let $(x_n)_n$ be a bounded sequence.
+            \begin{enumerate}[label = (\roman*)]
+                \item $l = \lim_{m \rightarrow \infty} l_m = \lim_{m \rightarrow \infty} (\inf_{n \geq m}x_n) := \liminf x_n$
+                \item $u = \lim_{m \rightarrow \infty}u_m = \lim_{m \rightarrow \infty}(\sup_{n \geq m}x_n) := \limsup x_n$.
+            \end{enumerate}
+    \end{enumerate}
+\section*{Theorems/Propositions/Lemmas}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $X = (x_n)_n$ be a bounded sequence with $l = \liminf x_n$ and $u = \limsup x_n$. If $x \in X$, then $x \in [l,u]$.
+            {\color{red} \begin{proof}
+                Note that:
+                    \begin{equation*}
+                    \begin{split}
+                        \inf_{n \geq n_k}x_n \leq x_{n_k}
+                        & \implies \lim_{k\rightarrow \infty}(\inf_{n \geq n_k}x_n) \leq \lim_{k \rightarrow \infty}x_{n_k} \\
+                        & \implies l \leq x.
+                    \end{split}
+                    \end{equation*}
+                    \begin{equation*}
+                    \begin{split}
+                        \sup_{n \geq n_k}x_n \geq x_{n_k}
+                        & \implies \lim_{k\rightarrow \infty}(\sup_{n \geq n_k}x_n) \geq \lim_{k \rightarrow \infty}x_{n_k} \\
+                        & \implies u \geq x. \qedhere
+                    \end{split}
+                    \end{equation*}
+            \end{proof}}
+
+        \item Let $(x_n)_n = X$ be a bounded sequence. Let $l = \liminf x_n$ and $u = \limsup x_n$. Then $l,u \in \overline{X}$.
+            {\color{red} \begin{proof}
+                Let $u_m = \sup_{n \geq m}x_n$. By the supremum property:
+                    \begin{equation*}
+                    \begin{split}
+                        N = 1 &\implies (\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt}\land\hspace{4pt} u_1-1 < x_{n_1} \leq u_1)\\
+                        N = n_1 + 1 &\implies (\exists n_2 \in \bfN)(n_2 > n_1 \hspace{4pt}\land\hspace{4pt} u_2-\frac{1}{2} < x_{n_2} \leq u_2)\\
+                        N = n_2 + 1 &\implies (\exists n_3 \in \bfN)(n_3 > n_2 \hspace{4pt}\land\hspace{4pt} u_3-\frac{1}{3} < x_{n_3} \leq u_3)\\
+                        &\vdots
+                    \end{split}
+                    \end{equation*}
+                Inductively:
+                    \begin{equation*}
+                    \begin{split}
+                        u_k - \frac{1}{k} < x_{n_k} \leq u_k 
+                        & \implies \lim_{k \rightarrow \infty} u_k < \lim_{k \rightarrow \infty}x_{n_k} \leq \lim_{k \rightarrow \infty}u_k \\
+                        & \implies u < \lim_{k \rightarrow \infty}x_{n_k} \leq u.
+                    \end{split}
+                    \end{equation*}
+                By the squeeze theorem, $(x_{n_k})_k \rightarrow u$. Now let $l_m = \inf_{n \geq m} x_n$. By the infimum property:
+                    \begin{equation*}
+                    \begin{split}
+                        N = 1 &\implies (\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt}\land\hspace{4pt} l_1 \leq x_{n_1} < l_1 + 1)\\
+                        N = n_1 + 1 &\implies (\exists n_2 \in \bfN)(n_2 > n_1 \hspace{4pt}\land\hspace{4pt} l_2 \leq x_{n_2} < l_2 + \frac{1}{2})\\
+                        N = n_2 + 1 &\implies (\exists n_3 \in \bfN)(n_3 > n_2 \hspace{4pt}\land\hspace{4pt} l_3 \leq x_{n_3} < l_3 + \frac{1}{3})\\
+                        &\vdots
+                    \end{split}
+                    \end{equation*}
+                Inductively:
+                    \begin{equation*}
+                    \begin{split}
+                        l_k \leq x_{n_k} < l_k + \frac{1}{k}
+                        & \implies \lim_{k \rightarrow \infty} l_k \leq \lim_{k \rightarrow \infty} x_{n_k} < \lim_{k \rightarrow \infty} l_k + \frac{1}{k} \\
+                        & \implies l \leq \lim_{k \rightarrow \infty} x_{n_k} < l.
+                    \end{split}
+                    \end{equation*}
+                By the squeeze theorem, $(x_{n_k})_k \rightarrow l$. Hence $l,u \in \overline{X}$.
+            \end{proof}}
+
+        \item{\color{red}*} Let $(x_n)_n$ be bounded.
+            \begin{enumerate}[label = (\roman*)]
+                \item $\liminf x_n \leq \limsup x_n$.
+                \item $(x_n)_n \rightarrow x$ if and only if $\liminf x_n = \limsup x_n = x$.
+            \end{enumerate}
+            {\color{red} \begin{proof}
+                (i) Note that $l_m \leq u_m$ for all $m \geq 1$. Taking the limit $m \rightarrow \infty$ gives $l \leq u$.
+
+                (ii) $(\Rightarrow)$ If $(x_n)_n \rightarrow x$, then every subsequence $(x_{n_k})_k \rightarrow x$. But we showed in (2) that there exists subsequences which converge to $l$ and $u$. Whence $x = l = u$. $(\Leftarrow)$ If $l = u = x$, then $\overline{X} = [x,x] = \{x\}$. Hence every subsequence $(x_{n_k})_k \rightarrow x$. Thus $(x_n)_n \rightarrow x$.
+                
+            \end{proof}}
+    \end{enumerate}
+\section*{Example}

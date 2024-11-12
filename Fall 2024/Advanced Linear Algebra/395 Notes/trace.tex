@@ -499,10 +499,13 @@
     \end{example}
 
     \begin{definition}
-        Let $V,W$ be $F$-vector spaces and consider the Cartesian product $V \times W$. Let:
+        Let $V,W$ be $F$-vector spaces and consider the Cartesian product $V \times W$. For $v_1,v_2,v \in V$, $w_1,w_2,w \in W$, and $c \in F$, let:
             \begin{equation*}
             \begin{split}
-                asdf
+                \cA_1 &= \left(v_1+v_2, w\right)-\left(v_1, w\right)-\left(v_2, w\right) \\
+                \cA_2 &= \left(v, w_1+w_2\right)-\left(v, w_1\right)-\left(v, w_2\right) \\
+                \cA_3 &= (c v, w)-(v, c w) \\
+                \cA_4 &= c(v, w)-(c v, w)
             \end{split}
             \end{equation*}
         and define $\Rel_F(V \times W) = \Span_F\{\cA_1,\cA_2,\cA_3,\cA_4\}$. The \textui{tensor product} of $V$ and $W$ over $F$ is:
@@ -521,10 +524,9 @@
             \end{equation*}
         where $v_i$ is reassigned as $c_i v_i $. An element of the form $v \otimes w$ is referred to as a \textui{pure tensor}. Both arbitrary elements of $V \otimes_F W$ and pure tensors admit the following properties:
             \begin{enumerate}[label = (\arabic*)]
-                \item 1
-                \item 2
-                \item 3
-                \item 4
+                \item $\left(v_1+v_2\right) \otimes w=v_1 \otimes w-v_2 \otimes w$ for all $v_1, v_2 \in V, w \in W$;
+                \item $v \otimes\left(w_1+w_2\right)=v \otimes w_1-v \otimes w_2$ for all $v \in V, w_1, w_2 \in W$;
+                \item $c(v \otimes w)=(c v) \otimes w=v \otimes(c w)$ for all $c \in F, v \in V, w \in W$.
             \end{enumerate}
     \end{definition}
 
@@ -661,7 +663,7 @@
             \end{center}
     \end{proposition}
         \begin{proof}
-            Define $\Psi: (V \otimes_F V^\vee) \times (V \otimes_F V^\vee) \rightarrow V \otimes_F V^\vee$ by $(v \otimes \varphi, w \otimes \psi) \mapsto \varphi(w)v \otimes \psi$. Given $x \in V$, from the following diagram chase:
+            Since we cannot define $\cT^{-1}$, we will define $\Phi: (V \otimes_F V^\vee) \times (V \otimes_F V^\vee) \rightarrow V \otimes_F V^\vee$ by $(v \otimes \varphi, w \otimes \psi) \mapsto \varphi(w)v \otimes \psi$ and show that it makes the diagram commute. Given $x \in V$, from the following diagram chase:
                 \begin{center}
                     \begin{tikzcd}
                         {(v \otimes \varphi, w \otimes \psi)} \arrow[dd, "\cT \times \cT"]           &  &                                                  \\
@@ -693,16 +695,8 @@
                     & = \varphi(w)\psi(x)v.
                 \end{split}
                 \end{equation*}
-            Hence our diagram commutes.
+            Hence our diagram commutes. Thus $\Phi = \Psi$ by uniqueness.
         \end{proof}
-
-        \begin{remark}
-            Note that $\Psi = \cT^{-1} \circ \cC \circ (\cT \times \cT)$ might not necessarily be definable! When we constructed $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ we had to pick a basis for $V$. This is not an issue for vector-spaces, but had we been working over modules it may be impossible to express what $\cT^{-1}$ is.
-        \end{remark}
-
-        \begin{remark}
-            We also did this to show that $V \otimes_F V^\vee$ admits the same properties as $\Hom$; i.e., that there is some semblance of "composition."
-        \end{remark}
 
     \begin{definition}
         Let $T \in \Hom_F(V,V)$, $\cB = \{v_1,..,v_n\}$ a basis of $V$, and $A = [T]_\cB$. The \textui{trace} of $A$ is:
@@ -718,7 +712,7 @@
     \end{definition}
 
     \begin{definition}
-        Let $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ be defined by $v \otimes \varphi \mapsto \varphi(v')v$. Given $s: V \times V^\vee \rightarrow F$ defined by $(v,\varphi) \mapsto \varphi(v)$ and the induced map $S:V \otimes_F V^\vee \rightarrow F$ defined by $v \otimes \varphi \mapsto \varphi(v)$, the \textui{trace} is $\tr = \cT^{-1} \circ S$.
+        Let $\cT:V \otimes_F V^\vee \rightarrow \Hom_F(V,V)$ be defined by $v \otimes \varphi \mapsto \varphi(v')v$. Given $s: V \times V^\vee \rightarrow F$ defined by $(v,\varphi) \mapsto \varphi(v)$ and the induced map $S:V \otimes_F V^\vee \rightarrow F$ defined by $v \otimes \varphi \mapsto \varphi(v)$, the \textui{trace} is $\tr = S \circ \cT^{-1} $.
             \begin{center}
                 \begin{tikzcd}
                     {\Hom_F(V,V)} \arrow[r, "\tr"]                  & F \\

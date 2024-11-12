@@ -26,3 +26,4 @@
 \contentsline {section}{\numberline {5.5}The Trace}{62}{section.5.5}%
 \contentsline {chapter}{\chapternumberline {6}Tensor Algebras, Exterior Algebras, and the Determinant}{66}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Tensor Algebras}{66}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Exterior Product}{66}{section.6.2}%

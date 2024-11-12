@@ -1,0 +1,94 @@
+\chapter*{Subsequences}
+
+\vspace{12pt}
+\section*{Definitions}
+    \begin{enumerate}[label = (\arabic*)]
+        \item A \textui{natural sequence} is a strictly increasing sequence of natural numbers $(n_k)_k$ with $n_k \in \bfN$.
+        \item Let $(x_n)_n$ be a sequence. A \textui{subsequence} of $(x_n)_n$ is a sequence $(x_{n_k})_k$ where $(n_k)_k$ is a natural sequence. Formally, a subsequence is a composition of maps \begin{tikzcd}
+            \bfN \arrow[r, "k \mapsto n_k"] & \bfN \arrow[r, "n_k \mapsto x_{n_k}"] & X
+            \end{tikzcd}
+        \item If $(x_n)_n$ is a sequence of real numbers, a \textui{peak} of a sequence is a term $x_m$ with $x_m \geq x_n$ for all $n \geq m$.
+    \end{enumerate}
+
+\section*{Theorems/Propositions/Lemmas}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Given a natural sequence $(n_k)_k$, $n_k \geq k$ for all $k$.
+            {\color{red}\begin{proof}
+                Clearly $n_1 \geq 1$. Now assume $n_k \geq k$. Then $n_{k+1} \geq n_k + 1 \geq k + 1$.
+            \end{proof}}
+
+        \item Suppose $(x_n)_n \rightarrow x$. For any subsequence $(x_{n_k})_k$, we have $(x_{n_k})_k \rightarrow x$.
+            {\color{red} \begin{proof}
+                Since $(x_n)_n \rightarrow x$, $(\forall \epsilon > 0)(\exists N \in \bfN) \ni n \geq N \implies |x_n - x| < \epsilon$. Consider $K = N$. Then $k \geq K$ implies $k \geq N$. But by (1) $n_k \geq k \geq N$. Hence $|x_{n_k} - x| < \epsilon$, establishing $(x_{n_k})_k \rightarrow x$.
+            \end{proof}}
+
+        \item Let $(x_n)_n$ be a sequence. Then $(x_n)_n \not\rightarrow x$ if and only if there exists $\epsilon_0 > 0$ and a subsequence $(x_{n_k})_k$ such that $d(x_{n_k},x) \geq \epsilon_0$.
+            {\color{red} \begin{proof}
+                $(\Leftarrow)$ If $(x_n)_n \rightarrow x$, then any subsequence $(x_{n_k})_k$ converges to $x$. $(\Rightarrow)$ Since $(x_n)_n \not\rightarrow x$:
+                    \begin{equation*}
+                    \begin{split}
+                        (\exists \epsilon_0 > 0)\underline{(\forall N \in \bfN)} \ni (\exists n \in \bfN)(n \geq N \hspace{4pt} \land \hspace{4pt} d(x_n - x) \geq \epsilon_0).
+                    \end{split}
+                    \end{equation*}
+                Note that:
+                    \begin{equation*}
+                    \begin{split}
+                        N = 1 & \implies (\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt} \land \hspace{4pt} d(x_{n_1},x) \geq \epsilon_0) \\
+                        N = n_1 + 1 & \implies (\exists n_2 \in \bfN)(n_2 > n_1 \hspace{4pt} \land \hspace{4pt} d(x_{n_2},x) \geq \epsilon_0) \\
+                        N = n_2 + 1 & \implies (\exists n_3 \in \bfN)(n_3 > n_2 \hspace{4pt} \land \hspace{4pt} d(x_{n_3},x) \geq \epsilon_0) \\
+                        &\vdots \\
+                        N = n_k + 1 & \implies (\exists n_{k+1} \in \bfN)(n_{k+1} > n_k \hspace{4pt} \land \hspace{4pt} d(x_{n_{k+1}},x) \geq \epsilon_0)
+                    \end{split}
+                    \end{equation*}
+                Hence $(x_{n_k})_k$ is a subsequence satisfying $d(x_{n_k},x) \geq \epsilon_0$.
+            \end{proof}}
+
+        \item Let $(x_n)_n$ be a real sequence. There is a subsequence that is monotone.
+            {\color{red} \begin{proof}
+                We proceed with cases. Case 1: there are infinitely many peaks. Let $(x_{n_1},x_{n_2},x_{n_3},...)$ be an enumeration of peaks. Then $(x_{n_k})_k$ is decreasing by definition. Case 2: there are finitely many peaks. Let $x_{m_1},x_{m_2},...,x_{m_r}$ be the peaks of our sequence. Then $m_1 < m_2 < ... < m_r$ by definition. Let $n_1 = m_r + 1$. Since $x_{n_1}$ is not a peak, there exists $n_2 > n_1$ such that $x_{n_3} > x_{n_2}$. Inductively, we obtain a sequence $(x_{n_k})_k$ with $x_{n_k} < x_{n_{k+1}}$.
+            \end{proof}}
+
+        \item (Bolzano-Weierstrass Theorem) If $(x_n)_n$ is a real sequence that is bounded, it admits a convergent subsequence.
+            {\color{red} \begin{proof}
+                Since $(x_n)_n$ is a bounded real sequence it admits a monotone subsequence $(x_{n_k})_k$ which is bounded. By the monotone convergence theorem  $(x_{n_k})_k$ converges.
+            \end{proof}}
+
+        \item If $(x_n)_n$ is an unbounded sequence of real numbers, show that there is a subsequence $(x_{n_k})_k$ such that $\left(\frac{1}{x_{n_k}}\right)_k \xrightarrow{k \rightarrow \infty} 0$.
+            {\color{red} \begin{proof}
+                Since $(x_n)_n$ is an unbounded real sequence:
+                    \begin{equation*}
+                    \begin{split}
+                        (\exists \epsilon_0 > 0)(\forall N \in \bfN) \ni (\exists n \in \bfN)(n \geq N \hspace{4pt}\land\hspace{4pt}|x_n - 0| \geq \epsilon_0).
+                    \end{split}
+                    \end{equation*}
+                We can construct a subsequence as follows:
+                    \begin{equation*}
+                    \begin{split}
+                        N = 1 &\implies (\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt}\land\hspace{4pt} |x_{n_1}| \geq \epsilon_0)\\
+                        N = n_1 = 1 & \implies (\exists n_2 \in \bfN)(n_2 \geq n_1 \hspace{4pt}\land\hspace{4pt} |x_{n_2}| \geq \epsilon_0)\\
+                        &\vdots
+                    \end{split}
+                    \end{equation*}
+                Inductively, we obtain a sequence $(x_{n_k})_k$ which properly diverges to $+\infty$. Given $\epsilon > 0$, let $K$ be arbitrarily big so that $\epsilon > \frac{1}{n_K}$. Then for $k \geq K$, we have $\left|\frac{1}{n_k}\right| < \epsilon$.
+            \end{proof}}
+
+        \item Suppose that every subsequence of a sequence $(x_n)_n$ has a subsequence that converges to $0$. Show that $(x_n)_n \rightarrow 0$.
+            {\color{red} \begin{proof}
+                Suppose towards contradiction that $(x_n)_n \not\rightarrow 0$. Then there exists a subsequence $(x_{n_k})_k \not\rightarrow 0$. By definition:
+                    \begin{equation*}
+                    \begin{split}
+                        (\exists \epsilon_0 > 0)(\forall K \in \bfN) \ni (\exists k \in \bfN)(k \geq K \hspace{4pt}\land \hspace{4pt} d(x_{n_k} , 0) \geq \epsilon_0).
+                    \end{split}
+                    \end{equation*}
+                We will construct a subsequence of $(x_{n_k})_k$ as follows:
+                    \begin{equation*}
+                    \begin{split}
+                        K = 1 &\implies (\exists k_1 \in \bfN)(k_1 \geq 1 \hspace{4pt}\land\hspace{4pt} d(x_{n_{k_1}}, 0) \geq \epsilon_0) \\
+                        K = k_1 + 1 &\implies (\exists k_2 \in \bfN)(k_2 \geq k_1 \hspace{4pt}\land\hspace{4pt} d(x_{n_{k_2}}, 0) \geq \epsilon_0) \\
+                        &\vdots 
+                    \end{split}
+                    \end{equation*}
+                Inductively, we obtain a sequence $(x_{n_{k_j}})_j \not\rightarrow 0$. But this contradicts our claim that every subsequence has a subsequence which converges to $0$. Hence it must be that $(x_n)_n \rightarrow 0$.
+            \end{proof}}
+    \end{enumerate}
+\section*{Examples}

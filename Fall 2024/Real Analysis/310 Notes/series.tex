@@ -1,0 +1,36 @@
+\chapter{Series}
+\vspace{12pt}
+
+\section{Infinite Series}
+    \begin{definition}
+        Let $(x_k)_k$ be a sequence of real numbers.
+            \begin{enumerate}[label = (\arabic*)]
+                \item Given $s_n =\sum_{k = 1}^n x_k$ $(s_n)_k$ is called the \textui{sequence of partial sums}.
+                \item If $(s_n)_n \rightarrow s$ in $\bfR$, we say that the infinite series $\sum_{k=1}^\infty x_k$ converges and we write $\sum_{k = 1}^\infty = s$ or $\sum_{k = 1}^\infty  < \infty$.
+                \item If $(s_n)_n$ diverges, we say that the infinite series $\sum_{k =1}^\infty x_k$ diverges.
+                \item If $(s_n)_n$ properly diverges to $\infty$, we may write $\sum_{k = 1}^\infty x_k = \infty$.
+            \end{enumerate} 
+    \end{definition}
+
+    \begin{example}
+        Consider $\sum_{k = 0}^\infty (-1)^k$. We have that $s_n = \frac{1 + (-1)^n}{2}$. But $(s_n)_n$ diverges, hence  $\sum_{k = 0}^\infty (-1)^k$ diverges.
+    \end{example}
+
+    \begin{example}
+        Fix $b \in \bfR$, $b\neq 0$. Consider $\sum_{k = 0}^\infty b^k$. We have that $s_n = \sum_{k = 0}^n b^k = \begin{cases}n+1,&b = 1\\\frac{1-b^{n+1}}{1-b},&b \neq 1 \end{cases}$. Hence $(s_n)_n \rightarrow \begin{cases}\frac{1}{1-b}, & |b| < 1 \\ +\infty, & b = 1 \\ \text{D.N.E.},& \text{otherwise}\end{cases}$. Thus $\sum_{k = 0}^\infty b^k = \frac{1}{1-b}$ when $|b| < 1$.
+    \end{example}
+
+    \begin{proposition}
+        Let $(x_k)_k$ be a sequence and let $k_0 \in \bfN$. Then $\sum_{k = 1}^\infty x_k$ converges if and only if $\sum_{k > k_0} x_k$ converges. In the case of convergence, $\sum_{k = 1}^\infty x_k = \sum_{k=1}^{k_0} x_k + \sum_{k > k_0} x_k$.
+    \end{proposition}
+
+    \begin{lemma}[Divergence Test]
+        If $\sum_{k = 0}^\infty x_k$ converges, then $(x_k)_k \rightarrow 0$.
+    \end{lemma}
+        \begin{proof}
+            Suppose $\sum_{k = 0}^\infty x_k = s$. Then $(s_n)_n \rightarrow s$. But since $s_n = \sum_{k = 1}^n x_k$, we have $s_n - s_{n-1} = x_n$. Taking the limit as $n$ approaches infinity on both sides yields $(x_n)_n \rightarrow 0$.
+        \end{proof}
+
+    \begin{example}
+        Consider $\sum_{k = 1}^\infty \arctan(k)$. Note that $(\arctan(k))_k \rightarrow \frac{\pi}{2}$. So $\sum_{k = 1}^\infty \arctan(k)$ diverges.
+    \end{example}

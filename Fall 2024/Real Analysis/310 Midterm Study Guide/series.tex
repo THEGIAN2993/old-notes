@@ -1,0 +1,68 @@
+\chapter*{Series}
+\vspace{12pt}
+\section*{Definitions}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(x_k)_k$ be a sequence of real numbers.
+            \begin{enumerate}[label = (\roman*)]
+                \item The \textui{sequence of partial sums} $(s_n)_n$ is $s_n := \sum_{k = 1}^n x_k$.
+                \item If $(s_n)_n \rightarrow s$ in $\bfR$, we say the  \textui{infinite series} $\sum_{k = 1}^\infty x_k$ converges and we write $\sum_{k = 1}^\infty x_k = s$ or $\sum_{k = 1}^\infty x_k < \infty$.
+                \item If $(s_n)_n$ diverges we say that the infinite series $\sum_{k = 1}^n x_k$ diverges. If $(s_n)_n$ properly diverges to $\pm\infty$, we may write $\sum_{k = 1}^\infty x_k = \pm\infty$.
+            \end{enumerate}
+
+        \item A series $\sum x_k$ converges \textui{absolutely} if $\sum |x_k| < \infty$.
+        
+        \item An \textui{alternating series} is an infinite series of the form $\sum_k (-1)^k b_k$, $b_k \geq 0$.
+    \end{enumerate}
+
+\section*{Theorems/Propositions/Lemmas}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(x_k)_k$ be a sequence and let $k_0 \in \bfN$. Then $\sum_{k = 1}^\infty x_k$ converges if and only if $\sum_{k > k_0}^\infty x_k$ converges. In the case of convergence, $\sum_{k = 1}^\infty x_k = \sum_{k=1}^{k_0} x_k + \sum_{k > k_0}x_k$.
+            {\color{red} \begin{proof}
+                $(\Rightarrow)$ Suppose $\sum_{k = 1}^\infty x_n = s$. Then $\sum_{k = 1}^\infty x_n = \sum_{k = 1}^{k_0}x_k + \sum_{k = k_0 + 1}^\infty x_k = s$. Rearranging gives $\sum_{k = k_0 + 1}^\infty x_k = s - \sum_{k = 1}^{k_0}x_k$. Since $\sum_{k = 1}^{k_0} < \infty$, it must be that $\sum_{k = k_0 +1}^\infty x_n < \infty$. $(\Leftarrow)$ Now suppose $\sum_{k = k_0 + 1}^\infty x_k = s$. Since $\sum_{k = 1}^{k_0}x_k < \infty$, we have that $\sum_{k = 1}^\infty x_k = s + \sum_{k = 1}^{k_0}x_k$; i.e., the infinite series is convergent.
+            \end{proof}}
+
+        \item (Divergence Test) If $\sum_{k = 1}^\infty x_k$ converges then $(x_k)_k \rightarrow 0$.
+            {\color{red} \begin{proof}
+                Suppose $\sum_{k=0}^\infty x_k = s$. Then $(s_n)_n \rightarrow s$. We have $x_n = s_n - s_{n-1}$. Taking the limit on both sides gives $(x_n)_n \rightarrow  0$.
+            \end{proof}}
+
+        \item Let $(x_k)_k$ be a sequence. The following are equivalent:
+            \begin{enumerate}[label = (\roman*)]
+                \item $\sum_{k = 1}^\infty x_k$ converges.
+                \item $(\forall \epsilon > 0)(\exists N \in \bfN) \ni (\exists m,n \in \bfN)(m > n \geq N \implies \left|\sum_{k = n+1}^m\right| < \epsilon)$.
+                \item $(\forall \epsilon > 0)(\exists N \in \bfN) \ni \left|\sum_{k > N}x_k\right| < \epsilon$.
+                \item $\left(\sum_{k > n} x_k\right)_n \rightarrow 0$.
+            \end{enumerate}
+            {\color{red} \begin{proof}
+                $(1)\hspace{-4pt}\iff\hspace{-4pt}(2)$. Let $s_n = \sum_{k = 1}^n x_k$. Note that $s_m - s_n = \sum_{k = n+1}^m x_k$. So $\sum_{k=1}^\infty$ converges if and only if $(s_n)_n$ converges if and only if $(s_n)_n$ is Cauchy. $(3)\hspace{-4pt}\iff\hspace{-4pt}(4)$ This follows from definitions. $(1)\hspace{-4pt}\implies\hspace{-4pt}(3)$ Suppose $(s_n)_n \rightarrow s$. Then:
+                    \begin{equation*}
+                    \begin{split}
+                        (\forall \epsilon > 0)(\exists N \in \bfN) \ni (\forall n \in \bfN)(n \geq N \implies |s_n - s| < \epsilon).
+                    \end{split}
+                    \end{equation*}
+                But $s = s_n + \sum_{k > N} x_k$. So $|s - s_n| < \epsilon$ is equivalent to $\left|\sum_{k > N}x_k\right| < \epsilon$. $(3)\hspace{-4pt}\implies\hspace{-4pt}(1)$ Since $\left|\sum_{k > N}x_k\right| < \epsilon$, it converges. This is a tail, hence $\sum_{k = 1}^\infty x_k$ converges.
+            \end{proof}}
+
+        \item Let $s_n = \sum_{k = 1}^\infty x_k$ with $x_k \geq 0$ for all $k$. Then $\sum_{k = 1}^\infty x_k$ converges if and only if $(s_n)_n$ is bounded.
+            {\color{red} \begin{proof}
+                $(\Rightarrow)$ If $\sum_{k = 1}^\infty x_k$ converges then $(s_n)_n$ converges, hence $(s_n)_n$ is bounded. $(\Leftarrow)$ If $(s_n)_n$ is bounded and increasing, then by MCT $(s_n)_n$ converges, hence $\sum_{k = 1}^\infty x_k$ converges.
+            \end{proof}}
+
+        \item (Comparison Test) Let $(x_k)_k$ and $(y_k)_k$ be sequences with $0 \leq x_k \leq y_k$.
+            \begin{enumerate}[label = (\roman*)]
+                \item If $\sum_{k=1}^\infty y_k < \infty$, then $\sum_{k = 1}^\infty x_k < \infty$ with $\sum_{k = 1}^\infty x_k \leq \sum_{k = 1}^\infty y_k$.
+                \item If $\sum_{k = 1}^\infty x_k = \infty$, then $\sum_{k=1}^\infty = \infty$.
+            \end{enumerate}
+            {\color{red} \begin{proof}
+                \url{https://www.math.uci.edu/~ndonalds/math2b/notes/11-4.pdf}
+            \end{proof}}
+        
+        \item * (Limit Comparison) Let $(x_k)_k$ and $(y_k)_k$ be sequences of positive terms.
+            \begin{enumerate}[label = (\roman*)]
+                \item If $\sum y_k < \infty$ and $\limsup \frac{x_k}{y_k} < \infty$, then $\sum x_k < \infty$.
+                \item If $\sum y_k = \infty$ and $\liminf \frac{x_k}{y_k} > 0$, then $\sum x_k = \infty$.
+            \end{enumerate}
+            {\color{red} \begin{proof}
+                
+            \end{proof}}
+    \end{enumerate}

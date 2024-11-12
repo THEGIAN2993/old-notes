@@ -1,13 +1,9 @@
 %%%%%%%PACKAGES%%%%%%%
 \documentclass[11pt,twoside,openany]{memoir}
 
-\usepackage[p,osf]{scholax}
-% T1 and textcomp are loaded by package. Change that here, if you want
-% load sans and typewriter packages here, if needed
-\usepackage{amsmath,amsthm}% must be loaded before newtxmath
-% amssymb should not be loaded
-\usepackage[scaled=1.075,ncf,vvarbb]{newtxmath}% need to scale up math package
-% vvarbb selects the STIX version of blackboard bold.
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
 
 \usepackage{titlesec}
         \titlespacing*{\chapter}
@@ -20,6 +16,8 @@
 \usepackage{enumerate}
 \usepackage{comment}
 \usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{fullpage}
 \usepackage{bm}
@@ -137,6 +135,18 @@
     \declaretheorem[numbered=no,style=remark]{solution}
 \usepackage{hyperref}
 \usepackage{cancel}
+
+
+%hides every proof, solution, etc
+\iffalse
+\usepackage{environ}
+\NewEnviron{killcontents}{}
+\let\proof\killcontents
+\let\endproof\endkillcontents
+\let\solution\killcontents
+\let\endsolution\endkillcontents
+\fi
+
         
 
 
@@ -161,11 +171,9 @@
 Last update: \today
 \chnum
 
-\include{orderings-and-functions}
-\include{ordered-fields}
-\include{real-numbers}
-\include{sup-inf}
-\include{sequences2}
+\include{mct}
+\include{subseq}
+\include{lim-inf-sup}
 \include{series}
 
 \end{document}

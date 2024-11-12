@@ -174,7 +174,7 @@
         Let $(x_k)_k$ be a sequence of strictly positive numbers such that  
             \begin{equation*}
             \begin{split}
-                (kx_k)_k \rightarrow L > 0/.
+                (kx_k)_k \rightarrow L > 0.
             \end{split}
             \end{equation*}
         Show that the infinite series $\sum_{k}x_k$ diverges.
@@ -311,14 +311,43 @@
     \begin{exercise}
         Let $(f_n)_n$ and $(g_n)_n$ be sequences in $\ell_\infty(\Omega)$ with $(f_n)_n \rightarrow f$ and $(g_n)_n \rightarrow g$ uniformly on $\Omega$. Prove that $(f_n g_n)_n \rightarrow fg$ uniformly on $\Omega$.
     \end{exercise}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{proof}
+            Since $(f_n)_n,(g_n)_n \in \ell_\infty(\Omega)$, let:
+                \begin{equation*}
+                \begin{split}
+                    \sup_{x \in \Omega}|f_n(x)| \leq U_1 \\
+                    \sup_{x \in \Omega}|g(x)| \leq U_2.
+                \end{split}
+                \end{equation*}
+            Since $(f_n)_n \rightarrow f$ uniformly,
+                \begin{equation*}
+                \begin{split}
+                    (\exists N_1 \in \bfN)\mtext{s.t.}n \geq N_1 \implies \sup_{x \in \Omega}|f_n(x) - f(x)| < \frac{\epsilon}{2U_2}.
+                \end{split}
+                \end{equation*}
+            Since $(g_n)_n \rightarrow g$ uniformly,
+                \begin{equation*}
+                \begin{split}
+                    (\exists N_2 \in \bfN)\mtext{s.t.}n \geq N_2 \implies \sup_{x \in \Omega}|g_n(x) - g(x)| < \frac{\epsilon}{2U_1}.
+                \end{split}
+                \end{equation*}
+            If $n \geq \max\{N_1,N_2\}$, we have:
+                \begin{equation*}
+                \begin{split}
+                    \sup_{x \in \Omega}|f_n(x)g_n(x) - f(x)g(x)|
+                    & = \sup_{x \in \Omega}|f_n(x)g_n(x) - f_n(x)g(x) + f_n(x)g(x) - f(x)g(x)| \\
+                    & \leq \sup_{x \in \Omega}|f_n(x)(g_n(x) - g(x))| + \sup_{x \in \Omega}|g(x)(f_n(x) - f(x))| \\
+                    & \leq \sup_{x \in \Omega}|f_n(x)|\sup_{x \in \Omega}|g_n(x) - g(x)| + \sup_{x \in \Omega}|g(x)|\sup_{x \in \Omega}|f_n(x) - f(x)| \\
+                    &< U_1 \cdot \frac{\epsilon}{2U_1} + U_2 \cdot \frac{\epsilon}{2U_2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(f_n g_n)_n \rightarrow fg$ uniformly on $\Omega$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Find a sequence of functions $(f_n)_n$ defined on $[0,\infty)$ such that $\lVert f_n\rVert _u \geq n$ but with $(f_n)_n \rightarrow 0$ point-wise.
     \end{exercise}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{exercise}
-        Show that the series $\sum_{k = 0}^\infty \frac{x^k}{k!}$ converges absolutely and uniformly on any closed and bounded interval $[a,b]$.
-    \end{exercise}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 

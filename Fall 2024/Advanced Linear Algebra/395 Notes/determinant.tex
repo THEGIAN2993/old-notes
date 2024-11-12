@@ -1,3 +1,22 @@
 \chapter{Tensor Algebras, Exterior Algebras, and the Determinant}
 \vspace{12pt}
 \section{Tensor Algebras}
+
+\section{Exterior Product}
+    \begin{definition}
+        Let $\{V_i\}_{i=1}^n, W$ be $F$-vector spaces. If $t:V_1 \times ... \times V_n \rightarrow W$ is linear in each component:
+            \begin{equation*}
+            \begin{split}
+                t(v_1,...,v_{j-1},v_j + c\tilde{v_j},...,v_n) 
+                & =t(v_1,...,v_n) + ct(v_1,...,\tilde{v_j},...,v_n).
+            \end{split}
+            \end{equation*}
+        The collection of multilinear maps is denoted $\Hom_F(V_1,...,V_n;W)$.
+    \end{definition}
+
+    \begin{theorem}
+        Let $V_1,...,V_n, W$ be $F$-vector spaces. Define $\iota: V_1 \times ... \times V_n \rightarrow V_1 \otimes_F ... \otimes_F V_n$ by $\iota(v_1,...,v_n) = v_1 \otimes ... \otimes v_n$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item Given $T \in \Hom_F(V_1 \otimes_F ... \otimes_F V_n, W)$, then $T \circ \iota \in \Hom_F(V_1,...,V_n;W)$.
+        \end{enumerate}
+    \end{theorem}
