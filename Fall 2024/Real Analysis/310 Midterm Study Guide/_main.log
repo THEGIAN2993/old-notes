@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 NOV 2024 18:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 NOV 2024 18:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1219,7 +1219,7 @@ Package: unique 2023/05/04 v0.76
 \openout9 = `_main.unq'.
 
 )
-Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 130.
+Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 126.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmdef-shaded.sty
 Package: thmdef-shaded 2023/05/04 v0.76
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/shadethm/shadethm.sty
@@ -1236,28 +1236,28 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 161.
+Package hyperref Info: Option `colorlinks' set `true' on input line 157.
  (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./series.aux))
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 163.
-LaTeX Font Info:    ... okay on input line 163.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count425
@@ -1277,26 +1277,26 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 163.
-Package microtype Info: Applying patch `item' on input line 163.
-Package microtype Info: Applying patch `toc' on input line 163.
-Package microtype Info: Applying patch `eqnum' on input line 163.
-Package microtype Info: Applying patch `footnote' on input line 163.
-Package microtype Info: Applying patch `verbatim' on input line 163.
+LaTeX Info: Redefining \microtypecontext on input line 159.
+Package microtype Info: Applying patch `item' on input line 159.
+Package microtype Info: Applying patch `toc' on input line 159.
+Package microtype Info: Applying patch `eqnum' on input line 159.
+Package microtype Info: Applying patch `footnote' on input line 159.
+Package microtype Info: Applying patch `verbatim' on input line 159.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 163.
+LaTeX Info: Redefining \showhyphens on input line 159.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-Package soulpos Info: Loading soulutf8 on input line 163.
+Package soulpos Info: Loading soulutf8 on input line 159.
  (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
 Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
 
@@ -1330,7 +1330,7 @@ Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
 \SOUL@uldp=\dimen375
 \SOUL@ulht=\dimen376
 ))
-Package hyperref Info: Link coloring ON on input line 163.
+Package hyperref Info: Link coloring ON on input line 159.
  (./_main.out) (./_main.out)
 \@outlinefile=\write10
 \openout10 = `_main.out'.
@@ -1340,7 +1340,7 @@ Package caption Info: End \AtBeginDocument code.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
- on input line 163.
+ on input line 159.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
@@ -1449,22 +1449,12 @@ LaTeX Font Info:    External font `mlmex10' loaded for size
 LaTeX Font Info:    External font `mlmex10' loaded for size
 (Font)              <5> on input line 112.
 
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+ [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-[2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}])
-
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[3]
+ [3]
 \openout2 = `subseq.aux'.
 
  (./subseq.tex
@@ -1476,14 +1466,9 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 ])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[5]
+ [5]
 \openout2 = `lim-inf-sup.aux'.
 
  (./lim-inf-sup.tex
@@ -1495,14 +1480,9 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 ])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[7]
+ [7]
 \openout2 = `series.aux'.
 
  (./series.tex
@@ -1523,19 +1503,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 )
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
-Package fancyhdr Warning: \headheight is too small (0.0pt): 
-(fancyhdr)                Make it at least 8.0pt, for example:
-(fancyhdr)                \setlength{\headheight}{8.0pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
-
-[9]
+ [9]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 175.
+(in both cases you will find help in the memoir manual). on input line 171.
 
 (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./series.aux))
  ***********
@@ -1546,18 +1521,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 49072 strings out of 474116
- 1072386 string characters out of 5743683
- 1951187 words of memory out of 5000000
- 70338 multiletter control sequences out of 15000+600000
- 656092 words of font info for 192 fonts, out of 8000000 for 9000
+ 49061 strings out of 474116
+ 1072245 string characters out of 5743683
+ 1952187 words of memory out of 5000000
+ 70332 multiletter control sequences out of 15000+600000
+ 652917 words of font info for 189 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,20n,117p,1162b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on _main.pdf (9 pages, 299461 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on _main.pdf (9 pages, 287603 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
  65 named destinations out of 1000 (max. 500000)
- 51729 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 49681 words of extra memory for PDF output out of 51595 (max. 10000000)
 
