@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 NOV 2024 18:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  11 NOV 2024 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1379,7 +1379,9 @@ File: fc-english.def 2016/01/12
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(./_main.toc
+\openout2 = `mct.aux'.
+
+(./mct.tex
 LaTeX Font Info:    Trying to load font information for OT1+mlmr on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/ot1mlmr.fd
 File: ot1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
@@ -1397,11 +1399,11 @@ LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 
 File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
 )
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <10.95> on input line 1.
+(Font)              <17.28> on input line 1.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <8> on input line 1.
+(Font)              <12> on input line 1.
 LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <6> on input line 1.
+(Font)              <10> on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1417,12 +1419,19 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-))
+)
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <10.95> on input line 7.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <6> on input line 7.
+
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 174.
+(in both cases you will find help in the memoir manual). on input line 65.
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
@@ -1431,38 +1440,15 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 \openout7 = `_main.upa'.
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-\openout2 = `mct.aux'.
-
- (./mct.tex
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <17.28> on input line 1.
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <12> on input line 1.
-LaTeX Font Info:    External font `mlmex10' loaded for size
-(Font)              <10> on input line 1.
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
- [1
 
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
-
-Package marginnote Warning: Consecutive odd pages found.
-(marginnote)                Note, it is not recommended to use consecutive
-(marginnote)                odd pages in a double-ended document.
-(marginnote)                The pages of your document should always
-(marginnote)                be a sequence: odd-even-odd-even-...
-(marginnote)                Maybe you've forgotten a \cleardoublepage before
-(marginnote)                changing the page numbering on page 1.
-
-Package marginnote Info: Using workaround for absolute page number on input line 65.
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 72.
 LaTeX Font Info:    External font `mlmex10' loaded for size
 (Font)              <7> on input line 112.
 LaTeX Font Info:    External font `mlmex10' loaded for size
 (Font)              <5> on input line 112.
+
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -1549,10 +1535,7 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 179.
-
-\tf@toc=\write11
-\openout11 = `_main.toc'.
+(in both cases you will find help in the memoir manual). on input line 175.
 
 (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./series.aux))
  ***********
@@ -1560,21 +1543,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 1178D1AA0ACBBBF90C5F3558B6FBAB2A;44.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 49102 strings out of 474116
- 1072793 string characters out of 5743683
- 1948187 words of memory out of 5000000
- 70350 multiletter control sequences out of 15000+600000
- 665692 words of font info for 201 fonts, out of 8000000 for 9000
+ 49072 strings out of 474116
+ 1072386 string characters out of 5743683
+ 1951187 words of memory out of 5000000
+ 70338 multiletter control sequences out of 15000+600000
+ 656092 words of font info for 192 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,20n,117p,1162b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on _main.pdf (10 pages, 304089 bytes).
+Output written on _main.pdf (9 pages, 299461 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
- 67 named destinations out of 1000 (max. 500000)
- 57881 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 242 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 51729 words of extra memory for PDF output out of 61914 (max. 10000000)
 
