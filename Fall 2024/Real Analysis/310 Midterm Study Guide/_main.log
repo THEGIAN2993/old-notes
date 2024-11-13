@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  12 NOV 2024 17:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  12 NOV 2024 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1237,7 +1237,7 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 157.
- (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./series.aux))
+ (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./seq-fnct.aux) (./series.aux))
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
@@ -1485,10 +1485,24 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
  [7]
 \openout2 = `cauchy.aux'.
 
- (./cauchy.tex)
+ (./cauchy.tex
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
  [8
+
+
+
+
+])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [9]
+\openout2 = `seq-fnct.aux'.
+
+ (./seq-fnct.tex)
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [10
 
 
 
@@ -1499,7 +1513,7 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
  (./series.tex
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [9
+ [11
 
 
 
@@ -1516,14 +1530,14 @@ Package microtype Info: Loading generic protrusion settings for font family
 )
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
- [10]
+ [12]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 172.
+(in both cases you will find help in the memoir manual). on input line 173.
 
-(./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./series.aux))
+(./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./seq-fnct.aux) (./series.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1532,18 +1546,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 49096 strings out of 474116
- 1072856 string characters out of 5743683
+ 49138 strings out of 474116
+ 1073576 string characters out of 5743683
  1952187 words of memory out of 5000000
- 70350 multiletter control sequences out of 15000+600000
- 653083 words of font info for 191 fonts, out of 8000000 for 9000
+ 70368 multiletter control sequences out of 15000+600000
+ 653341 words of font info for 194 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,20n,117p,1162b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on _main.pdf (10 pages, 292706 bytes).
+Output written on _main.pdf (12 pages, 300685 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
  49681 words of extra memory for PDF output out of 51595 (max. 10000000)
 

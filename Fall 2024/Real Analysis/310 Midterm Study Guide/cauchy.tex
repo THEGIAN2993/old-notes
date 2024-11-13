@@ -25,13 +25,43 @@
             \end{proof}}
 
         \item If $(x_n)_n$ is Cauchy and there exists a subsequence $(x_{n_k})_k \rightarrow x$, then $(x_n)_n \rightarrow x$.
-            \begin{proof}
+            {\color{red} \begin{proof}
                 Since $(x_n)_n$ is Cauchy, given $\epsilon > 0$, there exists $N \in \bfN$ such that $n,n_k \geq N$ implies $d(x_n,x_{n_k}) < \frac{\epsilon}{2}$. Since $(x_{n_k})_k \rightarrow x$, given $\epsilon > 0$ there exists $K \in \bfN$ such that $k \geq K$ implies $d(x_{n_k},x) < \frac{\epsilon}{2}$. Let $J = \max\{K,N\}$. For $n,n_k,k \geq J$:
                     \begin{equation*}
                     \begin{split}
-                        |x_n - x| = |x_n - x_{n_k} + x_{n_k} - x| \leq |
+                        |x_n - x| = |x_n - x_{n_k} + x_{n_k} - x| \leq |x_n - x_{n_k}| + |x_{n_k} - x| < \epsilon.
                     \end{split}
                     \end{equation*}
-            \end{proof}
+            \end{proof}}
+
+        \item Let $(x_n)_n$ be a sequence. $(x_n)_n$ is Cauchy if and only if $(x_n)_n$ converges.
+            {\color{red} \begin{proof}
+                $(\Rightarrow)$ Suppose $(x_n)_n \rightarrow x$. Let $\epsilon > 0$. There exists $N \in \bfN$ such that $n \geq N$ implies $|x_n -x | < \frac{\epsilon}{2}$. For $m,n \geq N$, we have $|x_n - x_m| = |x_n - x + x - x_m| \leq |x_n - x| + |x - x_m| < \epsilon$. $(\Leftarrow)$ If $(x_n)_n$ is Cauchy then $(x_n)_n$ is bounded. Bolzano-Weierstrass theorem says there exists a convergent subsequence. By (2) $(x_n)_n$ converges.
+            \end{proof}}
+
+        \item Contractive Sequences are Cauchy.
+            {\color{red} \begin{proof}
+                Let $(x_n)_n$ be a contractive sequence. Observe that:
+                    \begin{equation*}
+                    \begin{split}
+                        |x_3 - x_2| &\leq \rho|x_2 - x_1| \\
+                        |x_4 - x_3| &\leq \rho|x_3 - x_2| \leq \rho^2|x_2 - x_1| \\
+                        &\vdots
+                    \end{split}
+                    \end{equation*}
+                Inductively, $|x_{n+1} - x_n| \leq \rho^{n-1}|x_2 - x_1|$. For $m > n$:
+                    \begin{equation*}
+                    \begin{split}
+                        |x_m - x_n| &= |x_m - x_{m-1} + x_{m-1} - x_{m-2} + x_{m-2} - ... + x_{n+1} - x_n| \\
+                        & \leq |x_m - x_{m-1}| + |x_{m-1} - x_{m-2}| + ... + |x_{n+1} - x_n| \\
+                        & \leq \rho^{m-2}|x_2 - x_1| + \rho^{m-3}|x_2 - x_1| + ... + \rho^{n-1}|x_2 - x_1| \\
+                        & = \rho^{n-1}|x_2 - x_1|(1 + \rho + \rho^2 + ... + \rho^{m-n-1}) \\
+                        & = \rho^{n-1}|x_2 - x_1| \frac{1 - \rho^{m-n}}{1-\rho} \\
+                        & \leq \frac{\rho^{n-1}}{1 - \rho}|x_2 - x_1| \\
+                        & = \frac{\rho^n}{\rho(1-\rho)}|x_2 - x_1|.
+                    \end{split}
+                    \end{equation*}
+                Given $\epsilon > 0$, find $N$ so large that $\frac{\rho^n}{\rho(1-\rho)}|x_2 - x_1| < \epsilon$. When $m,n \geq N$, then $|x_m - x_n| \leq \frac{\rho^n}{\rho(1-\rho)}|x_2 - x_1| < \epsilon$.
+            \end{proof}}
     \end{enumerate}
 \section*{Examples}

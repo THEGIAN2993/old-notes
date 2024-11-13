@@ -1,0 +1,35 @@
+\chapter*{Sequences of Functions}
+
+\section*{Definitions}
+    \begin{enumerate}[label = (\arabic*)]
+        \item A \textui{function space} is a set of functions between two fixed sets, denoted $\cF(\Omega, X) = \{f \mid f:\Omega \rightarrow X\}$.
+        
+        \item A sequence $(f_n)_n$ in $\cF(\Omega, \bfR)$ converges \textui{pointwise} to $f \in \cF(\Omega, \bfR)$ if $(\forall x \in \Omega)((f_n(x))_n \rightarrow f(x))$. In particular:
+            \begin{equation*}
+            \begin{split}
+                (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N \in \bfN) \ni (\forall n \in \bfN)(n \geq N \implies d(f_n(x),f(x)) < \epsilon).
+            \end{split}
+            \end{equation*}
+        
+        \item A sequence $(f_n)_n$ in $\cF(\Omega, \bfR)$ converges \textui{uniformly} to $f \in \cF(\Omega, \bfR)$ if 
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists N \in \bfN) \ni (\forall n \in \bfN)(\forall x \in \Omega)(n \geq N \implies d(f_n(x),f(x)) < \epsilon).
+            \end{split}
+            \end{equation*}
+        Equivalently (and sometimes preferably):
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists N \in \bfN) \ni (\forall n \in \bfN)(n \geq N \implies \sup_{x \in \Omega}|f_n(x) - f(x)| < \epsilon).
+            \end{split}
+            \end{equation*}
+    \end{enumerate}
+\section*{Theorems/Propositions/Lemmas}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(f_n)_n$ be sequences in $\cF(\Omega,\bfR)$.
+            \begin{enumerate}[label = (\roman*)]
+                \item If $(f_n)_n \rightarrow f$ uniformly, then $(f_n)_n \rightarrow f$ pointwise.
+                \item If $(f_n)_n \rightarrow f$ and $(f_n)_n \rightarrow f'$ pointwise, then $f = f'$.
+            \end{enumerate}
+    \end{enumerate}
+\section*{Examples}
