@@ -1,0 +1,37 @@
+\chapter*{Cauchy Sequences}
+
+\section*{Definitions}
+    \begin{enumerate}[label = (\arabic*)]
+        \item A sequence $(x_n)_n$ is \textui{Cauchy} if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists N \in \bfN) \ni (m,n \in \bfN)(m,n \geq N \implies d(x_n,x_m) < \epsilon)
+            \end{split}
+            \end{equation*}
+
+        \item A sequence $(x_n)_n$ is \textui{contractive} if there exists $0 < \rho < 1$ with $|x_{n+1} - x_n| \leq \rho |x_{n} - x_{n-1}|$ for all $n\geq 2$. We say $\rho$ is the \textui{constant of contraction}.
+    \end{enumerate}
+\section*{Theorems/Propositions/Lemmas}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Cauchy sequences are bounded.
+            {\color{red} \begin{proof}
+                Pick $\epsilon = 1$. Then $(\exists N \in \bfN) \ni (\forall m,n \in \bfN)(m,n \geq N \implies |x_n - x_m| < 1)$. Let $c = \max\{|x_1|,...,|x_N| \}$. But consider that:
+                    \begin{equation*}
+                    \begin{split}
+                        n \geq N \implies |x_n| = |x_n - x_N + x_N| \leq |x_n - x_N| + |x_N| < 1 + |x_N|.
+                    \end{split}
+                    \end{equation*}
+                So $|x_n| \leq c'$, where $c' = \max\{c,1 + |x_N|\}$.
+            \end{proof}}
+
+        \item If $(x_n)_n$ is Cauchy and there exists a subsequence $(x_{n_k})_k \rightarrow x$, then $(x_n)_n \rightarrow x$.
+            \begin{proof}
+                Since $(x_n)_n$ is Cauchy, given $\epsilon > 0$, there exists $N \in \bfN$ such that $n,n_k \geq N$ implies $d(x_n,x_{n_k}) < \frac{\epsilon}{2}$. Since $(x_{n_k})_k \rightarrow x$, given $\epsilon > 0$ there exists $K \in \bfN$ such that $k \geq K$ implies $d(x_{n_k},x) < \frac{\epsilon}{2}$. Let $J = \max\{K,N\}$. For $n,n_k,k \geq J$:
+                    \begin{equation*}
+                    \begin{split}
+                        |x_n - x| = |x_n - x_{n_k} + x_{n_k} - x| \leq |
+                    \end{split}
+                    \end{equation*}
+            \end{proof}
+    \end{enumerate}
+\section*{Examples}
