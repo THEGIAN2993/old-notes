@@ -1074,4 +1074,476 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgfplotstable@a=\toks69
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count389
- (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen345
+\pgfdecoratedremainingdistance=\dimen346
+\pgfdecoratedinputsegmentcompleteddistance=\dimen347
+\pgfdecoratedinputsegmentremainingdistance=\dimen348
+\pgf@decorate@distancetomove=\dimen349
+\pgf@decorate@repeatstate=\count390
+\pgfdecorationsegmentamplitude=\dimen350
+\pgfdecorationsegmentlength=\dimen351
+)
+\tikz@lib@dec@box=\box83
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count391
+\pgfplots@xmin@reg=\dimen352
+\pgfplots@xmax@reg=\dimen353
+\pgfplots@ymin@reg=\dimen354
+\pgfplots@ymax@reg=\dimen355
+\pgfplots@zmin@reg=\dimen356
+\pgfplots@zmax@reg=\dimen357
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/latex/datetime/datetime.sty
+Package: datetime 2015/03/20 v2.60 Date Time Package
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fmtcount.sty
+Package: fmtcount 2020/01/30 v3.07
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fcprefix.sty
+Package: fcprefix 2012/09/28
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
+Package: fcnumparser 2017/06/15
+\fc@digit@counter=\count392
+))
+\c@padzeroesN=\count393
+\fc@tmpcatcode=\count394
+\@DT@modctr=\count395
+\@ordinalctr=\count396
+\@orgargctr=\count397
+\@strctr=\count398
+\@tmpstrctr=\count399
+\@DT@loopN=\count400
+\@DT@X=\count401
+
+
+Package fmtcount Warning: \ordinal already defined use \FCordinal instead. on input line 466.
+
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/datetime/datetime-defaults.sty
+Package: datetime-defaults 2013/09/10
+)
+\@day=\count402
+\@month=\count403
+\@year=\count404
+\c@HOUR=\count405
+\c@HOURXII=\count406
+\c@MINUTE=\count407
+\c@TOHOUR=\count408
+\c@TOMINUTE=\count409
+\c@SECOND=\count410
+\currenthour=\count411
+\currentminute=\count412
+\currentsecond=\count413
+Package datetime Info: No datetime.cfg file found, using default settings on input line 308.
+\@dtctr=\count414
+\dayofyear=\count415
+\dayofweek=\count416
+LaTeX Info: Redefining \today on input line 736.
+\dt@a=\toks70
+\dt@b=\toks71
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count417
+\Gm@cntv=\count418
+\c@Gm@tempcnt=\count419
+\Gm@bindingoffset=\dimen358
+\Gm@wd@mp=\dimen359
+\Gm@odd@mp=\dimen360
+\Gm@even@mp=\dimen361
+\Gm@layoutwidth=\dimen362
+\Gm@layoutheight=\dimen363
+\Gm@layouthoffset=\dimen364
+\Gm@layoutvoffset=\dimen365
+\Gm@dimlist=\toks72
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip273
+\f@nch@O@elh=\skip274
+\f@nch@O@erh=\skip275
+\f@nch@O@olh=\skip276
+\f@nch@O@orh=\skip277
+\f@nch@O@elf=\skip278
+\f@nch@O@erf=\skip279
+\f@nch@O@olf=\skip280
+\f@nch@O@orf=\skip281
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.sty
+Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
+\con@length=\skip282
+
+Loading configuration file `contour.cfg'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/contour.cfg
+File: contour.cfg 2004/11/18 v2.14 Print contoured text (HH, MH)
+)
+contour: Using driver file `pdftex.cnt'.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/contour/pdftex.cnt
+File: pdftex.cnt 2004/11/18 v2.14 Print contoured text (HH, MH)
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmtools.sty
+Package: thmtools 2023/05/04 v0.76
+\thmt@toks=\toks73
+\c@thmt@dummyctr=\count420
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-patch.sty
+Package: thm-patch 2023/05/04 v0.76
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/parseargs.sty
+Package: parseargs 2023/05/04 v0.76
+\@parsespec=\toks74
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-kv.sty
+Package: thm-kv 2023/05/04 v0.76
+Package thm-kv Info: Theorem names will be uppercased on input line 42.
+Package thm-kv Info: kvsetkeys patch (v1.16 or later) on input line 158.
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-autoref.sty
+Package: thm-autoref 2023/05/04 v0.76
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/aliasctr.sty
+Package: aliasctr 2023/05/04 v0.76
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-listof.sty
+Package: thm-listof 2023/05/04 v0.76
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-restate.sty
+Package: thm-restate 2023/05/04 v0.76
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
+Package: thm-amsthm 2023/05/04 v0.76
+\thmt@style@headstyle=\toks75
+))
+\c@theorem=\count421
+\c@example=\count422
+\c@definition=\count423
+\c@exercise=\count424
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/unique.sty
+Package: unique 2023/05/04 v0.76
+\uniq@channel=\write9
+ (./_main.unq)
+\openout9 = `_main.unq'.
+
+)
+Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 126.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmdef-shaded.sty
+Package: thmdef-shaded 2023/05/04 v0.76
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/shadethm/shadethm.sty
+Package: shadethm 1999/11/23
+\saveparindent=\skip283
+\shadeboxsep=\skip284
+\shadeboxrule=\skip285
+\shadedtextwidth=\skip286
+\shadeleftshift=\skip287
+\shaderightshift=\skip288
+\shadesavebox=\box84
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/cancel/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
+File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 157.
+ (./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./series.aux))
+\openout1 = `_main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 159.
+LaTeX Font Info:    ... okay on input line 159.
+ (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count425
+\scratchdimen=\dimen366
+\scratchbox=\box85
+\nofMPsegments=\count426
+\nofMParguments=\count427
+\everyMPshowfont=\toks76
+\MPscratchCnt=\count428
+\MPscratchDim=\dimen367
+\MPnumerator=\count429
+\makeMPintoPDFobject=\count430
+\everyMPtoPDFconversion=\toks77
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Info: Redefining \microtypecontext on input line 159.
+Package microtype Info: Applying patch `item' on input line 159.
+Package microtype Info: Applying patch `toc' on input line 159.
+Package microtype Info: Applying patch `eqnum' on input line 159.
+Package microtype Info: Applying patch `footnote' on input line 159.
+Package microtype Info: Applying patch `verbatim' on input line 159.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 159.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+Package soulpos Info: Loading soulutf8 on input line 159.
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soulutf8.sty
+Package: soulutf8 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+
+
+Package soulutf8 Warning: This package is obsolete,
+(soulutf8)                use the soul package directly. 
+(soulutf8)                 on input line 29.
+
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soul.sty
+Package: soul 2023-06-14 v3.1 Permit use of UTF-8 characters in soul (HO)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/soul/soul-ori.sty
+Package: soul-ori 2023-06-14 v3.1 letterspacing/underlining (mf)
+\SOUL@word=\toks78
+\SOUL@lasttoken=\toks79
+\SOUL@syllable=\toks80
+\SOUL@cmds=\toks81
+\SOUL@buffer=\toks82
+\SOUL@token=\toks83
+\SOUL@syllgoal=\dimen368
+\SOUL@syllwidth=\dimen369
+\SOUL@charkern=\dimen370
+\SOUL@hyphkern=\dimen371
+\SOUL@dimen=\dimen372
+\SOUL@dimeni=\dimen373
+\SOUL@minus=\count431
+\SOUL@comma=\count432
+\SOUL@apo=\count433
+\SOUL@grave=\count434
+\SOUL@spaceskip=\skip289
+\SOUL@ttwidth=\dimen374
+\SOUL@uldp=\dimen375
+\SOUL@ulht=\dimen376
+))
+Package hyperref Info: Link coloring ON on input line 159.
+ (./_main.out) (./_main.out)
+\@outlinefile=\write10
+\openout10 = `_main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
+ on input line 159.
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
+File: fc-english.def 2016/01/12
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(65.04256pt, 484.20988pt, 65.04256pt)
+* v-part:(T,H,B)=(65.04256pt, 664.88487pt, 65.04256pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=484.20988pt
+* \textheight=664.88487pt
+* \oddsidemargin=-7.22743pt
+* \evensidemargin=-7.22743pt
+* \topmargin=-7.22743pt
+* \headheight=0.0pt
+* \headsep=30.0pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=111.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=-28.90755pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\openout2 = `mct.aux'.
+
+(./mct.tex
+LaTeX Font Info:    Trying to load font information for OT1+mlmr on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/ot1mlmr.fd
+File: ot1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    Trying to load font information for OML+mlmm on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/omlmlmm.fd
+File: omlmlmm.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    Trying to load font information for OMS+mlmsy on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/omsmlmsy.fd
+File: omsmlmsy.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    Trying to load font information for OMX+mlmex on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/omxmlmex.fd
+File: omxmlmex.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <17.28> on input line 1.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <12> on input line 1.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <10> on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <10.95> on input line 7.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <6> on input line 7.
+
+
+Class memoir Warning: The material used in the headers is too large
+(13.59999pt) for the given head height (0.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 65.
+
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [1
+
+\openout7 = `_main.upa'.
+
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+Package hyperref Info: bookmark level for unknown solution defaults to 0 on input line 72.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <7> on input line 112.
+LaTeX Font Info:    External font `mlmex10' loaded for size
+(Font)              <5> on input line 112.
+
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [3]
+\openout2 = `subseq.aux'.
+
+ (./subseq.tex
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [4
+
+
+
+
+])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [5]
+\openout2 = `lim-inf-sup.aux'.
+
+ (./lim-inf-sup.tex
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [6
+
+
+
+
+])
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [7]
+\openout2 = `cauchy.aux'.
+
+ (./cauchy.tex)
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [8
+
+
+
+
+]
+\openout2 = `series.aux'.
+
+ (./series.tex
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [9
+
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for T1+mlmtt on input line 57.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/t1mlmtt.fd
+File: t1mlmtt.fd 2021/01/11 v1.0 Font defs for mlmodern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `mlmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [10]
+
+Class memoir Warning: The material used in the headers is too large
+(13.59999pt) for the given head height (0.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 172.
+
+(./_main.aux (./mct.aux) (./subseq.aux) (./lim-inf-sup.aux) (./cauchy.aux) (./series.aux))
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+Package rerunfilecheck Info: File `_main.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 49096 strings out of 474116
+ 1072856 string characters out of 5743683
+ 1952187 words of memory out of 5000000
+ 70350 multiletter control sequences out of 15000+600000
+ 653083 words of font info for 191 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 98i,20n,117p,1162b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on _main.pdf (10 pages, 292706 bytes).
+PDF statistics:
+ 247 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 49681 words of extra memory for PDF output out of 51595 (max. 10000000)
+
