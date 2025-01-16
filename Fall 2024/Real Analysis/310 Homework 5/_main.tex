@@ -296,7 +296,119 @@
             \end{equation*}
     \end{exercise}
         \begin{proof}
-            
+            Since $(x_n)_n$ is an unbounded real sequence:
+                \begin{equation*}
+                \begin{split}
+                    (\exists \epsilon_0 > 0)(\forall N \in \bfN) \ni (\exists n \in \bfN)(n \geq N \hspace{4pt}\land\hspace{4pt}|x_n - 0| \geq \epsilon_0).
+                \end{split}
+                \end{equation*}
+            We can construct a subsequence as follows:
+                \begin{equation*}
+                \begin{split}
+                    N = 1 &\implies (\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt}\land\hspace{4pt} |x_{n_1}| \geq \epsilon_0)\\
+                    N = n_1 = 1 & \implies (\exists n_2 \in \bfN)(n_2 \geq n_1 \hspace{4pt}\land\hspace{4pt} |x_{n_2}| \geq \epsilon_0)\\
+                    &\vdots
+                \end{split}
+                \end{equation*}
+            Inductively, we obtain a sequence $(x_{n_k})_k$ which properly diverges to $+\infty$. Given $\epsilon > 0$, let $K$ be arbitrarily big so that $\epsilon > \frac{1}{n_K}$. Then for $k \geq K$, we have $\left|\frac{1}{n_k}\right| < \epsilon$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose that every subsequence of a sequence $(x_n)_n$ has a subsequence that converges to $0$. Show that $(x_n)_n \rightarrow 0$.
+    \end{exercise}
+        \begin{proof}
+            Suppose towards contradiction that $(x_n)_n \not\rightarrow 0$. Then there exists a subsequence $(x_{n_k})_k \not\rightarrow 0$. By definition:
+                \begin{equation*}
+                \begin{split}
+                    (\exists \epsilon_0 > 0)(\forall K \in \bfN) \ni (\exists k \in \bfN)(k \geq K \hspace{4pt}\land \hspace{4pt} d(x_{n_k} , 0) \geq \epsilon_0).
+                \end{split}
+                \end{equation*}
+            We will construct a subsequence of $(x_{n_k})_k$ as follows:
+                \begin{equation*}
+                \begin{split}
+                    K = 1 &\implies (\exists k_1 \in \bfN)(k_1 \geq 1 \hspace{4pt}\land\hspace{4pt} d(x_{n_{k_1}}, 0) \geq \epsilon_0) \\
+                    K = k_1 + 1 &\implies (\exists k_2 \in \bfN)(k_2 \geq k_1 \hspace{4pt}\land\hspace{4pt} d(x_{n_{k_2}}, 0) \geq \epsilon_0) \\
+                    &\vdots 
+                \end{split}
+                \end{equation*}
+            Inductively, we obtain a sequence $(x_{n_{k_j}})_j \not\rightarrow 0$. But this contradicts our claim that every subsequence has a subsequence which converges to $0$. Hence it must be that $(x_n)_n \rightarrow 0$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(I_n)_n$ be a nested sequence of closed and bounded intervals. For each $n \in \bfN$ let $x_n \in I_n$. Use the Bolzano-Weierstrass Theorem for the sequence $(x_n)_n$ to give a proof of the Nested Intervals Property, that is to show that
+            \begin{equation*}
+            \begin{split}
+                \bigcap_{n \geq 1}I_n \neq \emptyset.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            For each $n \in \bfN$, let $x_n \in I_n$. Then $(x_n)_n$ is bounded. By the Bolzano-Weirstrass theorem, $(x_n)_n$ admits a convergent subsequence $(x_{n_k})_k \rightarrow x$. Given $\epsilon > 0$, there exists a natural number $N$ such that $n_k \geq k \geq N$ implies $x_{n_k} \in V_\epsilon(x)$. Moreover, for $n = n_k$, we have $V_\epsilon(x) \subseteq I_n$, implying that $x\in I_n \subseteq I_{n-1} \subseteq ...$ Thus $x \in \bigcap_{n\geq 1}I_n$, establishing that the intersection is nonempty.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $(x_n)_n$ is a bounded sequence and $s:=\sup_n x_n$ is such that $s \not\in \{x_n | n\geq 1\}$, show that there is a subsequence $(x_{n_k})_k$ that converges to $s$.
+    \end{exercise}
+        \begin{proof}
+            Using the supremum property, we will construct a subsequence as follows:
+                \begin{equation*}
+                \begin{split}
+                   k = 1 &\implies \exists n_1 \ni  s-1 < x_{n_1} < u \\                  
+                \end{split}
+                \end{equation*}
+            Because $(s-1,s)\cap \{x_n \mid n \in \bfN\}$ is infinite, we have:
+                \begin{equation*}
+                \begin{split}
+                   k = 2 &\implies \exists n_2 \ni  s-\frac{1}{2} < x_{n_2} < u \\
+                   &\vdots
+                \end{split}
+                \end{equation*}
+            Inductively, we obtain $s - \frac{1}{k} < x_{n_k} < s$. By the squeeze theorem, $(x_{n_k}) \rightarrow s$. 
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(x_n)_n$ and $(y_n)_n$ be bounded sequences. Show that
+            \begin{equation*}
+            \begin{split}
+                \limsup((x_n + y_n)_n) \leq \limsup(x_n)_n + \limsup(y_n)_n
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            We have $x_k + y_k \leq \sup_{m \geq n}x_m + \sup_{m \geq n}y_n$ for $k \geq n$. This implies that $\sup_{m \geq n}x_m + \sup_{m \geq  n}y_n$ is an upperbound of $x_k + y_k$. Whence $\sup_{k \geq n}(x_k + y_k) \leq \sup_{m \geq n}x_m + \sup_{m \geq  n}y_n$. Taking the limit of both sides gives $\limsup (x_n + y_n) \leq \limsup x_n + \limsup y_n$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(x_n)_n$ be a bounded sequence. Show that:
+            \begin{equation*}
+            \begin{split}
+                \liminf(x_n)_n = \sup\{t \in \bfR \mid \{n \mid x_n < t \} \hspace{-2pt}\mtext{is finite}\hspace{-2pt}\}.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            Let $l = \liminf(x_n)_n = \sup_{m \geq 1}(\inf_{n \geq m}x_n)$. By the supremum property, we have $l - \epsilon < (\inf_{n \geq m} x_n)_n \leq l$. So given any $M \in \bfN$, there are only finitely many $x_n$ with $x_n < \inf_{m \geq M}$, hence $\{n \mid x_n < l - \epsilon\}$ is finite. Setting $t = l - \epsilon$ gives $l = \sup\{t \in \bfR \mid \{n \mid x_n < t \} \hspace{-2pt}\mtext{is finite}\hspace{-2pt}\}$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(x_n)_n$ be a bounded sequence. Show that
+            \begin{equation*}
+            \begin{split}
+                \liminf(-x_n)_n = -\limsup(x_n)_n.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            We have:
+                \begin{equation*}
+                \begin{split}
+                    -\limsup x_n 
+                    & = -\inf_{m\geq 1}(\sup_{n \geq m}x_n) \\
+                    & = \sup_{m \geq 1}(-\sup_{n \geq m}x_n) \\
+                    & = \sup_{m \geq 1}(\inf_{n \geq m}-x_n) \\
+                    & = \liminf -x_n.
+                \end{split}
+                \end{equation*}
         \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

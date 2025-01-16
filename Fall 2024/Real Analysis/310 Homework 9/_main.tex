@@ -1,0 +1,416 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{newpxtext,eulerpx,eucal}
+\usepackage{amsmath}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=15pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[
+        spaceabove=15pt, % space above the theorem
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numbered=unless unique,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{remark}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=unless unique,style=defs]{exercise}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\normalfont\fillast\large}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\large}
+    \titlespacing{\chapter}
+    {3pc}{*3}{*2}[3pc]
+
+    \titleformat{\section}[runin]
+    {\normalfont\bfseries\large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
+\usepackage[utf8x]{inputenc}
+
+\setlength{\parindent}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 310 \\[0.1in]Homework 9 \\[0.1in]
+Due: 10/9/2024}\\[.25in]
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f:[0,1] \rightarrow \bfR$ is a continuous function with $f(0) = f(1)$. Show that there is a $c \in \left[0, \frac{1}{2}\right]$ with $f(c) = f \left(c + \frac{1}{2}\right)$. Conclude that there are always antipodal points on the earth's equator with the same temperature. (Hint: consider $g(x) = f(x) - f \left(x+ \frac{1}{2}\right)$ on $\left[0, \frac{1}{2}\right]$).
+    \end{exercise}
+        \begin{proof}
+            Let $g(x) = f(x) - f \left(x+ \frac{1}{2}\right)$ on $\left[0, \frac{1}{2}\right]$. Note that:
+                \begin{equation*}
+                \begin{split}
+                    g(0) &= f(0) - f \left(\textstyle \frac{1}{2}\right) \\
+                    g(\textstyle \frac{1}{2}) &= f(\textstyle \frac{1}{2}) - f(0) = -g(0).
+                \end{split}
+                \end{equation*}
+            This gives that $g(0)g(\frac{1}{2}) < 0$. By location of roots, there exists $c \in (0,\frac{1}{2})$ with $g(c) = 0$. Equivalently, $f(c) - f(c+\frac{1}{2}) = 0$. Hence $f(c) = f(c + \frac{1}{2})$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the function $f(x) = \frac{1}{x^2}$ is uniformly continuous on $[1,\infty)$ but not on $(0,\infty)$.
+    \end{exercise}
+        \begin{proof}
+            Let $u,v \in [1,\infty)$. We have:
+                \begin{equation*}
+                \begin{split}
+                    |f(u) - f(v)| & = \left|\frac{1}{u^2} - \frac{1}{v^2}\right| \\
+                    & = \left|\frac{(u+v)(u-v)}{(uv)^2}\right| \\
+                    & \leq \frac{u+v}{(uv)^2}|u-v| \\
+                    & \leq 2 |u-v|.
+                \end{split}
+                \end{equation*}
+            Thus $f$ is Lipschitz, giving that $f$ is uniformly continuous on $[1\infty)$. \nl
+            
+            Now consider $(u_n)_n,(v_n)_n \in (0,\infty)^\bfN$ defined by $u_n = \frac{1}{n}$ and $v_n = \frac{1}{n+1}$. Clearly $(u_n - v_n)_n \rightarrow 0$. Moreover, we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(u_n) - f(v_n)|
+                    & = |n^2 - (n+1)^2| \\
+                    & = |n^2 - n^2 - 2n - 1| \\
+                    & = |-2n - 1| \\
+                    & \geq 3.
+                \end{split}
+                \end{equation*}
+            Let $\epsilon_0 = 3$. By the work above, we've shown there exists sequences $(u_n)_n,(v_n)_n$ with $(u_n - v_n)_n \rightarrow 0$ and $|f(u_n) - f(v_n)| \geq \epsilon_0$. Thus $f$ is not uniformly continuous on $(0,\infty)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f:\bfR \rightarrow \bfR$ is continuous and vanishes at infinity, that is $\limit_{x \rightarrow \pm\infty}f = 0$. Prove that $f$ is uniformly continuous.
+    \end{exercise}
+        \begin{proof}
+            Let $\epsilon > 0$ be given. \nl
+            
+            Since $f$ vanishes at infinity, there exists $M > 0$ such that $|x| > M$ implies $|f(x)| < \frac{\epsilon}{2}$. \nl
+            
+            Moreover, since $f$ is continuous on $[-M-1,M+1]$, it is uniformly continuous. In particular, for $u,v \in [-M-1,M +1]$, there exists $\delta > 0$ such that $|u-v| < \delta$ implies $|f(u) - f(v)| < \epsilon$. \nl
+            
+            Let $\delta_1 = \min\{\delta,1\}$. Let $u,v \in \bfR$ and $|u-v| < \delta_1$. We proceed by cases. \nl
+            
+            Case 1: $u,v \in [-M,M]$. Then $f$ is uniformly continuous by compactness. \nl
+            
+            Case 2: $u,v \not\in [-M,M]$. Then $|f(u)-f(v)| \leq |f(u)| + |f(v)| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$. \nl
+            
+            Case 3: Without loss of generality, suppose $u \in [-M,M]$, $v \not\in [-M,M]$. Since $|u-v| < \delta_1$, it must be that $v \in [-M-1,M+1]$, furthermore $u\in[-M-1,M+1]$ by inclusion. Then by compactness $f$ is uniformly continuous. \nl
+            
+            Thus $f$ is uniformly continuous on $\bfR$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that $f(x) = x$ and $g(x) = \sin(x)$ are both uniformly continuous on $\bfR$, but the product:
+            \begin{equation*}
+            \begin{split}
+                h(x) = x \sin(x)
+            \end{split}
+            \end{equation*}
+        is not uniformly continuous on $\bfR$.
+    \end{exercise}
+        \begin{proof}
+            Let $u,v \in \bfR$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f(u) - f(v)| = |u-v|.
+                \end{split}
+                \end{equation*}
+            Since $f$ is Lipschitz, $f$ is uniformly continuous. Without loss of generality, suppose $u  <v$. Apply the Mean Value Theorem to $g$ on $[u,v]$. Then there exists $c \in (u,v)$ with:
+                \begin{equation*}
+                \begin{split}
+                    \frac{\sin(v) - \sin(u)}{v-u} = \sin'(c) = \cos(c).
+                \end{split}
+                \end{equation*}
+            Taking the absolute value of both sides gives:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{\sin(v) - \sin(u)}{v-u}\right| = |cos(c)| \leq 1.
+                \end{split}
+                \end{equation*}
+            Whence
+                \begin{equation*}
+                \begin{split}
+                    |\sin(v) - \sin(u)| \leq |v-u|.
+                \end{split}
+                \end{equation*}
+            Thus $g$ is Lipschitz, implying that it is uniformly continuous. \nl
+            
+            Let $(u_n)_n,(v_n)_n \in \bfR^\bfN$ defined by $u_n = n\pi$ and $v_n = n\pi + \frac{1}{n}$. Clearly $(u_n - v_n)_n \rightarrow 0$. Moreover:
+                \begin{equation*}
+                \begin{split}
+                    |f(u_n) - f(v_n)|
+                    & = \left|n\pi\sin(n\pi) - \left(n\pi + \frac{1}{n}\sin \left(n\pi + \frac{1}{n}\right)\right)\right| \\
+                    & = \left|n\pi\cos(n\pi)\sin \left(\frac{1}{n}\right) + \frac{1}{n}\cos(n\pi)\sin \left(\frac{1}{n}\right)\right| \\
+                    & = \left|n\pi(-1)^n \sin\left(\frac{1}{n}\right)+ \frac{1}{n}(-1)^n\sin \left(\frac{1}{n}\right)\right| \\
+                    & = \left|n\pi (-1)^n \frac{1}{n} + \frac{1}{n^2}\right|. \quad\quad \text{\tiny (For large $n$)}
+                \end{split}
+                \end{equation*}
+            So for $n$ large, $|f(u_n) - f(v_n)| \geq \frac{\pi}{2}$. Take $\epsilon_0 = \frac{\pi}{2}$. Then by the work above, $h(x) = x\sin(x)$ is not uniformly convergent.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $f:D \rightarrow \bfR$ is uniformly continuous and $|f(x)| \geq k > 0$ for some $k$, show that $\frac{1}{f}$ is uniformly continuous on $D$.
+    \end{exercise}  
+        \begin{proof}
+            Let $\epsilon$ be given and $u,v \in D$. Since $f$ is uniformly continuous, there exists $\delta$ such that $|u-v| < \delta$ implies $|f(u)-f(v)| < k^2 \epsilon$. Moreover, $|u-v| < \delta$ implies:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{1}{f(u)} - \frac{1}{f(v)}\right|
+                    & = \left|\frac{f(u) - f(v)}{f(u)f(v)}\right| \\
+                    & = \frac{1}{f(u)f(v)}\left|f(u) - f(v)\right| \\
+                    & < \frac{1}{k^2} k^2 \epsilon \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\frac{1}{f}$ is uniformly continuous.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $D \subseteq \bfR$ is a bounded set and $f:D \rightarrow \bfR$ is uniformly continuous, show that $f$ is bounded (This gives another proof that $f(x) = \frac{1}{x}$ is not uniformly continuous on $(0,1)$).
+    \end{exercise}
+        \begin{proof}
+            Suppose towards contradiction $f$ is unbounded. Then for all $n\geq 1$, there exists $x_n$ such that $|f(x_n)| \geq n$. Since $(x_n)_n \in D^\bfN$, by Bolzano-Weierstrass there exists a convergent subsequence $(x_{n_k})_k \rightarrow c$. Since $f$ is continuous, we have that $(f(x_{n_k}))_k \rightarrow f(c)$. However, this is a contradiction, as $|f(x_{n_k})| \geq n_k$. Thus $f$ is bounded.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Prove that there does not exist a continuous function $f:\bfR \rightarrow \bfR$ with:
+            \begin{equation*}
+            \begin{split}
+                f(\bfQ) \subseteq \bfR \setminus \bfQ; \hspace{8pt} f(\bfR \setminus \bfQ) \subseteq \bfQ.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            Note that $f(\bfR) = f(\bfR \setminus \bfQ) \cup f(\bfQ)$. Since $f(\bfR \setminus \bfQ)$ and $f(\bfQ)$ are countable, it must be that $f(\bfR)$ is countable. Moreover, since $\bfR$ is an interval, it must be that $f(\bfR)$ is an interval. Hence $f(\bfR) = \{a\}$ for some $a \in \bfR$. \nl
+            
+            But this gives that $f(\bfR\setminus\bfQ) = \{a\}$ and $f(\bfQ) = \{a\}$. Hence $a \in \bfR\setminus\bfQ$ and $a \in \bfQ$, which is a contradiction.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $n \in \bfN$ and consider the function:
+            \begin{equation*}
+            \begin{split}
+                f(x) =
+                    \begin{cases}
+                        x^n, & x > 0 \\
+                        0, & x \leq 0 .
+                    \end{cases}
+            \end{split}
+            \end{equation*}
+        For which values of $n$ is $f$ differentiable at $x = 0$?
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow 0^+}\frac{f(x) - f(0)}{x-0} = \limit_{x \rightarrow 0^+}\frac{x^n}{x} = \limit_{x \rightarrow 0^+}x^{n-1} = \begin{cases} 0, & n > 1 \\ 1, & n = 1.\end{cases}
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow 0^-}\frac{f(x) - f(0)}{x-0} = \limit_{x \rightarrow 0^-}\frac{0}{x} = 0.
+                \end{split}
+                \end{equation*}
+            Thus $f$ is differentiable at $x=0$ for $n > 1$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the function:
+            \begin{equation*}
+            \begin{split}
+                f(x) =
+                    \begin{cases}
+                        x^2, & x \in \bfQ \\
+                        0, & x \not\in \bfQ .
+                    \end{cases}
+            \end{split}
+            \end{equation*}
+        Show that $f$ is differentiable at $x = 0$ and find $f'(0)$.
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow 0 }\frac{f(x) - f(0)}{x- 0} = \limit_{x \rightarrow 0}\frac{ x^2 \mathbf{1}_\bfQ}{x} = \limit_{x \rightarrow 0}x \mathbf{1}_\bfQ = 0.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Determine the values of $x$ where $f(x) = x|x|$ is differentiable.
+    \end{exercise}
+        \begin{proof}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    f(x) = x|x| = \begin{cases} x^2, & x \geq 0 \\ -x^2, & x < 0.\end{cases}
+                \end{split}
+                \end{equation*}
+            Clearly $f$ is differentiable at $c \neq 0$. So observe that:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow 0^+} \frac{f(x) - f(0)}{x- 0} = \limit_{x \rightarrow 0^+}\frac{x^2}{x} = \limit_{x \rightarrow 0^+}x = 0.
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow 0^-} \frac{f(x) - f(0)}{x- 0} = \limit_{x \rightarrow 0^-}\frac{-x^2}{x} = \limit_{x \rightarrow 0^-}-x = 0.
+                \end{split}
+                \end{equation*}
+            Thus $f$ is differentiable everywhere.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $I$ be an interval and suppose $f:I\rightarrow \bfR$ is differentiable with $f'(x) < 0$ for all $x \in I$. Show that $f$ is strictly decreasing on $I$.
+    \end{exercise}
+       \begin{proof}
+            Let $x_1,x_2 \in I$ with $x_1 < x_2$. Apply the Mean Value Theorem to $f$ on $[x_1,x_2]$. Then there exists $c \in (x_1,x_2)$ with:
+                \begin{equation*}
+                \begin{split}
+                    f'(c) = \frac{f(x_2) -f(x_1)}{x_2 - x_1} < 0.
+                \end{split}
+                \end{equation*}
+            Since $x_2 - x_1 > 0$, it must be that $f(x_2) - f(x_1) < 0$. Thus $f(x_2) < f(x_1)$, establishing $f$ to be strictly decreasing on $I$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Prove that the function $f(x) = x^3 + e^x$ has a unique real root. 
+    \end{exercise}
+        \begin{proof}
+            Note that $f(1) = 1 + e > 0$ and $f(-1) = \frac{1-e}{e} < 0$. By the Intermediate Value Theorem, there exists $c \in (-1,1)$ with $f(c) = 0$. Since $f'(x) > 0$ on $\bfR$, we have that $f$ is strictly increasing. Hence $c$ is unique.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that $\log(x) \leq x-1$ for all $x > 0$.
+    \end{exercise}
+        \begin{proof}
+            We proceed by cases. \nl
+            
+            Case 1: $0 < x < 1$. Apply the Mean Value Theorem to $\log(x)$ on $[x,1]$. Then there exists $c \in (x,1)$ such that:
+                \begin{equation*}
+                \begin{split}
+                    \frac{\log(1) - \log(x)}{1 - x} = \frac{1}{c} \geq 1.
+                \end{split}
+                \end{equation*}
+            Whence $-\log(x) \geq 1-x$; i.e., $\log(x) \leq x-1$. \nl
+            
+            Case 2: $x = 1$. Then clearly $\log(x) = x-1$. \nl
+            
+            Case 3: $x > 1$. Apply the Mean Value Theorem to $\log(x)$ on $[1,x]$. Then there exists $c \in (1,x)$ such that:
+                \begin{equation*}
+                \begin{split}
+                    \frac{\log(x) - \log(1)}{x-1} = \frac{1}{c} \leq 1.
+                \end{split}
+                \end{equation*}
+            Whence $\log(x) \leq x-1$ for all $x > 0$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Suppose $f:[0,2] \rightarrow \bfR$ is continuous on $[0,2]$ and differentiable on $(0,2)$ and satisfies $f(0) = 0$, $f(1) = 1$, and $f(2) = 1$.
+            \begin{enumerate}[label = (\roman*)]
+                \item Show that there is a $c_1 \in (0,1)$ with $f'(c_1) = 1$.
+                    \begin{proof}
+                        Apply the Mean Value Theorem to $f$ on $[0,1]$. Then there exists $c_1 \in (0,1)$ so that $f'(c_1) = \frac{f(1) - f(0)}{1-0} = 1$.
+                    \end{proof}
+                \item Show that there is a $c_2 \in (1,2)$ with $f'(c_2) = 0$.
+                    \begin{proof}
+                        Apply the Mean Value Theorem to $f$ on $[1,2]$. Then there exists $c_2 \in (1,2)$ so that $f'(c_2) = \frac{f(2) - f(1)}{2-1} = 0$.
+                    \end{proof}
+                \item Show that there is a $c_3 \in (0,2)$ with $f'(c_3) = \frac{1}{3}$.
+                    \begin{proof}
+                        Apply Darboux's Theorem to $f$ on $[c_1,c_2]$. Note that $f'(c_2) = 0 < \frac{1}{3} < 1 = f'(c_2)$. So there exists $c_3 \in [c_1,c_2]$ so that $f'(c_3) = \frac{1}{3}$.
+                    \end{proof}
+            \end{enumerate}
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f,g:\bfR \rightarrow (0,\infty)$ are everywhere differentiable with $f' = f$ and $g' = g$. Prove that $f = \alpha g$ for some constant $\alpha > 0$.
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \left(\frac{f}{g}\right)' = \frac{fg'-f'g}{g^2} = \frac{fg-fg}{g^2} = 0.
+                \end{split}
+                \end{equation*}
+            Thus $\frac{f}{g} = \alpha$ for some $\alpha > 0$. Whence $f = \alpha g$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $h = \mathbf{1}_{[0,\infty)}$. Prove that there does not exist a function $f:\bfR \rightarrow \bfR$ for which $f' = h$ on $\bfR$.
+    \end{exercise}
+        \begin{proof}
+            The converse of Darboux's Theorem says:
+                \begin{equation*}
+                \begin{split}
+                    (\exists k \in (f'(a),f'(b)))(\forall c \in (a,b)) : f'(c) \neq k \implies \mtext{\hspace{-6pt}$f$ is not differentiable.}
+                \end{split}
+                \end{equation*}
+            Let $k = \frac{1}{2}$ Notice that for all $c \in \bfR$, we have that $f'(c) \neq \frac{1}{2}$. Whence $f$ is not differentiable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

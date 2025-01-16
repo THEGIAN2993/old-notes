@@ -156,7 +156,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%
-%%%%DOCUMENT SETUP%%%%
+%%%%DOCUMENT SETUP%%%%4
 %%%%%%%%%%%%%%%%%%%%%%
 \setsecnumdepth{subsection}
 \definecolor{darkgreen}{rgb}{0, 0.5976, 0}
@@ -179,6 +179,15 @@
             \end{equation*}
         Show that the infinite series $\sum_{k}x_k$ diverges.
     \end{exercise}
+        \begin{proof}
+            By the limit comparison test,
+                \begin{equation*}
+                \begin{split}
+                    \liminf \left(\frac{x_k}{\frac{1}{k}}\right) = \liminf(kx_k) = L > 0.
+                \end{split}
+                \end{equation*}
+            Hence $\sum_k x_k$ diverges.
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $(x_k)_k$ be a sequence of strictly positive numbers.
@@ -187,6 +196,23 @@
                 \item If $\liminf_{n \rightarrow \infty} \frac{x_{k+1}}{x_k} > 1$, then the infinite series $\sum_k x_k$ diverges.
             \end{enumerate}
     \end{exercise}
+        \begin{proof}
+            (i) Let $\limsup \frac{x_{k+1}}{x_k} = u$ and $r = \frac{u+1}{2}$. Then $u < r < 1$. There exists $K$ large so that $r > \sup_{k \geq K}\frac{x_{k+1}}{x_k}$. Hence $rx_k > x_{k+1}$ for all $k \geq K$. Inductively, $r^jx_K > x_{K+j}$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{k \geq K}x_{k} = \sum_{j = 1}^\infty x_{K+j} < x_K \sum_{j = 1}^\infty r^j < \infty.
+                \end{split}
+                \end{equation*}
+            Thus $\sum_{k}x_k$ converges.
+
+            (ii) Let $\liminf \frac{x_{k+1}}{x_k} = l$ and $r = \frac{l+1}{2}$. Then $1 < r < l$. There exists $K$ large so that $r < \inf_{k \geq K}\frac{x_{k+1}}{x_k}$. Hence $rx_k < x_{k+1}$ for all $k \geq K$. Inductively, $r^jx_K < x_{K+j}$. Hence:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{k \geq K}x_{k} = \sum_{j = 1}^\infty x_{K+j} > x_K \sum_{j = 1}^\infty r^j = \infty.
+                \end{split}
+                \end{equation*}
+            Thus $\sum_{k}x_k$ diverges.
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Consider the sequence of functions:
@@ -307,6 +333,9 @@
     \begin{exercise}
         Let $f_n = \mathbf{1}_{[n,n+1]}$. Show that $(f_n)_n \rightarrow 0$ point-wise on $\bfR$. Is the convergence uniform?
     \end{exercise}
+        \begin{proof}
+            Let $x \in \bfR$. Given $\epsilon > 0$, find $N$ large so that $N > x$. Then if $n \geq N$, $|f_n(x) - \mathbf{0}(x)| = |\mathbf{1}_{[n,n+1]}(x)| = 0$. Thus $(f_n)_n \rightarrow \mathbf{0}$. However, $(f_n)_n \not\rightarrow \mathbf{0}$ uniformly, because $\sup_{x \in \bfR}|f_n(x) - \mathbf{0}(x)| = 1$ no matter how large $n$ is.
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $(f_n)_n$ and $(g_n)_n$ be sequences in $\ell_\infty(\Omega)$ with $(f_n)_n \rightarrow f$ and $(g_n)_n \rightarrow g$ uniformly on $\Omega$. Prove that $(f_n g_n)_n \rightarrow fg$ uniformly on $\Omega$.

@@ -1,0 +1,29 @@
+\chapter{Metric Spaces}
+
+\section{Introduction}
+    \begin{definition}
+        Let $X$ be a nonempty set. A \textit{metric} on $X$ is a map:
+            \begin{equation*}
+            \begin{split}
+                d:X \times X \rightarrow \bfR^+
+            \end{split}
+            \end{equation*}
+        satisfying for all $x,y,z \in X$:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $d(x,y) = d(y,x)$;
+                \item $d(x,z) \leq d(x,y) + d(y,z)$;
+                \item $d(x,x) = 0$;
+                \item If $d(x,y) = 0$, then $x=y$.
+            \end{enumerate}
+        If $d$ only satisfies (1), (2), and (3), then $d$ is called a \textit{semi-metric}. We call the pair $(X,d)$ a \textit{metric space} (or \textit{semi-metric space}).
+    \end{definition}
+
+    \begin{definition}
+        Two metrics $d,\rho$ on $X$ are called \textit{equivalent} if there exists $c_1,c_2 \geq 0$ such that, for all $x,y \in X$:
+            \begin{equation*}
+            \begin{split}
+                d(x,y) &\leq c_1 \rho(x,y); \\
+                \rho(x,y) &\leq c_2 d(x,y).
+            \end{split}
+            \end{equation*}
+    \end{definition}

@@ -1,0 +1,42 @@
+\providecommand\numberofexercises{}
+\XSIM{solution-body}{exercise-3=={Observe that:}}
+\XSIM{exercise-body}{exercise-1=={If $\{W_i\}_{i \in I}$ is a family of subspaces of $V$, then $\bigcap _{i \in I}W_i$ is a subspace of $V$.}||exercise-2=={If $W_1,W_2 \subseteq V$ are subspaces such that $W_1 \cup W_2$ is a subspace, then $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.}||exercise-3=={Show that $(L_\infty , \lVert \cdot \rVert _u)$ forms a metric space.}||exercise-4=={Show that $C([a,b], F) \subseteq L_\infty ([a,b],F)$ is a subspace.}||exercise-5=={Show that $\text {BV([a,b])} \subseteq \ell _\infty ([a,b])$ is a subspace.}||exercise-6=={Show that $\text {Aff}(K) \subseteq \cF (K,\bfR )$ is a subspace.}}
+\XSIM{goal}{exercise}{points}{0}
+\XSIM{totalgoal}{points}{0}
+\XSIM{goal}{exercise}{bonus-points}{0}
+\XSIM{totalgoal}{bonus-points}{0}
+\XSIM{order}{1||2||3||4||5||6}
+\XSIM{use}{}
+\XSIM{use!}{}
+\XSIM{used}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}}
+\XSIM{print}{}
+\XSIM{print!}{}
+\XSIM{printed}{exercise-1=={true}||exercise-2=={true}||exercise-3=={true}||exercise-4=={true}||exercise-5=={true}||exercise-6=={true}}
+\XSIM{total-number}{6}
+\XSIM{exercise}{6}
+\XSIM{types}{exercise}
+\XSIM{idtypes}{1=={exercise}||2=={exercise}||3=={exercise}||4=={exercise}||5=={exercise}||6=={exercise}}
+\XSIM{collections}{exercise-1=={all exercises}||exercise-2=={all exercises}||exercise-3=={all exercises}||exercise-4=={all exercises}||exercise-5=={all exercises}||exercise-6=={all exercises}}
+\XSIM{collection:all exercises}{exercise-1||exercise-2||exercise-3||exercise-4||exercise-5||exercise-6}
+\setcounter{totalexerciseinall exercises}{6}
+\XSIM{id}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}}
+\XSIM{ID}{exercise-1=={1}||exercise-2=={2}||exercise-3=={3}||exercise-4=={4}||exercise-5=={5}||exercise-6=={6}}
+\XSIM{counter}{exercise-1=={1.1.1}||exercise-2=={1.1.2}||exercise-3=={1.2.1}||exercise-4=={1.2.2}||exercise-5=={1.2.3}||exercise-6=={1.2.4}}
+\XSIM{counter-value}{exercise-1=={1}||exercise-2=={2}||exercise-3=={1}||exercise-4=={2}||exercise-5=={3}||exercise-6=={4}}
+\XSIM{solution}{}
+\XSIM{chapter-value}{exercise-1=={1}||exercise-2=={1}||exercise-3=={1}||exercise-4=={1}||exercise-5=={1}||exercise-6=={1}}
+\XSIM{chapter}{exercise-1=={1}||exercise-2=={1}||exercise-3=={1}||exercise-4=={1}||exercise-5=={1}||exercise-6=={1}}
+\XSIM{section-value}{exercise-1=={1}||exercise-2=={1}||exercise-3=={2}||exercise-4=={2}||exercise-5=={2}||exercise-6=={2}}
+\XSIM{section}{exercise-1=={1.1}||exercise-2=={1.1}||exercise-3=={1.2}||exercise-4=={1.2}||exercise-5=={1.2}||exercise-6=={1.2}}
+\XSIM{sectioning}{exercise-1=={{1}{1}{0}{0}{0}}||exercise-2=={{1}{1}{0}{0}{0}}||exercise-3=={{1}{2}{0}{0}{0}}||exercise-4=={{1}{2}{0}{0}{0}}||exercise-5=={{1}{2}{0}{0}{0}}||exercise-6=={{1}{2}{0}{0}{0}}}
+\XSIM{subtitle}{}
+\XSIM{points}{}
+\XSIM{bonus-points}{}
+\XSIM{page-value}{exercise-1=={1}||exercise-2=={1}||exercise-3=={3}||exercise-4=={3}||exercise-5=={3}||exercise-6=={4}}
+\XSIM{page}{exercise-1=={1}||exercise-2=={1}||exercise-3=={3}||exercise-4=={3}||exercise-5=={3}||exercise-6=={4}}
+\XSIM{tags}{}
+\XSIM{topics}{}
+\XSIM{userpoints}{}
+\XSIM{bodypoints}{}
+\XSIM{userbonus-points}{}
+\XSIM{bodybonus-points}{}

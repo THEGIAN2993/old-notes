@@ -1,0 +1,319 @@
+\chapter{Limits}
+\pagenumbering{arabic}
+
+\section{Cluster Points}\label{section:cluster-points}
+    \begin{definition}
+        Let $c \in \bfR$ and $\delta > 0$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item The \textit{$\delta$-neighborhood} around $c$ is denoted $V_\delta(c) = (c - \delta, c+\delta)$.
+                \item The \textit{deleted $\delta$-neighborhood} around $c$ is denoted $\dot{V}_\delta(c) = (c-\delta,c) \cup (c,c+\delta)$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}
+        If $c \in \bfR$ and $\delta > 0$, then:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $x \in V_\delta(c) \iff |x-c| < \delta$;
+                \item $x \in \dot{V}_\delta(c) \iff 0 < |x-c| < \delta$.
+            \end{enumerate}
+    \end{lemma}
+
+    \begin{definition}
+        Let $D\subseteq \bfR$. A number $c \in \bfR$ is a \textit{cluster point of $D$} if
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\dot{V}_\delta(c) \cap D \neq \emptyset).
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item The cluster points of $(0,1)$ are $[0,1]$.
+            \item The cluster points of $\bfQ$ are $\bfR$.
+            \item If $F \subseteq \bfR$ is a finite set, then $F$ has no cluster points.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        If $D \subseteq \bfR$ is a subset, then
+            \begin{equation*}
+            \begin{split}
+                \overline{D}:=\bigcap_{\substack{C \supseteq D \\ C\hspace{-4pt}\mtext{\tiny closed in $\bfR$}}}C.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{proposition}
+        Let $D \subseteq \bfR$ and $c \in \bfR$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $c$ is a cluster point of $D$ if and only if there exists a sequence $(x_n)_n$ in $D$ with $x_n \neq c$ and $(x_n)_n \rightarrow c$.
+                \item $c \in \overline{D}$ if and only if there exists a sequence $(x_n)_n$ in $D$ with $(x_n)_n \rightarrow c$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) $(\Rightarrow)$ Let $c$ be a cluster point of $D$. By induction, for each $n \geq 1$ there exists $x_n \in V_{\frac{1}{n}(c)}\cap D \neq \emptyset$. We obtain a sequence $(x_n)_n$ in $D$, satisfying $x_n \neq c$ and $|x_n - c| < \frac{1}{n}$. Whence $(x_n)_n \rightarrow c$. $(\Leftarrow)$ Now suppose such a sequence $(x_n)_n$ exists. Given $\delta > 0$, there exists $N \in \bfN$ so that $n \geq N$ implies $|x_n - c| < \delta$. Whence $x_n \in \dot{V}_\delta(c) \cap D$. \nl
+
+             (2) $(\Rightarrow)$ {\color{red} Office hours}
+        \end{proof}
+
+\section{Limits}
+    \begin{definition}
+        Let $f:D \rightarrow \bfR$ and $c$ be a cluster point of $D$. Then:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow c}f(x) = L \mtext{if} (\forall \epsilon > 0)(\exists \delta  > 0)&\ni (x \in \dot{V}_\delta(c) \cap D \implies f(x) \in V_\epsilon(L)).\\
+                &\ni (x \in D, 0 < |x-c| < \delta \implies |f(x)-L| < \epsilon).
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove that $\limit_{x \rightarrow 2}3x + 4 = 10$.
+                \begin{solution}
+                    Note that:
+                        \begin{equation*}
+                        \begin{split}
+                            |f(x) - L| &= |3x+4-10| \\
+                            & = |3x-6| \\
+                            & = 3|x-2|.
+                        \end{split}
+                        \end{equation*}
+                    If $\epsilon$ is given, pick $\delta = \frac{\epsilon}{3}$. If $|x - 2| < \delta$, then $|x-2| < \frac{\epsilon}{3}$, giving $|3x+4 - 10| < 3|x-2| < \epsilon$.
+                \end{solution}
+
+            \item Prove that $\limit_{x \rightarrow 3}x^2 = 9$.
+                \begin{solution}
+                    Note that:
+                        \begin{equation*}
+                        \begin{split}
+                            |f(x)-L| &= |x^2 - 9| \\
+                            & = |x-3||x+3|.
+                        \end{split}
+                        \end{equation*}
+                    If $0 < |x-3| < 1$ {\color{red} don't get the rest of the examples}
+                \end{solution}
+        \end{enumerate}
+    \end{example}
+
+    \begin{proposition}[Sequential Characterization of a Limit]\label{prop:seq-char-of-lim}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\ds \limit_{x \rightarrow c}f(x) = L$;
+                \item $\ds (\forall (x_n)_n \in D^\bfN)(x_n \neq c \hspace{2pt}\land\hspace{2pt}(x_n)_n \rightarrow c \implies (f(x_n))_n \rightarrow L)$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $\limit_{x \rightarrow c}f(x) = L$. Let $(x_n)_n$ be in $D$ with $x_n \neq c$ and $(x_n)_n \rightarrow c$. Given $\epsilon > 0$, we know there exists $\delta > 0$ such that $x \in D$ and $0 < |x-c| < \delta$ implies $|f(x)-L| < \epsilon$. We know there exists some $N \in \bfN$ with $n\geq N$ implying $|x_n - c| < \delta$. Whence $|f(x_n) - L| < \epsilon$; i.e., $(f(x_n))_n \rightarrow L$. \nl
+
+            $(\Leftarrow)$ Towards a contradiction, suppose that for every sequence $(x_n)_n$ in $D$ such that $x_n \neq c$ and $(x_n)_n \rightarrow c$, it holds that $(f(x_n))_n \rightarrow L$, \textit{yet} $\limit_{x \rightarrow c}f(x) \neq L$. Then by definition:
+                \begin{equation*}
+                \begin{split}
+                    (\exists \epsilon_0 > 0)(\forall \delta >0) \ni (x \in \dot{V}_\delta(c)\cap D \hspace{4pt}\land\hspace{4pt} f(x) \not\in V_{\epsilon_0}(L)).
+                \end{split}
+                \end{equation*}
+            So for each $\delta = \frac{1}{n}$, we can find $x_n \in \dot{V}_{\frac{1}{n}}(c) \cap D$ and $f(x_n) \not\in V_{\epsilon_0}(L)$, or equivalently $(x_n)_n \rightarrow c$ and $(f(x_n))_n \not\rightarrow L$. This is a contradiction, since $(x_n)_n \rightarrow c$ implies $(f(x_n))_n \rightarrow L$. This establishes that $\limit_{x \rightarrow c}f(x) = L$.
+        \end{proof}
+
+    \begin{theorem}[Sequential Characterization of Divergence I]
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\displaystyle \limit_{x \rightarrow c}f(x) \neq L$;
+                \item $\ds (\exists (x_n)_n \in D^\bfN)\bigl((x_n \neq c \hspace{2pt}\land\hspace{2pt} (x_n)_n \rightarrow c)\hspace{4pt}\land\hspace{4pt} (f(x_n))_n \not\rightarrow L\bigr)$
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            This follows from negating Proposition~\ref{prop:seq-char-of-lim}.
+        \end{proof}
+
+    \begin{theorem}[Sequential Characterization of Divergence II]
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$. The following are equivalent:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\displaystyle \limit_{x \rightarrow c}f(x)$ does not exist;
+            \item $\ds (\exists (x_n)_n \in D^\bfN)\bigl((x_n \neq c \hspace{2pt}\land\hspace{2pt} (x_n)_n \rightarrow c)\hspace{4pt}\land\hspace{4pt} (f(x_n))_n \mtext{diverges}\hspace{-5pt}\bigr)$
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            $(\Leftarrow)$ This direction follows from the converse of Proposition~\ref{prop:seq-char-of-lim}. $(\Rightarrow)$ Let $(y_n)_n$ be a sequence in $D$  with $y_n \neq c$ and $(y_n)_n \rightarrow c$. We proceed by cases. Case $1$: $(f(y_n))_n$ is divergent. Then we are done. Case $2$: {\color{red} don't understand this shit at all}
+        \end{proof}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item {\color{red} d.n.e. examples, do later}
+        \end{enumerate}
+    \end{example}
+
+    \begin{theorem}
+        Suppose $f,g:D \rightarrow \bfR$ and $c$ is a cluster point of $D$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $\limit_{x \rightarrow c} = L_1$ and $\limit_{x \rightarrow c}g(x) = L_2$, then:
+                \begin{enumerate}[label = (\roman*)]
+                    \item $\displaystyle \limit_{x \rightarrow c}(f(x) \pm g(x)) = L_1 \pm L_2$;
+                    \item $\displaystyle \limit_{x \rightarrow c}(\alpha f(x)) = \alpha L_1 \mtext{for some} \alpha \in \bfR$;
+                    \item $\displaystyle \limit_{x \rightarrow c}f(x)g(x) = L_1 L_2$;
+                    \item $\displaystyle \limit_{x \rightarrow c} \frac{f(x)}{g(x)} = \frac{L_1}{L_2} \mtext{if} L_2 \neq 0$.
+                \end{enumerate}
+
+            \item $\displaystyle \limit_{x \rightarrow c}|f(x)| = |L_1|$.
+            \item $\displaystyle \limit_{x \rightarrow c}\sqrt{f(x)} = \sqrt{L_1} \mtext{if} f(x) \geq 0 \mtext{for all} x\in D$.
+            \item If $f \in \bfR[x]$, then:
+                \begin{enumerate}[label = (\arabic*)]
+                    \item $\displaystyle \limit_{x \rightarrow c}f(x) = f(c)$;
+                    \item If $f(x) = \frac{p(x)}{q(x)}$ with $q(c) \neq 0$, then $\displaystyle \limit_{x \rightarrow c}f(x) = f(c)$.
+                \end{enumerate}
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            These follow from previous results related to sequences.
+        \end{proof}
+
+    \begin{theorem}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $f(x) \leq b$ for all $x \in \dot{V}_\delta(c)$ and $\displaystyle \limit_{x\rightarrow c} f(x) = L$ exists, then $L \leq b$.
+            \item If $f(x) \geq a$ for all $x \in \dot{V}_\delta(c)$ and $\ds \limit_{x \rightarrow c}f(x) = L$ exists, then $L \geq a$.
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (1) Let $(x_n)_n$ be a sequence in $\dot{V}_\delta(c)$ with $(x_n)_n \rightarrow c$. We know $(f(x_n))_n \rightarrow L$, and since $f(x_n) \leq b$ for all $n$, so must $L \leq b$. \nl
+
+            (2) This follows similarly.
+        \end{proof}
+
+    \begin{theorem}
+        Let $f,g,h:D \rightarrow \bfR$ and $c$ a cluster point of $D$. Suppose $f(x) \leq g(x) \leq h(x)$ with $x \in \dot{V}_\delta(c)$ for some $\delta > 0$. If $\limit_{x \rightarrow c}f(x) = \limit_{x \rightarrow c}h(x) = L$, then $\limit_{x \rightarrow c}g(x) = L$.
+    \end{theorem}
+        \begin{proof}
+            {\color{red} sequences}.
+        \end{proof}
+
+\section{Left and Right Limits}
+
+    \begin{definition}
+        Let $D \subseteq \bfR$ and $f:D \rightarrow \bfR$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item Let $c$ be a cluster point of $D \cap (c,\infty)$. Then
+                    \begin{equation*}
+                    \begin{split}
+                        \limit_{x \rightarrow c+}f(x) = L \mtext{if} (\forall \epsilon>0)(\exists \delta > 0)&\ni (x \in D \cap (c,c+\delta) \implies f(x) \in V_\epsilon(L)) \\
+                        & \ni (x \in D,0 < x-c < \delta \implies |f(x) - L| < \epsilon).
+                    \end{split}
+                    \end{equation*}
+                
+                \item Let $c$ be a cluster point of $D \cap (-\infty,c)$. Then:
+                    \begin{equation*}
+                    \begin{split}
+                        \limit_{x \rightarrow c^{-}}f(x) = L \mtext{if} (\forall \epsilon > 0)(\exists \delta > 0)&\ni (x \in D \cap (c-\delta,c) \implies f(x) \in V_\epsilon(L)) \\
+                        &\ni (x \in D, 0 < c - x< \delta \implies |f(x) - L| < \epsilon).
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$. Then:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow c}f(x) = L \iff \limit_{x \rightarrow c^{\pm}}f(x) = L.
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+
+    \begin{proposition}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D \cap (c,\infty)$. Then $\limit_{x \rightarrow c^+}f(x) = L$ if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\forall (x_n)_n \in (D \cap (c,\infty))^\bfN)((x_n)_n \rightarrow c \implies (f(x_n))_n \rightarrow L).
+            \end{split}
+            \end{equation*}
+    \end{proposition} 
+
+    \begin{proposition}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D \cap (-\infty,c)$. Then $\limit_{x\rightarrow c^-}f(x) = L$ if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\forall (x_n)_n \in (D \cap (-\infty,c))^\bfN)((x_n)_n \rightarrow c \implies (f(x_n))_n \rightarrow L).
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+\section{Infinite Limits}
+    \begin{definition}
+        Let $f:D \rightarrow \bfR$ and $c$ a cluster point of $D$. Then:
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\ds \limit_{x \rightarrow c}f(x) = +\infty \iff (\forall M > 0)(\exists \delta > 0) \ni (x \in \dot{V}_\delta(c) \implies f(x) > M)$.
+            \item $\ds \limit_{x \rightarrow c}f(x) = -\infty \iff (\forall M > 0)(\exists \delta > 0) \ni (x \in \dot{V}_\delta(c) \implies f(x) < -M)$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{note}
+        The definitions for left-handed and right-handed limits follow similarly.
+    \end{note}
+
+    \begin{example}
+        Show that $\ds \limit_{x \rightarrow 1} \frac{3}{(x-1)^2} = \infty$.
+    \end{example}
+        \begin{solution}
+            Let $M$ be given. Then:
+                \begin{equation*}
+                \begin{split}
+                    g(x) > M 
+                    &\iff \frac{3}{(x-1)^2} > M \\
+                    &\iff \frac{3}{M} > (x-1)^2 \\
+                    &\iff \sqrt{\frac{3}{M}} > |x-1|.
+                \end{split}
+                \end{equation*}
+            So given $M$, let $\delta = \sqrt{\frac{3}{M}}$. If $0 < |x-1| < \delta$, then by above, $g(x) > M$.
+        \end{solution}
+
+    \begin{example}
+        Show that $\ds \limit_{x \rightarrow 3^{-}}\frac{-2}{3-x} = -\infty$.
+    \end{example}
+        \begin{solution}
+            Let $M$ be given. Then:
+                \begin{equation*}
+                \begin{split}
+                    g(x) < -M 
+                    &\iff \frac{-2}{3-x} < -M \\
+                    &\iff \frac{2}{3-x} > M \\
+                    &\iff \frac{2}{M} > 3-x \quad\quad{\mtext{\tiny sign did not flip since $x<3$.}}
+                \end{split}
+                \end{equation*}
+            So given $M$, let $\delta  = \frac{2}{M}$. For $x \in (3 - \delta,3)$, we have $3-x < \delta$. By work above, $g(x) < -M$.
+        \end{solution}
+
+\section{Limits at Infinity}
+
+    \begin{definition}
+        Let $f:(a,\infty) \rightarrow \bfR$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item $\ds \limit_{x \rightarrow \infty}f(x) = L \iff (\forall \epsilon > 0)(\exists \alpha > 0) \ni (x > \alpha \implies f(x) \in V_\epsilon(L))$.
+            \item $\ds \limit_{x \rightarrow +\infty}f(x) = \infty \iff (\forall M>0)(\exists \alpha) \ni (x > \alpha \implies f(x) > M)$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        {\color{red}dont wanna type}
+    \end{example}
+
+    \begin{remark}
+        Each of these limits at infinity have sequential expressions. {\color{red} figure it out and reformat.}
+    \end{remark}
+
+    \begin{proposition}
+        Let $f:(a,\infty) \rightarrow \bfR$. Then:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $\ds \limit_{x \rightarrow \infty}f(x) = L \iff ()$
+            \end{enumerate}
+    \end{proposition}
+
+    \begin{proposition}
+        {\color{red} something about limits of rational functions}
+    \end{proposition}
+
+    \begin{corollary}
+        {\color{red} something about polynomials.}
+    \end{corollary}

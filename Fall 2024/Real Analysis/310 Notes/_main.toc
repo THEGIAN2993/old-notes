@@ -24,3 +24,8 @@
 \contentsline {section}{\numberline {5.6}Sequences of Functions}{44}{section.5.6}%
 \contentsline {chapter}{\chapternumberline {6}Series}{47}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Infinite Series}{47}{section.6.1}%
+\contentsline {chapter}{\chapternumberline {7}Limits}{48}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Cluster Points}{48}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Limits}{49}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Infinite Limits and Limits at Infinity}{51}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Continuity}{52}{section.7.4}%

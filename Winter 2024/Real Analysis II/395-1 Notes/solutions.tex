@@ -1,0 +1,127 @@
+\chapter*{Solutions to Exercises}
+\addcontentsline{toc}{chapter}{Solutions to Exercises}
+
+\section*{\S\hspace{4pt}1.1. Vector Spaces}
+    \phantom{a}
+    \vspace{12pt}
+
+    \textbf{Exercise~\ref{ex:intersection}}\hspace{6pt} \textit{If $\{W_i\}_{i \in I}$ is a family of subspaces of $V$, then $\bigcap_{i \in I}W_i$ is a subspace of $V$.}
+        \begin{solution}
+        
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:union}}\hspace{6pt}\textit{If $W_1,W_2 \subseteq V$ are subspaces such that $W_1 \cup W_2$ is a subspace, then $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.}
+        \begin{solution}
+            
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:bounded-met-space}}\hspace{6pt}\textit{Show that $(\ell_\infty, \lVert \cdot \rVert _u)$ forms a metric space.}
+        \begin{solution}
+                
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:cont-subspace}}\hspace{6pt}\textit{Show that $C([a,b], F) \subseteq \ell_\infty([a,b],F)$ is a subspace.}
+        \begin{solution}
+            Clearly $C([a,b],F) \neq \emptyset$. Let $f,h \in C([a,b],F)$ and $\alpha \in F$. Let $c \in [a,b]$ and $\epsilon >0$ be given. Since $f$ is continuous, there exists $\delta_1$ such that $|x-c| < \delta_1$ implies $|f(x) - f(c)| < \frac{\epsilon}{2}$. Since $h$ is continuous, there exists $\delta_2$ such that $|x-c| < \delta_2$ implies $|h(x) - h(c)| < \frac{\epsilon}{2|\alpha|}$. For $\delta = \min\{\delta_1,\delta_2\}$, $|x-c| < \delta$ implies:
+                \begin{equation*}
+                \begin{split}
+                    |(f+\alpha h)(x) - (f + \alpha h)(c)|
+                    & = |f(x) + \alpha h(x) - f(c) - \alpha h(c)| \\
+                    & \leq |f(x) - f(x)| + |\alpha||h(x) - h(c)| \\
+                    & < \frac{\epsilon}{2} + \frac{|\alpha|\epsilon}{2|\alpha|} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f+\alpha h \in C([a,b],F)$. Whence $C([a,b],F)$ is a subspace of $\ell_\infty([a,b],F)$.
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:bv-subspace}}\hspace{6pt}\textit{Show that $\text{BV([a,b])} \subseteq \ell_\infty([a,b],\bfR)$ is a subspace.}
+        \begin{solution}
+            Clearly $\text{BV}([a,b]) \neq \emptyset$. Let $\cP$ be a partition of $[a,b]$ and $f,h \in BV([a,b])$. \newline Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \text{Var}(f + \alpha h) 
+                    & = \sup_{\cP}\text{Var}(f+\alpha h ; \cP) \\
+                    & = \sup_{\cP} \left\{\sum_{k = 1}^n|(f+\alpha h)(x_{k}) - (f+\alpha h)(x_{k-1})|\right\} \\
+                    & = \sup_{\cP} \left\{\sum_{k = 1}^n|f(x_k) - f(x_{k-1}) + \alpha (h(x_{k}) - h(x_{k-1}))|\right\} \\
+                    & \leq \sup_{\cP} \left\{\sum_{k = 1}^n|f(x_k) - f(x_{k-1})| + |\alpha||h(x_k) - h(x_{k-1})|\right\} \\
+                    & = \sup_{\cP} \left\{\sum_{k=1}^n|f(x_k) - f(x_{k-1})| + |\alpha|\sum_{k = 1}^n|h(x_k) - h(x_{k-1})|\right\} \\
+                    & \leq \sup_{\cP} \left\{\sum_{k=1}^n|f(x_k) - f(x_{k-1})| \right\}+ |\alpha|\cdot \sup_{\cP}\left\{\sum_{k = 1}^n|h(x_k) - h(x_{k-1})|\right\} \\
+                    & = \text{Var}(f) + \alpha \text{Var}(h).
+                \end{split}
+                \end{equation*}
+            Since $\text{Var}(f), \text{Var}(h) < \infty$, it must be that $\text{Var}(f+ \alpha h) < \infty$. Thus $f+\alpha h \in \text{BV}([a,b])$. Whence $\text{BV}([a,b])$ is a subspace of $\ell_\infty([a,b],\bfR)$.
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:aff-subspace}}\hspace{6pt}\textit{Show that $\text{Aff}(K) \subseteq \cF(K,\bfR)$ is a subspace.}
+        \begin{solution}
+            
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:seq-subspace}}\hspace{6pt}\textit{Show that the above vector spaces are subspaces of $\cF(\bfN,F)$.}
+        \begin{solution}
+                
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:funct-subspace}}\hspace{6pt}\textit{Show that $C_c(\bfR) \subseteq C_0(\bfR) \subseteq \ell_\infty(\bfR)$ are subspaces.}
+        \begin{solution}
+                
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:free-vec}}\hspace{6pt}\textit{\phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Show that $\bfF(\Gamma) \subseteq \cF(\Gamma,F)$ is a subspace.
+        \item Show that $\{\delta_t\}_{t \in \Gamma}$ is a basis for $\bfF(\Gamma)$.
+        \item Prove the above universal property.
+        \item Suppose $V$ is a vector space over $F$ with basis $B$. Show that $\bfF(B) \cong V$.
+    \end{enumerate}}
+        \begin{solution}
+                
+        \end{solution}
+        \vspace{8pt}
+
+\section*{\S\hspace{4pt}1.2. Normed Spaces}
+\phantom{a}
+\vspace{12pt}
+
+    \textbf{Exercise~\ref{ex:seminorm}}\hspace{4pt}\textit{Let $v,w \in V$. If $p$ is any seminorm on $V$, then $|p(v) - p(w)| \leq p(v-w)$.}
+        \begin{solution}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    p(v) + p(w-v) &\geq p(v+w-v) = p(w) \\
+                    p(w) + p(v-w) &\geq p(w + v - w) = p(v).
+                \end{split}
+                \end{equation*}
+            Rearranging the above equations yields:
+                \begin{equation*}
+                \begin{split}
+                    p(w-v) & \geq p(w) - p(v) \\
+                    p(v-w) & \geq p(v) - p(w).
+                \end{split}
+                \end{equation*}
+            From absolute value properties, and since $p(w-v) = p(v-w)$, it must be that $p(v-w) \geq |p(v) - p(w)|$.
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{ex:1-infty-norm}}\hspace{4pt}\textit{Show that $\lVert \cdot \rVert _1$ and $\lVert \cdot \rVert _\infty$ are norms.}
+        \begin{solution}
+                    
+        \end{solution}
+        \vspace{8pt}
+
+    \textbf{Exercise~\ref{exercise:hom-b}}\hspace{4pt}\textit{Show that $\Hom_F(F^n,F^m) = B_F(\ell_2^n,\ell_2^m)$.}
+        \begin{solution}
+                    
+        \end{solution}
+        \vspace{8pt}
+
+    

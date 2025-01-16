@@ -1,0 +1,273 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{newpxtext,eulerpx,eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=15pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[
+        spaceabove=15pt, % space above the theorem
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numbered=unless unique,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{remark}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=unless unique,style=defs]{exercise}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\normalfont\fillast\large}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\large}
+    \titlespacing{\chapter}
+    {3pc}{*3}{*2}[3pc]
+
+    \titleformat{\section}[runin]
+    {\normalfont\bfseries\large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
+\usepackage[utf8x]{inputenc}
+
+\setlength{\parindent}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 310 \\[0.1in]Homework 8 \\[0.1in]
+Due: 11/26/2024}\\[.25in]
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Recall that a subset $U \subseteq \bfR$ is \textbf{open} if:
+            \begin{equation*}
+            \begin{split}
+                (\forall x \in U)(\exists \epsilon > 0):V_\epsilon(x) \subseteq U.
+            \end{split}
+            \end{equation*}
+        Prove that the mapping $f:\bfR \rightarrow \bfR$ is continuous if and only if $f^{-1}(U) \subseteq \bfR$ is open for every open $U \subseteq \bfR$.
+    \end{exercise}
+        \begin{proof}
+            $(\Rightarrow)$ Let $U \subseteq \bfR$ be open and suppose $c \in f^{-1}(U)$. Then $f(c) \in U$. Since $U$ is open, there exists $\epsilon > 0$ with $V_\epsilon(f(c)) \subseteq U$. Since $f$ is continuous at $c$, there exists $\delta > 0$ such that $x \in V_\delta(c)$ implies $f(x) \in V_\epsilon(f(c))$. Thus $f(V_\delta(c)) \subseteq V_\epsilon(f(c))$, whence $V_\delta(c) \subseteq f^{-1}(V_\epsilon(f(c))) \subseteq f^{-1}(U)$. Thus $f^{-1}(U)$ is open. \nl
+            
+            $(\Leftarrow)$ Let $c \in \bfR$ and $\epsilon > 0$. Note that $f^{-1}(V_\epsilon(f(c)))$ is open. So there exists $\delta > 0$ such that $V_\delta(c) \subseteq f^{-1}(V_\epsilon(f(c)))$. Moreover, $U \cap V_\delta(c) \subseteq f^{-1}(V_\epsilon(f(c)))$. Hence $f(U \cap V_\delta(c)) \subseteq V_\epsilon(f(c))$. Thus $f$ is continuous.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f,g:D \rightarrow \bfR$ be continuous. Show that the product $fg$ is continuous.
+    \end{exercise}
+        \begin{proof}
+            Since $f,g$ are continuous functions, $(x_n)_n \rightarrow c$ implies $(f(x_n))_n \rightarrow c$ and $(g(x_n))_n \rightarrow c$. Whence $((fg)(x_n))_n = (f(x_n)g(x_n))_n \rightarrow f(c)g(c) = (fg)(c)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f:D \rightarrow \bfR$ and $g:E \rightarrow \bfR$ be continuous mappings with $\Ran(f) \subseteq E$. Show that $g \circ f$ is continuous.
+    \end{exercise}
+        \begin{proof}
+            Let $c \in D$ be arbitrary. Given $\delta_1 > 0$, there exists $\delta>0$ such that $|x-c| < \delta$ implies $|f(x) - f(c)| < \delta_1$. Now since $g$ is continuous, it is continuous at $f(c)$. Hence given $\epsilon>0$, we have $|f(x) - f(c)| < \delta_1$ implies $|g(f(x)) - g(f(c))| < \epsilon$. Thus $g \circ f$ is continuous.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the following functions are Lipschitz.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f:[-M,M] \rightarrow \bfR$ given by $f(x) = x^2$.
+                \item $g:[1,\infty) \rightarrow \bfR$ given by $g(x) = \frac{1}{x}$.
+                \item $h:\bfR \rightarrow \bfR$ given by $h(x) = \sqrt{x^2 + 4}$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f(u) - f(v)|
+                    & = |u^2 - v^2| \\
+                    & = |(u+v)(u-v)| \\
+                    & \leq |u+v||u-v| \\
+                    & \leq M^2|u-v|.
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    |g(u) - g(v)|
+                    & = \left|\frac{1}{u} - \frac{1}{v}\right| \\
+                    & = \frac{\left|u-v\right|}{uv} \\
+                    & \leq |u-v|. 
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    |h(u) - h(v)|
+                    & = |\sqrt{u^2 + 4} - \sqrt{v^2 + 4}| \\
+                    & = \frac{|\sqrt{u^2 + 4} - \sqrt{v^2 + 4}|\sqrt{u^2 + 4} + \sqrt{v^2 + 4}|}{|\sqrt{u^2 + 4} - \sqrt{v^2 + 4}|} \\
+                    & = \frac{|u^2 + v^2|}{|\sqrt{u^2 + 4} + \sqrt{v^2 + 4}|} \\
+                    & \leq \frac{|u-v||u+v|}{|u| + |v|} \\
+                    & \leq \frac{|u-v|(|u| + |v|)}{|u| + |v|} \\
+                    & \leq |u-v|. \qedhere
+                \end{split}
+                \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the following functions are \textbf{not} Lipschitz.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f:\bfR \rightarrow \bfR$ given by $f(x) = x^2$.
+                \item $g:(0,\infty) \rightarrow \bfR$ given by $g(x) = \frac{1}{x}$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            (1) Let $u_n = n$ and $v_n = n+\frac{1}{n}$. Then:
+                \begin{equation*}
+                \begin{split}
+                    |u_n - v_n| = \left|n - \left(n + \frac{1}{n}\right)\right| = \frac{1}{n}.
+                \end{split}
+                \end{equation*}
+            Hence $(u_n - v_n)_n \rightarrow 0$. But observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f(u_n) - f(v_n)|
+                    & = \left|n^2 - \left(n + \frac{1}{n}\right)^2\right| \\
+                    & = \left|n^2 - n^2 - 2 - \frac{1}{n^2}\right| \\
+                    & = 2 + \frac{1}{n^2} \\
+                    & \geq 2.
+                \end{split}
+                \end{equation*}
+            Set $\epsilon_0 = 2$, $u_n = n$, and $v_n = n + \frac{1}{n}$. Then by the work above, $f$ is not uniformly continuous. Hence $f$ is not Lipschitz. \nl
+            
+            
+            (2) Let $u_n = \frac{1}{n}$ and $v_n = \frac{1}{n+1}$. Then:
+                \begin{equation*}
+                \begin{split}
+                    |u_n - v_n| = \left|\frac{1}{n} - \frac{1}{n+1}\right| = \frac{1}{n(n+1)} \leq \frac{1}{n}.
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, we have $(u_n - v_n)_n \rightarrow 0$. But observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f(u_n) - f(v_n)| = |n - (n+1)| = 1. 
+                \end{split}
+                \end{equation*}
+            Set $\epsilon_0 = 1$, $u_n = \frac{1}{n}$, and $v_n = \frac{1}{n+1}$. Then by the work above, $f$ is not uniformly continuous. Hence $f$ is not Lipschitz.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f:\bfR \rightarrow \bfR$ is continuous and for some $C \geq 0$ we have $|f(q)| \leq C$ for all $q \in \bfQ$. Show that $\lVert f\rVert _\bfR \leq C$.
+    \end{exercise}
+        \begin{proof}
+            Let $\alpha \in \bfR$ be arbitrary. By the density of $\bfQ$, there exists a sequence $(q_n)_n$ in $\bfQ$ with $(q_n)_n \rightarrow \alpha$. Since $f$ is continuous, $(q_n)_n \rightarrow \alpha$ implies $(f(q_n))_n \rightarrow f(\alpha)$. Moreover, $(|f(q_n)|)_n \rightarrow |f(\alpha)|$. Since $|f(q)| \leq C$ for all $q \in \bfQ$, it must be that $|f(\alpha)| \leq C$. Hence $\lVert f \rVert_\bfR \leq C$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{1}
+    \addtocounter{exercise}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $p$ be a polynomial of odd degree. Show that $p$ has a real root.
+    \end{exercise}
+        \begin{proof}
+            Without loss of generality, let the leading term of $p$ be positive. Since $\deg(p)$ is odd:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow \infty}p(x) = \infty \\
+                    \limit_{x \rightarrow -\infty}p(x) = -\infty.
+                \end{split}
+                \end{equation*}
+            For $M=1$, there exists $\alpha$ such that $x \geq \alpha$ implies $p(x) \geq 1$. Similarly, there exists $\beta$ such that $x \leq \beta$ implies $p(x) \leq -1$. So there exists $x_1,x_2$ with $x_1 < x_2$ and $p(x_1)p(x_2) < 0$. By the Location of Roots lemma, there exists $c$ such that $p(c) = 0$. Hence $p$ has a real root.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f:\bfR \rightarrow \bfR$ be a continuous function that \textbf{vanishes at infinity}, that is,
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow \pm \infty}f(x) = 0.
+            \end{split}
+            \end{equation*}
+        Show that $f$ is bounded.
+    \end{exercise}
+        \begin{proof}
+            Let $\epsilon$ be given. Since $\limit_{x \rightarrow -\infty}f(x) = 0$, there exists $\alpha_1$ such that for all $x \in \bfR$, $x < \alpha_1$ implies $|f(x)| < \epsilon$. Since $\limit_{x \rightarrow \infty}f(x) = 0$, there exists $\alpha_2$ such that for all $x \in \bfR$, $x > \alpha_2$ implies $|f(x)| < \epsilon$. \nl
+            
+            Since $f$ is continuous, it is bounded on $[\alpha_1,\alpha_2]$. So there exists $c$ such that $|f(x)| \leq c$ for all $x \in [\alpha_1,\alpha_2]$. \nl
+            
+            Let $M = \max\{\epsilon,c\}$. Then $|f(x)| \leq M$ for all $x \in \bfR$. Hence $f$ is bounded.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocounter{exercise}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $f:[a,b] \rightarrow \bfR$ be a continuous function satisfying the following property:
+            \begin{equation*}
+            \begin{split}
+                (\forall x \in [a,b])(\exists y \in [a,b]) :|f(y)| \leq \frac{1}{2}|f(x)|.
+            \end{split}
+            \end{equation*}
+        Show that there is a $c \in [a,b]$ with $f(c) = 0$.
+    \end{exercise}
+        \begin{proof}
+            Let $x \in [a,b]$ be given. By the above property, we can inductively obtain a sequence $(y_n)_n$ such that $|f(y_n)| \leq \frac{1}{2^n}|f(x)|$. Whence $(f(y_n))_n \rightarrow 0$. \nl
+            
+            Moreover, since $(y_n)_n \in [a,b]^\bfN$, by Bolzano-Weierstass there exists a convergent subsequence $(y_{n_k})_k \rightarrow c$. Since $f$ is continuous, we have that $(f(y_{n_k}))_k \rightarrow f(c)$. Whence $f(c) = 0$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

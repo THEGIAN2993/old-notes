@@ -26,10 +26,107 @@
     \end{enumerate}
 \section*{Theorems/Propositions/Lemmas}
     \begin{enumerate}[label = (\arabic*)]
-        \item Let $(f_n)_n$ be sequences in $\cF(\Omega,\bfR)$.
+        \item Let $(f_n)_n \in \cF(\Omega,\bfR)^\bfN$.
             \begin{enumerate}[label = (\roman*)]
                 \item If $(f_n)_n \rightarrow f$ uniformly, then $(f_n)_n \rightarrow f$ pointwise.
                 \item If $(f_n)_n \rightarrow f$ and $(f_n)_n \rightarrow f'$ pointwise, then $f = f'$.
             \end{enumerate}
+            {\color{red} \begin{proof}
+                (i) Let $x \in \Omega$ be given. We have that $|f_n(x) - f(x)| \leq d_u(f_n,f)$. Since $(f_n)_n$ converges uniformly, $(d_u(f_n,f))_n \rightarrow 0$. Hence by "Lemma", $(f_n(x))_n \rightarrow f(x)$; i.e., $(f_n)_n$ converges pointwise.
+
+                (ii) Let $\epsilon > 0$ be given. Since $(f_n)_n \rightarrow f$, for all $x \in \Omega$ there exists $N_1 \in \bfN$ such that $n \geq N_1$ implies $|f_n(x) - f(x)| \leq \frac{\epsilon}{2}$. Since $(g_n)_n \rightarrow f$, for all $x \in \Omega$ there exists $N_2 \in \bfN$ such that $n \geq N_2$ implies $|g_n(x) - g(x)| \leq \frac{\epsilon}{2}$. For $n \geq \max\{N_1, N_2\}$:
+                    \begin{equation*}
+                    \begin{split}
+                        |f(x)-g(x)| 
+                        &= |f(x) - f_n(x) + f_n(x) - g(x)| \\
+                        &\leq |f(x) - f_n(x)| + |f_n(x) - g(x)| \\
+                        & < \epsilon.
+                    \end{split}
+                    \end{equation*} 
+                This holds for all $\epsilon > 0$, hence $|f(x) - g(x)| = 0$; i.e., $f(x) = g(x)$. Since $f$ and $g$ are equal on every $x$, $f=g$.
+            \end{proof}}
+
+        \item $(f_n)_n \not\rightarrow f$ uniformly if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\exists \epsilon > 0)(\exists (f_{n_k})_k)(\exists (x_k)_k) \ni |f_{n_k}(x_k) - f(x_k)| \geq \epsilon_0.
+            \end{split}
+            \end{equation*}
+            {\begin{proof}
+                $(\Rightarrow)$ By definition, $(f_n)_n \not\rightarrow f$ uniformly if:
+                    \begin{equation*}
+                    \begin{split}
+                        (\exists \epsilon_0 > 0)(\forall k \in \bfN) \ni (\exists n \in \bfN)(\exists x \in \Omega)(n \geq N \hspace{4pt}\land\hspace{4pt} |f_n(x) - f(x)| \geq \epsilon_0).
+                    \end{split}
+                    \end{equation*}
+                Using this $\epsilon_0 > 0$:
+                    \begin{equation*}
+                    \begin{split}
+                        k = 1 &\implies (\exists x_1 \in \Omega)(\exists n_1 \in \bfN)(n_1 \geq 1 \hspace{4pt}\land\hspace{4pt} |f_{n_1}(x_1) - f(x_1)| \geq \epsilon_0) \\
+                        k = n_1 + 1 &\implies (\exists x_2 \in \Omega)(\exists n_2 \in \bfN)(n_2 \geq n_1 \hspace{4pt}\land\hspace{4pt} |f_{n_2}(x_2) - f(x_2)| \geq \epsilon_0) \\
+                        &\vdots 
+                    \end{split}
+                    \end{equation*}
+                Inductively, we obtain sequences $(x_k)_k$ and $(f_{n_k})_k$ with $|f_{n_k}(x_k) - f(x_k)| \geq \epsilon_0$. $(\Leftarrow)$.
+            \end{proof}}
+
+        \item Let $(f_n)_n$ and $(g_n)_n$ be sequences in $\ell_\infty(\Omega)$ with $(f_n)_n \rightarrow f$ and $(g_n)_n \rightarrow g$ uniformly in $\Omega$. Prove that $(f_n g_n)_n \rightarrow fg$ uniformly on $\Omega$.
+            {\color{red} \begin{proof}
+                Let:
+                    \begin{equation*}
+                    \begin{split}
+                        |f_n(x)| &\leq U \\
+                        |g(x)| &\leq P.
+                    \end{split}
+                    \end{equation*}
+                Given $\epsilon > 0$:
+                    \begin{equation*}
+                    \begin{split}
+                        (\exists N_1 \in \bfN) &\ni (\forall x \in \Omega)(\forall n \in \bfN)\left(n \geq N_1 \implies |f_n(x) - f(x)| < \frac{\epsilon}{2 P}\right), \\
+                        (\exists N_2 \in \bfN)&\ni (\forall x \in \Omega)(\forall n \in \bfN)\left(n \geq N_2 \implies |g_n(x) - g(x)| < \frac{\epsilon}{2U}\right).
+                    \end{split}
+                    \end{equation*}
+                Then for all $n \geq \max\{N_1,N_2\}$ and $x \in \Omega$:
+                    \begin{equation*}
+                    \begin{split}
+                        |f_n(x)g_n(x) - f(x)g(x)|
+                        & = |f_n(x)g_n(x) - f_n(x)g(x) + f_n(x)g(x) - f(x)g(x)| \\
+                        & \leq |f_n(x)(g_n(x) - g(x))| + |g(x)(f_n(x) - f(x))| \\
+                        & \leq |f_n(x)||g_n(x) - g(x)| + |g(x)||f_n(x) - f(x)| \\
+                        & < U \frac{\epsilon}{2U} + P\frac{\epsilon}{2P} \\
+                        & = \epsilon. \qedhere
+                    \end{split}
+                    \end{equation*}
+            \end{proof}}
     \end{enumerate}
 \section*{Examples}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(f_n)_n \in \cF([0,1],\bfR)^\bfN$ be defined by $f_n(x) = x^n$. Determine if $f$ converges pointwise.
+            {\color{red} \begin{solution}
+                Given $x \in [0,1)$, note that $(f_n(x))_n = (x^n)_n \rightarrow 0$ (geometric). Given $x = 1$, note that $(f_n(x))_n = (1^n)_n \rightarrow 1$. Define $f:[0,1] \rightarrow \bfR$ by $f = \mathbf{1}_{\{1\}}$. Then $(f_n)_n \rightarrow f$.
+            \end{solution}}
+
+        \item Let $(f_n)_n \in \cF(\bfR,\bfR)^\bfN$ be defined by $f_n(x) = \frac{nx}{1 + n^2 x^2}$. Determine if $(f_n)_n$ converges pointwise.
+            {\color{red} \begin{solution}
+                If $x = 0$, then $(f_n(0))_n \rightarrow (0)_n \rightarrow 0$. If $x \neq 0$, note that:
+                    \begin{equation*}
+                    \begin{split}
+                        |f_n(x)| 
+                        & = \left|\frac{nx}{1 + n^2 x^2}\right| \\
+                        & \leq \frac{n|x|}{n^2|x^2|} \\
+                        & = \frac{1}{n|x|}.
+                    \end{split}
+                    \end{equation*}
+                Since $\left(\frac{1}{n|x|}\right) \rightarrow 0$, $(f_n(x))_n \rightarrow 0$. Hence $(f_n)_n \rightarrow \mathbf{0}$.
+            \end{solution}}
+        
+        \item Let $(h_n)_n \in \cF([0,\infty),\bfR)^\bfN$ be defined by $h_n(x) = x^{\frac{1}{n}}$. Determine if $(h_n)_n$ converges pointwise.
+            {\color{red} \begin{solution}
+                If $x > 0$, $(h_n(x)) = (x^{\frac{1}{n}})_n \rightarrow 1$. If $x = 0$, $(h_n(0))_n \rightarrow (0^\frac{1}{n})_n \rightarrow 0$. Define $h:[0,\infty) \rightarrow \bfR$ by $h = \mathbf{1}_{(0,\infty)}$. Then $(h_n)_n \rightarrow h$ pointwise.
+            \end{solution}}
+
+        \item Let $(h_n)_n \in \cF([0,\infty),\bfR)^\bfN$ be defined by $h_n(x) = e^{-nx}$ We have that $(h_n)_n \rightarrow \mathbf{1}_{\{0\}}$ pointwise. Does it converge uniformly?
+            \begin{solution}
+                
+            \end{solution}
+    \end{enumerate}

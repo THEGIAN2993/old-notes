@@ -1,0 +1,434 @@
+\chapter{Continuity}
+
+\section{Continuity}
+    \begin{definition}
+        Let $f:D \rightarrow \bfR$ be a function and let $c \in D$. 
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is \textit{continuous at $x = c$} if:
+                    \begin{equation*}
+                    \begin{split}
+                        (\forall \epsilon > 0)(\exists \delta >0) &\ni ( |x-c| < \delta, x \in D \implies |f(x) - f(c)| < \epsilon) \\
+                        &\ni (x \in D \cap V_\delta(c) \implies f(x) \in V_\epsilon(f(c))) \\
+                        & \ni f(D \cap V_\delta(c)) \subseteq V_\epsilon(f(c)).
+                    \end{split}
+                    \end{equation*}
+                \item $f$ is \textit{continuous on $D$} if $f$ is continuous at every $c \in D$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $c$ be a cluster point of $D$ with $c \in D$. Then $f$ is continuous at $x = c$ if and only if $\limit_{x \rightarrow c}f(x) = f(c)$.
+    \end{proposition}
+
+    \begin{proposition}\label{prop:cont-seq}
+        Let $f:D \rightarrow \bfR$ and $c \in D$. Then $f$ is continuous at $x = c$ if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\forall (x_n)_n \in D^\bfN)((x_n)_n \rightarrow c \implies (f(x_n))_n \rightarrow f(c)).
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Polynomial and rational functions are continuous.
+            \item Given that $\limit_{x \rightarrow c}x = c$, we've shown that $\limit_{x \rightarrow c}\sqrt{x} = \sqrt{c}$ for $c \geq 0$. Whence $f(x) = \sqrt{x}$ is continuous on $[0,\infty)$.
+        \end{enumerate}
+    \end{example}
+
+    \begin{note}
+        The negation of Proposition~\ref{prop:cont-seq} is:
+            \begin{equation*}
+            \begin{split}
+                (\exists (x_n)_n \in D^\bfN)((x_n)_n \rightarrow c \hspace{2pt}\land \hspace{2pt} (f(x_n))_n \not\rightarrow f(c)).
+            \end{split}
+            \end{equation*}
+    \end{note}
+
+    \begin{example}
+        Show that $\sgn : \bfR \rightarrow \bfR$ is not continuous at $x = 0$.
+    \end{example}
+        \begin{solution}
+            Let $x_n = \frac{1}{n}$. Then $(x_n)_n \rightarrow 0$. But $(\sgn(x_n))_n = (1)_n \rightarrow 1 \neq \sgn(0)$.
+        \end{solution}
+
+    \begin{example}
+        Show that $\varmathbb{1}_\bfQ(x)$ is not continuous at every point.
+    \end{example}
+        \begin{solution}
+            Fix any $c \in \bfR$. We proceed by cases. \nl 
+
+            Case 1: $c \in \bfQ$. Since $\bfR\setminus \bfQ$ is dense in $\bfR$, we can find a sequence $(r_n)_n \in (\bfR \setminus \bfQ)^\bfN$ with $(r_n)_n \rightarrow c$. Then $(\varmathbb{1}_\bfQ(r_n))_n = (0)_n \rightarrow 0 \neq \varmathbb{1}_\bfQ(c)$. \nl 
+
+            Case 2: $c \in \bfR\setminus \bfQ$. Since $\bfQ$ is dense in $\bfR$, we can find a sequence $(r_n)_n \in \bfQ^\bfN$ with $(r_n)_n \rightarrow c$. Then $(\varmathbb{1}_\bfQ(r_n))_n = (1)_n \rightarrow 1 \neq \varmathbb{1}_\bfQ(c)$.
+        \end{solution}
+
+    \begin{definition}
+        A function $F$ is said to be an \textit{extension} of another function $f$ if:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $x \in \Dom{(f)}$ implies $x \in \Dom(F)$;
+                \item $\Dom(f) \subseteq \Dom(F)$;
+                \item $\restr{F}{\Dom(f)} = F$.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Let $f:\bfR \setminus \{0\} \rightarrow \bfR$ be defined by $f(x) = x\sin \left(\frac{1}{x}\right)$. Note that this function is not continuous at $x = 0$ since $0 \not\in \Dom(f)$. This discontinuity is removable however; consider the function:
+            \begin{equation*}
+            \begin{split}
+                \widetilde{f}(x)=
+                \begin{cases}
+                    f(x),&x = 0 \\
+                    0,& x=0.
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        Then $\widetilde{f}$ is continuous on $\bfR$ and extends $f$.
+    \end{example}
+
+    \begin{example}
+        Let $g:(0,\infty) \rightarrow \bfR$ be defined by $g(x) = sin \left(\frac{1}{x}\right)$. Note that $g$ is continuous on $(0,\infty)$. However, we are unable to extend $g$ to a continuous function on $[0,\infty)$. \nl
+
+        By way of contradiction, suppose such an $f:[0,\infty) \rightarrow \bfR$ exists. Then:
+            \begin{equation*}
+            \begin{split}
+                f(0) 
+                &= \limit_{x \rightarrow 0}f(x) \\
+                &= \limit_{x \rightarrow 0}g(x) \mtext{which does not exists.}\bot\\
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{definition}
+        A function $f:D \rightarrow \bfR$ is \textit{Lipschitz} with constant $c \geq 0$ if $|f(x) - f(y)| \leq c|x-y|$. When $c = 1$, $f$ is called a \textit{contraction}. When $|f(x)-f(y)| = |x-y|$, $f$ is called an \textit{isometry}.
+    \end{definition}
+
+    \begin{proposition}
+        If $f$ is Lipschitz, then $f$ is continuous 
+    \end{proposition}
+        \begin{proof}
+            Let $c \in \Dom(f)$ and $(x_n)_n \rightarrow c$ be any sequence in $\Dom(f)$. By definition:
+                \begin{equation*}
+                \begin{split}
+                    |f(x_n)-f(c)| \leq k|x_n - c|.
+                \end{split}
+                \end{equation*}
+            Since $(x_n - c)_n \rightarrow 0$, by "Lemma" $(f(x_n))_n \rightarrow f(c)$. Whence $f$ is continuous for all $c \in \Dom(f)$.
+        \end{proof}
+
+    \begin{theorem}[Extreme Value Theorem]
+        Let $f:[a,b] \rightarrow \bfR$ be a continuous function. We have:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is always bounded;
+                \item There exists $x_M,x_m$ such that:
+                    \begin{equation*}
+                    \begin{split}
+                        \sup_{x \in [a,b]}f(x) = f(x_M) \\
+                        \inf_{x \in [a,b]}f(x) = f(x_m).
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (1) Suppose towards contradiction that $f$ is not bounded. Then:
+                \begin{equation*}
+                \begin{split}
+                    (\forall n \geq 1)(\exists x_n) \ni |f(x_n)| \geq n.
+                \end{split}
+                \end{equation*}
+            We inductively obtain a sequence $(x_n)_n \in [a,b]^\bfN$. By the Bolzano-Weierstass theorem, there exists a convergent subsequence $(x_{n_k})_k \rightarrow x_0 \in [a,b]$. Now since $f$ is continuous, $(f(x_{n_k}))_k \rightarrow f(x_0)$; i.e.,  $(f(x_{n_k}))_k$ is bounded. $\bot$ But $|f(x_{n_k})_k| \geq n_k$. \nl
+
+            (2) Let $u = \sup_{x \in [a,b]}f(x) < \infty$. Note that:
+                \begin{equation*}
+                \begin{split}
+                    (\forall n \in \bfN)(\exists x_n \in [a,b]) \ni \left(u - \frac{1}{n} < f(x_n) \leq u\right).
+                \end{split}
+                \end{equation*}
+            By Bolzano-Weierstrass, there exists a subsequence $(x_{n_k})_k \rightarrow x_0$ for some $x_0 \in [a,b]$. Since $f$ is continuous, $(f(x_{n_k}))_k \rightarrow f(x_0)$ But since $(f(x_n))_n \rightarrow u$, it must be that $f(x_0) = u$. \nl
+
+            A similar argument follows for $\inf_{x \in [a,b]}f(x) = f(x_m)$.
+        \end{proof}
+
+    \begin{lemma}[Contagion Lemma]
+        Let $y = f(x)$ be continuous at $x = c$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $f(c) > 0$, then there exists $\delta > 0$ such that $f(x) \geq \frac{f(c)}{2} > 0$ for all $x \in V_\delta(c)$.
+                \item If $f(c) < 0$, then there exists $\delta > 0$ such that $f(x) \leq \frac{f(c)}{2} < 0$ for all $x \in V_\delta(c)$.
+            \end{enumerate}
+    \end{lemma}
+        \begin{proof}
+            (1) Let $\epsilon = \frac{f(c)}{2}$. Then $V_\epsilon(f(c)) = \left(\frac{f(c)}{2},\frac{3f(c)}{2}\right)$. Since $f$ is continuous, there exists $\delta > 0$ such that $x \in V_\delta(c)$ implies $f(x) \in V_\epsilon(f(c))$. Whence $f(x) > \frac{f(c)}{2}$. \nl
+
+            (2) This follows similarly.
+        \end{proof}
+
+    \begin{lemma}[Location of Roots]
+        Let $f:[a,b] \rightarrow \bfR$ be continuous with $f(a)f(b) < 0$. Then there exists $c \in (a,b)$ with $f(c) = 0$.
+    \end{lemma}
+        \begin{proof}
+            Without loss of generality, suppose $f(a) < 0$ and $f(b) > 0$. Let $N:=\{x \in [a,b]\mid f(x) < 0\}$. Note that $N \neq \emptyset$ because $a \in N$. Moreover, $N$ is bounded. So $c:=\sup N$ exists. By the contagion lemma, there exists $\delta >0$ so that $f(x) < 0$ on $V_\delta(a)$. Hence $c \neq a$. Similarly, there exists $\eta > 0$ so that $f(x) > 0$ on $V_\eta(b)$. So $c \neq b$. Thus $a < c < b$. \nl
+
+            If $f(c) < 0$, then by the contagion lemma there exists $\delta > 0$ so that $f(x) < 0$ on $V_\delta(c)$. So $\sup N > c$. $\bot$ \nl
+
+            If $f(c) > 0$, then by the contagion lemma there exists $\delta >0$ so that $f(x) > 0$ on $V_\delta(c)$. By the supremum property, there exists $x \in N$ with $c - \delta < x \leq c$. Thus $f(x) < 0$ and $f(x) > 0$. $\bot$ \nl
+            
+            Thus $f(c) = 0$.
+        \end{proof}
+
+    \begin{theorem}[Initial Value Theorem]
+        Let $I$ be an interval and $f:I \rightarrow \bfR$ a continuous function. If $[a,b] \subseteq I$ and $k \in \bfR$ with $f(a) < k < f(b)$ or $f(a) > k > f(b)$, then there exists $c \in (a,b)$ with $f(c) = k$.
+    \end{theorem}
+        \begin{proof}
+            Let $g(x) = f(x) - k$. Then $g(a)g(b) < 0$. By location of roots, there exists $c \in (a,b)$ with $g(c) = 0$. Thus $f(c) = k$.
+        \end{proof}
+
+    \begin{corollary}
+        Let $f:[a,b] \rightarrow \bfR$ be a continuous function. If $k \in \left[\inf_{[a,b]}f , \sup_{[a,b]}f\right]$, then there exists $c \in [a,b]$ so that $f(c) = k$.
+    \end{corollary}
+        \begin{proof}
+            By the Extreme Value Theorem, there exists $x_m,x_M$ such that $\inf f = f(x_m)$ and $\sup f = f(x_M)$. Without loss of generality, suppose $x_m \leq x_M$. Then applying the Initial Value Theorem on $[x_m,x_M]$ says there exists $c \in (x_m,x_M)$ with $f(c) = k$.
+        \end{proof}
+
+    \begin{corollary}
+        Let $f:[a,b] \rightarrow \bfR$ be a continuous function. Then there exists $c \leq d$ with $f([a,b]) = [c,d]$.
+    \end{corollary}
+        \begin{proof}
+            This follows directly from the Extreme Value Theorem and the previous corollary.
+        \end{proof}
+
+    \begin{corollary}
+        If $I$ is any interval and $f:I \rightarrow \bfR$ is continuous, then $f(I)$ is an interval.
+    \end{corollary}
+        \begin{proof}
+            Homework.
+        \end{proof}
+
+    \begin{corollary}
+        Let $p(x)$ be a polynomial of odd degree. Then there exists $z \in \bfR$ with $p(z) = 0$.
+    \end{corollary}
+        \begin{proof}
+            Suppose the leading term of $p(x)$ is positive. Since $\deg(p)$ is odd,
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow \infty}p(x) &= \infty \\
+                    \limit_{x \rightarrow -\infty}p(x) &= -\infty.
+                \end{split}
+                \end{equation*}
+            With $M=1$, there exists $\alpha$ such that $x \geq \alpha$ implies $p(x) \geq 1$. Similarly, there exists $\beta$ such that $x \leq \beta$ implies $p(x) \leq -1$. \nl
+            
+            We can find $x_1 < x_2$ with $p(x_1)p(x_2) < 0$. Applying the location of roots lemma gives the desired result.
+        \end{proof}
+
+\section{Uniform Continuity}
+    \begin{definition}
+        Let $f:D \rightarrow \bfR$ be a function. Then $f$ is \textit{uniformly continuous on $D$} if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon >0)(\exists \delta > 0) \ni (\forall u,v \in D)(|u-v| < \delta \implies |f(u) - f(v)| < \epsilon).
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{proposition}
+        If $f$ is Lipschitz then $f$ is uniformly continuous.
+    \end{proposition}
+        \begin{proof}
+            We have $|f(x) - f(y)| \leq c|x-y|$ for all $x,y \in D$. Given $\epsilon$, let $\delta = \frac{\epsilon}{c}$. If $|u -v| < \delta$, then:
+                \begin{equation*}
+                \begin{split}
+                    |f(u)-f(v)|
+                    & \leq c|u-v| \\
+                    <c \delta \\
+                    < \epsilon.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{proposition}
+        If $f:D \rightarrow \bfR$ is uniformly continuous on $D$, $f$ is continuous on $D$.
+    \end{proposition}
+        \begin{proof}
+            Let $c \in D$. We want to show continuity at $x=c$. Let $\epsilon > 0$. Choose $\delta > 0$ as in the definition of uniform continuity. Then $x \in D$, $|x-c|< \delta$ implies $|f(x) - f(c)| < \epsilon$. {\color{red} ?}
+        \end{proof}
+
+    \begin{recall}
+        $f$ is continuous at $x = c$ if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists \delta > 0) \ni |x-c| < \delta \implies |f(x) - f(x)| < \epsilon.
+            \end{split}
+            \end{equation*}
+        Note that $\delta$ might depend on $\epsilon$ and $c$. \nl
+        
+        $f:D \rightarrow \bfR$ is cts on $D$ if $f$ is continuous at every point $c \in D$. \nl
+        
+        $f$ is \textit{uniformly conitnuous at $D$} if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists \delta  > 0) \ni (\forall u,v \in D)(|u-v| < \delta \implies |f(u) - f(v)| < \epsilon).
+            \end{split}
+            \end{equation*}
+    \end{recall}
+
+    \begin{example}
+        Let $f(x) = \frac{1}{x}$ on $[a,\infty)$, where $a>0$ is fixed. But notice that:
+            \begin{equation*}
+            \begin{split}
+                |f(u) - f(v)| = \left|\frac{1}{u} - \frac{1}{v}\right| = \frac{|u-v|}{uv} \leq \frac{1}{a^2}|u-v|
+            \end{split}
+            \end{equation*}
+        This function is Lipschitz with constant $\frac{1}{a^2}$. So $f$ is uniformly continuous on $[a,\infty)$. \nl
+        
+        However, $f$ is \underline{not} uniformly continuous on $(0 ,\infty)$.
+    \end{example}
+
+    \begin{proposition}
+        Let $f:D \rightarrow \bfR$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is not uniformly continuous on $D$;
+                \item  $(\exists \epsilon_0 > 0)(\forall \delta > 0) \ni (\exists u_\delta,v_\delta \in D)(|u_\delta - v_\delta| \hspace{2pt}\land \hspace{2pt}|f(u_\delta) - f(v_\delta)| \geq \epsilon_0)$.
+                \item $(\exists \epsilon_0 > 0) \ni (\exists (u_n)_n,(v_n)_n \in D^\bfN)((u_n - v_n)_n \rightarrow 0 \hspace{4pt}\land\hspace{4pt} |f(u_n) - f(v_n)| \geq \epsilon_0)$
+            \end{enumerate}
+    \end{proposition}
+
+    \begin{example}
+        Consider $f(x) = \frac{1}{x}$ on $(0, \infty)$. Let $u_n = \frac{1}{n}$ and $v_n = \frac{1}{n+1}$. We have:
+            \begin{equation*}
+            \begin{split}
+                |u_n - v_n| = \left| \frac{1}{n} - \frac{1}{n+1}\right| = \frac{1}{n(n+1)} \leq \frac{1}{n}.
+            \end{split}
+            \end{equation*}
+        Since $\left(\frac{1}{n}\right)_n \rightarrow 0$, $(u_n - v_n)_n \rightarrow 0$. But now:
+            \begin{equation*}
+            \begin{split}
+                |f(v_n) - f(u_n)| = |(n+1) - n| = 1 := \epsilon_0.
+            \end{split}
+            \end{equation*}
+        So $f$ is not uniformly continuous on $(0,\infty)$.
+    \end{example}
+
+    \begin{theorem}[Compactness Argument]
+        If $f:[a,b] \rightarrow \bfR$ is continuous, $f$ is uniformly continuous.
+    \end{theorem}
+        \begin{proof}
+            By way of contradiction, if not uniformly continuous, we have an $\epsilon_0 >0$, and sequences $(u_n)_n , (v_n)_n \in [a,b]^\bfN$ with $(u_n - v_n)_n \rightarrow 0$ and $|f(u_n) - f(v_n)| \geq \epsilon_0$. \nl
+            
+             Bolzano-Weierstrass says there exists a convergent subsequence $(u_{n_k})_k \rightarrow z \in [a,b]$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |v_{n_k} - z|
+                    & = |v_{n_k} - u_{n_k} + u_{n_k} - z| \\
+                    & \leq |v_{n_k} - u_{n_k} |+| u_{n_k} - z|.
+                \end{split}
+                \end{equation*}
+            Since $(v_{n_k}-u_{n_k})_k \rightarrow 0$ and $(u_{n_k} - z)_k \rightarrow 0$, we have that $(v_{n_k})_k \rightarrow z$. \nl
+
+            But since $f$ is continuous, we have that $(f(u_{n_k}))_k \rightarrow f(z)$ and $(f(v_{n_k}))_k \rightarrow f(z)$. \nl
+            
+            Hence $(f(u_{n_k}) - f(v_{n_k}))_k \rightarrow 0$. $\bot$ Since $|f(u_{n_k}) - f(v_{n_k})| \geq \epsilon_0 > 0$
+        \end{proof}
+
+    \begin{example}
+        Let $f:[0,1] \rightarrow \bfR$ be defined by $f(x) = \sqrt{x}$. Since $f$ is continuous on $[0,1]$, it is uniformly continuous. We will show that $f$ is not Lipschitz. Suppose towards contradiction it is. Then:
+            \begin{equation*}
+            \begin{split}
+                |f(x) - f(y)| \leq c|x-y|
+            \end{split}
+            \end{equation*}
+        for all $x,y \in [0,1]$. Taking $y = 0$ gives:
+            \begin{equation*}
+            \begin{split}
+                \sqrt{x} \leq cx
+            \end{split}
+            \end{equation*}
+        for all $x \in [0,1]$. But:
+            \begin{equation*}
+            \begin{split}
+                \frac{1}{\sqrt{x}} \leq c
+            \end{split}
+            \end{equation*}
+        for all $x \in [0,1]$ is a contradiction, as $\frac{1}{\sqrt{x}}$ is blowing up as $x$ approaches 0.
+    \end{example}
+
+    \begin{lemma}
+        If $f:D \rightarrow \bfR$ is uniformly continuous and $(x_n)_n$ is Cauchy, then $(f(x_n))_n$ is also Cauchy. 
+    \end{lemma}
+        \begin{proof}
+            If $\epsilon > 0$, We want to show that $|f(x_n) - f(x_m)|$ is small for large $m$. \nl
+            
+            We know that for $u,v \in D$, $|u-v| < \delta$ implies $|f(u)-f(v)| < \epsilon$. \nl
+            
+            Now there exists $N$ such that $n,m \geq N$ implies $|x_n - x_m| < \delta$. \nl
+            
+            So if $n,m \geq N$, then $|x_n - x_m| < \delta$, which implies that $|f(x_n) - f(x_m)| < \epsilon$. \nl
+            
+            Thus $(f(x_n))_n$ is Cauchy.
+        \end{proof}
+
+    \begin{theorem}
+        Let $f:(a,b) \rightarrow \bfR$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is uniformly continuous;
+                \item There exists a continuous function $\widetilde{f}:[a,b] \rightarrow \bfR$ such that $\widetilde{f}(x) = f(x)$ for all $x \in (a,b)$.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            $(2) \hspace{-1pt}\Rightarrow\hspace{-1pt} (1)$ Since $\tilde{f}:[a,b] \rightarrow \bfR$ is continuous, it is uniformly continuous. Since $\tilde{f} = f$ on $[a,b]$, $f$ must also be uniformly continuous. \nl
+            
+            $(1) \hspace{-1pt}\Rightarrow\hspace{-1pt} (2)$ Claim: $\limit_{x \rightarrow a^+}f(x)$ exists. Let $(x_n)_n$ be a sequence in $(a,b)$ with $(x_n)_n \rightarrow a$. \nl
+            
+            Since $(x_n)_n$ is convergent, it is Cauchy. By our previous lemma $(f(x_n))_n$ is also Cauchy, hence convergent. \nl
+            
+            Say $(f(x_n))_n \rightarrow L$. Let $(y_n)_n$ be any other sequence in $(a,b)$ with $(y_n)_n \rightarrow a$. By the same argument, $(f(y_n))_n \rightarrow L'$. \nl
+            
+            Consider $(z_n)_n = (x_1,y_1,x_2,y_2,x_3,y_3,...)$. Then $(z_n)_n \rightarrow a$. By the same argument again, $(f(z_n))_n \rightarrow L''$. \nl
+            
+            Since $(f(x_n))_n$ and $(f(y_n))_n$ are subsequences of $(f(z_n))_n$, we know that $(f(x_n))_n \rightarrow L''$ and $(f(y_n))_n \rightarrow L''$. \nl
+            
+            So $L = L'' = L'$. The claim is proved. \nl
+            
+            Now simply define:
+                \begin{equation*}
+                \begin{split}
+                    \widetilde{f}(x) = 
+                    \begin{cases}
+                        L, & x = a\\
+                        f(x), & x \in (a,b) \\
+                        \limit_{x \rightarrow b^-}f(x), & x = b.
+                    \end{cases}
+                \end{split}
+                \end{equation*}
+            The above limit exists by same argument.
+        \end{proof}
+
+    \begin{example}
+        $y = \sin \left(\frac{1}{x}\right)$ is not uniformly continuous on $(0,1)$ because $\limit_{x \rightarrow 0}\sin \left(\frac{1}{x}\right)$ does not exist.
+    \end{example}
+
+    \begin{recall}
+        $f_n(x) = x^n$, $(f_n)_n \rightarrow \delta_1$ pointwise but not uniformly. 
+    \end{recall}
+
+    \begin{proposition}
+        If $(f_n:D \rightarrow \bfR)_n$ is a sequence of continuous functions and $(f_n)_n \rightarrow f$ uniformly on $D$, then $f$ is continuous.
+    \end{proposition}
+        \begin{proof}
+            Let $\epsilon > 0$ be given. Fix $c \in D$. \nl
+            
+            Since $f_n$ converges uniformly, there exists $N$ large such that for all $n \geq N$ we have $|f_n(x) - f(x)| < \frac{\epsilon}{3}$ for all $x \in D$. \nl
+            
+            Moreover, there exists $\delta > 0$ such that $|x-c| < \delta$ implies $|f_N(x) - f_N(c)| < \frac{\epsilon}{3}$. \nl
+            
+            Then $|x-c| < \delta$ implies:
+                \begin{equation*}
+                \begin{split}
+                    |f(x) - f(c)|
+                    & = |f(x) - f_N(x) + f_N(x) - f_N(c) + f_N(c) - f(c)| \\
+                    & \leq ... \\
+                    & < \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+

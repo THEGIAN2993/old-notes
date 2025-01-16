@@ -29,6 +29,7 @@
 \DeclareMathOperator{\Crys}{Crys}
 \DeclareMathOperator{\cusp}{cusp}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Dom}{Dom}
 \DeclareMathOperator{\disc}{disc}
 \DeclareMathOperator{\dR}{dR}
 \DeclareMathOperator{\Eis}{Eis}
@@ -60,6 +61,7 @@
 \DeclareMathOperator{\Jac}{Jac}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\length}{length}
+\DeclareMathOperator*{\limit}{limit}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\M}{M}
 \DeclareMathOperator{\Mat}{Mat}
@@ -75,6 +77,7 @@
 \DeclareMathOperator{\PGL}{PGL}
 \DeclareMathOperator{\PGSp}{PGSp}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Ran}{Ran}
 \DeclareMathOperator{\Rel}{Rel}
 \DeclareMathOperator{\Real}{Re}
 \DeclareMathOperator{\RES}{res}
@@ -173,6 +176,7 @@
 \newcommand{\cX}{\mathcal{X}}
 \newcommand{\cY}{\mathcal{Y}}
 \newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\ds}{\displaystyle}
 
 
 %mathfrak (missing \fi)
@@ -231,7 +235,7 @@
 
 
 %mathbf
-
+\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
@@ -356,6 +360,7 @@
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
+\renewcommand{\int}{\varint}
     
     \newcommand{\bone}{\mathbf{1}}
     \newcommand{\sign}{\mathrm{sign}}
@@ -388,6 +393,8 @@
     ] % after-code
     }
 
+\newcommand{\nl}{\newline \mbox{}}
+
 \newcommand{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
 \newcommand\restr[2]{{% we make the whole thing an ordinary symbol
   \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
@@ -397,6 +404,9 @@
   }}
 
 \newcommand{\mtext}[1]{\hspace{6pt}\text{#1}\hspace{6pt}}
+
+\newcommand{\lnorm}{\left\lVert}
+\newcommand{\rnorm}{\right\rVert}
 
 %This adds a "front cover" page.
 %{\thispagestyle{empty}
@@ -410,3 +420,4 @@
 %\end{tabular}
 %\end{tabular}
 %\newpage
+

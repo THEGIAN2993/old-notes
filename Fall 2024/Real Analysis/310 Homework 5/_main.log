@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  30 OCT 2024 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  18 NOV 2024 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1773,16 +1773,24 @@ Overfull \vbox (12.0pt too high) has occurred while \output is active []
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
  [2]
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/it' will be
+(Font)              scaled to size 7.3pt on input line 386.
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/it' will be
+(Font)              scaled to size 5.5pt on input line 386.
+
 
 Class memoir Warning: The material used in the headers is too large
 (12.0pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 302.
+(in both cases you will find help in the memoir manual). on input line 414.
 
 
 Overfull \vbox (12.0pt too high) has occurred while \output is active []
 
- [3] (./_main.aux * soulpos - computing points - it may take a few seconds *
+ [4] (./_main.aux * soulpos - computing points - it may take a few seconds *
 \openout7 = `_main.upb'.
 
  (./_main.upa))
@@ -1794,18 +1802,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 50854 strings out of 474116
- 1091556 string characters out of 5743683
+ 50913 strings out of 474116
+ 1093080 string characters out of 5743683
  1952187 words of memory out of 5000000
- 72251 multiletter control sequences out of 15000+600000
- 614014 words of font info for 154 fonts, out of 8000000 for 9000
+ 72260 multiletter control sequences out of 15000+600000
+ 623573 words of font info for 181 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,17n,117p,1149b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (3 pages, 117404 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on _main.pdf (4 pages, 138332 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
- 23569 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 25 named destinations out of 1000 (max. 500000)
+ 27665 words of extra memory for PDF output out of 29859 (max. 10000000)
 

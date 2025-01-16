@@ -1,0 +1,384 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{newpxtext,eulerpx,eucal}
+\usepackage{amsmath}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \cfoot{\footnotesize \thepage}
+    \pagestyle{fancy}
+    \renewcommand{\headrulewidth}{0pt}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=15pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[
+        spaceabove=15pt, % space above the theorem
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numbered=unless unique,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{remark}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=unless unique,style=defs]{exercise}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\normalfont\fillast\large}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\large}
+    \titlespacing{\chapter}
+    {3pc}{*3}{*2}[3pc]
+
+    \titleformat{\section}[runin]
+    {\normalfont\bfseries\large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {\parindent}{1.5ex plus .1ex minus .2ex}{0pt}
+\usepackage[utf8x]{inputenc}
+
+\setlength{\parindent}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 310 \\[0.1in]Homework 7 \\[0.1in]
+Due: 10/9/2024}\\[.25in]
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $D \subseteq \bfR$ and suppose $c \in \bfR$. Show that the following are equivalent:
+            \begin{enumerate}[label = (\roman*)]
+                \item $c$ is a cluster point of $D$;
+                \item There is a sequence $(x_n)_n$ in $D\setminus \{c\}$ with $(x_n)_n \rightarrow c$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            $(\Rightarrow)$ Let $c$ be a cluster point of $D$. By definition:
+                \begin{equation*}
+                \begin{split}
+                    (\forall \delta > 0)(\dot{V}_\delta(c) \cap D \neq \emptyset).
+                \end{split}
+                \end{equation*}
+            By induction, we have that $x_n \in \dot{V}_{\frac{1}{n}}(c) \cap D$. Hence $x_n \neq c$, $x_n \in D$, and $0 < |x_n - c|  < \frac{1}{n}$, giving $(x_n)_n \rightarrow c$. \nl
+            
+            $(\Leftarrow)$ Let $(x_n)_n \in (D\setminus\{c\})^\bfN$ with $(x_n)_n \rightarrow c$. Let $\delta > 0$ be given. Then for $N$ large, $n \geq N$ implies $0 < |x_n - c| <\epsilon$. Whence $x_N \in \dot{V}_\delta(c) \cap D$. Thus $c$ is a cluster point.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that $f$ can have at most one limit at $c$.
+    \end{exercise}
+        \begin{proof}
+            Suppose towards contradiction that $f$ has more than one limit, that is,
+                \begin{equation*}
+                \begin{split}
+                    \limit_{x \rightarrow c}f &= L_1, \mtext{and} \\
+                    \limit_{x \rightarrow c}f &= L_2.
+                \end{split}
+                \end{equation*}
+            where $L_1 \neq L_2$. Then for all sequences $(x_n)_n$ in $D$, $(x_n)_n \rightarrow c$ implies $(f(x_n))_n \rightarrow L_1$ and $(f(x_n))_n \rightarrow L_2$. This is a contradiction, as sequences can only have at most one limit. Thus $f$ must have at most one limit.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the following are equivalent:
+            \begin{enumerate}[label = (\roman*)]
+                \item $\ds \limit_{x \rightarrow c}f = L$;
+                \item For every sequence $(x_n)_n$ in $D \setminus \{c\}$ satisfying $(x_n)_n \rightarrow c$, we have $(f(x_n))_n \rightarrow L$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            $(\Rightarrow)$ Suppose $\limit_{x \rightarrow c}f(x) = L$. Let $(x_n)_n$ be in $D$ with $x_n \neq c$ and $(x_n)_n \rightarrow c$. Given $\epsilon > 0$, we know there exists $\delta > 0$ such that $x \in D$ and $0 < |x-c| < \delta$ implies $|f(x)-L| < \epsilon$. We know there exists some $N \in \bfN$ with $n\geq N$ implying $|x_n - c| < \delta$. Whence $|f(x_n) - L| < \epsilon$; i.e., $(f(x_n))_n \rightarrow L$. \nl
+
+            $(\Leftarrow)$ Towards a contradiction, suppose that for every sequence $(x_n)_n$ in $D$ such that $x_n \neq c$ and $(x_n)_n \rightarrow c$, it holds that $(f(x_n))_n \rightarrow L$, \textit{yet} $\limit_{x \rightarrow c}f(x) \neq L$. Then by definition:
+                \begin{equation*}
+                \begin{split}
+                    (\exists \epsilon_0 > 0)(\forall \delta >0) \ni (x \in \dot{V}_\delta(c)\cap D \hspace{4pt}\land\hspace{4pt} f(x) \not\in V_{\epsilon_0}(L)).
+                \end{split}
+                \end{equation*}
+            So for each $\delta = \frac{1}{n}$, we can find $x_n \in \dot{V}_{\frac{1}{n}}(c) \cap D$ and $f(x_n) \not\in V_{\epsilon_0}(L)$, or equivalently $(x_n)_n \rightarrow c$ and $(f(x_n))_n \not\rightarrow L$. This is a contradiction, since $(x_n)_n \rightarrow c$ implies $(f(x_n))_n \rightarrow L$. This establishes that $\limit_{x \rightarrow c}f(x) = L$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        If $\limit_{x \rightarrow c}f = L$ exists, show that there is a $\delta > 0$ such that:
+            \begin{equation*}
+            \begin{split}
+                \sup_{0 < |x-c| < \delta}|f(x)| < \infty,
+            \end{split}
+            \end{equation*}
+        that is, $f$ is bounded on a deleted neighborhood of $c$.
+    \end{exercise}
+        \begin{proof}
+            Let $\epsilon = 1$. Then for all $x \in \dot{V}_\delta(c) \cap D$, $0 < |x-c| < \delta$ implies:
+                \begin{equation*}
+                \begin{split}
+                    |f(x)|
+                    & = |f(x) - L + L| \\
+                    & \leq |f(x) - L| + |L| \\
+                    & < 1 + |L| \\
+                    & < \infty.
+                \end{split}
+                \end{equation*}
+            Whence $\sup_{0 < |x-c| < \delta}|f(x)| = 1 + |L| < \infty$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Establish the following limits.
+            \begin{enumerate}[label = (\alph*)]
+                \item $\ds \limit_{x \rightarrow 1} \frac{3x}{1+x} = \frac{3}{2}$.
+                    \begin{proof}
+                        Observe that:
+                            \begin{equation*}
+                            \begin{split}
+                                |f(x) - L|
+                                & = \left|\frac{3x}{1+x} - \frac{3}{2}\right| \\
+                                & = \frac{3}{2} \left|\frac{x-1}{x+1}\right|.
+                            \end{split}
+                            \end{equation*}
+                        If $|x-1| < \frac{1}{2}$, then $\frac{1}{2} < x < \frac{3}{2}$ implies $\frac{2}{3} > \frac{1}{x+1} > \frac{2}{5}$. Thus:
+                            \begin{equation*}
+                            \begin{split}
+                                \frac{3}{2} \left|\frac{x-1}{x+1}\right| 
+                                & < \frac{3}{2} \cdot \frac{2}{3} |x-1| \\
+                                & = |x-1|.
+                            \end{split}
+                            \end{equation*}
+                        Formally, given $\epsilon > 0$, let $\delta = \min \left\{\frac{1}{2}, \epsilon\right\}$. If $0 < |x-1| < \delta$, then by the work above $|f(x) - L| < \epsilon$.
+                    \end{proof}
+                \item $\ds \limit_{x \rightarrow 6} \frac{x^2 -3x}{x+3} = 2$.
+                    \begin{proof}
+                        Observe that:
+                            \begin{equation*}
+                            \begin{split}
+                                |f(x) - L|
+                                & = \left|\frac{x^2 - 3x}{x+3} - 2\right| \\
+                                & = \left|\frac{x^2 - 5x-6}{x+3}\right| \\
+                                & = \left|\frac{x+1}{x+3}\right|\cdot |x-6|.
+                            \end{split}
+                            \end{equation*}
+                        If $|x-6| < 1$, then $6 < x+1 < 8$ and $\frac{1}{8} > \frac{1}{x+1} > \frac{1}{11}$. Thus:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{x+1}{x+3}\right|\cdot |x-6| 
+                                & < \frac{8}{8}|x-6| \\
+                                & = |x-6|.
+                            \end{split}
+                            \end{equation*}
+                        Formally, given $\epsilon > 0$, let $\delta = \min\{1,\epsilon\}$. If $0 < |x-6|< \delta$, then by the work above $|f(x) - L| < \epsilon$.
+                    \end{proof}
+                \item $\ds \limit_{x \rightarrow 0}x\mathbf{1}_\bfQ(x) = 0$.
+                    \begin{proof}
+                        Let $\epsilon > 0$ be given. Let $\delta = \epsilon$. If $0 < |x - 0| < \delta$, then $0 < |x| < \epsilon$. Whence $|f(x) = 0| |f(x)| \leq |x| < \epsilon$.
+                    \end{proof}
+                \item $\ds \limit_{x \rightarrow 0} \frac{x^2}{|x|} = 0$.
+                    \begin{proof}
+                        Observe that:
+                            \begin{equation*}
+                            \begin{split}
+                                \left|\frac{x^2}{|x|} - 0\right| 
+                                & = \frac{|x|^2}{|x|} \\
+                                & = |x|.
+                            \end{split}
+                            \end{equation*}
+                        Given $\epsilon > 0$, set $\delta = \epsilon$. If $0 < |x-0| < \delta$, then $\left|\frac{x^2}{|x|} - 0\right| = |x| <\delta =  \epsilon$.
+                    \end{proof}
+            \end{enumerate}
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        For which values of $k \in \bfN_0$ does:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow 0}x^k \sin \left(\frac{1}{x}\right)
+            \end{split}
+            \end{equation*}
+        exist?
+    \end{exercise}
+        \begin{proof}
+            For $k \geq 1$, observe that:
+                \begin{equation*}
+                    -x^k \leq x^k \sin \left(\frac{1}{x}\right) \leq x^k
+                \end{equation*}
+                \begin{equation*}
+                    \iff
+                \end{equation*}
+                \begin{equation*}
+                    \limit_{x \rightarrow 0}-x^k \leq \limit_{x \rightarrow 0}x^k \sin \left(\frac{1}{x}\right) \leq \limit_{x \rightarrow 0}x^k
+                \end{equation*}
+                \begin{equation*}
+                    \iff
+                \end{equation*}
+                \begin{equation*}
+                    0 \leq \limit_{x \rightarrow 0}x^k \sin \left(\frac{1}{x}\right) \leq 0.
+                \end{equation*}
+            So by the Squeeze Theorem, $\limit_{x \rightarrow 0}x^k \sin \left(\frac{1}{x}\right) = 0$. \nl
+            
+            If $k=0$, then $\limit_{x \rightarrow 0}\sin \left(\frac{1}{x}\right)$ does not exist.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Assume $f(x) \geq 0$ for all $x \in D$ and suppose $\limit_{x \rightarrow c}f := L$ exists. Show that $L \geq 0$ and that:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow c}\sqrt{f} = \sqrt{L}.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            Since $\limit_{x \rightarrow c}f = L$ exists:
+                \begin{equation*}
+                \begin{split}
+                    (\forall (x_n)_n \in (D \setminus\{c\})^\bfN)((x_n)_n \rightarrow c \implies (f(x_n))_n \rightarrow L).
+                \end{split}
+                \end{equation*}
+            Since $f(x) \geq 0$ for all $x$, $L \geq 0$. Moreover, $(f(x_n))_n \rightarrow L$ implies $\left(\sqrt{f(x_n)}\right)_n \rightarrow \sqrt{L}$. Thus $\limit_{x \rightarrow c}\sqrt{f} = \sqrt{L}$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Assume $f:\bfR \rightarrow \bfR$ is such that $f(x+y) = f(x) + f(y)$ for all $x,y \in \bfR$. If $\limit_{x \rightarrow 0}f := L$ exists, show that $L=0$ and show that $\limit_{x \rightarrow c}f$ exists for all $c \in \bfR$.
+    \end{exercise}
+        \begin{proof}
+            Since $f(x+y) = f(x) + f(y)$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    f(1)
+                    & = f\left(n \cdot \frac{1}{n}\right) \\
+                    & = n\cdot f \left(\frac{1}{n}\right).
+                \end{split}
+                \end{equation*}
+            So $f \left(\frac{1}{n}\right) = \frac{1}{n}f(1)$. Since $\limit_{x \rightarrow 0}f = L$ exists, $\left(\frac{1}{n}\right)_n \rightarrow 0$ implies $\left( f \left(\frac{1}{n}\right)\right)_n \rightarrow L$. But $\left(f \left(\frac{1}{n}\right)\right)_n = \left(\frac{1}{n}f(1)\right)_n \rightarrow 0$. Thus $L = 0$. \nl
+            
+            Let $(x_n)_n \rightarrow c$, $x_n \neq c$. Then $(x_n - c)_n \rightarrow 0$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    (f(x_n))_n 
+                    & = (f(x_n - c + c))_n \\
+                    & = (f(x_n - c) + f(c))_n \\
+                    & = (f(x_n -c))_n + (f(c))_n \\
+                     \xrightarrow{n \rightarrow \infty} &\phantom{=} 0 + f(c) \\
+                     & = f(c).
+                \end{split}
+                \end{equation*}
+            Thus $\limit_{x \rightarrow c}f = f(c)$ exists.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f(0,\infty) \rightarrow \bfR$. Show that the following are equivalent:
+            \begin{enumerate}[label = (\roman*)]
+                \item $\ds \limit_{x \rightarrow \infty}f = L$ (where $L$ can be $\infty$);
+                \item For every sequence $(x_n)_n$ in $(0,\infty)$ with $(x_n)_n \rightarrow \infty$ we have $(f(x_n))_n \rightarrow L$.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            $(\Rightarrow)$ We proceed by cases. \nl
+            
+            Case 1: $L < \infty$. Let $\epsilon > 0$ be given. Since $\limit_{x \rightarrow \infty}f = L$ exists, there exists $\alpha > 0$ such that $x \geq \alpha$ implies $|f(x) - L| < \epsilon$. Since $(x_n)_n \rightarrow \infty$, there exists $N \in \bfN$ such that $n \geq N$ implies $x_n \geq \alpha$. Whence $|f(x_n)- L|<\epsilon$, giving $(f(x_n))_n \rightarrow L$. \nl
+            
+            Case 2: $L = \infty$. Let $M > 0$ be given. Since $\limit_{x \rightarrow \infty}f = \infty$ exists, there exists $\alpha > 0$ such that $x \geq \alpha$ implies $f(x) \geq M$. Since $(x_n)_n \rightarrow \infty$, there exists $N \in \bfN$ such that $n \geq N$ implies $x_n \geq \alpha$. Whence $f(x_n) \geq M$, giving $(f(x_n))_n \rightarrow \infty$. \nl
+            
+            $(\Leftarrow)$ Suppose towards contradiction $\limit_{x \rightarrow \infty}f \neq L $. We proceed by cases. \nl
+            
+            Case 1: $L < \infty$. Then by the sequential definition of limits:
+                \begin{equation*}
+                \begin{split}
+                    (\exists (x_n)_n \in (0,\infty)^\bfN)((x_n)_n \rightarrow \infty \hspace{2pt}\land\hspace{2pt}(f(x_n))_n \not\rightarrow L).
+                \end{split}
+                \end{equation*}
+            But this contradicts our assumption that for all $(x_n)_n$, $(x_n)_n \rightarrow \infty$ implies $(f(x_n))_n \rightarrow L$. \nl
+            
+            Case 2: $L = \infty$. Then by the sequential definition of limits:
+                \begin{equation*}
+                \begin{split}
+                    (\exists (x_n)_n \in (0,\infty)^\bfN)((x_n)_n \rightarrow \infty \hspace{2pt}\land\hspace{2pt} f(x_n) \leq M )
+                \end{split}
+                \end{equation*}
+            But this contradicts our assumption that for all $(x_n)_n$, $(x_n)_n \rightarrow \infty$ implies $(f(x_n))_n \rightarrow \infty$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+         If $f:(a,\infty)\rightarrow \bfR$ is such that $\limit_{x \rightarrow \infty}xf(x) := L$ exists, show that:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow \infty}f(x) = 0.
+            \end{split}
+            \end{equation*}
+    \end{exercise}
+        \begin{proof}
+            Let $(x_n)_n \rightarrow \infty$. We want to show that $(f(x_n))_n \rightarrow 0$. \nl
+            
+            We know that $(x_n f(x_n))_n \rightarrow L$, so it is bounded. That is, there exists $c > 0$ such that $|x_n f(x_n)| \leq c$ for all $n$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    |f(x_n)| 
+                    & = \left|\frac{x_n f(x_n)}{x_n}\right| \\
+                    & \leq \frac{c}{|x_n|}. 
+                \end{split}
+                \end{equation*}
+            Since $\left(\frac{c}{|x_n|}\right)_n \rightarrow 0$, we have $(f(x_n))_n \rightarrow 0$. Thus, by Exercise 10, $\limit_{x \rightarrow \infty}f(x) = 0$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Suppose $f,g:(0,\infty) \rightarrow \bfR$ are such that $\limit_{x \rightarrow \infty} f := L > 0$, and $\limit_{x \rightarrow \infty}g = \infty$. Show that $\limit_{x \rightarrow \infty}fg = \infty$. Does this hold if $L = 0$ as well?
+    \end{exercise}
+        \begin{proof}
+            Let $(x_n)_n \rightarrow \infty$. Let $M >  0$ be given. There exists $N_1$ such that $n \geq N_1$ implies $f(x) \geq \frac{L}{2}$. There exists $N_2$ such that $n \geq N_2$ implies $g(x) \geq \frac{2M}{L}$. So for $n \geq \max\{N_1,N_2\}$, $f(x_n)g(x_n) \geq \frac{L}{2} \frac{2M}{L} = M$. \nl
+            
+            Note this does not hold for $L=0$. Take $f(x) = \frac{1}{x}$ and $g(x) = x$. Then $\limit_{x \rightarrow \infty}fg = 1$.
+            
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

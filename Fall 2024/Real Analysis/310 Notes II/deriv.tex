@@ -1,0 +1,299 @@
+\chapter{Differentiation}
+Throughout, $I$ is an open interval.
+\section{Differentiation}
+
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Let $f:I \rightarrow \bfR$ and $c \in I$ a cluster point. Then $f$ is \textit{differentiable at $c$} if:
+            \begin{equation*}
+            \begin{split}
+                \limit_{x \rightarrow c} \frac{f(x)-f(c)}{x-c} := f'(c)
+            \end{split}
+            \end{equation*}
+        exists and is finite. We say $f'(c)$ is the \textit{derivative of $f$ at $x = c$}.
+
+            \item If $f$ is differentiable at every $c \in I$, we say $f$ is differentiable at $I$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Let $f(x) = ax + b$. Then:
+            \begin{equation*}
+            \begin{split}
+                f'(c) = \limit_{x \rightarrow c} \frac{f(x) - f(c)}{x-c} = \limit_{x \rightarrow c}\frac{a(x-c)}{(x-c)} = a.
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+    \begin{example}
+        Let $f(x) = |x|$ and $c = 0$. Then:
+            \begin{equation*}
+            \begin{split}
+                f'(0) = \limit_{x \rightarrow 0}\frac{|x| - |0|}{x-0} = \limit_{x \rightarrow 0}\frac{|x|}{x}.
+            \end{split}
+            \end{equation*}
+        Since this limit does not exist, $f$ is not differentiable at $c = 0$.
+    \end{example}
+
+    \begin{example}
+        Let $f(x) = \begin{cases} x^2\sin \left(\frac{1}{x}\right), & x \neq 0 \\ 0, & x = 0\end{cases}$. Is $f$ differentiable at $c = 0$?
+    \end{example}
+        \begin{solution}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    f'(0) = \limit_{x \rightarrow 0}\frac{f(x) - f(0)}{x-0} = \limit_{x \rightarrow 0} x \sin \left(\frac{1}{x}\right) = 0.
+                \end{split}
+                \end{equation*}
+            Hence $f$ is differentiable at $c=0$.
+        \end{solution}
+
+    \begin{proposition}
+        If $f$ is differentiable at $x=c$, then $f$ is continuous at $x= c$.
+    \end{proposition}
+        \begin{proof}
+            Let $(x_n)_n$ be a sequence with $(x_n)_n \rightarrow c$, $x_n \neq c$. Note that:
+                \begin{equation*}
+                \begin{split}
+                    |f(x_n) - f(c)| = \left|\frac{f(x_n) - f(c)}{x_n - c} ( x_n - c)\right| = f'(c)|x_n - c|.
+                \end{split}
+                \end{equation*}
+            Since $f'(c)$ is a constant and $(x_n - c)_n \rightarrow 0$, by "Lemma" $(f(x_n))_n \rightarrow f(c)$.
+        \end{proof}
+
+    \begin{theorem}
+        Let $f,g:I \rightarrow \bfR$ be differentiable at $x = c$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $(\alpha f + g)'(c) = \alpha f'(c) + g'(c)$;
+                \item $(f\cdot g)'(c) = f'(c)g(c) = f(c)g'(c)$;
+                \item $\ds \left(\frac{f}{g}\right)'(c) = \frac{f'(c)g(c) - f(c)g'(c)}{g(c)^2}$ provided $g(c) \neq 0$.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (2) Let $(x_n)_n \in I^\bfN$ with $(x_n)_n \rightarrow c$, $x_n \neq c$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \frac{fg(x_n) - fg(c)}{x_n - c} 
+                    &= \frac{f(x_n)g(x_n) - f(c)g(c)}{x_n - c} \\
+                    & = \frac{f(x_n)g(x_n)- f(x_n)g(c) + f(x_n)g(c) - f(c)g(c)}{x_n - c} \\
+                    & = f(x_n) \left(\frac{g(x_n) - g(c)}{x_n -c}\right) + g(c) \left( \frac{f(x_n) - f(c)}{x_n - c}\right) \\
+                    & \xrightarrow{n \rightarrow \infty} f(c)g'(c) + g(c)f'(c). \qedhere
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{proposition}[Power Rule]
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item If $f(x) = x^n$ for $n \in \bfN_0$, then $f'(x) = nx^{n-1}$.
+            \item If $f(x) = x^n$ for $n \in \bfZ$, then $f'(x) = nx^{n-1}$.
+            \item If $f(x) = x^r$ for $r \in \bfQ$ then $f'(x) = rx^{r-1}$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) Induction and product rule. (2) Induction and quotient rule. (3) Inverse function theorem.
+        \end{proof}
+
+    \begin{proposition}[Chain Rule]
+        Let $I \xrightarrow{f} J \xrightarrow{g} \bfR$ and $\Ran(f) \subseteq J$. Then $(g \circ f)'(c) = g'(f(c)) \cdot f'(c)$ whenever $f$ is differentiable at $c$ and $g$ is differentiable at $f(c)$.
+    \end{proposition}
+        \begin{proof}
+            Apply Careterodry's Theorem.
+        \end{proof}
+
+\section{The Pillars of Differentiation}
+    \begin{definition}
+        Let $I$ be an open interval and $f:I \rightarrow \bfR$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item $f$ has a \textit{local minimum} if $(\exists \delta > 0)\ni (\forall x\in V_\delta(c))(f(x) \geq f(c))$
+            \item $f$ has a \textit{local maximum} if $(\exists \delta > 0)\ni (\forall x\in V_\delta(c))(f(x) \leq f(c))$
+        \end{enumerate}
+    \end{definition}
+
+    \begin{theorem}[Fermat's Theorem]
+        If $f(x) = y$ has a local minimum or maximum at $x = c$, then $f'(c) = 0$ or $f'(c)$ does not exist.
+    \end{theorem}
+        \begin{proof}
+            If $f'(c)$ does not exist, we are done. Assume $f'(c)$ exists and is finite. Assume $f'(c)$ is a local maximum. For $n$ large enough, $x_n \in V_\delta(c)$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \exists \delta>0 \ni f(x) \leq f(c) \forall x \in V_\delta(c).
+                \end{split}
+                \end{equation*}
+            Let $(x_n)_n$ be a decreasing sequence with $(x_n)_n \rightarrow c$, $x_n \neq c$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \frac{f(x_n) - f(c)}{x_n - c} \leq 0,
+                \end{split}
+                \end{equation*}
+            which implies $f'(c) \leq 0$. Now let $(x_n)_n$ be an increasing sequence with $(x_n)_n \rightarrow c$, $x_n \neq c$. For $n$ large enough, $x_n \in V_\delta(c)$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \frac{f(x_n) - f(c)}{x_n - c} \geq 0,
+                \end{split}
+                \end{equation*}
+            which implies $f'(c) \geq 0$. By antisymmetry, $f'(c) = 0$.
+        \end{proof}
+
+    \begin{theorem}[Rolle's Theorem]
+        Let $f:[a,b] \rightarrow \bfR$ be continuous (on $[a,b]$) and differentiable on $(a,b)$. Suppose that $f(a) = f(b)$. Then there exists $c \in (a,b)$ with $f'(c) = 0$.
+    \end{theorem}
+        \begin{proof}
+            By the Extreme Value Theorem, there exists $x_M \in [a,b]$ with $\sup_{x \in [a,b]}f(x) = f(x_M)$. Again by the Extreme Value Theorem, there exists $x_m \in [a,b]$ with $\inf_{x \in [a,b]}f(x) = f(x_m)$.\nl
+            
+            If $x_M \neq a,b$, then by Fermat's Theorem, $f'(x_M) = 0$. \nl
+            
+            If $x_m \neq a,b$, then by Fermat's Theorem, $f'(x_m) = 0$. \nl
+
+            If both of the above cases fail, then by our condition $f(x_m) = f(x_M)$. So $f(x) = K$ for some $k \in \bfR$. Then clearly $f'(c) = 0$ for all $c \in (a,b)$.
+        \end{proof}
+
+    \begin{theorem}[Mean Value Theorem]
+        Let $f:[a,b]\rightarrow \bfR$ be continuous and differentiable on $(a,b)$. There exists $c \in (a,b)$ such that $f'(c) = \frac{f(b)-f(a)}{b-a}$.
+    \end{theorem}
+        \begin{proof}
+            Consider $g:[a,b] \rightarrow \bfR$ defined by:
+                \begin{equation*}
+                \begin{split}
+                    g(x) = f(x) - \left(\frac{f(b)-f(a)}{b-a}\right)(x-a)
+                \end{split}
+                \end{equation*}
+            Then $g$ is certainly continuous on $[a,b]$ and differentiable on $(a,b)$ because $f$ is. \nl
+            
+            Note that $g(a) = f(a)$ and $g(b) = f(b)$. By Rolle's Theorem, there exists $c \in (a,b)$ such that:
+                \begin{equation*}
+                \begin{split}
+                    0 &= g'(c) \\
+                    & = f'(c) - \left(\frac{f(b)-f(a)}{b-a}\right)
+                \end{split}
+                \end{equation*}
+            Whence $f'(c) = \frac{f(b)-f(a)}{b-a}$.
+        \end{proof}
+
+    \begin{corollary}
+        ***Let $f:[a,b] \rightarrow \bfR$ be continuous and differentiable on $(a,b)$ with $f'(x) = 0$ for all $x \in (a,b)$. Then $f$ is constant.
+    \end{corollary}
+        \begin{proof}
+            Let $x_1,x_2 \in [a,b]$ with $x_1 \neq x_2$. Without loss of generality, suppose $x_1 < x_2$. \nl
+            
+            Apply the Mean Value Theorem to $f$ on $[x_1,x_2]$. Then there exists $c \in (x_1,x_2)$ with $0 =f'(c) = \frac{f(x_2)-f(x_1)}{x_2 - x_1}$. \nl
+
+            Simplifying the above equation gives $f(x_1) = f(x_2)$. Whence $f$ is constant.
+        \end{proof}
+
+    \begin{theorem}
+        Let $I$ be an open interval and $f:I \rightarrow \bfR$ differentiable.
+            \begin{enumerate}[label = (\arabic*)]
+                \item $f$ is increasing on $I$ if and only if $f' \geq 0$;
+                \item $f$ is decreasing on $I$ if and only if $f' \leq 0$.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            $\stackrel{\text{\tiny (1)}}{(\Rightarrow)}$ Let $c \in I$. Since $f$ is differentiable, the limit $f'(c)$ is defined, allowing us to write:
+                \begin{equation*}
+                \begin{split}
+                    f'(c) = \limit_{x \rightarrow c^+}\frac{f(x) - f(c)}{x-c}.
+                \end{split}
+                \end{equation*}
+            Since we are approaching $c$ from the right, and since $f$ is increasing, it must be that $f'(c) = \limit_{x \rightarrow c^+}\frac{f(x) - f(c)}{x-c} \geq 0$. \nl
+
+            $\stackrel{\text{\tiny (1)}}{(\Leftarrow)}$ Let $x_1,x_2 \in I$ with $x_1 < x_2$. Apply the Mean Value Theorem to $f$ on $[x_1,x_2] \subseteq I$. Then there exists $c \in (x_1,x_2)$ with $f'(c) = \frac{f(x_2) - f(x_1)}{x_2 - x_1} \geq 0$. Since $x_2 - x_1 \geq 0$, it must be that $f(x_2) - f(x_1) \geq 0$. Thus $f(x_2) \geq f(x_1)$, establishing that $f$ is increasing. \nl
+            
+            $\stackrel{\text{\tiny (2)}}{(\Rightarrow)}$ This direction follows similarly. \nl
+            
+            $\stackrel{\text{\tiny (2)}}{(\Leftarrow)}$ This direction follows similarly.
+        \end{proof}
+
+    \begin{example}
+        Show that $\sin : \bfR \rightarrow \bfR$ is Lipschitz.
+    \end{example}
+        \begin{solution}
+            Pick $x,y \in \bfR$ and suppose without loss of generality that $x < y$. \nl
+            
+            Apply the Mean Value Theorem to $\sin$ on $[x,y]$. Then there exists $c \in (x,y)$ with:
+                \begin{equation*}
+                \begin{split}
+                    \frac{\sin(y) - \sin(x)}{y-x} = \sin'(c) = \cos(c).
+                \end{split}
+                \end{equation*}
+            Applying the absolute value to both sides gives:
+                \begin{equation*}
+                \begin{split}
+                    \left|\frac{\sin(y) - \sin(x)}{y-x}\right| = |cos(c)| \leq 1.
+                \end{split}
+                \end{equation*}
+            Multiplying $|y-x|$ on both sides gives the desired result.
+        \end{solution}
+
+    \begin{exercise}
+        If $f:I \rightarrow \bfR$ is differentiable with $f'$ bounded on $I$, then $f$ is Lipschitz.
+    \end{exercise}
+
+    \iffalse
+    \begin{example}
+        Discuss $\sum_{k = 1}^\infty \sin \left(\frac{1}{k^2}\right)$.
+    \end{example}
+        \begin{solution}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_k \left|\sin \left(\frac{1}{k^2}\right)\right| \leq \sum_k \frac{1}{k^2}.
+                \end{split}
+                \end{equation*}
+            By comparison, $\sum_{k} \sin \left(\frac{1}{k^2}\right)$ converges absolutely.
+        \end{solution}
+    \fi
+    
+    \begin{lemma}
+        Let $I\subseteq \bfR$ be an interval, $f:I \rightarrow \bfR$ continuous, and $c \in I$ with $f$ differentiable at $x=c$.
+            \begin{enumerate}[label = (\arabic*)]
+                \item If $f'(c) > 0$, then there exists $\delta > 0$ such that $f(x) > f(c)$ for all $x \in (c,c+\delta)$.
+                \item If $f'(c) < 0$, then there exists $\delta > 0$ such that $f(x) > f(c)$ for all $x \in (c-\delta,c)$.
+            \end{enumerate}
+    \end{lemma}
+        \begin{proof}
+            (1) $0 < f'(c) = \limit_{x \rightarrow c}\frac{f(x) - f(c)}{x-c} = \limit_{x \rightarrow c^+}\frac{f(x) - f(c)}{x-c}$ (if the limit exists then the one-sided limit exists). Setting $\epsilon = \frac{f'(c)}{2}$, there exists $\delta > 0$ such that for $x \in (c,c+\delta)$, $\frac{f(x) - f(c)}{x-c} \in V_\epsilon(f'(c))$. Equivalently, $\frac{f(x)-f(c)}{x-c} > \frac{f'(c)}{2} > 0$. Since $x-c > 0$ for $x \in (c,c+\delta)$, we get that $f(x) - f(c) > 0$ for $x \in (c,c+\delta)$. \nl
+            
+            (2) This follow similarly.
+        \end{proof}
+
+    \begin{theorem}[Darboux's Theorem]
+        Let $f:[a,b] \rightarrow \bfR$ be differentiable. Let $k$ be a number strictly between $f'(a)$ and $f'(b)$. Then there exists $c \in (a,b)$ with $f'(c) = k$.
+    \end{theorem}
+        \begin{proof}
+            Let $h(x) = kx - f(x)$ on $[a,b]$. Then $h$ is continuous on $[a,b]$. \nl
+            
+            By the Extreme Value Theorem, $h$ attains its supremum; i.e., there exists $c \in [a,b]$ with $h(c) \geq h(x)$ for all $x \in [a,b]$.\nl
+            
+            $h'(a) = k-f'(a)$ and $h'(b) = k-f'(b)$. Without loss of generality, suppose:
+                \begin{equation*}
+                \begin{split}
+                    h'(a) &= k-f'(a) > 0 \\
+                    h'(b) &= k-f'(b) < 0.
+                \end{split}
+                \end{equation*}
+            By the previous lemma, there exists $\delta > 0$ such that $h(x) > h(a)$ on $(a,a + \delta)$. \nl
+            
+            By the previous lemma, there exists $\eta  > 0$ such that $h(x) > h(b)$ on $(b - \eta,b)$. \nl
+            
+            So $c \neq a$ and $c \neq b$. So $c \in (a,b)$. Thus $h'(c) = 0$ by Fermat's theorem. \nl
+            
+            Thus $f'(c) = k$.
+        \end{proof}
+
+    \begin{question}
+        Does there exists $f:\bfR \rightarrow \bfR$ differentiable with $f'(x) = \sgn(x)$?
+    \end{question}
+        \begin{answer}
+            No! $\sgn(x)$ does not satisfy the Intermediate Value Theorem on $[-1,1]$.
+        \end{answer}
+
+    \begin{corollary}
+        Let $f:I \rightarrow \bfR$ be differentiable and $f' \neq 0$ on $I$. Then $f$ is monotone.
+    \end{corollary}
+        \begin{proof}
+            Homework
+        \end{proof}
+
+    

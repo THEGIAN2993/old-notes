@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  3 NOV 2024 23:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  21 NOV 2024 16:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1482,7 +1482,7 @@ File: T1TeXGyreScholaX-OsF.fd 2017/07/11 (autoinst) Font definitions for T1/TeXG
 )
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 10.95pt on input line 153.
- (./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./series.aux))
+ (./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./series.aux) (./limits.aux))
 \openout1 = `_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/zncfmi/m/it on input line 153.
@@ -1775,7 +1775,7 @@ LaTeX Font Info:    Font shape `LMX/ntxexx/b/n' will be
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 164.
+(in both cases you will find help in the memoir manual). on input line 161.
 
 
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
@@ -1785,6 +1785,19 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 \openout7 = `_main.upa'.
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_2ulndi.enc}]
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 164.
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 164.
+[2]
 \openout2 = `orderings-and-functions.aux'.
 
  (./orderings-and-functions.tex
@@ -1877,23 +1890,12 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/scholax/zcs_fn6vum.enc}]
-
-Package marginnote Warning: Consecutive odd pages found.
-(marginnote)                Note, it is not recommended to use consecutive
-(marginnote)                odd pages in a double-ended document.
-(marginnote)                The pages of your document should always
-(marginnote)                be a sequence: odd-even-odd-even-...
-(marginnote)                Maybe you've forgotten a \cleardoublepage before
-(marginnote)                changing the page numbering on page 1.
-
-Package marginnote Info: Using workaround for absolute page number on input line 50.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 70.
 LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
 (Font)              scaled to size 6.1pt on input line 70.
 Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 79.
-LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 84.
+
 
 Package fancyhdr Warning: \headheight is too small (0.0pt): 
 (fancyhdr)                Make it at least 8.0pt, for example:
@@ -1901,8 +1903,6 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
-LaTeX Font Info:    Font shape `T1/TeXGyreScholaX-OsF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 84.
 [2]
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 93.
 LaTeX Font Info:    Trying to load font information for TS1+TeXGyreScholaX-OsF on input line 100.
@@ -1942,8 +1942,8 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [5]
-Overfull \hbox (10.41133pt too wide) in paragraph at lines 296--297
-[][]\T1/TeXGyreScholaX-OsF/b/n/10.95 (-20) Definition 1.4.2. []\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) A set $\OML/zncfmi/m/it/10.95 A$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) is called |   [] if there ex-ists an $\OML/zncfmi/m/it/10.95 N \LMS/ntxsy/m/n/10.95 2 \OT1/TeXGyreScholaX-TLF/b/n/10.95 N$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) such that $[]\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 A\LMS/ntxsy/m/n/10.95 º \U/ntxmia/m/it/10.95 = []\LMS/ntxsy/m/n/10.95 ¹f\OT1/TeXGyreScholaX-TLF/m/n/10.95 1\OML/zncfmi/m/it/10.95 ; :::; N\LMS/ntxsy/m/n/10.95 gº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) .
+Overfull \hbox (10.96591pt too wide) in paragraph at lines 296--297
+[][]\T1/TeXGyreScholaX-OsF/b/n/10.95 (-20) Definition 1.4.2. []\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) A set $\OML/zncfmi/m/it/10.95 A$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) is called |   [] if there ex-ists an $\OML/zncfmi/m/it/10.95 N \LMS/ntxsy/m/n/10.95 2 \U/ntxmia/m/it/10.95 ‘$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) such that $[]\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 A\LMS/ntxsy/m/n/10.95 º \U/ntxmia/m/it/10.95 = []\LMS/ntxsy/m/n/10.95 ¹f\OT1/TeXGyreScholaX-TLF/m/n/10.95 1\OML/zncfmi/m/it/10.95 ; :::; N\LMS/ntxsy/m/n/10.95 gº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) .
  []
 
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 313.
@@ -2613,16 +2613,65 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 ]
+\openout2 = `limits.aux'.
+
+ (./limits.tex
+Overfull \vbox (13.59999pt too high) has occurred while \output is active []
+
+ [48
+
+
+
+
+]
+
+LaTeX Warning: Reference `prop:seq-char-lim' on page 49 undefined on input line 125.
+
+
+LaTeX Warning: Reference `prop:seq-char-lim' on page 49 undefined on input line 125.
+
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[49]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[50]
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[51])
+
+Package fancyhdr Warning: \headheight is too small (0.0pt): 
+(fancyhdr)                Make it at least 8.0pt, for example:
+(fancyhdr)                \setlength{\headheight}{8.0pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
+
+[52]
 
 Class memoir Warning: The material used in the headers is too large
 (13.59999pt) for the given head height (0.0pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 171.
+(in both cases you will find help in the memoir manual). on input line 172.
 
 \tf@toc=\write11
 \openout11 = `_main.toc'.
 
-(./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./series.aux))
+(./_main.aux (./orderings-and-functions.aux) (./ordered-fields.aux) (./real-numbers.aux) (./sup-inf.aux) (./sequences2.aux) (./series.aux) (./limits.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2632,21 +2681,21 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: FD104B1255EF943794C5DB19F8877DC8;1692.
+(rerunfilecheck)             Checksum: 91530B583CCD0639C2ABAD1D552CE6CE;2008.
  ) 
 Here is how much of TeX's memory you used:
- 53713 strings out of 474116
- 1156469 string characters out of 5743683
+ 53873 strings out of 474116
+ 1159401 string characters out of 5743683
  1956187 words of memory out of 5000000
- 74031 multiletter control sequences out of 15000+600000
- 791686 words of font info for 622 fonts, out of 8000000 for 9000
+ 74060 multiletter control sequences out of 15000+600000
+ 790428 words of font info for 637 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (48 pages, 376232 bytes).
+Output written on _main.pdf (54 pages, 396365 bytes).
 PDF statistics:
- 1240 PDF objects out of 1440 (max. 8388607)
- 1144 compressed objects within 12 object streams
- 686 named destinations out of 1000 (max. 500000)
- 82145 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1397 PDF objects out of 1440 (max. 8388607)
+ 1295 compressed objects within 13 object streams
+ 787 named destinations out of 1000 (max. 500000)
+ 82185 words of extra memory for PDF output out of 89155 (max. 10000000)
 
