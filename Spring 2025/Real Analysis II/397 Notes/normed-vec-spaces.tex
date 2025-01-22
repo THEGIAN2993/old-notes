@@ -1,0 +1,271 @@
+\chapter{Vector Spaces, Algebras, and Normed Spaces}
+\pagenumbering{arabic}
+
+\noindent For the entirety of this chapter assume $F$ to be  $\bfR$ or $\bfC$.
+
+\section{Vector Spaces}
+    \begin{definition}
+        A \textit{vector space} (or \textit{linear space}) over $F$ is a nonempty set $V$ equipped with two operations:
+            \begin{equation*}
+            \begin{split}
+                V \times V \xrightarrow{+} V &\mtext{defined by} (v,w) \mapsto v+w \\
+                F \times V \rightarrow V &\mtext{defined by} (\alpha,v) \mapsto \alpha v
+            \end{split}
+            \end{equation*}
+        satisfying:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $(V, +)$ is an abelian group:
+                    \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                        \item $u + (v+w) = (u+v) + w$ for all $u,v,w \in V$;
+                        \item there exists $0_V$ such that $v + 0_V = 0_V + v = v$ for all $v \in V$;
+                        \item for all $v \in V$, there exists $w \in V$ satisfying $v+w = w+v = 0_V$;
+                        \item $v + w = w+v$ for all $v,w \in V$;
+                    \end{enumerate}
+
+                \item $\alpha(v+w) = \alpha v + \alpha w$ for all $\alpha \in F$, $v,w \in V$;
+                \item $\alpha(\beta v) = (\alpha \beta)v$ for all $\alpha,\beta \in F$, $v \in V$;
+                \item $1_F v = v$ for all $v \in V$.
+            \end{enumerate}
+    \end{definition}
+
+    It can be shown that the vector $0_V$ is unique, the additive inverse in (iii) is unique (which we denote as $-v$), that $0v = 0_V$, and $(-1)v = -v$.
+
+    \begin{exercise}
+        Show (iv) follows from the other axioms.
+    \end{exercise}
+
+    \begin{exercise}
+        Show $nv = \underbrace{v + v + ... + v}_{n \hspace{-4pt}\mtext{times}}$ for $n \in \bfZ_{\geq 1}$.
+    \end{exercise}
+
+    It can be shown that a subspace is a vector space in its own right.
+
+    \begin{example}
+        Let $\{W_i\}_{i \in I}$ be a family of vector spaces. Then $\bigcap_{i \in I}W_i$ is also a vector space.
+    \end{example}
+
+    \begin{example}
+        Planes and lines through the origin are subspaces of $\bfR^3$.
+    \end{example}
+
+    \begin{definition}
+        Let $V$ be a vector space and $S \subseteq V$ a subset.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item A \textit{linear combination} from $S$ is a finite sum $\sum_{j = 1}^n \alpha_j v_j$ with $\alpha_j \in F$, $v_j \in S$.
+                \item The \textit{linear span} of $S$ is:
+                    \begin{equation*}
+                    \begin{split}
+                        \Span(S) := \left\{ \sum_{j = 1}^n \alpha_j v_j \hspace{4pt}\middle|\hspace{4pt} n \in \bfN, \alpha_j \in F, v_j \in S \right\}.
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{exercise}
+        Show that $\Span(S) \subseteq V$ is a subspace and:
+            \begin{equation*}
+            \begin{split}
+                \Span(S) = \bigcap \hspace{2pt}\{W \mid S \subseteq W, W \hspace{-2pt}\mtext{is a subspace}\hspace{-4pt}\},
+            \end{split}
+            \end{equation*}
+        that is, $\Span(S)$ is the smallest subspace of $V$ containing $S$.
+    \end{exercise}
+
+    \begin{definition}
+        Let $V$ be a vector space and $S \subseteq V$ a subset.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $S$ is \textit{spanning} for $V$ if $\Span(S) = V$.
+                \item $S$ is \textit{independent} if, given $n \in \bfN$, $\alpha_1,...,\alpha_n \in F$, $v_1,...,v_n \in S$, then $\sum_{j = 1}^n \alpha_j v_j = 0$ implies $\alpha_j = 0$ for all $j$.
+            \end{enumerate}
+    \end{definition}
+
+    \iffalse
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.33, 0) {$/\,$};
+            \node at (2.62, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+    \fi
+
+    \vspace{25pt}
+
+    Our goal is to show that every vector space admits a basis. As such, recall the following definitions from a standard course in Real Analysis.
+
+    \begin{definition}
+        An \textit{ordering} on a set $X$ is a relation $R \subseteq X \times X$ on $X$ that is reflexive, transitive, and antisymmetric. We write $xRy$ as $x \leq_R y$. The pair $(X,\leq_R)$ is called an \textit{ordered set}. An ordering $\leq$ on $X$ is called \textit{total} (or \textit{linear}) if for all $x,y \in X$, $x \leq y$ or $y \leq x$.
+    \end{definition}
+
+    Note that if $(X,\leq)$ is an ordered set and $Y \subseteq X$ is a subset, then $(Y,\leq)$ is an ordered set as well.
+
+    \begin{definition}
+        Let $(X, \leq)$ be an ordered set and $Y \subseteq X$. An \textit{upper bound} for $Y$ is an element $u \in X$ with $u \geq y$ for all $y \in Y$. An element $m \in X$ is called \textit{maximal} if $x \in X$, $x \geq m$ implies $x = m$.
+    \end{definition}
+
+    \begin{lemma}[Zorn's Lemma]
+        Let $(X,\leq_X)$ be an ordered set. Suppose every subset $Y \subseteq X$ for which $(Y,\leq_X)$ is totally ordered has an upper bound in $X$. Then $X$ admits a maximal element.
+    \end{lemma}
+
+    The proof of Zorn's Lemma is outside the interest of this text. 
+
+    \begin{theorem}
+        Every vector space admits a basis. Moreover, every independent set is contained in a basis.
+    \end{theorem}
+        \begin{proof}
+            Let $S \subseteq V$ be linearly independent. Define:
+                \begin{equation*}
+                \begin{split}
+                    \fT(S) = \{T \subseteq V \mid S \subseteq T, T \hspace{-3pt}\mtext{linearly independent}\hspace{-5pt}\}.
+                \end{split}
+                \end{equation*}
+            Let $\fC \subseteq \fT(S)$ be a totally ordered subset. Set $R = \bigcup_{T \in \fC} T$. Clearly $R \supseteq S$. Assume $\sum_{j = 1}^n \alpha_j v_j = 0$, where $\alpha_j \in F$ and $v_j \in R$. Since $\fC$ is totally ordered, there exists $T_0 \in \fC$ with $v_j \in T_0$ for all $j = 1,...,n$. Since $T_0$ is independent, $\alpha_j = 0$ for all $j = 1,...,n$. Thus $R$ is independent as well. Whence $R$ is an upper bound for $\fC$. By Zorn's Lemma, $\fT(S)$ admits a maximal element, call it $B$.
+
+            Claim: $B$ is a basis for $V$. Suppose towards contradiction it's not, then there exists $v_0 \in V \setminus \Span(B)$. Consider $B \cup \{v_0\}$ and let $\alpha_0 v_0 + \sum_{j = 1}^n \alpha_j v_j = 0_V$. If $\alpha_0 \neq 0$, then $\sum_{j = 1}^n \alpha_j v_j = -\alpha_0 v_0 $, giving $v_0 \in \Span(B)$ which is a contradiction. If $\alpha_0 = 0$, then $\sum_{j = 1}^n \alpha_j v_j = 0_V$. Since $B$ is independent, $\alpha_j = 0$ for all $j =1,...,n$. Thus $B \cup \{v_0\}$ is independent, contradicting the maximality of $B$. Whence $B$ is a basis for $V$.
+        \end{proof}
+
+    \begin{theorem}
+        If $B_1$ and $B_2$ are bases for $V$, then $\card(B_1) = \card(B_2)$.
+    \end{theorem}
+
+    \begin{definition}
+        If $V$ is a vector space, its \textit{dimension} is the cardinality of any of its bases.
+    \end{definition}
+
+    \begin{corollary}
+        If $B$ is a basis for $V$, then every $v \in V$ can be written $v = \sum_{j = 1}^n \alpha_k \beta_k$, $\alpha_k \in F$, $b_k \in B$ in a unique way.
+    \end{corollary}
+
+    \begin{theorem}
+        Let $V$ be a linear space and $B \subseteq V$ a subset. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $B$ is a basis for $V$;
+                \item $B$ is a maximal element in $\fT = \{T \subseteq V \mid \hspace{-4pt}\mtext{$T$ independent}\hspace{-4pt}\}$;
+                \item $B$ is a minimal element in $\fS = \{S \subseteq V \mid \hspace{-4pt}\mtext{$S$ spans $V$}\hspace{-4pt}\}$;
+            \end{enumerate}
+    \end{theorem}
+
+    \begin{definition}
+        Let $\{V_i\}_{i \in I}$ be a family of vector spaces over a field $F$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item The \textit{product} of $\{V_i\}_{i \in I}$ is denoted:
+                    \begin{equation*}
+                    \begin{split}
+                        \prod_{i \in I}V_i := \{(v_i)_{i \in I} \mid v_i \in V_i\}.
+                    \end{split}
+                    \end{equation*}
+                \item The \textit{co-product} (or \textit{sum}) is denoted 
+                    \begin{equation*}
+                    \begin{split}
+                        \bigoplus_{i \in I}V_i := \left\{(v_i)_{i \in I} \mid v_i \in V_i,\hspace{2pt} \supp\bigl((v_i)_{i \in I}\bigr) <\infty \right\}.
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Show that $\prod_{i \in I}V_i$ equipped with pointwise operations:
+                \begin{equation*}
+                \begin{split}
+                    (v_i)_{i \in I} + (w_i)_{i \in I} &= (v_i + w_i)_{i \in I} \\
+                    \alpha(v_i)_{i \in I} &= (\alpha v_i)_{i \in I}
+                \end{split}
+                \end{equation*}
+            is a linear space.
+
+            \item Show that $\bigoplus_{i \in I}V_i$ is a subspace of $\prod_{i \in I}V_i$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{proposition}
+        Let $V$ be a vector space over $F$ and $W \subseteq V$. The (additive, abelian) quotient group $V/W$ can be made into a vector space by defining multiplication by scalars as $\alpha(v + W) = \alpha v + W$ for all $\alpha \in F$, $v + W \in V/W$.
+    \end{proposition}
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The set $F^n = \{(x_1,...,x_n) \mid x_j \in F\}$ with component-wise operations is a vector space.
+            \item The set $M_{n,m}(F) = \{(a_{ij}) \mid a_{ij} \in F\}$ with linear operations is a vector space.
+            \item Let $\Omega$ be a nonempty set. Then $\cF(\Omega,F) = \{f \mid f:\Omega \rightarrow F\}$ with pointwise operations is a vector space.
+            \item The set $\ell_\infty(\Omega,F) = \{f \in \cF(\Omega,F) \mid \lnorm f \rnorm _u < \infty \}$ with pointwise operations is a vector space.
+                \begin{exercise}
+                    Show $\ell_\infty(\Omega,F) \subseteq \cF(\Omega,F)$ is a subspace.
+                \end{exercise}
+            \item Let $K \subseteq V$ be a convex subset of a vector space $V$, that is, for all $v,w \in K$ and $t \in [0,1]$, then $(1-t)v + tw \in K$. A function $f:K \rightarrow F$ is said to be \textit{affine} if $x,y \in K$ and $t \in [0,1]$ implies $f((1-t)x + ty) = (1-t)f(x) + tf(y)$. The set \newline $\text{Aff}(K,F) = \{f \in \cF(\Omega,F) \mid f \hspace{3pt}\text{affine}\hspace{1pt}\}$ with pointwise operations is a vector space.
+                \begin{exercise}
+                    Show $\text{Aff}(\Omega,F) \subseteq \cF(\Omega,F)$ is a subspace.
+                \end{exercise}
+            \item The set $C([a,b],F) = \{f:[a,b] \rightarrow F \mid f \hspace{3pt}\text{continuous}\hspace{1pt}\}$ with pointwise operations is a vector space.
+                \begin{exercise}
+                    Explain why $C([a,b],F) \subseteq \ell_\infty([a,b],F)$ is a subspace.
+                \end{exercise}
+            \item Consider the following sequence spaces:
+                \begin{itemize}
+                    \item $s = \{(a_k)_k \mid a_k \in F\} = \cF(\bfN,F)$;
+                    \item $\ell_\infty = \ell_\infty(\bfN,F) = \{(a_k)_k \mid \sup_{k \geq 1}|a_k| < \infty\}$;
+                    \item $c = \{(a_k)_k \mid (a_k)_k \hspace{3pt}\text{converges}\hspace{2pt}\}$;
+                    \item $c_0 = \{(a_k)_k \mid (a_k)_k \rightarrow 0\}$;
+                    \item $c_{00} = \{(a_k)_k \mid \supp(a_k)_k < \infty\}$;
+                    \item $\ell_1 = \left\{ (a_k)_k \mid \sum_{k = 1}^\infty |a_k| \hspace{3pt}\text{converges}\hspace{2pt} \right\}$.
+                \end{itemize}
+            These are all vector spaces with pointwise operations. In fact, $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq s$ are all subspaces.
+                \begin{exercise}
+                    Show that $\ell_1 \subseteq c_0$ is a subspace.
+                \end{exercise}
+
+            \item Consider the following continuous function spaces on $\bfR$:
+                \begin{itemize}
+                    \item $C(\bfR) = \{f:\bfR \rightarrow F \mid f \hspace{3pt}\text{continuous}\hspace{2pt}\}$;
+                    \item $C_b(\bfR) = C(\bfR) \cap \ell_\infty(\bfR)$;
+                    \item $C_0(\bfR) = \{f \in C(\bfR) \mid \limit_{x \rightarrow \pm\infty} f(x) = 0\}$;
+                    \item Recall that a function is \textit{compactly supported} if for all $\epsilon > 0$, there exists $\alpha > 0$ such that $|x| \geq \alpha$ implies $f(x) = 0$. The set of compactly supported functions is denoted $C_c(\bfR) = \{f \in C(\bfR) \mid f \hspace{3pt}\text{compactly supported}\hspace{2pt}\}$.
+                \end{itemize}
+            These are all vector spaces with pointwise operations, and $C_c(\bfR) \subseteq C_0(\bfR) \subseteq C_b(\bfR) \subseteq C(\bfR)$ are all subspace inclusion.
+        \end{enumerate}
+    \end{example}
+
+    \begin{definition}
+        If $V$ and $W$ are linear spaces over a common field $F$, a map $T:V \rightarrow W$ is called \textit{linear} if $T(v_1 + \alpha v_2) = T(v_1) + \alpha T(v_2)$ for all $v_1,v_2 \in V$ and $\alpha \in F$.
+    \end{definition}
+    
+    \begin{example}
+        Let $A \in M_{m,n}(F)$. Then $T_A:F^n \rightarrow F^m$ defined by $T_A(v) = Av$ is linear. Let $\{e_1,...,e_n\}$ be a basis for $F^n$. If $T:F^n \rightarrow F^m$ is linear, set:
+            \begin{equation*}
+            \begin{split}
+                [T] = \Bigl( T(e_1) \Bigm\vert T(e_2) \Bigm\vert \hspace{4.5pt}...\hspace{4.5pt}\Bigm\vert T(e_n) \Bigr).
+            \end{split}
+            \end{equation*}
+        This gives $T(v) = [T]v$ for all $v \in F^n$. In fact, we also have $[T_A] = A$ and $T_{[T]} = T$.
+    \end{example}
+
+    \begin{example}
+        The \textit{canonical projection} is linear:
+            \begin{equation*}
+            \begin{split}
+                \pi_j: \prod_{i \in I}V_i \rightarrow V_j \mtext{defined by} \pi_j\bigl((v_i)_i\bigr) = v_i.
+            \end{split}
+            \end{equation*}
+        We also have that the \textit{coordinate exclusions} are linear:
+            \begin{equation*}
+            \begin{split}
+                \iota_j: V_j \hookrightarrow \bigoplus_{i \in I}V_i \mtext{defined by} \iota_j(v) = (v_i)_i \hspace{1.5pt}, \hspace{-2pt}\mtext{where} v_i = \begin{cases}
+                    0_v, &i \neq j \\
+                    v_j, &\text{otherwise}.
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        The \textit{evaluation map} is linear as well. For $s \in S$, consider:
+            \begin{equation*}
+            \begin{split}
+                e_s : \cF(S,F) \rightarrow F \mtext{defined by} e_s(f) = f(s).
+            \end{split}
+            \end{equation*}
+    \end{example}
+
+
+
+    
+    
