@@ -1,0 +1,76 @@
+\chapter{Statistics for the Working Economist}
+
+\section{Measurements}
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The large body of data that is the target of our interest is called the \textit{population}.
+            \item A subset selected from a given population is called a \textit{sample}.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        The \textit{mean} of a sample of $n$ measured responses $y_1,...,y_n$ is given by:
+            \begin{equation*}
+            \begin{split}
+                \overline{y} = \frac{1}{n} \sum_{i = 1}^n y_i.
+            \end{split}
+            \end{equation*}
+        The corresponding \textit{population mean} is denoted $\mu$.
+    \end{definition}
+
+    \begin{remark}
+        We usually cannot measure the value of the population mean, $\mu$; rather, $\mu$ is an unknown constant that we may want to estimate using sample information.
+    \end{remark}
+
+    \begin{definition}
+        The \textit{variance} of a sample of measurements $y_1,...,y_n$ is given by:
+            \begin{equation*}
+            \begin{split}
+                s^2 = \frac{1}{n-1}\sum_{i = 1}^n (y_i - \overline{y})^2.
+            \end{split}
+            \end{equation*}
+        The corresponding \textit{population variance} is denoted by $\sigma^2$. The larger the variance of a set of measurements, the greater will be the amount of variation within the set
+    \end{definition}
+
+    \begin{definition}
+        The \textit{standard deviation} of a sample of measurements is given by:
+            \begin{equation*}
+            \begin{split}
+                s = \sqrt{s^2}.
+            \end{split}
+            \end{equation*}
+        The corresponding \textit{population standard deviation} is denoted by $\sigma = \sqrt{\sigma^2}$
+    \end{definition}
+
+    \begin{definition}
+        An \textit{estimator} is a formula that tells how to calculate the value of an estimate based on the measurements contained in a sample.
+    \end{definition}
+
+    \begin{example}
+        The sample mean $\overline{y}$ is one possible point estimator of a population mean $\mu$.
+    \end{example}
+
+\section{Linear Models}
+    In this chapter, we undertake a study of inferential procedures that can be used
+    when a random variable $Y$, called the \textit{dependent variable}, has a mean that is a function of one or more non-random variables $x_1,...,x_k$ called \textit{independent variables}.
+
+    \begin{definition}
+        A \textit{linear statistical model} relating a random response $Y$ to a set of independent variables $x_1,...,x_k$ is of the form:
+            \begin{equation*}
+            \begin{split}
+                Y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k + \epsilon,
+            \end{split}
+            \end{equation*}
+        where $\beta_0,...,\beta_k$ are unknown parameters, $epsilon$ is a random variable (typically an error of some sort), and the variables $x_1,...,x_k$ are known values. 
+    \end{definition}
+
+    \begin{remark}
+        Although unreasonable, we will assume that $E(\epsilon) = 0$, hence that:
+            \begin{equation*}
+            \begin{split}
+                E(Y) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k.
+            \end{split}
+            \end{equation*}
+    \end{remark}
+
