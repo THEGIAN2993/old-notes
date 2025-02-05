@@ -1,0 +1,614 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+%\usepackage{newpxtext}
+\usepackage{eulerpx}
+\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{problem}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\usepackage{pgf}
+\usepackage{mmacells}
+\usepackage{pythonhighlight}
+
+\mmaDefineMathReplacement[≤]{<=}{\leq}
+\mmaDefineMathReplacement[≥]{>=}{\geq}
+\mmaDefineMathReplacement[≠]{!=}{\neq}
+\mmaDefineMathReplacement[→]{->}{\to}[2]
+\mmaDefineMathReplacement[⧴]{:>}{:\hspace{-.2em}\to}[2]
+\mmaDefineMathReplacement{∉}{\notin}
+\mmaDefineMathReplacement{∞}{\infty}
+\mmaDefineMathReplacement{𝕕}{\mathbbm{d}}
+
+\linespread{0.95}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 374 \\[0.1in]Homework 1 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Compute the decimal (base 10) value for the following binary numbers.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $10101100111000 $
+                \item $0.110110110 $
+                \item $100101110.01100101 $
+            \end{enumerate}
+    \end{problem}
+        \begin{solution}
+            \begin{equation*}
+            \begin{split}
+                10101100111000_2
+                & = 2^{13} + 2^{11} +2^9 + 2^8 + 2^5 + 2^4 + 2^3 \\
+                & = 302.39453125_{10} \\
+                &\phantom{=} \\
+                0.110110110_2
+                & = 2^{-1} + 2^{-2} + 2^{-4} + 2^{-5} + 2^{-7} + 2^{-8} \\
+                & = 0.85546875_{10} \\
+                &\phantom{=} \\
+                100101110.01100101_2 
+                & = 2^8 + 2^5 + 2^3 + 2^2 + 2^1 + 2^{-2} + 2^{-3} + 2^{-6} + 2^{-8} \\
+                & = 302.39453125_{10}
+            \end{split}
+            \end{equation*}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Compute the binary form of the following decimal numbers. Write 10 digits to the right of the binary point.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $1272025.3255$
+                \item $\frac{3141592}{65}$
+                \item $\frac{1}{7}$
+            \end{enumerate}
+    \end{problem}
+        \begin{solution}
+            I used Mathematica code for this part, because division on pen/paper/calculator was frustrating.
+                \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                    \item The integer part is:
+\begin{mmaCell}[functionlocal=y]{Code}
+Clear[n, f, q, r, bits, digit, s]
+n = 1272025;
+bits = "";
+While[n > 0, {q, r} = QuotientRemainder[n, 2];
+    bits = ToString[r] <> bits;
+n = q;];
+bits
+\end{mmaCell}
+\begin{mmaCell}{Output}
+100110110100011011001
+\end{mmaCell}
+\newpage
+                The fractional part is:
+\begin{mmaCell}[functionlocal=y]{Code}
+Clear[n, f, q, r, bits, digit, s]
+f = 0.3255;
+bits = "";
+Do[s = 2*f;
+    digit = Floor[s];
+    bits = bits <> ToString[digit];
+    f = s - digit; 
+    , {10}];
+bits
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0101001101
+\end{mmaCell}
+                Thus $1272025.3255_{10} = 100110110100011011001.0101001101_{2}$.
+
+                \item Note that $\frac{3141592}{65} = 48332.1\overline{846153}$. It's probably safer to write this as a mixed fraction, since I'm not sure if truncating the fractional part will cause problems. Changing the code a bit gives us:
+\begin{mmaCell}[functionlocal=y]{Code}
+Clear[n, ibits, fbits, q, r, f, s, digit]
+n = 3141592/65;
+i = IntegerPart[n];
+f = FractionalPart[n];
+ibits = "";
+fbits = "";
+While[i > 0, 
+    {q, r} = QuotientRemainder[i, 2];
+    ibits = ToString[r] <> ibits;
+    i = q;];
+Do[s = 2*f;
+    digit = Floor[s];
+    fbits = fbits <> ToString[digit];
+    f = s - digit;
+    , {10}];
+ibits <> "." <> fbits
+\end{mmaCell}
+\begin{mmaCell}{Output}
+1011110011001100.0010111101
+\end{mmaCell}
+                    Whence $\frac{3141592}{65}_{10} = 1011110011001100.0010111101_2$.
+
+                \item Computing $\frac{1}{7}$ isn't as frustrating. We can see that:
+                    \begin{equation*}
+                    \begin{split}
+                        2 \ast \frac{1}{7} \\
+                        2 \ast \frac{2}{7} &\h9\h9 r=0 \\
+                        2 \ast \frac{4}{7} &\h9\h9 r=0 \\
+                        2 \ast \frac{1}{7} &\h9\h9 r=1 \\
+                        2 \ast \frac{2}{7} &\h9\h9 r=0 \\
+                        2 \ast \frac{4}{7} &\h9\h9 r=0 \\
+                        2 \ast \frac{1}{7} &\h9\h9 r=1 \\
+                        \vdots
+                    \end{split}
+                    \end{equation*}
+                    \end{enumerate}
+                This repeats forever. Only writing 10 digits to the right of the binary point, we see that $\frac{1}{7}_{10} = 0.0010010010_2$.
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Determine the Binary16 (half precision), Binary32 (single precision), and Binary64 (double precision) bit patterns for the number $\pi$. Express your answers in both binary and hexadecimal form.
+    \end{problem}
+        \begin{solution}
+            Note that $\pi \approx 3.1415926535897932384 = 2^1 \cdot 1.57079632679489661922$. I made a lot of changes to the above code to make it work with floating point precision.
+\begin{mmaCell}[functionlocal=y]{Code}
+ClearAll[exponentBits, mantissaBits];
+
+exponentBits[e_, bitLength_] := 
+ Module[{ebits = "", q, r, localE = e},
+  Do[{q, r} = QuotientRemainder[localE, 2];
+   ebits = ToString[r] <> ebits;
+   localE = q;, {bitLength}];
+  ebits]
+   
+mantissaBits[f_, bitLength_] := 
+ Module[{mbits = "", digit, s, localF = f},
+  Do[s = 2*localF;
+   digit = Floor[s];
+   mbits = mbits <> ToString[digit];
+   localF = s - digit;, {bitLength}];
+  mbits]
+   
+ClearAll[Binary];
+Binary[totalBits_, val_] := 
+ Module[{sbit, eBits, mBits, bias, e, f, n, counter},
+  Switch[totalBits,
+   16, {eBits = 5; mBits = 10; bias = 15;},
+   32, {eBits = 8; mBits = 23; bias = 127;},
+   64, {eBits = 11; mBits = 52; bias = 1023;},
+   128, {eBits = 15; mBits = 112; bias = 16383;},
+   256, {eBits = 19; mBits = 236; bias = 262143;},
+   _, Return["unsupported size"]];
+   
+  sbit = If[val < 0, "1", "0"]; 
+  n = Abs[val];
+  If[n < 2, e = bias;
+   f = n - 1;,
+   counter = 0;
+   While[n >= 2, n = n/2;
+    counter++;];
+   e = counter + bias;
+   f = n - 1;];
+  sbit <> exponentBits[e, eBits] <> mantissaBits[f, mBits]]
+\end{mmaCell}
+
+
+
+
+            For Binary16, our exponent is going to be $e = 1 + 15 = 16_{10} = 10000_{2}$, our mantissa is going to be $.57079632679489661922_{10} \approx 1001001000_2$, and our sign bit is going to be $0$. Binary32 and Binary64 follow similarly.
+\begin{mmaCell}[functionlocal=y]{Code}
+Binary[16, N[Pi, 23]]
+Binary[32, N[Pi, 23]]
+Binary[64, N[Pi, 23]]
+\end{mmaCell}
+
+\begin{mmaCell}{Output}
+0100001001001000
+\end{mmaCell}
+\begin{mmaCell}{Output}
+01000000010010010000111111011010
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0100000000001001001000011111101101010100010001000010110100011000
+\end{mmaCell}
+
+            Splitting the bit string into groups of four allows us to express our answer in hexademical. So:
+                \begin{equation*}
+                \begin{split}
+                    \text{Binary}16: \pi_{10} &\approx 4248_{16} \\
+                    \text{Binary}32: \pi_{10} &\approx 40490\text{FDA}_{16} \\
+                    \text{Binary}64: \pi_{10} &\approx 400921\text{FB}54442\text{D}18_{16} \\
+                \end{split}
+                \end{equation*}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Determine the Binary64, Binary128, and Binary256 bit patterns for the number $\frac{127}{128}$. Express your answer in both binary and hexadecimal form.
+    \end{problem}
+        \begin{solution}
+            Note that $\frac{127}{128} = 0.9921875 = 2^{-1} \cdot 1.984375$. I adjusted the previous code so that it can account for values less than 1.
+            
+\begin{mmaCell}[functionlocal=y]{Code}
+sbit = If[val < 0, "1", "0"];
+n = Abs[val];
+counter = 0;
+While[n >= 2, n = n/2;
+  counter++;];
+While[n < 1, n = 2*n;
+  counter--;];
+e = counter + bias;
+f = n - 1;
+sbit <> exponentBits[e, eBits] <> mantissaBits[f, mBits]
+\end{mmaCell}
+\begin{mmaCell}[functionlocal=y]{Code}
+Binary[64, 127/128]
+Binary[128, 127/128]
+Binary[256, 127/128]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0011111111101111110000000000000000000000000000000000000000000000
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0011111111111110111111000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0011111111111111111011111100000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000
+\end{mmaCell}
+            We can now easily see that:
+                \begin{equation*}
+                \begin{split}
+                    \text{Binary}16:\h5 \frac{127}{128}_{10}\h5 &= 3\text{FEFC}{\underbrace{0...0}_{11}} \\
+                    \text{Binary}32:\h5 \frac{127}{128}_{10}\h5 &=3\text{FFEFC}{\underbrace{0...0}_{26}} \\
+                    \text{Binary}64:\h5 \frac{127}{128}_{10}\h5 &= 3\text{FFFEFC}{\underbrace{0...0}_{57}} \\
+                \end{split}
+                \end{equation*}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Determine the largest positive double precision number $x_1$ and the next largest positive double precision number $x_2$. What is the difference between these two numbers?
+    \end{problem}
+        \begin{solution}
+            Since $e = 11111111111_2$ is used to represent $\infty$, the largest positive double precision number is:
+                \begin{equation*}
+                \begin{split}
+                    x_1 &= 0\h4 11111111110 \h4 1111111111111111111111111111111111111111 1111111111111_2 \\
+                    & = (-1)^0 \cdot 2^{2046-1023} \cdot \left( 1 + \left(\frac{1}{2} + \frac{1}{4} + ... + 2^{-52}\right) \right) \\
+                    & =  2^{1023} \cdot(1 + (1 - 2^{-53}))\\
+                    & = 2^{1023} \cdot (2 - 2^{-53})_{10} \\
+                    & \approx 1.7976931348623158... \times 10^{308}.
+                \end{split}
+                \end{equation*}
+            The next largest positive double precision number, $x_2$, would be:
+                \begin{equation*}
+                \begin{split}
+                    x_2 &= 0\h4 11111111110 \h4 1111111111111111111111111111111111111111111111111110_2 \\
+                    & = 2^{1023} \cdot (2  - 2^{-52}) \\
+                    & \approx 1.7976931348623157... \times 10^{308}.
+                \end{split}
+                \end{equation*}
+            So:
+                \begin{equation*}
+                \begin{split}
+                    x_1 - x_2 
+                    & = 2^{1023} \cdot (2 - 2^{-53}) - 2^{1023} \cdot (2  - 2^{-52}) \\
+                    & = 2^{1023} \cdot (2 - 2^{-53} - 2 + 2^{-52}) \\
+                    & = 2^{1023} \cdot (2^{-52} - 2^{-53}) \\
+                    & \approx 9.9792015476735990... \times 10^{291}.
+                \end{split}
+                \end{equation*}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Determine the smallest positive double precision number $x_1$ and the next smallest positive double precision number $x_2$. What is the difference between these two numbers?
+    \end{problem}
+        \begin{solution}
+           Since $e = 00000000000_2$ is used to represent subnormal numbers, $x_1$ in base 10 is going to have a slightly different formula. Instead of the mantissa being preceded by a 1, it is instead preceded by a 0. So we have:
+                \begin{equation*}
+                \begin{split}
+                    x_1 &= 0\h4 00000000000 \h4 0000000000000000000000000000000000000000000000000001 \\
+                    & = (-1)^0 \cdot 2^{1-1023} \cdot (0 + 2^{-52}) \\
+                    & = 2^{-1074}.
+                \end{split}
+                \end{equation*}
+            The next smallest positive double precision number, $x_2$, would be:
+                \begin{equation*}
+                \begin{split}
+                    x_2 & = 
+                    0 \h4 00000000000 \h4 0000000000000000000000000000000000000000000000000010 \\
+                    & = 2^{-1022}\cdot (0 + 2^{-51}) \\
+                    & = 2^{-1073}
+                \end{split}
+                \end{equation*}
+            So:
+                \begin{equation*}
+                \begin{split}
+                    x_1 - x_2 &= 2^{-1074} - 2^{-1073} \\
+                    &\approx -4.9406564584124659... \times 10^{-324}
+                \end{split}
+                \end{equation*}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem} 
+        In class, we saw that the way two binary numbers are added, was that for each bit we employed the logic functions:
+            \begin{equation*}
+            \begin{split}
+                s_i &= x_i \oplus y_i \oplus \text{cin}_i \\
+                \text{cout}_i & = (x_i \land y_i) \lor (x_i \land \text{cin}_i) \lor (y_i \land \text{cin}_i).
+            \end{split}
+            \end{equation*}
+        Create the logic functions $s_i(x_i,y_i,\text{bin}_i)$ and $\text{bout}_i (x_i,y_i,\text{bin}_i)$, for performing bit by bit subtractions, where $\text{bin}_i$ and $\text{bout}_i$ are "borrow" bits.
+    \end{problem}
+        \begin{solution}
+            From the table:
+            \begin{center}
+                \begin{tabular}{c c c | c c}
+                    \hline
+                    $x$ & $y$ & $b_{in}$ & $s_i$ & $b_{out}$ \\
+                    \hline
+                    0 & 0 & 0 & 0 & 0 \\
+                    0 & 0 & 1 & 1 & 1 \\
+                    0 & 1 & 0 & 1 & 1 \\
+                    0 & 1 & 1 & 0 & 1 \\
+                    1 & 0 & 0 & 1 & 0 \\
+                    1 & 0 & 1 & 0 & 0 \\
+                    1 & 1 & 0 & 0 & 0 \\
+                    1 & 1 & 1 & 1 & 1 \\
+                    \hline
+                    \end{tabular}
+            \end{center}
+            We have that $s_i (x_i, y_i, b_{\text{in}}) = x_i \oplus y_i \oplus b_{\text{in}}$ and $b_\text{out}(x_i,y_i,b_\text{in}) = (\overline {x_i} \land y_i) \lor (\overline{x_i} \land b_\text{in}) \lor (y_i \land b_\text{in})$
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{problem}
+        Choose three prime number algorithms to locate all prime numbers from 2 to $n$. Run each of these for values of $n = 1000,2000,5000,10000,20000,50000$. For each algorithm, plot the time $T(n)$ v.s. $n$ on a scatter plot. Comment on the relative efficiency of each of your three algorithms.
+    \end{problem}
+        \begin{solution}
+            I switched to Python, since Mathematica was too slow. Primelist3 was the fastest, followed by primelist2. Primelist1 was much slower.
+            \begin{center}
+                \includegraphics[scale=.6]{Figure_1}
+            \end{center}
+            \newpage Here is the code that I used:
+                \begin{python}
+import time
+import matplotlib.pyplot as plt
+
+def primelist1(n):
+    if n < 2:
+        return
+    print(2)
+    for j in range(3, n):
+        isprime = True
+        for i in range(2, j-1):
+            if j % i == 0:
+                isprime = False
+        if isprime:
+            print(j)
+
+def primelist2(n):
+    if n < 2:
+        return
+    print(2)
+    for j in range(3, n):
+        isprime = True
+        for i in range(2, int(j**0.5)):
+            if j % i == 0:
+                isprime = False
+        if isprime:
+            print(j)
+
+def primelist3(n):
+    if n < 2:
+        return
+    print(2)
+    for j in range(3, n):
+        isprime = True
+        for i in range(2, int(j**0.5)):
+            if j % i == 0:
+                isprime = False
+                break
+        if isprime:
+            print(j)
+
+n_values = [1000, 2000, 5000, 10000, 20000, 50000]
+
+timingData1 = []
+timingData2 = []
+timingData3 = []
+
+for n in n_values:
+    start = time.time()
+    primelist1(n)
+    end = time.time()
+    timingData1.append(end - start)
+
+    start = time.time()
+    primelist2(n)
+    end = time.time()
+    timingData2.append(end - start)
+
+    start = time.time()
+    primelist3(n)
+    end = time.time()
+    timingData3.append(end - start)
+
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
+
+axs[0,0].scatter(n_values, timingData1, color='red', marker='o')
+axs[0,0].set_title('primelist1')
+axs[0,0].set_xlabel('n')
+axs[0,0].set_ylabel('T(n) (s)')
+axs[0,0].grid(True)
+
+axs[0,1].scatter(n_values, timingData2, color='blue', marker='s')
+axs[0,1].set_title('primelist2')
+axs[0,1].set_xlabel('n')
+axs[0,1].set_ylabel('T(n) (s)')
+axs[0,1].grid(True)
+
+axs[1,0].scatter(n_values, timingData3, color='green', marker='^')
+axs[1,0].set_title('primelist3')
+axs[1,0].set_xlabel('n')
+axs[1,0].set_ylabel('T(n) (s)')
+axs[1,0].grid(True)
+
+axs[1,1].scatter(n_values, timingData1, color='red', marker='o', label='primelist1')
+axs[1,1].scatter(n_values, timingData2, color='blue', marker='s', label='primelist2')
+axs[1,1].scatter(n_values, timingData3, color='green', marker='^', label='primelist3')
+axs[1,1].set_title('All Primelist Timings')
+axs[1,1].set_xlabel('n')
+axs[1,1].set_ylabel('T(n) (s)')
+axs[1,1].legend()
+axs[1,1].grid(True)
+
+plt.tight_layout()
+plt.show()
+                \end{python}
+
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{problem}
+        Repeat the question above for three prime number algorithms ...except that now, each $T(n)$ represents the average of times over five similar trials. Create the same three scatter plots as you did above. Do you notice any difference? If so, explain what just happened. 
+    \end{problem}
+        \begin{solution}
+            The averages look very similar to the previous question.
+            \begin{center}
+                \includegraphics[scale=.6]{Figure_2}
+            \end{center}
+
+            I made the following changes to the above code:
+            \begin{python}
+n_values = [1000, 2000, 5000, 10000, 20000, 50000]
+
+num_trials = 5
+
+for n in n_values:
+total_time_1 = 0.0
+total_time_2 = 0.0
+total_time_3 = 0.0
+
+for _ in range(num_trials):
+    start = time.time()
+    primelist1(n)
+    end = time.time()
+    total_time_1 += (end - start)
+    
+    start = time.time()
+    primelist2(n)
+    end = time.time()
+    total_time_2 += (end - start)
+    
+    start = time.time()
+    primelist3(n)
+    end = time.time()
+    total_time_3 += (end - start)
+
+avg_time_1 = total_time_1 / num_trials
+avg_time_2 = total_time_2 / num_trials
+avg_time_3 = total_time_3 / num_trials
+
+timingData1.append(avg_time_1)
+timingData2.append(avg_time_2)
+timingData3.append(avg_time_3)
+            \end{python}
+        \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

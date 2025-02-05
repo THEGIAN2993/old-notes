@@ -1,5 +1,7 @@
 \documentclass[11pt,twoside,openany]{memoir}
 \usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{amsmath}
@@ -16,8 +18,8 @@
     \fancyhf{}
     \pagestyle{fancy}
     \cfoot{\scriptsize \thepage}
-    \fancyhead[R]{\scriptsize \rightmark}
-    \fancyhead[L]{\scriptsize \leftmark}
+    \fancyhead[R]{\tiny \rightmark}
+    \fancyhead[L]{\tiny \leftmark}
 \usepackage{thmtools}
     \declaretheoremstyle[
         spaceabove=10pt,
@@ -118,5 +120,6 @@
     \specialdate
     Last update: \today
 
-    \include{normed-vec-spaces}
+    \include{normed-spaces-algebras}
+    %\include{sequences-in-r}
 \end{document}

@@ -1,4 +1,7 @@
 \contentsline {chapter}{Contents}{i}{section*.1}%
 \contentsline {chapter}{\chapternumberline {1}Vector Spaces, Algebras, and Normed Spaces}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Vector Spaces}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Algebras}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Algebras}{12}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Normed Vector Spaces}{14}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Inner Product Spaces}{20}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Normed Algebras}{23}{section.1.5}%

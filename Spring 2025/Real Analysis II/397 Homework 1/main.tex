@@ -1,0 +1,288 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%\usepackage{newpxtext}
+\usepackage{eulerpx}
+\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+
+\linespread{0.95}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 397 \\[0.1in]Homework 1 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ be a vector space, and suppose $\{W_i\}_{i \in I}$ is a family of subspaces of $V$. 
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item Show that $\bigcap_{i \in I}W_i$ is the largest subspace of $V$ contained in every $W_i$.
+                \item Show that:
+                    \begin{equation*}
+                    \begin{split}
+                        \sum_{i \in I}W_i = \left\{\sum_{i \in F}w_i \mid w_i \in W_i, \h2 F \subseteq I \h2\text{finite}  \right\}
+                    \end{split}
+                    \end{equation*}
+                is the smallest subspace containing each $W_i$.
+                \item We say that $V$ is the \textit{internal direct sum} of the family $\{W_i\}_{i \in I}$ and we write $V = \bigoplus_{i \in I}W_i$ if:
+                    \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                        \item $V = \sum_{i \in I}W_i$;
+                        \item For each $j \in I$, $W_j \cap \sum_{i \neq j}W_i n \{0\}$.
+                    \end{enumerate}
+                If $V = \bigoplus_{i \in I}W_i$, show that every $v \in V$ has a unique expression $v = \sum_{i \in F}w_i$ where $F \subseteq I$ is finite and $0 \neq w_i$ for each $w_i \in W_i$.
+            \end{enumerate}
+    \end{exercise}
+        {\color{red} \begin{proof}
+            (1) Let $U$ be a subspace of $V$ with $U \subseteq W_i$ for each $i \in I$. Then clearly $U \subseteq \bigcap_{i \in I}W_i$. \nl
+
+            \noindent (2) Let $W = \sum_{i \in I}W_i$ and let $U$ be a subspace of $V$ with $U \supseteq W_i$ for each $i \in I$. If $x \in W$, then $x = \sum_{i \in I}W_i$. But since $W_i$ is a subspace, it is closed under addition. Whence $x \in W_i$ for each $i \in I$. By inclusion then, $x \in U$. Hence $W \subseteq U$. \nl
+
+            \noindent (3) By the definition of internal direct sums $V = \sum_{i \in I}W_i$, whence each $v \in V$ can be written as $v = \sum_{i \in F}w_i$. It remains to show that this expression is unique. Suppose $v = \sum_{i \in F}w_i = \sum_{i \in F}u_i$ with $w_i,u_i \in W_i$. For each $j$ we have:
+                \begin{equation*}
+                \begin{split}
+                    w_j - u_j = \ds \sum_{\mathclap{\substack{ i \in F \\ i \neq j }}} (w_i - u_i)
+                \end{split}
+                \end{equation*}
+            But notice that $w_j - u_j \in W_j$ and $ \sum_{i \in F, i \neq j } (w_i - u_i) \in \sum_{i \neq j}W_i$. So $w_j - u_j \in W_j \cap \sum_{i \neq j}W_i$. By the definition of internal direct sums this gives $w_j - u_j = 0$, which simplifies to $w_j = u_j$. 
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        
+    \end{exercise}
+        {\color{red} \begin{proof}
+            Suppose towards contradiction there exists $c \in \Span(S) \setminus \bigcap$...
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%
+    \begin{exercise}
+        Let $V$ be a vector space with subspaces $W_i \subseteq V$ for $i = 1,2$. If $W_1 \cup W_2 \subseteq V$ is a subspace, show that $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.
+    \end{exercise}
+        {\color{red} \begin{proof}
+            Suppose towards contradiction $W_1 \not\subseteq W_2$ and $W_2 \not\subseteq W_1$. Then there exists $w_1 \in W_1 \setminus W_2$ and $w_2 \in W_2 \setminus W_1$. Let $v = w_1 + w_2$. Then $v \in W_1 \cup W_2$. But this means $w_2 = v - w_1 \in W_2$. Whence $w_1 \in W_2$, which is a contradiction.
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ be a vector space over $F$ and suppose $W \subset V$ is a subspace.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Show that the quotient space $V/W = \{[v]_w \mid v \in V\}$ is a subspace with operations:
+                \begin{equation*}
+                \begin{split}
+                    [u]_W + [v]_W = [u + v]_W \h2 ; \h6 \alpha[v]_W = [\alpha v]_W.
+                \end{split}
+                \end{equation*}
+            \item Suppose $\lnorm \cdot \rnorm$ is a norm on $V$. Show that:
+            \begin{equation*}
+            \begin{split}
+                \lnorm [v]_W \rnorm_{V/W} := \inf_{w \in W}\lnorm v - w \rnorm
+            \end{split}
+            \end{equation*}
+        is a seminorm.
+        \end{enumerate}
+    \end{exercise}
+        {\color{red} \begin{proof}
+            (1) Since $V$ is an abelian group and $W \subseteq V$ is normal, $V/W$ is an abelian group. It only remains to show that $\alpha[v]_W = [\alpha v]_W$ satisfies the vector space axioms. We have that:
+                \begin{equation*}
+                \begin{split}
+                    \alpha \left( [u]_W + [v]_W \right)
+                    & = \alpha [u+v]_W \\
+                    & = [\alpha (u+v)]_W \\
+                    & = [\alpha u + \alpha v]_W \\
+                    & = [\alpha u]_W + [\alpha  v]_W,
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    \alpha \left( \beta [v]_W \right)
+                    & = \alpha [\beta v]_W \\
+                    & = [\alpha (\beta v)]_W \\
+                    & = [(\alpha \beta)v]_W \\
+                    & = (\alpha \beta)[v]_W,
+                \end{split}
+                \end{equation*}
+                \begin{equation*}
+                \begin{split}
+                    1_F [v]_W 
+                    & = [1_F v]_W \\
+                    & = [v]_W.
+                \end{split}
+                \end{equation*}
+            Whence $V/W$ is a vector space.
+
+            (2) We must first show that $\lnorm \cdot \rnorm_{V/W} : V/W \rightarrow F$ is well-defined. Let $[v_1]_W  = [v_2]_W$. Then $v_2 - v_1 \in W$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm [v_1]_W \rnorm_{V/W}
+                    & = \inf_{w \in W} \lnorm v_1 - w \rnorm \\
+                    & = \inf_{w - (v_2 - v_1) \in W} \lnorm v_1 - \bigl(w - (v_2 - v_1)\bigr) \rnorm  \\
+                    & = \inf_{w - (v_2 - v_1) \in W} \lnorm v_1 - w + v_2 - v_1 \rnorm \\
+                    & = \inf_{w \in W}\lnorm v_2 - w\rnorm \\
+                    & = \lnorm [v_2]_W \rnorm_{V/W}.
+                \end{split}
+                \end{equation*}
+            We also have that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \alpha [v]_W \rnorm_{V/W}
+                    & = \lnorm [\alpha v]_W \rnorm_{V/W} \\
+                    & = \inf_{w \in W}\lnorm \alpha v - w \rnorm \\
+                    & = \inf_{w' \in W} \lnorm \alpha v - \alpha w' \rnorm \\
+                    & = \inf_{w' \in W} \lnorm \alpha (v-w') \rnorm \\
+                    & = |\alpha| \inf_{w' \in W} \lnorm v - w' \rnorm \\
+                    & = |\alpha| \lnorm [v]_W \rnorm_{V/W}.
+                \end{split}
+                \end{equation*}
+            Whence $\lnorm \cdot \rnorm_{V/W}$ is homogenous. Finally, we can see that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm [u]_W + [v]_W \rnorm_{V/W}
+                    & = \lnorm [u+v]_W \rnorm_{V/W} \\
+                    & = \inf_{w \in W} \lnorm u+v - w \rnorm \\
+                    & = \inf_{w,w' \in W} \lnorm u + v - (w + w') \rnorm \\
+                    & = \inf_{w,w' \in W} \lnorm u-w + v-w' \rnorm \\
+                    & \leq \inf_{w,w' \in W} \left( \lnorm  u-w\rnorm +  \lnorm v - w' \rnorm\right) \\
+                    & = \inf_{w \in W}\lnorm u-w \rnorm + \inf_{w' \in W} \lnorm v - w' \rnorm \\
+                    & = \lnorm [u]_W \rnorm_{V/W} + \lnorm [v]_W \rnorm_{V/W}.
+                \end{split}
+                \end{equation*}
+            Thus $\lnorm \cdot \rnorm_{V/W}$ is a seminorm.
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that the quantity:
+            \begin{equation*}
+            \begin{split}
+                \lnorm f \rnorm_1 := \int_0^1 |f(t)|dt
+            \end{split}
+            \end{equation*}
+        defines a norm on $C([0,1])$ with $\lnorm f \rnorm_1 \leq \lnorm f \rnorm_u$. Are $\lnorm \cdot \rnorm_1$ and $\lnorm \cdot \rnorm_u$ equivalent norms?
+    \end{exercise}
+        {\color{red} \begin{proof}
+            $\lnorm \cdot \rnorm_1$ is homogenous because:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \alpha f \rnorm_1
+                    & = \int_0^1 |(\alpha f)(t)| dt \\
+                    & = \int_0^1 |\alpha f(t)|dt \\
+                    & = |\alpha|\int_0^1 |f(t)|dt \\
+                    & = |\alpha| \lnorm f \rnorm_1.
+                \end{split}
+                \end{equation*}
+            Note that $|f(t) + g(t)| \leq |f(t)| + |g(t)|$. Integrating both sides gives:
+                \begin{equation*}
+                \begin{split}
+                    \int_0^1 |f(t) + g(t)|dt
+                    & = \int_0^1 |(f+g)(t)|dt \\
+                    & = \lnorm f+g \rnorm_1 \\
+                    & \leq \int_0^1 \left( |f(t)| + |g(t)| \right)dt \\
+                    & = \int_0^1 |f(t)|dt + \int_0^1 |g(t)|dt \\
+                    & = \lnorm f \rnorm_1 +\lnorm g \rnorm_1.
+                \end{split}
+                \end{equation*}
+            Whence our norm satisfies the triangle inequality.
+        \end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

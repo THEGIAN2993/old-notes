@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  24 JAN 2025 19:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  2 FEB 2025 21:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,7 +939,7 @@ Package: unique 2023/05/04 v0.76
 \openout4 = `_main.unq'.
 
 )
-Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 81.
+Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 83.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmdef-shaded.sty
 Package: thmdef-shaded 2023/05/04 v0.76
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/shadethm/shadethm.sty
@@ -1660,54 +1660,54 @@ Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 \symwasy=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
-) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (./_main.aux (./normed-vec-spaces.aux))
+) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex) (./_main.aux (./normed-spaces-algebras.aux))
 \openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 113.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 113.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 115.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 113.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 113.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 113.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 113.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 113.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 113.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 113.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 113.
-Package hyperref Info: Link coloring OFF on input line 113.
+LaTeX Font Info:    ... okay on input line 115.
+Package hyperref Info: Link coloring OFF on input line 115.
  (./_main.out) (./_main.out)
 \@outlinefile=\write6
 \openout6 = `_main.out'.
 
-LaTeX Info: Command `\dddot' is already robust on input line 113.
-LaTeX Info: Command `\ddddot' is already robust on input line 113.
+LaTeX Info: Command `\dddot' is already robust on input line 115.
+LaTeX Info: Command `\ddddot' is already robust on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
 )
@@ -1846,9 +1846,9 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-\openout2 = `normed-vec-spaces.aux'.
+\openout2 = `normed-spaces-algebras.aux'.
 
- (./normed-vec-spaces.tex
+ (./normed-spaces-algebras.tex
 Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 8.
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 34.
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 44.
@@ -1881,15 +1881,63 @@ Package hyperref Info: bookmark level for unknown proposition defaults to 0 on i
 LaTeX Font Info:    Trying to load font information for U+eus on input line 189.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
-)
-LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 204.
+) [4]
+LaTeX Font Info:    Trying to load font information for TS1+mlmr on input line 228.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/mlmodern/ts1mlmr.fd
 File: ts1mlmr.fd 2021/01/11 v1.0 Font defs for mlmodern
-) [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] [5] [6] [7] [8] [9] [10]) [11]
+) [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+Underfull \vbox (badness 2503) has occurred while \output is active []
+
+ [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+Underfull \vbox (badness 3895) has occurred while \output is active []
+
+ [16]
+Overfull \hbox (52.4558pt too wide) detected at line 917
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17] [18]
+Overfull \hbox (6.63861pt too wide) in paragraph at lines 949--951
+[][] \LMS/npxsy/m/n/10.95 j\U/zeur/m/n/10.95 x[] \LMS/npxsy/m/n/10.95 Ï \U/zeur/m/n/10.95 y[]\LMS/npxsy/m/n/10.95 j[]$ \T1/mlmr/m/n/10.95 ex-ists. Whence $[][] \U/npxmia/m/it/10.95 = [][] \U/npxsym/m/n/10.95 ¶ [][] \LMS/npxsy/m/n/10.95 Ï
+ []
+
+[19] [20] [21]
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 1132.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeus.fd
+File: uzeus.fd 2005/01/11 v4.0 (WaS)
+)
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 10.95pt on input line 1132.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1132.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 7.0pt on input line 1132.
+LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/zeur/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+LaTeX Font Info:    Font shape `U/euf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 1159.
+ [22]) [23]
 \tf@toc=\write7
 \openout7 = `_main.toc'.
 
- (./_main.aux (./normed-vec-spaces.aux))
+ (./_main.aux (./normed-spaces-algebras.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1900,21 +1948,21 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.64499pt have occurred.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 1A632DA3F52E2F1B3C82AAA0243C66E4;568.
+(rerunfilecheck)             Checksum: CDBA9E66388B617F24F988D0BE92654E;1020.
  ) 
 Here is how much of TeX's memory you used:
- 31793 strings out of 474116
- 564391 string characters out of 5743683
- 1949187 words of memory out of 5000000
- 53335 multiletter control sequences out of 15000+600000
- 663903 words of font info for 181 fonts, out of 8000000 for 9000
+ 32064 strings out of 474116
+ 569389 string characters out of 5743683
+ 1950187 words of memory out of 5000000
+ 53478 multiletter control sequences out of 15000+600000
+ 675462 words of font info for 209 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,29n,107p,1149b,1306s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb>
-Output written on _main.pdf (12 pages, 229760 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/wasy-type1/wasy10.pfb>
+Output written on _main.pdf (24 pages, 310156 bytes).
 PDF statistics:
- 372 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 167 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 504 compressed objects within 6 object streams
+ 277 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 
