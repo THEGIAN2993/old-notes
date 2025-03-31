@@ -1,0 +1,241 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{problem}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=unless unique,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\usepackage{pgf}
+
+\linespread{1}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Econ 272 \\[0.1in]Homework 4 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        Consider the population regression testing the relationship whether college GPA is affected by hours of studying. $\text{GPA}_i = \beta_0 + \beta_1 \text{Study}_i + \delta \bfX_i + \epsilon_i$. $\bfX$ refers to other controls in the regression. Upon estimation in the data, the $95\%$ confidence interval corresponding to $\beta_1$ is $(0.012,0.024)$. Assume you have $200$ degrees of freedom ($(n-k-1)=200$).
+            \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+                \item Can you reject the null hypothesis of $\beta_1 = 0$ at the $5\%$ level of significance in a $2$-sided test? What about the null hypothesis $\beta_1 = 0.02$ in a $2$-sided test? Justify your reasoning.
+                    {\color{blue} \begin{solution}
+                        Since $\beta_1 = 0$ is not within the interval $(0.012,0.024)$, we reject the null-hypothesis. Since $\beta_2 = 0.02$ is within the interval $(0.012,0.024)$, we fail to reject the null-hypothesis.
+                    \end{solution}}
+
+                \item Can you reject the null hypothesis of $\beta_1 = 0$ at the $1\%$ level significance in a $2$-sided test? What about the null hypothesis of $\beta_1 = 0$ at the $10\%$ level of significance in a $1$-sided test? Justify your reasoning and show any steps.
+                    {\color{blue} \begin{solution}
+                    \end{solution}}
+            \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        Consider the population regression testing the relationship whether college GPA is affected by hours of studying. $\text{GPA}_i = \beta_0 + \beta_1 \text{Study}_i + \delta \bfX_i + \epsilon_i$. $\bfX$ refers to other controls in the regression. Upon estimation in the data, $\widehat{\beta_1} = 0.025$ and the accompanying standard error is $\text{SE}(\widehat{\beta_1}) = 0.013$. Assume you have 200 degrees of freedom.
+            \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+                \item Can you reject the null hypothesis of $\beta_1 = 0$ in a two-sided test at the 10 percent level of significance?
+                    {\color{blue} \begin{solution}
+                        Our $t$-value is:
+                            \begin{equation*}
+                            \begin{split}
+                                t_k = \frac{\widehat{\beta_1}}{\text{SE}(\widehat{\beta_1})} = \frac{0.025}{0.013} \approx 1.923
+                            \end{split}
+                            \end{equation*}
+                        The critical value for a two-sided test with a $10\%$ level of significance is $t_c \approx 1.652$. Since $t_k > t_c$, we reject the null-hypothesis.
+                    \end{solution}}
+
+                \item Given the estimated coefficient and standard error, what is the minimum level of Type-1 error with which you can reject the null of $\beta_1 = 0$ in a two-sided test? What would be your answer if you were considering a one-sided test? (The alternate hypothesis being $\beta_1 > 0$) Your answer in both instances should be a probability.
+                    {\color{blue} \begin{solution}
+                        We can use $t_k$ from part (a). For a two-sided test, we have that $2P(T >|t_k|) \approx 0.056$, so the minimum level of Type-1 error is $5.6\%$. For a one-sided test, we have $P(T > t_k) \approx 0.028$, so the minimum level of Type-1 error is $2.8\%$.
+                    \end{solution}}
+
+                \item Can you reject the null hypothesis of $\beta_1 = 0.04$ at the 10 percent level in a two-sided test? What about a one-sided test? Show your steps.
+                    {\color{blue} \begin{solution}
+                        Our $t$-value is:
+                            \begin{equation*}
+                            \begin{split}
+                                t_k = \frac{\widehat{\beta_1} - \beta_1}{\text{SE}(\widehat{\beta_1})} = \frac{0.025 - 0.04}{0.013} \approx -1.154
+                            \end{split}
+                            \end{equation*}
+                        Using $t_c$ from part (a), since $|t_k| \not >  t_c$, we fail to reject the null-hypothesis. For a one-sided test, $t_c \approx 2.345$. Since $|t_k| > t_c$, we reject the null-hypothesis.
+                    \end{solution}}
+            \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        Use \textit{hw4data} for the following question. The data refers to manufacturing firms. A list of variable definitions are provided at the end of the problem set. Consider the population regression function:
+            \begin{equation*}
+            \begin{split}
+                \ln(\text{Output}_i) = \beta_0 + \beta_1 &\ln(\text{Wages}_i) + \beta_2 \ln(\text{Capital}_i) + \beta_3 \ln(\text{Materials}_i) \\
+                & + \beta_4 \text{Importer}_i + \beta_5 \text{Rural}_i + \beta_6 \text{Listed}_i + \beta_7 \text{Age}_i + \beta_8 \text{Age}^2_i + \epsilon_i
+            \end{split}
+            \end{equation*} 
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item How much additional output can a firm currently aged 5 years expect when it reaches the age of 10 years. How much additional output can a firm currently aged 50 years expect when it reaches the age of 55 years? (Note: you will first need to compute the natural log of output, wages paid, capital, and materials, and also generate the squared age variable).
+                {\color{blue} \begin{solution}
+                    From the regression, we found that $\widehat{\beta_7} = -0.0108897$ and $\widehat{\beta_8} = 0.0001206$. So we have:
+                        \begin{equation*}
+                        \begin{split}
+                            \Delta \widehat{\ln(\text{Output})_i} &= \bigl(\widehat{\beta_7}\cdot10 + \widehat{\beta_8}\cdot 10^2 \bigr) - \bigl(\widehat{\beta_7}\cdot5 + \widehat{\beta_8}\cdot 5^2 \bigr) = -.04540269,\\
+                            \Delta \widehat{\ln(\text{Output})_i} &= \bigl(\widehat{\beta_7}\cdot55 + \widehat{\beta_8}\cdot 55^2 \bigr) - \bigl(\widehat{\beta_7}\cdot50 + \widehat{\beta_8}\cdot 50^2 \bigr) = .00887165.
+                        \end{split}
+                        \end{equation*}
+                \end{solution}}
+
+            \item Based on your regression estimates, from what point can firm owners expect output to display an increasing relationship with age?
+                {\color{blue} \begin{solution}
+                    Consider:
+                        \begin{equation*}
+                        \begin{split}
+                            \frac{\partial \ln(\widehat{\text{Output}_i})}{\partial \text{Age}_i} = \beta_7 + 2\beta_8 \text{Age}_i = 0
+                        \end{split}
+                        \end{equation*}
+                        Solving for $\text{Age}_i$ gives:
+                            \begin{equation*}
+                            \begin{split}
+                                \text{Age}_i = -\frac{\beta_7}{2\beta_8}
+                            \end{split}
+                            \end{equation*}
+                        This will be a local-minimum, whence after age 45 firm owners can expect output to display an increasing relationship with age.
+                \end{solution}}
+
+            \item Based on your regression estimates, what will be the minimum Type-1 error you would need to tolerate to reject the null of $\beta_2 = 0.3$ using a two-sided test?
+                {\color{blue} \begin{solution}
+                    Our $t$-value is:
+                        \begin{equation*}
+                        \begin{split}
+                            t_{\widehat{\beta_2}} = \frac{\widehat{\beta_2} - \beta_2}{\text{SE}(\widehat{\beta_2})} = \frac{0.207 - 0.3}{0.006} \approx -15.5
+                        \end{split}
+                        \end{equation*}
+                    The probability that a Type-1 error occurs is basically 0.
+                \end{solution}}
+            
+            \item Based on your regression estimates, can you reject the null of $\beta_6 = -0.1$ at the $5\%$ level using a two-sided test?
+                {\color{blue} \begin{solution}
+                    Our $t$-value is:
+                        \begin{equation*}
+                        \begin{split}
+                            t_{\widehat{\beta_6}} = \frac{\widehat{\beta_6} - \beta_6}{\text{SE}(\widehat{\beta_6})} = \frac{-.0773319 + 0.1}{.0251632} \approx 0.9008
+                        \end{split}
+                        \end{equation*}
+                    At the $5\%$ level, the critical value is $t_c = 1.96$. Thus we fail to reject the null hypothesis.
+                \end{solution}}
+
+            \item Based on your regression estimates, test the null hypothesis of $\beta_1 + \beta_2 + \beta_3 = 1$. Can you reject the null hypothesis at the $5\%$ level of significance using a two-sided test? What about the $1\%$ level of significance?
+                {\color{blue} \begin{solution}
+                    Using the \textit{test} command in Stata gave $\text{Prob} > F = 0.0144$. So at the $5\%$ level of significance, we reject the null hypothesis. For the $1\%$ level of significance, we fail to reject the null hypothesis.
+                \end{solution}}
+            
+            \item Use an $F$-test to argue whether $\text{Age}_i$ and $\text{Age}_i^2$ should be a part of the population regression function.
+                {\color{blue} \begin{solution}
+                    The value Stata reported is very small. This means $\text{Age}_i$ and $\text{{Age}}_i^2$ are jointly statistically significant and should be included in the model.
+                \end{solution}}
+        \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\end{document}

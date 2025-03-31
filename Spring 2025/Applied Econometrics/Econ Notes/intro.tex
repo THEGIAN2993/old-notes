@@ -1,0 +1,110 @@
+\chapter{Statistics for the Working Economist}
+\pagenumbering{arabic}
+
+\section{Measurements}
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The large body of data that is the target of our interest is called the \textit{population}.
+            \item A subset selected from a given population is called a \textit{sample}.
+        \end{enumerate}
+    \end{definition}
+    
+    It is important to note that we cannot make any measurements based off of a given population \textemdash our only resource is making inferences based off of data gathered from a sample. For example, suppose we make $N$ observations $Y_1,...,Y_N$ from a given population and compute its mean:
+        \begin{equation*}
+        \begin{split}
+            \overline{Y} = \frac{1}{n} \sum_{i = 1}^N Y_i.
+        \end{split}
+        \end{equation*}
+    
+    The value $\overline{Y}$ is merely an \textit{approximation} or \textit{estimation} of what the true value of the population mean is. The population mean, typically denoted $\mu$, is an unknown constant which we can only estimate using information from a given sample. This leaves us with the following definition:
+    
+    \begin{definition}
+        An \textit{estimator} is a formula that tells how to calculate the value of an estimate based on the measurements contained in a sample.
+    \end{definition}
+
+    Typically, if $\theta$ is a fixed parameter from a population, we denote its estimator as $\widehat{\theta}$.
+
+\section{Linear Models}
+    In this chapter, we undertake a study of inferential procedures that can be used
+    when a random variable $Y$, called the \textit{dependent variable}, has a mean that is a function of one or more non-random variables $X_1,...,X_k$ called \textit{independent variables}.
+
+    \begin{definition}
+        A \textit{linear statistical model} relating a random response $Y$ to a set of independent variables $X_1,...,X_k$ is of the form:
+            \begin{equation*}
+            \begin{split}
+                Y = \beta_0 + \beta_1 X_1 + ... + \beta_k X_k + \epsilon,
+            \end{split}
+            \end{equation*}
+        where $\beta_0,...,\beta_k$ are unknown parameters, $\epsilon$ is a random variable, and the variables $X_1,...,X_k$ assume known values. We assume that $E[\epsilon] = 0$ and hence that:
+            \begin{equation*}
+            \begin{split}
+                E[Y] = \beta_0 + \beta_1 X_1 + ... + \beta_k X_k.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    The notation of our linear statistical model needs to be extended to include reference to the number of observations. Suppose that from our random response $Y$ we make $n$ independent observations $Y_1,...,Y_n$. We can write the observation $Y_i$ as:
+        \begin{equation*}
+        \begin{split}
+            Y_i = \beta_0 + \beta_1 X_{i,1} + ... + \beta_N X_{i,n} + \epsilon_i,
+        \end{split}
+        \end{equation*}
+    where $X_{i,j}$ is the $i^\text{th}$ observation of the $j^\text{th}$ independent variable and $\epsilon_i$ is the $i^\text{th}$ observation of the random variable. This is essentially a system of $n$ linear equations. Let:
+        \begin{equation*}
+        \begin{split}
+            \bfY = \bmat Y_1 \\ \vdots \\\ Y_n \emat, \h9 \bfX = \bmat X_1 \\ \vdots \\\ X_n \emat, \h9 \boldsymbol{\epsilon} = \bmat \epsilon_1 \\ \vdots \\\ \epsilon_n \emat, \h9 \boldsymbol{\beta} =\bmat \beta_1 \\ \vdots \\\ \beta_n \emat.
+        \end{split}
+        \end{equation*}
+    We can now express our linear statistical model as:
+        \begin{equation*}
+        \begin{split}
+            \bfY = \boldsymbol{\beta}\bfX + \boldsymbol{\epsilon}.
+        \end{split}
+        \end{equation*}
+    Note that if $\widehat{\boldsymbol{\beta}}$ is an estimator of $\boldsymbol{\beta}$, then $\widehat{\bfY} = \widehat{\boldsymbol{\beta}}\bfX + \boldsymbol{\epsilon}$ is an estimator for $E[\bfY]$. 
+
+    \begin{definition}
+        The \textit{sum of squares for errors} is:
+            \begin{equation*}
+            \begin{split}
+                \text{SSE} = \bfY^t \bfY - \boldsymbol{\beta}^t \bfX^t \bfY,
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{exercise}
+        Show that $\bfY^t \bfY - \boldsymbol{\beta}^t \bfX^t \bfY = \sum_{i = 1}^n (y_i - \widehat{y_i})^2$.
+    \end{exercise}
+
+\section{Method of Least Squares}
+    The least-squares procedure for fitting a line through a set of $n$ data points is similar to the method that we might use if we fit a line by eye; that is, we want the differences between the observed values and corresponding points on the fitted line to be “small” in some overall sense. A convenient way to accomplish this, and one that yields estimators with good properties, is to minimize the sum of squares of the vertical deviations from the fitted line:
+        \begin{equation*}
+        \begin{split}
+            \frac{\partial \text{SSE}}{\partial \widehat{\boldsymbol{\beta}}}
+            & = \bmat \frac{\partial \text{SSE}}{\partial \widehat{\beta_1}} \\ \vdots \\ \frac{\partial \text{SSE}}{\partial \widehat{\beta_n}} \emat = \mathbf{0}.
+        \end{split}
+        \end{equation*}
+    We will not show the full derivation of finding $\widehat{\boldsymbol{\beta}}$, as this is not used in practice often. Typically, one will use computational software such as Stata to compute linear regressions using the method of least-squares. Regardless, consider the following proposition for \textit{simple linear regression models}, which has merely one independent variable $X$.
+
+    \begin{proposition}
+        The least-squares estimators for simple linear regression models is given by:
+            \begin{equation*}
+            \begin{split}
+                \widehat{\beta_1} &= \frac{\sum_{i = 1}^n (X_i - \overline{X})(Y_i - \overline{Y})}{\sum_{i = 1}^n (X_i - \overline{X})^2} \\
+                \widehat{\beta_0} & = \overline{Y} - \widehat{\beta_1}\h2\overline{X}.
+            \end{split}
+            \end{equation*}
+    \end{proposition}
+    
+    \begin{exercise}
+        For a simple linear regression model, show that:
+        \begin{equation*}
+        \begin{split}
+            \widehat{\boldsymbol{\beta}} 
+             = (\bfX^t \bfX)^{-1}\bfX^{-1}\bfY = \bmat \frac{\sum_{i = 1}^n (X_i - \overline{X})(Y_i - \overline{Y})}{\sum_{i = 1}^n (X_i - \overline{X})^2} \\ \\ \overline{Y} - \widehat{\beta_1}\h2\overline{X} \emat.
+        \end{split}
+        \end{equation*}
+    \end{exercise}
+    
+

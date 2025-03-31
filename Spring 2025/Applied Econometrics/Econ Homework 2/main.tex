@@ -1,0 +1,157 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{problem}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=unless unique,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\usepackage{pgf}
+
+\linespread{1}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Econ 272 \\[0.1in]Homework 2 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        \phantom{a}
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item Given $\text{Output}_i = \beta_0 + \beta_1 \text{Worker}_i + \epsilon_i$, I believe that $\beta_1$ would be positive, as the actions of employees/workers will most definitely have an impact on manufacturing output.
+            \item After running the regression on Stata, I found that $\beta_1 = 9938.402$ and $R^2 = 0.1926$. From this, if a firm hires 10 additional workers, it can expect 99384.02 more manufacturing output. Since $R^2 = 0.1926$, it means workers alone only explain about 20\% of the manufacturing output.
+            \item The variance of the independent variable must have increased.
+            \item Since $\beta_1 = 1191.912$, a firm can now expect 11919.12 output if it hires 10 additional workers. This is much smaller than in part (b).
+            \item  The sample mean of workers is $293.7382$, and the sample mean of output is $\approx12,800,000$. Computing $10\cdot \frac{\beta_1}{\overline{\text{Output}}}$ gives $10 * \frac{1191.912}{12800000} = 0.00093118125$. From this, workers have a very small impact on manufacturing output.
+            \item Since $\text{Rural}_i$ is a binary variable, a firm can expect 590060.4 more output if it is located in a rural area.
+            \item Since $R^2$ has substantially increased from 0.1926 to 0.7392, and since the value of $\beta_1$ decreased, there are now less unaccounted-for factors which may alter the manufacturing output of a firm.
+        \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        \phantom{a}
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item After running the regression, I found that $\beta_1 = 0.0001171$. Since we took the natural log of output, our $\beta_1$ coefficient is now in percent change. If a firm hires 10 additional workers, they can expect a 0.1171\% increase in output.
+            \item Since $\beta_1 = .4225089$ and $\beta_2 = .302419$, hiring more workers will increase output more than investing in additional capital. This is because the percent change in hiring workers is greater than the percent change in investing in more capital.
+            \item The firms importing inputs now decrease output, as the coefficient for importer is $\beta_4 = -.0094044$.
+            \item After running the new regression we see that $\beta_5 = 0.33312$. This means that being in rural area results in a $3.3312\%$ increase in output.
+            \item Since $\beta_7 = -.0012363$, a firm which is 5 years older will have $(-.0012363)(5)(100) = -0.61815$ percent lower output.
+            \item Including $\text{Age}_i^2$ adds a non-linear effect of $\text{Age}_i$ on manufacturing output. If a firm is very young, they will have less output, but as the firms get older, they will begin to have more output.
+            \item I received a note that age1 was omitted because of collinearity. The coefficients for age2,age3, and age4 were $-0.620125$, $-.0612152$, and $-.1216812$ respectively. From this, we can see that age3 will have the lowest effect on output (as the others will decrease output more).
+        \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{question}
+        \phantom{a}
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item The sum of squares residuals is $8558.408$.
+            \item The sum of squares for the new regression is $11116.3$.
+            \item After running the regression, I found that $\beta_1 = .4225089$. This coefficient is almost identical to that of the one in problem 2b. The coefficients being almost the same demonstrates how multiple regressions "control for" other factors. The residuals from reach regression represent parts of the variables not explained by other factors. By regressing both of the residuals, we recover the same effect as if we had done a full multiple regression.
+        \end{enumerate}
+    \end{question}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

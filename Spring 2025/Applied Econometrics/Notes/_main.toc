@@ -1,4 +1,0 @@
-\contentsline {chapter}{Contents}{i}{section*.1}%
-\contentsline {chapter}{\chapternumberline {1}Statistics for the Working Economist}{ii}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Measurements}{ii}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Linear Models}{iii}{section.1.2}%

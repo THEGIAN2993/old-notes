@@ -16,6 +16,7 @@
 \DeclareMathOperator{\arith}{arith}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Be}{B}
+\DeclareMathOperator{\Bd}{Bd}
 \DeclareMathOperator{\card}{card}
 \DeclareMathOperator{\Char}{char}
 \DeclareMathOperator{\csp}{csp}
@@ -29,8 +30,10 @@
 \DeclareMathOperator{\Crys}{Crys}
 \DeclareMathOperator{\cusp}{cusp}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\diam}{diam}
 \DeclareMathOperator{\Dom}{Dom}
 \DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\dR}{dR}
 \DeclareMathOperator{\Eis}{Eis}
 \DeclareMathOperator{\End}{End}
@@ -74,6 +77,7 @@
 \DeclareMathOperator{\old}{old}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\Or}{O}
+\DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\PGL}{PGL}
 \DeclareMathOperator{\PGSp}{PGSp}
 \DeclareMathOperator{\rank}{rank}
@@ -145,7 +149,7 @@
 
 \renewcommand{\k}{\kappa}
 \newcommand{\Ff}{F_{f}}
-\newcommand{\ts}{\,^{t}\!}
+%\newcommand{\ts}{\,^{t}\!}
 
 
 %Mathcal
@@ -176,7 +180,6 @@
 \newcommand{\cX}{\mathcal{X}}
 \newcommand{\cY}{\mathcal{Y}}
 \newcommand{\cZ}{\mathcal{Z}}
-\newcommand{\ds}{\displaystyle}
 
 
 %mathfrak (missing \fi)
@@ -235,7 +238,6 @@
 
 
 %mathbf
-\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
 \newcommand{\bfC}{\mathbf{C}}
@@ -318,6 +320,7 @@
 \newcommand{\bbX}{\mathbb{X}}
 \newcommand{\bbY}{\mathbb{Y}}
 \newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\jota}{\jmath}
 
 \newcommand{\bmat}{\left( \begin{matrix}}
 \newcommand{\emat}{\end{matrix} \right)}
@@ -360,7 +363,6 @@
 
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
-\renewcommand{\int}{\varint}
 \newcommand{\midd}{\hspace{4pt}\middle|\hspace{4pt}}
     
     \newcommand{\bone}{\mathbf{1}}
@@ -411,6 +413,9 @@
 \newcommand{\lnorm}{\left\lVert}
 \newcommand{\rnorm}{\right\rVert}
 
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ts}{\textstyle}
+
 %This adds a "front cover" page.
 %{\thispagestyle{empty}
 %\vspace*{\fill}
@@ -424,3 +429,4 @@
 %\end{tabular}
 %\newpage
 
+\newcommand{\sfrac}[2]{{}^{#1}\mskip -5mu/\mskip -3mu_{#2}}

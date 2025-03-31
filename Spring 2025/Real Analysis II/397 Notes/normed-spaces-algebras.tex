@@ -230,7 +230,7 @@
                     \item $c = \{(a_k)_k \mid (a_k)_k \hspace{3pt}\text{converges}\hspace{2pt}\}$;
                     \item $c_0 = \{(a_k)_k \mid (a_k)_k \rightarrow 0\}$;
                     \item $c_{00} = \{(a_k)_k \mid \supp\bigl((a_k)_k\bigr) < \infty\}$;
-                    \item $\ell_1 = \left\{ (a_k)_k \mid \sum_{k = 1}^\infty |a_k| \hspace{3pt}\text{converges}\hspace{2pt} \right\}$.
+                    \item $\ell_1 = \left\{ (a_k)_k \mid \sum_{k = 1}^\infty |a_k| < \infty \right\}$.
                 \end{itemize}
             These are all vector spaces with pointwise operations. In fact, $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq s$ are all subspaces.
                 \begin{exercise}
@@ -812,7 +812,7 @@
                     f'(1) &= 0 \\
                     f'(t) &> 0 \mtext{for} t>1 \\
                     f'(t) &<0 \mtext{for} 0\leq t < 1,
- f65        qed';lkjhgfdsa                \end{split}
+                \end{split}
                 \end{equation*}
             we can see that $f(t) \geq 0$ for all $t \geq 0$.
         \end{proof}
@@ -978,21 +978,20 @@
                 \end{exercise}
         \end{enumerate}
     \end{example}
-
+\newpage
 \section{Inner Product Spaces}
-    Before defining what an inner product space is, we must introduce new terminology.
 
     \begin{definition}
         Let $V$ be a vector space over $F$ and $\varphi:V \times V \rightarrow F$ a map.
-            \begin{enumerate}[label = (\arabic*)]
+            \begin{enumerate}[label = (\arabic*),itemsep=0pt,topsep=3pt]
                 \item The map $\varphi$ is said to be a \textit{bilinear form} if is is linear in the first and second variable seperately; i.e., for all $v_1,v_2,v \in V$ and $c \in F$ we have:
-                    \begin{enumerate}[label = (\roman*)]
+                    \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=0pt]
                         \item $\varphi(cv_1 +v_2,v) = c\varphi(v_1,v) + \varphi(v_2,v)$
-                        \item $\varphi(v,cv_1 + v_2) = \varphi(v,v_1) + c\varphi(v,v_2)$.
+                        \item $\varphi(v,cv_1 + v_2) = c\varphi(v,v_1) + \varphi(v,v_2)$.
                     \end{enumerate}
 
                 \item The map $\varphi$ is said to be a \textit{sesquilinear form} if it is linear in the first variable and conjugate linear in the second variable; i.e., for all $v_1,v_2,v \in V$ and $c \in F$ we have:
-                    \begin{enumerate}[label = (\roman*)]
+                    \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=0pt]
                         \item $\varphi(cv_1 +v_2,v) = c\varphi(v_1,v) + \varphi(v_2,v)$
                         \item $\varphi(v,cv_1 + v_2) = \overline{c}\varphi(v,v_1) + \varphi(v,v_2)$.
                     \end{enumerate}
@@ -1002,14 +1001,14 @@
 
     \begin{definition}
         Let $V$ be a vector space over $F$.
-            \begin{enumerate}[label = (\arabic*)]
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
                 \item A bilinear form $\varphi$ on $V$ is said to be \textit{symmetric} if $\varphi(v,w) = \varphi(w,v)$ for all $v,w \in V$.
                 \item A sesquilinear form $\varphi$ on $V$ is said to be \textit{Hermitian} if $\varphi(v,w) = \overline{\varphi(w,v)}$ for all $v,w \in V$.
             \end{enumerate}
     \end{definition}
 
     \begin{definition}
-        Let $(V,\varphi)$ be a vector space over $F$ such that if $\varphi$ is symmetric, then $F = \bfR$ or if $\varphi$ is Hermitian, then $F = \bfC$. We say $\varphi$ is \textit{positive-definite} if for all nonzero $v \in V$ we have $\varphi(v,v) > 0$.
+        Let $(V,\varphi)$ be a vector space over $F$ such that if $\varphi$ is symmetric, then $F = \bfR$ or if $\varphi$ is Hermitian, then $F = \bfC$. We say $\varphi$ is \textit{positive-definite} if for all nonzero $v \in V$ we have $\varphi(v,v) \neq 0$.
     \end{definition}
 
     \begin{definition}
@@ -1026,9 +1025,7 @@
             \draw[thick] (2.6,0) -- (4.6,0);
         \end{tikzpicture}
     \end{center}
-
-    With that out of the way, we will now show that every inner product space induces a norm.
-
+    
     \begin{definition}
         If $V$ is an inner product space we define $\lnorm v \rnorm_2 = \langle v,v \rangle^\frac{1}{2}$.
     \end{definition}
@@ -1074,14 +1071,14 @@
         \end{center}
     \end{definition}
 
-    \begin{proposition}*
+    \begin{proposition}***
         Let $V$ be an inner product space and $w \in V$ a nonzero vector. Then $P_w(v) \bot v - P_w(v)$.
     \end{proposition}
         \begin{proof}
             
         \end{proof}
 
-    \begin{corollary}*
+    \begin{corollary}***
         Let $V$ be an inner product space and $w \in W$ a nonzero vector. Then $\lnorm v \rnorm_2^2 = \lnorm P_w(v) \rnorm_2^2 + \lnorm v - P_w(v) \rnorm_2^2$.
     \end{corollary}
         \begin{proof}

@@ -1,5 +1,5 @@
-\documentclass[11pt,twoside,openany]{memoir}
-\usepackage{mlmodern}
+\documentclass[10pt,twoside,openany]{memoir}
+%\usepackage{mlmodern}
 %\usepackage{tgpagella} % text only
 %\usepackage{mathpazo}  % math & text
 \usepackage[T1]{fontenc}
@@ -8,9 +8,10 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{mathtools}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
 %\usepackage{newpxtext}
-\usepackage{eulerpx}
-\usepackage{eucal}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
 \usepackage{datetime}
     \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
 \usepackage[margin=1.5in]{geometry}
@@ -18,8 +19,8 @@
     \fancyhf{}
     \pagestyle{fancy}
     \cfoot{\scriptsize \thepage}
-    \fancyhead[R]{\tiny \rightmark}
-    \fancyhead[L]{\tiny \leftmark}
+    \fancyhead[R]{\scalebox{0.7}{\rightmark}}
+    \fancyhead[L]{\scalebox{0.7}{\leftmark}}
 \usepackage{thmtools}
     \declaretheoremstyle[
         spaceabove=10pt,
@@ -91,15 +92,15 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
     \titleformat{\chapter}[display]
-    {\bfseries\LARGE\raggedright}
+    {\bfseries\Huge\raggedright}
     {Chapter {\thechapter}}
     {1ex minus .1ex}
-    {\Huge}
+    {\HUGE}
     \titlespacing{\chapter}
     {3pc}{*3}{40pt}[3pc]
 
     \titleformat{\section}[block]
-    {\normalfont\bfseries\Large}
+    {\normalfont\bfseries\LARGE}
     {\S\ \thesection.}{.5em}{}[]
     \titlespacing{\section}
     {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
@@ -107,8 +108,7 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{wasysym}
-
-\linespread{0.95}
+\linespread{1.00}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
@@ -121,5 +121,7 @@
     Last update: \today
 
     \include{normed-spaces-algebras}
+    \include{metrics}
+    \appendix
     %\include{sequences-in-r}
 \end{document}

@@ -1,0 +1,293 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\renewcommand{\int}{\varint}
+
+\linespread{0.95}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 397 \\[0.1in]Homework 2 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{4}
+    \begin{exercise}
+        Let $\lambda = (\lambda_k)_k$ belong to $\ell_\infty$. Show that the map:
+            \begin{equation*}
+            \begin{split}
+                D_\lambda: \ell_2 \rightarrow \ell_2 \mtext{defined by} D_\lambda((\xi_k)_k) = (\lambda_k \xi_k)_k
+            \end{split}
+            \end{equation*}
+        is well-defined, linear, and bounded with $\lnorm D_\lambda \rnorm_\text{op} = \lnorm \lambda \rnorm_\infty$.
+    \end{exercise}
+        \begin{proof}
+            Let $(x_k)_k,(y_k)_k \in \ell_2$ with $(x_k)_k = (y_k)_k$. Then $x_k = y_k$ for all $k \in \bfN$. We have:
+                \begin{equation*}
+                \begin{split}
+                    D_\lambda((x_k)_k)
+                    & = (\lambda_k x_k)_k \\
+                    & = (\lambda_k y_k)_k \\
+                    & = D_\lambda((y_k)_k).
+                \end{split}
+                \end{equation*}
+            Thus $D_\lambda$ is well-defined. Let $\alpha \in F$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    D_\lambda\Bigl((x_k)_k + \alpha(y_k)_k\Bigr) 
+                    & = D_\lambda \Bigl((x_k + \alpha y_k)_k \Bigr) \\
+                    & = \Bigl(\lambda_k (x_k + \alpha y_k)\Bigr)_k \\
+                    & = (\lambda_k x_k + \alpha \lambda_k y_k)_k \\
+                    & = D_\lambda((x_k)_k) + \alpha D_\lambda((y_k)_k).
+                \end{split}
+                \end{equation*}
+            Whence $D_\lambda$ is linear. It only remains to show that $D_\lambda$ is bounded. We have:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm D_\lambda \rnorm_\text{op}
+                    & = \sup_{(x_k)_k \in B_{\ell_2}} \lnorm (\lambda_k x_k)_k \rnorm_{\ell_2} \\
+                    & = \sup_{(x_k)_k \in B_{\ell_2}} \left( \sum_{k = 1}^\infty |\lambda_k x_k|^2 \right)^\frac{1}{2} \\
+                    & = \sup_{(x_k)_k \in B_{\ell_2}}\left( \sum_{k = 1}^\infty |\lambda_k|^2 |x_k|^2 \right)^\frac{1}{2} \\
+                    & \leq \sup_{(x_k)_k \in B_{\ell_2}}\left( \sum_{k = 1}^\infty \left( \sup_{i = 1}^\infty |\lambda_i| \right)^2 |x_k|^2 \right)^\frac{1}{2} \\
+                    & = \sup_{(x_k)_k \in B_{\ell_2}} \left( \sup_{i = 1}^\infty |\lambda_i| \cdot \left( \sum_{k = 1}^\infty |x_k|^2 \right)^\frac{1}{2} \right) \\
+                    & = \sup_{i = 1}^\infty |\lambda_i| \cdot \sup_{(x_k)_k \in B_{\ell_2}}\left( \sum_{k = 1}^\infty |x_k|^2 \right)^\frac{1}{2} \\
+                    & = \sup_{i = 1}^\infty |\lambda_i| \cdot \sup_{(x_k)_k \in B_{\ell_2}} \lnorm (x_k)_k \rnorm_{\ell_2} \\
+                    & \leq \sup_{i = 1}^\infty |\lambda_i| \cdot 1 \\
+                    & = \lnorm (\lambda_k)_k \rnorm_\infty < \infty.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Consider the vector space $C\bigl([0,2\pi]\bigr)$ equipped with the pairing:
+            \begin{equation*}
+            \begin{split}
+                \langle f,g \rangle := \frac{1}{2\pi}\int_0^{2\pi}f(t) \overline{g(t)}dt.
+            \end{split}
+            \end{equation*}
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item Show that this pairing defines an inner product on $C\bigl([0,2\pi]\bigr)$.
+                \item For $n \in \bfZ$ set $e_n(t):=\cos(nt) + i\sin(nt)$. Show that the family $\{e_n\}_{n \in \bfZ}$ is orthonormal.
+            \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            (1) We must first show that $\langle\cdot,\cdot \rangle$ defined as above is sesquilinear. We have:
+                \begin{equation*}
+                \begin{split}
+                    \langle f, g_1 + \alpha g_2 \rangle
+                    & = \frac{1}{2\pi} \int_0^{2\pi}f(t)\overline{(g_1 + \alpha g_2)(t)}dt \\
+                    & = \frac{1}{2\pi} \int_0^{2\pi} f(t)\overline{g_1(t)}dt + \frac{\overline{\alpha}}{2\pi} \int_0^{2\pi}f(t)\overline{g_2(t)}dt \\
+                    & = \langle f,g_1 \rangle + \overline{\alpha}\langle f,g_2 \rangle
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \langle f_1 + \alpha f_2,g \rangle
+                    & = \frac{1}{2\pi} \int_0^{2\pi}(f_1 + \alpha f_2)(t)\overline{g(t)}dt \\
+                    & = \frac{1}{2\pi} \int_0^{2\pi} f_1(t)\overline{g(t)}dt + \frac{\alpha}{2\pi} \int_0^{2\pi} f_2(t)\overline{g(t)}dt \\
+                    & = \langle f_1,g \rangle + \alpha \langle f_2,g \rangle.
+                \end{split}
+                \end{equation*}
+            The map $\langle \cdot, \cdot \rangle$ is Hermitian because:
+                \begin{equation*}
+                \begin{split}
+                    \overline{\langle g,f \rangle}
+                    & = \overline{\frac{1}{2\pi} \int_0^{2\pi}g(t)\overline{f(t)}dt} \\
+                    & = \frac{1}{2\pi} \int_0^{2\pi} \overline{g(t)}f(t)dt \\
+                    & = \langle f,g \rangle.
+                \end{split}
+                \end{equation*}
+            It remains to show that $\langle \cdot,\cdot \rangle$ is positive-definite. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \langle f,f \rangle
+                    & = \frac{1}{2\pi} \int_0^{2\pi}f(t)\overline{f(t)}dt \\
+                    & = \frac{1}{2\pi} \int_0^{2\pi} |f(t)|^2 dt \\
+                    & > 0.
+                \end{split}
+                \end{equation*}
+            Thus $\Bigl(C\bigl([0,2\pi]\bigr),\langle \cdot,\cdot \rangle\Bigr)$ is an inner product space.
+
+            (2) Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm e_n \rnorm_2 
+                    & = \langle e_n,e_n \rangle^\frac{1}{2} \\
+                    & = \left( \frac{1}{2\pi} \int_0^{2\pi}(\cos(nt) + i\sin(nt))(\cos(nt)-i\sin(nt))dt \right)^\frac{1}{2} \\
+                    & = \left( \frac{1}{2\pi}\int_0^{2\pi}(\cos^2(nt) + \sin^2(nt))dt \right)^\frac{1}{2} \\
+                    & = \left( \frac{1}{2\pi} \int_0^{2\pi}1 dt \right)^\frac{1}{2} \\
+                    & = 1.
+                \end{split}
+                \end{equation*}
+            Thus $\{e_n\}_{n \in \bfZ}$ is a family of unit vectors. We also have:
+                \begin{equation*}
+                \begin{split}
+                    \langle e_j,e_k \rangle
+                    & = \left( \frac{1}{2\pi} \int_0^{2\pi} \left( \cos(jt) + i\sin(jt) \right)\left( \cos(kt) + i\sin(kt) \right)dt \right) \\
+                    & = \left( \frac{1}{2\pi} \int_0^{2\pi} \left( \cos(jt)\cos(kt) + i\sin(jt)\cos(kt) - i\sin(kt)\cos(jt) + \sin(jt)\sin(kt) \right) dt \right) \\
+                    & = \left( \frac{1}{2\pi} \int_0^{2\pi} \left( \cos((j-k)t) + i\sin((j-k)t) \right) dt \right) \\
+                    & = \frac{1}{\sqrt{2\pi}} \cdot \frac{1}{j-k} \left( \sin((j-k)t) - i \cos((j-k)t) \Big|_0^{2\pi}\right) \\
+                    & = \frac{1}{\sqrt{2\pi}} \cdot \frac{1}{j-k} \left( -i + i \right) \\
+                    & = 0.
+                \end{split}
+                \end{equation*}
+            Thus the family $\{e_n\}_{n \in \bfZ}$ is orthonormal.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Let $V$ be any normed space, $p \in [1,\infty]$, and suppose $T: \ell_p^n \rightarrow V$ is linear. Show that $T$ is bounded.
+    \end{exercise}
+        \begin{proof}
+            Let $\fB = \{e_1,...,e_n\}$ be a basis for $\ell_p^n$ with $\lnorm e_i \rnorm_p = 1$ for all $i$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm T \rnorm_\text{op} 
+                    & = \sup_{v \in B_{\ell_p^n}} \lnorm T(v) \rnorm_p \\
+                    & = \sup_{e_i \in B_{\ell_p^n}} \lnorm \sum_{i = 1}^n \alpha_iT(e_i) \rnorm_p \\
+                    & \leq \sum_{i = 1}^n  |\alpha_i|\sup_{e_i \in B_{\ell_p^n}}\lnorm T(e_i) \rnorm_p \\
+                    & = \sum_{i = 1}^n  |\alpha_i|\max_{e_i \in B_{\ell_p^n}}\lnorm T(e_i) \rnorm_p \\
+                    & = \sum_{i = 1}^n |\alpha_i|\lnorm T(e_M) \rnorm_p \\
+                    & < \infty.
+                \end{split}
+                \end{equation*}
+            Thus $T$ is bounded.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{1}
+    \begin{exercise}
+        Let $V$ be an infinite-dimensional normed space. Show that there is a linear functional $\varphi:V \rightarrow F$ that is unbounded.
+    \end{exercise}
+        \begin{proof}
+            Let $\fB$ be a basis for $V$. Since the cardinality of $\fB$ is infinite, we have that $\bfN \hookrightarrow \fB$. Let $\{v_1,v_2,...\} \subseteq \fB$. Define $\varphi:\fB \rightarrow F$ by: 
+                \begin{equation*}
+                \begin{split}
+                    \varphi(v) = \begin{cases}
+                        n,& v \in \{v_1,v_2,...\} \\ 0, & v \not\in \{v_1,v_2,...\}
+                    \end{cases}
+                \end{split}
+                \end{equation*}
+            Since this is a map of basis elements, there exists a unique linear map $\varphi_F: V \rightarrow F$ with $\varphi_F(v) = \varphi(v)$ for all $v \in \fB$. Whence:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \varphi_F \rnorm_\text{op}
+                    & = \sup_{v \in B_V}\lnorm \varphi_F(v) \rnorm \\
+                    & \geq \sup_{n = 1}^\infty \lnorm \varphi_F(v_n) \rnorm \\
+                    & = \sup_{n = 1}^\infty n \\
+                    & = \infty.
+                \end{split}
+                \end{equation*}
+            Thus $\varphi_F:V \rightarrow F$ is unbounded.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

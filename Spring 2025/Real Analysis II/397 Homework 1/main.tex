@@ -108,6 +108,7 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{wasysym}
+\renewcommand{\int}{\varint}
 
 \linespread{0.95}
 \input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
@@ -137,10 +138,10 @@
                 If $V = \bigoplus_{i \in I}W_i$, show that every $v \in V$ has a unique expression $v = \sum_{i \in F}w_i$ where $F \subseteq I$ is finite and $0 \neq w_i$ for each $w_i \in W_i$.
             \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             (1) Let $U$ be a subspace of $V$ with $U \subseteq W_i$ for each $i \in I$. Then clearly $U \subseteq \bigcap_{i \in I}W_i$. \nl
 
-            \noindent (2) Let $W = \sum_{i \in I}W_i$ and let $U$ be a subspace of $V$ with $U \supseteq W_i$ for each $i \in I$. If $x \in W$, then $x = \sum_{i \in I}W_i$. But since $W_i$ is a subspace, it is closed under addition. Whence $x \in W_i$ for each $i \in I$. By inclusion then, $x \in U$. Hence $W \subseteq U$. \nl
+            \noindent (2) Let $W = \sum_{i \in I}W_i$ and let $U$ be a subspace of $V$ with $U \supseteq W_i$ for each $i \in I$. If $x \in W$, then $x = \sum_{i \in I}w_i$. But since $W_i$ is a subspace, it is closed under addition. Whence $x \in W_i$ for each $i \in I$. By inclusion then, $x \in U$. Hence $W \subseteq U$. \nl
 
             \noindent (3) By the definition of internal direct sums $V = \sum_{i \in I}W_i$, whence each $v \in V$ can be written as $v = \sum_{i \in F}w_i$. It remains to show that this expression is unique. Suppose $v = \sum_{i \in F}w_i = \sum_{i \in F}u_i$ with $w_i,u_i \in W_i$. For each $j$ we have:
                 \begin{equation*}
@@ -149,26 +150,21 @@
                 \end{split}
                 \end{equation*}
             But notice that $w_j - u_j \in W_j$ and $ \sum_{i \in F, i \neq j } (w_i - u_i) \in \sum_{i \neq j}W_i$. So $w_j - u_j \in W_j \cap \sum_{i \neq j}W_i$. By the definition of internal direct sums this gives $w_j - u_j = 0$, which simplifies to $w_j = u_j$. 
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{exercise}
-        
-    \end{exercise}
-        {\color{red} \begin{proof}
-            Suppose towards contradiction there exists $c \in \Span(S) \setminus \bigcap$...
-        \end{proof}}
+   \addtocounter{exercise}{1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%
     \begin{exercise}
         Let $V$ be a vector space with subspaces $W_i \subseteq V$ for $i = 1,2$. If $W_1 \cup W_2 \subseteq V$ is a subspace, show that $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Suppose towards contradiction $W_1 \not\subseteq W_2$ and $W_2 \not\subseteq W_1$. Then there exists $w_1 \in W_1 \setminus W_2$ and $w_2 \in W_2 \setminus W_1$. Let $v = w_1 + w_2$. Then $v \in W_1 \cup W_2$. But this means $w_2 = v - w_1 \in W_2$. Whence $w_1 \in W_2$, which is a contradiction.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $V$ be a vector space over $F$ and suppose $W \subset V$ is a subspace.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item Show that the quotient space $V/W = \{[v]_w \mid v \in V\}$ is a subspace with operations:
+            \item Show that the quotient space $V/W = \{[v]_w \mid v \in V\}$ is a vector space with operations:
                 \begin{equation*}
                 \begin{split}
                     [u]_W + [v]_W = [u + v]_W \h2 ; \h6 \alpha[v]_W = [\alpha v]_W.
@@ -183,7 +179,7 @@
         is a seminorm.
         \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             (1) Since $V$ is an abelian group and $W \subseteq V$ is normal, $V/W$ is an abelian group. It only remains to show that $\alpha[v]_W = [\alpha v]_W$ satisfies the vector space axioms. We have that:
                 \begin{equation*}
                 \begin{split}
@@ -249,7 +245,7 @@
                 \end{split}
                 \end{equation*}
             Thus $\lnorm \cdot \rnorm_{V/W}$ is a seminorm.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Show that the quantity:
@@ -260,7 +256,7 @@
             \end{equation*}
         defines a norm on $C([0,1])$ with $\lnorm f \rnorm_1 \leq \lnorm f \rnorm_u$. Are $\lnorm \cdot \rnorm_1$ and $\lnorm \cdot \rnorm_u$ equivalent norms?
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             $\lnorm \cdot \rnorm_1$ is homogenous because:
                 \begin{equation*}
                 \begin{split}
@@ -282,7 +278,192 @@
                     & = \lnorm f \rnorm_1 +\lnorm g \rnorm_1.
                 \end{split}
                 \end{equation*}
-            Whence our norm satisfies the triangle inequality.
-        \end{proof}}
+            Whence our norm satisfies the triangle inequality. Now suppose $\lnorm \cdot \rnorm_1 = 0$. Then $\int_0^1 |f(t)|dt = 0$. Suppose $f \geq 0$ on $[0,1]$. Since $f$ is continuous, it is continuous at $f(c)$ for some $c \in [0,1]$. If $f(c) > 0$, then there exists $\delta >0$ such that $f(t) \geq \frac{f(c)}{2} > 0$ for all $t \in V_\delta(c)$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    0  =\int_0^1 f(t)dt \geq \int_{c - \delta}^{c+\delta}f(t)dt \geq \int_{c-\delta}^{c+\delta}\frac{f(c)}{2} = f(c) > 0.
+                \end{split}
+                \end{equation*}
+            This is a contradiction. Since $c \in [0,1]$ was arbitrary, it must be that $f = 0$, satisfying positive-definiteness. Moreover, note that $|f(t)| \leq \sup_{t \in [0,1]}|f(t)|$. We have that $\int_0^1 |f(t)|dt \leq \int_0^1 \sup_{t \in [0,1]}|f(t)|dt$, which is equivalent to $\lnorm f \rnorm_1 \leq \int_0^1 \lnorm f \rnorm_u dt = \lnorm f \rnorm_u$.
+
+            Suppose that $\lnorm \cdot \rnorm_1$ and $\lnorm \cdot \rnorm_u$ are equivalent. Then $\lnorm f \rnorm_u \leq c \lnorm f \rnorm_1$. Consider $g(t) = t^N$, where $N > c$. Then:
+                \begin{equation*}
+                \begin{split}
+                    1 &= \sup_{t \in [0,1]}|t^N| \\
+                    & \leq \int_0^1 |t^N| dt \\ 
+                    & = \frac{c}{N} \\
+                    & < 1,
+                \end{split}
+                \end{equation*}
+            This is a contradiction, hence $\lnorm \cdot \rnorm_1$ and $\lnorm \cdot \rnorm_u$ are not equivalent.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that all the $p$-norms $\lnorm \cdot \rnorm_p$ ($1 \leq p \leq \infty$) on $F^n$ are equivalent and if $1 \leq p \leq q \leq \infty$, then $\ell_p \subseteq \ell_q$.
+    \end{exercise}
+        \begin{proof}
+            Let $x \in F^n$. We have that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm x \rnorm_p &= \left( \sum_{i = 1}^n |x_i|^p \right)^\frac{1}{p} 
+                     \leq \left( \sum_{i = 1}^n \left( \max_{i = 1}^n |x_i| \right)^p \right)^\frac{1}{p} 
+                     = \left( \sum_{i = 1}^n \lnorm x \rnorm_\infty ^p \right)^\frac{1}{p} 
+                     = n^p \lnorm x \rnorm_\infty.
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \lnorm x \rnorm_\infty = \left( \left( \max_{i = 1}^n |x_i| \right)^p \right)^\frac{1}{p} \leq \left( \sum_{i = 1}^n |x_i|^p \right)^\frac{1}{p} = \lnorm x \rnorm_p.
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \lnorm x \rnorm_\infty = \max_{i = 1}^n |x_i| \leq \sum_{i = 1}^n |x_i| = \lnorm x_i \rnorm_1.
+                \end{split}
+                \end{equation*}
+
+                \begin{equation*}
+                \begin{split}
+                    \lnorm x \rnorm_1 = \sum_{i = 1}^n |x_i| \leq \sum_{i = 1}^n \max_{i =1}^n |x_i| = n \max_{i = 1}^n |x_i| = n \lnorm x \rnorm_\infty.
+                \end{split}
+                \end{equation*}
+            From this, and since equivalent norms form an equivalence relation, all norms on $F^n$ are equivalent.
+
+            Suppose $p = 1$ and $q = \infty$. Let $(x_n)_n \in \ell_1$. Then clearly $\sup_{i=1}^\infty |x_i| \leq \sum_{i = 1}^\infty |x_i| < \infty$. Whence $\ell_1 \subseteq \ell_\infty$. Now suppose $p,q < \infty$ with $p \leq q$. Let $(x_n)_n \in \ell_p$. Then $\sum_{n = 1}^\infty |x_n|^p < \infty$. In particular, $(x_n)_n \rightarrow 0$, which implies that $(|x_n|)_n \rightarrow 0$. From this, there exists $K \in \bfN$ large such that for all $n \geq K$, we have $0 \leq x_n < 1$. It then follows that the tail $\sum_{n \geq K}|x_n|^p$ converges. Whence:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{n \geq K} |x_n|^q \leq \sum_{n \geq K}|x_n|^p < \infty.
+                \end{split}
+                \end{equation*}
+            Thus $\sum_{n = 1}^\infty |x_n|^q < \infty$, establishing that $(x_n)_n \in \ell_q$.
+
+
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $M_{m,n}(\bfC)$ denote the linear space of all $m \times n$ matrices with coefficients from $\bfC$. For $A \in M_{m,n}(\bfC)$, set:
+            \begin{equation*}
+            \begin{split}
+                \lnorm A \rnorm_\text{op} := \sup_{\xi \in B_{\ell_2^n}}\lnorm A \xi \rnorm_{\ell_2^m}.
+            \end{split}
+            \end{equation*}
+        Show that $\lnorm \cdot \rnorm_\text{op}$ is a norm on $M_{m,n}(\bfC)$.
+    \end{exercise}
+        \begin{proof}
+            Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \alpha A \rnorm_\text{op}
+                    & = \sup_{\xi \in B_{\ell_2^n}}\lnorm (\alpha A)\xi \rnorm_{\ell_2^n} \\
+                    & = \sup_{\xi \in B_{\ell_2^n}} \lnorm \alpha (A \xi) \rnorm_{\ell_2^n} \\
+                    & = |\alpha| \sup_{\xi \in B_{\ell_2^n}}\lnorm A \xi \rnorm_{\ell_2^n} \\
+                    & = \alpha \lnorm A \rnorm_\text{op}.
+                \end{split}
+                \end{equation*}
+            Thus $\lnorm \cdot \rnorm_\text{op}$ is homogenous. We also have:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm A + B \rnorm_\text{op}
+                    & = \sup_{\xi \in B_{\ell_2^n}}\lnorm (A + B)\xi \rnorm_{\ell_2^n} \\
+                    & = \sup_{\xi \in B_{\ell_2^n}}\lnorm A\xi + B\xi \rnorm_{\ell_2^n} \\
+                    & \leq \sup_{\xi \in B_{\ell_2^n}} \left( \lnorm  A \xi\rnorm_{\ell_2^n} + \lnorm B\xi \rnorm_{\ell_2^n} \right) \\
+                    & = \sup_{\xi \in B_{\ell_2^n}}\lnorm A\xi \rnorm_{\ell_2^n} + \sup_{\xi \in B_{\ell_2^n}}\lnorm B \xi\rnorm_{\ell_2^n} \\
+                    & = \lnorm A \rnorm_\text{op} + \lnorm B \rnorm_\text{op}. 
+                \end{split}
+                \end{equation*}
+            Hence $\lnorm \cdot \rnorm_\text{op}$ satisfies the triangle inequality. Now suppose $\lnorm A \rnorm_\text{op} = 0$. Then $\sup_{\xi \in B_{\ell_2^n}}\lnorm A\xi \rnorm_{\ell_2^n} = 0$. Since $\lnorm \cdot \rnorm_{\ell_2^n}$ is positive definite, the set $\{\lnorm A\xi \rnorm_{\ell_2^n} \mid \xi \in B_{\ell_2^n}\}$ must only contain positive real numbers. Whence if the supremum of this set equals $0$, it must be that $\lnorm A \xi \rnorm_{\ell_2^n} = 0$ for all $\xi \in B_{\ell_2^n}$. Again, by the positive-definiteness of $\lnorm \cdot \rnorm_{\ell_2^n}$, we have that $A\xi = 0$ for all $\xi \in B_{\ell_2^n}$. Whence $A = 0$. This gives that $\lnorm \cdot \rnorm_\text{op}$ is a norm.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \addtocounter{exercise}{2}
+    \begin{exercise}
+        Let $p$ be a semi-norm on a vector space $V$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Show that $N_p = \{w \in V \mid p(w) = 0\}$ is a subspace of $V$.
+            \item We form the quotient vector space $V/N_p$. Show that
+                \begin{equation*}
+                \begin{split}
+                    \lnorm [v]_{N_p} \rnorm_p := p(v)
+                \end{split}
+                \end{equation*}
+                defines a norm on $V/N_p$.
+            \item If $(E,\lnorm \cdot \rnorm)$ is a normed space and $T:V \rightarrow E$ is a linear map, show that $p(v) := \lnorm T(v) \rnorm$ is a semi-norm on $V$. In this case what is $N_p$?
+        \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            (1) Let $w_1,w_2 \in N_p$ and $\alpha \in F$. Then:
+                \begin{equation*}
+                \begin{split}
+                    p(w_1 + \alpha w_2) \leq p(w_1) + |\alpha|p(w_2) = 0.
+                \end{split}
+                \end{equation*}
+                Since $w_1 + \alpha w_2 \in N_p$, $N_p$ is a subspace.
+
+            (2) We must first show that $\lnorm \cdot \rnorm_p$ is well-defined. Let $[v_1]_{N_p} = [v_2]_{N_p}$. Then $v_1 = v_2 + w$ for some $w \in N_p$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm [v_1]_{N_p} \rnorm_p 
+                    & = p(v_1) \\
+                    & = p(v_1 + w) \\
+                    & \leq p(v_2) + p(w) \\
+                    & = p(v_2) \\
+                    & = \lnorm [v_2]_{N_p} \rnorm_p
+                \end{split}
+                \end{equation*}
+            So $\lnorm [v_1]_{N_p} \rnorm_p \leq \lnorm [v_2]_{N_p} \rnorm_p$. But note that we also have $v_2 = v_1 + w$ for some $w \in N_p$. This will give $\lnorm [v_2]_{N_p} \rnorm_p \leq \lnorm [v_1]_{N_p} \rnorm_p$, whence by antisymmetry $\lnorm [v_1]_{N_p} \rnorm_p = \lnorm [v_2]_{N_p} \rnorm_p$. Now let $\alpha \in F$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \alpha [v]_{N_p} \rnorm_p 
+                    & = \lnorm [\alpha v]_{N_p} \rnorm_p  \\
+                    & = p(\alpha v) \\
+                    & = |\alpha| p(v) \\
+                    & = |\alpha|\lnorm [v]_{N_p} \rnorm_p.
+                \end{split}
+                \end{equation*}
+            Thus $\lnorm \cdot \rnorm_p$ satisfies homogeneity. The triangle inequality is also satisfied because:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm [v]_{N_p} + [w]_{N_p} \rnorm_P
+                    & = \lnorm [v + w]_{N_p} \rnorm _p\\
+                    & = p(v+w) \\
+                    & \leq p(v) + p(w) \\
+                    & = \lnorm [v]_{N_p} \rnorm_p +\lnorm [w]_{N_p} \rnorm_p.
+                \end{split}
+                \end{equation*}
+            Suppose $\lnorm [v]_{N_p} \rnorm_p = 0$. Then $p(v) = 0$. But this means $v \in N_p$, whence $[v]_{N_p} = [0]_{N_p}$. Hence $\lnorm \cdot \rnorm_p$ is a norm.
+
+            (3) We have that:
+                \begin{equation*}
+                \begin{split}
+                    p(\alpha v)
+                    & = \lnorm T(\alpha v) \rnorm \\
+                    & = \lnorm \alpha T(v) \rnorm \\
+                    & = |\alpha| \lnorm T(v) \rnorm \\
+                    & = |\alpha| p(v).
+                \end{split}
+                \end{equation*}
+            Thus $p$ satisfies homogeneity. We also get:
+                \begin{equation*}
+                \begin{split}
+                    p(v+w)
+                    & = \lnorm T(v+w) \rnorm \\
+                    & = \lnorm T(v) + T(w) \rnorm \\
+                    & \leq \lnorm T(v) \rnorm + \lnorm T(w) \rnorm \\
+                    & = p(v) + p(w).
+                \end{split}
+                \end{equation*}
+            Thus $p$ is a semi-norm. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    N_p 
+                    & = \{v \in V \mid p(v) = 0\} \\
+                    & = \{v \in V \mid \lnorm T(v) \rnorm = 0\} \\
+                    & = \{v \in V \mid T(v) = 0\} \\
+                    & = \ker(T).
+                \end{split}
+                \end{equation*}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
