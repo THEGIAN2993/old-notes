@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {2.4}Convergent Sequences}{35}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Continuity}{39}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Completeness}{44}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Baire's Theorem}{58}{section.2.7}%

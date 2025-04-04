@@ -176,7 +176,7 @@
             \end{enumerate}
     \end{definition}
 
-    \begin{definition}
+    \begin{definition}\label{def:2.2.2}
         Let $(X,d)$ be a metric space.
             \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
                 \item Let $x_0 \in X$ and $\delta > 0$.
@@ -221,7 +221,7 @@
         Show that $\overline{A^c} = (A^o)^c$ and $\overline{A}^c = (A^c)^o$.
     \end{exercise}
 
-    \begin{proposition}
+    \begin{proposition}\label{prop:open-sets-topology}
         Let $(X,d)$ be a metric space. The open sets $\tau_X$ form a topology.
     \end{proposition}
         \begin{proof}
@@ -363,7 +363,7 @@
         If $N \subseteq X$ is closed, then $N$ is nowhere dense if and only if $N^c$ is dense.
     \end{exercise}
 
-    \begin{proposition}***
+    \begin{proposition}\label{prop:dense-properties}***
         Let $A \subseteq X$. The following are equivalent:
             \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
                 \item $A$ is dense;
@@ -1783,7 +1783,7 @@
             Thus $\limit_{x \rightarrow \infty}f(x) = 0$; i.e., $f \in C_0(\bfR)$. Since $C_0(\bfR) \subseteq C_b(\bfR)$ is closed, it is complete.
         \end{proof}
 
-    \begin{proposition}
+    \begin{proposition}\label{prop:bounded-ops-is-complete}
         Let $V$ be a normed space and $W$ a Banach space. $B(V,W)$ with $\lnorm \cdot \rnorm_{\op}$ is a Banach space.
     \end{proposition}
         \begin{proof}
@@ -2109,11 +2109,11 @@
             Define $g:i(X) \rightarrow Z$ by $g = f \circ i^{-1}$. Since $g$ is uniformly continuous and $i(X) \subseteq Z$ is dense, Theorem~\ref{thm:unif-cont-extension} says there exists a unique uniformly continuous map $\widetilde{f}:Z \rightarrow Y$. Clearly $\widetilde{f} \circ i = f$.
         \end{proof}
 
-    \begin{theorem}
-        Let $(V,\lnorm \cdot \rnorm)$ be a normed space. The metric space completion $\bigl((W,\rho),i\bigr)$ has the structure of a Banach space with $\rho(w_1,w_2) = \lnorm w_1 - w_2 \rnorm_W$.
+    \begin{theorem}***\label{thm:completion-of-norm}
+        Let $(V,\lnorm \cdot \rnorm)$ be a normed space. The completion of $V$ is a Banach space.
     \end{theorem}
         \begin{proof}
-            We have the first define what the vector space operations of $W$ are. Let $w \in W$ and $\alpha \in F$. We know there exists a sequence $(i(v_n))_n$ in $i(V)$ converging to $w$. Since this sequence is convergent, it is $\rho$-Cauchy. From the following:
+            Let $\bigl((W,\rho),i\bigr)$ be the completion of $V$. We must first verify that $W$ is a vector space. In doing so, we have to define what the vector space operations of $W$ are. Let $w \in W$ and $\alpha \in F$. We know there exists a sequence $(i(v_n))_n$ in $i(V)$ converging to $w$. Since this sequence is convergent, it is $\rho$-Cauchy. From the following:
                 \begin{equation*}
                 \begin{split}
                     \rho(i(\alpha v_n), i(\alpha v_m))
@@ -2122,7 +2122,7 @@
                     & = |\alpha| \rho(i(v_n),i(v_m)),
                 \end{split}
                 \end{equation*}
-            we can see $(i(\alpha v))_n$ is also $\rho$-Cauchy, whence it is convergent. Define scalar multiplication by $s:F \times W \rightarrow W$ with $s(\alpha,w) = \limit_{n \rightarrow \infty} i(\alpha v_n) := \alpha w$. We will first show that this action is well-defined. Let $(i(u_n))_n$ be another sequence in $i(V)$ converging to $w$. As above, we have:
+            we can see $(i(\alpha v))_n$ is also $\rho$-Cauchy, whence it is convergent. Define $s:F \times W \rightarrow W$ by $s(\alpha,w) = \limit_{n \rightarrow \infty} i(\alpha v_n) := \alpha w$. We will first show that this action is well-defined. Let $(i(u_n))_n$ be another sequence in $i(V)$ converging to $w$. As above, we have:
                 \begin{equation*}
                 \begin{split}
                     \rho(i(\alpha v_n), i(\alpha u_n))
@@ -2135,7 +2135,287 @@
                 \begin{equation*}
                 \begin{split}
                     \rho(i(\alpha u_n), \alpha w) 
-                    & \leq \rho(i(\alpha u_n))
+                    & \leq \rho(i(\alpha u_n), i(\alpha v_n)) + \rho(i(\alpha v_n),\alpha w) \\
+                    & \rightarrow 0.
                 \end{split}
                 \end{equation*}
+            Thus $(i(\alpha u_n))_n \rightarrow \alpha w$, meaning scalar multiplication is well-defined. Now let $w_1,w_2 \in W$. Let $(i(v_n))_n$ and $(i(u_n))_n$ be sequences in $i(V)$ converging respectively to $w_1$ and $w_2$. Since these sequences are convergent, they are $\rho$-Cauchy. From the fact that:
+                \begin{equation*}
+                \begin{split}
+                    \rho(i(v_n + u_n), i(v_m + u_m))
+                    & = \lnorm v_n + u_n - v_m - u_m \rnorm \\
+                    & \leq \lnorm v_n - v_m \rnorm + \lnorm u_n - u_m \rnorm \\
+                    & = \rho(i(v_n),i(v_m)) + \rho(i(u_n),i(u_m)),
+                \end{split}
+                \end{equation*}
+            we can see $(i(v_n + u_n))_n$ is also $\rho$-Cauchy, hence it is convergent. Define $a: W \times W \rightarrow W$ by $a(w_1,w_2) = \limit_{n \rightarrow \infty} i(v_n + u_n) := w_1 + w_2$. We will show this binary operation is well-defined. Let $(i(x_n))_n$ and $(i(y_n))_n$ be sequences in $i(V)$ also converging to $w_1$ and $w_2$ respectively. Note that:
+                \begin{equation*}
+                \begin{split}
+                    \rho(i(v_n + u_n), i(x_n + y_n))
+                    & = \lnorm v_n + u_n - x_n - y_n \rnorm \\
+                    & \leq \lnorm v_n - x_n \rnorm + \lnorm u_n - y_n \rnorm \\
+                    & = \rho(i(v_n),i(x_n)) + \rho(i(u_n),i(y_n)) \\
+                    & \leq \rho(i(v_n),w_1) + \rho(w_1,(x_n)) + \rho(i(u_n),w_2) + \rho(w_2,i(y_n)) \\
+                    & \rightarrow 0.
+                \end{split}
+                \end{equation*}
+            This gives:
+                \begin{equation*}
+                \begin{split}
+                    \rho(i(x_n + y_n), w_1 + w_2)
+                    & \leq \rho(i(x_n + y_n), i(v_n+u_n)) + \rho(i(v_n + u_n),w_1 + w_2) \\
+                    & \rightarrow 0.
+                \end{split}
+                \end{equation*}
+            Thus $(i(x_n + y_n))_n \rightarrow w_1 + w_2$, meaning vector addition is well-defined.
+
+            Before showing $W$ paired with the above operations is a vector space, we need to verify that the isometry $i:V \rightarrow W$ is linear. If $v,v' \in V$ and $\alpha \in F$, by taking $v_n = v$ and $u_n = v'$ for all $n\geq 1$, we can see that:
+                \begin{equation*}
+                \begin{split}
+                    i(v + \alpha v')
+                    & = \limit_{n \rightarrow \infty}i(v + \alpha v') \\
+                    & = i(v) + \alpha i(v').
+                \end{split}
+                \end{equation*}
+            With this fact, we can show that $W$ is a vector space \textemdash this is left as an exercise. Moreover, we have that $i(V) \subseteq W$ is a $\rho$-dense linear subspace\footnote{If $T:V \rightarrow W$ is injective, then $V \cong T(V)$}.
+
+            It remains to show that $W$ is a normed space. Exactly as before, if $w \in W$, we can find a sequence $(i(v_n))_n$ in $i(V)$ converging to $w$. Since this sequence is Cauchy, observe that:
+                \begin{equation*}
+                \begin{split}
+                    \Bigl| \lnorm v_n \rnorm - \lnorm v_m \rnorm \Bigr|
+                    & \leq \lnorm v_n - v_m \rnorm \\
+                    & = \rho(i(v_n),i(v_m)).
+                \end{split}
+                \end{equation*}
+            So $\bigl(\lnorm v_n \rnorm\bigr)_n$ is Cauchy, hence it is convergent. Define $\lnorm w \rnorm_W := \limit_{n \rightarrow \infty} \lnorm v_n \rnorm$. Showing this definition is well-defined, and that is satisfies the properties of a norm are left as an exercise.
         \end{proof}
+
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[thick] (0.3,0) -- (2.3,0);
+                \node at (2.39, 0) {$/\,$};
+                \node at (2.56, 0) {$/\,$};
+                \draw[thick] (2.6,0) -- (4.6,0);
+            \end{tikzpicture}
+        \end{center}
+
+    There is a softer proof of Theorem~\ref{thm:completion-of-norm}, but it requires heavier machinery. If $V$ is a vector space over $F$, recall that
+        \begin{equation*}
+        \begin{split}
+            V' = \{\varphi \mid \varphi:V \rightarrow F \h3\text{linear}\h1\}
+        \end{split}
+        \end{equation*}
+    is the linear space of all linear functionals on $V$. By Zorn's Lemma, $V' \neq \emptyset$. If $V$ is a normed space, then 
+        \begin{equation*}
+        \begin{split}
+            V^\ast = \{\varphi \in V' \mid \varphi \h3\text{continuous}\h1\}
+        \end{split}
+        \end{equation*}
+    is called the \textit{continuous dual space}. This is in fact a Banach space with norm $\lnorm \varphi \rnorm_{\op} = \sup_{v \in B_V}|\varphi(v)|$. However, is $V^\ast \neq \emptyset$?
+
+    \begin{theorem}[Hahn-Banach]
+        Let $V$ be a normed space. For any nonzero $v_0 \in V$, there is a $\varphi_{v_0} \in V^\ast$ with $\varphi_{v_0}(v_0) = \lnorm v_0 \rnorm$. Such a $\varphi_{v_0}$ is called a \textit{norming functional}.
+    \end{theorem}
+
+    \begin{corollary}
+        Let $V$ be a normed space and $v \in V$. Then $\lnorm v \rnorm = \sup_{\varphi \in B_{V^\ast}}|\varphi(v)|$.
+    \end{corollary}
+        \begin{proof}
+            If $\varphi \in B_{V^\ast}$, then $|\varphi(v)| \leq \lnorm \varphi \rnorm_{\op} \lnorm v \rnorm \leq \lnorm v \rnorm$. Choose $\varphi_v \in V^\ast$. Since $\varphi_v(v) = \lnorm v \rnorm$, we have $\sup_{v \in B_{V^\ast}}|\varphi(v)| \geq |\varphi_v(V)| = \lnorm v \rnorm$.
+        \end{proof}
+
+    \begin{corollary}
+        There is a linear isometry $V \hookrightarrow \left( V^\ast \right)^\ast$.
+    \end{corollary}
+        \begin{proof}
+            Let $v \in V$. Define $\widehat{v}:V^\ast \rightarrow F$ by $\varphi \mapsto \varphi(v)$. We can easily verify that $\widehat{v} \in (V^\ast)'$. By the above corollary:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \widehat{v} \rnorm
+                    & = \sup_{\varphi \in B_{V^\ast}}|\widehat{v}(\varphi)| \\
+                    & = \sup_{\varphi \in B_{V^\ast}}|\varphi(v)| \\
+                    & = \lnorm v \rnorm.
+                \end{split}
+                \end{equation*} 
+            Whence $\widehat{v} \in \left( V^\ast \right)^\ast$. Define $i_V:V \rightarrow \left( V^\ast \right)^\ast$ by $v \mapsto \widehat{v}$. Note that this is an isometry since $\lnorm i_V(v) \rnorm = \lnorm \widehat{v} \rnorm = \lnorm v \rnorm$. Given $v_1,v_2 \in V$, $c \in F$, and $\varphi \in V^\ast$ we can see:
+            \begin{equation*}
+            \begin{split}
+                i_V(v_1 + c v_2)(\varphi)
+                & = \widehat{v_1 + cv_2}(\varphi) \\
+                & = \varphi(v_1 + cv_2) \\
+                & = \varphi(v_1) + c \varphi(v_2) \\
+                & = \widehat{v_1}(\varphi) + c \widehat{v_2}(\varphi) \\
+                & = i_V(v_1)(\varphi) + c i_V(v_2)(\varphi).
+            \end{split}
+            \end{equation*}
+        Thus $i_V$ is linear.
+        \end{proof}
+
+    Using the tools above, we can now demonstrate in a cleaner way that the completion of any normed space forms a Banach space.
+
+    \begin{proof}[\protect{Alternative proof of Theorem~\ref{thm:completion-of-norm}}]
+        If $V$ is a normed space, then $\left( V^\ast \right)^\ast = B(V^\ast,F)$ is complete by Proposition~\ref{prop:bounded-ops-is-complete}. Then $\overline{i_V(V)}^{\lnorm \cdot \rnorm_{\op}} \subseteq \left( V^\ast \right)^\ast$ is complete by Proposition~\ref{prop:complete-iff-closed}. Clearly $i_V:V \rightarrow \overline{i_V(V)}^{\lnorm \cdot \rnorm_{\op}}$ is an isometry because $\overline{i_V(V)}^{\lnorm \cdot \rnorm_{\op}} \subseteq \left( V^\ast \right)^\ast$. Thus the completion of $V$ is  $\Bigl(\bigl(\overline{i_V(V)}^{\lnorm \cdot \rnorm_{\op}},\lnorm \cdot \rnorm_{\op}\bigr), i_V\Bigr)$
+    \end{proof}
+
+    \begin{lemma}
+        Let $T:V \rightarrow W$ be continuous and linear. There is an induced continous and linear map $T^\ast:W^\ast \rightarrow V^\ast$ with $T^\ast (\psi) = \psi \circ T$; i.e., the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    V \arrow[rd, "T^\ast(\psi)"'] \arrow[r, "T"] & W \arrow[d, "\psi"] \\
+                                                                 & F                  
+                    \end{tikzcd}
+            \end{center}
+    \end{lemma}
+        \begin{proof}
+            Let $\psi_1\,\psi_2 \in W^\ast$ and $\alpha \in F$. We have:
+                \begin{equation*}
+                \begin{split}
+                    T^\ast(\psi_1 + \alpha \psi_2)
+                    & = (\psi_1 + \alpha \psi_2) \circ T \\
+                    & = \psi_1 \circ T + \alpha (\psi_2 \circ T) \\
+                    & = T^\ast(\psi_1) + \alpha T^\ast(\psi_2).
+                \end{split}
+                \end{equation*}
+            Thus $T^\ast$ is linear. Moreover:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm T^\ast \rnorm_{\op}
+                    & = \sup_{\lnorm \psi \rnorm_{\op} \leq 1}\lnorm T^\ast(\psi) \rnorm_{\op} \\
+                    & = \sup_{\lnorm \psi \rnorm_{\op} \leq 1}\lnorm \psi \circ T \rnorm_{\op} \\
+                    & \leq \sup_{\lnorm \psi \rnorm_{\op} \leq 1}\left( \lnorm \psi \rnorm_{\op} \lnorm T \rnorm_{\op} \right)\\
+                    & = \lnorm T \rnorm_{\op} \cdot \sup_{\lnorm \psi \rnorm_{\op} \leq 1}\lnorm \psi \rnorm_{\op} \\
+                    & \leq \lnorm T \rnorm_{\op}.
+                \end{split}
+                \end{equation*}
+            Thus $T^\ast$ is continuous.
+        \end{proof}
+
+    \begin{theorem}
+        Let $V$ and $W$ be normed spaces with completions $\widetilde{V} = \overline{i_V(V)}$ and $\widetilde{W} = \overline{i_W(W)}$. If $T:V \rightarrow W$ is a continuous and linear map, there exists a unique continuous and linear map $\widetilde{T}:\widetilde{V} \rightarrow \widetilde{W}$ such that $\widetilde{T} \circ i_V = i_W \circ T$; i.e., the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    \widetilde{V} \arrow[r, "\widetilde{T}"] & \widetilde{W}       \\
+                    V \arrow[r, "T"'] \arrow[u, "i_V"]       & W \arrow[u, "i_W"']
+                    \end{tikzcd}
+            \end{center}
+    \end{theorem}
+        \begin{proof}
+            Since $T$ is continuous, we can induce the map $T^\ast:W^\ast \rightarrow V^\ast$ where $T^\ast(\psi) = \psi \circ T$. Since $T^\ast$ is continuous, we can induce the map $T^{\ast \ast}:V^{\ast \ast} \rightarrow W^{\ast \ast}$ where $T^{\ast \ast}(\xi) = \xi \circ T^\ast$. If $v \in V$ and $\psi \in V^\ast$, note that:
+                \begin{equation*}
+                \begin{split}
+                    (\widehat{v}\circ T^\ast)(\psi) 
+                    & = (T^\ast \circ \psi)(v) \\
+                    & = (\psi \circ T)(v) \\
+                    & = \widehat{T(v)}(\psi).
+                \end{split}
+                \end{equation*}
+            This allows us to show:
+                \begin{equation*}
+                \begin{split}
+                    T^{\ast \ast} \circ i_V(v)
+                    & = \widehat{v} \circ T^\ast \\
+                    & = \widehat{T(v)} \\
+                    & = i_W(T(v)).
+                \end{split}
+                \end{equation*}
+            Whence $T^{\ast \ast}(i_V(V)) \subseteq i_W(W)$. Since $T^{\ast \ast}$ is continuous:
+                \begin{equation*}
+                \begin{split}
+                    T^{\ast \ast}\left(\widetilde{V}\right)
+                    & = T^{\ast \ast}\left(\overline{i_V(V)}\right) \\
+                    & \subseteq \overline{T^{\ast \ast}(i_V(V))} \\
+                    & \subseteq \overline{i_W(W)} \\
+                    & = \widetilde{W}.
+                \end{split}
+                \end{equation*}
+            Thus $\restr{T^{\ast \ast}}{\widetilde{V}}: \widetilde{V} \rightarrow \widetilde{W}$ is the desired linear extension. We obtain the following diagram:
+                \begin{center}
+                    \begin{tikzcd}
+                        V^{\ast \ast} \arrow[r, "T^{\ast \ast}"]                                                        & W^{\ast \ast}                                   \\
+                        \widetilde{V} \arrow[u, phantom, sloped, "\subseteq"] \arrow[r, "\restr{T^{\ast\ast}}{\widetilde{V}}"] & \widetilde{W} \arrow[u, phantom, sloped, "\subseteq"] \\
+                        i_V(V) \arrow[u, phantom, sloped, "\subseteq"] \arrow[r, "\restr{T^{\ast}}{i_V(V)}"]                   & i_W(W) \arrow[u, phantom, sloped, "\subseteq"]        \\
+                        V \arrow[u, "i_V", hook] \arrow[r, "T"']                                                        & W \arrow[u, "i_W"', hook]                      
+                        \end{tikzcd}
+                \end{center}
+            
+        \end{proof}
+
+    \begin{exercise}
+        Show that $\lnorm \widetilde{T} \rnorm_{\op} = \lnorm T \rnorm_{\op}$.
+    \end{exercise}
+
+    \begin{definition}
+        If $V$ is a normed space and $i_V:V \rightarrow \left( V^\ast \right)^\ast$ is surjective, then $V$ is called \textit{reflexive}.
+    \end{definition}
+
+    \begin{example}
+        Hilbert spaces are reflexive by the Riesz representation theorem.
+    \end{example}
+
+\section{Baire's Theorem}
+
+Recall that $A \subseteq X$ is \textit{nowhere dense} if $\overline{A}^o = \emptyset$. For example, if $f:\bfR \rightarrow \bfR$ is any map, the set $\{(x,y) \in \bfR^2 \mid y = f(x)\}$ is nowhere dense.
+
+    \begin{proposition}\label{prop:nowhere-dense-properties}
+        For a metric space $(X,d)$ and $A \subseteq X$, the following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $A$ is nowhere dense;
+                \item There exists a closed subset $F \subseteq X$ such that $F^o = \emptyset$ and $F \supseteq A$;
+                \item There exists an open and dense subset $U \subseteq X$ such that $U \subseteq A^c$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            $(1)\Rightarrow(2)$ Take $F = \overline{A}$.
+
+            $(2)\Rightarrow(1)$ Let $F$ be such a set. Then $\overline{A} \subseteq \overline{F}$. So $\overline{A}^o \subseteq \overline{F}^o = \emptyset$.
+
+            $(2)\Rightarrow(3)$ Let $F$ be such a set. Let $U = F^c$. Then $\overline{U} = \overline{F^c} = (F^o)^c = \emptyset^c = X$. We also have $U = F^c \subseteq A^c$. 
+
+            $(3)\Rightarrow(2)$ Let $U$ be such a set. Take $F = U^c$. Then $F^o = (U^c)^o = (\overline{U})^c = X^c = \emptyset$. Also $F = U^c \supseteq (A^c)^c = A$.
+        \end{proof}
+
+    \begin{definition}
+        A point $x \in X$ is \textit{isolated} if there exists an $\epsilon > 0$ such that $U(x,\epsilon) = \{x\}$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $(X,d)$ be a metric space.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $A \subseteq X$ is nowhere dense and $B \subseteq A$, then $B$ is nowhere dense.
+            \item If $A \subseteq X$ is nowhere dense, then $\overline{A}$ is nowhere dense.
+            \item If $A_1,A_2,...,A_n$ are nowhere dense, then $\bigcup_{k = 1}^n A_k$ is nowhere dense.
+            \item If $X$ has no isolated points, then every finite subset is nowhere dense.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) If $B \subseteq A$ then $\overline{B} \subseteq \overline{A}$, so $(\overline{B})^o \subseteq (\overline{A})^o = \emptyset$.
+            
+            (2) Note that $\overline{A} = \overline{\overline{A}}$. So $(\overline{\overline{A}})^o = (\overline{A})^o = \emptyset$.
+
+            (3) We show this for $n=2$. Let $A_1$ and $A_2$ be nowhere dense. By Proposition~\ref{prop:nowhere-dense-properties}, $A_2^c \supseteq U_1$, where $U_1$ is open and dense. Similarly, $A_2^c \supseteq U_2$, where $U_2$ is open and dense. Then:
+                \begin{equation*}
+                \begin{split}
+                    (A_1 \cup A_2)^c 
+                    & = A_1^c \cap A_2^c \\
+                    & \supseteq U_1 \cap U_2.
+                \end{split}
+                \end{equation*}
+            Clearly $U_1 \cap U_2$ is open by Proposition~\ref{prop:open-sets-topology}. Claim: $U_1 \cap U_2$ is dense. Let $x \in X$ and $\epsilon > 0$. We'd like to show, by Proposition~\ref{prop:dense-properties}, that $(U_1 \cap U_2) \cap U(x,\epsilon) \neq \emptyset$. Since $U_1$ is dense, we know $U_1 \cap U(x,\epsilon) \neq \emptyset$. Let $z \in U_1 \cap U(x,\epsilon)$. Since $U_1 \cap U(x,\epsilon)$ is open, by Definition~\ref{def:2.2.2} there exists a $\delta > 0$ such that $U(z,\delta) \subseteq U_1 \cap U(x,\epsilon)$. Now since $U_2$ is dense, $U(z,\delta) \cap U_2 \neq \emptyset$. Therefore:
+                \begin{equation*}
+                \begin{split}
+                    \emptyset 
+                    & = U(z,\delta) \cap U_2 \\
+                    & \subseteq U(x,\epsilon) \cap (U_1 \cap U_2).
+                \end{split}
+                \end{equation*}
+            Thus $U_1 \cap U_2$ is dense.
+
+            (4) Since $X$ has no isolated points, $\{x\}$ is closed but not open. Then $(\overline{\{x\}})^o = \{x\}^o = \emptyset$. So $\{x\}$ is nowhere dense. By (3), any finite set $\{x_1,x_2,...,x_n\} = \{x_1\} \cup \{x_2\} \cup ... \cup \{x_n\}$ is nowhere dense.
+        \end{proof}
+
+    Note that $\bfQ$ is the \textit{countable} union of open nowhere dense sets, but $\bfQ$ is not nowhere dense. Regardless, there is something to be said about the union of countable dense sets.
+
+
+
+    
+    
