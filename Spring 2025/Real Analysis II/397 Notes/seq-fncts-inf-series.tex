@@ -1,0 +1,66 @@
+\chapter{Sequences of Functions and Series}
+
+Only Real Valued Functions
+
+\section{Sequences of Functions}
+    \begin{definition}
+        Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence of functions in $X^\Omega$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $(f_n)_n$ converges \textit{pointwise} to $f \in X^\Omega$ if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) : (\forall n \in \bfN)( n \geq N \implies d(f_n(x), f(x)) < \epsilon).
+                \end{split}
+                \end{equation*}
+
+            \item $(f_n)_n$ converges \textit{uniformly} to $f \in X^\Omega$ if:
+                \begin{equation*}
+                \begin{split}
+                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) : (\forall n \in \bfN)(\forall x \in \Omega)(n \geq N &\implies d(f_n(x), f(x)) < \epsilon).
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{theorem}
+        Let $(X,d)$ and $(Y,\rho)$ be metric spaces. If $(f_n)_n$ is a sequence of functions in $C(X,Y)$ which converges uniformly to $f:X \rightarrow Y$, then $f$ is continuous.
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $(f_n)_n$ converges uniformly to $f$, pick $N$ large so that $n \geq N$ implies $\rho(f_n(x),f(x)) < \frac{\epsilon}{3}$ for all $x \in X$. Let $c \in X$ be arbitrary. Since $f_N \in C(X,Y)$, there exists $\delta > 0$ such that $d(x,c) < \delta$ implies $\rho(f(x),f(c)) < \frac{\epsilon}{3}$. If $d(x,c) < \delta$, then:
+                \begin{equation*}
+                \begin{split}
+                    \rho(f(x),f(c)) 
+                    & \leq \rho(f(x),f_N(x)) + \rho(f_N(x),f_N(c)) + \rho(f_N(c),f(c)) \\
+                    & < \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in C(X,Y)$.
+        \end{proof}
+
+
+
+\section{Series of Functions}
+    For the remainder of this section assume $\Omega \subseteq \bfR$.
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $(f_n:\Omega \rightarrow \bfR)_n$ is a sequence of functions, the \textit{partial sums} $(s_n)_n$ of the infinite series $\sum f_n$ is defined for $x \in \Omega$ by:
+                \begin{equation*}
+                \begin{split}
+                    s_1(x) &:= f_1(x), \\
+                    s_2(x) &:= s_1(x) + f_2(x), \\
+                    &\vdots \\
+                    s_{n+1}(x) &:= s_n(x) + f_{n+1}(x).
+                \end{split}
+                \end{equation*}
+            If the sequence $(s_n)_n$ of functions converges to a function $f:\Omega \rightarrow \bfR$, we say that the infinite series of functions $\sum f_n$ \textit{converges} to $f$.
+
+            \item If the series $\sum \left| f_n(x) \right|$ converges for each $x \in \Omega$, we say that $\sum f_n$ is \textit{absolutely convergent} on $\Omega$.
+            \item If the sequence $(s_n)_n$ of partial sums is uniformly convergent on $\Omega$ to $f$, we say that $\sum f_n$ is \textit{uniformly convergent} on $\Omega$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{theorem}
+        If $f_n:\Omega \rightarrow \bfR$ is continuous for each $n \in \bfN$ and if $\sum f_n$ converges to $f$ uniformly on $\Omega$, then $f$ is continuous on $\Omega$.
+    \end{theorem}

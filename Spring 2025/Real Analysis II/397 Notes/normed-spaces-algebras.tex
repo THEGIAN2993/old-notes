@@ -160,8 +160,7 @@
                     \end{equation*}
             \end{enumerate}
     \end{definition}
-
-    \newpage
+    
     \begin{exercise}
         \phantom{a}
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
@@ -949,6 +948,30 @@
                 \end{split}
                 \end{equation*}
             We have that $\sum_{k = 1}^n |x_k + y_k|^p$ is increasing and bounded above by $(\lnorm (x_k)_k \rnorm_p + \lnorm (y_k)_k \rnorm_p)^p$. By the Monotone Convergence Theorem $\limit_{n \rightarrow \infty}\sum_{k = 1}^n |x_k + y_k|^p = \sum_{k = 1}^\infty |x_k + y_k|^p$ exists. Whence $\left( \sum_{k = 1}^\infty |x_k + y_k|^p \right)^\frac{1}{p}  = \lnorm (x_k)_k + (y_k)_k \rnorm_p \leq \lnorm (x_k)_k \rnorm_p + \lnorm (y_k)_k \rnorm_p$
+        \end{proof}
+
+    \begin{theorem}\label{thm:norms-equivalent}
+        All $p$-norms on $\ell_p^n$ are equivalent for $1 \leq p \leq \infty$.
+    \end{theorem}
+        \begin{proof}
+            Let $x \in \ell_p^n$. We have that:
+                \begin{equation*}
+                \begin{split}
+                    &\lnorm x \rnorm_p = \left( \sum_{i = 1}^n |x_i|^p \right)^\frac{1}{p} 
+                        \leq \left( \sum_{i = 1}^n \left( \max_{i = 1}^n |x_i| \right)^p \right)^\frac{1}{p} 
+                        = \left( \sum_{i = 1}^n \lnorm x \rnorm_\infty ^p \right)^\frac{1}{p} 
+                        = n^p \lnorm x \rnorm_\infty. \\
+                    &\phantom{a} \\
+                    &\lnorm x \rnorm_\infty = \left( \left( \max_{i = 1}^n |x_i| \right)^p \right)^\frac{1}{p} \leq \left( \sum_{i = 1}^n |x_i|^p \right)^\frac{1}{p} = \lnorm x \rnorm_p. \\
+                    &\phantom{a} \\
+                    &\lnorm x \rnorm_\infty = \max_{i = 1}^n |x_i| \leq \sum_{i = 1}^n |x_i| = \lnorm x_i \rnorm_1. \\
+                    &\phantom{a} \\
+                    &\lnorm x \rnorm_1 = \sum_{i = 1}^n |x_i| \leq \sum_{i = 1}^n \max_{i =1}^n |x_i| = n \max_{i = 1}^n |x_i| = n \lnorm x \rnorm_\infty.
+                \end{split}
+                \end{equation*}
+
+                
+            By transitivity, all norms on $\ell_p^n$ are equivalent.
         \end{proof}
 
     \begin{center}

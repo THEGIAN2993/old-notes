@@ -1,0 +1,246 @@
+\documentclass[12pt,reqno]{amsart}
+
+\usepackage[margin=1in]{geometry} % 1‑inch margins all around
+\usepackage{setspace}             % spacing control
+\doublespacing                    % turn on double‑spacing
+
+
+
+\usepackage{amssymb,latexsym,mathrsfs,amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{diagbox}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{arrows}
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{conjecture}[lemma]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{example}[lemma]{Example}
+\newtheorem{convention}[lemma]{Convention}
+\newtheorem{question}[lemma]{Question}
+
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros}
+
+\begin{document}
+
+
+\parindent1.5em
+\setlength\parskip{.1em}
+\thispagestyle{empty}
+\title{The Effect of Weather Shocks on Housing Prices in California Counties}
+\author[Gianluca Crescenzo]{Gianluca Crescenzo}
+%\subjclass[2020]{primary: 57K18; secondary: 57K10}
+%\keywords{Odd Khovanov homology, Steenrod square}
+
+\begin{abstract}
+Using California county data from 2010-2019, we investigate how year-to-year weather shocks shape local house prices. We've computed the temperature and precipitation $z$-scores to measure deviations in each year's weather patterns relative to a county's 1901-2000 climate, then merge them with Census median-price data and population controls found from California's Department of Finance. Two panel regressions are estimated \textemdash a baseline model and one which implements county and year fixed effects. We will also consider robust effects on our baseline model. Across all versions, unusually warmer years lead to a small rise in median prices, while precipitation shocks show no consistent effect. This is an example of a citation \cite{MR4117738}
+\end{abstract}
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+    \iffalse
+    (3/4 pages)
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item I should be able to stop reading your paper at the introduction and know all I need to know about the paper!
+        \item Introduction should contain brief information about your
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item research hypothesis
+                \item Data
+                \item dependent and independent variables
+                \item relevant controls
+                \item key results and magnitudes
+                \item major heterogeneuity textbackslash
+                \item concerns about omitted variables/other concerns you might want to flag.
+            \end{enumerate}
+        \item introduction should be a self-contained document
+        \item introduction must have a sharp research hypothesis
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item have 1/2 sentences about why this research hypothesis might be important
+            \end{enumerate}
+    \end{enumerate}
+    \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Background}
+    \iffalse
+    (1/2 pages)
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item basic information about your topic which you would like the reader to know and will help them understand your results
+    \end{enumerate}
+    \fi
+
+    We can formally measure temperature and precipitation shocks by computing $z$-scores of temperature and precipitation data. Let $\text{Temp}_{ct}$ denote the average temperature of county $c$ during year $t$ and $\overline{\text{Temp}_c}$ denote the historical average temperature of county $c$. The \textit{temperature $z$-score} is given by:
+        \begin{equation}\label{eq:z-score}
+        \begin{split}
+            z\text{Temp}_{ct} = \frac{\text{Temp}_{ct} - \overline{\text{Temp}_c}}{\sigma_{\text{Temp},c}},
+        \end{split}
+        \end{equation} 
+    where $\sigma_{\text{Temp},c}$ are the county-specific temperature standard deviations. The precipitation $z$-scores are defined similarly. Conceptually, Equation~\ref{eq:z-score} measures the number of standard deviations by which a county's average temperature/precipitation differs from its long-run historical mean. For example, if $z\text{Temp}_{ct} = 0$, the average temperature in county $c$ during year $t$ differs by $0$ standard deviations from the long-run historical average. Likewise, if $z\text{Precip}_{ct} = -1$, then the average precipitation in county $c$ during year $t$ differs by $-1$ standard deviations compared to the long-run historical average; i.e., it was an unusually dryer year.
+
+    *Given the purpose of this paper, there are many advantages in considering $z$-scores rather than raw temperature and precipitation values. The conversion of our data into $z$-scores allows us to express each year's weather data in units of a given county's historical volatility, hence a value of $z\text{Temp}_{ct} = +1$ is equally "unusual" regardless of the specified county. Moreover, the estimated coefficient on a $z$-score directly shows the effect of a one standard deviation change. As such, the computed estimators in this paper are easily interpretable as well as unit-free.*
+
+    Because these weather shocks are essentially random from the perspective of buyers and sellers, they give us a source of exogenous variation, that is, year-to-year swings in temperature and precipitation have no effect on local housing markets. This makes $z\text{Temp}_{ct}$ and $z\text{Precip}_{ct}$ valuable estimators for our regression, any predicted effect is less likely to be caused by any extraneous economic effect. In practice, a hot, dry year could raise cooling costs, effect construction schedules, or change the desirability of outdoor amenities. Likewise, volatility in weather patterns can be closely linked with violent crime, another factor which effects housing prices. *Note that our model merely describes a relationship between weather deviations and median housing prices. Based off the few examples given, we have no way of precisely knowing which channel weather shocks take to have an effect on housing prices.*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data}\label{sec:Data}
+    \iffalse
+    (2/3) pages
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item describe your data sources
+        \item describe your main dependent and independent variables
+        \item describe any major controls you might have
+        \item describe your summary statistics
+        \item any intersting figures you want to show?
+        \item measurement error?
+    \end{enumerate}
+    \fi
+
+    This paper uses panel data on California counties from 2010 to 2019. The main independent variables of this paper are the temperature and precipitation $z$-scores computed using Equation~\ref{eq:z-score}. The temperature and precipitation averages through January-December of a given year were found from the National Centers for Environmental Information. Average temperatures were given in $^{\circ}F$, whereas precipitation was measured in inches. Included in both data sets was the $1901-2000$ mean, which we used as the long-run historical average for Equation~\ref{eq:z-score}. We were able to find data on temperature and precipitation for all 58 counties in California.
+
+    The main dependent variable of this paper is county median housing prices. The data was sourced from the United States Census Bureau. The data only includes counties with populations greater than or equal to 65000, lowering the amount of observed counties from 58 to 39.
+
+    Including in the regression are the county population estimates and population density between the years of 2010 and 2019. The population data was readily available from the State of California's Department of Finance. Rather than finding a data set which contains the population density of each county, we've instead computed it directly using data on California counties land area found from \url{https://onlinecalifornia.us/countyarea.shtml}. Population and population densities are included in this model because of their correlation with housing prices and independence of weather patterns. Omitting them would bias the estimated effect of temperature and precipitation $z$-scores, hence their inclusion helps isolate the causal impact of weather shocks on housing prices.
+
+    \input{summary_stats}
+
+    Within the sample, San Bernadino County is the largest by land area (approximately 20053 square miles), whereas San Francisco County is the smallest (approximately 47 square miles) and most densely populated, at roughly 189000 residents per square mile. At the sparse end of the distribution, Mendocino County has the lowest population density at 22 residents per square mile, with an approximate population size of 87000.
+
+    The largest temperature $z$-score was measured from Santa Barbara County during 2014. In fact, when sorting the 390 samples by temperature deviations, the top fourteen $z$-scores were \textit{all} measured during 2014. The largest precipitation $z$-score was measured from Imperial County during 2010. The lowest precipitation $z$-score was measured from San Mateo County during 2013.
+
+    \begin{table*}
+        \includegraphics[scale=0.6]{avg_precip_temp_dev_year.png}
+    \end{table*}
+
+    County level data, especially in California, will inevitably hide price differences across neighborhoods in large counties. Los Angeles County, for example, spans Long Beach, Downtown L.A., Santa Clarita, and Lancaster \textemdash all of which have drastically different housing markets. Combining these into a single county-wide median will most definitely introduce measurement error, thus weakening the estimated weather effect of our model. A better approach for future work would be to consider ZIP-code level data on median housing prices and weather patterns. Moreover, similar measurement error may be attributed to the land-area data found from [ref]. Although it could be considered negligible, without knowing the accuracy or credibility of the website one can assume that any mis-measurement will be absorbed into the model's error term. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Empirical Strategy}\label{sec:emp-strat}
+    \iffalse
+    2 pages
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item Basic estimating equation
+        \item definition of your dependent and independent variables
+        \item key control variables
+        \item  a priori concerns about omitted variables
+        \item key omitted variables
+        \item equation for heterogeneity tests?
+        
+        -what are the fixed effects doing?
+        -what is it controlling for?
+        -what does that mean for bias (there will be NONE. estimators are unbiased!!!)?
+        -demonstrate an understanding of whats being done with the fixed effects
+    \end{enumerate}
+    \fi
+
+    This paper will be investigating two different estimating equations. Let $\text{Housing}_{ct}$ denote the median housing price in county $c$ during year $t$, $\text{Population}_{ct}$ the population of county $c$ during year $t$, and $\text{PopDensity}_{ct}$ the population density of county $c$ during year $t$. $z\text{Temp}_{ct}$ and $z\text{Precip}_{ct}$ will be defined as per Equation~\ref{eq:z-score}. Our baseline model is the following:
+        \begin{equation}\label{eq:reg1}
+        \begin{split}
+            \text{Housing}_{ct} = \beta_0 + \beta_1 z\text{Temp}_{ct} + \beta_2 z\text{Precip}_{ct} + \beta_3 \text{Population}_{ct} + \beta_4 + \text{PopDensity}_{ct} + \epsilon_{ct}.
+        \end{split}
+        \end{equation}
+
+    As we've briefly mentioned in Section~\ref{sec:Data}, we've included population and population density in the regression to increase the precision of $\beta_1$ and $\beta_2$, as well as curb any effect of omitted variable bias. Table 2 indicates that $\Cov(\text{Population}_{ct},z\text{Temp}_{ct})$ is non-zero with some statistical significance, suggesting that the exclusion of $\text{Population}_{ct}$ from our regression would have contributed to omitted variable bias. 
+
+    \input{corr_data}
+
+    Equation~\ref{eq:reg1} will give rise to concerns of omitted variable bias, the most drastic being the quality of education in a county. Good schools push local housing prices up, and hotter temperatures \textemdash an outcome of weather deviations \textemdash are known to be negatively correlated with education quality. Assuming $\text{EducationQuality}_{ct}$ is omitted from both Equation~\ref{eq:reg1} and Equation~\ref{eq:reg2}, and since $\Cov(\text{EducationQuality}_{ct}, \text{Housing}_{ct}) $ and $\Cov(\text{EducationQuality}_{ct}, z\text{Temp}_{ct})$ are both non-zero, omitted variable bias will occur. Section~\ref{sec:Results} contains the effects and direction of this bias in more detail.
+
+    *The most important result of this paper will be one which considers fixed effects. Let $\alpha_c$ denote the covariates which control for time-invariant effects in each county, and let $\delta_t$ denote the covariates which control for county-invariant effects each year between 2010 and 2019. Our regression in question is:*
+        \begin{equation}\label{eq:reg3}
+        \begin{split}
+            \text{Housing}_{ct} = \beta_0 + \beta_1z\text{Temp}_{ct} + \beta_2 z\text{Precip}_{ct} + \alpha_c + \delta_t + \epsilon_{ct}.
+        \end{split}
+        \end{equation}
+    Claim: $\beta_1$ and $\beta_2$ are \textit{unbiased} estimators. Suppose $X_{ct}$ is an omitted variable from Equation~\ref{eq:reg3}. It must be the case that it is neither a time nor county fixed effect; i.e., it is something that changes within a county over time, as well as differs across counties in a given year. It cannot be $z\text{Temp}_{ct}$ or $z\text{Precip}_{ct}$ as they are both included in the regression, and similarly it must be true that $\Cov(\text{Housing}_{ct},X_{ct}) \neq 0$, $\Cov(X_{ct},z\text{Temp}_{ct}) \neq 0$, and $\Cov(X_{ct},z\text{Precip}_{ct}) \neq 0$. But how can any covariate which changes within a county over time have an effect on weather deviations? How can any covariate which differs across counties in a given year have an effect on weather deviations? It must be the case that $\Cov(X_{ct},z\text{Temp}_{ct}) = \Cov(X_{ct},z\text{Precip}_{ct}) = 0$, giving that $X_{ct}$ is not an omitted variable. 
+
+    Note that the inclusion of county and year fixed effects in our regression will likely yield a high $R^2$ \textemdash we've effectively captured through $z\text{Temp}_{ct}$ and $z\text{Precip}_{ct}$ all the variance for our dependent variable.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+    \iffalse
+    5/6 pages
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item discuss your main findings
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item can you reject your null hypothesis?
+                \item what is the economic significant of your results? does the independent variable have a large or small impact on the outcome variable?
+            \end{enumerate}
+        \item omitted variable bias 
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item how stable are the results to adding controls? does the sign change if you add controls? if so, what does this mean about the direction of bias?
+                \item what are the other omitted variables which you can't control for?
+                \item how might these variables be affecting your results?
+            \end{enumerate}
+        \item robustness of results?
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item do your results change if you alter the sample?
+                \item do your results change if you include/exclude weights?
+                \item do your results change if you alter the dependent variable?
+            \end{enumerate}
+        \item interesting tests of heterogeneity?
+    \end{enumerate}
+    \fi
+
+    Our null-hypothesis for each of our regression equations is that temperature and precipitation do not affect median housing prices, which we denote as:
+        \begin{equation*}
+        \begin{split}
+            H_0: \beta_1,\beta_2 = 0,
+        \end{split}
+        \end{equation*}
+    A failure to reject this hypothesis would indicate that temperature and precipitation deviations do not have any effect on our outcome variable. Rejecting the null-hypothesis in favour of our alternate hypothesis:
+        \begin{equation*}
+        \begin{split}
+            H_a:\beta_1,\beta_2 \neq 0,
+        \end{split}
+        \end{equation*}
+    indicates that there is a relationship between weather deviations and median housing prices. 
+
+    \input{baseline_results.tex}
+    
+    In our baseline a model, a one standard deviation change in average temperatures raises county median house prices by 10.7\%, while a one standard deviation change in average precipitation results in a 9.1\% change in median house prices. Both coefficients are statistically significant at the $p < 0.001$ level, and as such we can reject the null-hypothesis that temperature and precipitation deviations do not have an effect on median housing prices. [talk about economic significance here]. Although statistically significant at the $p < 0.001$ level, county population and population has little to no effect on median housing prices. Excluding them results in a $\widehat{\beta_1} = 0.11894$ and $\widehat{\beta_2} = .0905279$, indicating that omitted variable bias regarding population and population density is not a concern.
+
+    \input{robust_results.tex}
+
+    For robust results we've considered dropping Los Angeles County in Equation~\ref{eq:reg1} as well as only considering coastline counties. For coastline counties, a $+1$ change in temperature $z$-scores raised median house prices by 11.4\%, a 0.7\% increase compared to our baseline regression. Similarly, a unit change in precipitation $z$-scores lead to a 7.7\% change in median house prices, a 1.3\% decrease compared to our baseline regression. Excluding Los Angeles from our regression resulted in a negligible change in our $\widehat{\beta_1}$ and $\widehat{\beta_2}$ coefficients, indicating that our results are not driven by that outlier county. Excluding coastline counties and/or dropping Los Angeles County from the regression resulting in statistically significant estimators at the $p<0.001$ level; i.e., we can reject the null-hypothesis that weather deviations do not affect median housing prices.
+
+    *We went into depth on the implications of county and year fixed effects on our model in Section~\ref{sec:emp-strat}, the most important being that, when included, results in our estimators $\beta_1$ and $\beta_2$ to be \textit{unbiased}. Any county-level covariate which is time-invariant \textemdash [examples] \textemdash would have been picked up by the fixed effects, meaning that our estimators for Equation~\ref{eq:reg1} are over-biased. The same is true for any covariate which gets picked up by year fixed effects. Our $\widehat{\beta_1}$ and $\widehat{\beta_2}$ estimators for Equaton~\ref{eq:reg3} can be considered negligible \textemdash a one standard deviation change in average temperatures leads to a 2.3\% increase in median housing prices, whilst a one standard deviation change in average precipitation leads to a 1.6\% increase in median housing prices. We are unable to reject the null hypothesis for $\widehat{\beta_1}$ at the $p<0.05$ level, while we can reject the null hypothesis for $\widehat{\beta_2}$ at the $p<0.01$ level. Every year, excluding 2014, was statistically significant at the $p<0.001$ level. This is quite surprising, as we mentioned in Section~\ref{sec:Data} that 2014 was an unusually warmer and dryer year compared to it's long-run historical average.
+
+    There are many reasons which indicate why our statistical significant disappears when including county and year fixed effects. Note that county fixed effects remove every time-invarait county trait, so all that is left for $\widehat{\beta_1}$ to estimate are year-to-year weather swings inside each county, which are much smaller
+    
+    There are many reasons as to why our statistical significance dropped when including county and year fixed effects. Note that county fixed effect remove every time-invariant county trait, so all that is left for $\widehat{\beta_1}$ to estimate are year-to-year weather changes inside each county, which are much smaller. Moreover, our $z$-score is defined against the 1901-2000 mean, but our data only ranges from 2010-2019. Within such a small range, the inclusion of fixef effects leaves out too little independent variation for the coefficient to remain statistically significant. 
+    
+    Ultimately, the inclusion of fixed effects was able to remove bias from omitted variables at the cost of statistical significance. With less variation in our regression equation, the estimated effect of $\widehat{\beta_1}$ is both smaller and \textemdash despite the standard error falling from 0.024 to 0.014 \textemdash no longer large enough relative to its standard error to reject at the $p < 0.05$ level.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\bibliography{KnotHomology}
+\bibliographystyle{amsalpha}
+
+\end{document}

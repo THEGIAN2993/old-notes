@@ -1,0 +1,431 @@
+\documentclass[11pt,twoside,openany]{memoir}
+%\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\renewcommand{\int}{\varint}
+
+\linespread{1}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 397 \\[0.1in]Homework 5 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that $C_0(\bfR)$ is a Banach space.
+    \end{exercise}
+        \begin{proof}
+            Note that $C_b(\bfR) \supseteq C_0(\bfR)$ is a Banach space. Let $(f_n)_n$ be a sequence in $C_0(\bfR)$ converging to $f \in C_b(\bfR)$. Let $\epsilon > 0$ and find $N$ large so that $\lnorm f - f_N \rnorm < \frac{\epsilon}{2}$. Since $f_N \in C_0(\bfR)$, find $M$ large so $|x| > M$ implies $|f_N(x)| < \frac{\epsilon}{2}$. For $|x| > M$ we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(x)|
+                    & = |f(x) - f_N(x) + f_N(x)| \\
+                    & \leq |f(x) - f_N(X)| + |f_N(x)| \\
+                    & \leq \lnorm f - f_N \rnorm + |f_N(x)| \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\limit_{|x| \rightarrow \infty} = 0$. Since $f \in C_0(\bfR)$, we have that $C_0(\bfR) \subseteq C_b(\bfR)$ is closed; i.e., it is complete.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Show that $\ell_2$ is a Hilbert space.
+    \end{exercise}
+        \begin{proof}
+            Let $(f_n)_n$ be $\lnorm \cdot \rnorm_{\ell_2}$-Cauchy. Let $\epsilon > 0$. Find $N_1$ large so $n,m \geq N_1$ implies $\lnorm f_n - f_m \rnorm_{\ell_2} < \epsilon$. Then:
+                \begin{equation*}
+                \begin{split}
+                    |f_n(k) - f_m(k)|
+                    & \leq \lnorm f_n - f_m \rnorm_{\ell_2} \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            So $(f_n(k))_n$ is Cauchy in $\bfC$. Since $\bfC$ is complete, define $f(k):= \limit_{n \rightarrow \infty} f_n(k)$. Claim: $f \in \ell_2$ and $\limit_{n \rightarrow \infty}f_n = f$. 
+            
+            We will first show that $f \in \ell_2$. Note that since $(f_n)_n$ is $\lnorm \cdot \rnorm_{\ell_2}$-Cauchy, it is bounded. For $K > 1$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j = 1}^K |f(j)|^2 
+                    & = \sum_{j = 1}^K \bigl|\limit_{n \rightarrow \infty}f_n(j)\bigr|^2 \\
+                    & = \limit_{n \rightarrow \infty} \sum_{j = 1}^K |f_n(j)|^2 \\
+                    & \leq \sup_{n \geq 1} \lnorm f_n \rnorm_{\ell_2}^2 \\
+                    & < \infty.
+                \end{split}
+                \end{equation*}
+            Since $\left( \sum_{j = 1}^K |f(j)|^2 \right)_K$ is increasing and bounded above, the Monotone Convergence Theorem says its limit exists. This means:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{K \rightarrow \infty}\sum_{j = 1}^K |f(j)|^2 
+                    & = \sum_{j = 1}^\infty |f(j)|^2 \\
+                    & = \lnorm f \rnorm^2_{\ell_2} \\
+                    & < \infty.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \ell_2$.
+
+            We will now show that $f$ is the limit of our Cauchy sequence. With the same epsilon as before, find $N_2$ large so that $n,m \geq N_2$ implies $\lnorm f_n - f_m \rnorm_2 < \frac{\epsilon^2}{2}$. Then:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j = 1}^K | f_n(j) - f_m(j)|
+                    & \leq \lnorm f_n - f_m \rnorm_{\ell_2}^2 \\
+                    & < \frac{\epsilon^2}{4}.
+                \end{split}
+                \end{equation*}
+            Taking the limit as $m \rightarrow \infty$ and considering all $n \geq N_2$ gives $\sum_{j = 1}^K |f_n(j) - f(j)| \leq \frac{\epsilon^2}{4}$. Taking the limit as $K \rightarrow \infty$ gives:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j = 1}^\infty |f_n(j) - f(j)|
+                    & = \lnorm f_n - f \rnorm_{\ell_2}^2 \\
+                    & \leq \frac{\epsilon^2}{4} \\
+                    & < \epsilon^2.
+                \end{split}
+                \end{equation*}
+            Square-rooting both sides establishes $(f_n)_n \rightarrow f$. Thus $\ell_2$ is a Banach space.
+
+            Define $\langle \cdot,\cdot \rangle: \ell_2 \times \ell_2 \rightarrow \bfC$ by $\langle f,g \rangle = \sum_{k = 1}^\infty f(j)\overline{g(j)}$. We must first verify that this series exists. Note that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j = 1}^K |f(j) \overline{g(j)}| 
+                    & = \sum_{j = 1}^K |f(j)||g(j)| \\
+                    & \leq \left( \sum_{j = 1}^K |f(j)|^2 \right)^\frac{1}{2}\left( \sum_{j = 1}^K |g(j)|^2 \right)^\frac{1}{2} \\
+                    & \leq \lnorm f \rnorm_{\ell_2} \lnorm g \rnorm_{\ell_2} \\
+                    & < \infty.
+                \end{split}
+                \end{equation*}
+            Since $\left( \sum_{j = 1}^K |f(j) \overline{g(j)}| \right)_K$ is increasing and bounded above, its limit exists by the Monotone Convergence Theorem. So $\sum_{j = 1}^\infty |f(j) \overline{g(j)}|$ converges. In particular, since $(\bfC, |\cdot|)$ is a Banach space, $\sum_{j = 1}^\infty f(j) \overline{g(j)}$ will converge.
+
+            Let $f,g_1,g_2 \in \ell_2$ and $\alpha \in \bfC$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \langle f, g_1 + \alpha g_2 \rangle
+                    & = \sum_{j=1}^\infty f(j) \overline{(g_1 + \alpha g_2)(j)} \\
+                    & = \sum_{j = 1}^\infty f(j)\overline{g_1(j)} + \overline{\alpha}\sum_{j = 1}^\infty f(j)\overline{g_2(j)} \\
+                    & = \langle f,g_1 \rangle + \overline{a}\langle f,g_2 \rangle.
+                \end{split}
+                \end{equation*}
+            Now let $f_1,f_2,g \in \ell_2$ and $\alpha \in \bfC$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \langle f_1 + \alpha f_2,g \rangle
+                    & = \sum_{j = 1}^\infty (f_1 + \alpha f_2)(j)\overline{g(j)} \\
+                    & = \sum_{j = 1}^\infty f_1(j)\overline{g(j)} + \alpha \sum_{j = 1}^\infty f_2(j)\overline{g(j)} \\
+                    & = \langle f_1,g \rangle + \alpha \langle f_2,g \rangle.
+                \end{split}
+                \end{equation*}
+            Thus $\langle \cdot,\cdot \rangle$ is a sesquilinear form. Moreover, we can see:
+                \begin{equation*}
+                \begin{split}
+                    \langle f,g \rangle
+                    & = \sum_{j = 1}^\infty f(j)\overline{g(j)} \\
+                    & = \overline{\sum_{j = 1}^\infty g(j)\overline{f(j)}} \\
+                    & = \overline{\langle g,f \rangle}.
+                \end{split}
+                \end{equation*}
+            Whence $\langle \cdot,\cdot \rangle$ is Hermitian. Finally, if $f \neq 0$, we have:
+                \begin{equation*}
+                \begin{split}
+                    \langle f,f \rangle 
+                    & = \sum_{j = 1}^\infty f(j)\overline{f(j)} \\
+                    & = \sum_{j = 1}^\infty |f(j)|^2 \\
+                    & > 0.
+                \end{split}
+                \end{equation*}
+            Thus $\langle \cdot,\cdot \rangle$ is positive definite, establishing it as an inner-product. Thus $\ell_2$ is a Hilbert space.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Suppose $(X,d)$ is a complete metric space and $(x_n)_n$ is a \textit{contractive} sequence in $X$, that is, there exists a $\theta \in (0,1)$ with $d(x_{n+1},x_n) \leq \theta d(x_n,x_{n-1})$. Show that $(x_n)_n$ is convergent.
+    \end{exercise}
+        \begin{proof}
+            Note that $d(x_{n+1},x_n) \leq \theta^{n-1}d(x_2,x_1)$. Without loss of generality, for $n>m$ we have:
+                \begin{equation*}
+                \begin{split}
+                    d(x_n,x_m)
+                    & \leq d(x_{n},x_{n-1}) + d(x_{n-1},x_m) \\
+                    & \vdots \\
+                    & \leq d(x_n,x_{n-1}) + d(x_{n-1},x_{n-2}) + ... + d(x_{m+1},x_m) \\
+                    & \leq \theta^{n-2}d(x_2,x_1) + \theta^{n-3}d(x_2,x_1) + ... + \theta^{m-1}d(x_2,x_1) \\
+                    & = (\theta^{n-m-1} + \theta^{n-m-2} + ... + 1)\theta^{m-1}d(x_2,x_1) \\
+                    & = \left( \frac{1 - \theta^{n-m}}{1 - \theta} \right)\theta^{m-1}d(x_2,x_1) \\
+                    & \leq \left( \frac{1}{1-\theta} \right)\theta^{m-1}d(x_2,x_1) \\
+                    & \rightarrow 0.
+                \end{split}
+                \end{equation*}
+            Thus $(x_n)_n$ is Cauchy. Since $(X,d)$ is complete, $(x_n)_n$ converges.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(X,d)$ be a complete metric space and suppose $f:X \rightarrow X$ is a contractive map; i.e., for all $x,y \in X$ there is a $\theta \in (0,1)$ with:
+            \begin{equation*}
+            \begin{split}
+                d(f(x),f(y)) \leq \theta d(x,y).
+            \end{split}
+            \end{equation*}
+        Prove that $f$ has a unique fixed point.
+    \end{exercise}
+        \begin{proof}
+            Define $(x_n)_n$ in $X$ by $x_n = f(x_{n-1})$. We can see:
+                \begin{equation*}
+                \begin{split}
+                    d(x_{n+1},x_n) 
+                    & = d(f(x_n),f(x_{n-1})) \\
+                    & \leq \theta d(x_n,x_{n-1}).
+                \end{split}
+                \end{equation*}
+            Thus $(x_n)_n$ is contractive. By Exercise 3, $(x_n)_n$ is convergent. Define $x := \limit_{n \rightarrow \infty }x_n$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    x 
+                    & = \limit_{n \rightarrow \infty}x_n \\
+                    & = \limit_{n \rightarrow \infty}f(x_{n-1}) \\
+                    & = f \left( \limit_{n \rightarrow \infty}x_{n-1} \right) \\
+                    & = f(x).
+                \end{split}
+                \end{equation*}
+            So $f$ admits a fixed point. Suppose $x' \in X$ is also a fixed point. Then:
+                \begin{equation*}
+                \begin{split}
+                    d(x,x')
+                    & =d(f(x),f(x')) \\
+                    & \leq \theta d(x,x').
+                \end{split}
+                \end{equation*}
+            Note that this only holds if $d(x,x') = 0$ Thus $x=x'$, establishing that $f$ admits a unique fixed point.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+\addtocounter{exercise}{1}
+    \begin{exercise}
+        Let $T:V \rightarrow W$ be a continuous linear map between normed spaces which is bounded below, that is, there is a $C>0$ with $\lnorm Tv \rnorm \geq C \lnorm v \rnorm$ for all $v \in V$. If $V$ is complete, show that $\Image(T) \subseteq W$ is a closed subspace, and that $V \cong \Image(T)$ are uniformly isomorphic.
+    \end{exercise}
+        \begin{proof}
+            Let $(T(v_n))_n$ be a sequence in $\Image(T)$ converging to $w \in W$. Given $\epsilon$, find $N$ large so that $n \geq M$ implies $\lnorm T(v_n)-w \rnorm < \frac{C\epsilon}{2}$. For $n,m \geq N$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm v_n - v_m \rnorm
+                    & \leq \frac{1}{C}\lnorm T(v_n - v_m) \rnorm \\
+                    & = \frac{1}{C}\lnorm T(v_n) - T(v_m) \rnorm \\
+                    & \leq \frac{1}{C}\lnorm T(v_n) - w \rnorm + \frac{1}{C}\lnorm w - T(v_m) \rnorm \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(v_n)_n$ is Cauchy. Since $V$ is complete, let $v_0 := \limit_{n \rightarrow \infty}v_n$. Since $T$ is continuous, we can see $(T(v_n))_n \rightarrow T(v_0)$. It must be the case that $T(v_0) = w$; i.e., $w \in \Image(T)$. Thus $\Image(T)$ is a closed subspace.
+
+            Since $T$ is continuous, there exists some $\alpha > 0$ such that $\lnorm Tv \rnorm \leq \alpha \lnorm  v \rnorm$. Clearly if $v = 0$, then $Tv = 0$, implying that $T$ is injective. Whence $V \cong \Image(T)$ as vector spaces. Since $T$ is continuous, it is uniformly continuous, so it remains to show that $T^{-1}:\Image(T) \rightarrow V$ (which exists) is also continuous. Let $w \in \Image(T)$, then there exists $v \in V$ with $T(v) = w$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm T^{-1} w \rnorm
+                    & = \lnorm T^{-1}(T(v)) \rnorm \\
+                    & = \lnorm v \rnorm \\
+                    & \leq \frac{1}{C}\lnorm Tv \rnorm \\
+                    & = \frac{1}{C}\lnorm w \rnorm.
+                \end{split}
+                \end{equation*}
+            Thus $T$ is uniformism.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(X,d)$ and $(Y,\rho)$ be metric spaces with completions $(\widetilde{X},\iota_X)$ and $(\widetilde{Y},\iota_Y)$ respectively. If $f:X \rightarrow Y$ is an isometry, show that there is a unique isometry $\widetilde{f}:\widetilde{X} \rightarrow \widetilde{Y}$ that extends $f$, that is, the following diagram commutes:
+            \begin{center}
+                \begin{tikzcd}
+                    \widetilde{X} \arrow[r, "\widetilde{f}"] & \widetilde{Y}           \\
+                    X \arrow[r, "f"] \arrow[u, "\iota_x"]    & Y \arrow[u, "\iota_y"']
+                    \end{tikzcd}
+            \end{center}
+    \end{exercise}
+        \begin{proof}
+            Define $\varphi:\iota(X) \rightarrow \widetilde{Y}$ by $\varphi(\iota(x)) = \iota_Y(f(x))$. Since $f$ and $\iota_Y$ are isometries, note that their composition $\iota_Y \circ f$ is also an isometry. This gives:
+                \begin{equation*}
+                \begin{split}
+                    \rho(\varphi(\iota_X(x_1)),\varphi(\iota_X(x_2)))
+                    & = \rho(\iota_Y(f(x_1)),\iota_Y(f(x_2))) \\
+                    & = d(x_1,x_2).
+                \end{split}
+                \end{equation*}
+            Since $\varphi$ is an isometry,  the unique uniformly continuous extension $\widetilde{f}:\widetilde{X} \rightarrow \widetilde{Y}$ is also an isometry.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Let $V$ be a normed space, $W$ a Banach space, and $U \subseteq V$ a dense linear subspace. Moreover, let $T_0:U \rightarrow W$ be a bounded linear map. Show that there is a unique bounded linear map $T:V \rightarrow W$ that extends $T_0$, that is, $\restr{T}{U} = T_0$.
+    \end{exercise}
+        \begin{proof}
+            Clearly $V$ is a metric space, $U\subseteq V$ is a dense subset, and $W$ is a complete metric space. So there exists a uniformly continuous map $T:V \rightarrow W$ with $T(v) = T_0(v)$ for all $v \in U$. Hence we only need to show $T$ is linear and bounded. Let $v,v' \in V$ and $\alpha \in F$. Let $(x_n)_n$ and $(y_n)_n$ be sequences in $U$ with $(x_n)_n \rightarrow v$ and $(y_n)_n \rightarrow v'$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    T(v + \alpha v')
+                    & = \limit_{n \rightarrow \infty} T_0(x_n + \alpha y_n) \\
+                    & = \limit_{n \rightarrow \infty} T_0(x_n) + \alpha \limit_{n \rightarrow \infty} T_0(y_n) \\
+                    & = T(v) + \alpha T(v').
+                \end{split}
+                \end{equation*}
+            Thus $T$ is linear. To show $T$ is bounded, it suffices to show $\lnorm T \rnorm_{\op} = \lnorm T_0 \rnorm_{\op}$, since $T_0$ is bounded. Note that the composition $V \xrightarrow{\h6T\h6} W \xrightarrow{\lnorm \cdot \rnorm_W} F$ will be continuous and bounded, which means:
+                \begin{equation*}
+                \begin{split}
+                   \lnorm T \rnorm_{\op} 
+                   & = \sup_{v \in B_V}\lnorm T(v) \rnorm_W \\
+                   & = \sup_{v \in B_U}\lnorm T(v) \rnorm_W \\
+                   & = \sup_{v \in B_U}\lnorm T_0(v) \rnorm_W \\
+                   & = \lnorm T_0 \rnorm_{\op}.
+                \end{split}
+                \end{equation*}
+            Thus $T \in B(V,W)$.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $X$ be a metric space. Show that the following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item Every meager set has empty interior.
+                \item The complement of a meager set is dense.
+            \end{enumerate}
+        Moreover, show that these equivalent statements hold true if the metric space is complete.
+    \end{exercise}
+        \begin{proof}
+            If $A \subseteq X$ is meager with $A^0 = \emptyset$, then $\overline{A^c} = (A^o)^c = \emptyset^c = X$. The converse is identical.
+
+            Now suppose $X$ is a complete metric space. If $A \subseteq X$ is meager, then $A = \bigcup_{n \geq 1}A_n$ We will show that the complement of $A$ is dense. Clearly $\overline{\bigcap_{n \geq 1}A_n^c} \subseteq X$, so it remains to show the other direction of inclusion. Define $B_n = \overline{A_n}$. Clearly $A_n \subseteq B_n$, which implies that $A_n^c \supseteq B_n^c$ for each $n$. Whence $\bigcap_{n \geq 1}A_n^c \supseteq \bigcap_{n \geq 1}B_n^c$. Furthermore, $\overline{\bigcap_{n \geq 1}A_n^c} \supseteq \overline{\bigcap_{n \geq 1}B_n^c}$. Note that each $B_n^c$ is open and dense, so by Baire's theorem we have $\overline{\bigcap_{n \geq 1}B_n^c} = X$. Thus $\overline{\left(\bigcup_{n \geq 1}A_n\right)^c} = X$. Since (1) and (2) are equivalent, we've established that both statements hold true if $X$ is a complete metric space.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \newpage
+    \begin{exercise}
+        Let $V$ be a normed space with linear basis $B$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $W \subseteq V$ is a proper subspace, show that $W^o = \emptyset$.
+            \item If $V$ is a Banach space, show that $B$ is uncountable. You may use the fact that finite-dimensional subspaces are always closed.
+        \end{enumerate}
+    \end{exercise}
+        \begin{proof}
+            Suppose towards contradiction that $W^o \neq \emptyset$. Then we can find some $v_0 \in W^o$. In particular, there exists $\delta > 0$ such that $U(v_0,\delta) \subseteq W$. Let $v \in V$. We can see that $\frac{\delta}{2}\frac{v}{\lnorm v \rnorm} +v_0 \in U(v_0,\delta) \subseteq W$, so for some $w \in W$ we have:
+                \begin{equation*}
+                \begin{split}
+                    \frac{\delta}{2}\frac{v}{\lnorm v \rnorm} +v_0 = w.
+                \end{split}
+                \end{equation*}
+            Solving for $v$ yields $v = \lnorm v \rnorm\frac{2}{\delta}(w - v_0)$. But $\lnorm v \rnorm\frac{2}{\delta}(w - v_0) \in W$, so $v \in W$, which contradicts $W \subseteq V$ being a proper subspace. Thus $W^o = \emptyset$.
+            
+
+            Suppose towards contradiction $B$ is countable, that is, $B = \{e_n \mid n \geq 1\}$. Then:
+                \begin{equation*}
+                \begin{split}
+                    V
+                    & = \Span \{e_n \mid n \geq 1\} \\
+                    & = \bigcup_{n \geq 1}\Span\{e_1,...,e_n\}.
+                \end{split}
+                \end{equation*}
+            Note that $\Span\{e_1,...,e_n\}$ is a finite \textit{and} proper subspace of $V$. This means $\overline{\Span\{e_1,e_2,...,e_n\}}^o = \emptyset$. But this contradicts Baire's theorem, since we've written $V$ \textemdash a complete normed space\textemdash as the countable union of nowhere dense sets. It must be the case that $B$ is uncountable.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

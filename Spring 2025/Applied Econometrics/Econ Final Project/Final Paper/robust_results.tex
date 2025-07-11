@@ -1,0 +1,47 @@
+{
+\begin{table}[htbp]\centering\label{table:main_panel_results}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Robust Results}
+\begin{tabular}{l*{3}{c}}
+    \hline\hline
+ \scalebox{0.9}{Dependent variable is the}                   &\multicolumn{1}{c}{(1) Coastline }&\multicolumn{1}{c}{(2) Exclude}&\multicolumn{1}{c}{(3) County \& Year}\\
+\scalebox{0.9}{log of median house prices}                    &\multicolumn{1}{c}{Counties}&\multicolumn{1}{c}{Los Angeles}&\multicolumn{1}{c}{Fixed Effects}\\
+                    \hline
+Temperature $z$-score           &       0.114\sym{***}&       0.101\sym{***}&       0.023         \\
+                                &     (0.024)         &     (0.024)         &     (0.014)         \\
+Precipitation $z$-score         &       0.077\sym{***}&       0.090\sym{***}&       0.016\sym{**} \\
+                                &     (0.025)         &     (0.026)         &     (0.007)         \\
+County Population               &       0.000\sym{***}&       0.000\sym{***}&        \\
+                                &     (0.000)         &     (0.000)         &              \\
+County Population Density       &       0.000\sym{***}&       0.000\sym{***}&         \\
+                                &     (0.000)         &     (0.000)         &              \\
+Year=2010                       &                     &                     &       0.000         \\
+                                &                     &                     &         (.)         \\
+Year=2011                       &                     &                     &      -0.045\sym{**} \\
+                                &                     &                     &     (0.017)         \\
+Year=2012                       &                     &                     &      -0.109\sym{***}\\
+                                &                     &                     &     (0.016)         \\
+Year=2013                       &                     &                     &      -0.022         \\
+                                &                     &                     &     (0.018)         \\
+Year=2014                       &                     &                     &       0.010         \\
+                                &                     &                     &     (0.034)         \\
+Year=2015                       &                     &                     &       0.123\sym{***}\\
+                                &                     &                     &     (0.029)         \\
+Year=2016                       &                     &                     &       0.176\sym{***}\\
+                                &                     &                     &     (0.030)         \\
+Year=2017                       &                     &                     &       0.240\sym{***}\\
+                                &                     &                     &     (0.031)         \\
+Year=2018                       &                     &                     &       0.326\sym{***}\\
+                                &                     &                     &     (0.030)         \\
+Year=2019                       &                     &                     &       0.366\sym{***}\\
+                                &                     &                     &     (0.026)         \\
+Constant                        &      12.946\sym{***}&      12.498\sym{***}&      12.113\sym{***}\\
+                                &     (0.049)         &     (0.044)         &     (0.225)         \\
+                    \hline
+Observations                    &         190         &         380         &         390         \\
+$R^2$                           &       0.274         &       0.243         &       0.990         \\
+\hline\hline
+{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+}

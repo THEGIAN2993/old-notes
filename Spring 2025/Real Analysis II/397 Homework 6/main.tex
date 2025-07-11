@@ -1,0 +1,198 @@
+\documentclass[11pt,twoside,openany]{memoir}
+%\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\renewcommand{\int}{\varint}
+
+\linespread{1.00}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 397 \\[0.1in]Homework 6 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \addtocounter{exercise}{2}
+    \begin{exercise}
+        Let $X$ be a metric space. Let $(x_n)_n$ be a sequence in $X$ which converges to a point $x_0 \in X$. Show that $\{x_0,x_1,x_2,...\}$ is compact.
+    \end{exercise}
+        \begin{proof}
+            Let $\{V_i\}_{i \in I}$ be an open cover of $\{x_0, x_1, x_2, ...\}$. Since $x_0 \in \bigcup_{i \in I} V_i$, there exists some $V \in \{V_i\}_{i \in I}$ such that $x_0 \in V$. Because $V$ is open, there exists $\epsilon > 0$ such that $U(x_0, \epsilon) \subseteq V$. Since $(x_n) \rightarrow x_0$, find $N$ large so that $n \geq N$ implies $x_n \in U(x_0, \epsilon) \subseteq V$. For the remaining $x_1,x_2,...,x_{N-1} \in \bigcup_{i \in I}V_i$, there exists $V_1,V_2,...,V_{N-1} \in \{V_i\}_{i \in I}$ with $x_j \in V_j$ for each $1 \leq j \leq N-1$. So the set $\{x_0,x_1,x_2,...\}$ is covered by the finite union $V \cup \bigcup_{i = 1}^{N-1}V_i$. Thus $\{x_0,x_1,x_2,...\}$ is compact.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $(X,d)$ be a metric space. If $C,K \subseteq X$ we define:
+            \begin{equation*}
+            \begin{split}
+                \dist(C,K):= \inf_{x \in C, y \in K}d(x,y).
+            \end{split}
+            \end{equation*}
+        If $K$ is compact and $C$ is closed, show that $K \cap C = \emptyset$ if and only if $\dist(C,K) > 0$. Can we remove the requirement that $K$ is compact and only require it to be closed?
+                \begin{proof}
+                    ($\Rightarrow$) Since $\dist(C,K) = \inf_{x \in C,y \in K}d(x,y)$, we'd like to show:
+                        \begin{equation*}
+                        \begin{split}
+                            (\forall \epsilon > 0)(\forall x \in C)(\forall y \in K): d(x,y) > \epsilon.
+                        \end{split}
+                        \end{equation*}
+                    Because $K \cap C = \emptyset$, for all $k \in K$ we have $k \not\in C$. This means for each $k \in K$ we can find $\epsilon_k > 0$ such that $U(k,\epsilon_k) \cap C = \emptyset$. We obtain a family of open sets $\{U(k,\frac{\epsilon_k}{2})\}_{k \in K}$ which covers $K$. Since $K$ is compact, we have that $K \subseteq \bigcup_{i = 1}^n U(k_i,\frac{\epsilon_{k_i}}{2})$. Define $\epsilon = \min_{i = 1}^n \frac{\epsilon_{k_i}}{2}$. Let $k \in K$ and $c \in C$ be arbitrary. Then $k \in U(k_i,\frac{\epsilon_{k_i}}{2})$ for some $i$. This gives:
+                        \begin{equation*}
+                        \begin{split}
+                            d(k_i,c) \leq d(k_i,k) + d(k,c).
+                        \end{split}
+                        \end{equation*}
+                    Solving for $d(k,c)$ yields:
+                        \begin{equation*}
+                        \begin{split}
+                            d(k,c) \geq d(k_i,c) -d(k_i,k).
+                        \end{split}
+                        \end{equation*}
+                    But note that $d(k_i,c) \geq \epsilon_{k_i}$ because $U(k_i,\epsilon_{k_i}) \cap C = \emptyset$. So:
+                        \begin{equation*}
+                        \begin{split}
+                            d(k,c) \geq \epsilon_{k_i} - d(k_i,k).
+                        \end{split}
+                        \end{equation*}
+                    Moreover, $d(k_i,k) > \frac{\epsilon_{k_i}}{2}$. We can finally see that:
+                        \begin{equation*}
+                        \begin{split}
+                            d(k,c)
+                            & > \epsilon_{k_i} - \frac{\epsilon_{k_i}}{2} \\
+                            & = \frac{\epsilon_{k_i}}{2} \\
+                            & \geq \epsilon.
+                        \end{split}
+                        \end{equation*}
+                    Since we've shown $\epsilon$ is a lower bound for $\{d(x,y) \mid x \in C, y \in K\}$, it must be the case that $\inf_{x \in C, y\in K}d(x,y) \geq \epsilon$. Since $\epsilon$ is bounded away from zero, we have that $\dist(K,C) > 0$.
+
+                    ($\Leftarrow$) Define $A := \{d(x,y) \mid x \in C, y \in K\}$. Suppose $\dist(C,K) = 0$. Then $\inf(A) = 0$. Since $A$ is both bounded below and a subset of $\bfR$, we have that $\inf(A) \in A$. So there exists $x \in C$ and $y \in K$ such that $d(x,y) = 0$. Thus $x = y$; i.e., $K \cap C \neq \emptyset$.
+
+                    If we remove the requirement that $K$ is compact, in the forward direction it could be the case that $\inf_{k \in K}\frac{\epsilon_{k_i}}{2} = 0$. This gives $\inf_{x \in C, y\in K}d(x,y) \geq 0$, which does not satisfy the given proposition.
+                \end{proof}
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Let $V$ be a finite-dimensional normed space. Show that the closed unit ball is compact.
+    \end{exercise}
+        \begin{proof}
+            We know there exists a homeomorphism and linear isomorphism $\varphi:\ell_p^n \rightarrow V$. Note that $B_V$ is closed and bounded. Since $\varphi$ is a continuous linear operator, $\varphi^{-1}(B_V)$ is closed by definition. Since $\varphi^{-1}$ is a continuous linear operator, it is Lipschitz. So $\varphi^{-1}(B_V)$ is bounded. By the Heine-Borel Theorem, $\varphi^{-1}(B_V)$ is compact, whence $\varphi(\varphi^{-1}(B_V)) = B_V$ is also compact.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{exercise}
+        Prove that the unit ball in $C([0,1])$ is not compact.
+    \end{exercise}
+        \begin{proof}
+            Claim: A normed space $V$ is finite-dimensional if and only if it's closed unit ball is compact. We've proven the forward direction in Exercise 5. For the converse direction, suppose towards contradiction $\dim(V) = \infty$. Choose $v_1 \in S_V$. Since $V$ is infinite dimensional, $\Span\{v_1\} \neq V$. By Riesz' Lemma, there exists a $v_2 \in S_V$ so that $\dist_{\Span\{v_1\}}(v_2) \geq \frac{1}{2}$. In particular, $\lnorm v_2 - v_1 \rnorm \geq \frac{1}{2}$. Again, since $V$ is infinite dimensional, $\Span\{v_1,v_2\} \neq V$. By Riesz' Lemma, there exists a $v_3 \in S_V$ so that $\dist_{\Span\{v_1,v_2\}}(v_3) \geq \frac{1}{2}$. Then $\lnorm v_3 - v_2 \rnorm \geq \frac{1}{2}$ and $\lnorm v_3 - v_1 \rnorm \geq \frac{1}{2}$. Inductively, we obtain a sequence $(v_n)_n$ in $S_V$ with $\lnorm v_n - v_j \rnorm \geq \frac{1}{2}$ for all $1 \leq j \leq n-1$. Since $(v_n)_n$ is not Cauchy, $(v_n)_n$ does not admit a convergent subsequence. So $S_V$ is not compact. But this is a contradiction, as any closed subset of a compact set must be compact.
+
+            Since $\dim(C([0,1])) = \infty$, its unit ball is not compact.
+        \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

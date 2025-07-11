@@ -1,0 +1,28 @@
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\begin{namedtheorem}[Introduction, Theorem 6.5]\label{thm:intro-6.5}
+    If $a_1,a_2,...,a_n$ are integers, not all 0, then $\gcd(a_1,a_2,...,a_n)$ exists. Furthermore there are integers $k_1,k_2,...,k_n$ such that
+        \begin{equation*}
+        \begin{split}
+            \gcd(a_1,a_2,...,a_n) = k_1 a_1 + k_2 a_2 + ... + k_n a_n.
+        \end{split}
+        \end{equation*}
+\end{namedtheorem}
+
+\begin{namedtheorem}[Introduction, Theorem 6.6]\label{thm:intro-6.6}
+    If $a$ and $b$ are relatively prime integers (that is, $\gcd(a,b) = 1$) and $a \mid bc$, then $a \mid c$. If $p$ is prime and $p \mid a_1 a_2 ... a_n$, then $p \mid a_i$ for some $i$.
+\end{namedtheorem}
+
+\begin{namedtheorem}[Introduction, Theorem 6.8]\label{thm:intro-6.8}
+    Let $m>0$ be an integer and $a,b,c,d \in \bfZ$.
+    \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+        \item Congruence modulo $m$ is an equivalence relation on the set of integers $\bfZ$, which has precisely $m$ equivalence classes.
+        \item If $a \equiv b \pmod{m}$ and $c \equiv d \pmod{m}$, then $a+c \equiv b + d \pmod{m}$ and $ac \equiv bd \pmod{m}$.
+        \item If $ab \equiv ac \pmod{m}$ and $a$ and $m$ are relatively prime, then $b \equiv c \pmod{m}$.
+    \end{enumerate}
+\end{namedtheorem}
+
+\begin{namedtheorem}[Groups, Theorem 1.5]\label{thm:groups-thm1.5}
+    Let $\sim$ be an equivalence relation on a monoid $G$ such that $a_1 \sim a_2$ and $b_1 \sim b_2$ imply $a_1b_1 \sim a_2 b_2$ for all $a_i,b_i \in G$. Then the set $G/\hspace{-4pt}\sim$ of all equivalence classes of $G$ under $\sim$ is a monoid under the binary operation defined by $\overline{a} \overline{b} = \overline{ab}$, where $\overline{x}$ denotes the equivalence class of $x \in G$. If $G$ is an (abelian) group, then so is $G/\hspace{-4pt}\sim$.
+\end{namedtheorem}

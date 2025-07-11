@@ -1,0 +1,28 @@
+{
+\begin{table}[htbp]\centering\label{table:main_panel_results}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Baseline Panel Results}
+\begin{tabular}{l*{3}{c}}
+    \hline\hline
+ \scalebox{0.9}{Dependent variable is the}                   \\
+\scalebox{0.9}{log of median house prices}                    &\multicolumn{1}{c}{(1)}\\
+                    \hline
+Temperature $z$-score           &       0.107\sym{***}\\
+                                &     (0.024)         \\
+Precipitation $z$-score         &       0.091\sym{***}\\
+                                &     (0.025)         \\
+County Population               &       0.000\sym{***}\\
+                                &     (0.000)         \\
+County Population Density       &       0.000\sym{***}\\
+                                &     (0.000)         \\
+
+Constant                        &      12.530\sym{***}\\
+                                &     (0.042)         \\
+                    \hline
+Observations                    &         390         \\
+$R^2$                           &       0.237         \\
+\hline\hline
+{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+}

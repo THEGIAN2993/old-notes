@@ -19,11 +19,11 @@
     \end{definition}
 
     \begin{definition}
-        \phantom{a}
-        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item Two metrics $d,\rho$ on $X$ are called \textit{equivalent} if there exists constants $c,c'$ with $d(x,y) \leq c \rho(x,y)$ and $\rho(x,y) \leq c'd(x,y)$.
-            \item Let $\{d_k\}_{k=1}^\infty$ be a family of metrics on $X$. If for all $x,y \in X$ and $k \in \bfN$ we have $d_k(x,y) \leq C$, then we say the family of metrics is \textit{uniformly bounded}.
-        \end{enumerate}
+        Two metrics $d,\rho$ on $X$ are called \textit{equivalent} if there exists constants $c,c'$ with $d(x,y) \leq c \rho(x,y)$ and $\rho(x,y) \leq c'd(x,y)$.
+    \end{definition}
+
+    \begin{definition}
+        A family of metrics $\{d_k\}_{k = 1}^\infty$ on $X$ is \textit{uniformly bounded} if, for all $x,y \in X$ and $k \in \bfN$, we have $d_k(x,y) \leq C$.
     \end{definition}
 
     \begin{example}
@@ -165,7 +165,7 @@
         So $(E,D_u)$ is discrete.
     \end{example}
 
-\section{Topology of Metric Spaces}
+\section{Topology of Metric Spaces}\label{sec:top-of-metric-spaces}
     Unless otherwise stated, let $(X,d)$ be a metric space.
     \begin{definition}
         Let $X$ be a set. A collection $T$ of subsets of $X$ is called a \textit{topology on $X$} if they satisfy:
@@ -278,8 +278,8 @@
 
             It remains to show that $J$ is countable. Define $J \rightarrow \bfQ$ by $x \mapsto q_x$, where $q_x \in \bfQ \cap I_x$. This map is injective, establishing the proposition.
         \end{proof}
-
-    \begin{proposition}
+    
+    \begin{proposition}\label{prop:interior-closure-boundary-property}
         Let $A \subseteq X$.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
             \item $x \in A^o$ if and only if there exists $\delta > 0$ such that $U(x , \delta) \subseteq A$.
@@ -288,11 +288,21 @@
         \end{enumerate}
     \end{proposition}
         \begin{proof}
-            (1) $x \in A^o \iff $ there exists $V \in \tau_X$ with $x \in V \subseteq A$ $\iff$ there exists $\delta > 0$ with $U(x,\delta) \subseteq V \subseteq A$.
+            
+            (1) If $x \in A^o$, then by definition $x \in \bigcup \{V \in \tau_X \mid V \subseteq A\}.$ So there exists some $V \in \tau_X$ such that $x \in V \subseteq A$. Since $V$ is open, there exists $\delta > 0$ with $U(x,\delta) \subseteq V \subseteq A$. Conversely, if $U(x,\delta) \subseteq A$ for some $\delta > 0$, then clearly $x \in A^o$, as $U(x,\delta) \in \tau_X$.
 
-            (2) The converse gives $x \not\in \overline{A}$ $\iff$ $x \in (\overline{A})^c = (A^c)^o$ $\iff$ there exists $\delta > 0$ such that $U(x,\delta) \subseteq (A^c)^o \subseteq A^c$ $\iff$ $U(x,\delta) \cap A = \emptyset$.
+            (2) We prove the converse of this statement. Note that $x \not\in \overline{A}$ if and only if $x \in (\overline{A})^c = (A^c)^o$. By (1) there exists $\delta > 0$ with $U(x,\delta) \subseteq (A^c)^o \subseteq A^c$. This is true if and only if $U(x,\delta) \cap A = \emptyset$, establishing the proposition.
 
-            (3) $x \in \partial A$ $\iff$ $x \in \overline{A} \setminus A^o$ $\iff$ $x \in \overline{A} \cap (A^o)^c$ $\iff$ $x \in \overline{A} \cap \overline{A^c}$ $\iff$ there exists $\delta > 0$ with $U(x,\delta) \cap A \neq \emptyset$ and $U(x,\delta) \cap A^c \neq \emptyset$
+            (3) Note that:
+                \begin{equation*}
+                \begin{split}
+                    \partial A 
+                    & = \overline{A} \setminus{A^o} \\
+                    & = \overline{A} \cap (A^o)^c \\
+                    & = \overline{A} \cap \overline{A^c}.
+                \end{split}
+                \end{equation*}
+            So $x \in \partial A$ if and only if $x \in \overline{A} \cap \overline{A^c}$. Applying (2) to $x \in \overline{A}$ and $x \in \overline{A^c}$ establishes (3).
         \end{proof}
 
     \begin{exercise}
@@ -308,9 +318,6 @@
             \end{enumerate}
     \end{proposition}
         \begin{proof}
-            (1)
-
-            (2) Suppose $y \in B(x,\delta)^o \setminus U(x,\delta)$. Then there exists $\delta' > 0$ with $U(x,\delta') \subseteq B(x,\delta)$. But this means $d(x,y) < \delta$, which is a contradiction. Thus $ B(x,\delta)^o \setminus U(x,\delta) = \emptyset$, establishing $B(x,\delta)^o = U(x,\delta)$. 
         \end{proof}
 
     \begin{proposition}***
@@ -604,7 +611,7 @@
             \end{enumerate}
         \end{example}
 
-\section{The Cantor Set}
+\section{The Cantor Set}\label{sec:cantor-set}
     
     Given the interval $[0,1]$, start by deleting the open middle third $\left(\frac{1}{3}, \frac{2}{3}\right)$, leaving two line segments $\left[0,\frac{1}{3}\right] \cup \left[\frac{2}{3},1\right]$.
     Next, the open middle third of each of these remaining segments is deleted, leaving four line segments $\left[0,\frac{1}{9}\right] \;\cup\; \left[\frac{2}{9},\frac{1}{3}\right] \;\cup\;\left[\frac{2}{3},\frac{7}{9}\right] \;\cup\; \left[\frac{8}{9},1\right]$. 
@@ -966,15 +973,15 @@
             
         \end{proof}
 
-\section{Convergent Sequences}
+\section{Convergent Sequences}\label{sec:conv-seq}
     \begin{definition}
-        Fix a metric space $(X,d)$.
+        Let $(X,d)$ be a metric space.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item A \textit{sequence} in $X$ is a map $x:\bfN \rightarrow X$ defined by $n \mapsto x_n$. We denote a sequence as $(x_n)_{n \geq 1}$, $(x_n)_{n = 1}^\infty$, or $(x_n)_n$.
+            \item A \textit{sequence} in $X$ is a map $x_{\bullet}:\bfN \rightarrow X$ defined by $n \mapsto x_n$. We denote a sequence as $(x_n)_{n \geq 1}$, $(x_n)_{n = 1}^\infty$, or $(x_n)_n$.
             
             \item A \textit{natural sequence} is a sequence $(x_n)_n$ in $\bfN$ with $n_1 < n_2 < n_3 < ...$
             
-            \item A \textit{subsequence} of a sequence $(x_n)_n$ is a sequence $(x_{n_k})_k$ where $(n_k)_k$ is a natural sequence. This is equivalent to the composition of maps
+            \item A \textit{subsequence} of a sequence $(x_n)_n$ is a sequence $(x_{n_k})_k$, where $(n_k)_k$ is a natural sequence. This is equivalent to the composition of maps
                     \begin{tikzcd}
                         \bfN \arrow[r, "k \mapsto n_k"] & \bfN \arrow[r, "n_k \mapsto x_{n_k}"] & X.
                     \end{tikzcd}
@@ -996,14 +1003,17 @@
         Show that a sequence can have at most one limit.
     \end{exercise}
 
-    \begin{proposition}
-        Given $(x_n)_n$ in $X$ and $x \in X$, the following are equivalent:
+    \begin{proposition}\label{prop:sequence-equivalences}
+        Let $(x_n)_n$ be a sequence in $X$ and $x \in X$. The following are equivalent:
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item $(x_n)_n \rightarrow x$ in $X$;
+            \item $(x_n)_n \rightarrow x$;
             \item $(d(x_n,x))_n \rightarrow 0$ in $\bfR$;
             \item $(\forall V \in \cN_x)(\exists N \in \bfN):(\forall n\in \bfN)(n \geq N \implies x_n \in V)$. 
         \end{enumerate}
     \end{proposition}
+        \begin{proof}
+            Exercise.
+        \end{proof}
 
     \begin{exercise}
         Let $(X,d)$ be a metric space and $\rho(x,y) = \frac{d(x,y)}{1 + d(x,y)}$. Then $(x_n)_n \xrightarrow{d} x$ if and only if $(x_n)_n \xrightarrow{\rho} x$.
@@ -1024,6 +1034,15 @@
             Let $K = \max\{2,1+C,C\}$. Then $\diam(\{x_n\}_{n \geq 1}) = \sup_{m,n \geq 1}d(x_n,x_m) \leq K$.
         \end{proof}
 
+        \begin{definition}
+            Let $(v_k)_k$ be a sequence in $(V,\lnorm \cdot \rnorm)$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item A \textit{sequence of partial sums} $(s_n)_n$ is defined as $s_n = \sum_{k = 1}^n v_k$.
+                \item If $(s_n)_n \rightarrow s$ in $V$ we say the \textit{series} $\sum_{k = 1}^\infty v_k$ converges and write $\sum_{k = 1}^\infty v_k = s$.
+                \item The series $\sum v_k$ converges \textit{absolutely} if $\sum \lnorm v_k \rnorm$ converges.
+            \end{enumerate}
+        \end{definition}
+
     \begin{center}
         \begin{tikzpicture}
             \draw[thick] (0.3,0) -- (2.3,0);
@@ -1034,16 +1053,16 @@
     \end{center}
 
     \begin{definition}
-        Let $(f_n)_n$ be a sequence of functions.
+        Let $(f_n:\Omega \rightarrow X)_n$ be a sequence of functions.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item $(f_n)_n$ converges \textit{pointwise} to $f \in \cF(\Omega,F)$ if:
+            \item $(f_n)_n$ converges \textit{pointwise} to $f:\Omega \rightarrow X$ if:
                 \begin{equation*}
                 \begin{split}
                     (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) : (\forall n \in \bfN)( n \geq N \implies |f_n(x) - f(x)| < \epsilon).
                 \end{split}
                 \end{equation*}
 
-            \item $(f_n)_n$ converges \textit{uniformly} to $f \in \cF(\Omega,F)$ if:
+            \item $(f_n)_n$ converges \textit{uniformly} to $f:\Omega \rightarrow X$ if:
                 \begin{equation*}
                 \begin{split}
                         (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) : (\forall n \in \bfN)(\forall x \in \Omega)(n \geq N &\implies |f_n(x) - f(x)| < \epsilon).
@@ -1053,58 +1072,34 @@
     \end{definition}
 
     \begin{example}
-        Recall that a sequence $(f_n)_n$ converges to $f$ in $\Bd(\Omega,Y)$ if:
-            \begin{equation*}
-            \begin{split}
-                (D(f_n,f))_n \rightarrow 0 \h5\text{in $\bfR$}.
-            \end{split}
-            \end{equation*}
-        But this is equivalent to:
-            \begin{equation*}
-            \begin{split}
-                \sup_{x \in \Omega}d(f_n(x),f(x)) \rightarrow 0 \h5\text{in $\bfR$}.
-            \end{split}
-            \end{equation*}
-        Again, we can rewrite this as:
-            \begin{equation*}
-            \begin{split}
-                (\forall \epsilon > 0)(\exists N \in \bfN):(\forall n \in \bfN)\Bigl(n\geq N \implies \sup_{x \in \Omega}d(f_n(x),f(x))<\epsilon\Bigr).
-            \end{split}
-            \end{equation*}
-        But this definition is equivalent to:
-            \begin{equation*}
-            \begin{split}
-                (\forall \epsilon > 0)(\exists N \in \bfN):(\forall n \in \bfN)(\forall x\in \Omega)\Bigl(n\geq N \implies d(f_n(x),f(x))<\epsilon\Bigr).
-            \end{split}
-            \end{equation*}
-        This is precisely the definition of uniform convergence. Thus convergence in $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq \ell_\infty(\Omega) = \Bd(\Omega,F)$ is uniform.
+        Let $(f_n)_n$ be a sequence of functions in $\bigl(\Bd(\Omega,Y),D_u\bigr)$ converging to $f \in \Bd(\Omega,Y)$. Proposition~\ref{prop:sequence-equivalences} says this is equivalent to $(D_u(f_n,f))_n \rightarrow 0$ in $\bfR$. Therefore, we have $(\sup_{x \in \Omega}d(f_n(x),f(x)))_n \rightarrow 0$ in $\bfR$. Notice that this is precisely the definition of uniform convergence. Whence convergence in $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq \ell_{\infty}(\Omega) = \Bd(\Omega,F)$ is uniform.
     \end{example}
 
     \begin{proposition}
-        Let $(d_k)_k$ be a separating family of semi-metrics which are uniformly bounded. Define:
+        Let $\{d_k\}_k$ be a separating family of semi-metrics which are uniformly bounded. Define:
             \begin{equation*}
             \begin{split}
                 d(x,y) := \sum_{k = 1}^\infty 2^{-k}d_k(x,y).
             \end{split}
             \end{equation*}
-        Then $(x_n)_n \xrightarrow{d} x$ if and only if for all $k$, $(d_k(x_n,x))_n \rightarrow 0$.
+        Then $(x_n)_n \xrightarrow{d} x$ if and only if $(d_k(x_n,x))_n \rightarrow 0$ for all $k$.
     \end{proposition}
         \begin{proof}
-            Fix $k$. We have:
+            ($\Rightarrow$) Let $k \geq 1$ be arbitrary. We have:
                 \begin{equation*}
                 \begin{split}
                     0 \leq 2^{-k}d_k(x_n,x) \leq d(x_n,x).
                 \end{split}
                 \end{equation*}
-            Note that $(x_n)_n \xrightarrow{d} x$ implies $(d(x_n,x))_n \rightarrow 0$. Multiplying both sides of the above equation by $2^k$ and applying the squeeze theorem gives $(d_k(x_n,x)) \rightarrow 0$.
+            Multiplying all sides of the above equation by $2^k$ gives $0 \leq d_k(x_n,x) \leq 2^k d(x_n,x)$. Since $\limit_{n \rightarrow \infty}2^kd(x_n,x) = 0$, by the Squeeze Theorem $(d_k(x_n,x))_n \rightarrow 0$.
 
-            Now let $\epsilon > 0$. Since each $d_k$ is uniformly bounded, let $C = \sup_{k,x,y}d(x,y)$. Find $K$ large so that:
+            ($\Leftarrow$) Let $\epsilon > 0$. For all $x,y,k$, there exists $C > 0$ with $d_k(x,y) \leq C$. Since $\sum_{k = 1}^\infty 2^{-k}$ converges (in particular, it converges to 1), find $K$ large so:
                 \begin{equation*}
                 \begin{split}
                     \sum_{k > K}2^{-k} < \frac{\epsilon}{2C}.
                 \end{split}
                 \end{equation*}
-            We know $(d_k(x_n,x))_n \rightarrow 0$ for $k = 1,2,...,K$. So there exists $N_1,N_2,...,N_K$ with $n \geq N_k$ implying $d_k(x_n,x) < \frac{\epsilon}{2}$. Let $N = \max_{k = 1}^K N_k$. For $n \geq N$, we have:
+            Note that $(d_k(x_n,x))_n \rightarrow 0$ for $k = 1,2,...,K$. So there exists $N_1,N_2,...,N_K \in \bfN$ with $n \geq N_j$ implying $d_j(x_n,x)<\frac{\epsilon}{2}$ for $1 \leq j \leq K$. Let $N = \max_{j = 1}^K N_j$. For $n \geq N$, we have:
                 \begin{equation*}
                 \begin{split}
                     d(x_n,x) 
@@ -1115,40 +1110,23 @@
                     & = \epsilon. \qedhere
                 \end{split}
                 \end{equation*}
-        \end{proof}
+            Thus $(x_n)_n \xrightarrow{d} x$.
+            \end{proof}
 
     \begin{example}
-        Let $X = C(\bfR)$. How does one define a distance between two functions on this space? For $f,g \in C(\bfR)$, one might naively consider the uniform metric:
+        Consider the space $C(\bfR)$. How does one define a distance between two functions? Given $f,g \in C(\bfR)$, note that the uniform metric:
             \begin{equation*}
             \begin{split}
-                d(f,g) := \sup_{x \in \Omega}|f(x) - g(x)|.
+                d(f,g) := \sup_{x \in \Omega}|f(x) - g(x)|
             \end{split}
             \end{equation*}
-        This construction does not guarantee $d(f,g) < \infty$. We can fix this as follows\textemdash for each $k \geq 1$, let:
-            \begin{equation*}
-            \begin{split}
-                P_k(f) = \sup_{x \in [-k,k]}|f(x)|.
-            \end{split}
-            \end{equation*}
-        Then $\{P_k\}_k = 1^\infty$ is a separating family of semi-norms which generate a separating family of semi-metrics:
-            \begin{equation*}
-            \begin{split}
-                \rho_k(f,g) := P_k(f-g).
-            \end{split}
-            \end{equation*}
-        These are not uniformly bounded, so make:
-            \begin{equation*}
-            \begin{split}
-                d_k(f,g) = \frac{\rho_k(f,g)}{1 + \rho_k(f,g)}.
-            \end{split}
-            \end{equation*}
-        Then $\{d_k\}_{k=1}^\infty$ is a family of uniformly bounded semi-metrics. We can now define the \textit{Fr\'echet metric}:
+        does not guarantee $d(f,g) < \infty$. We can fix this as follows: define $\rho_k(f,g) := \sup_{x \in [-k,k]}|f(x) - g(x)|$. Note that the family of metrics $\{\rho_k\}_k$ is separating, but not uniformly bounded. Defining $d_k(f,g):= \frac{\rho_k(f,g)}{1 + \rho_k(f,g)}$ gives $\{d_k\}_k$ as a family of uniformly bounded semi-metrics. We can now define what is called the \textit{Fr\'echet metric}:
             \begin{equation*}
             \begin{split}
                 d_F(f,g) := \sum_{k = 1}^\infty 2^{-k}d_k(f,g).
             \end{split}
             \end{equation*}
-        In $(C(\bfR),d_F)$, observe that:
+        By the comparison test, $d_F(f,g) < \infty$. In $(C(\bfR),d_F)$, observe that:
             \begin{equation*}
             \begin{split}
                 (f_n)_n \xrightarrow{d_F}f 
@@ -1158,23 +1136,11 @@
                 &\iff \forall k, (f_n)_n \rightarrow f \h5\text{uniformly on $[-k,k]$}.
             \end{split}
             \end{equation*}
-        We've obtained a new type of convergence defined below.
+        We've obtained a new type of convergence called \textit{compact convergence}.
     \end{example}
 
-    \begin{definition}
-        Let $(X,\tau)$ be a topological space and $(Y,d_Y)$ be a metric space. A sequence of functions:
-            \begin{equation*}
-            \begin{split}
-                f_n:X \rightarrow Y; \h5 n \in \bfN
-            \end{split}
-            \end{equation*}
-        converges \textit{compactly} to $f:X \rightarrow Y$ if, for every compact set $K \subseteq X$, the sequence $\left( \restr{f_n}{K} \right)_n \rightarrow \restr{f}{K}$ converges uniformly.
-    \end{definition}
 
-    \begin{example}***
-        $x^n$ does not converge uniformly but it does converge compactly (idk how to do this)
-    \end{example}
-
+    \iffalse
     \begin{center}
         \begin{tikzpicture}
             \draw[thick] (0.3,0) -- (2.3,0);
@@ -1193,7 +1159,9 @@
             \end{itemize}
         These metrics are all equivalent. A sequence of points $(x_n,y_n)_n$ converges to $(x,y)$ in $X \times Y$ with respect to any of these metrics if and only if $(x_n)_n \xrightarrow{d} x$ and $(y_n)_n \xrightarrow{\rho} y$.
     \end{example}
+    \fi
 
+    \iffalse
     \begin{example}
         Let $\{(X_k,d_k)_k\}_k$ be a family of metric spaces where the $d_k$ are uniformly bounded. We looked at the product:
             \begin{equation*}
@@ -1213,15 +1181,7 @@
     \begin{example}
         Let $(V,\lnorm \cdot \rnorm)$ be a normed space. Then $(v_n)_n \rightarrow v$ if and only if $(\lnorm v_n - v \rnorm)_n \rightarrow 0$.
     \end{example}
-
-    \begin{definition}
-        Let $(v_k)_k$ be a sequence in $(V,\lnorm \cdot \rnorm)$.
-        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item A \textit{sequence of partial sums} $(s_n)_n$ is defined as $s_n = \sum_{k = 1}^n v_k$.
-            \item If $(s_n)_n \rightarrow s$ in $V$ we say the \textit{series} $\sum_{k = 1}^\infty v_k$ converges and write $\sum_{k = 1}^\infty v_k = s$.
-            \item The series $\sum v_k$ converges \textit{absolutely} if $\sum \lnorm v_k \rnorm$ converges.
-        \end{enumerate}
-    \end{definition}
+    \fi
 
     \begin{center}
         \begin{tikzpicture}
@@ -1236,9 +1196,7 @@
         Let $(X,d)$ be a metric space and $A \subseteq X$. We have $x \in \overline{A}$ if and only if there exists a sequence $(a_n)_n$ in $A$ with $(a_n)_n \rightarrow x$.
     \end{proposition}
         \begin{proof}
-            Let $x \in \overline{A}$. For each $n \geq 1$, we have $U(x,\frac{1}{n}) \cap A \neq \emptyset$, so choose $a_n \in U(x,\frac{1}{n}) \cap A$. Then $d(x,a_n) < \frac{1}{n}$, so $(a_n)_n \rightarrow x$.
-
-            Now suppose $(a_n)_n$ is a sequence in $A$ and $(a_n)_n \rightarrow x$. Given $\epsilon > 0$, find $N$ large so $d(x,a_N) < \epsilon$. Then $a_N \in U(x,\epsilon) \cap A$. Since $U(x,\epsilon) \cap A \neq \emptyset$, we have $x \in \overline{A}$. 
+            ($\Rightarrow$) If $x \in \overline{A}$, then for each $n \geq 1$ we have $U(x,\frac{1}{n}) \cap A \neq \emptyset$. For each $n$ choose $a_n \in U(x,\frac{1}{n}) \cap A$. Then $d(x,a_n)<\frac{1}{n}$, so $(a_n)_n \rightarrow x$. ($\Leftarrow$) Given $\epsilon > 0$, find $N$ large so $d(x,a_N) < \epsilon$. Then $a_N \in U(x,\epsilon) \cap A$. Since $U(x,\epsilon) \cap A \neq \emptyset$, we have $x \in \overline{A}$.
         \end{proof}
 
     \begin{proposition}\label{prop:closed-iff-seq}
@@ -1249,52 +1207,101 @@
             \end{enumerate}
     \end{proposition}
         \begin{proof}
-            Consider the sequence $(a_n)_n$ in $A$ with $(a_n)_n \rightarrow x$. Then by the previous proposition $x \in \overline{A}$. But since $A$ is closed, $A = \overline{A}$. Thus $x \in A$.
+            Let $(a_n)_n$ be a sequence in $A$ which converges to $x \in X$. By Proposition~\ref{prop:closed-iff-seq} $x \in \overline{A}$. Since $A$ is closed, $A = \overline{A}$. Thus $x \in A$.
 
-            To show $A$ is closed we show $A = \overline{A}$. Clearly $A \subseteq \overline{A}$. Let $x \in \overline{A}$. Then there exists a sequence $(a_n)_n$ in $A$ with $(a_n)_n \rightarrow x$. So $x \in A$ by (2). Thus $\overline{A} \subseteq A$.
+            We will show $A$ is closed by proving $A = \overline{A}$ Clearly $A \subseteq \overline{A}$. Let $x \in \overline{A}$. Then there exists a sequence $(a_n)_n$ in $A$ with $(a_n)_n \rightarrow x$. Thus $x \in A$, giving $\overline{A} \subseteq A$.
         \end{proof}
 
     \begin{exercise}
         Show $x \in \overline{A}$ if and only if $x \in A$ or there exists a sequence $(a_n)_n$ in $A \setminus\{a\}$ with $(a_n)_n \rightarrow x$.
     \end{exercise}
-
-    \begin{example}***
-        The space $c_0 \subseteq \ell_\infty$ is closed, and furthermore $\overline{c_{00}} = c_0$. To see this, consider a sequence $(z_n)_n$ in $c_0$ converging to $f \in \ell_\infty$. We will show that $f \in c_0$.
-
-        Let $\epsilon > 0$ be given. Find $N$ large so that:
-            \begin{equation*}
-            \begin{split}
-                \lnorm z_N - f \rnorm_u < \frac{\epsilon}{2}.
-            \end{split}
-            \end{equation*}
-        Since $z_N \in c_0$, we know $\lim_{k \rightarrow \infty}z_N(k) = 0$. So find $K$ large so that for $k \geq K$:
-            \begin{equation*}
-            \begin{split}
-                |z_N(k)| < \frac{\epsilon}{2}.
-            \end{split}
-            \end{equation*}
-        Putting this all together, for $k \geq K$ we have:
-            \begin{equation*}
-            \begin{split}
-                |f(k)|
-                & = |f(k) - z_N(k) + z_N(k)| \\
-                & \leq |f(k) - z_N(k)| + |z_N(k)| \\
-                & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
-                & = \epsilon.
-            \end{split}
-            \end{equation*}
-        Thus $f \in c_0$. By Proposition~\ref{prop:closed-iff-seq}, $c_0$ is closed.
-    \end{example}
-
-    \begin{definition}
-        Let $(X,d)$ be a metric space and $A \subseteq X$. The \textit{distance} of an element $x \in X$ to $A$ is a map $\text{dist}_A:X \rightarrow [0,\infty)$ defined by $\text{dist}_A(x) = \inf_{a \in A}d(x,a)$.
-    \end{definition}
+    
+    \newpage
 
     \begin{proposition}***
-        
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The space $c_0 \subseteq \ell_\infty$ is closed.
+            \item $\overline{c_{00}} = c_0$.
+        \end{enumerate}
     \end{proposition}
+        \begin{proof}
+            (1) Let $(z_n)_n$ be a sequence in $c_0$ converging to $f \in \ell_\infty$. Let $\epsilon > 0$. Find $N$ large so that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm z_N - f \rnorm_u < \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*}
+            Since $z_N \in c_0$, we know $\limit_{k \rightarrow \infty} z_N(k) = 0$. Find $K$ large so that for $k \geq K$:
+                \begin{equation*}
+                \begin{split}
+                    |z_N(k)| < \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*}
+            Together, for $k \geq K$ we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(k)|
+                    & = |f(k) - z_N(k) + z_N(k)| \\
+                    & \leq |f(k) - z_N(k)| + |z_N(k)| \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\limit_{k \rightarrow \infty}f(k) = 0$; i.e., $f \in c_0$. By Proposition~\ref{prop:closed-iff-seq}, $c_0$ is closed in $\ell_\infty$.
+        \end{proof}
 
-\section{Continuity}
+    \newpage
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space and $A \subseteq X$. The \textit{distance} of an element $x \in X$ to $A$ is defined as the map $\dist_A:X \rightarrow [0,\infty)$ given by $\dist_A(x) = \inf_{a \in A}d(x,a)$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $(X,d)$ be a metric space and $A \subseteq X$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $\overline{A} = \{x \mid \dist_A(x) = 0 \}$.
+            \item $\dist_A = \dist_{\overline{A}}$.
+            \item $\left| \dist_A(x) - \dist_A(y) \right| \leq d(x,y).$
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) Let $D:=\{x \mid \dist_A(x) = 0\}$. By Proposition~\ref{prop:1}, $x \in \overline{A}$ if and only if there exists a sequence $(a_n)_n$ in $A$ which converges to $x$. Equivalently, the seqence $(d(x,a_n))_n$ converges to $0$ in $\bfR$. Since $\inf_{a \in A}d(x,a) \leq d(x,a_n)$, it must be the case that $\dist_A(x) = 0$. Thus $\overline{A} \subseteq D$. Now suppose $x \in D$. Then $\inf_{a \in A}d(x,a) = 0$ implies the existance of a sequence $(a_n)_n$ in $A$ with $(d(x,a_n))_n \rightarrow 0$. Thus $(a_n)_n \rightarrow x$, establishing that $x \in \overline{A}$ by Proposition~\ref{prop:1}. Thus $D = \overline{A}$.
+
+            (2) Let $x \in X$. Since $A \subseteq \overline{A}$, it is clear that:
+                \begin{equation*}
+                \begin{split}
+                    \dist_{\overline{A}}(x) 
+                    & = \inf_{a \in \overline{A}} d(x,a) \\
+                    & \leq \inf_{a \in A}d(x,a) \\
+                    & = \dist_A(x).
+                \end{split}
+                \end{equation*}
+            Let $\epsilon > 0$ and $y \in \overline{A}$. From part (1), we have that $\dist_A(y) = 0$. In particular, $\dist_A(y) < \epsilon$. So there exists $a \in A$ such that $d(a,y) < \epsilon$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \dist_A(x) 
+                    & = \inf_{a \in A}d(x,a) \\
+                    & \leq d(x,a) \\
+                    & \leq d(x,y) + d(y,a) \\
+                    & < d(x,y) + \epsilon.
+                \end{split}
+                \end{equation*}
+            It follows that $\dist_A(x) \leq d(x,y)$ for all $y \in \overline{A}$. Finally:
+                \begin{equation*}
+                \begin{split}
+                    \dist_A(x) 
+                    & \leq \inf_{y \in \overline{A}}d(x,y) \\
+                    & = \dist_{\overline{A}}(x).
+                \end{split}
+                \end{equation*}
+            Thus $\dist_A = \dist_{\overline{A}}$.
+
+            (3)
+        \end{proof}
+
+\newpage
+\section{Continuity}\label{sec:continuity}
     \begin{definition}\label{def:2.5}
         Let $(X,d)$ and $(Y,\rho)$ be metric spaces. A map $f:X \rightarrow Y$ is \textit{continuous at $x_0 \in X$} if any of the equivalent definitions are satisfied:
             \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
@@ -1315,7 +1322,7 @@
         \begin{proof}
             (1)$\Rightarrow$(2) follows from Definition~\ref{def:2.5}. 
             
-            (1)$\Rightarrow$(3) Let $(x_n)_n \rightarrow x_0$. Let $\epsilon > 0$. Since $f$ is continuous, find $\epsilon > 0$ do that $x \in U(x,\delta)$ implies $f(x) \in U(f(x_0),\epsilon)$. Whence $d(f(x_n),f(x_0)) < \epsilon$, establishing $(f(x_n))_n \rightarrow f(x_0)$.
+            (1)$\Rightarrow$(3) Let $(x_n)_n \rightarrow x_0$. Let $\epsilon > 0$. Since $f$ is continuous, find $\epsilon > 0$ so that $x \in U(x,\delta)$ implies $f(x) \in U(f(x_0),\epsilon)$. Whence $d(f(x_n),f(x_0)) < \epsilon$, establishing $(f(x_n))_n \rightarrow f(x_0)$.
 
             (3)$\Rightarrow$(1) We prove the contrapositive of this statement. If $f$ is not continuous, choose $\epsilon_0>0$ so that $d(x_n,x_0) < \frac{1}{n}$ and $d(f(x_n),f(x_0)) \geq \epsilon_0$. Whence $(x_n)_n \rightarrow x_0$ and $(f(x_n))_n \not\rightarrow f(x_0)$.
         \end{proof}
@@ -1333,7 +1340,7 @@
             Let $x \in X$ and $\epsilon > 0$. Since $U(f(x),\epsilon) \in \tau_Y$, we have $f^{-1}(U(f(x)),\epsilon) \in \tau_X$. Note that $x \in f^{-1}(U(f(x)),\epsilon)$. Since this set is open, find $\delta > 0$ so that $U(x,\delta) \subseteq f^{-1}(U(f(x)),\epsilon)$. Thus $f(U(x,\delta)) \subseteq U(f(x),\epsilon)$; i.e., $f$ is continuous.
         \end{proof}
 
-    \begin{proposition}
+    \begin{proposition}***
         Let $(X,d) \xrightarrow{f} (Y,\rho) \xrightarrow{g} (Z,\gamma)$ be maps of metric spaces. If $f$ is continuous at $x \in X$ and $g$ is continuous at $y = f(x)$, then $g \circ f$ is continuous at $x$.
     \end{proposition}
         \begin{proof}
@@ -1345,6 +1352,14 @@
     \end{proposition}
         \begin{proof}
             Since $A \subseteq X$ we have $\sup_{x \in A}f(x) \leq \sup_{x \in X}f(x)$. Conversely, let $\epsilon > 0$. Find $x' \in X$ so that $\sup_{x \in X}f(x) - \frac{\epsilon}{2} < f(x')$. Since $f$ is continuous, find $\delta > 0$ so that for all $x \in X$, $d(x,x') < \delta$ implies $|f(x)-f(x')| < \frac{\epsilon}{2}$. Since $A$ is dense, find $a \in A$ so that $d(x',a) < \delta$. This implies $|f(x')-f(a)| < \frac{\epsilon}{2}$, or equivalently $f(x')- \frac{\epsilon}{2} < f(a)$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    \sup_{x \in X}f(x) - \frac{\epsilon}{2}
+                    & < f(x') \\
+                    & <f(a) + \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*}
+            Upon simplifying, we have:
                 \begin{equation*}
                 \begin{split}
                     \sup_{x \in X}f(x) - \epsilon 
@@ -1363,30 +1378,30 @@
     \begin{definition}
         Let $f:(X,d) \rightarrow (Y,\rho)$ be a map of metric spaces.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item $f$ is \textit{uniformly continuous} if:
+            \item We say $f$ is \textit{uniformly continuous} if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall \epsilon > 0)(\exists \delta > 0): (\forall x,x' \in X)(d(x,x') < \delta \implies \rho(f(x),f(x')) < \epsilon).
+                    (\forall \epsilon > 0)(\exists \delta > 0): (\forall x,y \in X)\bigl(d(x,y) < \delta \implies \rho(f(x),f(y)) < \epsilon\bigr).
                 \end{split}
                 \end{equation*}
-            \item $f$ is \textit{Lipschitz} if there exists $C > 0$ such that:
+            \item We say $f$ is \textit{Lipschitz} if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall x,x' \in X)(\rho(f(x),f(x')) \leq C d(x,x')).
+                    (\exists C > 0):(\forall x,y \in X)\bigl(\rho(f(x),f(y)) \leq C d(x,y)\bigr).
                 \end{split}
                 \end{equation*}
             If $C < 1$, we say $f$ is \textit{contractive}.
 
-            \item $f$ is \textit{isometric} (or an \textit{isometry}) if:
+            \item We say $f$ is an \textit{isometry} if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall x,x' \in X)(\rho(f(x),f(x')) = d(x,x'))
+                    (\forall x,x' \in X)\bigl(\rho(f(x),f(x')) = d(x,x')\bigr)
                 \end{split}
                 \end{equation*}
         \end{enumerate}
     \end{definition}
 
-    \begin{exercise}
+    \begin{exercise}***
         Show that Lipschitz implies uniform continuity. Show that uniform continuity implies continuity. Show that the converse direction fails in general.
     \end{exercise}
 
@@ -1407,6 +1422,10 @@
     \begin{example}
         If $(X,d)$ is a metric space and $A \subseteq X$, then $\dist_A : X \rightarrow [0,\infty)$ is continuous. We've shown that $|\dist_A(x) - \dist_A(y)| \leq d(x,y)$, so $\dist_A$ is Lipschitz.
     \end{example}
+
+    \begin{definition}
+        Let $X$ be a topological space. We say $X$ is \textit{normal} (or T4) if, given any disjoint closed sets $E,F \subseteq X$, there are neighbourhoods $U$
+    \end{definition}
 
     \begin{definition}
         Let $X$ be a topological space. We say $X$ is \textit{normal} (or T4) if, for any $A,B \subseteq X$ closed satisfying $A \cap B = \emptyset$, then there exists $U,V \in \tau_X$ with $A \subseteq U$, $B \subseteq V$ satisfying $U \cap V = \emptyset$.
@@ -1432,7 +1451,7 @@
             Then $U$ and $V$ open with $U \cap V = \emptyset$.
         \end{proof}
 
-    \begin{proposition}
+    \begin{proposition}\label{prop:linear-implies-continuous}
         Let $V$ and $W$ be normed spaces and $T:V \rightarrow W$ linear. The following are equivalent:
             \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
                 \item $T$ is continuous at $0_V$;
@@ -1473,22 +1492,36 @@
             We will now show (1) implies (5). Let $\epsilon = 1$. We can find a $\delta > 0$ such that $T\bigl(U(0,\delta)\bigr) \subseteq U(0,1)$. If $v \in V$, $v \neq 0$, then $\frac{\delta v}{2 \lnorm v \rnorm} \in U(0,\delta)$. Since $T$ is continuous at $0$, we have $T\frac{\delta v}{2 \lnorm v \rnorm} \in U(0,1)$\footnote{Recall that $T(0) = 0$.}. This gives $\lnorm T \frac{\delta v}{2 \lnorm v \rnorm} \rnorm < 1$, which is equivalent to $\lnorm Tv \rnorm < \frac{2}{\delta}\lnorm v \rnorm$. This establishes (5).
         \end{proof}
 
-    \begin{corollary}***
-        Let $V$ be a normed space and $T:\ell_p^n \rightarrow V$ linear. Then $T$ is uniformly continuous.
+    \begin{corollary}\label{cor:finite-lin-implies-continuous}
+        Let $V$ be a normed space with $\dim(V) = n$. If $T: \ell_p^n \rightarrow V$ is linear, then $T$ is continuous.
     \end{corollary}
         \begin{proof}
-            Let $x \in \ell_p^n$ and $\cB = \{e_1,...,e_n\}$ a basis for $\ell_p^n$. Find $\alpha_1,...,\alpha_n$ so that:
+            Let $\cB = \{e_1,...,e_n\}$ be a basis for $\ell_p^n$. Let $v \in V$. Then $v = \sum_{j = 1}^n \alpha_j e_j$ where each $\alpha_j \in \ell_p$. Then:
                 \begin{equation*}
                 \begin{split}
                     \lnorm Tv \rnorm
-                    & = \lnorm T \left( \sum_{j = 1}^n \alpha_j e_j \right) \rnorm \\
-                    & = \lnorm \sum_{j = 1}^n  \alpha_j Te_j\rnorm \\
-                    & \leq \sum_{j = 1}^n |\alpha_j| \lnorm T e_j \rnorm \\
-                    & \leq c \lnorm \sum_{j = 1}^n \alpha_j e_j \rnorm_1 \\
-                    & \leq c \cdot c' \lnorm \sum_{j = 1}^n \alpha_j e_j \rnorm_p,
+                    & = \lnorm T \left( \sum_{j = 1}^n \alpha_j e_J \right) \rnorm \\
+                    & = \lnorm \sum_{j = 1}^n \alpha_j Te_j \rnorm \\
+                    & \leq \sum_{j = 1}^n |\alpha_j| \lnorm T e_j \rnorm.
                 \end{split}
                 \end{equation*}
-            where $c = \max_{j = 1}^n \lnorm Te_j \rnorm$ and $\lnorm \cdot \rnorm_1 \leq c' \lnorm \cdot \rnorm_p$.
+            Let $c = \max_{j = 1}^n \lnorm T e_j \rnorm$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{j = 1}^n |\alpha_j| \lnorm T e_j \rnorm 
+                    & \leq c\sum_{j = 1}^n |\alpha_j| \\
+                    & = c \lnorm \sum_{j = 1}^n \alpha_j e_j \rnorm_1.
+                \end{split}
+                \end{equation*}
+            We showed that all norms are equivalent in Theorem~\ref{thm:norms-equivalent}. So there exists $c' > 0$ such that $\lnorm \cdot \rnorm_1 \leq \lnorm \cdot \rnorm_p$. Thus:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm Tv \rnorm
+                    & \leq c\cdot c' \lnorm \sum_{j = 1}^n \alpha_j e_j \rnorm_p \\
+                    & = c \cdot c' \lnorm v \rnorm_p.
+                \end{split}
+                \end{equation*}
+            By Proposition~\ref{prop:linear-implies-continuous}, we have that $T$ is continuous.
         \end{proof}
 
     \begin{proposition}
@@ -1537,7 +1570,7 @@
         
     \end{example}
 
-\section{Completeness}
+\section{Completeness}\label{sec:completeness}
     \begin{definition}
         A sequence $(x_n)_n$ in a metric space $(X,d)$ is $d$-\textit{Cauchy} if:
             \begin{equation*}
@@ -1974,6 +2007,36 @@
         (Something about Hilbert spaces...)
     \end{example}
 
+    \begin{proposition}
+        Let $T:V \rightarrow W$ be a continuous linear map between normed spaces which is \textit{bounded below}, that is, there is a $C>0$ with $\lnorm Tv \rnorm \geq C \lnorm v \rnorm$ for all $v \in V$. If $V$ is complete, then $\Image(T) \subseteq W$ is a closed subspace, and $V \cong \Image(T)$ are uniformly isomorphic.
+    \end{proposition}
+        \begin{proof}
+            Let $(T(v_n))_n$ be a sequence in $\Image(T)$ converging to $w \in W$. Given $\epsilon$, find $N$ large so that $n \geq M$ implies $\lnorm T(v_n)-w \rnorm < \frac{C\epsilon}{2}$. For $n,m \geq N$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm v_n - v_m \rnorm
+                    & \leq \frac{1}{C}\lnorm T(v_n - v_m) \rnorm \\
+                    & = \frac{1}{C}\lnorm T(v_n) - T(v_m) \rnorm \\
+                    & \leq \frac{1}{C}\lnorm T(v_n) - w \rnorm + \frac{1}{C}\lnorm w - T(v_m) \rnorm \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(v_n)_n$ is Cauchy. Since $V$ is complete, let $v_0 := \limit_{n \rightarrow \infty}v_n$. Since $T$ is continuous, we can see $(T(v_n))_n \rightarrow T(v_0)$. It must be the case that $T(v_0) = w$; i.e., $w \in \Image(T)$. Thus $\Image(T)$ is a closed subspace.
+
+            Since $T$ is continuous, there exists some $\alpha > 0$ such that $\lnorm Tv \rnorm \leq \alpha \lnorm  v \rnorm$. Clearly if $v = 0$, then $Tv = 0$, implying that $T$ is injective. Whence $V \cong \Image(T)$ as vector spaces. Since $T$ is continuous, it is uniformly continuous, so it remains to show that $T^{-1}:\Image(T) \rightarrow V$ (which exists) is also continuous. Let $w \in \Image(T)$, then there exists $v \in V$ with $T(v) = w$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm T^{-1} w \rnorm
+                    & = \lnorm T^{-1}(T(v)) \rnorm \\
+                    & = \lnorm v \rnorm \\
+                    & \leq \frac{1}{C}\lnorm Tv \rnorm \\
+                    & = \frac{1}{C}\lnorm w \rnorm.
+                \end{split}
+                \end{equation*}
+            Thus $T$ is a uniformism.
+        \end{proof}
+
     \begin{center}
         \begin{tikzpicture}
             \draw[thick] (0.3,0) -- (2.3,0);
@@ -2352,9 +2415,16 @@
         Hilbert spaces are reflexive by the Riesz representation theorem.
     \end{example}
 
-\section{Baire's Theorem}
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
 
-Recall that $A \subseteq X$ is \textit{nowhere dense} if $\overline{A}^o = \emptyset$. For example, if $f:\bfR \rightarrow \bfR$ is any map, the set $\{(x,y) \in \bfR^2 \mid y = f(x)\}$ is nowhere dense.
+    Recall that $A \subseteq X$ is \textit{nowhere dense} if $\overline{A}^o = \emptyset$. For example, if $f:\bfR \rightarrow \bfR$ is any map, the set $\{(x,y) \in \bfR^2 \mid y = f(x)\}$ is nowhere dense.
 
     \begin{proposition}\label{prop:nowhere-dense-properties}
         For a metric space $(X,d)$ and $A \subseteq X$, the following are equivalent:
@@ -2400,20 +2470,639 @@ Recall that $A \subseteq X$ is \textit{nowhere dense} if $\overline{A}^o = \empt
                     & \supseteq U_1 \cap U_2.
                 \end{split}
                 \end{equation*}
-            Clearly $U_1 \cap U_2$ is open by Proposition~\ref{prop:open-sets-topology}. Claim: $U_1 \cap U_2$ is dense. Let $x \in X$ and $\epsilon > 0$. We'd like to show, by Proposition~\ref{prop:dense-properties}, that $(U_1 \cap U_2) \cap U(x,\epsilon) \neq \emptyset$. Since $U_1$ is dense, we know $U_1 \cap U(x,\epsilon) \neq \emptyset$. Let $z \in U_1 \cap U(x,\epsilon)$. Since $U_1 \cap U(x,\epsilon)$ is open, by Definition~\ref{def:2.2.2} there exists a $\delta > 0$ such that $U(z,\delta) \subseteq U_1 \cap U(x,\epsilon)$. Now since $U_2$ is dense, $U(z,\delta) \cap U_2 \neq \emptyset$. Therefore:
-                \begin{equation*}
-                \begin{split}
-                    \emptyset 
-                    & = U(z,\delta) \cap U_2 \\
-                    & \subseteq U(x,\epsilon) \cap (U_1 \cap U_2).
-                \end{split}
-                \end{equation*}
-            Thus $U_1 \cap U_2$ is dense.
+            Clearly $U_1 \cap U_2$ is open by Proposition~\ref{prop:open-sets-topology}. Claim: $U_1 \cap U_2$ is dense. Let $x \in X$ and $\epsilon > 0$. We'd like to show, by Proposition~\ref{prop:dense-properties}, that $(U_1 \cap U_2) \cap U(x,\epsilon) \neq \emptyset$. Since $U_1$ is dense, we know $U_1 \cap U(x,\epsilon) \neq \emptyset$. Let $z \in U_1 \cap U(x,\epsilon)$. Since $U_1 \cap U(x,\epsilon)$ is open, by Definition~\ref{def:2.2.2} there exists a $\delta > 0$ such that $U(z,\delta) \subseteq U_1 \cap U(x,\epsilon)$. Now since $U_2$ is dense, $U(z,\delta) \cap U_2 \neq \emptyset$. Therefore $U(x,\epsilon) \cap (U_1 \cap U_2) \neq \emptyset$. Thus $U_1 \cap U_2$ is dense.
 
             (4) Since $X$ has no isolated points, $\{x\}$ is closed but not open. Then $(\overline{\{x\}})^o = \{x\}^o = \emptyset$. So $\{x\}$ is nowhere dense. By (3), any finite set $\{x_1,x_2,...,x_n\} = \{x_1\} \cup \{x_2\} \cup ... \cup \{x_n\}$ is nowhere dense.
         \end{proof}
 
-    Note that $\bfQ$ is the \textit{countable} union of open nowhere dense sets, but $\bfQ$ is not nowhere dense. Regardless, there is something to be said about the union of countable dense sets.
+    Note that $\bfQ$ is not nowhere dense, but it is the \textit{countable} union of nowhere dense sets.
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item A set $A \subseteq X$ is \textit{meager} if $A = \bigcup_{k = 1}^\infty A_k$, where each $A_k$ is nowhere dense.
+                \item A set $B \subseteq X$ is \textit{residual} if $B^c$ is meager.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        A meager set is "topologically small", whereas a residual set is "topologically big". Consider $\bfQ \subseteq \bfR$ meager. Then $\bfR\setminus \bfQ \subseteq \bfR$ is residual.
+
+        Note that this definition only applies to \textit{subsets} of a specified metric space. For instance, $\bfZ \subseteq \bfR$ is meager, but $\bfZ \subseteq \bfZ$ is not meager. Indeed, $\bfZ$ with the discrete topology means that every subset of $\bfZ$ is open, and every subset of $\bfZ$ is closed. So given $A \subseteq \bfZ$ nowhere dense, we have $A = (\overline{A})^c = \emptyset$. So if $A \subseteq \bfZ$ is meager, then $A \neq \emptyset$.
+    \end{example}
+
+    \begin{proposition}
+        Let $(X,d)$ be a metric space.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $A \subseteq X$ is meager and $B \subseteq A$, then $B$ is meager.
+            \item If $A_1,A_2,...,A_k$ are meager, then $\bigcup_{k = 1}^\infty A_k$ is meager.
+            \item If $X$ has no isolated points, every countable set is meager.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) If $A$ is meager, then $A = \bigcup_{k = 1}^\infty A_k$, where each $A_k$ is nowhere dense. Then:
+                \begin{equation*}
+                \begin{split}
+                    B 
+                    & = B \cap A \\
+                    & = B \cap \bigcup_{k = 1}^\infty A_k \\
+                    & = \bigcup_{k = 1}^\infty (B \cap A_k)
+                \end{split}
+                \end{equation*}
+            Since $B \cap A_k$ is nowhere dense for all $k$, $B$ is meager.
+
+            (2) If $A_k$ is meager, then $A_k = \bigcup_{j = 1}^\infty {A_k}_j$, where ${A_k}_j$ is nowhere dense for each $j$. We have:
+                \begin{equation*}
+                \begin{split}
+                    \bigcup_{k = 1}^\infty A_k 
+                    & = \bigcup_{k = 1}^\infty \bigcup_{j = 1}^\infty {A_k}_j.
+                \end{split}
+                \end{equation*}
+            Since the countable union of countable sets is countable, we can see $\bigcup_{k = 1}^\infty A_k$ is meager.
+
+            (3) We can write $\{x_k \mid k \geq 1\}$ as $\bigcup_{k = 1}^\infty \{x_k\}$. Since singletons are nowhere dense, every countable set is meager.
+        \end{proof}
+
+    \begin{proposition}[Cantor's Intersection Theorem]\label{prop:cantor-intersection-thm}
+        Let $(X,d)$ be a complete metric space and $F_1 \supseteq F_2 \supseteq F_3 \supseteq ...$ be a nested sequence of closed nonempty sets with $(\diam(F_n))_n \rightarrow 0$. Then $\bigcap_{n \geq 1}F_n = \{x\}$ for some $x \in X$.
+    \end{proposition}
+        \begin{proof}
+            Let $x_n \in F_n$ for all $n \geq 1$. Note that $(x_n)_n$ is Cauchy \textemdash given $\epsilon > 0$, let $N$ be large so that $n \geq N$ implies $\diam(F_n) < \epsilon$. For $m,n \geq N$, we have $x_m,x_n \in F_N$ (because $F_N \supseteq F_{N+1} \supseteq ...$), which gives:
+                \begin{equation*}
+                \begin{split}
+                    d(x_n,x_m)
+                    & \leq \sup_{x_n,x_m \in F_N} d(x_n,x_m) \\
+                    & = \diam(F_N) \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Since $X$ is complete, $(x_n)_n \rightarrow x_0$ for some $x_0 \in X$. 
+
+            Claim: $\bigcap_{n \geq 1}F_n = \{x_0\}$. To see this, fix $m \in \bfN$ and consider the sequence $(x_{m+k})_k$ in $F_m$. Since $(x_n)_n$ converges to $x_0$, we know the tail $(x_{m+k})_k \xrightarrow{k \rightarrow \infty} x_0$. Since $F_m$ is closed, we know $x_0 \in F_m$. Since $m$ was arbitrary, $x_0 \in \bigcap_{n \geq 1}F_n$. Now suppose $x_0,x \in \bigcap_{n \geq 1}F_n$ with $d(x_0,x) > 0$. We can find $N$ large so that $\diam(F_n) < d(x_0,x)$ But $x_0,x \in \bigcap_{n \geq 1}F_n$ implies $x_0,x \in F_n$, giving $d(x_0,x) < d(x_0,x)$, which is a contradiction. Thus $\bigcap_{n \geq 1}F_n = \{x_0\}$.
+        \end{proof}
+
+    \begin{example}
+        Note that $\bigcap_{n \geq 1}(0,\frac{1}{n}) = \emptyset$ becaue $(0,\frac{1}{n})$ is not closed, and $\bigcap_{n \geq 1}[n,\infty) = \emptyset$ because $(\diam([n,\infty)))_n \nrightarrow 0$. 
+    \end{example}
+
+    \begin{theorem}[Baire Category Theorem]\label{thm:baires-theorem}
+        Let $(X,d)$ be a complete metric space.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $\{V_k\}_{k = 1}^\infty$ is a countable family of open and dense subsets, then $\bigcap_{k = 1}^\infty V_k$ is also dense (but not necessarily open).
+            \item $X$ is not meager.
+        \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            (1) Let $U_0$ be any open ball. Since $V_1$ is open and dense, $U_0 \cap V_1$ is open and nonempty. So there exists an open ball $U(x,\delta) \subseteq U_0 \cap V_1$. Notice we also have $U_1:= U(x,\frac{\delta}{2}) \subseteq U_0 \cap V_1$. Define $B_1 = \overline{U_1} \subseteq U_0 \cap V_1$. Since $\delta$ was arbitrary, we arbitrarily shrink out open ball to ensure $\diam(B_1) < 1$. Now $U_1 \cap V_2$ is open and nonempty. So there exists some open ball contained in $U_1 \cap V_2$. Exactly as we just did, find $B_2 := \overline{U_2} \subseteq U_1 \cap V_2$ such that $\diam(B_2) < \frac{1}{2}$. Inductively, having constructed $U_1,B_1,U_2,B_2,...$, we note that $U_{n-1} \cap V_n$ is open and nonempty, so it contains an open ball. Find $B_n := \overline{U_n} \subseteq U_{n-1} \cap V_n$ such that $\diam(B_n) < \frac{1}{n}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    B_1 \supseteq U_1 \supseteq B_2 \supseteq U_2 \supseteq B_3 \supseteq U_3 \supseteq ...
+                \end{split}
+                \end{equation*}
+            So $\{B_n\}_{n \geq 1}$ is a nested sequence of closed sets with $(\diam(B_n))_n \rightarrow 0$. By Cantor's Intersection Theorem, $\cap_{n \geq 1}B_n = \{x\}$. Claim: $x \in U_0 \cap \bigl( \bigcap_{k=1}^\infty V_k \bigr)$. Note that $B_n \subseteq U_{n-1} \cap V_n \subseteq V_n$. So $x \in \bigcap_{n \geq 1}B_n \subseteq \bigcap_{n \geq 1}V_n$. Also, $x \in B_1 = \overline{U_1} \subseteq U_0 \cap V_1 \subseteq U_0$. This means $x \in U_0 \cap \bigl( \bigcap_{k=1}^\infty V_k \bigr)$. Since $U_0$ was an arbitrary open set, and since it's intersection with $\bigcap_{k=1}^\infty V_k$ is nonempty, we can conclude that $\bigcap_{k=1}^\infty V_k$ is dense.
+
+            (2) Suppose towards contadiction that $X$ is meager, that is, $X = \bigcup_{k = 1}^\infty A_k$, where each $A_k$ is nowhere dense. Fixing $k$, by Proposition~\ref{prop:nowhere-dense-properties} we can find an open and dense set $V_k$ with $V_k \subseteq A_k^c$. But then:
+                \begin{equation*}
+                \begin{split}
+                    \emptyset
+                    & = X^c \\
+                    & = \left( \bigcup_{k = 1}^\infty A_k \right)^c \\
+                    & = \bigcap_{k = 1}^\infty A_k^c \\
+                    & \supseteq \bigcap_{k = 1}^\infty V_k.
+                \end{split}
+                \end{equation*}
+            This is a contradiction. Thus, if $X$ is complete, then $X$ is not meager.
+        \end{proof}
+
+    \begin{exercise}
+        Show that $\bfR\setminus \bfQ$ is not meager.
+    \end{exercise}
+
+    \vspace{5pt}
+    \begin{center}
+        {Skipped all of the "application" stuff}
+    \end{center}
+    \vspace{5pt}
+
+    \begin{example}
+        Let $X = \bigl(C([0,1]),\lnorm \cdot \rnorm_u\bigr)$. Recall that $f(x) = |x|$ is continuous everywhere, but not differentiable at $x = 0$. Does there exist a function $f:X \rightarrow \bfR$ which is continuous \textit{everywhere}, but differentiable \textit{nowhere}. The answer is yes, and in fact, the set:
+            \begin{equation*}
+            \begin{split}
+                \left\{ f \in X \mid f \h3\text{differentiable nowhere}\h1 \right\}
+            \end{split}
+            \end{equation*}
+        is \textit{residual}. This is surprising, as the complement of this set\textemdash the set containing every continuous function which is differentiable at one or more points, is "topologically small."
+    \end{example}
+
+\section{Compactness}\label{sec:compactness}
+    Compactness is a generalization of "closed and bounded in $\bfR^n$ for metric spaces. It is the algebraic analogue of "finite-dimensional".
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space and $K \subseteq X$ a subset.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item A \textit{cover} for $K$ is a family $\cU = \{U_i\}_{i \in I}$ with $U_i \subseteq X$ for all $i$ and $K \subseteq K \subseteq \bigcup_{i \in I}U_i$.
+            \item The family $\cU$ is an \textit{open cover} for $K$ if each $U_i$ is open.
+            \item The family $\cU$ is a \textit{finite cover} for $K$ if $I$ is finite.
+            \item A \textit{subcover} of $\cU$ is a subfamily $\{U_i\}_{i \in J}$, where $J \subseteq I$ and $K \subseteq \bigcup_{i \in J}U_i$.
+            \item $K$ is called \textit{compact} if every open cover $\cU$ of $K$ admits a finite subcover. That is, if $K \subseteq \bigcup_{i \in I}U_i$ with each $U_i \subseteq X$ open, there exists a finite subset $F \subseteq I$ with $K \subseteq \bigcup_{i \in F}U_i$.
+        \end{enumerate}
+    \end{definition}
+
+    Since $K$ is not necessarily proper, a metric space $X$ is compact if it can be written as the union of finitely many open sets.
+
+    \begin{example}
+        The set $(0,1]$ is not compact in $\bfR$. The family $\left\{\left(\frac{1}{n},2\right)\right\}_{n \geq 1}$ is an open cover of $(0,1]$, but admits no finite subcover.
+    \end{example}
+
+    \begin{exercise}
+        Let $(X,d)$ be a metric space with $Y \subseteq X$ and $K \subseteq Y$. $K \subseteq X$ is compact if and only if $K \subseteq Y$ is compact.
+    \end{exercise}
+
+    \begin{proposition}\label{prop:compact-subsets}
+        Let $(X,d)$ be a metric space and $K \subseteq X$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item If $K$ is compact, then $K$ is closed and bounded,
+                \item If $X$ is compact and $K$ is closed, then $K$ is compact.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) We will first show that $K$ is bounded. Pick $x_0 \in K$, Note that $\{U(x_0,n)\}_{n = 1}^\infty$ is a cover for $K$, whence $K \subseteq \bigcup_{n \geq 1}U(x_0,n)$. By the compactness of $K$, $K \subseteq \bigcup_{n = 1}^N U(x_0,n)$. For $x,x' \in K$:
+                \begin{equation*}
+                \begin{split}
+                    d(x,x')
+                    & \leq d(x,x_0) + d(x_0,x') \\
+                    & \leq 2N.
+                \end{split}
+                \end{equation*}
+            Thus $\diam(K) \leq 2N$, so $K$ is bounded. We will now show that $K^c$ is open. Let $x_0 \in K^c$ be arbitrary. For each $x \in K$, we can find a $\delta_x > 0$ such that $U(x_0,\delta_x) \cap U(x,\delta_x) = \emptyset$. Note that $K \subseteq \bigcup_{x \in K}U(x,\delta_x)$. Since $K$ is compact, there exists $x_1,...,x_n \in K$ with $K \subseteq \bigcup_{j = 1}^n U(x_j,\delta_{x_j})$. Let $\delta = \min_{j = 1}^n \delta_{x_j}$. Claim: $U(x_0,\delta) \subseteq K^c$. If not, we can find some $z \in U(x_0,\delta) \cap K$, which implies $z \in U(x_0,\delta) \cap U(x_j,\delta_{x_j})$ for some $j$. But this means $\emptyset \neq U(x_0,\delta) \cap U(x_j,\delta_{x_j}) \subseteq U(x_0,\delta_{x_j}) \cap U(x_j,\delta_{x_j}) = \emptyset$. Thus $K$ is closed.
+
+            (2) Let $K \subseteq \bigcup_{i \in I}U_i$, where $U_i \subseteq X$ is open. Then $X = K^c \cup \left( \bigcup_{i \in I}U_i \right)$. Since $K^c \cup \left( \bigcup_{i \in I}U_i \right)$ is an open cover of $X$, there exists a finite subset $F \subseteq I$ with $X = K^c \cup \left( \bigcup_{i \in F}U_i \right)$. It follows that $K \subseteq \bigcup_{i \in F}U_i$.
+        \end{proof}
+    
+    \begin{definition}
+        Let $(X,d)$ be a metric space. A non-empty family of subsets $\{A_i\}_{i \in I}$ is said to have the \textit{finite intersection property} if for any finite subset $F \subseteq I$, we have $\bigcap_{i \in F}A_i \neq \emptyset$.
+    \end{definition}
+
+    \begin{proposition}\label{prop:closed-fip}
+        Let $(X,d)$ be a metric space. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $X$ is compact;
+                \item For any family of closed subsets $\{C_i\}_{i \in I}$ satisfying the finite intersection property, we have $\bigcap_{i \in I}C_i \neq \emptyset$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            Suppose that $X$ is compact and let $\{C_i\}_{i \in I}$ be a family of closed sets satisfying the finite intersection property. Assume towards contradiction that $\bigcap_{i \in I}C_i = \emptyset$. Then $\bigcup_{i \in I}C_i^c = X$. Since $X$ is compact, there exists some finite subset $F \subseteq I$ with $\bigcup_{i \in F}C_i^c = X$. But this implies $\bigcap_{i \in F}C_i = \emptyset$, contradicting our family of closed subsets satisfying the finite intersection property.
+
+            We will assume the contrapositive of (2). Let $X = \bigcup_{i \in I}V_i$, where each $V_i$ is open. Then $\emptyset = \bigcap_{i \in I}V_i^c$. Since $\{V_i^c\}_{i \in I}$ is a family of closed subsets, it must be the case that $\bigcap_{i \in F}V_i^c = \emptyset$ for some finite subset $F \subseteq I$. Whence $\bigcup_{i \in F}V_i = X$.
+        \end{proof}
+
+    \begin{proposition}***
+        Every compact metric space is separable.
+    \end{proposition}
+        \begin{proof}
+            Fix $n \geq 1$. We have an open cover $X = \bigcup_{x \in X}U(x,\frac{1}{n})$, which admits a subcover $X = \bigcup_{j = 1}^{J_n} U\left(x_{n,j}, \frac{1}{n}\right)$. Let $S = \{x_{n,j} \mid n \geq 1, 1 \leq j \leq J_n\}$. 
+
+            Let $x \in X$ and $\epsilon > 0$. Let $m$ be such that $\epsilon > \frac{1}{m}$. Find $j \in \{1,...,J_m\}$ with $x \in U(x_{m,j},\frac{1}{m})$. Thus $d(x,x_{m,j})< \frac{1}{m}$. Whence $S \cap U(x,\epsilon) \neq \emptyset$. So $S$ is dense and certainly countable.
+        \end{proof}
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space and let $K \subseteq X$, $K$ is called \textit{sequentially compact} if every sequence $(x_n)_n$ in $K$ admits a convergent subsequence in $K$.
+    \end{definition}
+
+    \begin{proposition}\label{prop:compact-implies-seq-comp}
+        Let $(X,d)$ be a metric space. If $K \subseteq X$ is compact, then $K$ is sequentially compact.
+    \end{proposition}
+        \begin{proof}
+            Let $(x_k)_k$ be a sequence in $K$. Consider $C_n = \overline{\{x_k \mid k > n\}}$. Note that:
+                \begin{equation*}
+                    C_1 \supseteq C_2 \supseteq C_3 \supseteq...
+                \end{equation*}
+            In particular, $\bigcap_{j = 1}^n C_j \neq \emptyset$ for any $n > 1$. So $\{C_n\}_{n \geq 1}$ is a family of closed sets which satisfies the finite intersection property. By Proposition~\ref{prop:closed-fip} we have $\bigcap_{n \geq 1}C_n \neq \emptyset$. Let $x \in \bigcap_{n \geq 1}C_n$. 
+            
+            Clearly $x \in C_1$. This means $U(x,1)\cap \{x_k \mid k >1 \} \neq \emptyset$. Let $x_{k_1} \in U(x,1) \cap C_1$. Since $x_{k_1} \in C_1$, we know that $k_1 > 1$. Moreover, $d(x,x_{k_1}) < 1$. 
+            
+            Similarly, $x \in C_{k_1}$. This means $U(x,\frac{1}{2}) \cap \{x_k \mid k > k_1\} \neq \emptyset$. Let $x_{k_2} \in U(x,\frac{1}{2}) \cap \{x_k \mid k > k_1\}$. Since $x_{k_2} \in\{x_k \mid k > k_1\}$, we know $k_2 > k_1$. Moreover, $d(x,x_{k_2}) < \frac{1}{2}$. 
+            
+            Inductively, $x \in C_{k_{j-1}}$. This means $U(x,\frac{1}{j}) \cap \{x_k \mid k > k_{j - 1}\} \neq \emptyset$. Let $x_{k_j} \in U(x,\frac{1}{j}) \cap \{x_k \mid k > k_{j - 1}\}$. Since $x_{k_j} \in \{x_k \mid k > k_{j - 1}\}$, we know $k_j > k_{j-1}$. Moreover, $d(x,x_{k_j}) < \frac{1}{j}$. We've obtained a sequence $(x_{k_j})_j$ which converges to $x$. Thus $(X,d)$ is sequentially compact.
+        \end{proof}
+
+    \begin{proposition}\label{prop:seq-implies-complete}
+        If $(X,d)$ is sequentially compact, then $(X,d)$ is complete.
+    \end{proposition}
+        \begin{proof}
+            Let $(x_n)_n$ be Cauchy. We know there exists a subsequence $(x_{n_k})_k$ which converges to some $x \in X$. Let $\epsilon > 0$. Find $N$ large so $p,q \geq N$ implies $d(x_p,x_q) < \frac{\epsilon}{2}$. Find $K$ large so $k \geq K$ implies $d(x_{n_k},x) < \frac{\epsilon}{2}$. For $n,k \geq \max\{N,K\}$:
+                \begin{equation*}
+                \begin{split}
+                    d(x_n,x)
+                    & \leq d(x_n,x_{n_k}) + d(x_{n_k}, x) \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(x_n)_n \rightarrow x$. Whence $(X,d)$ is complete.
+        \end{proof}
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space. We say $Y \subseteq X$ is \textit{totally bounded} if for all $\epsilon > 0$, there exists a finite subset $F\subseteq Y$ such that $Y \subseteq \bigcup_{z \in F}U(z,\epsilon)$.
+    \end{definition}
+
+    \begin{proposition}\label{prop:sequential-implies-tot-bounded}
+        Let $(X,d)$ be a metric space. If $K \subseteq X$ is sequentially compact, then $K$ is totally bounded.
+    \end{proposition}
+        \begin{proof}
+            Suppose towards contradiction that $K$ is not totally bounded. Then there exists some $\epsilon_0 > 0$ such that, for any finite subset $F \subseteq K$, we have $K \not\subseteq \bigcup_{z \in F}U(z,\epsilon_0)$. Let $x_1 \in K$ be arbitrary. Then $K \not\subseteq U(x_1,\epsilon_0)$, since $K$ cannot be covered by finitely many open balls. Find $x_2 \in K \setminus U(x_1,\epsilon_0)$. Then $K \not\subseteq U(x_1,\epsilon_0) \h1\cup\h1 U(x_2,\epsilon_0)$. Find $x_3 \in K \setminus \left( U(x_1,\epsilon_0) \cup U(x_2,\epsilon_0) \right)$. Then $K \not\subseteq U(x_1,\epsilon_0) \cup U(x_2,\epsilon_0) \cup U(x_3,\epsilon_0)$. Inductively, we obtain a sequence $(x_n)_n$, where $x_n \in K \setminus \bigcup_{j = 1}^{n-1}U(x_j,\epsilon_0)$. Since $x_n \not\in \bigcup_{j = 1}^{n-1}U(x_j,\epsilon_0)$, we have that $d(x_n,x_j) \geq \epsilon_0$ for all $j \neq n$. Now since $X$ is sequentially compact, $(x_n)_n$ admits a convergent subsequence, call it $(x_{n_k})_k$. Since $(x_{n_k})_k$ converges, it is Cauchy. But this is a contradiction, because $d(x_{n_l},x_{n_k}) \geq \epsilon_0$ for all $l \neq k$. It must be the case that $K$ is totally bounded.
+        \end{proof}
+
+    \begin{proposition}
+        If $(X,d)$ is a metric space and $K \subseteq X$ is totally bounded, then $K$ is bounded.
+    \end{proposition}
+        \begin{proof}
+            Let $\epsilon = 1$. We have that $K \subseteq \bigcup_{j = 1}^n U(x_j,1)$. Define $C = \max_{1 \leq i,j \leq n}d(x_i,x_j)$. If $x,y \in K$, then $x \in U(x_i,1)$ and $y \in U(x_j,1)$ for some $i,j$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    d(x,y)
+                    & \leq d(x,x_i) + d(x_i,x_j) + d(x_j,y) \\
+                    & \leq 2 + C.
+                \end{split}
+                \end{equation*}
+            Thus $\diam(K) \leq 2+C$.
+        \end{proof}
+
+    \begin{corollary}\label{cor:compact-sup}
+        If $K \subseteq \bfR$ is compact and nonempty, then $\sup(K) \in K$.
+    \end{corollary}
+        \begin{proof}
+            Define $u:= \sup(K)$. Let $(x_n)_n$ be a sequence in $K$ converging to $u$. Note that $u \in \bfR$ since $K$ is bounded. Since $K$ is closed, $u \in K$.
+        \end{proof}
+
+    \begin{theorem}\label{thm:gen-heine-borel}
+        Let $(X,d)$ be a metric space. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $X$ is compact;
+                \item $X$ is sequentially compact;
+                \item $X$ is complete and totally bounded.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            Propositions \ref{prop:compact-implies-seq-comp}, \ref{prop:seq-implies-complete}, and \ref{prop:sequential-implies-tot-bounded} established (1)$\Rightarrow$(2) and (2)$\Rightarrow$(3). It remains to prove (3)$\Rightarrow$(1).
+            Suppose towards contradiction $\cV$ is an open cover for $X$ which fails to admit a finite subcover. Let $\epsilon = 1$. By total boundedness:
+                \begin{equation*}
+                \begin{split}
+                    X = U(x_1,1) \cup U(x_2,1) \cup ... \cup U(x_{m_1},1).
+                \end{split}
+                \end{equation*}
+            There must be at least one $U(x_j,1)$ that can't be covered by finitely many members of $\cV$. Label one of these balls at $B_{1}(x_1)$. Let $\epsilon = \frac{1}{2}$. By total boundedness,
+                \begin{equation*}
+                \begin{split}
+                    X = U(x_1,\sfrac{1}{2}) \cup U(x_2,\sfrac{1}{2}) \cup ... \cup U(x_{m_2},\sfrac{1}{2}).
+                \end{split}
+                \end{equation*}
+            Note that:
+                \begin{equation*}
+                \begin{split}
+                    \bigcup_{j = 1}^{m_2}\Bigl( B_{1}(x_1) \cap U(x_j,\sfrac{1}{2}) \Bigr) 
+                    & = B_{1}(x_1) \cap \left( \bigcup_{j = 1}^{m_2} U(x_j,\sfrac{1}{2})\right) \\
+                    & = B_{1}(x_1) \cap X \\
+                    & = B_{1}(x_1).
+                \end{split}
+                \end{equation*}
+            There must be some $j$ such that $B_{x_1}(1) \cap U(x_j,\sfrac{1}{2})$ cannot be covered by finitely many mebers of $\cV$. Label $U(x_j,\sfrac{1}{2})$ as $B_{\sfrac{1}{2}}(x_2)$. We continue this process inductively, along which we obtain a sequence $(x_n)_n$ such that
+                \begin{equation*}
+                \begin{split}
+                    F_n := B_{1}(x_1) \cap B_{\sfrac{1}{2}}(x_2) \cap B_{\sfrac{1}{3}}(x_3) \cap ... \cap B_{\sfrac{1}{n}}(x_n),
+                \end{split}
+                \end{equation*}
+            cannot be covered by finitely many members of $\cV$. Define $C_n = \overline{F_n}$. Note that $C_1 \supseteq C_2 \supseteq C_3 \supseteq...$ and $\diam(C_n) \leq \frac{2}{n}$. Since $X$ is complete, by \nameref{prop:cantor-intersection-thm} $\bigcap_{n \geq 1}C_n = \{x\}$. Locate this $x$ in $V \in \cV$. Since $V$ is open, we can find some $\epsilon > 0$ with $U(x,\epsilon) \subseteq V$. Find $N$ large so that $\frac{2}{N} < \epsilon$. We can see that $C_N \subseteq U(x,\epsilon)$ since $d(z,x) \leq \frac{2}{N} < \epsilon$ for all $z \in C_N$. But this means $F_N \subseteq C_N \subseteq U(x,\epsilon) \subseteq V$. This is a contradiction, as we've asserted $F_n$ cannot be covered by finitely many members of $\cV$. Thus $X$ is compact.
+        \end{proof}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+
+    We're interested in studying compact subsets of $\bfR^d$.
+
+    (Heine-Borel stuff here...)
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+
+    Compactness and Continuity 
+
+    \begin{proposition}\label{prop:compact-cont}
+        Let $f:(X,d) \rightarrow (Y,d)$ be continuous and $K \subseteq X$ compact. Then $f(K) \subseteq Y$ is compact. 
+    \end{proposition}
+        \begin{proof}
+            Let $f(K) \subseteq \bigcup_{i \in I}V_i$, where each $V_i \subseteq Y$ is open. Then:
+                \begin{equation*}
+                \begin{split}
+                    K 
+                    & \subseteq f^{-1} (f(K)) \\
+                    & \subseteq f^{-1} \left( \bigcup_{i \in I}V_i \right) \\
+                    & = \bigcup_{i \in I}f^{-1}(V_i).
+                \end{split}
+                \end{equation*}
+            Since $f$ is continuous, $f^{-1}(V_i) \subseteq X$ is open. So there exists a finite subset $F \subseteq I$ with $K \subseteq \bigcup_{i \in F}f^{-1}(V_i)$. Whence:
+                \begin{equation*}
+                \begin{split}
+                    f(K)
+                    & \subseteq f \left( \bigcup_{i \in F}f^{-1}(V_i) \right) \\
+                    & = \bigcup_{i \in F}f(f^{-1}(V_i)) \\
+                    & = \bigcup_{i \in F}V_i. \qedhere
+                \end{split}
+                \end{equation*}
+        \end{proof}
+
+    \begin{corollary}
+        If $d_1$ and $d_2$ are topologically equivalent metrics on $X$, then $K \subseteq X$ is $d_1$-compact if and only if $K \subseteq X$ is $d_2$-compact.
+    \end{corollary}
+        \begin{proof}
+            By the definition of topological equivalence $id:(X,d_1) \rightarrow (X,d_2)$ is continuous. Let $K \subseteq X$ be $d_1$-compact. Then $K = \id(K) \subseteq (X,d_2)$. The previous proposition says $K$ is $d_2$-compact. The converse direction is identical.
+        \end{proof}
+
+    \begin{theorem}[Extreme Value Theorem]
+        Let $f:(X,d) \rightarrow \bfR$ be continuous and $K \subseteq X$ compact. Then there exists $x_m,x_M \in K$ with $f(x_m) = \inf_{x \in K}f(x)$ and $f(x_M) = \sup_{x \in K}f(x)$.
+    \end{theorem}
+        \begin{proof}
+            If $f$ is continuous, then $f(K) \subseteq \bfR$ is compact. Then Proposition~\ref{cor:compact-sup} gives $\inf(f(K)),\sup(f(K)) \in f(K)$. Hence there exists $x_m,x_M $ with $f(x_m) = \inf(K)$ and $f(x_M) = \sup(K)$.
+        \end{proof}
+
+    \begin{proposition}
+        Let $V$ be a finite dimensional vector space over $F$. All norms on $V$ are equivalent.
+    \end{proposition}
+        \begin{proof}
+            Let $\{v_1,...,v_n\}$ be a basis for $V$. Define $\lnorm \cdot \rnorm_1 : V \rightarrow [0,\infty)$ by:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \sum_{i = 1}^n t_j v_j \rnorm_1 = \sum_{i = 1}^n |t_j|.
+                \end{split}
+                \end{equation*}
+            Then $\varphi:\ell_1^n \rightarrow (V,\lnorm \cdot \rnorm_1)$ given by $(t_1,...,t_n) \mapsto \sum_{i = 1}^n t_i v_i$ is a linear isomorphism and isometry. Indeed:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \varphi((t_1,...,t_n)) - \varphi((t_1',...,t_n')) \rnorm_1
+                    & = \lnorm \sum_{i = 1}^n t_i v_i - \sum_{i = 1}^n t_i' v_i \rnorm_1 \\
+                    & = \lnorm \sum_{i = 1}^n(t_i - t_i')v_i \rnorm_1 \\
+                    & = \sum_{i = 1}^n |t_i - t_i'| \\
+                    & = \lnorm (t_1,...,t_n) - (t_1',...,t_n') \rnorm_{\ell_2^n}.
+                \end{split}
+                \end{equation*}
+            By the Heine-Borel Theorem $B_{\ell_1^n} = \{t \in \ell_1^n \mid \lnorm t \rnorm_{\ell_1^n} \leq 1\}$ is compact as it is a closed and bounded subset of $\ell_1^n$. Moreover, $B_1 = \{v \in V \mid \lnorm V \rnorm \leq 1\}$ is compact by Proposition~\ref{prop:compact-cont} since $B_1 = \varphi(B_{\ell_1^n})$. Now $S_1 = \{v \in V \mid \lnorm v \rnorm_1 =1 \} \subseteq B_1$ is closed, hence compact. Let $\lnorm \cdot \rnorm$ be any norm on $V$. We can see:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \sum_{i = 1}^n t_i v_i \rnorm
+                    & = \sum_{i = 1}^n |t_i|\lnorm v_i \rnorm \\
+                    & \leq c \sum_{i = 1}^n |t_i| \\
+                    & = c \lnorm \sum_{i = 1} ^n t_i v_i\rnorm_1,
+                \end{split}
+                \end{equation*}
+            where $c = \max_{i = 1}^n \lnorm v_j \rnorm$. 
+            
+            Now consider $g:(V,\lnorm \cdot \rnorm_1) \rightarrow \bfR$ given by $g(v) = \lnorm v \rnorm$. We have:
+                \begin{equation*}
+                \begin{split}
+                    |g(v) - g(v')| 
+                    & = | \lnorm v \rnorm - \lnorm v' \rnorm| \\
+                    & \leq \lnorm v - v' \rnorm \\
+                    & \leq c \lnorm v-v' \rnorm_1.
+                \end{split}
+                \end{equation*}
+            Thus $g$ is continuous. Since $S_1 \subseteq (V,\lnorm \cdot \rnorm_1)$ is compact, the Extreme Value Theorem says there exists $w \in S_1$ with $g(w) = \inf_{v \in S_1}g(v)$. If $g(w) = \lnorm w \rnorm = 0$, then $w = 0$. This is a contradiction since $w \in S_1$, so it must be the case that $g(w) > 0$. Define $c' := g(w)$, then $c' \leq g(v) = \lnorm v \rnorm$ for every $v \in V$. Using the fact that $\frac{v}{\lnorm v \rnorm_1} \in S_1$ for any nonzero $v \in V$, we can see $c' \leq \lnorm \frac{v}{\lnorm v \rnorm_1} \rnorm $ implies $\lnorm v \rnorm_1 \leq \frac{1}{c'}\lnorm v \rnorm$. By transitivity, all norms on $V$ are equivalent.
+        \end{proof}
+
+    \begin{corollary}
+        Let $V$ be a normed space and $W \subseteq V$ a finite dimensional subspace. Then $W \subseteq V$ is closed. 
+    \end{corollary}
+        \begin{proof}
+            We know that all norms on $V$ are equivalent, so there exists a uniformism and linear isomorphism $\varphi:W \rightarrow \ell_1^n$. Let $(w_n)_n$ be a sequence in $W$ converging to some $v \in V$. Since $(w_n)_n$ is convergent, it is $\lnorm \cdot \rnorm$-Cauchy. Since $\varphi$ is uniformly continuous, $(\varphi(w_n))_n$ is $\lnorm \cdot \rnorm_{\ell_1^n}$-Cauchy, whence it converges to some $x \in \ell_1^n$. Since $\varphi^{-1}$ is uniformly continuous, we have that $(w_n)_n \rightarrow \varphi^{-1}(x) \in W$. Thus $v = \varphi^{-1}(x) \in W$; i.e., $W$ is closed.
+        \end{proof}
+
+    \begin{lemma}[Riesz]***
+        Let $V$ be a normed space and $W$ a closed, proper subspace of $V$. For each $t \in (0,1)$, there is a $v_t \in S_V$ with $\dist_W(v_t) \geq t$.
+    \end{lemma}
+        \begin{proof}
+            Recall that $\dist_W:V \rightarrow [0,\infty)$ is given by $v \mapsto \inf_{w \in W}\lnorm v - w \rnorm$. Let $v_0 \in V\setminus W$ and define $\delta:= \dist_W(v_0)$. Clearly $\delta > 0$ \textemdash if not the closedness of $W$ implies $v_0 \in W$, which is a contradiction. Since $t \in (0,1)$, we have $\delta < \frac{\delta}{t}$. Choose $w_t \in W$ with $\delta < \lnorm v_0 - w_t \rnorm < \frac{\delta}{t}$. Define $v_t := \frac{w_t - v_0}{\lnorm w_t - v_0 \rnorm}$.
+        \end{proof}
+
+    \begin{theorem}\label{thm:finite-iff-compact}
+        Let $V$ be a normed space and $B_V = \{v \in V \mid \lnorm v \rnorm \leq 1\}$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $B_V$ is compact;
+                \item $\dim(V) < \infty$.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            Let $B_V$ be compact and suppose towards contradiction $\dim(V) = \infty$. Choose $v_1 \in S_V$. Since $V$ is infinite dimensional, $\Span\{v_1\} \neq V$. By Riesz' Lemma, there exists a $v_2 \in S_V$ so that $\dist_{\Span\{v_1\}}(v_2) \geq \frac{1}{2}$. In particular, $\lnorm v_2 - v_1 \rnorm \geq \frac{1}{2}$. Again, since $V$ is infinite dimensional, $\Span\{v_1,v_2\} \neq V$. By Riesz' Lemma, there exists a $v_3 \in S_V$ so that $\dist_{\Span\{v_1,v_2\}}(v_3) \geq \frac{1}{2}$. Then $\lnorm v_3 - v_2 \rnorm \geq \frac{1}{2}$ and $\lnorm v_3 - v_1 \rnorm \geq \frac{1}{2}$. Inductively, we obtain a sequence $(v_n)_n$ in $S_V$ with $\lnorm v_n - v_j \rnorm \geq \frac{1}{2}$ for all $1 \leq j \leq n-1$. Since $(v_n)_n$ is not Cauchy, by Proposition~\ref{prop:seq-implies-complete} $(v_n)_n$ does not admit a convergent subsequence. So $S_V$ is not compact by Theorem~\ref{thm:gen-heine-borel}. But this contradicts Proposition~\ref{prop:compact-subsets}, as we've assumed $B_V \supseteq S_V$ is compact.
+
+            Suppose $V$ is finite dimensional. By Proposition~\ref{cor:finite-lin-implies-continuous} there exists a continuous linear isomorphism $f:\bfC^n \rightarrow V$. Note that $B_V = \{v \in V \mid \lnorm v \rnorm \leq 1\}$ is closed and bounded. Since $f$ is continuous, by definition $f^{-1}(B_V)$ is closed. Since $f^{-1}$ is continuous, Proposition~\ref{prop:linear-implies-continuous} says $f^{-1}$ is Lipschitz. So $f^{-1}(B_V)$ is bounded . By the Heine-Borel Theorem, $f^{-1}(B_V)$ is compact. Thus $f(f^{-1}(B_V)) = B_V$ is also compact by Proposition~\ref{prop:compact-cont}.
+        \end{proof}
+
+    \begin{proposition}\label{prop:compact-cont-implies-unif}
+        Let $(X,d)$ be compact and $f:(X,d) \rightarrow (Y,\rho)$ continuous. Then $f$ is uniformly continuous
+    \end{proposition}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $f$ is continuous, for every $x \in X$ there exists a $\delta_x > 0$ such that, for any $z \in X$, we have $d(x,z) < \delta_x$ implies $\rho(f(x),f(z))<\frac{\epsilon}{2}$. Note that $X = \bigcup_{x \in X}U(x,\frac{\delta_x}{2})$. Since $X$ is compact, there exists $x_1,...,x_n \in X$ with $X = \bigcup_{i = 1}^n U\bigl(x_i, \frac{\delta_{x_i}}{2}\bigr)$. Let $x,x' \in X$ be arbitrary. Define $\delta = \min_{i = 1}^n \delta_{x_i}$. Locate $U\bigl(x_i, \frac{\delta_{x_i}}{2}\bigr) \ni x$. If $d(x,x') < \delta$, then
+                \begin{equation*}
+                \begin{split}
+                    d(x',x_i)
+                    & \leq d(x',x) + d(x,x_i) \\
+                    & < \delta + \frac{\delta_{x_i}}{2} \\
+                    & \leq \delta_{x_i},
+                \end{split}
+                \end{equation*}
+            which gives:
+                \begin{equation*}
+                \begin{split}
+                    \rho(f(x),f(x'))
+                    & \leq \rho(f(x),f(x_i)) + \rho(f(x_i),f(x')) \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+        \end{proof}
+        
+    \begin{proof}[\protect{Alternative proof of Proposition~\ref{prop:compact-cont-implies-unif}}]
+        Suppose towards contradiction $f$ is not uniformly continuous. Then there exists an $\epsilon_0 > 0$ and sequences $(u_n)_n$, $(v_n)_n$ in $X$ such that $d(u_n,v_n) < \frac{1}{n}$ and $\rho(f(u_n),f(v_n)) \geq \epsilon_0$. Since $X$ is compact there exists a subsequence $(u_{n_k})_k$ convering to $u \in X$. Then:
+            \begin{equation*}
+            \begin{split}
+                d(v_{n_k}, u) 
+                &\leq d(v_{n_k},u_{n_k}) + d(u_{n_k},u)\\
+                & < \frac{1}{n_k} + d(u_{n_k},u).
+            \end{split}
+            \end{equation*}
+        Taking the limit as $k \rightarrow \infty$ gives $(d(v_{n_k},u))_k \rightarrow 0$; i.e., $(v_{n_k})_k$ converges to $u$. Since $f$ is continuous, both $(f(u_{n_k}))_k$ and $(f(v_{n_k}))_k$ converge to $f(u)$. But this is a contradiction, as $\rho(f(u_n),f(v_n)) \rightarrow 0 \not\geq \epsilon_0$. 
+    \end{proof}
+
+    \begin{lemma}\label{lemma:dini}
+        Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotonically decreasing seqence of continuous real-valued functions on $X$ which converges pointwise to $0$. Then $(f_n)_n$ converges uniformly to $0$.
+    \end{lemma}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $(f_n)_n$ converges pointwise to $0$, for each $x \in X$ there exists $N_x \in \bfN$ such that $n \geq N_x$ implies $f_n(x) < \frac{\epsilon}{2}$. Because $f_{N_x}$ is continuous at $x$, there exists $\delta_x > 0$ such that, for every $z \in X$, $d(x,z) < \delta_x$ implies $|f_{N_x}(x) - f_{N_x}(z)| < \frac{\epsilon}{2}$. The collection $\{U(x,\delta_x)\}_{x \in X}$ covers $X$, so by compactness there is a finite set $F \subseteq X$ with $X = \bigcup_{x \in F} U(x,\delta_x)$. Set $N = \max_{x \in F} N_x$. Let $z \in X$ be arbitrary and locate $x \in F$ such that $z \in U(x,\delta_x)$. Notice that our choice of $N$ does not depend on $z$. For $n \geq N$:
+                \begin{equation*}
+                \begin{split}
+                    f_n(z) 
+                    & \leq f_{N_x}(z) \\
+                    & = f_{N_x}(z) - f_{N_x}(x) + f_{N_x}(x) \\
+                    & \leq |f_{N_x}(z) - f_{N_x}(x)| + f_{N_x}(x) \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus for $n \geq N$, we have $\lnorm f_n \rnorm_u \leq \epsilon$.
+        \end{proof}
+
+        \begin{proof}[\protect{Alternative proof of Lemma~\ref{lemma:dini}}]
+            Let $\epsilon > 0$. For $n \geq 1$, define:
+                \begin{equation*}
+                \begin{split}
+                    U_n 
+                    & := \{x \mid f_n(x) < \frac{\epsilon}{2}\} \\
+                    &= f_n^{-1}\bigl((-\infty,\frac{\epsilon}{2})\bigr)
+                \end{split}
+                \end{equation*}
+            Note $U_1 \subseteq U_2 \subseteq U_3 \subseteq ...$, and in particular $\bigcup_{n \geq 1}U_n = X$. Since $X$ is compact, $X = U_N$ for some $N$. That is, $f_N < \frac{\epsilon}{2}$ for all $x$, so $\lnorm f_n \rnorm_u < \epsilon$.
+        \end{proof}
+
+    \begin{theorem}[Dini's Theorem]
+        Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotone sequence of continuous real-valued functions on $X$ which converges pointwise to $f$. Then $(f_n)_n$ converges uniformly to $f$.
+    \end{theorem}
+        \begin{proof}
+            If $(f_n)_n$ is decreasing, apply Lemma~\ref{lemma:dini} to $f_n - f$. If $(f_n)_n$ is increasing, apply Lemma~\ref{lemma:dini} to $f - f_n$.
+        \end{proof}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+
+    The goal of this subsection is to develop the structure of $C(X)$. If $(X,d)$ is compact, by the Extreme Value Theorem $C(X) = C_b(X)$; i.e., $C(X)$ is a Banach algebra. We know that compact subsets of $C(X)$ must be closed and bounded. Conversely however, we'd like to know which closed and bounded subsets of $C(X)$ are compact. This leads us to the following definition.
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space and $\cF \subseteq C(X)$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $\cF$ is \textit{pointwise equicontinuous} if:
+                \begin{equation*}
+                \begin{split}
+                    \text{{\scalebox{.85}{$(\forall x_0 \in X)(\forall \epsilon > 0)(\exists \delta > 0):(\forall x \in X)( \forall f \in \cF)(d(x,x_0) < \delta \implies |f(x) - f(x_0)| < \epsilon)$}}} 
+                \end{split}
+                \end{equation*}
+            \item $\cF$ is \textit{uniformly equicontinuous} if:
+                \begin{equation*}
+                \begin{split}
+                    \text{{\scalebox{.85}{$(\forall \epsilon > 0)(\exists \delta > 0):(\forall x,x' \in X)(\forall f \in \cF)(d(x,x') < \delta \implies |f(x) - f(x')| < \epsilon)$}}} 
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $\cF \subseteq C(X)$ be finite. Then $\cF$ is pointwise equicontinuous.
+    \end{proposition}
+        \begin{proof}
+            Suppose $\cF = \{f_1,f_2,...,f_n\}$. Let $x_0 \in X$ and $\epsilon > 0$. For each $k \in \{1,2,...,n\}$, there exists $\delta_k > 0$ such that, for any $x \in X$, $d(x,x_0)< \delta_k$ implies $|f_k(x) - f_k(x_0)| < \epsilon$. Set $\delta = \min_{k = 1}^n \delta_k$. If $x \in X$ and $d(x,x_0)$, then by our choice of $\delta$ we have $|f(x) - f(x_0)| < \epsilon$ for any $f \in \cF$. Hence $\cF$ is pointwise equicontinuous.
+        \end{proof}
+
+    \begin{theorem}[Arzela-Ascoli]
+        Let $(X,d)$ be compact and $\cF \subseteq C(X)$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $\cF$ is compact;
+                \item $\cF$ is closed, bounded, and uniformly equicontinuous.
+            \end{enumerate}
+    \end{theorem}
+        \begin{proof}
+            Suppose $\cF$ is compact. Then $\cF$ is closed and (totally) bounded. We only need to show that $\cF$ is uniformly equicontinuous. Let $\epsilon > 0$. Since $\cF$ is totally bounded, there exists $f_1,...,f_n \in \cF$ with $\cF \subseteq \bigcup_{j = 1}^n U(f_j, \frac{\epsilon}{3})$. Now since $X$ is compact, each $f_1,...,f_n$ are uniformly continuous.  So there exists $\delta_j > 0$ such that, for all $x,y \in X$, $d(x,y) < \delta_j$ implies $|f_j(x) - f_j(y)| < \frac{\epsilon}{3}$. Let $\delta = \min_{j = 1}^n \delta_j$. Given $f \in F$, locate $f_j$ such that $f \in U(f_j, \frac{\epsilon}{3})$. Then given any $x,y \in X$ satsifying $d(x,y) < \delta$, we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(x) - f(y)|
+                    & \leq |f(x) - f_j(x)| + |f_j(x) - f_j(y)| + |f_j(y) + f(y)| \\
+                    & \leq 2 \lnorm f - f_j \rnorm_u + \frac{\epsilon}{3} \\
+                    & < \frac{2\epsilon}{3} + \frac{\epsilon}{3} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\cF$ is uniformly equicontinuous.
+
+            Now suppose $\cF$ is closed, bounded, and uniformly equicontinuous. Since $X$ is compact, $C(X)$ is complete. Since $\cF$ is closed, it is complete. We only need to show $\cF$ is totally bounded. Let $\epsilon > 0$. By the uniform equicontinuity of $\cF$, there exists $\delta > 0$ such that, for any $f \in \cF$ and $x,y \in X$ satisfying $d(x,y) < \delta$, we have $|f(x) - f(y)| < \frac{\epsilon}{4}$. Note that since $X$ is compact, it is totally bounded. So we can find $x_1,...,x_n \in X$ with $X = \bigcup_{ i =1}^n U(x_i,\delta)$. Note that any $f \in \cF$ is uniformly continuous, hence bounded. So it must be the case that $C_{\cF} = \bigl\{\bigl(f(x_1),...,f(x_n)\bigr) \mid f \in \cF  \bigr\} \subseteq \bfR^n$ is bounded, hence totally bounded. As a result, there exists $f_1,...,f_m \in \cF$ such that $C_{\cF} \subseteq \bigcup_{i = 1}^m U \bigl( (f_i(x_1),...,f_i(x_n)), \frac{\epsilon}{4}\bigr)$. This means, given any $f \in \cF$, there exists $i=1,...,m$ such that $(f(x_1),...,f(x_n)) \in \bigcup_{i = 1}^m U \bigl( (f_i(x_1),...,f_i(x_n)), \frac{\epsilon}{4}\bigr)$. Claim: $\cF \subseteq \bigcup_{i = 1}^m U(f_i,\epsilon)$. Let $f \in \cF$ and $x \in X$ be arbitrary. Locate $x_j$ so that $x \in U(x_j,\delta)$. Locate $i$ so that $(f(x_1),...,f(x_n)) \in U \bigl( (f_i(x_1),...,f_i(x_n)), \frac{\epsilon}{4}\bigr)$. Then $\sum_{j = 1}^n |f(x_j) - f_i(x_j)| < \frac{\epsilon}{4}$. We finally have:
+                \begin{equation*}
+                \begin{split}
+                    |f(x) - f_i(x)| 
+                    & \leq |f(x) - f(x_j)| + |f(x_j) - f_i(x_j)| + |f_i(x_j) - f_i(x)| \\
+                    & < \frac{3\epsilon}{4}.
+                \end{split}
+                \end{equation*}
+            Thus $\lnorm f - f_i \rnorm < \epsilon$, so our claim holds. Since $\cF$ is both complete and totally bounded, it is compact.
+        \end{proof}
+
+    Just as we were interested in compact subsets of $C(X)$, we'd like to know which subalgebras of $C(X)$ are dense. It turns out that the crucial property that a subalgebra must satisfy is that it separates points: a set $A$ of functions defined on $X$ is said to \textit{separate} points if, for every two different points $x$ and $y$ in $X$, there exists a function $f$ in $A$ with $f(x) \neq f(y)$. We restate this in one of the most vital results in mathematical analysis.
+
+    \begin{theorem}[Stone-Weierstrass]
+        Let $(X,d)$ be a compact metric space. Suppose $A \subseteq C(X)$ is a separating unital subalgebra. Then $A$ is $\lnorm \cdot \rnorm_u$-dense in $C(X)$.
+    \end{theorem}
+
+    The Stone-Weierstrass Theorem for continuous complex-valued functions requires $A \subseteq C(X,\bfC)$ to be separating, unital, \textit{and} self-adjoint.
+
+    \begin{example}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The polynomials $\left\{ \sum_{k = 0}^n a_k x^k \mid a_k \in F,\h2 n\geq 0 \right\}$ are dense in $C([a,b])$.
+            \item By Theorem~\ref{thm:finite-iff-compact} and Proposition~\ref{prop:compact-subsets}, the set $S_\bfC = \{z \in \bfC \mid |z| = 1\}$ is compact. Consider the set of all trigonometric polynomials $\cT = \{z \mapsto \sum_{k=-n}^n a_k z^k \mid a_k \in \bfC\}$. Note that $\overline{z} = z^{-1}$ for $z \in S_\bfC$. Then $\cT \subseteq C(S_\bfC)$ is dense.
+        \end{enumerate}
+    \end{example}
+
+\section{Connectedness}\label{sec:connectedness}
+    \begin{definition}
+        Let $(X,d)$ be a metric space and $Y \subseteq X$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item A \textit{splitting for $Y$ in $X$} is a pair of open subsets $U,V \subseteq X$ with $Y \subseteq U \cup V$ and $U \cap V \cap Y = \emptyset$.
+                \item Such a splitting for $Y$ is \textit{trivial} if $U \cap Y = \emptyset$ or $V \cap Y = \emptyset$.
+                \item $Y$ is \textit{connected in $X$} if every splitting is trivial. Otherwise, $Y$ is said to be \textit{disconnected}.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{lemma}
+        
+    \end{lemma}
+
+    \newpage
+    \begin{proposition}
+        $[a,b] \subseteq \bfR$ is connected.
+    \end{proposition}
+        \begin{proof}
+            Let $[a,b] \subseteq U \cup V$ be a splitting. Suppose towards contradiction that $V \cap [a,b] \neq \emptyset$; i.e., our splitting is not trivial. Set $c = \inf (V \cap [a,b])$. Since $U$ is open, there exists $\epsilon > 0$ such that $[a,a+\epsilon) \subseteq U$.
+
+            Claim: $V \cap [a,b] \subseteq [a+\epsilon,b]$. If not, then there exists so $x \in V \cap [a,b]$ with $x \not\in [a+\epsilon,b]$. It must be the case that $x \in [a,a+\epsilon) \subseteq U$. But this gives $x \in U \cap V \cap [a,b]$, which contradicts $U,V$ being a splitting. From this, it follows that $c \geq a+\epsilon > a$.
+
+            Claim: $[a,c) \subseteq U$. If not, there must be some $x \in [a,c)$ with $x \not\in U$. Since $U,V$ splits $[a,b]$, it must be that $x \in V$. But $x < c$, and $x \in V \cap [a,b]$, contradicting our definition of $c$.
+
+            Claim: $c \in V$. Suppose towards contradiction $c \in U$. We proceed by cases. Case 1: $c < b$. Since $U$ is open, there exists some $\delta > 0$ with $(c-\delta,c+\delta) \subseteq U$. Then $[a,c+\delta) \subseteq U \cap [a,b]$. Consider $x \in (c,c+\delta)$. If $x \in V$, then $x \in U \cap V \cap [a,b]$, contradicting the fact that $U,V$ is a splitting. If $x \in U$, then this contradicts $c$ being the least upper bound of $V \cap [a,b]$. Case 2: $c = b$. Then $[a,b) \subseteq U$ and $\{b\} \subseteq U$. But this means $[a,b] \subseteq U$. In particular, $U \cap [a,b] = [a,b]$. Thus $U \cap V \cap [a,b] \neq \emptyset$, contradicting again that $U,V$ is a splitting.
+
+            Since $V$ is open, there exists $\gamma > 0$ such that $(c-\gamma,c+\gamma) \subseteq V$. This clearly contradicts $c$ being the least upper bound, as we can find an element less than $c$ still contained in $V \cap [a,b]$.
+        \end{proof}
+
+
+
+    
+
+    
+
+    
+    
+
+
 
 
 

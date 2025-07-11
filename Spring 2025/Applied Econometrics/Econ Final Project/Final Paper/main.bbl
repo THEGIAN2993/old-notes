@@ -1,0 +1,16 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{DLS24}
+
+\bibitem[Bur20]{MR4117738}
+Benjamin~A. Burton, \emph{The next 350 million knots}, 36th {I}nternational
+  {S}ymposium on {C}omputational {G}eometry, LIPIcs. Leibniz Int. Proc.
+  Inform., vol. 164, Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern, 2020,
+  pp.~Art. No. 25, 17. \MR{4117738}
+
+\end{thebibliography}

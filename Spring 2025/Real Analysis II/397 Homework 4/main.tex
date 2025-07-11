@@ -123,7 +123,7 @@
     \begin{exercise}
         Let $X$ be a metric space. Show that $X$ is second countable if and only if $X$ is separable. Conclude that if $X$ is a separable metric space, then every open set is the union of countably many open balls.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $\{U_n\}_{n = 1}^\infty$ be a countable base for $X$. Let $x \in X$ and $\epsilon > 0$. Then $x \in U(x,\epsilon) \subseteq X$. We can find $U_n \in \{U_n\}_{n = 1}^\infty$ with $x \in U_n \subseteq U(x,\epsilon)$. So for any $a_n \in U_n$, we have $a_n \in U(x,\epsilon)$, giving $d(x,a_n) < \epsilon$. Thus $\{a_n\}_{n = 1}^\infty$ is dense; i.e., $X$ is separable.
 
             Let $\{a_n\}_{n = 1}^\infty$ be a countable dense subset. Claim: $\cB = \{U(a_n,\frac{1}{m}) \mid n,m \geq 1\}$ is a base. Let $U \in \tau_X$ and $x \in U$. Since $U$ is open, there exists $\epsilon > 0$ such that $U(x,\epsilon) \subseteq U$. Moreover, we can find $m \geq 1$ with $\epsilon > \frac{1}{m}$. Since $\{a_n\}_{n = 1}^\infty$ is dense, we can find $a_j \in \{a_n\}_{n = 1}^\infty$ such that $d(x,a_j) < \frac{1}{2m}$. Let $y \in U(a_j,\frac{1}{2m})$. Then:
@@ -137,7 +137,7 @@
                 \end{split}
                 \end{equation*}
             So $y \in U(x,\epsilon)$. Thus $x \in U(a_j,\frac{1}{2m}) \subseteq U(x,\epsilon) \subseteq U$, establishing $\cB$ as a base.x
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $(X,d)$ be a metric space, $(x_n)_n$ a sequence in $X$, and $x \in X$. Show the following are equivalent:
@@ -147,13 +147,13 @@
                 \item $(\forall V \in \cN_x)(\exists N \in \bfN):(\forall n \in \bfN)(n \geq N \implies x_n \in V)$.
             \end{enumerate}
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             (1) $\Leftrightarrow$ (2) Let $\epsilon > 0$. Find $N$ large so for $n \geq N$ we have $d(x_n,x) < \epsilon$. This is equivalent to $|d(x_n,x) - 0| < \epsilon$, whence $(d(x_n,x))_n \rightarrow 0$. The other direction is identical.
 
             $(1) \Rightarrow (3)$ Let $V \in \cN_x$. Then there exists $\epsilon > 0$ so $U(x,\epsilon) \subseteq V$. Since $(x_n)_n \rightarrow x$, find $N$ large so for $n \geq N$ we have $d(x_n,x) < \epsilon$. Thus $x_n \in U(x,\epsilon) \subseteq V$.
 
             $(3) \Rightarrow (1)$ Let $\epsilon > 0$. Find $N$ large so $n \geq N$ implies $x_n \in U(x, \epsilon) \in \cN_x$. Then $d(x_n,x) < \epsilon$, giving $(x_n)_n \rightarrow x$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \iffalse
     \newpage
@@ -173,7 +173,7 @@
             \end{equation*}
         Show that a sequence $(f_n)_n$ converges to $f$ in $(X,d)$ if and only if $(f_n(k))_n \xrightarrow{d_k}f(k)$ for every $k \geq 1$.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $(f_n)_n \xrightarrow{d} f$. Fix $k\geq 1$. We have:
                 \begin{equation*}
                 \begin{split}
@@ -201,7 +201,7 @@
                 \end{split}
                 \end{equation*}
             Since $(d(f_n,f))_n \rightarrow 0$, we have $(f_n)_n \xrightarrow{d} f$.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
         Let $V$ be a normed space. Show that the vector operations:
@@ -213,7 +213,7 @@
             \end{equation*}
         are continuous.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $((v_n,w_n))_n$ be a sequence in $V \times V$ converging to $(v_0,w_0) $. Then $(v_n)_n \rightarrow v_0$ and $(w_n)_n \rightarrow w_0$. Observe that:
                 \begin{equation*}
                 \begin{split}
@@ -237,16 +237,16 @@
                 \end{split}
                 \end{equation*}
             Thus $\mu$ is continuous at $(\alpha_0,v_0)$. Since this point was arbitrary, $\mu$ is continuous.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \addtocounter{exercise}{1}
     \iffalse
     \begin{exercise}
         Let $(X,d)$ be a metric space, $f,g:X \rightarrow F$ continuous maps, and $a \in F$. Show that $f+g$, $fg$, and $\alpha f$ are continuous.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             
-        \end{proof}}
+        \end{proof}
     \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{exercise}
@@ -259,7 +259,7 @@
             \end{equation*}
         Show that $d$ and $\rho$ are topologically equivalent. Are they uniformly equivalent?
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Let $x,x_0 \in X$. We will first show that $\id:(X,d) \rightarrow (X,\rho)$ is continuous. Note that:
                 \begin{equation*}
                 \begin{split}
@@ -272,13 +272,14 @@
             Thus $\id$ is Lipschitz. We will now show that $\id^{-1}:(X,\rho) \rightarrow (X,d)$ is continuous. Let $(x_n)_n$ be a sequence in $(X,\rho)$ such that $(x_n)_n \xrightarrow{\rho} x_0$. Then $(\rho(x_n,x_0))_n \rightarrow 0$, which is equivalent to $\left( d \left( \frac{1}{x_n}, \frac{1}{x_0} \right) \right)_n \rightarrow 0$. Since $\left( \frac{1}{x_n} \right)_n $ is a sequence of non-zero numbers converging to a non-zero limit $\frac{1}{x_0}$, the sequence of reciprocals $(x_n)_n$ will converge to $x_0$; i.e, $(\id^{-1}(x_n))_n \xrightarrow{d} \id^{-1}(x_0)$. This establishes $\id^{-1}$ as continuous, giving that $d$ and $\rho$ are topologically equivalent. 
 
             Let $\epsilon_0 =1$. Consider the sequences $\left( \frac{1}{n} \right)_n$ and $\left( \frac{1}{n+1} \right)_n$ in $(X,d)$. We have $\left( d \left( \frac{1}{n}, \frac{1}{n+1} \right) \right)_n \rightarrow 0$ and $\rho \left( \frac{1}{n}, \frac{1}{n+1} \right) \geq \epsilon_0$. Whence $\id:(X,d) \rightarrow (X,\rho)$ is not uniformly continuous; i.e., $d$ and $\rho$ are not uniformly equivalent.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocounter{exercise}{1}
     \begin{exercise}
-        
+        Suppose $T:V \rightarrow W$ is a bijective linear map between normed spaces with with $\lnorm T \rnorm_{\op} \leq 1$ and $\lnorm T^{-1} \rnorm \leq 1$. Show that $T$ is an isometry.
     \end{exercise}
-        {\color{red} \begin{proof}
+        \begin{proof}
             Since $\lnorm T \rnorm_\text{op} \leq 1$, we have $\sup_{v \in B_V} \lnorm T(v) \rnorm_W \leq \sup_{v \in B_V}\lnorm v \rnorm_V$. So $\lnorm T(v) \rnorm_W \leq \lnorm v \rnorm_V$ for all $v \in V$. Since $\lnorm T^{-1} \rnorm_\text{op} \leq 1$, we have $\sup_{w \in B_W} \lnorm T^{-1}(w) \rnorm_V \leq \sup_{w \in B_W}\lnorm w \rnorm_W$. So $\lnorm T^{-1}(w) \rnorm_V \leq \lnorm w \rnorm_W$ for all $w \in W$. Since $T$ is a bijection, given $x \in X$ take $w = T(v)$. Then $\lnorm v \rnorm_V \leq \lnorm T(v) \rnorm_W$ for all $v \in V$. By antisymmetry, we have $\lnorm T(v) \rnorm_W = \lnorm v \rnorm_V$. Thus $T$ is an isometry.
-        \end{proof}}
+        \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

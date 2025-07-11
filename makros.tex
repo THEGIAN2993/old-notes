@@ -26,6 +26,7 @@
 \DeclareMathOperator{\compl}{compl}
 \DeclareMathOperator{\conj}{conj}
 \DeclareMathOperator{\cont}{cont}
+\DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\crys}{crys}
 \DeclareMathOperator{\Crys}{Crys}
 \DeclareMathOperator{\cusp}{cusp}
@@ -139,21 +140,12 @@
 \DeclareMathOperator{\hHom}{H \mkern1.04mu o \mkern1.04mu m}
     \newcommand{\cHom}{\scalebox{1.02}{\contour{black}{$\hHom$}}}
 
-         %  \item $\cGroups$
-          %  \item $\cTop$
-          %  \item $\cHtp$
-          %  \item $\cMod$
-
-
-
-
 \renewcommand{\k}{\kappa}
 \newcommand{\Ff}{F_{f}}
 %\newcommand{\ts}{\,^{t}\!}
 
 
 %Mathcal
-
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
@@ -183,7 +175,6 @@
 
 
 %mathfrak (missing \fi)
-
 \newcommand{\fa}{\mathfrak{a}}
 \newcommand{\fA}{\mathfrak{A}}
 \newcommand{\fb}{\mathfrak{b}}
@@ -325,6 +316,9 @@
 \newcommand{\bmat}{\left( \begin{matrix}}
 \newcommand{\emat}{\end{matrix} \right)}
 
+\newcommand{\bbmat}{\left[ \begin{matrix}}
+\newcommand{\ebmat}{\end{matrix} \right]}
+
 \newcommand{\pmat}{\left( \begin{smallmatrix}}
 \newcommand{\epmat}{\end{smallmatrix} \right)}
 
@@ -365,36 +359,36 @@
 \renewcommand{\leq}{\leqslant}
 \newcommand{\midd}{\hspace{4pt}\middle|\hspace{4pt}}
     
-    \newcommand{\bone}{\mathbf{1}}
-    \newcommand{\sign}{\mathrm{sign}}
-    \newcommand{\eps}{\varepsilon}
-    \newcommand{\textui}[1]{\uline{\textit{#1}}}
-    
-    %\newcommand{\ov}{\overline}
-    %\newcommand{\un}{\underline}
-    \newcommand{\fin}{\mathrm{fin}}
-    
-    \newcommand{\chnum}{\titleformat
-    {\chapter} % command
-    [display] % shape
-    {\centering} % format
-    {\Huge \color{black} \shadowbox{\thechapter}} % label
-    {-0.5em} % sep (space between the number and title)
-    {\LARGE \color{black} \underline} % before-code
-    }
-    
-    \newcommand{\chunnum}{\titleformat
-    {\chapter} % command
-    [display] % shape
-    {} % format
-    {} % label
-    {0em} % sep
-    { \begin{flushright} \begin{tabular}{r}  \Huge \color{black}
-    } % before-code
-    [
-    \end{tabular} \end{flushright} \normalsize
-    ] % after-code
-    }
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\textui}[1]{\uline{\textit{#1}}}
+
+%\newcommand{\ov}{\overline}
+%\newcommand{\un}{\underline}
+\newcommand{\fin}{\mathrm{fin}}
+
+\newcommand{\chnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{\centering} % format
+{\Huge \color{black} \shadowbox{\thechapter}} % label
+{-0.5em} % sep (space between the number and title)
+{\LARGE \color{black} \underline} % before-code
+}
+
+\newcommand{\chunnum}{\titleformat
+{\chapter} % command
+[display] % shape
+{} % format
+{} % label
+{0em} % sep
+{ \begin{flushright} \begin{tabular}{r}  \Huge \color{black}
+} % before-code
+[
+\end{tabular} \end{flushright} \normalsize
+] % after-code
+}
 
 \newcommand{\nl}{\newline \mbox{}}
 
@@ -416,18 +410,6 @@
 \newcommand{\ds}{\displaystyle}
 \newcommand{\ts}{\textstyle}
 
-%This adds a "front cover" page.
-%{\thispagestyle{empty}
-%\vspace*{\fill}
-%\begin{tabular}{l}
-%\begin{tabular}{l}
-%\includegraphics[scale=0.24]{oxy-logo.png}
-%\end{tabular} \\
-%\begin{tabular}{l}
-%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
-%\end{tabular}
-%\end{tabular}
-%\newpage
 
 \newcommand{\sfrac}[2]{{}^{#1}\mskip -5mu/\mskip -3mu_{#2}}
 

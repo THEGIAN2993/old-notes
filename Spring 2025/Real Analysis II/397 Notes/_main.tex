@@ -1,13 +1,13 @@
-\documentclass[10pt,twoside,openany]{memoir}
+\documentclass[11pt,twoside,openany]{memoir}
 %\usepackage{mlmodern}
 %\usepackage{tgpagella} % text only
 %\usepackage{mathpazo}  % math & text
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{amsmath}
+\usepackage[fixamsmath]{mathtools}  % Extension to amsmath
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{mathtools}
 %\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
 %\usepackage{newpxtext}
 %\usepackage{eulerpx}
@@ -87,7 +87,6 @@
     \declaretheorem[numbered=no,style=defs]{recall}
     \declaretheorem[numbered=no,style=remark]{answer}
     \declaretheorem[numbered=no,style=remark]{solution}
-
     \declaretheorem[numbered=no,style=defs]{remark}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -113,8 +112,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
 \begin{document}
+%This adds a "front cover" page.
+%{\thispagestyle{empty}
+%\vspace*{\fill}
+%\begin{tabular}{l}
+%\begin{tabular}{l}
+%\includegraphics[scale=0.24]{oxy-logo.png}
+%\end{tabular} \\
+%\begin{tabular}{l}
+%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+%\end{tabular}
+%\end{tabular}
+%\newpage
     \pagenumbering{roman}
     \tableofcontents
+
+    \chapter*{Preface}
+    These are the notes I took for a second semester analysis course. \nl
+    
+    \noindent \textbf{Urgent Things That I Need To Fix}
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item Any corollary, lemma, proposition, example, or theorem with three asterisks (***) means I don't understand the proof, or there is no proof altogether. There are 18 instances of these throughout the notes.
+        \item Turn every "Exercise" into a proposition and do the proofs. Any proposition whose proof is an "exercise" needs to be filled in.
+        \item The end of $\S$~\ref{sec:conv-seq}~\nameref{sec:conv-seq} is supposed to include one or two propositions related to the distance of an element $x \in X$ to a set $A \subseteq X$.
+        \item $\S$~\ref{sec:cantor-set}~\nameref{sec:cantor-set} is incomplete. 
+        \item The notes on applications of meager sets and the \nameref{thm:baires-theorem} need to be included at the end of $\S$~\ref{sec:completeness}~\nameref{sec:completeness}.
+        \item $\S$~\ref{sec:top-of-metric-spaces}~\nameref{sec:top-of-metric-spaces}, $\S$~\ref{sec:conv-seq}~\nameref{sec:conv-seq}, and $\S$~\ref{sec:continuity}~\nameref{sec:continuity} are kind of messy. Can't put my finger on why but it doesn't feel as nice as some other parts of these notes.
+    \end{enumerate}
+
+    \noindent \textbf{Less Urgent Things That I'm Probably Gonna Do Instead}
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item Clean up $\S$~\ref{sec:completeness}~\nameref{sec:completeness} and $\S$~\ref{sec:compactness}~\nameref{sec:compactness}. Finish $\S$~\ref{sec:connectedness}~\nameref{sec:connectedness}.
+        \item Start Chapter 3. First section will be on Riemann Integration, will probably copy most of it from Bartle's \textit{An Introduction to Real Analysis}. Second section will be on measure theory. Third section will be on Lebesgue integration.
+    \end{enumerate}
+
+    \noindent \textbf{Things That I'm Really Happy With}
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item Besides some stuff about inner-products, Chapter 1 is almost perfect.
+    \end{enumerate}
+
 
     \vfill
     \specialdate
@@ -122,6 +158,7 @@
 
     \include{normed-spaces-algebras}
     \include{metrics}
+    \include{measure-and-integration}
     \appendix
-    %\include{sequences-in-r}
+    \include{seq-fncts-inf-series}
 \end{document}

@@ -1,0 +1,668 @@
+\documentclass[11pt,twoside,openany]{memoir}
+%\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage[fixamsmath]{mathtools}  % Extension to amsmath
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+\usepackage{newpxtext}
+\usepackage{eulerpx}
+\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        sibling=theorem,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=no,style=defs]{remark}
+    \declaretheorem[numbered=unless unique,style=defs]{problem}
+    \declaretheorem[numbered=no,style=remark]{proof.}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\Huge\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\HUGE}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\linespread{1.00}
+\setcounter{secnumdepth}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}\renewcommand{\qedsymbol}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 1---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S14}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item Assume that $\sum_{n = 1}^\infty a_n$ is convergent and $(b_n)_n$ is a bounded sequence. Does $\sum_{n = 1}^\infty a_n b_n$ converge? Prove or provide a counterexample.
+        \item Assume that $\sum_{n = 1}^\infty \left| a_n \right|$ is convergent and $(b_n)_n$ is a bounded sequence. Does $\sum_{n = 1}^\infty a_n b_n$ converge? Prove or provide a counter example.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 2---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S15}}
+\begin{problem}
+    Show that the least upper bound property of the real numbers implies the Cauchy completeness property, that is, show that the property that every bounded set of real numbers has a least upper bound implies that every Cauchy sequence of real numbers converges in $\bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 3---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage 
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F14}}
+\begin{problem}
+    Let $(x_n)_n$ be a sequence in $\bfR$ with $|x_n - x_{n+1}| < \frac{1}{n}$ for all $n \in \bfN$
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item If $(x_n)_n$ is bounded, must $(x_n)_n$ converge?
+        \item If the subsequence $(x_{2n})_n$ converges, must $(x_n)$ converge?
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 4---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W21}}
+\begin{problem}
+    Suppose that $(a_n)_n$ and $(b_n)_n$ are Cauchy sequences in $\bfR$. Prove, using the definition of Cauchy sequences, that $\left( \left| a_n - b_n \right| \right)_n$ converges in $\bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 5---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F20}}
+\begin{problem}
+    Let $s_1 = \sqrt{2}$ and $s_{n+1} = \sqrt{2 + s_n}$ for $n \in \bfN$.
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*)]
+            \item Show that $s_n \leq 2$ for all $n$.
+            \item Show that $(s_n)_n$ converges and then compute the limit of the sequence.
+        \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 6---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W20}}
+\begin{problem}
+    Consider the sequence $(a_n)_n$ given by:
+        \begin{equation*}
+        \begin{split}
+            a_n = \frac{1}{n+1} + \frac{1}{n+2} + ... + \frac{1}{2n}.
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that $(a_n)_n$ is increasing.
+        \item Prove that $(a_n)_n$ converges.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 7---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F17}}
+\begin{problem}
+    Prove that the sequence $(a_n)_n$, where:
+        \begin{equation*}
+        \begin{split}
+            a_n = \sum_{k = 1}^n \frac{1}{\sqrt{n^2 + k}},
+        \end{split}
+        \end{equation*}
+    converges and compute its limit.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 8---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F16}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that the sequence defined by $x_1 = 3$ and $x_{n+1} = \frac{1}{4 - x_n}$ converges.
+        \item Explicitly compute $\limit_{n \rightarrow \infty} x_n$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 9---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S16}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Argue from the definition of Cauchy sequences that if $(a_n)_n$ and $(b_n)_n$ are Cauchy sequences, then so is $(a_n b_n)_n$.
+        \item Give an example of a sequence $(a_n)$ with $\limit_{n \rightarrow \infty} |a_{n+1} - a_n| = 0$ but which is \textit{not} Cauchy.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 10--------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F15}}
+\begin{problem}
+    Let $(x_n)_n$ be a sequence of real numbers satisfying:
+        \begin{equation*}
+        \begin{split}
+            \left| x_{n+1} - x_n \right| \leq C \left| x_n - x_{n-1} \right|,
+        \end{split}
+        \end{equation*}
+    for all $n \geq 1$, where $0 < C < 1$ is a constant. Prove that $(x_n)_n$ converges.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 11---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F24}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Exhibit, with proof, a sequence of real numbers which has $[0,1]$ as its set of limit points.
+        \item Does there exist a sequence with $(0,1)$ as its set of limit points? Give an example with proof or prove that no such sequence exists.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 12---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W23}}
+\begin{problem}
+    Show that the sequence $(x_n)_n$ is Cauchy, where:
+        \begin{equation*}
+        \begin{split}
+            x_n = \int_1^n \frac{\cos t}{t^2}dt.
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 13---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S22}}
+\begin{problem}
+    Prove that every convergent sequence of real numbers has a maximum or minimum value.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 14---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S22}}
+\begin{problem}
+    Suppose that for a function $f:\bfR \rightarrow \bfR$, there is a number $k \in (0,1)$ such that for all $x,y \in \bfR$:
+        \begin{equation*}
+        \begin{split}
+            |f(x) - f(y)| \leq k|x-y|.
+        \end{split}
+        \end{equation*}
+    Fix a number $x_0$, and define a sequence by:
+        \begin{equation*}
+        \begin{split}
+            x_n = f(x_{n-1})
+        \end{split}
+        \end{equation*}
+    for each $n \geq 1$. Prove that $(x_n)_n$ is a Cauchy sequence.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 15---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Sequences}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W22}}
+\begin{problem}
+    Let $(x_n)_n$ be a sequence such that $(x_{2n})_n$, $(x_{2n+1})_n$, and $(x_{3n})_n$ are convergent. Show that $(x_n)_n$ is convergent.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 16---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S18}}
+\begin{problem}
+    Prove that the series $\sum_{n = 1}^\infty \frac{n^2}{3^n}$ converges by showing that the sequence of partial sums is Cauchy.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 17---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W22}}
+\begin{problem}
+    Suppose that $\sum_{n = 1}^\infty x_n$ is convergent series of positive terms. Show that $\sum_{n = 1}^\infty x_n^2$ and $\sum_{n = 1}^\infty \sqrt{x_n x_{n+1}}$ are also convergent.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 18---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: --}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(f_n)_n$ and $(g_n)_n$ be sequences of bounded functions on a subset $A$ of $\bfR$. Suppose that $(f_n)_n$ converges uniformly to a bounded function $f$ and $(g_n)_n$ converges uniformly to a bounded function $g$. Show that $(f_n g_n)_n \rightarrow fg$ uniformly on $A$.
+        \item Show that (a) may be false if $g$ is unbounded. \textit{Hint:} Consider $f_n(x) = \frac{1}{n}$ and $g_n(x) = x + \frac{1}{n}$. Prove that the convergence $(f_n g_n)_n \rightarrow fg$ in this case is not uniform on $\bfR$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 19---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W25}}
+\begin{problem}
+    Suppose that $f:[0,\infty) \rightarrow \bfR$ is a continuous, increasing, and bounded function. Prove that $f$ is uniformly continuous on $[0,\infty)$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 20---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: --}}
+\begin{problem}
+    Let $(f_n)_n$ be a sequence of functions defined on $A \subseteq \bfR$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove if each $f_n$ is uniformly continuous on $A$ and $(f_n)_n$ converges uniformly on $A$ to a function $f$, then $f$ is uniformly continuous on $A$.
+        \item Give a counter example to show that $(a)$ is false if we assume pointwise convergence instead of uniform convergence.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 21---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S14}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $f:\bfR \rightarrow \bfR$ be uniformly continuous. Show that if $(x_n)_n$ is a Cauchy sequence of real numbers, then $(f(x_n))_n$ is a Cauchy sequence.
+        \item Suppose that $f_n$ is a sequence of continuous functions that converge uniformly on a subset $A \subseteq \bfR$ to a function $f$. Show that $f$ is continuous on $A$. 
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 22---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W21}}
+\begin{problem}
+    Consider the function:
+        \begin{equation*}
+        \begin{split}
+            g(x)
+            & = \begin{cases}
+                e^x,& x \in \bfQ,\\
+                1,&  x \not\in \bfQ.
+            \end{cases}
+        \end{split}
+        \end{equation*}
+    Find, with proof, the set $C = \{x \in \bfR \mid g \h3\text{is continuous at}\h3 x \}$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 23---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F20}}
+\begin{problem}
+    Define $f:(-1,0) \cup (0,1) \rightarrow \bfR$ by:
+    \begin{equation*}
+        \begin{split}
+            f(x)
+            & = \begin{cases}
+                4,& x \in (-1,0),\\
+                5,&  x \in (0,1).
+            \end{cases}
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Show that $f$ is continuous on $(-1,0) \cup (0,1)$.
+        \item Show that $f$ is not uniformly continuous on $(-1,0) \cup (0,1)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 24---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S20}}
+\begin{problem}
+    Let $(f_n)_n$ be a sequence of functions $f_n:\bfR \rightarrow \bfR$ and let $f:\bfR \rightarrow \bfR$ be a function. Suppose $f_n$ is bounded for each $n \in \bfN$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that if $(f_n)_n \rightarrow f$ uniformly on $\bfR$, then $f$ is bounded.
+        \item If each $f_n$ is continuous and $(f_n)_n \rightarrow f$ pointwise on $\bfR$, does $f$ have to be bounded? Give a proof or a counterexample.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 25---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F19}}
+\begin{problem}
+    Show that the sequence of functions:
+        \begin{equation*}
+        \begin{split}
+            f_n(x) = \frac{n^2 x}{1 + n^4 x^2}
+        \end{split}
+        \end{equation*}
+    converges pointwise to $f(x) = 0$ on $[0,1]$, but does not converge uniformly.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 26---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F18}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $A \subseteq \bfR$. Define what it means for $f:A \rightarrow \bfR$ to be uniformly continuous.
+        \item Use the definition to show that $f(x) = \frac{1}{x}$ is uniformly continuous.
+        \item Show that $f(x) = \frac{1}{x}$ is not uniformly continuous on $(0,1)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 27---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S18}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Let $(f_n)_n$ be a sequence of functions defined on $A \subseteq \bfR$ that converges uniformly on $A$ to a function $f$. Prove that if each $f_n$ is continuous at $c \in A$, then $f$ is continuous at $c$.
+        \item Give an example to show that the result is false if we only assume that $(f_n)_n$ converges pointwise to $f$ on $A$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 28---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F16}}
+\begin{problem}
+    Define $f_n: [0,\infty) \rightarrow \bfR$ by:
+        \begin{equation*}
+        \begin{split}
+            f_n(x) = \frac{\sin(nx)}{1 + nx}.
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Show that $f_n$ converges pointwise on $[0,\infty)$ and find the pointwise limit $f$.
+        \item Show that $(f_n)_n \rightarrow f$ uniformly on $[a,\infty)$ for every $a > 0$.
+        \item Show that $f_n$ does not converge uniformly to $f$ on $[0,\infty)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 29---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S16}}
+\begin{problem}
+    Let $f_n:\bfR \rightarrow \bfR$ be a sequence of continuous functions that converges uniformly on $\bfR$ to a function $f$. Let $(x_n)_n$ be a sequence of real numbers that converges to $x_0 \in \bfR$. Prove that $(f_n(x_n))_n \rightarrow f(x_0)$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 30---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F15}}
+\begin{problem}
+    Let $f:\bfR \rightarrow \bfR$ be a continuous function such that:
+        \begin{equation*}
+        \begin{split}
+            \limit_{x \rightarrow +\infty}f(x) = \limit_{x \rightarrow -\infty}f(x) = +\infty.
+        \end{split}
+        \end{equation*}
+    Prove that $f$ attains an absolute minimum value of $\bfR$. In other words, prove that there exists a real number $c$ such that $f(c) \leq f(x)$ for all $x \in \bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+
+
+
+\end{document}

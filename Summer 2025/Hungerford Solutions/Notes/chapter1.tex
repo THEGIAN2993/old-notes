@@ -1,0 +1,215 @@
+\chapter{Groups}
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Semigroups, Monoids, and Groups}
+    \begin{exercise}
+        Give examples other than those in the text of semigroups and monoids that are not groups.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $G$ be a group (written additively), $S$ a nonempty set, and $M(S,G)$ the set of all functions $f:S \rightarrow G$. Define addition in $M(S,G)$ as follows: $(f+g):S \rightarrow G$ is given by $s \mapsto f(s) + g(s) \in G$. Prove that $M(S,G)$ is a group, which is abelian if $G$ is.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Clearly $M(S,G)$ is closed under addition defined as above. Assocativity can be seen as follows:
+                \begin{equation*}
+                \begin{split}
+                    [f+(g+h)](s)
+                    & = f(s) + (g+h)(s) \\
+                    & = f(s) + [g(s) + h(s)] \\
+                    & = [f(s) + g(s)] + h(s) \h9\text{\tiny Since $G$ is a group.}\\
+                    & = (f+g)(s) + h(s) \\
+                    & = [(f+g)+h](s).
+                \end{split}
+                \end{equation*}
+            Define $\mathbf{0}:S \rightarrow G$ by $\mathbf{0}(s) = 0$, the additive identity of $G$. Then:
+                \begin{equation*}
+                \begin{split}
+                    (f+\mathbf{0})(s) 
+                    & = f(s) = \mathbf{0}(s) \\
+                    & = f(s) + 0 \\
+                    & = f(s) \\
+                    & = 0 + f(s) \\
+                    & = \mathbf{0}(s) + f(s) \\
+                    & = (\mathbf{0} + f)(s).
+                \end{split}
+                \end{equation*}
+            Whence $\mathbf{0} \in M(S,G)$ is the identity element. Given $f \in M(S,G)$, define $f^{-1}:S \rightarrow G$ by $s \mapsto -f(s)$. We can see:
+                \begin{equation*}
+                \begin{split}
+                    (f+f^{-1})(s) 
+                    & = f(s) + f^{-1}(s) \\
+                    & = 0 \\
+                    & = (-f(s)) + f(s) \\
+                    & = f^{-1}(s) + f(s) \\
+                    & = (f^{-1} + f)(s).
+                \end{split}
+                \end{equation*}
+            Thus $M(S,G)$ is a group. If $G$ is abelian, then:
+                \begin{equation*}
+                \begin{split}
+                    (f+g)(s)
+                    & = f(s) + g(s) \\
+                    & = g(s) + f(s) \h9 \text{\tiny Since $G$ is abelian.} \\
+                    & = (g+f)(s).
+                \end{split}
+                \end{equation*}
+            Thus $M(S,G)$ is an abelian group.
+        \end{proof}}
+    
+    \begin{exercise}
+        Is it true that a semigroup which has a \textit{left} identity element and in which every element has a \textit{right} inverse is a group?
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            No. Consider $G = \{a,e\}$ with a binary operation defined as follows:
+                \begin{equation*}
+                \begin{split}
+                    ea &= a, \\
+                    ae &= e.
+                \end{split}
+                \end{equation*}
+            Note that, for any $a,b,c \in G$:
+                \begin{equation*}
+                \begin{split}
+                    a(bc) &= bc = c, \\
+                    (ab)c &= bc = c.
+                \end{split}
+                \end{equation*}
+            Thus $G$ is a semigroup. By construction $G$ admits a left identity element and every element admits a right inverse. Note that $G$ is not a group, since $ae = e \neq a$; i.e., $G$ does not admit a right identity.
+        \end{proof}}
+    
+    \begin{exercise}
+        Write out the multiplication table for the group $D_4^\ast$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Prove that the symmetric group on $n$ letters, $S_n$, has order $n!$.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Starting at $1 \in S$, there are $n$ different elements which $1$ can be mapped to. For $2 \in S$, there are $n-1$ different elements which $2$ can be mapped to (both 1 and 2 cannot be mapped to the same element, otherwise our function is not bijective). This process continues until we reach $n \in S$, which will only have one element which it can be mapped to. Thus there are $n!$ different permutations on the set $S$; i.e., $|S_n| = n!$.
+        \end{proof}}
+    
+    \begin{exercise}
+        Write out an addition table for $\bfZ/2\bfZ \oplus \bfZ/2\bfZ$. $\bfZ/2\bfZ \oplus \bfZ/2\bfZ$ is called the \textbf{Klein four group}.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            \phantom{a}
+                \begin{center}
+                \begin{tabular}{ c| c | c | c | c |}
+                + & (0,0) & (0,1) & (1,0) & (1,1) \\
+                \hline
+                (0,0) & (0,0) & (0,1) & (1,0) & (1,1) \\ 
+                \hline
+                (0,1) & (0,1) & (0,0) & (1,1) & (1,0) \\ 
+                \hline
+                (1,0) & (1,0) & (1,1) & (0,0) & (0,1) \\ 
+                \hline
+                (1,1) & (1,1) & (1,0) & (0,1) & (0,0) \\ 
+                \hline
+                \end{tabular}
+                \end{center}
+        \end{proof}}
+    
+    \begin{exercise}{\color{red} ***}
+        If $p$ is prime, then the nonzero elements of $\bfZ/p\bfZ$ form a group of order $p-1$ under multiplication. [\textit{Hint:} $[a]_{p} \neq [0]_p \Rightarrow \gcd(a,p) = 1$; use \ref{thm:intro-6.5}] Show that this statement is false if $p$ is not prime.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Denote the nonzero elements of $\bfZ/p\bfZ$ as $\bfZ/p\bfZ^\ast$. Since there are $p-1$ nonzero elements of $\bfZ/p\bfZ$, then $|\bfZ/p\bfZ^\ast| = p-1$. Moreover, since $\bfZ/p\bfZ$ is a commutative monoid under multiplication by \ref{thm:intro-6.8} and \ref{thm:groups-thm1.5}, it must be that multiplication in $\bfZ/p\bfZ^\ast$ is well-defined.
+
+            We must first show that multiplication is closed in $\bfZ/p\bfZ^\ast$. Let $[a]_p,[b]_p \in \bfZ/p\bfZ^\ast$. Suppose that $[ab]_p = [0]_p$. Then $p \mid ab$. Since $[a]_p \in \bfZ/p\bfZ^\ast$, we know that $[a]_p \neq [0]_p$; i.e., $\gcd(a,p) = 1$. By \ref{thm:intro-6.6}, it must be the case that $p \mid b$. But this contradicts the fact that $[b]_p \in \bfZ/p\bfZ^\ast$. Thus $[ab]_p \neq [0]_p$, giving that $\bfZ/p\bfZ^\ast$ is closed under multiplication.
+
+            Again, since $\bfZ/p\bfZ$ is a commutative monoid under multiplication, it must be that multiplication in $\bfZ/p\bfZ^\ast$ is associative. The identity element is $[1]_p \in \bfZ/p\bfZ^\ast$; observe that for any $[a]_p \in \bfZ/p\bfZ^\ast$:
+                \begin{equation*}
+                \begin{split}
+                    [a]_p [1]_p
+                    & = [a\cdot1]_p \\
+                    & = [a]_p \\
+                    & = [1 \cdot a]_p \\
+                    & = [1]_p [a]_p.
+                \end{split}
+                \end{equation*}
+            It remains to show that each element in $\bfZ/p\bfZ^\ast$ has an inverse. Let $[a]_p \in \bfZ/p\bfZ^\ast$ be arbitrary. Then $\gcd(a,p) = 1$. There exists integers $r,s$ so that $ar + ps = 1$. This is equivalent to $ar = ra \equiv 1 \pmod{p}$. We've shown there exists some $r$ such that $[a]_p[r]_p = [ar]_p = [1]_p = [ra]_p = [r]_p[a]_p$. Thus $\bfZ/p\bfZ^\ast$ is a group.
+
+            Suppose that $m$ is a composite integer...
+        \end{proof}}
+    
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item The relation given by $a \sim b \iff a-b \in \bfZ$ is a congruence relation on the additive group $\bfQ$ [see Groups, Theorem 1.5].
+            \item The set $\bfQ/\bfZ$ of equivalence classes is an infinite abelian group.
+        \end{enumerate}
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            (a) Our relation $\sim$ is clearly reflexive: $a-a = 0 \in \bfZ$, whence $a \sim a$. If $a \sim b$, then $a-b \in \bfZ$. Since $\bfZ$ is a group under addition, the additive inverse of $a-b$ exists; i.e., $-(a-b) = b-a \in \bfZ$. So $b \sim a$, showing that $\sim$ is symmetric. If $a \sim b$ and $b \sim c$, then $a-b \in \bfZ$ and $b - c \in \bfZ$. Since addition is closed under $\bfZ$, $(a-b) + (b-c) = a - c \in \bfZ$, giving $a \sim c$. Thus $\sim$ is transitive, and altogether it is an equivalence relation. If $a \sim b$ and $c \sim d$, then $a - b \in \bfZ$ and $c - d \in \bfZ$. Again by the closure of $\bfZ$, $(a-b) + (c-d) = (a+c) - (b+d) \in \bfZ$. Thus $\sim$ is a congruence relation, as we've shown $a + c \sim b + d$.
+
+            (b) It is routine to show that all of the group axioms are satisfied by the elements of $\bfQ/\bfZ$. Define $f:\bfN \rightarrow \bfQ/\bfZ$ by $n \mapsto \overline{\frac{1}{n}}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    f(n_1) = f(n_2) 
+                    & \implies \overline{\frac{1}{n_1}} = \overline{\frac{1}{n_2}} \\
+                    & \implies \overline{\frac{1}{n_1}} = \overline{\frac{1}{n_2}} \\
+                \end{split}
+                \end{equation*} 
+
+            Define $\pi: \bfQ \rightarrow \bfQ/\bfZ$ by $q \mapsto \overline{q}$.
+        \end{proof}}
+    
+    \begin{exercise}
+        Let $p$ be a fixed prime. Let $R_p$ be the set of all those rational numbers whose denominator is relatively prime to $p$. Let $R^p$ be the set of rationals whose denominator is a power of $p$ ($p^1$, $i \geq 0$). Prove that both $R_p$ and $R^p$ are abelian groups under ordinary addition of rationals.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $p$ be prime and let $Z(p^\infty)$ be the following subset of the group $\bfQ/\bfZ$ (see pg. 27):
+            \begin{equation*}
+            \begin{split}
+                Z(p^\infty) = \{\overline{\sfrac{a}{b}} \in \bfQ/\bfZ \mid a,b \in \bfZ, \h5 b = p^i \h5 \text{for some}\h5 i \geq 0\}.
+            \end{split}
+            \end{equation*}
+        Show that  $Z(p^\infty)$ is an infinite group under the addition operation of $\bfQ/\bfZ$.
+    \end{exercise}
+    
+
+    \begin{exercise}
+        The following conditions on a group $G$ are equivalent:
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item $G$ is abelian;
+                \item $(ab)^2 = a^2 b^2$ for all $a,b \in G$;
+                \item $(ab)^{-1} = a^{-1}b^{-1}$ for all $a,b \in G$;
+                \item $(ab)^n = a^n b^n$ for all $n \in \bfZ$ and all $a,b \in G$;
+                \item $(ab)^n = a^n b^n$ for three consecutive integers $n$ and all $a,b \in G$;
+            \end{enumerate}
+        Show that $(v) \Rightarrow (i)$ is false if "three" is replaced by "two."
+    \end{exercise}
+    
+    \begin{exercise}
+        If $G$ is a group, $a,b \in G$ and $bab^{-1} = a^r$ for some $r \in \bfN$, then $b^j ab^{-j} = a^{r^j}$ for all $j \in \bfN$. 
+    \end{exercise}
+    
+    \begin{exercise}
+        If $a^2 = e$ for all elements $a$ of a group $G$, then $G$ is abelian.
+    \end{exercise}
+    
+    \begin{exercise}
+        If $G$ is a finite group of even order, then $G$ contains an element $a \neq e$ such that $a^2 = e$.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $G$ be a nonempty finite set with an associative binary operation such that for all $a,b,c \in G$ $ab = ac \Rightarrow b = c$ and $ba = ca \Rightarrow b=c$. Then $G$ is a group. Show that this conclusion may be false if $G$ is infinite.
+    \end{exercise}
+    
+    \begin{exercise}
+        Let $a_1,a_2,...$ be a sequence of elements in a semigroup $G$. Then there exists a unique function $\psi:\bfN^\ast \rightarrow G$ such that $\psi(1) = a_1$, $\psi(2) = a_1 a_2$, $\psi(3) = (a_1 a_2)a_3$ and for $n \geq 1$, $\psi(n+1) = (\psi(n))a_{n+1}$. Note that $\psi(n)$ is precisely the standard $n$ product $\prod_{i = 1}^n a_i$. [\textit{Hint:} Applying the Recursion Theorem 6.2 of Introduction with $a = a_1$, $S = G$, and $f_n:G \rightarrow G$ given by $x \mapsto x a_{n+2}$ yields a function $\varphi:\bfN \rightarrow G$. Let $\psi = \varphi \theta$, where $\theta:\bfN^\ast \rightarrow \bfN$ is given by $k \mapsto k-1$.] 
+    \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Homomorphisms and Subgroups}
+    \begin{exercise}
+        If $f:G \rightarrow H$ is a homomorphism of groups, then $f(e_G) = e_H$ and $f(a^{-1}) = f(a)^{-1}$ for all $a \in G$. Show by example that the first conclusion may be false if $G,H$ are monoids that are not groups.
+    \end{exercise}

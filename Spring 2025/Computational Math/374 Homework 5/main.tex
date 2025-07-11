@@ -1,0 +1,381 @@
+\documentclass[12pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+%\usepackage{newpxtext}
+%\usepackage{eulerpx}
+%\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scriptsize \rightmark}
+    \fancyhead[L]{\scriptsize \leftmark}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt} % if you also want to remove the footer rule
+\usepackage{mdframed}
+\usepackage{pdfpages}
+\mdfsetup{font=\small}
+
+\mdfdefinestyle{mystyle}{linecolor=black }
+
+
+
+
+
+
+
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+        numberwithin=section
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        numberwithin=section,
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        numbered=unless unique,
+    ]{problem}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\LARGE\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\usepackage{pgf}
+\usepackage{mmacells}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage{fancyvrb}
+\usepackage{tcolorbox}
+
+% Define replacements: "what to look for" => "how to typeset it"
+\mmaDefineMathReplacement[≤]{<=}{\leq}
+\mmaDefineMathReplacement[≥]{>=}{\geq}
+\mmaDefineMathReplacement[≠]{!=}{\neq}
+\mmaDefineMathReplacement[→]{->}{\to}[2]
+\mmaDefineMathReplacement[⧴]{:>}{:\hspace{-.2em}\to}[2]
+\mmaDefineMathReplacement{∉}{\notin}
+\mmaDefineMathReplacement{∞}{\infty}
+\mmaDefineMathReplacement{𝕕}{\mathbbm{d}}
+
+\linespread{1}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+\begin{center}
+{\large Math 374 \\[0.1in]Homework 5 \\[0.1in]}
+{Name:} {\underline{Gianluca Crescenzo\hspace*{2in}}}\\[0.15in]
+\end{center}
+\vspace{4pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+(b) I wrote the following code which compares the Jacobi and Gauss-Seidel methods. I've only run the code for parts (i), (iii), and (iv). I made the code stop when 5 decimal digits are stable, just to be safe.
+
+\begin{mmaCell}[functionlocal=y]{Code}
+Clear["Global`*"]
+CompareJacobiGauss[A_, b_, x0_, it_ : 20] := 
+  Module[{JD, JL, JU, GL, GU, x, y, xLastit, yLastit, n, table},
+   (*Jacobi Method*)
+   JD = DiagonalMatrix[Diagonal[A]];
+   JL = LowerTriangularize[A, -1];
+   JU = UpperTriangularize[A, 1];
+   x = Table[0, {it + 1}, {Length[b]}];
+   x[[1]] = x0;
+   For[n = 1, n <= it, n++,
+    x[[n + 1]] = N[Inverse[JD] . (b - (JL + JU) . x[[n]]), 100000];
+    If[Max[Abs[x[[n + 1]] - x[[n]]]] < 0.00001, Break[];];
+    	xLastit = n + 1;
+    ];
+   (*Gauss-Seidel Method*)
+   GL = LowerTriangularize[A];
+   GU = UpperTriangularize[A, 1];
+   y = Table[0, {it + 1}, {Length[b]}];
+   y[[1]] = x0;
+   For[n = 1, n <= it, n++,
+    y[[n + 1]] = N[Inverse[GL] . (b - GU . y[[n]]), 100000];
+    If[Max[Abs[y[[n + 1]] - y[[n]]]] < 0.00001, Break[];];
+    	yLastit = n + 1;
+    ];
+   table = Table[{
+      n - 1,
+      NumberForm[x[[n]], {Infinity, 8}, ExponentFunction -> (Null &), 
+       NumberPadding -> {"", "0"}],
+      NumberForm[y[[n]], {Infinity, 8}, ExponentFunction -> (Null &), 
+       NumberPadding -> {"", "0"}]
+      }, {n, 1, Max[xLastit, yLastit]}];
+   TableForm[
+    Prepend[table, {"n", "Jacobi Method", "Gauss-Seidel Method"}]]
+   ];
+
+A1 = {{9, 0, -2}, {4, 12, 3}, {1, 6, 11}};
+b1 = {2, -5, 0};
+x1 = {0, 0, 0};
+
+A2 = {{0, 1, 4}, {9, -2, 6}, {12, 11, 3}};
+b2 = {2, -5, 0};
+x2 = {0, 0, 0};
+
+A3 = {{4, 8, -10, 22}, {7, -5, 8, 18}, {4, 1, -9, 9}, {-2, 5, 12, 
+    3}};
+b3 = {-1, 4, 0, 9};
+x3 = {0, 0, 0, 0};
+
+A4 = 
+  {{40, 0, 7, 0, 6, 0, 2, 0},
+   {0, 41, 0, 8, 0, 6, 0, 1},
+   {18, 0, 42, 0, 9, 0, 5, 0},
+   {0, 17, 0, 43, 0, 10, 0, 5},
+   {3, 0, 16, 0, 44, 0, 11, 0},
+   {0, 3, 0, 15, 0, 45, 0, 12},
+   {1, 0, 4, 0, 14, 0, 46, 0},
+   {0, 2, 0, 4, 0, 13, 0, 47}};
+b4 = {1, 4, 1, 4, 2, 1, 3, 6};
+x4 = {0, 0, 0, 0, 0, 0, 0, 0};
+
+CompareJacobiGauss[A1, b1, x1]
+(*CompareJacobiGauss[A2,b2,x2]*)
+CompareJacobiGauss[A3, b3, x3]
+CompareJacobiGauss[A4, b4, x4]
+\end{mmaCell}
+
+\begin{mmaCell}{Output}
+
+\end{mmaCell}
+\vspace{-5pt}\h9\h9\h9\h9\includegraphics[scale=0.65]{hw5q1p1}
+
+\begin{mmaCell}{Output}
+
+\end{mmaCell}
+\vspace{-5pt}\h9\h9\h9\h9\includegraphics[scale=0.35]{hw5q1p3}
+
+\newpage
+\begin{mmaCell}{Output}
+
+\end{mmaCell}
+\vspace{-5pt}\h9\h9\h9\h9\includegraphics[scale=0.35]{hw5q1p4}
+
+\vspace{10pt}
+\noindent I didn't include the matrix from (ii) because it was crashing my Mathematica. Let $\mathbf{x},\mathbf{b} \in \bbC^n$ and $A \in \Mat_{n}(\bbC)$. Recall that the iterative formula for the Jacobi method is:
+    \begin{equation*}
+    \begin{split}
+        \mathbf{x}^{(k+1)} = D^{-1} \left( \mathbf{b} - (L + U)\mathbf{x}^{(k)} \right),
+    \end{split}
+    \end{equation*}
+where $A = D + L + U$, that is, it is decomposed into a diagonal, strictly lower triangular, and strictly upper triangular matrix. Similarly, The iterative formula for the Gauss-Seidel method is:
+    \begin{equation*}
+    \begin{split}
+        \mathbf{x}^{(k+1)} = L^{-1}(\mathbf{b} - U \mathbf{x}^{(k)}),
+    \end{split}
+    \end{equation*}
+where $A = L + U$, that is, it is decomposed into a lower triangular and strictly upper triangular matrix. For part (ii), we can clearly see that $\det(D^{-1}) = 0$ and $\det(L^{-1}) = 0$, implying the matrix cannot be inverted. Mathematica doesn't like this.
+
+Recall $A \in \Mat_{n}(\bfC)$ is \textit{invertible} if there exists a $B \in \Mat_{n}(\bfC)$ such that $AB = BA = I_n$. For $A \in \Mat_{n,m}(\bfC)$, a \textit{pseudoinverse} of $A$ is a matrix $A^+ \in \Mat_{m,n}(\bfC)$ satisfying the following properties:
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item $A A^+ A = A$;
+        \item $A^+ A A^+ = A$;
+        \item $(A A^+)^\ast = A A^+$;
+        \item $(A^+ A)^\ast = A^+ A$,
+    \end{enumerate}
+where $\square^\ast$ denotes the conjugate transpose. Replacing each instance of \texttt{Inverse[]} with \texttt{PseudoInverse[]} in the above code, we have:
+\newpage
+
+\begin{mmaCell}[functionlocal=y]{Code}
+CompareJacobiGauss[A2, b2, x2]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+    
+\end{mmaCell}
+\vspace{-5pt}\h9\h9\h9\h9\includegraphics[scale=0.58]{hw5q1p2.pdf}
+
+\noindent Neither the Jacobi method nor the Gauss-Seidel method converged to a correct solution, but it's still cool nonetheless!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{25pt}
+
+\noindent (c) I wrote the code below to do parts (i), (ii), and (iii). From the table at the very end, the rate at which the absolute errors change is approximately linear.
+
+\begin{mmaCell}[functionlocal=y]{Code}
+Clear["Global`*"]
+EulersMethod[f_, leftEndpoint_, rightEndpoint_, deltaX_, 
+   initialCondition_] := 
+  Module[{a, b, h, x, y, yVals, n, points, plot},
+   a = leftEndpoint;
+   b = rightEndpoint;
+   h = deltaX;
+   x = Table[x, {x, a, b, h}];
+   y = Table[0, {Length[x]}];
+   y[[1]] = initialCondition;
+   For[n = 1, n < Length[x], n++, 
+    y[[n + 1]] = N[y[[n]] + h*f[x[[n]], y[[n]]], 10];];
+   points = Transpose[{x, y}];
+   plot = ListLinePlot[points, PlotRange -> All];
+   {MatrixForm[points], plot, points}
+   ];
+
+f[x_, y_] := x*y^2 + x^2*y - 2;
+p1 = EulersMethod[f, 0, 2, 1, 1];
+p2 = EulersMethod[f, 0, 2, 1/2, 1];
+p3 = EulersMethod[f, 0, 2, 1/4, 1];
+p4 = EulersMethod[f, 0, 2, 1/8, 1];
+p5 = EulersMethod[f, 0, 2, 1/16, 1];
+{p1[[1]], p1[[2]]}
+{p2[[1]], p2[[2]]}
+{p3[[1]], p3[[2]]}
+{p4[[1]], p4[[2]]}
+{p5[[1]], p5[[2]]}
+ListLinePlot[{p1[[3]], p2[[3]], p3[[3]], p4[[3]], p5[[3]]}, 
+ PlotLabel -> "y'[x] = x*y^2+x^2*y-2", PlotRange -> All, 
+ PlotLegends -> {"h=1", "h=1/2", "h=1/4", "h=1/8", "h=1/16"}]
+
+g[x_, y_] := -8*y + Sin[x];
+q1 = EulersMethod[g, 0, 2, 1, 0];
+q2 = EulersMethod[g, 0, 2, 1/2, 0];
+q3 = EulersMethod[g, 0, 2, 1/4, 0];
+q4 = EulersMethod[g, 0, 2, 1/8, 0];
+q5 = EulersMethod[g, 0, 2, 1/16, 0];
+{q1[[1]], q1[[2]]}
+{q2[[1]], q2[[2]]}
+{q3[[1]], q3[[2]]}
+{q4[[1]], q4[[2]]}
+{q5[[1]], q5[[2]]}
+ListLinePlot[{q1[[3]], q2[[3]], q3[[3]], q4[[3]], q5[[3]]}, 
+ PlotLabel -> "y'[x] = -8*y +Sin[x]", PlotRange -> All, 
+ PlotLegends -> {"h=1", "h=1/2", "h=1/4", "h=1/8", "h=1/16"}]
+
+h[x_, y_] := y *Cos[x];
+r1 = EulersMethod[h, 0, 2, 1, 2];
+r2 = EulersMethod[h, 0, 2, 1/2, 2];
+r3 = EulersMethod[h, 0, 2, 1/4, 2];
+r4 = EulersMethod[h, 0, 2, 1/8, 2];
+r5 = EulersMethod[h, 0, 2, 1/16, 2];
+{r1[[1]], r1[[2]]}
+{r2[[1]], r2[[2]]}
+{r3[[1]], r3[[2]]}
+{r4[[1]], r4[[2]]}
+{r5[[1]], r5[[2]]}
+ListLinePlot[{r1[[3]], r2[[3]], r3[[3]], r4[[3]], r5[[3]]}, 
+ PlotLabel -> "y'[x] = y*Cos[x]", PlotRange -> All, 
+ PlotLegends -> {"h=1", "h=1/2", "h=1/4", "h=1/8", "h=1/16"}]
+
+y[x_] := 2 Exp[Sin[x]];
+delta = {1, 1/2, 1/4, 1/8, 1/16};
+approx = {r1[[3, -1, 2]], r2[[3, -1, 2]], r3[[3, -1, 2]], 
+   r4[[3, -1, 2]], r5[[3, -1, 2]]};
+errors = {Abs[approx[[1]] - y[2]], Abs[approx[[2]] - y[2]], 
+   Abs[approx[[3]] - y[2]], Abs[approx[[4]] - y[2]], 
+   Abs[approx[[5]] - y[2]]};
+table = Table[{
+    delta[[n]],
+    approx[[n]],
+    errors[[n]]
+    }, {n, 1, Length[delta]}];
+TableForm[
+ Prepend[table, {"deltaX", "y_{approx}[2]", "|y_{approx}[2] - y_{exact}[2]|"}]]
+\end{mmaCell}
+\includepdf[pages=-]{blah3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

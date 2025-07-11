@@ -1,0 +1,268 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+%------------------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title[Final Paper Presentation] %optional
+{Final Paper Presentation}
+
+\author[Gianluca Crescenzo] % (optional)
+{Gianluca Crescenzo}
+
+\date[April 2025] % (optional)
+{Applied Econometrics, April 24th, 2025}
+
+%End of title page configuration block
+%------------------------------------------------------------
+
+
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+
+
+%---------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+
+
+
+
+
+
+
+
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\section{Primary Research Hypothesis}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{frame}
+\frametitle{Primary Research Hypothesis}
+    \pause
+
+    \begin{block}{Hypothesis}
+        How do temperature and precipitation anomalies affect housing prices?
+    \end{block}
+    \pause
+
+    \begin{block}{Definition}
+    Let $\text{Temp}_{ct}$ denote the average temperature of county $c$ during year $t$ and $\overline{\text{Temp}_{c}}$ denote county $c$'s historical average temperature. The \textit{temperature $z$-score} is given by:
+        \begin{equation*}
+        \begin{split}
+            zTemp_{ct} = \frac{\text{Temp}_{ct} - \overline{\text{Temp}_{c}}}{\sigma_{\text{Temp},c}},
+        \end{split}
+        \end{equation*}
+    where $\sigma_{\text{Temp},c}$ are the county-specific standard deviations.
+    \end{block}
+    \pause
+
+    The precipitation $z$-scores are similarly defined. For example, $zTemp_{ct} = 0$ means the temperature was exactly the average for that county, whereas $zTemp_{ct} = 1$ means the temperature was one standard-deviation above the average (an unusually warm year).
+\end{frame}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\section{Data Gathered}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{frame}
+\frametitle{Data Gathered}
+    \pause
+    {\footnotesize Population of Interest: California Counties between 2010-2019.} 
+    
+    {\footnotesize Sample Size: 391.}    
+    \pause  
+    \vspace{10pt}
+
+    {\footnotesize Temperature and precipitation averages through January-December of a given year:}
+    
+    {\tiny \url{https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping}}
+    \pause 
+    \vspace{10pt}
+
+    {\footnotesize Median housing prices in July of a given year:}
+
+    {\tiny \url{https://data.census.gov/table/ACSDT1Y2019.B25077?q=median+value&g=040XX00US06$0500000&moe=false&tp=true}}
+    {\tiny ***Only counties with population $\geq$ 65000}
+    \pause
+    \vspace{10pt}
+
+    {\footnotesize County Population by year:}
+
+    {\tiny \url{https://dof.ca.gov/forecasting/demographics/estimates/e-4-population-estimates-for-cities-counties-and-the-state-2011-2020-with-2010-census-benchmark-new/}}
+    \pause
+    \vspace{10pt}
+
+    {\footnotesize California Counties Land Area:}
+
+    {\tiny \url{https://onlinecalifornia.us/countyarea.shtml}}
+
+\end{frame}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\section{Population Regression Function}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{frame}
+\frametitle{Population Regression Function}
+\pause
+\begin{block}{Population Regression Function}
+    \scalebox{0.8}{$\ln(\text{HousePrice}_{ct}) = \beta_0 + \beta_1 \text{zTemp}_{ct} + \beta_2 \text{zPrecip}_{ct} + \beta_3 \text{CountyPop}_{ct} + \beta_4\text{CountyDensity}_{ct}$}
+\end{block}
+
+\pause
+Potential Omitted Variables: County Crime Levels, County Public Services, County Education Level, Federal Interest Rates, \textbf{County Quality of Education}.
+
+\end{frame}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\section{Results}
+%---------------------------------------------------------
+%---------------------------------------------------------
+%---------------------------------------------------------
+\begin{frame}[fragile]
+\frametitle{Results: Summary Statistics}
+\begin{lstlisting}[
+    basicstyle=\tiny,
+    ]
+    . summarize
+
+        Variable |        Obs        Mean    Std. dev.       Min        Max
+    -------------+---------------------------------------------------------
+            year |        391    2014.512    2.881283       2010       2019
+              id |          0
+          county |          0
+            temp |        391    60.44552    4.506983       50.7       76.5
+    -------------+---------------------------------------------------------
+       temp_hist |        391    58.33478    4.127856       51.7       72.2
+          precip |        391    24.49714    17.73149       2.06      82.59
+     precip_hist |        391     24.9302    14.13778       3.38      63.39
+      county_pop |        391    973216.7     1672957      65084   1.01e+07
+    -------------+---------------------------------------------------------
+    median_house |        391    415511.5    228933.4     130800    1233600
+           sq_mi |        391    2721.832    3387.598      46.69    20052.5
+         sd_temp |        390    1.335813    .0912748   1.186779   1.521001
+        temp_dev |        390    1.581177    .9970067  -.7024201   3.511163
+       sd_precip |        390    9.357683    4.940643   1.295387   19.86239
+    -------------+---------------------------------------------------------
+      precip_dev |        390   -.0875689    .9638408  -2.207122   2.308191
+    county_den~y |        391    1023.308    2912.476   22.05497   18880.89
+    ln_median_~e |        391    12.80006    .5204693   11.78142   14.02545
+
+
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Results: OLS Estimates}
+\begin{lstlisting}[
+basicstyle=\tiny,
+]
+    . reg  ln_median_house temp_dev precip_dev county_pop county_density
+
+          Source |       SS           df       MS      Number of obs   =       390
+    -------------+----------------------------------   F(4, 385)       =     29.97
+           Model |  25.0446496         4  6.26116239   Prob > F        =    0.0000
+        Residual |   80.443615       385  .208944454   R-squared       =    0.2374
+    -------------+----------------------------------   Adj R-squared   =    0.2295
+           Total |  105.488265       389  .271178058   Root MSE        =     .4571
+
+    --------------------------------------------------------------------------------
+    ln_median_ho~e | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+    ---------------+----------------------------------------------------------------
+          temp_dev |   .1065086   .0244269     4.36   0.000     .0584817    .1545355
+        precip_dev |   .0905436   .0251663     3.60   0.000     .0410631    .1400241
+        county_pop |   4.14e-08   1.41e-08     2.93   0.004     1.36e-08    6.92e-08
+    county_density |   .0000683   8.06e-06     8.47   0.000     .0000524    .0000841
+             _cons |    12.5302   .0457692   273.77   0.000     12.44021    12.62019
+    --------------------------------------------------------------------------------
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Results: Fixed Effects}
+    \begin{lstlisting}[
+    basicstyle=\tiny,
+    ]
+    . areg ln_median_house temp_dev precip_dev county_pop county_density 
+        i.year, absorb(county) cluster(county)
+
+    Linear regression, absorbing indicators             Number of obs     =    390
+    Absorbed variable: county                           No. of categories =     39
+                                                        F(13, 38)         = 105.81
+                                                        Prob > F          = 0.0000
+                                                        R-squared         = 0.9895
+                                                        Adj R-squared     = 0.9880
+                                                        Root MSE          = 0.0572
+                                      (Std. err. adjusted for 39 clusters in county)
+    --------------------------------------------------------------------------------
+                   |               Robust
+    ln_median_ho~e | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+    ---------------+----------------------------------------------------------------
+          temp_dev |   .0229511   .0138943     1.65   0.107    -.0051764    .0510786
+        precip_dev |   .0162229   .0067624     2.40   0.021     .0025332    .0299126
+        county_pop |   5.15e-07   2.38e-07     2.16   0.037     3.21e-08    9.97e-07
+    county_density |   .0000434   .0000235     1.85   0.072    -4.09e-06    .0000909
+                   |
+              year |
+             2011  |  -.0447335   .0166063    -2.69   0.010    -.0783512   -.0111159
+             2012  |  -.1094107   .0157365    -6.95   0.000    -.1412676   -.0775538
+             2013  |  -.0221942   .0184837    -1.20   0.237    -.0596126    .0152242
+             2014  |   .0099602   .0343066     0.29   0.773    -.0594898    .0794102
+             2015  |   .1229077   .0289061     4.25   0.000     .0643903     .181425
+             2016  |   .1763045   .0302735     5.82   0.000      .115019    .2375899
+             2017  |   .2400476   .0312436     7.68   0.000     .1767981     .303297
+             2018  |   .3256774   .0304895    10.68   0.000     .2639546    .3874002
+             2019  |    .365822   .0261581    13.99   0.000     .3128677    .4187764
+                   |
+             _cons |   12.11328   .2249491    53.85   0.000     11.65789    12.56866
+    --------------------------------------------------------------------------------
+    
+    \end{lstlisting}
+    \end{frame}
+
+\begin{frame}
+    \frametitle{}
+    \begin{center}
+        Thank You!
+    \end{center}
+\end{frame}
+
+\end{document}

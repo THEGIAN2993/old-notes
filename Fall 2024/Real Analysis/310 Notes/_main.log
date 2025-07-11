@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  21 JAN 2025 13:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  17 JUN 2025 21:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1942,8 +1942,8 @@ Package fancyhdr Warning: \headheight is too small (0.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-8.0pt}.
 
 [5]
-Overfull \hbox (10.96591pt too wide) in paragraph at lines 296--297
-[][]\T1/TeXGyreScholaX-OsF/b/n/10.95 (-20) Definition 1.4.2. []\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) A set $\OML/zncfmi/m/it/10.95 A$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) is called |   [] if there ex-ists an $\OML/zncfmi/m/it/10.95 N \LMS/ntxsy/m/n/10.95 2 \U/ntxmia/m/it/10.95 ‘$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) such that $[]\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 A\LMS/ntxsy/m/n/10.95 º \U/ntxmia/m/it/10.95 = []\LMS/ntxsy/m/n/10.95 ¹f\OT1/TeXGyreScholaX-TLF/m/n/10.95 1\OML/zncfmi/m/it/10.95 ; :::; N\LMS/ntxsy/m/n/10.95 gº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) .
+Overfull \hbox (10.41133pt too wide) in paragraph at lines 296--297
+[][]\T1/TeXGyreScholaX-OsF/b/n/10.95 (-20) Definition 1.4.2. []\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) A set $\OML/zncfmi/m/it/10.95 A$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) is called |   [] if there ex-ists an $\OML/zncfmi/m/it/10.95 N \LMS/ntxsy/m/n/10.95 2 \OT1/TeXGyreScholaX-TLF/b/n/10.95 N$ \T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) such that $[]\LMS/ntxsy/m/n/10.95 ¹\OML/zncfmi/m/it/10.95 A\LMS/ntxsy/m/n/10.95 º \U/ntxmia/m/it/10.95 = []\LMS/ntxsy/m/n/10.95 ¹f\OT1/TeXGyreScholaX-TLF/m/n/10.95 1\OML/zncfmi/m/it/10.95 ; :::; N\LMS/ntxsy/m/n/10.95 gº$\T1/TeXGyreScholaX-OsF/m/n/10.95 (-20) .
  []
 
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 313.
@@ -2684,18 +2684,18 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
 (rerunfilecheck)             Checksum: 91530B583CCD0639C2ABAD1D552CE6CE;2008.
  ) 
 Here is how much of TeX's memory you used:
- 53882 strings out of 474116
- 1159490 string characters out of 5743683
+ 53894 strings out of 474116
+ 1159295 string characters out of 5743683
  1956187 words of memory out of 5000000
- 74068 multiletter control sequences out of 15000+600000
- 790597 words of font info for 639 fonts, out of 8000000 for 9000
+ 74090 multiletter control sequences out of 15000+600000
+ 793918 words of font info for 634 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  98i,27n,117p,1148b,2685s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXFourierMR.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/NCXMathMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Bold.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/scholax/TeXGyreScholaX-Regular.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaSTbb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on _main.pdf (54 pages, 394666 bytes).
+Output written on _main.pdf (54 pages, 394944 bytes).
 PDF statistics:
- 1394 PDF objects out of 1440 (max. 8388607)
- 1292 compressed objects within 13 object streams
+ 1397 PDF objects out of 1440 (max. 8388607)
+ 1294 compressed objects within 13 object streams
  785 named destinations out of 1000 (max. 500000)
  82185 words of extra memory for PDF output out of 89155 (max. 10000000)
 

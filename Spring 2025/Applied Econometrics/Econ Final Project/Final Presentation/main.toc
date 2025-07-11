@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Primary Research Hypothesis}{3}{0}{1}
+\beamer@sectionintoc {2}{Data Gathered}{8}{0}{2}
+\beamer@sectionintoc {3}{Population Regression Function}{15}{0}{3}
+\beamer@sectionintoc {4}{Results}{19}{0}{4}

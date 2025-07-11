@@ -1,0 +1,238 @@
+\documentclass[12pt,twoside,openany]{memoir}
+%\usepackage{mlmodern}
+%\usepackage{tgpagella} % text only
+%\usepackage{mathpazo}  % math & text
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage[fixamsmath]{mathtools}  % Extension to amsmath
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+\usepackage{newpxtext}
+\usepackage{eulerpx}
+\usepackage{eucal}
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scalebox{0.8}{Gianluca Crescenzo}}
+    \fancyhead[L]{\scalebox{0.8}{Sequences and Series of Functions}}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        sibling=theorem,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\Huge\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\HUGE}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\LARGE}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\linespread{1.00}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+%This adds a "front cover" page.
+%{\thispagestyle{empty}
+%\vspace*{\fill}
+%\begin{tabular}{l}
+%\begin{tabular}{l}
+%\includegraphics[scale=0.24]{oxy-logo.png}
+%\end{tabular} \\
+%\begin{tabular}{l}
+%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+%\end{tabular}
+%\end{tabular}
+%\newpage
+
+\begin{abstract}
+    We will survey many of the important results related to sequences and series of functions. The culmination of this document will be proving the Weierstrass M-test and Cauchy-Hadamard theorem.
+\end{abstract}
+
+\section*{Sequences of Functions}
+    \begin{definition}
+        Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence of functions in $X^\Omega$.
+        \begin{enumerate}[label = (\arabic*),itemsep=-7pt,topsep=3pt]
+            \item $(f_n)_n$ converges \textit{pointwise} to $f \in X^\Omega$ if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) : (\forall n \in \bfN)( n \geq N \implies d(f_n(x), f(x)) < \epsilon).
+                \end{split}
+                \end{equation*}
+            \item $(f_n)_n$ converges \textit{uniformly} to $f \in X^\Omega$ if:
+                \begin{equation*}
+                \begin{split}
+                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) &: (\forall n \in \bfN)(\forall x \in \Omega)\bigl(n \geq N \implies d(f_n(x), f(x)) < \epsilon\bigr) \\
+                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies {\ts \sup_{x \in \Omega}d(f_n(x),f(x))} < \epsilon\bigr) \\
+                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies D_u(f_n ,f) < \epsilon\bigr).
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Let $(f_n)_n$ be a sequence in $\bfR^{[0,1]}$ defined by $f_n(x) = x^n$ for all $n \in \bfN$. If $x \in [0,1)$, then $(f_n(x))_n \rightarrow 0$. If $x = 1$, then $(f_n(x))_n \rightarrow 1$. Thus $(f_n)_n \rightarrow \mathbf{1}_{1}$ pointwise.
+    \end{example}
+
+    \begin{example}
+        Let $(f_n)_n$ be a sequence in $\bfR^\bfR$ defined by $f_n(x) = \frac{nx}{1 + n^2x^2}$. If $x = 0$, then $(f_n(x))_n \rightarrow 0$. If $x \neq 0$, observe that:
+            \begin{equation*}
+            \begin{split}
+                |f_n(x)|
+                & = \left| \frac{nx}{1 + n^2 x^2} \right| \\
+                & = \frac{n |x|}{1 + n^2 x^2} \\ 
+                & \leq \frac{|x|}{nx^2} \\
+                & = \frac{1}{n|x|}.
+            \end{split}
+            \end{equation*}
+        Since $x$ is fixed, $(f_n(x))_n \rightarrow 0$. Thus $(f_n)_n \rightarrow 0_{\bfR^\bfR}$ pointwise.
+    \end{example}
+
+    \begin{example}
+        Let $(h_n)_n$ be a sequence in $\bfR^{[0,\infty)}$ defined by $h_n(x) = x^{\frac{1}{n}}$. If $x > 0$, then $(h_n(x))_n \rightarrow 1$. If $x = 0$, then $(h_n(x))_n \rightarrow 0$. Thus $(h_n)_n \rightarrow \mathbf{1}_{(0,\infty)}$ pointwise.
+    \end{example}
+
+    \begin{definition}
+        Let $\Omega$ be a set and $(X,d)$ a metric space.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The set of all bounded functions from $\Omega$ to $X$ is denoted $\Bd(\Omega,X)$.
+            \item The \textit{uniform metric} between two bounded functions $f,g \in \Bd(\Omega,X)$ is defined by $D_u(f,g) = \sup_{x \in \Omega}d(f(x),g(x))$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence in $X^\Omega$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item The sequence $(f_n)_n$ converges uniformly to $f$;
+                \item The sequence $(f_n)_n$ converges to $f$ in $(\Bd(\Omega,X),D_u)$;
+                \item The sequence $(D_u(f_n,f))_n$ converges to 0.
+            \end{enumerate}
+    \end{proposition}
+
+    \begin{example}
+        Let $(f_n)_n$ be a sequence in $\bfR^\bfR$ defined by $f_n = \mathbf{1}_{[n,n+1]}$. Claim: $(f_n)_n \rightarrow 0_{\bfR^\bfR}$. Let $x \in \bfR$ and $\epsilon > 0$. Find $N$ large so $N > x$. If $n \geq N$, then $|f_n(x) - 0_{\bfR^\bfR}(x)| = |f_n(x)| = |\mathbf{1}_{[n,n+1]}(x)| = 0$. Thus $(f_n)_n \rightarrow 0_{\bfR^\bfR}$ pointwise.
+
+        Note that each $f_n$ is bounded, and furthermore:
+            \begin{equation*}
+            \begin{split}
+                D_u(f_n,f)
+                & = \sup_{x \in \bfR}|f_n(x) - 0_{\bfR^\bfR}(x)| \\
+                & = \sup_{x \in \bfR}|f_n(x)| \\
+                & = 1.
+            \end{split}
+            \end{equation*}
+        Thus $(f_n)_n$ does \textit{not} converge uniformly to $0_{\bfR^\bfR}$.
+    \end{example}
+
+    \begin{theorem}
+       Let $(X,d$) be a metric space. Suppose $(f_n)_n$ is a sequence in $C(\Omega,X)$ which converges uniformly to $f:\Omega \rightarrow X$. Then $f \in C(\Omega,X)$.
+    \end{theorem}
+        \begin{proof}
+            
+        \end{proof}
+
+    \begin{theorem}
+        Interchange of derivative and limit
+    \end{theorem}
+
+    \begin{theorem}\label{lemma:dini}
+        Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotonically decreasing sequence in $C(X,\bfR)$ which converges pointwise to $0$. Then $(f_n)_n$ converges uniformly to $0$.
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $(f_n)_n$ converges pointwise to $0$, for each $x \in X$ there exists $N_x \in \bfN$ such that $n \geq N_x$ implies $f_n(x) < \frac{\epsilon}{2}$. Because $f_{N_x}$ is continuous at $x$, there exists $\delta_x > 0$ such that, for every $z \in X$, $d(x,z) < \delta_x$ implies $|f_{N_x}(x) - f_{N_x}(z)| < \frac{\epsilon}{2}$. The collection $\{U(x,\delta_x)\}_{x \in X}$ covers $X$, so by compactness there is a finite set $F \subseteq X$ with $X = \bigcup_{x \in F} U(x,\delta_x)$. Set $N = \max_{x \in F} N_x$. Let $z \in X$ be arbitrary and locate $x \in F$ such that $z \in U(x,\delta_x)$. Notice that our choice of $N$ does not depend on $z$. For $n \geq N$:
+                \begin{equation*}
+                \begin{split}
+                    f_n(z) 
+                    & \leq f_{N_x}(z) \\
+                    & = f_{N_x}(z) - f_{N_x}(x) + f_{N_x}(x) \\
+                    & \leq |f_{N_x}(z) - f_{N_x}(x)| + f_{N_x}(x) \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus for $n \geq N$, we have $\lnorm f_n \rnorm_u \leq \epsilon$.
+        \end{proof}
+
+    \begin{theorem}[Dini's Theorem]
+        Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotone sequence in $C(X,\bfR)$ which converges pointwise to $f$. Then $(f_n)_n$ converges uniformly to $f$.
+    \end{theorem}
+        \begin{proof}
+            If $(f_n)_n$ is decreasing, apply Theorem~\ref{lemma:dini} to $f_n - f$. If $(f_n)_n$ is increasing, apply Theorem~\ref{lemma:dini} to $f - f_n$.
+        \end{proof}
+\end{document}

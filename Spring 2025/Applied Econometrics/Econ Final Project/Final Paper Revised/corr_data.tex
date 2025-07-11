@@ -1,0 +1,17 @@
+\begin{table}[htbp]\centering\label{table:correlation-matrix}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Correlation Matrix}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+          & Temperature        &Precipitation        &County       &County       \\
+          & $z$-score        &$z$-score         &Population         &Population Density         \\
+\hline
+Temperature $z$-score  &        1         &                  &                  &                  \\
+Precipitation $z$-score &   -0.292\sym{***}&        1         &                  &                  \\
+County Population&    0.115\sym{*}  &  -0.0707         &        1         &                  \\
+County Population Density&   0.0222         &  0.00637         &    0.163\sym{**} &        1         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+
