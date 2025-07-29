@@ -1,7 +1,4 @@
-\documentclass[12pt,twoside,openany]{memoir}
-%\usepackage{mlmodern}
-%\usepackage{tgpagella} % text only
-%\usepackage{mathpazo}  % math & text
+\documentclass[11pt,twoside,openany]{memoir}
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{amsmath}
@@ -9,12 +6,14 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 %\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
-\usepackage{newpxtext}
-\usepackage{eulerpx}
-\usepackage{eucal}
+
+
+%fonts
+\usepackage{newpxtext,eulerpx,eucal}
+
 \usepackage{datetime}
     \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1.5in]{geometry}
 \usepackage{fancyhdr}
     \fancyhf{}
     \pagestyle{fancy}
@@ -51,7 +50,6 @@
 
     \declaretheorem[
         style=thmstyle,
-        sibling=theorem,
     ]{lemma}
 
     \declaretheorem[
@@ -122,7 +120,7 @@
 %\newpage
 
 \begin{abstract}
-    We will survey many of the important results related to sequences and series of functions. The culmination of this document will be proving the Weierstrass M-test and Cauchy-Hadamard theorem.
+    We will survey many results related to sequences and series of functions. The culmination of this document will be proving the Weierstrass M-test and Cauchy-Hadamard theorem. 
 \end{abstract}
 
 \section*{Sequences of Functions}
@@ -138,9 +136,8 @@
             \item $(f_n)_n$ converges \textit{uniformly} to $f \in X^\Omega$ if:
                 \begin{equation*}
                 \begin{split}
-                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) &: (\forall n \in \bfN)(\forall x \in \Omega)\bigl(n \geq N \implies d(f_n(x), f(x)) < \epsilon\bigr) \\
-                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies {\ts \sup_{x \in \Omega}d(f_n(x),f(x))} < \epsilon\bigr) \\
-                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies D_u(f_n ,f) < \epsilon\bigr).
+                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) &\h4: (\forall n \in \bfN)(\forall x \in \Omega)\bigl(n \geq N \implies d(f_n(x), f(x)) < \epsilon\bigr) \\
+                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies {\ts \sup_{x \in \Omega}d(f_n(x),f(x))} < \epsilon\bigr).
                 \end{split}
                 \end{equation*}
         \end{enumerate}
@@ -179,16 +176,37 @@
     \begin{proposition}
         Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence in $X^\Omega$. The following are equivalent:
             \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-                \item The sequence $(f_n)_n$ converges uniformly to $f$;
-                \item The sequence $(f_n)_n$ converges to $f$ in $(\Bd(\Omega,X),D_u)$;
-                \item The sequence $(D_u(f_n,f))_n$ converges to 0.
+                \item The sequence $(f_n)_n$ converges uniformly to $f$ in $X^\Omega$;
+                \item The sequence $(D_u(f_n,f))_n$ converges to 0 in $\bfR$.
             \end{enumerate}
     \end{proposition}
+        \begin{proof}
+            ($\Rightarrow$) Let $\epsilon > 0$. By assumption, find $N \in \bfN$ sufficiently large so that, for all $x \in X$, $n \geq N$ implies $d(f_n(x),f(x)) < \frac{\epsilon}{2}$. It follows then that:
+                \begin{equation*}
+                \begin{split}
+                    |D_u(f_n,f)|
+                    & = \left| \sup_{x \in X}d(f_n(x),f(x)) \right| \\
+                    & \leq \frac{\epsilon}{2} \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(D_u(f_n,f))_n \rightarrow 0$.
+
+            ($\Leftarrow$) Let $\epsilon > 0$. Find $N \in \bfN$ large so that $n \geq N$ implies $D_u(f_n,f) < \epsilon$. If $n \geq N$ and $z \in X$, then:
+                \begin{equation*}
+                \begin{split}
+                    d(f_n(z),f(z))
+                    & \leq \sup_{x \in X}d(f_n(x),f(x)) \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Since $z$ was arbitrary, $(f_n)_n \rightarrow f$ uniformly.
+        \end{proof}
 
     \begin{example}
         Let $(f_n)_n$ be a sequence in $\bfR^\bfR$ defined by $f_n = \mathbf{1}_{[n,n+1]}$. Claim: $(f_n)_n \rightarrow 0_{\bfR^\bfR}$. Let $x \in \bfR$ and $\epsilon > 0$. Find $N$ large so $N > x$. If $n \geq N$, then $|f_n(x) - 0_{\bfR^\bfR}(x)| = |f_n(x)| = |\mathbf{1}_{[n,n+1]}(x)| = 0$. Thus $(f_n)_n \rightarrow 0_{\bfR^\bfR}$ pointwise.
 
-        Note that each $f_n$ is bounded, and furthermore:
+        Note that:
             \begin{equation*}
             \begin{split}
                 D_u(f_n,f)
@@ -200,20 +218,32 @@
         Thus $(f_n)_n$ does \textit{not} converge uniformly to $0_{\bfR^\bfR}$.
     \end{example}
 
-    \begin{theorem}
-       Let $(X,d$) be a metric space. Suppose $(f_n)_n$ is a sequence in $C(\Omega,X)$ which converges uniformly to $f:\Omega \rightarrow X$. Then $f \in C(\Omega,X)$.
-    \end{theorem}
+    \begin{proposition}\label{prop:seq-cont}
+       Let $(X,d)$ and $(Y,\rho)$ be metric spaces. Suppose $(f_n)_n$ is a sequence in $C(X,Y)$ which converges uniformly to $f:X \rightarrow Y$. Then $f \in C(X,Y)$.
+    \end{proposition}
         \begin{proof}
-            
+            Let $\epsilon > 0$. Since $(f_n)_n$ converges uniformly to $f$, choose $N \in \bfN$ large so that $D_u(f_N,f) < \frac{\epsilon}{3}$. Let $c \in X$. Since $f_N$ is continuous, there exists $\delta > 0$ such that, for all $x \in X$, $d(x,c) < \delta$ implies $\rho(f_N(x),f_N(c))< \frac{\epsilon}{3}$. For $c \in X$ and $d(x,c) < \delta$:
+                \begin{equation*}
+                \begin{split}
+                    \rho(f(x),f(c))
+                    & \leq \rho(f(x),f_N(x)) + \rho(f_N(x),f_N(c)) + \rho(f_N(c),f(c)) \\
+                    & \leq 2 D_u(f_N,f) + \rho(f_N(x), f_N(c)) \\
+                    & < \frac{2 \epsilon}{3} + \frac{\epsilon}{3} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f$ is continuous at $c$. Since $c$ was arbitrary, $f \in C(X,Y)$.
         \end{proof}
 
     \begin{theorem}
-        Interchange of derivative and limit
+        Let $J \subseteq \bfR$ be a bounded interval and let $(f_n)_n$ be a sequence of functions in $\bfR^J$. Suppose there exists $x_0 \in J$ such that $(f_n(x_0))_n$ converges, and that the sequence $(f_n')_n$ of derivatives exists on $J$ and converges uniformly on $J$ to a function $g$.
+
+        Then the sequence $(f_n)_n$ converges uniformly on $J$ to a function $f$ that has a derivative at every point of $J$ and $f' = g$.
     \end{theorem}
 
-    \begin{theorem}\label{lemma:dini}
-        Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotonically decreasing sequence in $C(X,\bfR)$ which converges pointwise to $0$. Then $(f_n)_n$ converges uniformly to $0$.
-    \end{theorem}
+    \begin{lemma}\label{lemma:dini}
+        Let $(X,d)$ be a compact metric space. Suppose $(f_n)_n$ is a monotonically decreasing sequence in $C(X,\bfR)$ which converges pointwise to $0$. Then $(f_n)_n$ converges uniformly to $0$.
+    \end{lemma}
         \begin{proof}
             Let $\epsilon > 0$. Since $(f_n)_n$ converges pointwise to $0$, for each $x \in X$ there exists $N_x \in \bfN$ such that $n \geq N_x$ implies $f_n(x) < \frac{\epsilon}{2}$. Because $f_{N_x}$ is continuous at $x$, there exists $\delta_x > 0$ such that, for every $z \in X$, $d(x,z) < \delta_x$ implies $|f_{N_x}(x) - f_{N_x}(z)| < \frac{\epsilon}{2}$. The collection $\{U(x,\delta_x)\}_{x \in X}$ covers $X$, so by compactness there is a finite set $F \subseteq X$ with $X = \bigcup_{x \in F} U(x,\delta_x)$. Set $N = \max_{x \in F} N_x$. Let $z \in X$ be arbitrary and locate $x \in F$ such that $z \in U(x,\delta_x)$. Notice that our choice of $N$ does not depend on $z$. For $n \geq N$:
                 \begin{equation*}
@@ -233,6 +263,157 @@
         Let $(X,d)$ be compact. Suppose $(f_n)_n$ is a monotone sequence in $C(X,\bfR)$ which converges pointwise to $f$. Then $(f_n)_n$ converges uniformly to $f$.
     \end{theorem}
         \begin{proof}
-            If $(f_n)_n$ is decreasing, apply Theorem~\ref{lemma:dini} to $f_n - f$. If $(f_n)_n$ is increasing, apply Theorem~\ref{lemma:dini} to $f - f_n$.
+            If $(f_n)_n$ is decreasing, apply Lemma~\ref{lemma:dini} to $f_n - f$. If $(f_n)_n$ is increasing, apply Lemma~\ref{lemma:dini} to $f - f_n$.
         \end{proof}
+
+\section*{Series of Functions}
+    \begin{definition}
+        Let $\Omega$ be any set and $(V,\lnorm \cdot \rnorm)$ a normed vector space.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item If $(f_n)_n$ is a sequence of functions in $V^\Omega$, the sequence of \textit{partial sums} $(s_n)_n$ is defined by:
+                \begin{equation*}
+                \begin{split}
+                    s_1(x) &:= f_1(x), \\
+                    s_2(x) &:= s_1(x) + f_2(x), \\
+                    &\vdots \\
+                    s_{n+1}(x) &:= s_n(x) + f_{n+1}(x) \\
+                    & = \sum_{k = 1}^{n+1}f_k(x).
+                \end{split}
+                \end{equation*}
+            
+
+            \item If the sequence of functions $(s_n)_n$ converges to $f \in V^\Omega$, we say that the infinite series of functions $\sum f_n$ \textit{converges} to $f$ and write $\sum f_n = f$.
+            
+            \item If the series $\sum \lnorm f_n \rnorm$ converges, we say that $\sum f_n$ is \textit{absolutely convergent}.
+            \item If the sequence $(s_n)_n$ of partial sums converges uniformly to $f \in X^\Omega$, we say that $\sum f_n$ is \textit{uniformly convergent}.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}\label{prop:banach-iff-absolute}
+        Let $(V,\lnorm \cdot \rnorm)$ be a normed space. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $V$ is a Banach space;
+                \item If $(v_k)_k$ is a sequence in $V$ with $\sum_{k = 1}^\infty \lnorm v_k \rnorm$ convergent, then $\sum_{ k =1}^\infty v_k$ converges.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            $(\Rightarrow)$ Let $\epsilon > 0$. Let $s_n = \sum_{k = 1}^n v_k$ and $t_n = \sum_{k = 1}^n \lnorm v_k \rnorm$. Since $(t_n)_n$ converges, it is Cauchy. Find $N$ sufficiently large so that $p,q > N$ implies $|t_p - t_q| < \epsilon$. For $p>q > N$:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm s_p - s_q \rnorm
+                    & = \lnorm \sum_{k = q+1}^p v_k \rnorm \\
+                    & \leq \sum_{k = q+1}^p \lnorm v_k \rnorm \\
+                    & = |t_p - t_k|\\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(s_n)_n$ is $\lnorm \cdot \rnorm$-Cauchy. Since $V$ is complete, $\sum_{k = 1}^\infty v_k$ converges.
+
+            $(\Leftarrow)$ Since $\sum_{k = 1}^\infty v_k$ converges, the sequence $(v_n)_n$ also converges. In particular, the sequence $(v_n)_n$ is Cauchy, so find $N_1 \in \bfN$ sufficiently large such that $p,q \geq N_1$ implies $\lnorm v_p - v_q \rnorm < 2^{-1}$. Again, find $N_2>N_1$ large so that $p,q \geq N_2$ implies $\lnorm v_p - v_q \rnorm < 2^{-2}$. Inductively, find $N_k > N_{k-1}$ such that $p,q \geq N_k$ implies $\lnorm v_p - v_q \rnorm < 2^{-k}$. Now consider the sequence $(v_{n_{k+1}} - v_{n_k})_k$. Note that:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{k = 1}^\infty \lnorm v_{n_{k+1}} - v_{n_k} \rnorm
+                    & \leq \sum_{k = 1}^\infty 2^{-k} \\
+                    & = 1.
+                \end{split}
+                \end{equation*}
+            By our hypothesis $\sum_{k = 1}^\infty (v_{n_{k+1}} - v_{n_k})$ converges, so the sequence of partial sums:
+                \begin{equation*}
+                \begin{split}
+                    w_m &
+                    = \sum_{k = 1}^m v_{n_{k+1}} - v_{n_k} \\
+                    & = v_{n_m} - v_{n_1}
+                \end{split}
+                \end{equation*}
+            also converges. Let $\limit_{m \rightarrow \infty}w_m := w$ and observe that:
+                \begin{equation*}
+                \begin{split}
+                    \limit_{m \rightarrow \infty}v_{n_m}
+                    & = \limit_{m \rightarrow \infty}(w_m + v_{n_1}) \\
+                    & = w + v_{n_1}.
+                \end{split}
+                \end{equation*}
+            Since $(v_n)_n$ is a $\lnorm \cdot \rnorm$-Cauchy sequence which admits a convergent subsequence, $(v_n)_n$ converges. Thus $V$ is a Banach space.
+        \end{proof}
+
+    \begin{example}
+        Note that Proposition~\ref{prop:banach-iff-absolute} does not only apply to series in $\bfR$ or $\bfC$. Given a metric space $(X,d)$, it can be proven that the set of all continuous and bounded functions:
+        \begin{equation*}
+        \begin{split}
+            C_b(X) := C(X) \cap \Bd(X)
+        \end{split}
+        \end{equation*}
+    is a $\lnorm \cdot \rnorm_u$-Banach space, where $\lnorm \cdot \rnorm_u$ is the \textit{uniform norm} defined as:
+        \begin{equation*}
+        \begin{split}
+            \lnorm f \rnorm_u := \sup_{x \in X}|f(x)|.
+        \end{split}
+        \end{equation*}
+    Thus, given a sequence of functions $(f_n)_n$ in $C_b(X)$, if $\sum \lnorm f_n \rnorm_u$ converges, then $\sum f_n$ converges.
+    \end{example}
+
+    \begin{proposition}
+        Let $(V,\lnorm \cdot \rnorm)$ and $(W,\lnorm \cdot \rnorm)$ be normed vector spaces. Suppose $(f_n)_n$ is a sequence in $C(V,W)$ and $\sum f_n$ converges uniformly to $f:V \rightarrow W$. Then $f \in C(V,W)$.
+    \end{proposition}
+        \begin{proof}
+            The proof follows similarly to Proposition~\ref{prop:seq-cont}. As an exercise, one could verify that if $f_1,...,f_N$ are continuous, then $\sum_{k = 1}^N f_k$ is also continuous.
+        \end{proof}
+
+    \begin{theorem}
+        Something about interchange of series and derivative
+    \end{theorem}
+
+    \begin{lemma}[Cauchy's Criterion]\label{lemma:cauchy-criterion}
+        Let $\Omega$ be a set and $(V,\lnorm \cdot \rnorm)$ a Banach space. Let $(f_n)_n$ be a sequence of functions in $V^\Omega$. The infinite series $\sum f_n$ is uniformly convergent if and only if:
+            \begin{equation*}
+            \begin{split}
+                (\forall \epsilon > 0)(\exists M > 0):(\forall x \in \Omega)(\forall m,n \in \bfN)\left(m > n \geq M \implies \lnorm \sum_{k = 1}^m f_k(x) - \sum_{k = 1}^n f_k(x) \rnorm < \epsilon\right).
+            \end{split}
+            \end{equation*}
+    \end{lemma}
+        \begin{proof}
+            ($\Rightarrow$) Let $\epsilon > 0$. Since $\left( \sum_{k = 1}^n f_k \right)_n \rightarrow f$ uniformly, there exists $N \in \bfN$ large so that $n \geq N$ implies $\lnorm \sum_{k = 1}^n f_k - f \rnorm_u < \frac{\epsilon}{2}$. For $m > n \geq N$, observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \sum_{k = 1}^m f_k - \sum_{k = 1}^n f_k \rnorm_u
+                    & \leq \lnorm \sum_{k = 1}^m f_k - f \rnorm_u + \lnorm f - \sum_{k = 1}^n f_k \rnorm_u \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+
+
+                
+
+            ($\Leftarrow$) Let $\epsilon > 0$. Let $\sum f_n$ be a series which satisfies the above hypothesis. Then there exists $M > 0$ such that... finish tomorrow I think I figured it out
+            
+            Let $\sum f_n$ be a series which satisfies the above hypothesis. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \lnorm \sum_{k = 1}^m f_k(x) - \sum_{k = 1}^n f_k(x) \rnorm
+                    & \leq\lnorm \sum_{k = 1}^m f_k - \sum_{k = 1}^n f_k \rnorm_u \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\bigl( \sum_{k = 1}^n f_k(x) \bigr)_n$ is $\lnorm \cdot \rnorm$-Cauchy.
+        \end{proof}
+
+    \begin{theorem}[Weierstrass M-test]
+        Let $\Omega$ be a set and $(V,\lnorm \cdot \rnorm)$ a Banach space. Let $(f_n)_n$ be a sequence of functions on $V^\Omega$ and let $(M_n)_n$ be a sequence of positive real numbers such that $\sup_{x \in \Omega} \lnorm f_n(x) \rnorm \leq M_n$ for all $n \in \bfN$. If $\sum_{n = 1}^\infty M_n$ is convergent, then $\sum_{n = 1}^\infty f_n$ is uniformly convergent. 
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $\sum_{n = 1}^\infty M_n$ is convergent, it is Cauchy. Find $N \in \bfN$ sufficiently large so $m > n \geq N$ implies $\left|\sum_{k = 1}^m M_k - \sum_{k = 1}^n M_k\right| < \epsilon$. It immediately follows that:
+                \begin{equation*}
+                \begin{split}
+                    \sup_{x \in \Omega}\lnorm \sum_{k = 1}^m f_k - \sum_{k = 1}^n f_k \rnorm &\leq \left|\sum_{k = 1}^m M_k - \sum_{k = 1}^n M_k\right| \\
+                    & < \epsilon
+                \end{split}
+                \end{equation*}
+            By Lemma~\ref{lemma:cauchy-criterion}, $\sum_{n = 1}^\infty f_n$ is uniformly convergent.
+        \end{proof}
+    
+
+
+
 \end{document}
+

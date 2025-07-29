@@ -9,6 +9,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 %\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+\usepackage[cal=cm, scr=rsfs, frak=euler, bb=mma]{mathalpha}
 \usepackage{newpxtext}
 \usepackage{eulerpx}
 \usepackage{eucal}
@@ -662,7 +663,1383 @@
 \begin{proof}
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 31---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W25}}
+\begin{problem}
+    Suppose that $f:[0,\infty)$ is a continuous, increasing, and bounded function. Prove that $f$ is uniformly continuous on $[0,\infty)$.
+\end{problem}
+\begin{proof}
+\end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 32---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W24}}
+\begin{problem}
+    A zero of a continuous function is called \textit{isolated} if there exists an open set containing that zero but no other zeros of $f$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Give an example of a continuous function $f:(0,1) \rightarrow \bfR$ with infinitely many isolated zeros.
+        \item If $f:[0,1] \rightarrow \bfR$ is continuous and all of its zeros are isolated, show that $f$ has only finitely many zeros on $[0,1]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 33---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F24}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Give a definition for a function $f:[a,b] \rightarrow \bfR$ to be uniformly continuous.
+        \item Using your definition (and not a theorem), prove that the function $f(x) = \frac{1}{x}$ is uniformly continuous on $[1,2]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 34---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F23}}
+\begin{problem}
+    Suppose that $f(x)$ is continuous and unbounded on $[a,b)$. Prove that $\limit_{x \rightarrow b^{-}}f(x)$ does not exist.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 35---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S23}}
+\begin{problem}
+    For each $n \in \bfN$, the function:
+        \begin{equation*}
+        \begin{split}
+            f_n(x) = \frac{nx}{e^{nx}}
+        \end{split}
+        \end{equation*}
+    is continuous on $[0,2]$. Find the pointwise limit function $f(x) = \limit_{n \rightarrow \infty}f_n(x)$ and show that $(f_n)_n$ does not converge uniformly to $f$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 36---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S23}}
+\begin{problem}
+    Let $f$ be continuous on $[0,1]$ with $f(x) > 0$ for all $x \in [0,1]$. Let $S = \sup_{x \in [0,1]}f(x)$. Show that for every $\epsilon > 0$, there is some open interval $I$ on which $f(x) > S - \epsilon$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 37---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W23}}
+\begin{problem}
+    Show that if $f_n(x)$ is a uniformly continuous function on $[0,1]$ for each $n \in \bfN$ and $(f_n)_n \rightarrow f$ uniformly on $[0,1]$, then $f(x)$ is also uniformly continuous on $[0,1]$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 38---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S24}}
+\begin{problem}
+    Define a sequence of functions by:
+        \begin{equation*}
+        \begin{split}
+            f_n(x) = \frac{nx^n}{1 + nx^n}
+        \end{split}
+        \end{equation*}
+    for $n \in \bfN$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Find the pointwise limit $f(x)$ for each $x \in [0,\infty)$.
+        \item Prove that $(f_n)_n$ does not converge uniformly on $[0,\infty)$.
+        \item Prove that $(f_n)_n$ converges uniformly on $[1,2]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 39---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Continuity}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W22}}
+\begin{problem}
+    Consider the sequence of functions $f_n:\bfR \rightarrow \bfR$ given by:
+        \begin{equation*}
+        \begin{split}
+            f_n(x) = \frac{nx}{\sqrt{1 + n^2 x^2}}.
+        \end{split}
+        \end{equation*}
+    Find the pointwise limit $f(x) = \limit_{n \rightarrow \infty}f_n(x)$. Does $(f_n)_n$ converge to $f$ uniformly on $\bfR$? Justify your answer.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 40---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S21}}
+\begin{problem}
+    Let $f:\bfR \rightarrow \bfR$ be a differentiable function with a continuous derivative. Suppose there exist four distinct points $w,x,y,z$ in $\bfR$ with $f(w) = f(x)$ and $f(y) = y$ and $f(z) = z$. Prove that there is a point $u$ where $f'(u) = \frac{1}{2}$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 41---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W21}}
+\begin{problem}
+    Let $f:\bfR \rightarrow \bfR$ be a function. Suppose that $f$ is differentiable, that $f(0) = 1$, and that $|f'(x)| \leq 1$ for all $x \in \bfR$. Prove that $|f(x)| \leq |x| + 1$ for all $x \in \bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 42---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F20}}
+\begin{problem}
+    Prove that there does not exist a differentiable function $f:\bfR \rightarrow \bfR$ such that $f'(0) = 0$ and $f'(x) \geq 1$ for all $x \neq 0$. [\textit{Hint:} Use the Mean Value Theorem].
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 43---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S20}}
+\begin{problem}
+    A function $f:\bfR \rightarrow \bfR$ is \textit{Lipschitz continuous} on a set $A \subseteq \bfR$ if there exists a constant $M \geq 0$ such that $|f(x) - f(y)| \leq M|x-y|$ for all $x,y \in A$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Assume that $f$ is a differentiable function on $\bfR$ and that $f'$ is continuous on $[a,b]$. Prove that $f$ is Lipschitz on $[a,b]$.
+        \item Prove that a Lipschitz function $f:\bfR \rightarrow \bfR$ is uniformly continuous on $\bfR$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 44---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S15}}
+\begin{problem}
+    A function $f:\bfR \rightarrow \bfR$ is \textit{Lipschitz continuous} on a set $A \subseteq \bfR$ if there exists a constant $M \geq 0$ such that $|f(x) - f(y)| \leq M|x-y|$ for all $x,y \in A$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Show that $f(x) = \sqrt{x}$ is Lipschitz continuous on $[1,\infty)$ but not $[0,\infty)$.
+        \item Prove that a Lipschitz function $f:\bfR \rightarrow \bfR$ is uniformly continuous on $\bfR$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 45---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S20}}
+\begin{problem}
+    Show that the function:
+        \begin{equation*}
+        \begin{split}
+            f(x) = 
+            \begin{cases}
+                x^2, & x \in \bfQ \\
+                0, & x \not\in \bfQ
+            \end{cases}
+        \end{split}
+        \end{equation*}
+    is differentiable only at $x = 0$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 46---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F19}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the Mean Value Theorem.
+        \item Use the Mean Value Theorem to prove that $|\tan(x)| \geq |x|$ for all $x \in \left(-\frac{\pi}{2},\frac{\pi}{2}\right)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 47---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W19}}
+\begin{problem}
+    Suppose that $f:\bfR \rightarrow \bfR$ satisfies:
+        \begin{equation*}
+        \begin{split}
+            |f(x) - f(y)| \leq (x-y)^2
+        \end{split}
+        \end{equation*}
+    for all $x,y \in \bfR$. Show that $f$ is a constant function on $\bfR$. (\textit{Hint:} Is $f$ differentiable)
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 48---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W19}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Suppose that $f$ is a real valued function on $(0,\infty)$ whose derivative exists and is bounded on $(0,\infty)$. Prove that $f$ is uniformly continuous on $(0,\infty)$.
+        \item Give an example of a differentiable real valued function $f$ on $(0,\infty)$ that is uniformly continuous on $(0,\infty)$ yet $f'$ is unbounded on $(0,\infty)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 49---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F18}}
+\begin{problem}
+    Suppose that $f$ is differentiable on $\bfR$ and that $f'(x) \leq 4$ for all $x \in \bfR$. Prove that there is at most one point $x>0$ such $f(x) = x^2$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 50---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S18}}
+\begin{problem}
+    Suppose that $f:\bfR \rightarrow \bfR$ is differentiable and that $|f'(x)| < 1$ for all $x \in \bfR$. 
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that $f$ has at most one fixed point.
+        \item Show that the following function satisfies $|f'(x)| < 1$ for all $x \in \bfR$ but has no fixed points:
+        \begin{equation*}
+        \begin{split}
+            f(x) = \ln(1+e^x).
+        \end{split}
+        \end{equation*}
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 51---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F16}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that $\ln x \leq x-1$ for all $x > 0$.
+        \item Prove that $\ln x \geq x - 1 - \frac{1}{2}(x-1)^2$ for all $x \geq 1$, and that $\ln x \leq x - 1 - \frac{1}{2}(x-1)^2$, for all $0 < x \leq 1$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 52---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S16}}
+\begin{problem}
+    Let $f$ be a function that is continuous on $[0,1]$ and differentiable;e on $(0,1)$. Show that if $f(0) = 0$, $|f'(x)| \leq |f(x)|$ for all $x \in (0,1)$, then $f(x) = 0$ for all $x \in [0,1]$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 53---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F15}}
+\begin{problem}
+    Prove that for all real numbers $x$ and $y$:
+        \begin{equation*}
+        \begin{split}
+            |\cos^2(x) - \cos^2(y)| \leq |x-y|.
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 54---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S24}}
+\begin{problem}
+    Suppose that $f$ is continuous on $[0,1]$. Show that there is some $c \in [0,1]$ with:
+        \begin{equation*}
+        \begin{split}
+            \int_{0}^1 x^2 f(x)dx = \frac{1}{3}f(c).
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 55---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F24}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the Mean Value Theorem
+        \item Show that if $f:\bfR \rightarrow \bfR$ is differentiable, $f(0) = 0$, and for all $x$, $|f'(x)| < |x|^3$, then $|f(x)| \leq x^4$ for all $x$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 56---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W24}}
+\begin{problem}
+    Let $f:[a,b] \rightarrow \bfR$ be continuous on $[a,b]$ and differentiable everyone on $(a,b)$ except perhaps at one number $c \in (a,b)$, and let $\limit_{x \rightarrow c}f'(x)$ exist. Show that $f$ is differentiable at $c$ and $f'(c) = \limit_{x \rightarrow c}f'(x)$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 57---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F23}}
+\begin{problem}
+    Let $f:[a,b] \rightarrow \bfR$ be continuous and twice differentiable on $(a,b)$. Assume that the line segment from $A = (a,f(a))$ and $B = (b,f(b))$ intersects the graph of $f$ in a third point different from $A$ and $B$. Show that $f''(c) = 0$ for some $c \in (a,b)$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 58---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S23}}
+\begin{problem}
+    Prove that if $f$ is a function which is differentiable on all of $\bfR$ and $f'(x) > 0$ for all $x$, then $f$ is injective.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 59---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W23}}
+\begin{problem}
+    Suppose $f$ and $g$ are continuous on $[a,b]$ and $f'$ and $g'$ are continuous on $(a,b)$ with $f(a) = g(a)$ and $f(b) = g(b)$. Prove there is a number $c \in (a,b)$ such that the line tangent to the graph of $f$ at the point $(c,f(c))$ is parallel to the line tangent to the graph of $g$ at $(c,g(c))$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 60---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S22}}
+\begin{problem}
+    Find, with proof, the maximum number of real roots of the function $f(x) = x^{16} + ax + b$ where $a$ and $b$ are real numbers.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 61---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Derivatives and the Mean Value Theorem}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W22}}
+\begin{problem}
+    A function $f:\bfR \rightarrow \bfR$ is Lipschitz continuous if there is a constant $M \geq 0$ such that
+        \begin{equation*}
+        \begin{split}
+            |f(x) - f(y)| \leq M|x-y|
+        \end{split}
+        \end{equation*}
+    for all $x,y \in \bfR$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Suppose that $f:\bfR \rightarrow \bfR$ is differentiable and $f':\bfR \rightarrow \bfR$ is bounded. Prove that $f$ is Lipschitz continuous.
+        \item Give an example, with proof, of a function $f:\bfR \rightarrow \bfR$ that is differentiable but not Lipschitz continuous.
+        \item Give an example, with proof, of a function $f:\bfR \rightarrow \bfR$ that is Lipschitz continuous but not differentiable.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 62---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S15}}
+\begin{problem}
+    Let $a > 0$. For each $n \in \bfN$, consider the function $f_n:\bfR \rightarrow \bfR$ given by $f_n(x) = \frac{\sin \left( \sfrac{x}{n} \right)}{\sqrt{1 + n^2}}$
+        \begin{enumerate}[label = (\arabic*)]
+            \item Show that the series $\sum_{n = 1}^\infty f_n(x)$ converges uniformly on $[-a,a]$.
+            \item Show that the series $\sum_{n = 1}^\infty f_n(x)$ is continuously differentiable on $(-a,a)$.
+        \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 63---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S21}}
+\begin{problem}
+    Suppose $f$ is continuous on $[0,1]$ and $|f(x)| < 1$ for all $x$ on $[0,1]$. Prove that $F$ is uniformly continuous on $[0,1]$, where
+        \begin{equation*}
+        \begin{split}
+            F(x) = \sum_{k = 1}^\infty(f(x))^k.
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 64---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W21}}
+\begin{problem}
+    Consider the function 
+    \begin{equation*}
+    \begin{split}
+        f(x) = \sum_{k = 1}^\infty \frac{x^k}{k^2}.
+    \end{split}
+    \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Find the domain of $f(x)$ precisely.
+        \item Prove that $f$ is uniformly continuous on this domain.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 65---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W20}}
+\begin{problem}
+    Consider the function
+    \begin{equation*}
+    \begin{split}
+        f(x) = \sum_{n = 1}^\infty \frac{\sin x^n}{n^2 x^n}.
+    \end{split}
+    \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that $f$ is continuous on $[1,\infty)$.
+        \item Prove that, in fact, $f$ is continuous on $(0,\infty)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 66---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F19}}
+\begin{problem}
+    Consider the function $f(x) = \sum_{k = 1}^\infty (1-\cos (\sfrac{x}{k}))$.
+        \begin{enumerate}[label = (\arabic*)]
+            \item Prove that the series for $f$ converges uniformly on every interval of the form $[-M,M]$ in $\bfR$.
+            \item Prove that $f$ is differentiable on $\bfR$.
+        \end{enumerate}
+    You may use without proof the following inequalities in this problem:
+        \begin{equation*}
+        \begin{split}
+            |\sin t| \leq |t|, \h5 |1-\cos t| \leq \frac{t^2}{2}, \h5 t \in \bfR.
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 67---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S19}}
+\begin{problem}
+    Show that the following series converges uniformly on $(r,\infty)$ for any real number $r>1$.
+    \begin{equation*}
+    \begin{split}
+        \sum_{n = 1}^\infty \frac{n \ln (1+nx)}{x^n}.
+    \end{split}
+    \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 68---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W19}}
+\begin{problem}
+    Consider the function
+        \begin{equation*}
+        \begin{split}
+            f(x) = \sum_{n = 1}^\infty \frac{n^2 + x^4}{n^4 x^2}.
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that the series converges uniformly on $[-R,R]$ for any $R > 0$.
+        \item Prove that $f$ is continuous on $\bfR$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 69---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F18}}
+\begin{problem}
+    Consider the function
+        \begin{equation*}
+        \begin{split}
+            f(x) = \sum_{k = 0}^\infty e^{-kx}\cos kx.
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that the series converges uniformly on $[a,\infty)$ for any $a > 0$.
+        \item Prove that $f$ is a continuous function on $(0,\infty)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 70---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F17}}
+\begin{problem}
+    Consider the series
+        \begin{equation*}
+        \begin{split}
+            \sum_{n = 1}^\infty e^{-n{x^2}}\sin(nx).
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that this series converges uniformly on $[a,\infty)$ for each $a > 0$.
+        \item Does this series converge uniformly on $[0,\infty)$? Justify your answer.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 71---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S16}}
+\begin{problem}
+    Let $P = \{2,3,5,7,11,13,...\}$ be the set of prime numbers.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Find the radius of convergence $R$ of the power series
+        \begin{equation*}
+        \begin{split}
+            f(x) = \sum_{p \in P}x^p = x^2 + x^3 + x^5 + x^7 + ... .
+        \end{split}
+        \end{equation*}
+
+        \item Show that $0 \leq f(x) \leq \frac{x^2}{1-x}$ for $0 \leq x  < R$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 72---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F15}}
+\begin{problem}
+    Consider 
+        \begin{equation*}
+        \begin{split}
+            f(x) = \sum_{k = 0}^\infty \frac{1}{2^k}\sin (2^k x).
+        \end{split}
+        \end{equation*}
+    \begin{enumerate}[label = (\arabic*)]
+        \item Show that $f$ is continuous on $\bfR$.
+        \item Show that $f$ is not differentiable at $x = 0$. (\textit{Hint:} Consider the sequence $\left( \frac{\pi}{2^n} \right)_n$).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 73---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W25}}
+\begin{problem}
+    Suppose that $(a_k)_k$ is a sequence with $|a_k| \leq 1$ for all $k \in \bfN$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Prove that the series $\sum_{k = 1}^\infty a_k x^k$ and $\sum_{k = 1}^\infty k a_k x^{k-1}$ converge uniformly and absolutely on any closed interval contained in $(-1,1)$.
+        \item Prove that
+            \begin{equation*}
+            \begin{split}
+                \frac{d}{dx}\left( \sum_{k = 1}^\infty a_k x^k \right) = \sum_{k = 1}^\infty k a_k x^{k-1}
+            \end{split}
+            \end{equation*}
+        for all $x \in (-1,1)$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 74---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F24}}
+\begin{problem}
+    Let $a > 0$ and define $f(x) = \sum_{n = 1}^\infty \frac{1}{n}(ax)^n$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Find the interval of convergence.
+        \item Let $0 < c < R$ where $R$ is the radius of convergence. Show the convergence is uniform on $[-c,c]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 75---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S24}}
+\begin{problem}
+    Let
+    \begin{equation*}
+    \begin{split}
+        f(x) = \sum_{n = 1}^\infty \frac{n^x}{3^n - 7}.
+    \end{split}
+    \end{equation*}
+    Show $f$ is continuous on $[0,\infty)$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 76---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W24}}
+\begin{problem}
+    Show that $f(x) = \sum_{n = 1}^\infty \arctan \left( \frac{x}{n^2} \right)$ is a continuous function on all of $\bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 77---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F23}}
+\begin{problem}
+    Prove that the series
+    \begin{equation*}
+    \begin{split}
+        f(x) = \sum_{n = 1}^\infty \frac{n^2 + x^4}{n^4 + x^2}
+    \end{split}
+    \end{equation*}
+    converges to a continuous function $f:\bfR \rightarrow \bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 78---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W23}}
+\begin{problem}
+    Prove that
+        \begin{equation*}
+        \begin{split}
+            f(x) = \sum_{n = 0}^\infty \left( \frac{x^n}{n!} \right)^2
+        \end{split}
+        \end{equation*}
+    is continuous on $\bfR$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 79---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F22}}
+\begin{problem}
+    Let
+    \begin{equation*}
+    \begin{split}
+        f_n(x) = \frac{x}{(x+\cos \left( \sfrac{x}{n} \right))^n}
+    \end{split}
+    \end{equation*}
+    for each $n \in \bfN$. Prove that $f(x) = \sum_{n = 1}^\infty f_n(x)$ is continuous on $[1,2]$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 80---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Series of Functions}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S22}}
+\begin{problem}
+    Let $(f_n)_n$ be a sequence of increasing functions on $[a,b]$ with $\sum_{n = 1}^\infty f_n(x)$ absolutely convergent when $x = a$ and when $x = b$. Show that $\sum_{n = 1}^\infty f_n(x)$ converges absolutely for every $x \in [a,b]$ and that also the series converges uniformly on $[a,b]$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 81---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S21}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Let $f:[a,b] \rightarrow \bfR$ be a bounded function, and assume that the lower integral of $f$ on $[a,b]$ is positive. Show that there exists an interval $[c,d] \subseteq [a,b]$ with $c<d$ with $f(x) > 0$ for $x \in [c,d]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 82---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W21}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Prove that if $f$ is continuous on $[0,1]$, then
+            \begin{equation*}
+            \begin{split}
+                \limit_{n \rightarrow \infty} \int_0^1 f(x^n)dx = f(0).
+            \end{split}
+            \end{equation*}
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 83---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F20}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Suppose that $f:[0,1] \rightarrow \bfR$ is continuous and monotonically increasing, with $f(0)=0$, $f(\sfrac{1}{2}) = 1$, and $f(1) = 2$. Prove that 
+            \begin{equation*}
+            \begin{split}
+                \int_{0}^1 f(x)dx > \frac{1}{2}.
+            \end{split}
+            \end{equation*}
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 84---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W20}}
+\begin{problem}
+    Let $f:[0,1] \rightarrow \bfR$ be continuous. Prove that 
+        \begin{equation*}
+        \begin{split}
+            \limit_{n \rightarrow \infty} \int_0^1 f(x) x^n dx = 0.
+        \end{split}
+        \end{equation*}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 85---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F19}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Let $a_n$ be a positive sequence of real numbers converging to $0$ and let $B = \{b_1,b_2,b_3,...\}$ be a countably infinite subset of $[0,1]$. Consider the function $f$ on $[0,1]$ defined by 
+            \begin{equation*}
+            \begin{split}
+                f(x) = 
+                \begin{cases}
+                    a_n, & x = b_n, \\
+                    0, & x \not\in B
+                \end{cases}.
+            \end{split}
+            \end{equation*}
+        Use your definition from $(a)$ to prove that $f$ is Riemann integrable on $[0,1]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 86---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W19}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Let $f$ be bounded on $[a,b]$ and assume that there exists a partition $P$ with $L(f,P) = U(f,P)$. Use the definition of Riemann integrability to characterize $f$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 87---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F18}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Suppose $f:[a,b] \rightarrow \bfR$ is a bounded function with the property that $f$ is Riemann integrable on $[a,c]$ for all $a < c < b$. Use the definition of Riemann integrability to show that $f$ is Riemann integrable on $[a,b]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 88---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S18}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Use your definition from $(a)$ to prove that if $f:[a,b] \rightarrow \bfR$ is continuous and
+            \begin{equation*}
+            \begin{split}
+                \int_a^b |f(x)| dx = 0,
+            \end{split}
+            \end{equation*}
+        then $f(x) = 0$ for all $x \in [a,b]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 89---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F17}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Use your definition from $(a)$ to prove that 
+            \begin{equation*}
+            \begin{split}
+                f(x) = 
+                \begin{cases}
+                    1, & x = \frac{1}{n} \h4\text{for some $n \in \bfN$} \\
+                    0, & \text{otherwise}
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        is integrable on $[0,1]$ and compute the value of the integral $\int_0^1 f(x)dx$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 90---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S17}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Use the definition of the Riemann integral to prove that $f(x) = \frac{1}{1+x}$ is Riemann integrable on $[0,b]$, for any $b > 0$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 91---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F16}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Let 
+            \begin{equation*}
+            \begin{split}
+                g_n(x) = \begin{cases}
+                    n, &0 \leq x \leq \frac{1}{n} \\
+                    0, \frac{1}{n} < x \leq 1 
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        and let $f$ be any continuous function on $[0,1]$. Use the definition of the Riemann integral to compute 
+            \begin{equation*}
+            \begin{split}
+                \limit_{n \rightarrow \infty}\int_0^1 f(x) g_n(x)dx 
+            \end{split}
+            \end{equation*}
+        in terms of $f$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 92---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F15}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State the definition for the real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on the interval $[a,b]$.
+        \item Let $f:[a,b] \rightarrow \bfR$ be increasing on the interval $[a,b]$. Use the definition to prove that $f$ is Riemann integrable on $[a,b]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 93---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W24}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable.
+        \item Let $f:[a,b] \rightarrow \bfR$ be given by 
+            \begin{equation*}
+            \begin{split}
+                f(x) = 
+                \begin{cases}
+                    0,& x \in [a,b] \cap \bfQ \\
+                    x,& x \in [a,b] \setminus \bfQ
+                \end{cases}.
+            \end{split}
+            \end{equation*}
+        Use your definition to decide with proof if $f$ is Riemann integrable.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 94---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F23}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable.
+        \item Use this definition to prove that the function $f$ defined on $[0, \frac{\pi}{2}]$ by 
+            \begin{equation*}
+            \begin{split}
+                f(x) =
+                \begin{cases}
+                    \cos ^2 x,& x \in \bfQ \\
+                    0, & \text{otherwise}
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        is not Riemann integrable.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 95---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W23}}
+\begin{problem}
+    Let $f:\bfR \rightarrow \bfR$ be continuous, with 
+        \begin{equation*}
+        \begin{split}
+            \int_0^1 f(xt)dt = 0
+        \end{split}
+        \end{equation*}
+    for all $x \in \bfR$. Show that $f(x) = 0$.
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 96---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: F22}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on $[a,b]$.
+        \item Let $f:[a,b] \rightarrow \bfR$ be Riemann integrable. Prove that $|f(x)|$ is also Riemann integrable and that 
+            \begin{equation*}
+            \begin{split}
+                \left| \int_a^b f(x) dx \right| \leq \int_a^b |f(x)|dx.
+            \end{split}
+            \end{equation*}
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 97---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W22}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on $[a,b]$.
+        \item Let 
+            \begin{equation*}
+            \begin{split}
+                f(x) =
+                \begin{cases}
+                    1, & 1 \leq x < 2 \\
+                    10, & x = 2 \\
+                    2, & 2 < x \leq 3.
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        Use your definition to prove that $f$ is integrable on $[1,3]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 98---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S15}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on $[a,b]$.
+        \item Let $f:[a,b] \rightarrow \bfR$ be a continuous function. Use your definition to prove that $f$ is integrable on $[a,b]$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 99---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Integration}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: S14}}
+\begin{problem}
+    \phantom{a}
+    \begin{enumerate}[label = (\arabic*)]
+        \item State a definition for a real valued function $f:[a,b] \rightarrow \bfR$ to be Riemann integrable on $[a,b]$.
+        \item Let $f,g$ be Riemann integrable functions and suppose that the set $E$ is finite where 
+            \begin{equation*}
+            \begin{split}
+                E = \{x \in (a,b) \mid f(x) \neq g(x) \}.
+            \end{split}
+            \end{equation*}
+        Use your definition of Riemann integrability to show that $\int_a^b f(x)dx = \int_a^b g(x)dx$. (\textit{Hint:} Consider the function $f-g$).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-----------------------------------------------------------%
+%-----------------------Problem 100---------------------------%
+%-----------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\fancyhead[L]{\scalebox{0.9}{Topology of $\bfR$}}
+\fancyhead[R]{\scalebox{0.9}{Appeared on: W20}}
+\begin{problem}
+    Let $f:\bfR \rightarrow \bfR$ be a continuous, periodic function. Prove that the set $f(\bfR)$ is compact. (Recall that a function $f:\bfR \rightarrow \bfR$ is \textit{periodic} if there exists a nonzero constant $P$ such that $f(x) = f(x+P)$ for all $x \in \bfR$).
+\end{problem}
+\begin{proof}
+\end{proof}
 
 \end{document}

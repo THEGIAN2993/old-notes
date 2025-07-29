@@ -1053,26 +1053,56 @@
     \end{center}
 
     \begin{definition}
-        Let $(f_n:\Omega \rightarrow X)_n$ be a sequence of functions.
-        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-            \item $(f_n)_n$ converges \textit{pointwise} to $f:\Omega \rightarrow X$ if:
+        Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence of functions in $X^\Omega$.
+        \begin{enumerate}[label = (\arabic*),itemsep=-7pt,topsep=3pt]
+            \item $(f_n)_n$ converges \textit{pointwise} to $f \in X^\Omega$ if:
                 \begin{equation*}
                 \begin{split}
-                    (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) : (\forall n \in \bfN)( n \geq N \implies |f_n(x) - f(x)| < \epsilon).
+                    (\forall x \in \Omega)(\forall \epsilon > 0)(\exists N_{x,\epsilon} \in \bfN) : (\forall n \in \bfN)( n \geq N \implies d(f_n(x), f(x)) < \epsilon).
                 \end{split}
                 \end{equation*}
-
-            \item $(f_n)_n$ converges \textit{uniformly} to $f:\Omega \rightarrow X$ if:
+            \item $(f_n)_n$ converges \textit{uniformly} to $f \in X^\Omega$ if:
                 \begin{equation*}
                 \begin{split}
-                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) : (\forall n \in \bfN)(\forall x \in \Omega)(n \geq N &\implies |f_n(x) - f(x)| < \epsilon).
+                        (\forall \epsilon > 0)(\exists N_\epsilon \in \bfN) &\h4: (\forall n \in \bfN)(\forall x \in \Omega)\bigl(n \geq N \implies d(f_n(x), f(x)) < \epsilon\bigr) \\
+                        &\equiv (\forall n \in \bfN)\bigl(n \geq N \implies {\ts \sup_{x \in \Omega}d(f_n(x),f(x))} < \epsilon\bigr).
                 \end{split}
                 \end{equation*}
         \end{enumerate}
     \end{definition}
 
+    \begin{proposition}\label{prop:uniform-iff-bounded-norm}
+        Let $\Omega$ be a set, $(X,d)$ a metric space, and $(f_n)_n$ a sequence in $X^\Omega$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item The sequence $(f_n)_n$ converges uniformly to $f$ in $X^\Omega$;
+                \item The sequence $(D_u(f_n,f))_n$ converges to 0 in $\bfR$.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            ($\Rightarrow$) Let $\epsilon > 0$. By assumption, find $N \in \bfN$ sufficiently large so that, for all $x \in X$, $n \geq N$ implies $d(f_n(x),f(x)) < \frac{\epsilon}{2}$. It follows then that:
+                \begin{equation*}
+                \begin{split}
+                    |D_u(f_n,f)|
+                    & = \left| \sup_{x \in X}d(f_n(x),f(x)) \right| \\
+                    & \leq \frac{\epsilon}{2} \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $(D_u(f_n,f))_n \rightarrow 0$.
+
+            ($\Leftarrow$) Let $\epsilon > 0$. Find $N \in \bfN$ large so that $n \geq N$ implies $D_u(f_n,f) < \epsilon$. If $n \geq N$ and $z \in X$, then:
+                \begin{equation*}
+                \begin{split}
+                    d(f_n(z),f(z))
+                    & \leq \sup_{x \in X}d(f_n(x),f(x)) \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Since $z$ was arbitrary, $(f_n)_n \rightarrow f$ uniformly.
+        \end{proof}
+
     \begin{example}
-        Let $(f_n)_n$ be a sequence of functions in $\bigl(\Bd(\Omega,Y),D_u\bigr)$ converging to $f \in \Bd(\Omega,Y)$. Proposition~\ref{prop:sequence-equivalences} says this is equivalent to $(D_u(f_n,f))_n \rightarrow 0$ in $\bfR$. Therefore, we have $(\sup_{x \in \Omega}d(f_n(x),f(x)))_n \rightarrow 0$ in $\bfR$. Notice that this is precisely the definition of uniform convergence. Whence convergence in $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq \ell_{\infty}(\Omega) = \Bd(\Omega,F)$ is uniform.
+        Let $(X,d)$ be a metric space and $(f_n)_n$ a sequence of functions in $\bigl(\Bd(\Omega,X), D_u\bigr)$ which converges to $f \in \Bd(\Omega,X)$. Proposition~\ref{prop:sequence-equivalences} says this is equivalent to $(D_u(f_n,f))_n \rightarrow 0$ in $\bfR$, and by Proposition~\ref{prop:uniform-iff-bounded-norm} $(f_n)_n$ must converge uniformly to $f$. Thus convergence in $c_{00} \subseteq c_0 \subseteq c \subseteq \ell_\infty \subseteq \ell_{\infty}(\Omega) = \Bd(\Omega,F)$ is uniform.
     \end{example}
 
     \begin{proposition}

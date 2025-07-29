@@ -1,4 +1,4 @@
-\documentclass[11pt,twoside,openany]{memoir}
+\documentclass[10pt,twoside,openany]{memoir}
 %\usepackage{mlmodern}
 %\usepackage{tgpagella} % text only
 %\usepackage{mathpazo}  % math & text
@@ -8,10 +8,10 @@
 \usepackage[fixamsmath]{mathtools}  % Extension to amsmath
 \usepackage{amsthm}
 \usepackage{amssymb}
-%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
-%\usepackage{newpxtext}
-%\usepackage{eulerpx}
-%\usepackage{eucal}
+\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+\usepackage{newpxtext}
+\usepackage{eulerpx}
+\usepackage{eucal}
 \usepackage{datetime}
     \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
 \usepackage[margin=1.5in]{geometry}
@@ -159,6 +159,6 @@
     \include{normed-spaces-algebras}
     \include{metrics}
     \include{measure-and-integration}
-    \appendix
-    \include{seq-fncts-inf-series}
+    %\appendix
+    %\include{seq-fncts-inf-series}
 \end{document}
