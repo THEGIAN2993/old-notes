@@ -1,0 +1,6 @@
+\contentsline {chapter}{Contents}{i}{section*.1}%
+\contentsline {chapter}{\chapternumberline {1}Group Theory}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Basic Definitions and Examples}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Subgroups and Cyclic Groups}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Homomorphisms and Isomorphisms}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Cosets, Normal Subgroups, and Quotient Groups}{10}{section.1.4}%

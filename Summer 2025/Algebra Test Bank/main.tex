@@ -1,0 +1,1539 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage[fixamsmath]{mathtools}  % Extension to amsmath
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+
+
+%fonts
+
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\fancyhf{} % clear all headers/footers
+
+% update marks for chapter and section
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+% page style for normal pages
+\pagestyle{fancy}
+\cfoot{\scriptsize \thepage}
+\fancyhead[L]{\scalebox{0.8}{Algebra Test Bank}}
+\fancyhead[R]{\scalebox{0.8}{\leftmark, \rightmark}}
+
+% page style for chapter starting pages (plain)
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[L]{\scalebox{0.8}{Algebra Test Bank}}
+    \fancyhead[R]{\scalebox{0.8}{\leftmark, \rightmark}}
+}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        style=defs,
+    ]{definition}
+
+    \declaretheoremstyle[
+    spaceabove=15pt,   % space above each exercise
+    spacebelow=15pt,   % space below each exercise
+    headfont=\normalfont\bfseries,
+    notefont=\mdseries, notebraces={(}{)},
+    bodyfont=\normalfont,
+    postheadspace=0.5em
+]{exerciseStyle}
+
+\declaretheorem[
+    style=exerciseStyle,
+    sibling=theorem
+]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\Huge\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\Huge}
+    \titlespacing{\chapter}
+    {3pc}{*3}{15pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\LARGE}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\linespread{1.00}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+
+\begin{abstract}
+    This is the Cal Poly Algebra Test Bank. Beginning with the September 2025 exam, all problems will be drawn from a public "problem bank." This bank contains two types of problems: template problems and pool problems. \textbf{Template problems} are generally computational with easily adjustable specifics. These types of problems are especially prevalent in linear algebra. \textbf{Pool problems} make up the rest of the problem bank, and include all problems that are not easily adjustable. These problems, when chosen, will usually be asked as is.
+\end{abstract}
+\begingroup
+\let\clearpage\relax
+\chapter*{Group Theory}
+
+    \iffalse
+    \begin{exercise}
+        Let $G$ be a group. Prove that $G$ is non-cyclic if and only if $G$ is the union of its proper subgroups.
+    \end{exercise} 
+        {\color{blue} \begin{proof}
+            ($\Rightarrow$) Suppose that $G$ is non-cyclic. Let $a \in G$. Since $G \neq \langle a \rangle$, there exists $a_2 \in G$ such that $a_2 \in G \setminus \langle a_1 \rangle$. If $G = \langle a_1 \rangle \cup \langle a_2 \rangle$, then we are done. If not, then find $a_3 \in G$ such that $a_3 \in G \setminus \left(\langle a_1 \rangle \cup \langle a_2 \rangle\right)$. Inductively, we have that $G = \bigcup_{i \in I}\langle a_i \rangle$
+
+            ($\Leftarrow$) Let $\{H_i\}_{i \in I}$ be the family of proper subgroups of $G$. Suppose $G = \bigcup_{i \in I}H_i$. Let $a \in G$ be arbitrary. Then $a \in H_i$ for some $i \in I$. It must be the case that $\langle a \rangle \subseteq H_i$; i.e., $G \neq \langle a \rangle$. Thus $G$ is non-cyclic.
+        \end{proof}}
+
+    \begin{exercise}
+        Let $G$ be a group, and $G\times G$ the direct product. The set $D=\{(g,g)\mid g\in G\}$ is a subgroup of $G\times G$. Prove that if $D$ is normal in $G\times G$ then $G$ is abelian.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            If $D$ is normal in $G \times G$, then for all $(a,b) \in G$ and $(g,g) \in D$:
+                \begin{equation*}
+                \begin{split}
+                    (a,b)(g,g)(a,b)^{-1} \in D
+                    & \iff (aga^{-1},bgb^{-1}) \in D \\
+                    & \iff aga^{-1} = bgb^{-1}.
+                \end{split}
+                \end{equation*}
+            Take $g = b$. Then $aba^{-1} = bbb^{-1}$, which simplifies to $ab = ba$. Thus $G$ is abelian.
+        \end{proof}}
+
+    \begin{exercise}
+        The dihedral group, $D_8$, is the group of eight rigid symmetries of a square. Prove that $D_8$ is not the internal direct product of two of its proper subgroups.
+    \end{exercise}
+
+    \begin{exercise}
+        Let $G$ be a finite group and $H,K\mathrel{\unlhd}G$ be normal subgroups of relatively prime order. Prove that $G$ is isomorphic to a subgroup of $G/H\times G/K$.
+    \end{exercise}
+
+    \begin{exercise}
+        Suppose $G$ is a group that contains normal subgroups $H,K\unlhd G$ with $H\cap K=\{e\}$ and $HK=G$. Prove that $G\cong H\times K$.
+    \end{exercise}
+        \begingroup\color{blue}
+        \begin{proof}
+            We will first show that if $H,K \unlhd G$ with $H\cap K=\{e\}$, then $hk = kh$ for all $h \in H$ and $k \in K$. Since $K \unlhd G$, $hkh^{-1} \in K$. Thus $hkh^{-1}k^{-1} \in K$. Since $H \unlhd G$, $kh^{-1}k^{-1} \in H$. Thus $hkh^{-1}k^{-1} \in H$. Since $hkh^{-1}k^{-1} \in H \cap K$, it must be the case that $hkh^{-1}k^{-1} = e_G$. Thus $hk = kh$.
+
+            Define $\varphi:HK \rightarrow H \times K$ by $hk \mapsto (h,k)$. We can see $\varphi$ is a homomorphism since:
+                \begin{equation*}
+                \begin{split}
+                    \varphi(h_1k_1 h_2 k_2)
+                    & = \varphi(h_1 h_2 k_1 k_2) \\
+                    & = (h_1 h_2 , k_1 k_2) \\
+                    & = (h_1,k_1)(h_2,k_2) \\
+                    & = \varphi(h_1k_1)\varphi(h_2 k_2).
+                \end{split}
+                \end{equation*}
+            Now suppose $\varphi(h_1 k_1) = \varphi(h_2 k_2)$. Then $(h_1,k_1) = (h_2,k_2)$. It must be the case that $h_1 = h_2$ and $k_1 = k_2$. Thus $h_1k_1 = h_2k_2$; i.e., $\varphi$ is injective. Furthermore, given any $(h,k) \in H \times K$, we have $\varphi(hk) = (h,k)$, hence $\varphi$ is surjective. Thus $\varphi$ is an isomorphism, so $HK = G \cong H \times K$. \qedhere
+
+
+        \end{proof}\endgroup
+    \begin{exercise}
+        Let $G$ be the group of upper-triangular real matrices $\bmat a & b \\ 0 & d\emat$ with $a,d\neq 0$, under matrix multiplication. Let $S$ be the subset of $G$ defined by $d=1$. Show that $S$ is normal and that $G/S\cong {\bfR}^{\times}$, the multiplicative group of nonzero real numbers.
+    \end{exercise}
+
+    \begin{exercise}
+        Let $G$ be a group and suppose $\operatorname{Aut}(G)$ is trivial.
+            \begin{enumerate}[label=(\alph*)]
+                \item Show that $G$ is abelian.
+                \item Show that for any abelian group $H$, the {\bfseries inversion map} $\phi(h)=h^{-1}$ is an automorphism.
+                \item Use parts (a) and (b) above to show that $g^2$ is the identity element for every $g\in G$.
+            \end{enumerate}
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            (a) Let $h \in G$ be arbitrary. Define $\varphi_h:G \rightarrow G$ by $\varphi_h(g) = hgh^{-1}$. Let $g_1,g_2 \in G$. The map $\varphi_h$ is a homomorphism since:
+                \begin{equation*}
+                \begin{split}
+                    \varphi_h(g_1 g_2)
+                    & = h g_1 g_2 h^{-1} \\
+                    & = h g_1 h^{-1} h g_2 h^{-1} \\
+                    & = \varphi(g_1)\varphi(g_2).
+                \end{split}
+                \end{equation*}
+            Now suppose $\varphi(g_1) = \varphi(g_2)$. Then $hg_1h^{-1} = hg_2h^{-1}$, which simplifies to $g_1 = g_2$. Hence $\varphi$ is injective. Furthermore, given $g \in G$, $\varphi(h^{-1}gh) = hh^{-1}ghh^{-1} = g$; i.e., $\varphi$ is surjective. Thus $\varphi_h \in \Aut(G)$. Since $\Aut(G)$ is trivial, $\varphi_h$ must be the identity map. Hence $g = hgh^{-1}$, or equivalently $gh = hg$. Thus $G$ is abelian.
+
+            (b) The map $\Phi:H \rightarrow H$ defined by $h \mapsto h^{-1}$ is a homomorphism since:
+                \begin{equation*}
+                \begin{split}
+                    \Phi(h_1 h_2)
+                    & = (h_1h_2)^{-1} \\
+                    & = h_2^{-1}h_1^{-1} \\
+                    & = h_1^{-1}h_2^{-1}.
+                \end{split}
+                \end{equation*}
+            Furthermore, if $\Phi(h_1) = \Phi(h_2)$, then $h_1^{-1} = h_2^{-1}$ Equivalently, $h_1^{-1}h_2 = e_H$, which yields $h_2 = h_1$. Thus $\Phi$ is injective. Furthermore, for any $h \in H$, $\Phi(h^{-1}) = (h^{-1})^{-1} = h$. Thus $\Phi \in \Aut(H)$.
+
+            (c) Let $\Phi:G \rightarrow G$ be defined by $\Phi(g) = g^{-1}$. Since $G$ is abelian, part (b) gives $\Phi \in \Aut(G)$. Since $\Aut(G)$ is trivial, $\Phi$ is the identity map. Hence $g = g^{-1}$, which is equivalent to $g^2 = e_G$
+        \end{proof}}
+
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label=(\alph*)]
+            \item Suppose $N$ is a normal subgroup of a group $G$ and $\pi_N:G\to G/N$ is the usual projection homomorphism, defined by $\pi_N(g)=gN$. Prove that if $\phi:G\to H$ is any homomorphism with $N\leq \ker(\phi)$, then there exists a unique homomorphism $\psi:G/N\to H$ such that $\phi = \psi\circ \pi_N$. (You must explicitly define $\psi$, show it is well-defined, show $\phi=\psi\circ\pi_N$, and show that $\psi$ is uniquely determined.)
+            \item Prove the Third Isomorphism Theorem: if $M, N\unlhd G$ with $N\leq M$, then $(G/N)/(M/N)\cong G/M$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $G$ be a group and $a \in G$ be an element. Let $n \in \bfN$ be the smallest positive number such that $a^n = e$, where $e$ is the identity element. Show that the set $\{e,a,a^2,...,a^{n-1}\}$ contains no repetitions.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Suppose $a^i = a^j$ where $0 \leq i < n$ and $0 \leq j < n$. Then $a^{i-j} = e$. Since $0 \leq i < n$ and $0 \leq j < n$, it must be that $i-j < n$. But since $n$ is the smallest positive number such that $a^n = e$, it must be the case that $i-j = 0$. Hence $i = j$.
+        \end{proof}}
+
+    \begin{exercise}
+        Let $G$ be a finite abelian group of odd order. Let $\phi:G\to G$ be the function defined by $\phi(g)=g^2$ for all $g\in G$. Prove that $\phi$ is an automorphism.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Let $g,h \in G$. The map $\phi$ is a homomorphism since:
+                \begin{equation*}
+                \begin{split}
+                    \phi(gh)
+                    & = (gh)^2 \\
+                    & = g^2 h^2 \h9\text{\tiny Since $G$ is abelian} \\
+                    & = \phi(g)\phi(h).
+                \end{split}
+                \end{equation*}
+            Now suppose $\phi(g) = \phi(h)$. Then $g^2 = h^2$, or equivalently $(gh^{-1})^2 = e_G$. Since $G$ is of odd order, it must be the case that $gh^{-1} = e_G$; i.e., $g = h$. Thus $\phi$ is injective.
+
+            Suppose the order of $G$ is $2k-1$ for some $k \geq 1$. Let $g \in G$. Then $g^k \in G$. Observe that $\phi(g^k) = g^{2k} = g g^{2k-1} = g$, hence $\phi$ is surjective. Thus $\phi \in \Aut(G)$.
+        \end{proof}}
+
+    \begin{exercise}
+        Let $\bfZ/n\bfZ$ denote the cyclic group of order $n$. Suppose $m \in \bfN$ is relatively prime to $n$. Define the function $\mu_m:\bfZ/n\bfZ \rightarrow \bfZ/n\bfZ$ by $\mu([a]_n) = [ma]_n$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Prove that the map $\mu_m$ is a well-defined automorphism of $\bfZ/n\bfZ$.
+            \item Prove that any automorphism of $\bfZ/n\bfZ$ has the form $\mu_m$ for some $m$.
+        \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        For a group $G$ and an element $g \in G$, the \textit{centralizer} of $g$ in $G$ is the subgroup:
+            \begin{equation*}
+            \begin{split}
+                C_G(g) = \{h \in G \mid hgh^{-1} = g\}.
+            \end{split}
+            \end{equation*}
+        We say $g$ and $g'$ are \textit{conjugate in $G$} if there exists an element $h \in G$ such that $g' = hgh^{-1}$.
+
+        Suppose $S_n$ is a symmetric group with $n \geq 4$, and $\sigma$ is one of the $(n-2)$-cycles in $S_n$ (There are $\frac{n!}{2(n-2)}$ such cycles). 
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item Prove that $[S_n : C_{S_n}(\sigma)] = [A_n:C_{A_n}(\sigma)]$.
+                \item Determine whether all $(n-2)$-cycles are conjugate in $A_n$.
+            \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Let $G$ be a finite group and $n > 1$ an integer such that $(ab)^n = a^n b^n$ for all $a,b \in G$. Let 
+            \begin{equation*}
+            \begin{split}
+                G_n = \{c \in G \mid c^n = e\}, \h9 G^n = \{c^n \mid c \in G\}.
+            \end{split}
+            \end{equation*}
+        You may take for granted that these are subgroups. Prove that $G_n$ and $G^n$ are normal in $G$, and $|G^n| = [G : G_n]$.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Let $g \in G$ and $c \in G_n$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    (gcg^{-1})^n 
+                    & = g^n c^n (g^{-1})^n \\
+                    & = g^n (g^{-1})^n \\
+                    & = (g g^{-1})^n \\
+                    & = e.
+                \end{split}
+                \end{equation*}
+            Thus $gcg^{-1} \in G_n$, so $G_n \unlhd G$. Let $g \in G$ and $h \in G^n$. Then $h = c^n$ for some $c \in G$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    ghg^{-1} 
+                    & = gc^n g^{-1} \\
+                    & = g\underbrace{c...c}_{\text{$n$ times}}g^{-1} \\
+                    & = \underbrace{(gcg^{-1})(gcg^{-1})...(gcg^{-1})}_{\text{$n$ times}} \\
+                    & = (gcg^{-1})^n \\
+                \end{split}
+                \end{equation*}
+            Thus $ghg^{-1} \in G^n$, so $G^n \unlhd G$.
+
+            Define $\varphi:G \rightarrow G$ by $\varphi(g) = g^n$. The First Isomorphism Theorem says that $G/\ker{\varphi} \cong \Image{\varphi}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \ker \varphi
+                    & = \{g \in G \mid \varphi(g) = e\} \\
+                    & = \{g \in G \mid g^n = e\} \\
+                    & = G_n. \\
+                    &\phantom = \\
+                    \Image \varphi &= \{\varphi(g) \mid g \in G\} \\
+                    & = \{g^n \mid g \in G\} \\
+                    & = G^n.
+                \end{split}
+                \end{equation*}
+            Thus $G/G_n \cong G^n$. Hence $|G^n| = |G/G_n| = [G:G_n]$.
+        \end{proof}}
+
+    \begin{exercise}
+        Suppose $G$ is a group, $H \leq G$ a subgroup, and $a,b \in G$. Prove that the following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $aH = bH$;
+                \item $b \in aH$;
+                \item $b^{-1}a \in H$.
+            \end{enumerate}
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            (1)$\Rightarrow$(2) Note that $b = b e_G \in bH$. Since $aH = bH$, $b \in aH$.
+
+            (2)$\Rightarrow(3)$ If $b \in aH$, then $b = ah$ for some $h \in H$. Equivalently, $h^{-1} = b^{-1}a$. Since $h^{-1} \in H$, $b^{-1}a \in H$.
+
+            (3)$\Rightarrow$(1) First, note that $b^{-1}a \in H$ implies $b^{-1}a = h$ for some $h \in H$. Then $(b^{-1}a)^{-1} = h^{-1}$, which simplifies to $a^{-1}b = h^{-1}$. Hence $a^{-1}b \in H$. Let $x \in aH$. Then $x = ah$ for some $h \in H$. This is equivalent to $x = bb^{-1}ah$. Since $b^{-1}ah \in H$, $x \in bH$. Now let $y \in bH$. Then $y = bh$ for some $h \in H$. This is equivalent to $y = aa^{-1}bh$. Since $a^{-1}bh \in H$, $y \in aH$. Thus $aH = bH$.
+        \end{proof}}
+    
+    --
+
+    \begin{exercise}
+        Suppose $G$ is a nontrivial finite group and $H,K \unlhd G$ are normal subgroups with $\gcd \left( |H|,|K| \right) = 1$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item Define a nontrivial group homomorphism $\phi:G \rightarrow G/H \times G/K$.
+                \item Prove $G$ is isomorphic to a subgroup of $G/H \times G/K$
+                \item Suppose $\gcd(m,n) = 1$. Prove $\bfZ/mn \bfZ \cong \bfZ/m\bfZ \times \bfZ/n\bfZ$.
+            \end{enumerate}
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            (1) Define $\phi:G \rightarrow G/H \rightarrow G/K$ by $\phi(g) = (gH,gK)$. \nl
+            
+            \noindent (2) Suppose $x \in H \cap K$. Then $x \in H$ and $x \in K$. So $\div{o(x)}{|H|}$ and $\div{o(x)}{|K|}$. This means $\div{o(x)}{\gcd(|H|,|K|)}$. Since $\gcd(|H|,|K|) = 1$, it must be the case that $o(x) = 1$; i.e., $x = e$. Thus $H \cap K = \{e\}$.
+            
+            By the First Isomorphism Theorem, $G/\ker\phi \cong \Image \phi$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    \ker \phi  
+                    & = \{g \in G \mid \phi(g) = (H,K)\} \\
+                    & = \{g \in G \mid (gH,gK) = (H,K)\} \\
+                    & = \{g \in G \mid g \in H, g \in K\} \\
+                    & = H \cap K \\
+                    & = \{e\}.
+                \end{split}
+                \end{equation*}
+            Since $\ker \phi$ is trivial and $\Image \phi \leq G/H \times G/K$, $G$ is isomorphic to a subgroup of $G/H \times G/K$. \nl
+            
+            \noindent (3) Define $\varphi : \bfZ \rightarrow \bfZ/m\bfZ \times \bfZ/n\bfZ$ by $x \mapsto ([x]_m,[x]_n)$. This is a homomorphism since:
+                \begin{equation*}
+                \begin{split}
+                    \varphi(x+y)
+                    & = ([x+y]_m,[x+y]_n) \\
+                    & = ([x]_m + [y]_m,[x]_n + [y]_n) \\
+                    & = ([x]_m,[x]_n) + ([y]_m,[y]_n) \\
+                    & = \varphi(x) + \varphi(y).
+                \end{split}
+                \end{equation*}
+            Let $([a]_m,[b]_n) \in \bfZ/m\bfZ \times \bfZ/n\bfZ$. Since $\gcd(m,n)=1$, by the Chinese Remainder Theorem, for all $a,b \in \bfZ$ with $0 \leq a < n$ and $0 \leq b < m$, there exists a unique $x \in \bfZ$ such that $x \equiv a \pmod{m}$ and $x \equiv b \pmod{n}$. This is equivalent $x = a + sm$ and $x = b + tn$ for some $s,t \in \bfZ$. Using these equations for $x$, we can see:
+                \begin{equation*}
+                \begin{split}
+                    \varphi(x)
+                    & = ([x]_m,[x]_n) \\
+                    & = ([a+sm]_m,[b+tn]_n) \\
+                    & = ([a]_m,[b]_n).
+                \end{split}
+                \end{equation*}
+            Whence $\varphi$ is surjective. Furthermore:
+                \begin{equation*}
+                \begin{split}
+                    \ker \phi 
+                    & = \{x \in \bfZ \mid \varphi(x) = ([0]_m,[0]_n) \} \\
+                    & = \{x \in \bfZ \mid ([x]_m,[x]_n) = ([0]_m,[0]_n)\} \\
+                    & = \{x \in \bfZ \mid [x]_m = [0]_m, [x]_n = [0]_n\} \\
+                    & = \{x \in \bfZ \mid x \equiv 0\pmod{m}, x \equiv 0 \pmod{n} \} \\
+                    & = \{x \in \bfZ \mid x = sm, x = tn, s,t \in \bfZ \} \\
+                    & = \{x \in \bfZ \mid \div{m}{x}, \div{n}{x} \} \\
+                    & = \{x \in \bfZ \mid \div{mn}{x} \} \h9\text{\tiny Since $\gcd(m,n) = 1$} \\
+                    & = \{x \in \bfZ \mid x = (mn)s, s \in \bfZ\} \\
+                    & = mn\bfZ.
+                \end{split}
+                \end{equation*}
+            By the First Isomorphism Theorem, $\bfZ/mn\bfZ \cong \bfZ/m\bfZ \times \bfZ/n\bfZ$.
+        \end{proof}}
+
+    ---
+
+    \begin{exercise}
+        Let $G$ be a finite group and $Z(G)$ denote its center.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Prove that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+            \item Prove that if $G$ is nonabelian, then $|Z(G)| \leq \frac{1}{4}|G|$.
+        \end{enumerate}
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            (1) If $G/Z(G)$ is cyclic, there exists $aZ(G) \in G/Z(G)$ such that $\langle aZ(G) \rangle = G/Z(G)$. Let $gZ(G) \in G/Z(G)$. Then $gZ(G) = a^{k_1}Z(G)$ for some $k_1 \in \bfZ$. Equivalently, $(a^{k_1})^{-1}g \in Z(G)$, so there exists $z_1 \in Z(G)$ such that $(a^{k_1})^{-1}g = z_1$. Thus $g = z_1a^{k_1}$. Similarly for $hZ(G) \in G/Z(G)$, there exists $k_2 \in \bfZ$ and $z_2 \in Z(G)$ so that $h = z_2a^{k_2}$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    gh 
+                    & = z_1a^{k_1}z_2a^{k_2} \\
+                    & = z_1 a^{k_1}a^{k_2}z_2 \\
+                    & = z_1 a^{k_1 + k_2}z_2 \\
+                    & = z_2 a^{k_1 + k_2}z_1 \\
+                    & = z_2 a^{k_2}a^{k_1}z_1 \\
+                    & = z_2a^{k_2}z_1a^{k_1} \\
+                    & = hg.
+                \end{split}
+                \end{equation*}
+            Thus $G$ is abelian. \nl
+            
+            \noindent (2) By Lagrange's Theorem, $4 \leq \frac{|G|}{|Z(G)|} = |G/Z(G)|$. Suppose towards contradiction $G$ is nonabelian and $|G/Z(G)| < 4$. If $|G/Z(G)| = 1$, then $G/Z(G)$ is trivial, so $G/Z(G) = Z(G)$. That means for every $g \in G$, $gZ(G) = Z(G)$, hence $g \in Z(G)$. But because $G = Z(G)$, $G$ must be abelian, which is a contradiction. For the cases where $|G/Z(G)| = 2$ and $|G/Z(G)| = 3$, note that $G/Z(G)$ will be cyclic since their orders are prime. Since $G/Z(G)$ is cyclic, $G$ is abelian, which again is a contradiction. It must be the case that $|G/Z(G)| \geq 4$; i.e., $|Z(G)| \leq \frac{1}{4}|G|$.
+        \end{proof}}
+
+
+    ---
+
+    \begin{exercise}
+        Let $G$ be a group, $m \in \bfN$, and $g \in G$ be an element such that $g^m = e$. Prove that $o(g) \mid m$, where $o(g)$ is the order of $g$.
+    \end{exercise}
+        {\color{blue} \begin{proof}
+            Suppose $o(g) = k$. Then $g^k = e$. Apply the division algorithm to $m$ and $k$. There exists $q,r \in \bfZ$ so that $m = kq + r$, $0 \leq r < k$. This means:
+                \begin{equation*}
+                \begin{split}
+                    e
+                    & = g^m \\ 
+                    & = g^{kq+r} \\
+                    & = g^{kq}g^r \\
+                    & = g^r.
+                \end{split}
+                \end{equation*}
+            But since $o(g) = k$ and $0\leq r < k$, it must be the case that $r = 0$. Thus $m = kq$; i.e., $o(g)\mid m$.
+        \end{proof}}
+    \fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \section*{\S\ Pool Problems}
+    \markboth{Group Theory}{Pool Problems}
+    \endgroup
+
+    \begin{exercise}
+        Let $G$ be a group. Prove that $G$ is non-cyclic if and only if $G$ is the union of its proper subgroups.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group, and $G\times G$ the direct product. The set $D=\{(g,g)\mid g\in G\}$ is a subgroup of $G\times G$. Prove that if $D$ is normal in $G\times G$ then $G$ is abelian.
+        \end{exercise}
+        
+        \begin{exercise}
+        The dihedral group, $D_8$, is the group of eight rigid symmetries of a square. Prove that $D_8$ is not the internal direct product of two of its proper subgroups.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a finite group and $H,K\mathrel{\unlhd}G$ be normal subgroups of relatively prime order. Prove that $G$ is isomorphic to a subgroup of $G/H\times G/K$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $G$ is a group that contains normal subgroups $H,K\unlhd G$ with $H\cap K=\{e\}$ and $HK=G$. Prove that $G\cong H\times K$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be the group of upper-triangular real matrices 
+        \begin{equation*}
+        \begin{split}
+        \begin{bmatrix} a & b \\ 0 & d\end{bmatrix}
+        \end{split}
+        \end{equation*}
+        with $a,d\neq 0$, under matrix multiplication. Let $S$ be the subset of $G$ defined by $d=1$. Show that $S$ is normal and that $G/S\cong \mathbb{R}^{\times}$, the multiplicative group of nonzero real numbers.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group and suppose $\operatorname{Aut}(G)$ is trivial.
+        \begin{enumerate}[label=(\alph*)]
+            \item Show that $G$ is abelian.
+            \item Show that for any abelian group $H$, the \textbf{inversion map} $\phi(h)=h^{-1}$ is an automorphism.
+            \item Use parts (a) and (b) above to show that $g^2$ is the identity element for every $g\in G$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \newpage
+        \begin{exercise}
+            \phantom{a}
+        \begin{enumerate}[label=(\alph*)]
+            \item Suppose $N$ is a normal subgroup of a group $G$ and $\pi_N:G\to G/N$ is the usual projection homomorphism, defined by $\pi_N(g)=gN$. Prove that if $\phi:G\to H$ is any homomorphism with $N\leq \ker(\phi)$, then there exists a unique homomorphism $\psi:G/N\to H$ such that $\phi = \psi\circ \pi_N$. (You must explicitly define $\psi$, show it is well defined, show $\phi=\psi\circ\pi_N$, and show that $\psi$ is uniquely determined.)
+            \item Prove the 
+            \textbf{Third Isomorphism Theorem}: if $M, N\unlhd G$ with $N\le M$, then $(G/N)/(M/N)\cong G/M$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group and $a\in G$ be an element. Let $n\in \mathbb{N}$ be the smallest positive number such that $a^n=e$, where $e$ is the identity element. Show that the set
+        \begin{equation*}
+        \begin{split}
+        \{e,a,a^2,\ldots, a^{n-1}\}
+        \end{split}
+        \end{equation*}
+        contains no repetitions.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a finite abelian group of odd order. Let $\phi:G\to G$ be the function defined by $\phi(g)=g^2$ for all $g\in G$. Prove that $\phi$ is an automorphism.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group with exactly two conjugacy classes. Prove that $G$ is abelian, and describe all such groups (with proof).
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $\mathbb{Z}_n$ denote the cyclic group of order $n$. Suppose $m\in \mathbb{N}$ is relatively prime to $n$. Define the function $\mu_m:\mathbb{Z}_n\to \mathbb{Z}_n$ by $m[a]_n=[ma]_n$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that the map $\mu_m$ is a well-defined automorphism of $\mathbb{Z}_n$.
+            \item Prove that any automorphism of $\mathbb{Z}_n$ has the form $\mu_m$ for some $m$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        For a group $G$ and an element $g\in G$, the \textbf{centralizer} of $g$ in $G$ is the subgroup
+        \begin{equation*}
+        \begin{split}
+        C_G(g)=\{h\in G:hgh^{-1}=g\}.
+        \end{split}
+        \end{equation*}
+        We say $g$ and $g'$ are \textbf{conjugate in $G$} if there exists an element $h\in G$ such that $g'=hgh^{-1}$.
+        
+        Suppose $S_n$ is a symmetric group with $n\ge 4$, and $\sigma$ is one of the $(n-2)$-cycles in $S_n$. 
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that $[S_n:C_{S_n}(\sigma)]=[A_n:C_{A_n}(\sigma)]$.
+            \item Determine whether all $(n-2)$-cycles are conjugate in $A_n$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a finite group and $n>1$ an integer such that $(ab)^n=a^n b^n$ for all $a,b\in G$. Let
+        \begin{equation*}
+        \begin{split}
+        G_n=\{c\in G\mid c^n=e\},\qquad G^n=\{c^n\mid c\in G\}.
+        \end{split}
+        \end{equation*}
+        You may take for granted that these are subgroups. Prove that both $G_n$ and $G^n$ are normal in $G$, and $|G^n|=[G:G_n]$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $G$ is a group, $H\le G$ a subgroup, and $a,b\in G$. Prove that the following are equivalent:
+        \begin{enumerate}[label=(\alph*)]
+            \item $aH=bH$
+            \item $b\in aH$
+            \item $b^{-1}a\in H$
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group, and let $\operatorname{Aut}(G)$ denote the group of automorphisms of $G$. There is a homomorphism $\gamma:G\to \operatorname{Aut}(G)$ that takes $s\in G$ to the automorphism $\gamma_s$ defined by $\gamma_s(t)=sts^{-1}$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove rigorously, possibly with induction, that if $\gamma_s(t)=t^b$, then $\gamma_{s^n}(t)=t^{b^n}$.
+            \item Suppose $s\in G$ has order 5, and $sts^{-1}=t^2$. Find the order of $t$. Justify your answer.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be an abelian group and $G_T$ be the set of elements of finite order in $G$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that $G_T$ is a subgroup of $G$.
+            \item Prove that every non-identity element of $G/G_T$ has infinite order.
+            \item Characterize the elements of $G_T$ when $G=\mathbb{R}/\mathbb{Z}$, where $\mathbb{R}$ is the additive group of real numbers.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $G$ is a finite group of even order.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that an element in $G$ has order dividing 2 if and only if it is its own inverse.
+            \item Prove that the number of elements in $G$ of order 2 is odd.
+            \item Use (b) to show $G$ must contain a subgroup of order 2.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $N$ be a finite normal subgroup of $G$. Prove there is a normal subgroup $M$ of $G$ such that $[G:M]$ is finite and $nm=mn$ for all $n\in N$ and $m\in M$.
+        
+        \medskip
+        \noindent ({Hint:} You may use the fact that the centralizer $C(h):=\{g\in G\mid ghg^{-1}=h\}$ is a subgroup of $G$.)
+        \end{exercise}
+        
+        \begin{exercise}
+        Show that every finite group with more than two elements has a nontrivial automorphism.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $G_1$ and $G_2$ are groups, with identity elements $e_1$ and $e_2$, respectively. Prove that if $\phi:G_1\to G_2$ is an isomorphism, then $\phi(e_1)=e_2$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $A$ and $B$ are subgroups of a group $G$, and suppose $B$ is of finite index in $G$.
+        \begin{enumerate}[topsep=0.1in,label=(\alph*)]
+            \item Show that the index of $A\cap B\le A$ is finite, and in fact $|A:A\cap B|\le |G:B|$. {Hint:} Find a set map $A/A\cap B\to G/B$.
+            \item Prove that equality holds in (a) if and only if $G=AB$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group. For each $a\in G$, let $\gamma_a$ denote the automorphism of $G$ defined by $\gamma_a(b)=aba^{-1}$ for all $b\in G$. The set $\operatorname{Inn}(G)=\{\gamma_a:a\in G\}$ is a subgroup of the automorphism group of $G$, called the subgroup of \textbf{inner automorphisms}.
+        
+        \medskip
+        Prove that $\operatorname{Inn}(G)$ is isomorphic to $G/Z(G)$, where $Z(G)$ is the center of $G$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group of order $2p$, where $p$ is an odd prime. Prove $G$ contains a nontrivial, proper normal subgroup.
+        \end{exercise}
+        
+        \begin{exercise}
+        Prove from the definition along that there are no nonabelian groups of order less than $5$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group and $H,K\mathrel{\unlhd}G$ be normal subgroups with $H\cap K=\{e\}$. Show that each element in $H$ commutes with every element in $K$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group and $N$ a normal subgroup of $G$. Let $aN$ denote the left coset defined by $a\in G$, and consider the binary operation
+        \[
+        G/N\times G/N\to G/N
+        \]
+        given by $(aN, bN)\mapsto abN$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Show the operation is well defined.
+            \item Show the operation is well defined only if the subgroup $N$ is normal.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group, $H\le G$ a subgroup that is not normal. Prove there exist cosets $Ha$ and $Hb$ such that $HaHb\neq Hab$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $H$ be a subgroup of a group $G$. The \textbf{normalizer} of $H$ in $G$ is the set $\mathbb{N}_G(H)=\{g\in G\,\mid\, gH=Hg\}$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove $\mathbb{N}_G(H)$ is a subgroup of $G$ containing $H$.
+            \item Prove $\mathbb{N}_G(H)$ is the largest subgroup of $G$ in which $H$ is normal.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $G$ be a group and suppose $H\le G$. The \textbf{normalizer} of $H$ in $G$ is defined to be $N(H)=\{g\in G\,|\, gH=Hg\}$ and the \textbf{centralizer} of $H$ in $G$ is defined to be $C(H)=\{g\in G\,|\,  gh=hg\text{ for all }h\in H\}$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that $N(H)$ is a subgroup of $G$.
+            \item Prove that $C(H)$ is a normal subgroup of $N(H)$ and that $N(H)/C(H)$ is isomorphic to a subgroup of $\operatorname{Aut}(H)$.
+        \end{enumerate}
+        \end{exercise}
+
+        \begin{exercise}
+            Suppose $G$ is a cyclic group of order $n$, and $t\in G$ is a generator.
+            \begin{enumerate}[label=(\alph*)]
+                \item Give a positive integer $d$ such that $t^{-1}=t^d$.
+                \item Let $c$ be an integer and let $m=\gcd(n,c)$. Prove that the order of $t^c$ is $\frac{n}{m}$.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be a finite group. Prove \textit{from the definitions} that there exists a number $N$ such that $a^N=e$ for all $a\in G$.
+            \end{exercise}
+            
+            \begin{exercise}
+            Suppose $G$ is a group and $N\unlhd G$ is a finite normal subgroup. Prove that if $G/N$ contains an element of order $n$, then $G$ also contains an element of order $n$.
+            \end{exercise}
+            
+            \begin{exercise}
+            Suppose $\phi:G\to G'$ is a surjective homomorphism, $H\le G$ is a subgroup containing $\ker(\phi)$, and $H'=\phi(H)$. Prove $\phi^{-1}(H')=H$, where $\phi^{-1}(H')=\{g\in G\,\mid\, \phi(g)\in H'\}$. Make sure to state explicitly where each hypothesis is used.
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be a group, and $H, K$ be subgroups of $G$. Let $HK=\{hk\,\mid \, h\in H, k\in K\}$ denote the set product. Prove that $HK$ is a group if and only if $HK=KH$.
+            \end{exercise}
+            
+            \begin{exercise}
+            Suppose $G$ is a nontrivial finite group and $H,K\mathrel{\unlhd}G$ are normal subgroups with $\gcd(|H|,|K|)=1$.
+            \begin{enumerate}[label=(\alph*)]
+                \item Define a nontrivial group homomorphism $\phi:G\to G/H\times G/K$
+                \item Prove $G$ is isomorphic to a subgroup of $G/H\times G/K$.
+                \item Suppose $\gcd(m,n)=1$. Prove $\mathbb{Z}_{mn}\cong \mathbb{Z}_m\times \mathbb{Z}_n$.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Suppose $G$ is a group, $H$ and $K$ are normal subgroups of $G$, and $H\le K$.
+            \begin{enumerate}[label=(\alph*)]
+                \item Define a group homomorphism from $K$ to $G/H$.
+                \item Compute the kernel of the homomorphism in (a), and apply the First Isomorphism Theorem.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be a finite group and $\operatorname{Z}(G)$ denote its center.
+            \begin{enumerate}[label=(\alph*)]
+                \item Prove that if $G/\operatorname{Z}(G)$ is cyclic, then $G$ is abelian.
+                \item Prove that if $G$ is nonabelian, then $|\operatorname{Z}(G)|\le \frac{1}{4}|G|$.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be a group, $m\in \mathbb{N}$, and $g\in G$ be an element such that $g^m=e$. Prove that $\operatorname{o}(g)\mid m$, where $\operatorname{o}(g)$ is the order of $g$.
+            \end{exercise}
+            
+            \begin{exercise}
+                \phantom{a}
+            \begin{enumerate}[label=(\alph*)]
+                \item Show that if $G$ is any group (not necessarily finite) and $H$ is a subgroup, then $G$ is a disjoint union of left cosets of $H$.
+                \item State and prove Lagrange's Theorem for finite groups.
+            \end{enumerate}
+            \end{exercise}
+            
+            \newpage
+            \begin{exercise}
+            Let $G$ be a group and $H\le G$ a subgroup. For each coset $aH$ of $H$ in $G$, define the set
+            \begin{equation*}
+            \begin{split}
+            G_{aH}=\{b\in G\,|\, baH=aH\}.
+            \end{split}
+            \end{equation*}
+            \begin{enumerate}[label=(\alph*)]
+                \item Prove that $G_{aH}$ is a subgroup of $G$.
+                \item Suppose that $H$ is normal in $G$. Prove that $G_{aH}=H$.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be a group of order $2n$ for some positive integer $n>1$.
+            \begin{enumerate}[label=(\alph*)]
+                \item Prove there exists a subgroup $K$ of $G$ of order $2$.
+                \item Suppose $K$ in (a) is a \textit{normal} subgroup. Prove that $K$ is contained in the center $\operatorname{Z}(G)$. (Recall $\operatorname{Z}(G)=\{a\in G\mid ab=ba\text{ for all }b\in G\}$.)
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            The additive group $\mathbb{Z}=(\mathbb{Z},+)$ of rational integers is a subgroup of the additive group $\mathbb{Q}=(\mathbb{Q},+)$. Show that $\mathbb{Z}$ has infinite index in $\mathbb{Q}$.
+            \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\S\ Template Problems}
+\markboth{Group Theory}{Template Problems}
+
+        \begin{exercise}
+            Let $G$ and $H$ be groups of order 10 and 15, respectively. Prove that if there is a nontrivial homomorphism $\phi:G\to H$, then $G$ is abelian.
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $n$ be a number between $0$ and $10$. Compute $n^{111}\pmod{11}$, expressing your answer as a number between $0$ and $10$. Give as detailed a proof as you can, justifying every step, no matter how trivial you think it is.
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $S_n$ denote the symmetric group on $n$ letters.
+            \begin{enumerate}[label=(\alph*)]
+                \item Is the element $(1\,2\,3\,4)(2\,5\,3\,4\,6)(1\,5\,3\,2\,4\,7)\in S_7$ even or odd? Indicate your reasoning.
+                \item Find the order of $(1\,3\,4)(2\,4\,3)(1\,3\,4)\in S_4$. Show all work.
+                \item Write $(1\,5\,2\,3)(2\,1\,3\,4)(1\,5\,2\,3)^{-1}\in S_5$ in disjoint cycle form. Show all work.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Determine with proof the automorphism group $\operatorname{Aut}(V)$ of the Klein 4-group $V=\{e,a,b,ab\}$. To what familiar group is it isomorphic?
+            \end{exercise}
+            
+            \begin{exercise}
+            Determine the number of group homomorphisms $\phi$ between the given groups. Here $K_4$ denotes the Klein four-group (also known as $\mathbb{Z}/2\mathbb{Z}\times \mathbb{Z}/2\mathbb{Z}$) and $S_3$ denotes the symmetric group on three elements.
+            \medskip
+            \begin{enumerate}[label=(\alph*)]
+                \item $\phi:K_4\to \mathbb{Z}/2\mathbb{Z}$
+                \item $\phi:\mathbb{Z}/2\mathbb{Z}\to K_4$
+                \item $\phi:S_3\to K_4$
+                \item $\phi:K_4\to S_3$
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Explicitly list all group homomorphisms $f:\mathbb{Z}/6\mathbb{Z} \to \mathbb{Z}/12\mathbb{Z}$.
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $C$ be a (possibly infinite) cyclic group, and let $\operatorname{Aut}(C)$ and $\operatorname{Inn}(C)$ be the groups of automorphisms and inner automorphisms, respectively. (Recall an automorphism $\gamma$ is \textbf{inner} if it is given by conjugation: $\gamma(b)=aba^{-1}$ for some $a\in C$.)
+            \begin{enumerate}[label=(\alph*)]
+                \item Describe $\operatorname{Aut}(C)$ and $\operatorname{Inn}(C)$ in familiar terms, as groups you would study in a first algebra course. Prove your result. (\textit{Hint:} Where do generators go?)
+                \item Write $\operatorname{Aut}(\mathbb{Z}_{12})$ down explicitly, giving its generic name and computing the order of every element. Show all work.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $A_5$ denote the alternating group on a $5$-element set $\{1,2,3,4,5\}$. The set of automorphisms of $A_5$ form a group, denoted $\operatorname{Aut}(A_5)$. The group of \textbf{conjugations} of $A_5$, denoted $\operatorname{Conj}(A_5)$, is the subgroup of $\operatorname{Aut}(A_5)$ consisting of automorphisms of the form $\gamma_s:=s(-)s^{-1}$ where $s\in A_5$. Explicitly, $\gamma_s(x)=sxs^{-1}$ for any $x\in A_5$.
+            \begin{enumerate}[label=(\alph*)]
+                \item Prove that the function $\gamma:A_5\to \operatorname{Conj}(A_5)$, taking $s\in A_5$ to $\gamma_s$, is a surjective homomorphism.
+                \item Prove that $A_5$ is isomorphic to $\operatorname{Conj}(A_5)$.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Suppose $H$ is a group of order 15. Prove there does not exist a nontrivial group homomorphism $\phi:D_5\to H$, where $D_5$ is the dihedral group with ten elements.
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $S_7$ denote the symmetric group.
+            \begin{enumerate}[label=(\alph*)]
+                \item Give an example of two non-conjugate elements of $S_7$ that have the same order.
+                \item If $g\in S_7$ has maximal order, what is the order of $g$?
+                \item Does the element $g$ that you found in part (b) lie in $A_7$? Fully justify your answer.
+                \item Determine whether the set $\{h\in S_7 \mid |h|=|g|\}$ is a single conjugacy class in $S_7$, where $g$ is the element you found in part (b).
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ be the additive group $\mathbb{Z}_{2020}$ and let $H\subseteq G$ be the subset consisting of those elements with order dividing 20.
+            \begin{enumerate}[label=(\alph*)]
+                \item Prove $H$ is a subgroup of $G$.
+                \item Find an explicit generator for $H$ and determine its order.
+            \end{enumerate}
+            \end{exercise}
+            
+            \begin{exercise}
+            Let $G$ denote the set of invertible $2\times 2$ matrices with values in a field. Prove $G$ is a group by defining a group law, identity element, and verifying the axioms. Credit is based on completeness.
+            \end{exercise}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Ring Theory}
+\section*{\S\ Pool Problems}
+\markboth{Ring Theory}{Pool Problems}
+\begin{exercise}
+    Consider the additive group of integers $\mathbf{Z}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that every subgroup of $\mathbf{Z}$ is cyclic.
+        \item Prove that every homomorphic image of $\mathbf{Z}$ is cyclic.
+        \item Consider the \textit{ring} $\mathbf{Z}$. Exhibit a prime ideal of $\mathbf{Z}$ that is not maximal.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be an integral domain. Suppose $a$ and $b$ are non-associate irreducible elements in $R$, and the ideal $(a,b)$ generated by $a$ and $b$ is a proper ideal. Show that $R$ is not a principal ideal domain (PID).
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$. Suppose that for every $a\in R$ there exists $n\ge 2$ such that $a^n=a$. Show that every prime ideal of $R$ is maximal.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$, and $\sigma:R\to R$ be a ring automorphism.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that $F=\{r\in R\mid \sigma(r)=r\}$ is a subring of $R$ with $1$.
+        \item Show that if $\sigma^2$ is the identity map on $R$, then each element of $R$ is the root of a monic polynomial of degree 2 in $F[x]$, where $F$ is as in (a).
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Suppose $R$ is a ring such that $r^2=r$ for every $r\in R$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $r=-r$ for every $r\in R$.
+        \item Show that $R$ must be commutative. \textit{Hint: Consider $(a+b)^2$.}
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$. The \textbf{characteristic} $\operatorname{char}(R)$ of $R$ is the unique integer $n\ge 0$ such that $\langle n\rangle \subset \mathbf{Z}$ is the kernel of the homomorphism $\theta:\mathbf{Z}\to R$ defined by
+    \[
+    \theta(m)=\begin{cases} \underbrace{1_R+\cdots +1_R}_{m}, & m\ge 0\\
+    \underbrace{-1_R+\cdots + -1_R}_{|m|}, & m<0 \end{cases}.
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that if $f:R\to S$ is a monomorphism of commutative rings with $1$, then $\operatorname{char}(R)=\operatorname{char}(S)$.
+        \item Give an example showing that $\operatorname{char}(R)$ is not always preserved by ring homomorphisms.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that for every commutative ring with unity $R$, there is a unique ring homomorphism $\phi_R:\mathbf{Z}\to R$, and that $\ker(\phi_R)=\langle d_R\rangle$ for a unique nonnegative integer $d_R$. The number $d_R$ is called the \textbf{characteristic} of $R$, denoted $\operatorname{char}(R)$.
+        \item Suppose $F_1$ and $F_2$ are fields for which there exists a ring homomorphism $f:F_1\to F_2$. Prove that $\operatorname{char}(F_1)=\operatorname{char}(F_2)$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $A$ be a commutative ring with $1$. The \textbf{dimension} of $A$ is the maximal length $d$ of a chain of prime ideals $\mathfrak{p}_0\subsetneq \mathfrak{p}_1\subsetneq \cdots \subsetneq \mathfrak{p}_d$. Prove that if $A$ is a PID, then $\dim(A)\le 1$.
+    \end{exercise}
+    
+    \begin{exercise}
+    Prove that every Euclidean domain is a principal ideal domain.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $F$ be a field and let $\alpha$ generate a field extension of $F$ of degree 5. Prove that $\alpha^2$ generates the same extension.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$. Use theorems in ring theory to prove:
+    \begin{enumerate}[label=(\alph*)]
+        \item $\langle x\rangle$ is a prime ideal in $R[x]$ if and only if $R$ is an integral domain.
+        \item $\langle x\rangle$ is a maximal ideal in $R[x]$ if and only if $R$ is a field.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $F$ be a field and $F[x]$ the polynomial ring, which is a PID. Let
+    \[
+    R=\{f\in F[x]: f'\in (x)\},
+    \]
+    where $(x)\subset F[x]$ and $f'$ is the formal derivative.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $x^2$ and $x^3$ are irreducible elements of $R$.
+        \item Let $(x^2,x^3)$ be the ideal generated by $x^2$ and $x^3$. Prove it is a proper ideal of $R$.
+        \item Prove that $(x^2,x^3)$ is not a principal ideal of $R$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$ and $e\in R$ an idempotent element ($e^2=e$).
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $1-e$ is idempotent.
+        \item If $e\neq 0,1$, show that $Re$ and $R(1-e)$ are proper ideals of $R$.
+        \item Prove that $R\cong Re\times R(1-e)$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    An element $r$ of a ring $R$ is idempotent if $r^2=r$. Suppose $R$ is commutative with $1$ and contains an idempotent $e$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove $1-e$ is idempotent.
+        \item Prove $eR$ and $(1-e)R$ are ideals and $R\cong eR\times (1-e)R$.
+        \item Prove that if $R$ has a unique maximal ideal, the only idempotents are $0$ and $1$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Prove that if $\phi:R\to S$ is a surjective ring homomorphism between commutative rings with $1$, then $\phi(1_R)=1_S$.
+    \end{exercise}
+    
+    \begin{exercise}
+    Suppose $R$ is a PID. Prove that an ideal $I\subset R$ is maximal if and only if $I=\langle p\rangle$ for a prime $p\in R$.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that the set $N$ of all nilpotent elements of $R$ is an ideal.
+        \item Prove that $R/N$ has no nonzero nilpotent elements.
+        \item Show that $N$ is contained in every prime ideal of $R$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$. An element $n\in R$ is nilpotent if $n^k=0$ for some $k\in \mathbf{N}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that if $n$ is nilpotent, then $1-n$ is a unit.
+        \item Give an example of a commutative ring with $1$ with no nonzero nilpotent elements, but not an integral domain.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $D$ be a PID. Prove that every proper nonzero prime ideal is maximal.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $I\subseteq \mathbf{Z}[x]$ be the set of polynomials with even constant term.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $I$ is an ideal.
+        \item Prove that $I$ is not a principal ideal.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Define what it means for an element to be \textbf{prime} and \textbf{irreducible}.
+        \item Prove that if $R$ is an integral domain, every prime element is irreducible.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$, $I\subseteq R$ an ideal, and $\pi:R\to R/I$ the natural projection.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that if $\wp$ is a prime ideal of $R/I$, then $\pi^{-1}(\wp)$ is a prime ideal of $R$.
+        \item Show that the map $\wp\mapsto \pi^{-1}(\wp)$ is injective on prime ideals of $R/I$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $A$ be a commutative ring with $1$. We say $A$ is \textbf{Boolean} if $a^2=a$ for every $a\in A$. Prove that in a Boolean ring:
+    \begin{enumerate}[label=(\alph*)]
+        \item $2a=0$ for all $a\in A$.
+        \item If $I$ is a prime ideal, then $A/I$ has two elements, so $I$ is maximal.
+        \item If $I=(a,b)$, then $I$ can be generated by $a+b+ab$. Conclude every finitely generated ideal is principal.
+    \end{enumerate}
+    \end{exercise}
+    
+    \newpage
+    \begin{exercise}
+    Let $R$ be a commutative ring. For $X\subseteq R$ nonempty, define the \textbf{annihilator} $\operatorname{ann}(X)=\{a\in R\mid ax=0\text{ for all }x\in X\}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $\operatorname{ann}(X)$ is an ideal.
+        \item Prove that $X\subseteq \operatorname{ann}(\operatorname{ann}(X))$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Suppose $\phi:R\to S$ is a ring homomorphism, and $S$ has no nonzero zero-divisors. Prove that $\ker(\phi)$ is a prime ideal.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring with $1$, and $N=\{a\in R\mid a^n=0 \text{ for some }n\}$. Let $[b]$ be the image of $b\in R$ in $R/N$. Prove that if $[a]^m=0$ in $R/N$, then $[a]=[0]$.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $R$ be a commutative ring. The \textbf{nilradical} of $R$ is $N=\{r\in R\mid r^n=0 \text{ for some } n\in \mathbf{N}\}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $N$ is an ideal of $R$.
+        \item Prove that $N$ is contained in the intersection of all prime ideals of $R$.
+    \end{enumerate}
+    \end{exercise}
+    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\S\ Template Problems}
+\markboth{Ring Theory}{Template Problems}
+\begin{exercise}
+    Suppose $I$ and $J$ are ideals in a commutative ring $R$ such that $R=I+J$. 
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that the map $f:R\to R/I\times R/J$ given by $f(x)=(x+I,x+J)$ induces the isomorphism
+        \[
+            R/IJ \cong R/I \times R/J.
+        \]
+        \item Prove that $\left(\mathbb{Z}/3\mathbb{Z}\right)[x]/(x^3-x^2-1)\cong \left(\mathbb{Z}/3\mathbb{Z}\right)[x]/(x^3+x+1)$. (\textit{Hint: Use part (a).})
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathcal{C}([0,1])$ be the commutative ring of continuous real-valued functions on $[0,1]$, and let
+    \[
+        M=\{f\in \mathcal{C}([0,1]) \mid f(1/2)=0\}.
+    \]
+    Prove that $M$ is a maximal ideal.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $z\in \mathbb{C}$ and $\epsilon_z:\mathbb{R}[x]\to \mathbb{C}$ be the evaluation homomorphism $\epsilon_z(p)=p(z)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that $\ker(\epsilon_z)$ is a prime ideal.
+        \item Compute $\ker(\epsilon_{1+i})$, $\operatorname{im}(\epsilon_{1+i})$ and state the conclusion of the First Isomorphism Theorem applied to $\epsilon_{1+i}$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}[\sqrt{2}]=\{a+b\sqrt{2} \mid a,b\in \mathbb{Z}\}$, and let $R\subset \operatorname{M}_2(\mathbb{Z})$ be the ring of all $2\times 2$ matrices of the form $\begin{bmatrix} a & b \\ 2b & a\end{bmatrix}$. Prove that $\mathbb{Z}[\sqrt{2}]$ is isomorphic to $R$.
+    \end{exercise}
+    
+    \newpage
+    \begin{exercise}
+    Let $f(x)=x^3+x+1\in \mathbb{Z}_5[x]$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $f(x)$ is irreducible.
+        \item Prove that $\langle f(x)\rangle$ is a maximal ideal.
+        \item Determine the cardinality of $\mathbb{Z}_5[x]/\langle f(x)\rangle$ and justify.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    \begin{enumerate}[label=(\alph*)]
+        \item Write down an irreducible cubic polynomial over $\mathbb{F}_2$.
+        \item Construct a field with exactly 8 elements and write its multiplication table.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\varepsilon:\mathbb{R}[x]\to \mathbb{C}$ be evaluation at $i$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $\ker(\varepsilon)=(x^2+1)\subseteq \mathbb{R}[x]$.
+        \item Prove that $(x^2+1)$ is a maximal ideal in $\mathbb{R}[x]$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}[i]=\{a+bi \mid a,b\in \mathbb{Z},\, i^2=-1\}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove there is no ring homomorphism $\mathbb{Z}[i]\to \mathbb{Z}_{19}$, but there is one to $\mathbb{Z}_{13}$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}_n$ be integers modulo $n$, and consider the ring homomorphism
+    \[
+        \mathbb{Z}_{28} \to \mathbb{Z}_4 \times \mathbb{Z}_7, \quad [m]_{28} \mapsto ([m]_4,[m]_7),
+    \]
+    which is an isomorphism by the Chinese Remainder Theorem. Let $\mathbb{Z}_n^\times$ denote the group of units. Prove that $\mathbb{Z}_{28}^\times \cong \mathbb{Z}_4^\times \times \mathbb{Z}_7^\times$.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $k\subset K$ be fields, and $k[X]$ the polynomial ring. The \textbf{evaluation} at $z\in K$ is $\varepsilon:k[X]\to K$, $\varepsilon(f(X))=f(z)$. Prove that if $\varepsilon$ is not injective, then $\varepsilon(k[X])$ is a field.
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $i$ be the imaginary unit, $\mathbb{Z}[i]$ the Gaussian integers, and $\mathbb{Z}_2$ the finite field with two elements.
+    \begin{enumerate}[label=(\alph*)]
+        \item Define a ring homomorphism $\mathbb{Z}[i]\to \mathbb{Z}_2$ and prove it is a homomorphism.
+        \item Find a generator for the kernel of your homomorphism with proof.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}[i]$ be the Gaussian integers.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove there exists a nonzero ring homomorphism $\mathbb{Z}[i]\to \mathbb{Z}_5$.
+        \item Compute the kernel explicitly and state the conclusion given by the First Isomorphism Theorem. (\textit{Hint: The kernel requires two generators.})
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}_2[x]/\langle x^3+x+1\rangle$ be a field of 8 elements with natural projection $\pi:\mathbb{Z}_2[x]\to \mathbb{Z}_2[x]/\langle x^3+x+1\rangle$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Write down eight distinct coset representatives.
+        \item Determine the multiplicative inverse of $\pi(x)$ in terms of your coset representatives.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{F}_9$ be the field of nine elements.
+    \begin{enumerate}[label=(\alph*)]
+        \item Show that each nonzero $a\in \mathbb{F}_9$ is a root of $X^3-1=(X-1)(X^2+1)(X^4+1)\in \mathbb{F}_3[X]$.
+        \item Use the Pigeonhole Principle to prove that $\mathbb{F}_9$ has an element of multiplicative order 8, including a justification for applying the principle.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\mathbb{Z}[X]$ be the ring of polynomials with integer coefficients, and let $K\subset \mathbb{Z}[X]$ be the kernel of the ``evaluation at 1'' map.
+    \end{exercise}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Linear Algebra}
+\markboth{Linear Algebra}{Pool Problems}
+    \section*{\S\ Pool Problems}
+    \begin{exercise}
+        \phantom{a}
+        \begin{enumerate}[label=(\alph*)]
+            \item Give an explicit example (with proof) showing that the union of two subspaces (of a given vector space) is not necessarily a subspace.
+            \item Suppose $U_1$ and $U_2$ are subspaces of a vector space $V$. Recall that their \textbf{sum} is defined to be the set $U_1+U_2 = \left\{ u_1 + u_2 \mid u_1 \in U_1, u_2 \in U_2 \right\}$. Prove $U_1 + U_2$ is a subspace of $V$ containing $U_1$ and $U_2$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $F$ is a field and $A$ is an $n\times n$ matrix over $F$. Suppose further that $A$ possesses distinct eigenvalues $\lambda_1$ and $\lambda_2$ with $\dim \operatorname{Null}(A-\lambda_1 I_n)=n-1$. Prove $A$ is diagonalizable.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $\phi: V \to W$ be a surjective linear transformation of finite-dimensional linear spaces. Show that there is a $U \subseteq V$ such that $V = \ker(\phi) \oplus U$ and $\phi\mid_U : U \to W$ is an isomorphism. (Note that $V$ is not assumed to be an inner-product space; also note that $\ker(\phi)$ is sometimes referred to as the \textbf{null space} of $\phi$; finally, $\phi\mid_U$ denotes the restriction of $\phi$ to $U$.)
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $V$ is a finite-dimensional real vector space and $T: V \to V$ is a linear transformation. Prove that $T$ has at most $\dim(\operatorname{range} \, T)$ distinct nonzero eigenvalues.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $T: V \to V$ be a linear transformation on a finite-dimensional vector space. Prove that if $T^2 = T$, then
+        \[
+        V = \ker(T) \oplus \operatorname{im}(T).
+        \]
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $\mathbb{R}^3$ denote the $3$-dimensional vector space, and let $\mathbf{v}=(a,b,c)$ be a fixed nonzero vector. The maps $C: \mathbb{R}^3 \to \mathbb{R}^3$ and $D: \mathbb{R}^3 \to \mathbb{R}^3$ defined by $C(\mathbf{w}) = \mathbf{v} \times \mathbf{w}$ and $D(\mathbf{w}) = (\mathbf{v} \cdot \mathbf{w}) \mathbf{v}$ are linear transformations.
+        \begin{enumerate}[label=(\alph*)]
+            \item Determine the eigenvalues of $C$ and $D$.
+            \item Determine the eigenspaces of $C$ and $D$ as subspaces of $\mathbb{R}^3$, in terms of $a, b, c$.
+            \item Find a matrix for $C$ with respect to the standard basis.
+        \end{enumerate}
+        Show all work and explain reasoning.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $A$ is a real $n \times n$ matrix that satisfies $A^2 \mathbf{v} = 2 A \mathbf{v}$ for every $\mathbf{v} \in \mathbb{R}^n$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Show that the only possible eigenvalues of $A$ are 0 and 2.
+            \item For each $\lambda \in \mathbb{R}$, let $E_\lambda$ denote the $\lambda$-eigenspace of $A$, i.e., $E_\lambda = \{ \mathbf{v} \in \mathbb{R}^n \mid A \mathbf{v} = \lambda \mathbf{v} \}$. Prove that $\mathbb{R}^n = E_0 \oplus E_2$. (\textit{Hint:} For every vector $\mathbf{v}$ one can write $\mathbf{v} = (\mathbf{v} - \frac{1}{2} A \mathbf{v}) + \frac{1}{2} A \mathbf{v}$.)
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $T: \mathbb{R}^n \to \mathbb{R}^n$ is a linear transformation with distinct eigenvalues $\lambda_1, \lambda_2, \ldots, \lambda_m$, and let $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_m$ be corresponding eigenvectors. Prove $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_m$ are linearly independent.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $S: V \to V$ and $T: V \to V$ be linear transformations that commute, i.e., $S \circ T = T \circ S$. Let $\mathbf{v} \in V$ be an eigenvector of $S$ such that $T(\mathbf{v}) \ne 0$. Prove that $T(\mathbf{v})$ is also an eigenvector of $S$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $A$ is a $5 \times 5$ matrix and $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ are eigenvectors of $A$ with distinct eigenvalues. Prove $\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\}$ is a linearly independent set. \textit{Hint:} Consider a minimal linear dependence relation.
+        \end{exercise}
+        
+        \begin{exercise}
+        Suppose $V$ is a vector space, and $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n$ are in $V$. Prove that either $\mathbf{v}_1, \ldots, \mathbf{v}_n$ are linearly independent, or there exists a number $k \le n$ such that $\mathbf{v}_k$ is a linear combination of $\mathbf{v}_1, \ldots, \mathbf{v}_{k-1}$.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $M_4(\mathbb{R})$ denote the 16-dimensional real vector space of $4 \times 4$ matrices with real entries, in which the vectors are represented as matrices. Let $T: M_4(\mathbb{R}) \to M_4(\mathbb{R})$ be the linear transformation defined by $T(A) = A - A^\top$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Determine the dimension of $\operatorname{ker}(T)$.
+            \item Determine the dimension of $\operatorname{im}(T)$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $A$ be a real $n \times n$ matrix and let $A^\top$ denote its transpose.
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that $(A \mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot (A^\top \mathbf{w})$ for all vectors $\mathbf{v}, \mathbf{w} \in \mathbb{R}^n$. \textit{Hint:} Recall that the dot product $\mathbf{u} \cdot \mathbf{v}$ equals the matrix product $\mathbf{u}^\top \mathbf{v}$.
+            \item Suppose now $A$ is also symmetric, i.e., that $A^\top = A$. Also suppose $\mathbf{v}$ and $\mathbf{w}$ are eigenvectors of $A$ with different eigenvalues. Prove that $\mathbf{v}$ and $\mathbf{w}$ are orthogonal.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        A real $n \times n$ matrix $A$ is called \textbf{skew-symmetric} if $A^\top = -A$. Let $V_n$ be the set of all skew-symmetric matrices in $\operatorname{M}_n(\mathbb{R})$. Recall that $\operatorname{M}_n(\mathbb{R})$ is an $n^2$-dimensional $\mathbb{R}$-vector space with standard basis $\{ e_{ij} \mid 1 \le i,j \le n\}$, where $e_{ij}$ is the $n \times n$ matrix with a 1 in the $(i,j)$-position and zeros everywhere else.
+        \begin{enumerate}[label=(\alph*)]
+            \item Show $V_n$ is a subspace of $\operatorname{M}_n(\mathbb{R})$.
+            \item Find an ordered basis $\mathcal{B}$ for the space $V_3$ of all skew-symmetric $3 \times 3$ matrices.
+        \end{enumerate}
+        \end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{\S\ Template Problems}
+\markboth{Linear Algebra}{Template Problems}
+\begin{exercise}
+    Let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the linear transformation that rotates counterclockwise around the $z$-axis by $\frac{2\pi}{3}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Write the matrix for $T$ with respect to the standard basis $\left\{\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 1 \\ 0\end{bmatrix},\begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}\right\}$.
+        \item Write the matrix for $T$ with respect to the basis $\left\{\begin{bmatrix} \frac{\sqrt{3}}{2} \\ -\frac{1}{2} \\ 0 \end{bmatrix},\begin{bmatrix} 0 \\ 1 \\ 0\end{bmatrix},\begin{bmatrix} 0 \\ 0 \\ 1\end{bmatrix}\right\}$.
+        \item Determine all (complex) eigenvalues of $T$.
+        \item Is $T$ diagonalizable over $\mathbf{C}$? Justify your answer.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $V$ denote the real vector space of polynomials in $x$ of degree at most 3. Let $\mathcal{B}=\{1, x, x^2, x^3\}$ be a basis for $V$ and $T:V\to V$ be the function defined by $T(f(x))=f(x)+f'(x)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $T$ is a linear transformation.
+        \item Find $[T]_{\mathcal{B}}$, the matrix representation for $T$ in terms of the basis $\mathcal{B}$.
+        \item Is $T$ diagonalizable? If yes, find a matrix $A$ so that $A[T]_{\mathcal{B}}A^{-1}$ is diagonal; otherwise explain why $T$ is not diagonalizable.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $\operatorname{M}_n(\mathbf{R})$ be the vector space of all $n \times n$ matrices with real entries. We say that $A, B \in \operatorname{M}_n(\mathbf{R})$ commute if $AB = BA$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Fix $A \in \operatorname{M}_n(\mathbf{R})$. Prove that the set of all matrices in $\operatorname{M}_n(\mathbf{R})$ that commute with $A$ is a subspace of $\operatorname{M}_n(\mathbf{R})$.
+        \item Let $A=\begin{bmatrix} 1 & 1 \\ 1 & 1  \end{bmatrix}\in \operatorname{M}_2(\mathbf{R})$ and let $W\subseteq \operatorname{M}_2(\mathbf{R})$ be the subspace of all matrices that commute with $A$. Find a basis of $W$. 
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $V\subset \mathbf{R}^5$ be the subspace defined by the equation
+    \[
+    x_1-2x_2+3x_3-4x_4+5x_5=0.
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Find (with justification) a basis for $V$.
+        \item Find (with justification) a basis for $V^{\perp}$, the subspace of $\mathbf{R}^5$ orthogonal to $V$ under the usual dot product.
+    \end{enumerate}
+    \end{exercise}
+    
+    \newpage
+    \begin{exercise}
+    Let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the linear transformation defined by
+    \[
+    T\left(\begin{bmatrix} x \\ y \\ z\end{bmatrix}\right) = \begin{bmatrix} x+y \\ 2z-x \\ y+2z\end{bmatrix}.
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Find the matrix that represents $T$ with respect to the standard basis for $\mathbf{R}^3$.
+        \item Find a basis for the kernel of $T$.
+        \item Determine the rank of $T$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $A=\begin{bmatrix} 0 & 0 & -2 \\ 1 & 2 & 1 \\ 1 & 0 & 3\end{bmatrix}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Determine whether $A$ is diagonalizable, and if so, give its diagonal form along with a diagonalizing matrix.
+        \item Compute $A^{42}$. Remember to show all work.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $A=\begin{bmatrix} 2 & -1 & -1 \\ 1 & 0 & -1 \\ 1 & -1 & 0\end{bmatrix}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Compute the characteristic polynomial $p_A(x)$ of $A$.
+        \item For each eigenvalue $\lambda$ of $A$, find a basis for the eigenspace $E_{\lambda}$.
+        \item Determine if $A$ is diagonalizable. If so, give matrices $P$ and $B$ such that $P^{-1}AP=B$ and $B$ is diagonal. If no, explain carefully why $A$ is not diagonalizable.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $A=\begin{bmatrix} 6 & -2 & -1 \\ 10 & -3 & -2 \\ 0 & 0 & 1\end{bmatrix}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Find bases for the eigenspaces of $A$.
+        \item Determine if $A$ is diagonalizable. If so, give an invertible matrix $P$ and diagonal matrix $D$ such that $P^{-1}AP=D$. If not, explain why not.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $W\subset \mathbf{R}^5$ be the subspace spanned by the set of vectors $$\{\langle 1,-2,0,2,-1\rangle,\langle -2,4,-1,1,2\rangle,\langle 0,1,2,-2,1\rangle\}.$$
+    \begin{enumerate}[label=(\alph*)]
+        \item Compute the dimension of $W$.
+        \item Determine the dimension of $W^\perp$, the perpendicular subspace in $\mathbf{R}^5$.
+        \item Find a basis for $W^\perp$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \newpage
+    \begin{exercise}
+    Let $P_3$ be the real vector space of all real polynomials of degree three or less. Define $L:P_3\to P_3$ by $L(p(x))=p(x)+p(-x)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove $L$ is a linear transformation.
+        \item Find a basis for the null space of $L$.
+        \item Compute the dimension of the image of $L$.
+    \end{enumerate}
+    \end{exercise}
+    
+    \begin{exercise}
+    Let $V=\{a_0+a_1\sqrt[3]{2}+a_2\sqrt[3]{4}\mid a_0, a_1, a_2\in \mathbf{Q}\}\subseteq \mathbf{R}$. This set is a vector space over $\mathbf{Q}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Verify $V$ is closed under product (using the usual product operation in $\mathbf{R}$).
+        \item Let $T:V\to V$ be the linear transformation defined by $T(v)=(\sqrt[3]{2}+\sqrt[3]{4}) v$. Find the matrix that represents $T$ with respect to the basis $\{1,\sqrt[3]{2},\sqrt[3]{4}\}$ for $V$.
+        \item Determine the characteristic polynomial for $T$.
+    \end{enumerate}
+    \end{exercise}
+
+    \begin{exercise}
+        Suppose $\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$ is a basis for $\mathbf{R}^3$ and $T:\mathbf{R}^3\to \mathbf{R}^3$ is a linear transformation satisfying
+        \[
+        T(\mathbf{v}_1) = 4\mathbf{v}_1+2\mathbf{v}_2,\quad
+        T(\mathbf{v}_2) = 5\mathbf{v}_2,\quad
+        T(\mathbf{v}_3) = -2\mathbf{v}_1+4\mathbf{v}_2+5\mathbf{v}_3.
+        \]
+        Determine the eigenvalues of $T$ and find a basis for each eigenspace.
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $W\subset \mathbf{R}^5$ be the space spanned by the vectors
+        \[
+        \left\{\begin{bmatrix} 1 \\ -2 \\ 0 \\ 2 \\ 1 \end{bmatrix},\begin{bmatrix} -2 \\ 4 \\ -1 \\ 1 \\ 2\end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 2 \\ -2 \\1\end{bmatrix}\right\}.\]
+
+        \begin{enumerate}[label=(\alph*)]
+            \item Compute the dimension of $W$.
+            \item Let $W^{\perp}=\{\mathbf{v}\in \mathbf{R}^5\mid \mathbf{v}\cdot \mathbf{w}=0 \text{ for all } \mathbf{w}\in W\}$. Determine the dimension of $W^{\perp}$, and explain why this follows immediately from (a) using a theorem.
+            \item Find a basis for $W^{\perp}$.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $L$ be the line in $\mathbf{R}^2$ defined by $y=-3x$, and let $T:\mathbf{R}^2\to \mathbf{R}^2$ be the linear transformation that orthogonally projects onto $L$ and then stretches along $L$ by a factor of two.
+        \begin{enumerate}[label=(\alph*)]
+            \item Find the eigenvalues and an eigenbasis $\mathcal{B}$ for $T$.
+            \item Determine the matrix for $T$ with respect to the basis $\mathcal{B}$.
+            \item Determine the matrix for $T$ with respect to the standard basis.
+        \end{enumerate}
+        \end{exercise}
+        
+        \newpage
+        \begin{exercise}
+        Let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the orthogonal projection to a $1$-dimensional linear subspace $L\subset \mathbf{R}^3$.
+        \begin{enumerate}[label=(\alph*)]
+            \item List the eigenvalues of $T$.
+            \item Write the characteristic polynomial $p_T(x)$ for $T$.
+            \item Is $T$ diagonalizable? Justify your answer.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $L$ be the line parameterized by $L(t)=(2t,-3t,t)$ for $t\in \mathbf{R}$, and let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the linear transformation that is orthogonal projection onto $L$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Describe $\operatorname{ker}(T)$ and $\operatorname{im}(T)$, either implicitly (using equations in $x,y,z$) or parametrically.
+            \item List the eigenvalues of $T$ and their geometric multiplicities.
+            \item Find a basis for each eigenspace of $T$.
+            \item Let $A$ be the matrix for $T$ with respect to the standard basis. Find a diagonal matrix $B$ and an invertible matrix $S$ such that $B=S^{-1}AS$. (You do not have to compute $A$.)
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $T:\mathbf{R}^4\to \mathbf{R}^4$ be orthogonal projection to the $2$-dimensional plane $P$ spanned by the vectors $\mathbf{v}=(2,0,1,0)$ and $\mathbf{w}=(-1,0,2,0)$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Find (with proof) all eigenvalues and eigenvectors, along with their geometric and algebraic multiplicities.
+            \item Find the matrix representing $T$ with respect to the standard basis. Is this matrix diagonalizable? Why or why not?
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $a, b \in \mathbf{R}$ and $T: \mathbf{R}^3 \to \mathbf{R}^3$ be the linear transformation that is orthogonal projection onto the plane $z=ax+by$ (with respect to the usual Euclidean inner-product on $\mathbf{R}^3$).
+        \begin{enumerate}[label=(\alph*)]
+            \item Find the eigenvalues of $T$ and bases for the corresponding eigenspaces.
+            \item Is $T$ diagonalizable? Justify.
+            \item What is the characteristic polynomial of $T$?
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the orthogonal projection onto the plane $z=x+y$, with respect to the standard Euclidean inner product.
+        \begin{enumerate}[label=(\alph*)]
+            \item Write the matrix representation of $T$ with respect to the standard basis.
+            \item Is $T$ diagonalizable? Justify your answer.
+        \end{enumerate}
+        \end{exercise}
+        \newpage
+        
+        \begin{exercise}
+        Let $T:\mathbf{R}^3\to \mathbf{R}^3$ be the linear transformation that expands radially by a factor of three around the line parameterized by $L(t)=\begin{bmatrix} 2 \\ 2 \\ -1\end{bmatrix} t$, leaving the line itself fixed.
+        \begin{enumerate}[label=(\alph*)]
+            \item Find an eigenbasis for $T$ and provide the matrix representation of $T$ with respect to that basis.
+            \item Provide the matrix representation of $T$ with respect to the standard basis.
+        \end{enumerate}
+        \end{exercise}
+        
+        \begin{exercise}
+        Let $a,b\in \mathbf{R}$ and $T:\mathbf{R}^3\to \mathbf{R}^3$ be the linear transformation which is reflection across the plane $z=ax+by$.
+        \begin{enumerate}[label=(\alph*)]
+            \item Find the eigenvalues of $T$ and for each find a basis for the corresponding eigenspace.
+            \item Is $T$ diagonalizable? Justify.
+            \item What is the characteristic polynomial of $T$?
+            \item What is the minimal polynomial of $T$?
+        \end{enumerate}
+        \end{exercise}
+        
+    
+        
+            
+            
+        
+
+    
+        
+    
+
+
+
+\end{document}
+

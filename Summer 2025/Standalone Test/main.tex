@@ -1,0 +1,20 @@
+\documentclass[preview, border=10pt]{standalone}
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/preamble.tex}
+
+\begin{document}
+    \begin{definition}
+        A zero of a continuous function is called \textit{isolated} if there exists an open set containing that zero but no others zeros of $f$.
+    \end{definition}
+    \begin{proposition}
+        If $f:[0,1] \rightarrow \bfR$ is continuous and all of its zeros are isolated, show that $f$ has only finitely many zeros on $[0,1]$.
+    \end{proposition}
+        \begin{proof}
+            This statement is equivalent to the following: if $f$ has infinitely many zeros on $[0,1]$, then $f$ being continuous implies there exists a zero which is not isolated.
+            
+            \h9 Let $\{x_i\}_{i \in I} \subseteq [0,1]$ be an infinite family of zeros of $f$. Since this set is bounded, by the Bolzano-Weierstrass theorem there exists a convergent sequence $(x_n)_n$, where $x_n \in \{x_i\}_{i \in I}$ for each $n \geq 1$. Define $x_0 := \limit_{n \rightarrow \infty}x_n$. Since $f$ is continuous, $(x_n)_n \rightarrow x_0$ implies $(f(x_n))_n \rightarrow f(x_0)$. But since $f(x_n) = 0$ for each $n$, it must be the case that $f(x_0) = 0$...
+        \end{proof}
+        
+        \noindent This is where I'm starting to have trouble. What would the negation of the definition of an isolated zero be? If $c$ is not isolated, does that mean for every open set containing $c$, there is another zero contained in the open set? \nl
+        
+        \noindent I'm also having trouble using the negation of this definition in my proof. If $(x_n)_n \rightarrow x_0$, then \textit{for every} neighborhood of $x_0$, call it $V$, there is some $N \in \bfN$ such that $x_N \in V$. Hence $x_N,x_0 \in V$. But $V$ isn't necessarily open!
+\end{document}

@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {2.5}Dual Spaces}{14}{section.2.5}%
 \contentsline {chapter}{\chapternumberline {3}Linear Transformations and Matrices}{17}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Choosing Coordinates}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Row Operations}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Row Operations}{23}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Column-space and Null-space}{25}{section.3.3}%
 \contentsline {section}{\numberline {3.4}The Transpose of a Matrix}{27}{section.3.4}%
 \contentsline {chapter}{\chapternumberline {4}Generalized Eigenvectors and Jordan Canonical Form}{29}{chapter.4}%

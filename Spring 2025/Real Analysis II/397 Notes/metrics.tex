@@ -256,7 +256,7 @@
             (3) If $N_1,N_2 \in \cN_x$, then there are open sets $U_1,U_2$ with $x \in U_1$, $x \in U_2$ and $U_1 \subseteq N_1 \subseteq X$, $U_2 \subseteq N_2 \subseteq X$. Whence $U_1 \cap U_2 \subseteq N_1 \cap N_2 \subseteq X$.
         \end{proof}
 
-    \begin{proposition}
+    \begin{proposition}\label{prop:partition-open}
         Let $U \subseteq \bfR$ be open. Then:
             \begin{equation*}
             \begin{split}
@@ -2089,7 +2089,7 @@
         $\bigl(([0,1],\lnorm \cdot \rnorm), \iota(t) = t\bigr)$ is a completion of $(0,1)$.
     \end{example}
 
-    \begin{lemma}
+    \begin{lemma}\label{lemma:isometry-closed}
         Let $f:(X,d) \rightarrow (Y,\rho)$ be an isometry between metric spaces. If $X$ is complete, then $f(X) \subseteq Y$ is closed. In particular, if $f(X)$ is dense, then $f$ is onto. 
     \end{lemma}
         \begin{proof}
@@ -2107,7 +2107,7 @@
                 \end{tikzcd}
         \end{center}
             \begin{proof}
-                Let $z \in Z$. Since $\iota(X)$ is dense in $Z$, there exists a sequence $(\iota(x_n))_n$ in $\iota(X)$ such that $(\iota(x_n))_n \rightarrow z$. It is clear that $(\iota(x_n))_n$ is $\rho$-Cauchy, and furthermore we have:
+                Let $z \in Z$. Since $\iota(X)$ is dense in $Z$, there exists a sequence $(\iota(x_n))_n$ in $\iota(X)$ such that $(\iota(x_n))_n \rightarrow z$. Then $(\iota(x_n))_n$ is $\rho$-Cauchy since it is convergent, and furthermore we have:
                     \begin{equation*}
                     \begin{split}
                         \rho'(\jota(x_n),\jota(x_m))
@@ -2115,7 +2115,7 @@
                         & = \rho(\iota(x_n),\iota(x_m)).
                     \end{split}
                     \end{equation*}
-                So if $(\iota(x_n))_n$ is $\rho$-Cauchy, then $(\jota(x_n))_n$ is $\rho'$-Cauchy. Since $\jota(X)$  is  complete, define $\varphi(z) := \limit_{n \rightarrow \infty}\jota(x_n)$.
+                So if $(\iota(x_n))_n$ is $\rho$-Cauchy in $Z$, then $(\jota(x_n))_n$ is $\rho'$-Cauchy in $Z'$. Since $\jota(X)$ is dense, the limit of this sequence is in $Z'$. Define $\varphi(z) := \limit_{n \rightarrow \infty}\jota(x_n)$.
 
                 We will show that $\varphi:Z \rightarrow Z'$ is well-defined, that is, it does not depend on our particular choice of sequence. Let $(y_n)$ be another sequence in $X$ with $(y_n)_n \rightarrow z$. We can see that:
                     \begin{equation*}
@@ -2135,7 +2135,7 @@
                         & \rightarrow 0.
                     \end{split}
                     \end{equation*}
-                Thus $(\jota(y_n))_n \rightarrow \varphi(z)$, so $\varphi$ is well-defined.
+                Thus $(\jota(y_n))_n \rightarrow \varphi(z)$. Since $\limit_{n \rightarrow \infty}\jota(x_n) = \limit_{n \rightarrow \infty}\jota(y_n)$, $\varphi$ is well-defined.
 
                 We will now show that $\varphi$ is an isometric isomorphism. Given $z_1,x_2 \in Z$, let $(\iota(x_n))_n \rightarrow z_1$ and $(\iota(y_n))_n \rightarrow z_2$, corresponding to $(\jota(x_n))_n \rightarrow \varphi(z_1)$ and $(\jota(y_n))_n \rightarrow \varphi(z_2)$. Observe that:
                     \begin{equation*}
@@ -2147,7 +2147,7 @@
                         & = \rho(z_1,z_2).
                     \end{split}
                     \end{equation*}
-                Since $\varphi$ is an isometry, it is injective. Clearly $\varphi \circ \iota = \jota$ holds, so we have $\jota(X) = \varphi(\iota(X)) \subseteq \varphi(Z)$. Then $Z' = \overline{\jota(X)}^\rho \subseteq \overline{\varphi(Z)}$. Since $Z$ is complete, by the previous lemma $\varphi(Z)$ is closed, whence $Z' \subseteq \overline{\varphi(Z)} = \varphi(Z)$. Thus $\varphi$ is onto.
+                Since $\varphi$ is an isometry, it is injective. Chasing the above diagram will yield $\varphi \circ \iota  = \jota$, so we have $\jota(X) = \varphi(\iota(X)) \subseteq \varphi(Z)$. Then $Z' = \overline{\jota(X)}^{\rho'} \subseteq \overline{\varphi(Z)}^{\rho'}$. Since $Z$ is complete, by Lemma~\ref{lemma:isometry-closed} the set $\varphi(Z)$ is closed, whence $Z' \subseteq \overline{\varphi(Z)}^{\rho'} = \varphi(Z)$. Thus $\varphi$ is onto.
 
                 It remains to show that $\varphi$ is unique. Let $\psi:Z \rightarrow Z'$ be another isometric isomorphism satisfying $\psi \circ \iota = \jota$. Given $z \in Z$, we can find a sequence $(\iota(x_n))_n$ in $\iota(X)$ such that $(\iota(x_n))_n \rightarrow z$. Observe that:
                     \begin{equation*}
@@ -2270,7 +2270,7 @@
                     & = i(v) + \alpha i(v').
                 \end{split}
                 \end{equation*}
-            With this fact, we can show that $W$ is a vector space \textemdash this is left as an exercise. Moreover, we have that $i(V) \subseteq W$ is a $\rho$-dense linear subspace\footnote{If $T:V \rightarrow W$ is injective, then $V \cong T(V)$}.
+            With this fact, we can show that $W$ satsifies all of the vector-space axioms \textemdash this is left as an exercise. Moreover, we have that $i(V) \subseteq W$ is a $\rho$-dense linear subspace\footnote{If $T:V \rightarrow W$ is injective, then $V \cong T(V)$}.
 
             It remains to show that $W$ is a normed space. Exactly as before, if $w \in W$, we can find a sequence $(i(v_n))_n$ in $i(V)$ converging to $w$. Since this sequence is Cauchy, observe that:
                 \begin{equation*}

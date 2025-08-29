@@ -3,14 +3,13 @@
 \vspace{12pt}
 \section{Choosing Coordinates}\label{sec:Choosing Coordinates}
     \begin{example}[Choosing Coordinates]
-        Let $V$ be an $F$-vector space with $\dim_F{(V)} < \infty$. Let $\cB = \{v_1,...,v_n\}$ be a basis for $V$. This basis fixes an isomorphism $V \cong F^n$. Let $v \in V$, write $v = \sum_{i = 1}^n a_i v_i$. 
+        Let $V$ be an $F$-vector space with $\dim_F(V) <\infty$. Let $\cB = \{v_1,...,v_n\}$ be a basis for $V$. This basis fixes an isomorphism $V \cong F^n$. We can see this as follows: let $v \in V$, then $v = \sum_{i = 1}^n a_i v_i$. Define $T_\cB :V \rightarrow F^n$ by:
             \begin{equation*}
             \begin{split}
-                \text{Define}\hspace{4pt} T_\cB(v) = \bmat a_1 \\ \vdots \\ a_n \emat \in F^n.
+                T_\cB(v) = \bmat a_1 \\ \vdots \\ a_n \emat \in F^n.
             \end{split}
             \end{equation*}
-        This is an isomorphism. Given $v \in V$, we write $[v]_\cB = T_\cB(v) = \pmat a_1 \\ \vdots \\ a_n \epmat$. We refer to this as \textit{choosing coordinates} on $V$.
-        asdf
+        This is an isomorphism. Given $v \in V$, we define $[v]_\cB := T_\cB(v)$. We refer to this as \textit{choosing coordinates} on $V$.
     \end{example}
 
     
@@ -25,13 +24,42 @@
             \end{equation*}
             Had we considered the standard basis $\cE_2 = \{\pmat 1 \\ 0 \epmat , \pmat 0 \\ 1 \epmat \}$, then $[v]_{\cE_2} = \pmat a \\ b \epmat$.
 
-            \item Let $V = P_2(\bfR)$. Let $\cC = \{1, (x-1), (x-1)^2 \}$. This forms a basis of $V$. Let $f(x) = a + bx + cx^2 \in P_2(\bfR)$. Written in terms of $\cC$, we have $f(x) = (a + b + c) + (b+2c)(x-1) + c(x-1)^2$.
+            \item Let $V = P_2(\bfR)$. Let $\cC = \{1, (x-1), (x-1)^2 \}$. This forms a basis of $V$. Let $f(x) = a + bx + cx^2 \in P_2(\bfR)$. Written in terms of $\cC$, we have $f(x) = (a + b + c) + (b+2c)(x-1) + c(x-1)^2$. Thus:
                 \begin{equation*}
                 \begin{split}
-                    \text{Thus} \hspace{4pt} [f(x)]_\cC = \bmat a+b+c \\ b+2c \\ c \emat
+                    [f(x)]_\cC = \bmat a+b+c \\ b+2c \\ c \emat
                 \end{split}
                 \end{equation*}
         \end{enumerate}
+    \end{example}
+
+    \begin{example}[Linear Transformations as Matrices]
+        Recall that given a matrix $A \in \Mat_{m,n}(F)$, we obtain a linear map $T_A \in \Hom_F{(F^n, F^m)}$ by $T_A(v) = Av$. We aim to show that this process "works in reverse" \textemdash given a linear transformation $T \in \Hom_F{(F^n,F^m)}$, we want to find a matrix $A$ so that $T = T_A$.
+
+        Let $\cE_n = \{e_1,...,e_n\}$ be the standard basis of $F^n$ and $\cF_n = \{f_1,...,f_n\}$ be the standard basis of $F^m$. We have that $T(e_j) \in F^m$ for each $j$. Hence $T(e_j) = v$ for some $v \in F^m$. Representing $v$ in terms of $\cF_n$, let $a_{1j},a_{2j},...,a_{mj}$ be the unique vectors such that $T(e_j) = \sum_{i = 1}^m a_{ij}f_i$. We obtain a matrix $(a_{ij}) := A \in \Mat_{m,n}(F)$, and furthermore:
+            \begin{equation*}
+            \begin{split}
+                T_A(e_j) = A e_j = \sum_{i = 1}^m a_{ij}f_i = a_{1j}f_1 + ... + a_{mj}f_m.
+            \end{split}
+            \end{equation*}
+            \begin{equation*}
+            \begin{split}
+                \bmat 
+                a_{11} & a_{12} & ... & ... &a_{1n} \\
+                \vdots & \ddots & & \\
+                \vdots & & \ddots & \\
+                \vdots & & & \ddots \\
+                a_{m1} & a_{m2} & ... & ... &a_{mn} \\
+                \emat
+                \bmat
+                0 \\ \vdots \\ 1_j \\ \vdots \\ 0 
+                \emat \hspace{4pt}=\hspace{4pt}
+                \bmat
+                a_{1j} \\ a_{2j} \\ a_{3j} \\ \vdots \\  a_{mj}
+                \emat
+            \end{split}
+            \end{equation*}
+        
     \end{example}
 
     \begin{example}[Linear Transformations as Matrices]\label{example:linear-transformations-as-matrices}

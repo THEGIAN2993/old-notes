@@ -1,0 +1,719 @@
+\documentclass[11pt,twoside,openany]{memoir}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\usepackage[fixamsmath]{mathtools}  % Extension to amsmath
+\usepackage{amsthm}
+\usepackage{amssymb}
+%\renewcommand*{\mathbf}[1]{\varmathbb{#1}}
+
+
+%fonts
+\usepackage{newpxtext,eulerpx,eucal}
+
+\usepackage{datetime}
+    \newdateformat{specialdate}{\THEYEAR\ \monthname\ \THEDAY}
+\usepackage[margin=1.5in]{geometry}
+\usepackage{fancyhdr}
+    \fancyhf{}
+    \pagestyle{fancy}
+    \cfoot{\scriptsize \thepage}
+    \fancyhead[R]{\scalebox{0.8}{Gianluca Crescenzo}}
+    \fancyhead[L]{\scalebox{0.8}{The Darboux Integral}}
+\usepackage{thmtools}
+    \declaretheoremstyle[
+        spaceabove=10pt,
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        notefont=\mdseries, notebraces={(}{)},
+        bodyfont=\normalfont,
+        postheadspace=0.5em
+        %qed=\qedsymbol
+        ]{defs}
+
+    \declaretheoremstyle[ 
+        spaceabove=10pt, % space above the theorem
+        spacebelow=10pt,
+        headfont=\normalfont\bfseries,
+        bodyfont=\normalfont\itshape,
+        postheadspace=0.5em
+        ]{thmstyle}
+    
+    \declaretheorem[
+        style=thmstyle,
+    ]{theorem}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{proposition}
+
+    \declaretheorem[
+        style=thmstyle,
+    ]{lemma}
+
+    \declaretheorem[
+        style=thmstyle,
+        sibling=theorem,
+    ]{corollary}
+
+    \declaretheorem[
+        style=defs,
+    ]{example}
+
+    \declaretheorem[
+        style=defs,
+    ]{definition}
+
+    \declaretheorem[
+        style=defs,
+        sibling=theorem,
+    ]{exercise}
+
+    \declaretheorem[
+        numbered=unless unique,
+        shaded={rulecolor=black,
+    rulewidth=1pt, bgcolor={rgb}{1,1,1}}
+    ]{axiom}
+
+    \declaretheorem[numberwithin=section,style=defs]{note}
+    \declaretheorem[numbered=no,style=defs]{question}
+    \declaretheorem[numbered=no,style=defs]{recall}
+    \declaretheorem[numbered=no,style=remark]{answer}
+    \declaretheorem[numbered=no,style=remark]{solution}
+    \declaretheorem[numbered=no,style=defs]{remark}
+\usepackage{enumitem}
+\usepackage{titlesec}
+    \titleformat{\chapter}[display]
+    {\bfseries\Huge\raggedright}
+    {Chapter {\thechapter}}
+    {1ex minus .1ex}
+    {\HUGE}
+    \titlespacing{\chapter}
+    {3pc}{*3}{40pt}[3pc]
+
+    \titleformat{\section}[block]
+    {\normalfont\bfseries\Large\centering}
+    {\S\ \thesection.}{.5em}{}[]
+    \titlespacing{\section}
+    {0pt}{3ex plus .1ex minus .2ex}{3ex plus .1ex minus .2ex}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wasysym}
+\linespread{1.00}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex}
+\begin{document}
+%This adds a "front cover" page.
+%{\thispagestyle{empty}
+%\vspace*{\fill}
+%\begin{tabular}{l}
+%\begin{tabular}{l}
+%\includegraphics[scale=0.24]{oxy-logo.png}
+%\end{tabular} \\
+%\begin{tabular}{l}
+%\Large \color{black} Module Theory, Linear Algebra, and Homological Algebra \\ \Large \color{black} Gianluca Crescenzo
+%\end{tabular}
+%\end{tabular}
+%\newpage
+
+\begin{abstract}
+    This is an outline of many results related to the Darboux integral. Included are basic definitions, the integrability of continuous and monotone functions, the fundamental theorem of calculus, and limits of integrable functions. The culmination of this paper is proving Arzela's Theorem, which is a special case of the Bounded Convergence Theorem for the Lebesgue integral.
+\end{abstract}
+
+\section*{\S\:\:Basic Definitions and Results}
+    \begin{definition}
+        Let $[a,b] \subseteq \bfR$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item A \textit{partition} $P$ of the interval $[a,b]$ is a finite set of points $\{x_0,...,x_n\} \subseteq [a,b]$ such that:
+                \begin{equation*}
+                \begin{split}
+                    a = x_0 < x_1 < ... , x_{n-1} < x_n = b.
+                \end{split}
+                \end{equation*}
+            The set of partitions of an interval $[a,b]$ is denoted $B_{[a,b]}$.
+            \item A refinement of a partition $P$ is a partition $Q$ such that $P \subset Q$. In this case, we say that $Q$ is \textit{finer} than $P$. Given two partitions $P_1,P_2 \subseteq [a,b]$, we call the union $P_1 \cup P_2$ their \textit{common refinement}.
+            \item The \textit{change in $x_i$} is denoted $\Delta x_i := x_{i} - x_{i-1}$.
+            \item The \textit{mesh} of a partition $P$ is denoted $\lnorm P \rnorm := \max_{i = 1}^n \Delta x_i$.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        Let $f:[a,b] \rightarrow \bfR$ be a bounded function and $P=\{x_0,...,x_n\}$ a partition of $[a,b]$. We define:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $M_j(f) = \sup_{x \in [x_{j-1},x_j]}f(x)$; and
+                \item $m_j(f) = \inf_{x \in [x_{j-1},x_j]}f(x)$.
+            \end{enumerate}
+        We call the numbers:
+            \begin{equation*}
+            \begin{split}
+                U(P,f) = \sum_{j = 1}^n M_j(f)\Delta x_j, \h9\h9 L(P,f) = \sum_{j = 1}^n m_j(f)\Delta x_j, 
+            \end{split}
+            \end{equation*}
+        the \textit{upper Darboux sum} and, respectively, the \textit{lower Darboux sum} of $f$ over the partition $P$.
+    \end{definition}
+
+    \iffalse
+    Since $f$ is defined on all of $[a,b]$, it is not necessary that we define $M_j(f)$ strictly between the partition which it was defined. It is sufficient to consider the closed set $[x_{j-1},x_j]$.
+    \fi
+
+    \begin{proposition}
+        The sets $\{U(P,f) \mid P \in B_{[a,b]}\}$ and $\{L(P,f) \mid P \in B_{[a,b]}\}$ are bounded subsets of $\bfR$.
+    \end{proposition}
+        \begin{proof}
+            Since $f$ is bounded, we can find $m,M \in \bfR$ such that $m  \leq f(x) \leq M$ for all $x \in [a,b]$. Then for any partition $P$ we have $m \leq m_j(f) \leq M_j(f) \leq M$ for all $j = 1,2,...,|P|-1$. Multiplying $\Delta x_j$ throughout gives:
+                \begin{equation*}
+                \begin{split}
+                    m \Delta x_j \leq  m_j(f)\Delta x_j \leq m_j(f)\Delta x_j \leq M\Delta x_j
+                \end{split}
+                \end{equation*}
+            Summing from $j = 1$ to $|P|-1$ gives:
+                \begin{equation*}
+                \begin{split}
+                    m (b-a) \leq  L(P,f) \leq U(P,f)\leq M(b-a).
+                \end{split}
+                \end{equation*}
+            Since $P$ was arbitrary, the above sets are bounded.
+        \end{proof}
+
+    \begin{proposition}\label{prop:2}
+        Let $P,Q \in B_{[a,b]}$. If $P \subset Q$, then $L(P,f) \leq L(Q,f)$ and $U(Q,f) \leq U(P,f)$.
+    \end{proposition}
+        \begin{proof}
+            Since $Q$ is obtained from $P$ by adding finitely many points, by induction, we only need to prove the case when $Q$ is obtained from $P$ by adding one extra point. Let:
+                \begin{equation*}
+                \begin{split}
+                    P &= \{x_0,x_1,...,x_{k-1},x_k,...,x_n\}, \\
+                    Q &= \{x_0,x_1,...,x_{k-1},y,x_k,...,x_n\},
+                \end{split}
+                \end{equation*}
+            where $x_{k-1} < y < x_k$. Observe that:
+                \begin{equation*}
+                \begin{split}
+                    L(P,f) 
+                    & = \sum_{j = 1}^n m_j(f)\Delta x_j \\
+                    & \leq \sum_{j = 1}^{k-1} m_j(f)\Delta x_j 
+                            + \inf_{x \in [x_{k-1},y]} f(x)(y - x_{k-1}) \\
+                    & \h9\h9\h9\h9\h9\h9 + \inf_{x \in [y,x_{k}]} f(x)(x_{k} - y) 
+                            + \sum_{j = k+1}^n m_j(f)\Delta x_j \\
+                    & = L(Q,f).
+                \end{split}
+                \end{equation*}
+            Furthermore, we have:
+                \begin{equation*}
+                \begin{split}
+                    U(Q,f) 
+                    & = \sum_{j = 1}^{k-1} M_j(f)\Delta x_j 
+                            + \sup_{x \in [x_{k-1},y]} f(x)(y - x_{k-1}) \\
+                    & \h9\h9\h9\h9\h9\h9 + \sup_{x \in [y,x_{k}]} f(x)(x_{k} - y) 
+                            + \sum_{j = k+1}^n m_j(f)\Delta x_j \\
+                \end{split}
+                \end{equation*}
+            Since $[x_{k-1},y] \subseteq [x_{k-1},x_k]$ and $[y,x_{k}] \subseteq [x_{k-1},x_k]$, clearly $\sup_{x \in [x_{k-1},y]} f(x) \leq M_k(f)$ and $\sup_{x \in [y,x_{k}]} f(x) \leq M_k(f)$. This gives:
+                \begin{equation*}
+                \begin{split}
+                    \sup_{x \in [x_{k-1},y]} f(x)(y - x_{k-1}) + \sup_{x \in [y,x_{k}]} f(x)(x_{k} - y)
+                    & \leq M_k(y-x_{k-1}) + M_k(x_k - y) \\
+                    & = M_k(x_k - x_{k-1}) \\
+                \end{split}
+                \end{equation*}
+            Thus $U(Q,f) \leq U(P,f)$.
+        \end{proof}
+
+    \begin{definition}
+        Let $f:[a,b] \rightarrow \bfR$ be a bounded function.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item The \textit{upper Darboux integral} of $f$ over $[a,b]$ is:
+                    \begin{equation*}
+                    \begin{split}
+                        \overline{\int_{a}^{b}}f dx :=\inf_{P \in B_{[a,b]}}U(P,f).
+                    \end{split}
+                    \end{equation*}
+                \item The \textit{lower Darboux integral} of $f$ over $[a,b]$ is:
+                \begin{equation*}
+                \begin{split}
+                    \underline{\int_{a}^{b}}f dx :=\sup_{P \in B_{[a,b]}}L(P,f).
+                    \end{split}
+                    \end{equation*}
+
+                \item We say that $f$ is \textit{Darboux integrable} on $[a,b]$ provided that:
+                    \begin{equation*}
+                    \begin{split}
+                        \overline{\int_{a}^{b}}f dx = \underline{\int_{a}^{b}}f dx .
+                    \end{split}
+                    \end{equation*}
+                In this case, the common value of the upper and lower Darboux integrals is called the \textit{Darboux integral} of $f$ over $[a,b]$ and is denoted:
+                    \begin{equation*}
+                    \begin{split}
+                        \int_a^b f dx.
+                    \end{split}
+                    \end{equation*}
+
+                \item The set of Darboux integrable functions on $[a,b]$ is denoted $\cR[a,b]$
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        Let $f:[0,1] \rightarrow \bfR$ be defined by:
+            \begin{equation*}
+            \begin{split}
+                f(x) = \begin{cases}
+                    0,& x\in [0,1]\setminus\bfQ \\
+                    1,& x\not\in[0,1]\setminus\bfQ.
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        Note that:
+            \begin{equation*}
+            \begin{split}
+                \underline{\int_{0}^1}f(x)dx 
+                & = \sup_{P \in B_{[0,1]}}L(P,f) \\
+                & = 1,
+            \end{split}
+            \end{equation*}
+        whilst:
+            \begin{equation*}
+            \begin{split}
+                \overline{\int_{0}^1}f(x)dx 
+                & = \inf_{P \in B_{[0,1]}}U(P,f) \\
+                & = 0.
+            \end{split}
+            \end{equation*}
+        Since $\underline{\int_{0}^1}f(x)dx \neq \overline{\int_{0}^1}f(x)dx$, $f$ is not Darboux integrable.
+    \end{example}
+
+    \begin{theorem}
+        A bounded function $f:[a,b] \rightarrow \bfR$ is Darboux integrable if and only if for all $\epsilon > 0$, there exists a partition $P \in B_{[a,b]}$ such that $U(P,f) - L(P,f) < \epsilon$.
+    \end{theorem}
+        \begin{proof}
+            ($\Rightarrow$) Let $\epsilon > 0$. Since $f$ is Darboux integrable, we have:
+                \begin{equation*}
+                \begin{split}
+                    \int_a^b f(x)dx = \overline{\int_a^b}f(x)dx = \inf_{P \in B_{[a,b]}}U(P,f).
+                \end{split}
+                \end{equation*}
+            By the "infimum property", there exists $P_1 \in B_{[a,b]}$ such that:
+                \begin{equation*}
+                \begin{split}
+                    \int_a^b f(x)dx \leq U(P_1,f) < \int_a^b f(x)dx + \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*}
+            Again, since $f$ is Darboux integrable we have:
+                \begin{equation*}
+                \begin{split}
+                    \int_a^b f(x)dx = \underline{\int_a^b}f(x)dx = \sup_{P \in B_{[a,b]}}L(P,f).
+                \end{split}
+                \end{equation*}
+            By the "supremum property", there exists $P_2 \in B_{[a,b]}$ such that:
+                \begin{equation*}
+                \begin{split}
+                    \int_a^b f(x)dx - \frac{\epsilon}{2} < L(P_1,f) \leq \int_a^b f(x)dx .
+                \end{split}
+                \end{equation*}
+            Let $P$ be the common refinement of $P_1$ and $P_2$. By Proposition~\ref{prop:2}, we have $L(P_2,f) \leq L(P,f)$ and $U(P,f) \leq U(P_1,f)$. With this we obtain:
+                \begin{equation*}
+                \begin{split}
+                    \int_a^b f(x)dx - \frac{\epsilon}{2} < L(P,f) \leq \int_a^b f(x)dx \leq U(P,f) < \int_a^b f(x)dx + \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*}
+            Rearranging terms gives the desired result of $U(P,f) - L(P,f) < \epsilon$.
+
+            ($\Leftarrow$) Let $\epsilon > 0$. By our hypothesis, we can find a partition $P$ such that $U(P,f) - L(P,f) < \epsilon$. Since $\overline{\int_a^b}f(x)dx \leq U(P,f)$ and $L(P,f) \leq \underline{\int_a^b}f(x)dx$, we have:
+                \begin{equation*}
+                \begin{split}
+                    \overline{\int_a^b}f(x)dx - \underline{\int_a^b}f(x)dx 
+                    & \leq U(P,f) - L(P,f) < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $\overline{\int_a^b}f(x)dx = \underline{\int_a^b}f(x)dx$; i.e., $f$ is Darboux integrable. 
+        \end{proof}
+
+    \begin{proposition}\label{prop:4}
+        The set $\cR[a,b]$ is an $\bfR$-vector space.
+    \end{proposition}
+        \begin{proof}
+            Instead of verifying all the vector space axioms for $\cR[a,b]$, we will use the fact that $\Bd([a,b])$ is an $\bfR$-vector space and show that $\cR[a,b]$ is a subspace. Note that $\cR[a,b] \neq \emptyset$, as it is intuitively obvious that the zero function is integrable. Let $f,g \in \cR[a,b]$ and $c \in \bfR$. We proceed by cases on $c$.
+            
+            Suppose $c > 0$. By our definitions of $M_j(f)$ and $m_j(f)$, we have:
+                \begin{equation*}
+                \begin{split}
+                    M_j(f+cg) &\leq M_j(f) + cM_j(g), \\
+                    m_j(f+cg) &\geq m_j(f) + cm_j(g).
+                \end{split}
+                \end{equation*}
+            So given a partition $Q$, we have:
+                \begin{equation*}
+                \begin{split}
+                    U(Q,f+cg)
+                    & = \sum_{j = 1}^{|Q|-1}M_j(f+cg)\Delta x_j \\
+                    & \leq \sum_{j = 1}^{|Q|-1}M_j(f)\Delta x_j+c\sum_{j = 1}^{|Q|-1}M_j(g)\Delta x_j \\
+                    & = U(Q,f) + cU(Q,g).
+                \end{split}
+                \end{equation*}
+            It follows similarly that $L(Q,f+cg) \geq L(Q,f) + cL(Q,g)$. Since $f \in \cR[a,b]$, there exists $P_1 \in B_{[a,b]}$ such that $U(P_1,f) - L(P_1,f) < \frac{\epsilon}{2}$. Since $g \in \cR[a,b]$, there exists $P_2 \in B_{[a,b]}$ such that $U(P_2,g) - L(P_2,g) < \frac{\epsilon}{2c}$. Let $P$ be the common refinement of $P_1$ and $P_2$. We have:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f+cg) - L(P,f+cg) 
+                    & \leq U(P,f) + cU(P,g) - L(P,f) - cL(P,g) \\
+                    & = \bigl(U(P,f) - L(P,f)\bigr) + c \bigl(U(P,g) - L(P,g)\bigr) \\
+                    & \leq \bigl(U(P_1,f) - L(P_1,f)\bigr) + \bigl(U(P_2,g) - L(P_2,g)\bigr) \\
+                    & < \frac{\epsilon}{2} + c\cdot\frac{\epsilon}{2c} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f+cg \in \cR[a,b]$ when $c > 0$. For $c = 0$, the claim is trivial. For $c < 0$, our definitions of $M_j(f)$ and $m_j(f)$ instead give:
+                \begin{equation*}
+                \begin{split}
+                    M_j(f + cg) &\leq M_j(f) + cm_j(g) \\
+                    m_j(f + cg) &\geq m_j(f) + cM_j(g).
+                \end{split}
+                \end{equation*}
+            Using a similar refinement argument as our $c > 0$ case, we lead to the conclusion that $f+cg \in \cR[a,b]$ for $c < 0$. Since $f+cg \in \cR[a,b]$ for all $c \in \bfR$, we have that $\cR[a,b]$ is a subspace of $\Bd\bigl([a,b]\bigr)$.
+        \end{proof}
+
+    \begin{corollary}***
+        Let $f,g \in \cR[a,b]$ and $c \in \bfR$. We have:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $\int_a^b cf(x)dx  = c \int_a^b f(x)dx$;
+                \item $\int_a^b \bigl(f(x) + g(x)\bigr)dx = \int_a^b f(x)dx + \int_a^b g(x)dx$.
+            \end{enumerate}
+    \end{corollary}
+        \begin{proof}
+            (1) For $c > 0$ we have:
+                    \begin{equation*}
+                    \begin{split}
+                        \int_a^bcf(x)dx
+                        & = \overline{\int_a^b}cf(x)dx \\
+                        & = \inf_{P \in B_{[a,b]}}U(P,cf) \\
+                        & = c\inf_{P \in B_{[a,b]}}U(P,f) \\
+                        & = c\overline{\int_a^b}f(x)dx \\
+                        & = c\int_a^bf(x)dx.
+                    \end{split}
+                    \end{equation*}
+                For $c < 0$ we have:
+                    \begin{equation*}
+                    \begin{split}
+                        \int_a^bcf(x)dx
+                        & = \overline{\int_a^b}cf(x)dx \\
+                        & = \inf_{P \in B_{[a,b]}}U(P,cf) \\
+                        & = \inf_{P \in B_{[a,b]}}cL(P,f) \\
+                        & = c\sup_{P \in B_{[a,b]}}L(P,f) \\
+                        & = c\underline{\int_a^b}f(x)dx \\
+                        & = c\int_a^bf(x)dx.
+                    \end{split}
+                    \end{equation*}
+        \end{proof}
+
+    
+    \begin{corollary}\label{cor:6}
+        Let $f,g \in \cR[a,b]$ and suppose $f(x) \leq g(x)$ for all $x \in [a,b]$. Then $\int_a^b f(x)dx \leq \int_a^b g(x)dx$.
+    \end{corollary}
+        \begin{proof}
+            Since $g$ and $f$ are integrable, by Proposition~\ref{prop:4}, the difference $g - f$ is also integrable. Moreover, since Darboux sums are greater than or equal to zero, we have $\int_a^b g(x) - f(x)dx \geq 0$. Again, by Proposition~\ref{prop:4}, $\int_a^b g(x) - f(x) dx = \int_a^b g(x)dx - \int_a^b f(x)dx \geq 0$, which establishes the claim. 
+        \end{proof}
+
+    \begin{corollary}
+        If $f \in \cR[a,b]$, then there exists $M \geq 0$ such that $\int_a^b f(x)dx \leq M(b-a)$.
+    \end{corollary}
+        \begin{proof}
+            Note that $\cR[a,b] \subseteq \Bd([a,b])$ is a subspace, hence $f$ is bounded. From this, there exists $M \geq 0$ such that $\sup_{x \in [a,b]}f(x) \leq M$. By Corollary~\ref{cor:6}, we have $\int_a^bf(x)dx \leq \int_a^b M dx = M(b-a)$. 
+        \end{proof}
+
+\section*{\S\:\:Conditions for Integrability}
+    \begin{theorem}\label{thm:cont-implies-inte}
+        Let $f:[a,b]\rightarrow \bfR$ be continuous. Then $f \in \cR[a,b]$.
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $f$ is continuous on $[a,b]$, it is uniformly continuous. Find $\delta > 0$ such that, for all $x,y \in [a,b]$, $|x-y| < \delta$ implies $|f(x) - f(y)| < \frac{\epsilon}{b-a}$. Let $P = \{x_0,...,x_n\}$ be a partition of $[a,b]$ such that $\lnorm P \rnorm < \delta$ \textemdash that is, for each $1 \leq i \leq n$ we have $x_i - x_{i-1} < \delta$. Now for each $1 \leq i \leq n$, $f$ is continuous on the closed intervals $[x_{i-1},x_i]$. By the Extreme Value Theorem, there exists $x_{M_i},x_{m_i} \in [x_{i-1},x_i]$ such that $\sup_{x \in [x_{i-1},x_i]}f(x) = f(x_{M_i})$ and $\inf_{x \in [x_{i-1},x_i]}f(x) = f(x_{m_i})$ for each $1 \leq i \leq n$. With this, observe that:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f) 
+                    & = \sum_{j = 1}^n \sup_{x \in [x_{j-1},x_j]}f(x)\Delta x_j - \sum_{j = 1}^n \inf_{x \in [x_{i-1},x_i]}f(x)\Delta x_j \\
+                    & = \sum_{j = 1}^n f(x_{M_j})\Delta x_j - \sum_{j = 1}^n f(x_{m_j})\Delta x_j \\
+                    & = \sum_{j=1}^n \bigl(f(x_{M_j}) - f(x_{m_j})\bigr)\Delta x_j.
+                \end{split}
+                \end{equation*}
+            Since $x_{M_j},x_{m_j} \in [x_{j-1},x_j]$, and since $\lnorm P \rnorm < \delta$, we have that $|x_{M_j} - x_{m_j}| < \delta$ for each $1 \leq j \leq n$. The uniform continuity of $f$ finally gives:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & = \sum_{j=1}^n \bigl(f(x_{M_j}) - f(x_{m_j})\bigr)\Delta x_j \\
+                    & < \sum_{j = 1}^n \frac{\epsilon}{b-a} \Delta x_j \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{theorem}
+        Let $f:[a,b] \rightarrow \bfR$ be monotone. Then $f \in \cR[a,b]$.
+    \end{theorem}
+        \begin{proof}
+            Without loss of generality, suppose $f$ is non-constant and non-decreasing on $[a,b]$. Let $\epsilon > 0$ and let $P = \{x_0,...,x_n\}$ be a partition of $[a,b]$ with $\lnorm P \rnorm < \frac{\epsilon}{f(b) - f(a)}$. Since $f$ is non-decreasing, note that for all $1 \leq j \leq n$ we have:
+                \begin{equation*}
+                \begin{split}
+                    M_j(f) & = \sup_{x \in [x_{j-1},x_j]}f(x) = f(x_j), \\
+                    m_j(f) & = \inf_{x \in [x_{j-1},x_j]}f(x) = f(x_{j-1}).
+                \end{split}
+                \end{equation*}
+            This gives:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & = \sum_{j = 1}^n M_j(f)\Delta x_j - \sum_{j = 1}^n m_j(f)\Delta x_j \\
+                    & = \sum_{j = 1}^n f(x_j)\Delta x_j - \sum_{j = 1}^n f(x_{j-1})\Delta x_j \\
+                    & = \sum_{j = 1}^n \bigl(f(x_j) - f(x_{j-1})\bigr)\Delta x_j.
+                \end{split}
+                \end{equation*}
+            Since $\lnorm P \rnorm < \frac{\epsilon}{f(b) - f(a)}$, this means $\Delta x_j < \frac{\epsilon}{f(b)-f(a)}$ for each $1 \leq j \leq n$. Finally:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & = \sum_{j = 1}^n \bigl(f(x_j) - f(x_{j-1})\bigr)\Delta x_j \\
+                    & < \frac{\epsilon}{f(b) - f(a)}\sum_{j = 1}^n \bigl(f(x_j) - f(x_{j-1})\bigr) \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{lemma}\label{lemma:1}
+        Let $[c,d] \subseteq [a,b] \subset \bfR$. If $f \in \cR[a,b]$, then $f \in \cR[c,d]$.
+    \end{lemma}
+        \begin{proof}
+            Let $\epsilon > 0$. Find $P \in B_{[a,b]}$ such that $U(P,f) - L(P,f) < \epsilon$. Let $P' = P \cup \{c,d\}$ and $P_1 = P' \cap [c,d]$. Note that $P'$ is a refinement of $P$, giving the inequality:
+                \begin{equation*}
+                \begin{split}
+                    U(P',f) - L(P',f) \leq U(P,f) - L(P,f)
+                \end{split}
+                \end{equation*}
+            Moreover, since $P_1$ is a partition of $[c,d] \subseteq [a,b]$, it must be the case that:
+                \begin{equation*}
+                \begin{split}
+                    U(P_1,f) - L(P_1,f) \leq U(P',f) - L(P',f).
+                \end{split}
+                \end{equation*}
+            Together:
+                \begin{equation*}
+                \begin{split}
+                    U(P_1,f) - L(P_1,f)
+                    & \leq U(P',f) - L(P',f) \\
+                    & \leq U(P,f) - L(P,f) \\
+                    & < \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[c,d]$.
+            \end{proof}
+
+    \begin{theorem}
+        Let $f:[a,b] \rightarrow \bfR$ and let $c \in (a,b)$. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $f \in \cR[a,b]$;
+                \item $f \in \cR[a,c]$ and $f \in \cR[c,b]$.
+            \end{enumerate}
+        Moreover, we have in this case that $\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx$.
+    \end{theorem}
+        \begin{proof}
+            ($\Rightarrow$) If $f \in \cR[a,b]$, apply Lemma~\ref{lemma:1} to $[a,c]$ and $[c,b]$. Then $f \in \cR[a,c]$ and $f \in \cR[c,b]$.
+
+            ($\Leftarrow$) Let $\epsilon > 0$. Since $f \in \cR[a,c]$, find a partition $P_1 \in B_{[a,c]}$ such that $U(P_1,f) - L(P_1,f) < \frac{\epsilon}{2}$. Since $f \in \cR[c,b]$, find a partition $P_2 \in B_{[c,b]}$ such that $U(P_2,f) - L(P_2,f) < \frac{\epsilon}{2}$. Let $P := P_1 \cup P_2$. Then $P \in B_{[a,]}$, and in particular we have:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) &= U(P_1,f) + U(P_2,f), \\
+                    L(P,f) &= L(P_1,f) + L(P_2,f).
+                \end{split}
+                \end{equation*}
+            From this, we can see:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & = U(P_1,f) + U(P_2,f) -L(P_1,f) - L(P_2,f) \\
+                    & = \bigl(U(P_1,f) -L(P_1,f) \bigr) + \bigl(U(P_2,f) -L(P_2,f) \bigr) \\
+                    & < \frac{\epsilon}{2}  + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[a,b]$.
+
+            Let $\epsilon$, $P$, $P_1$, and $P_2$ be given as above. From the inequalities:
+                \begin{equation*}
+                \begin{split}
+                    L(P_1,f) &\leq \int_a^c f(x)dx \leq U(P_1,f), \\
+                    L(P_2,f) &\leq \int_c^b f(x)dx \leq U(P_2,f), \\
+                    L(P,f) &\leq \int_a^b f(x)dx \leq U(P,f),
+                \end{split}
+                \end{equation*}
+            we obtain the following result:
+                \begin{equation*}
+                \begin{split}
+                    \left| \int_a^b f(x)dx - \left( \int_a^c f(x)dx - \int_c^b f(x)dx \right) \right| < \epsilon.
+                \end{split}
+                \end{equation*}
+            Hence $\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx$.
+            
+        \end{proof}
+
+    \begin{theorem}\label{thm:locally-inte}
+        Let $f:[a,b] \rightarrow \bfR$ be bounded. Suppose that for all $c \in (a,b)$, we have $f \in \cR[a,c]$. Then $f \in \cR[a,b]$.
+    \end{theorem}
+        \begin{proof}
+            Since $f$ is bounded, there exists $K \geq 0$ such that $\sup_{x \in [a,b]}|f(x)| \leq K$. Equivalently, for all $x \in [a,b]$, we have $-K < f(x) < K$. Hence $\sup_{x \in [a,b]}f(x) \leq K$ and $\inf_{x \in [a,b]} \geq -K$. Thus $\sup_{x \in [x_n,b]}f(x) - \inf_{x \in [x_n,b]}f(x) \leq K - (-K) = 2K$.
+            
+            Let $\epsilon > 0$. Pick $c$ sufficiently close to $b$ so that $b - c < \frac{\epsilon}{4K}$. Since $f \in \cR[a,c]$, find $P_1 \in B_{[a,c]}$ so that $U(P_1,f) - L(P_1,f) < \frac{\epsilon}{2}$. Suppose $P_1 = \{x_0,x_1,...,x_n\}$, where (by convention) $x_0 = a$ and $x_n = c$. Define $P := \{x_0,x_1,...,x_n,b\}$. Then $P$ is a partition of $[a,b]$, and we can see:
+                \begin{equation*}
+                \begin{split}
+                    \left(\sup_{x \in [x_n,b]}f(x) - \inf_{x \in [x_n,b]}f(x)\right)(b-c)
+                    & \leq 2K(b-c) \\
+                    & < \frac{\epsilon}{2}.
+                \end{split}
+                \end{equation*} 
+            This finally gives:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & = \left(U(P_1,f) + \sup_{x \in [x_n,b]}f(x)(b-c)\right) - \left(L(P_1,f) + \inf_{x \in [x_n,b]}f(x)(b-c)\right) \\
+                    & = \Bigl( U(P_1,f) - L(P_1,f) \Bigr) + \left(\sup_{x \in [x_n,b]}f(x) - \inf_{x \in [x_n,b]}f(x)\right)(b-c) \\
+                    & \leq \Bigl( U(P_1,f) - L(P_1,f) \Bigr) + 2K(b-c) \\
+                    & < \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{example}
+        Let $f:[0,1] \rightarrow \bfR$ be defined by:
+            \begin{equation*}
+            \begin{split}
+                f(x) =
+                \begin{cases}
+                    0, & x = 0 \\
+                    \sin \frac{1}{x}, & x \in (0,1].
+                \end{cases}
+            \end{split}
+            \end{equation*}
+        Since $f$ is continuous on $[c,1]$ for all $c > 0$, Theorem~\ref{thm:cont-implies-inte} gives that $f \in \cR[c,1]$. Then by Theorem~\ref{thm:locally-inte}, we have $f \in \cR[0,1]$.
+    \end{example}
+
+    \begin{theorem}\label{thm:composition-of-inte}
+        Let $[a,b] \subset \bfR$ and $f \in \cR[a,b]$. Suppose $\Image(f) \subset [c,d]$ and let $g:[c,d] \rightarrow \bfR$ be a continuous function. Then the composition $g \circ f \in \cR[a,b]$.
+    \end{theorem}
+        \begin{proof}
+            Let $\epsilon > 0$. Since $g$ is continuous on $[c,d]$, there exists $K \geq 0$ such that $\sup_{x \in [c,d]}|g(x)| \leq K$. Similarly, the continuity of $g$ on $[c,d]$ implies $g$ is uniformly continuous. So there exists $\delta \in \left(0, \frac{\epsilon}{b-a + 2K}\right)$ such that, for all $s,t \in [c,d]$, $|s-t| < \delta$ implies $|g(s)-g(t)| < \frac{\epsilon}{b-a + 2K}$.  Since $f \in \cR[a,b]$, there exists a partition $P = \{x_0,x_1,...,x_n\} \in B_{[a,b]}$ such that $U(P,f) - L(P,f) < \delta^2$. Write $\{1,2,...,n\} = A \cup B$, where $A := \{k \mid M_k - m_k < \delta\}$ and $B := \{k \mid M_k - m_k \geq \delta\}$. For $i \in A$, note that for every $x,y \in [x_{i-1},x_i]$ we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(x) - f(y)|
+                    & \leq M_i(f) - m_i(f) \\
+                    & < \delta.
+                \end{split}
+                \end{equation*}
+            Since $f(x),f(y) \in \Image(f) \subseteq [c,d]$, by the uniform continuity of $g$ it follows that $|g(f(x)) - g(f(y))| < \frac{\epsilon}{b-a + 2K}$. In particular:
+                \begin{equation*}
+                \begin{split}
+                    \sum_{i \in A}(M_i(g \circ f) - m_i(g \circ f))\Delta x_i 
+                    & = \sum_{i \in A}\left(\sup_{x,y \in [x_{i-1},x_i]}g(f(x)) - g(f(y))\right)\Delta x_i \\
+                    & \leq \frac{\epsilon}{b-a + 2K}\sum_{i \in A}\Delta x_i
+                \end{split}
+                \end{equation*}
+            For $i \in B$, note that:
+                \begin{equation*}
+                \begin{split}
+                    \delta\sum_{i \in B}\Delta x_i
+                    & \leq \sum_{i \in B}(M_i(f) - m_i(f))\Delta x_i \\
+                    & \leq U(P,f) - L(P,f) \\
+                    & < \delta^2.
+                \end{split}
+                \end{equation*}
+            Simplifying gives $\sum_{i \in B}\Delta x_i < \delta < \frac{\epsilon}{b-a + 2K}$. With all of this, and using the fact that $M_{i}(g \circ f) - m_i(g \circ f) \leq 2K$, we can see:
+                \begin{equation*}
+                \begin{split}
+                    U(P,g\circ f) - L(P, g \circ f)
+                    & = \sum_{i \in A}(M_i(g \circ f) - m_i(g \circ f))\Delta x_i + \sum_{i \in B}(M_i(g \circ f) - m_i(g \circ f))\Delta x_i\\
+                    & \leq \frac{\epsilon}{b-a + 2K}\sum_{i \in A}\Delta x_i + 2K \sum_{i \in B}\Delta x_i \\
+                    & \leq \frac{\epsilon}{b-a + 2K} (b-a) + 2K \delta \\
+                    & < \frac{\epsilon ( b-a)}{b-a + 2K} + \frac{2K \epsilon}{b-a + 2K} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $g \circ f \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{corollary}\label{cor:comp-props}
+        Let $f,g \in \cR[a,b]$. Then $f^2\in \cR[a,b]$, $|f| \in \cR[a,b]$, $\min\{f,g\} \in \cR[a,b]$, and $\max\{f,g\} \in \cR[a,b]$.
+    \end{corollary}
+        \begin{proof}
+            Simply take $g(x) = x^2$ or $g(x) = |x|$, then applying Theorem~\ref{thm:composition-of-inte} gives $|f|$ and $f^2$ as integrable. Moreover, since:
+                \begin{equation*}
+                \begin{split}
+                    \max\{f,g\} = \frac{1}{2}(f+g+|f-g|) \\
+                    \min\{f,g\} = \frac{1}{2}(f+g - |f-g|),
+                \end{split}
+                \end{equation*}
+            we have $\min\{f,g\} \in \cR[a,b]$ and $\max\{f,g\} \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{corollary}
+        Let $[a,b] \subset \bfR$. The set $\cR[a,b]$ is an $\bfR$-algebra.
+    \end{corollary}
+        \begin{proof}
+            Let $f,g \in \cR[a,b]$ and $c \in \bfR$. We showed in Proposition~\ref{prop:4} that $\cR[a,b]$ is an $\bfR$-vector space. We can write $fg = \frac{1}{2}((f+g)^2 - f^2 - g^2)$, hence by Corollary~\ref{cor:comp-props} we have $fg \in \cR[a,b]$.
+        \end{proof}
+
+    \begin{corollary}
+        Let $f \in \cR[a,b]$. Then $\left| \int_a^b f(x)dx \right| \leq \int_a^b |f(x)|dx$.
+    \end{corollary}
+        \begin{proof}
+            Corollary~\ref{cor:comp-props} proved that $|f| \in \cR[a,b]$, and we have for all $x \in [a,b]$ that $-|f(x)| \leq f(x) \leq |f(x)|$. Corollary~\ref{cor:6} gives $-\int_a^b |f(x)|dx \leq \int_a^b f(x)dx \leq \int_a^b|f(x)|dx$, whence $\left| \int_a^b f(x)dx \right| \leq \int_a^b |f(x)|dx$.
+        \end{proof}
+
+\section*{\S\:\:Integration and Differentiation}
+
+\section*{\S\:\:Limits of Darboux Integrable Functions}
+    \begin{example}
+        
+    \end{example}
+
+    \begin{proposition}
+        Let $(f_n)_n$ be a sequence in $\cR[a,b]^\bfN$ which converges uniformly to $f:[a,b] \rightarrow \bfR$. Then $f \in \cR[a,b]$.
+    \end{proposition}
+        \begin{proof}
+            We must first show that $f$ is bounded. Let $\epsilon = 1$. Since $(f_n)_n \rightarrow f$ uniformly, find $N$ sufficiently large so that $\lnorm f_N - f \rnorm < 1$. Note that $f_N \in \cR[a,b]$, hence it is bounded. This means there exists $M \geq 0$ such that $\lnorm f_N \rnorm \leq M$. Together, for all $x \in [a,b]$ we have:
+                \begin{equation*}
+                \begin{split}
+                    |f(x)| 
+                    &\leq |f_N(x)| - |f_N(x) - f(x)| \\
+                    & \leq \lnorm f_N \rnorm - \lnorm f_N - f \rnorm \\
+                    & < M - 1.
+                \end{split}
+                \end{equation*}
+            Thus $f$ is bounded.
+
+            Now let $\epsilon > 0$. Since $(f_n)_n \rightarrow f$ uniformly, find $N$ large so that $\lnorm f_N - f \rnorm < \frac{\epsilon}{3(b-a)}$. Since $f_N \in \cR[a,b]$, there exists $P \in B_{[a,b]}$ such that $U(P,f_N) - L(P,f_N) < \frac{\epsilon}{3}$. We can see that:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - U(P,f_N)
+                    & = \sum_{j = 1}^{|P| - 1}M_j(f)\Delta x_j - \sum_{j = 1}^{|P| - 1}M_j(f_N)\Delta x_j \\
+                    & = \sum_{j = 1}^{|P| - 1} \bigl(M_j(f) - M_j(f_N)\bigr)\Delta x_j \\
+                    & \leq \sum_{j = 1}^{|P| - 1} M_j(f - f_N)\Delta x_j \\
+                    & \leq \lnorm f - f_N \rnorm\sum_{j = 1}^{|P| - 1} \Delta x_j \\
+                    & = \lnorm f - f_N \rnorm(b-a) \\
+                    & < \frac{\epsilon}{3}.
+                \end{split}
+                \end{equation*}
+            It follows similarly that $L(P,f_N) - L(P,f) \leq \lnorm f - f_N \rnorm(b-a)$. Together:
+                \begin{equation*}
+                \begin{split}
+                    U(P,f) - L(P,f)
+                    & \leq |U(P,f) - L(P,f)| \\
+                    & \leq |U(P,f) - U(P,f_N)| + |U(P,f_N) - L(P,f_N)| + |L(P,f_N) - L(P,f)| \\
+                    & < \frac{2\epsilon}{3} + \frac{\epsilon}{3} \\
+                    & = \epsilon.
+                \end{split}
+                \end{equation*}
+            Thus $f \in \cR[a,b]$.
+        \end{proof}
+
+
+\end{document}

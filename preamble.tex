@@ -1,17 +1,18 @@
 \usepackage[T1]{fontenc}
-\usepackage{amsmath}
+\usepackage{amsmath,amsthm,amssymb}
 \usepackage[fixamsmath]{mathtools}  % Extension to amsmath
 \usepackage[cal=cm, scr=rsfs, frak=euler, bb=ams]{mathalpha}
-\usepackage{newpxtext,eulerpx,eucal} %font
-\usepackage{amsthm}
-\usepackage{amssymb}
 % Some standard theorem definitions
-\newtheorem{Theorem}{Theorem}
-\newtheorem{Proposition}{Theorem}
-\newtheorem{Lemma}[Theorem]{Lemma}
-\newtheorem{Corollary}[Theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\theoremstyle{definition}\newtheorem*{example}{Example}
+\theoremstyle{definition}\newtheorem*{exercise}{Exercise}
+\theoremstyle{definition}\newtheorem*{question}{Question}
+\theoremstyle{definition}\newtheorem*{definition}{Definition}
+\theoremstyle{remark}\newtheorem*{answer}{Answer}
+\theoremstyle{remark}\newtheorem*{solution}{Solution}
 
 \usepackage{enumitem}
 \usepackage[utf8x]{inputenc}
@@ -19,6 +20,7 @@
 \usepackage{tikz-cd}
 \usepackage{wasysym}
 \usepackage{cancel}
+\usepackage{lipsum}
 
 % Extras
 \usepackage{hwemoji}  % Support Unicode emojis
