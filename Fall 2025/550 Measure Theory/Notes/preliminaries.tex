@@ -1,0 +1,335 @@
+\chapter{Preliminaries}
+\pagenumbering{arabic}
+\section{Set Theory}
+
+    \begin{definition}
+        A \textit{set} (typically denoted with capital letters) is a collection of different things; the things are called \textit{elements} (typically denoted with lowercase letters) of the set.
+    \end{definition}
+
+    Zermelo–Fraenkel set theory introduces eight different axioms which mathematics builds upon. Below is an introduction to the ones which are relevant for the material covered in this course.
+
+    \begin{axiom}[Axiom of Extension]
+        If the sets $X$ and $Y$ have the same members, then they are the same set. In other words:
+            \begin{equation*}
+            \begin{split}
+                (\forall X)(\forall Y)\Bigl((\forall z)\bigl(z \in X \Leftrightarrow z \in Y\bigr) \implies X = Y\Bigr)
+            \end{split}
+            \end{equation*}
+    \end{axiom}
+
+    \begin{axiom}[Axiom of Existence]
+        There is a set such that no element is a member of it. In other words:
+            \begin{equation*}
+            \begin{split}
+                (\exists A):(\forall x)(x \not\in A)
+            \end{split}
+            \end{equation*}
+    \end{axiom}
+
+    Note that the Axiom of Extension immediately proves that the set which contains no elements is unique; two sets are equal if they have the same members, hence two sets which contain no elements are equal.
+
+    \begin{definition}
+        The set which contains no elements is called the \textit{empty set}, and is denoted by $\emptyset$.
+    \end{definition}
+
+    \begin{axiom}[Axiom of Pairing]
+        Let $A$ and $B$ be sets. There exists the set $\cC := \{A,B\}$. In other words:
+            \begin{equation*}
+            \begin{split}
+                (\forall A)(\forall B)(\exists \cC):(A \in \cC \land B \in \cC).
+            \end{split}
+            \end{equation*}
+    \end{axiom}
+
+    \begin{axiom}[Axiom of Union]
+        Let $\cC$ be a set. Then there exists a set $U$ consisting of the elements $x$ that are contained in at least one element of the set $\cC$, that is:
+            \begin{equation*}
+            \begin{split}
+                (\forall \cC)(\exists U):(\forall x)(x \in U \Leftrightarrow (\exists C)(u \in C \land C \in \cC))
+            \end{split}
+            \end{equation*}
+    \end{axiom}
+
+    \begin{definition}
+        Let $\cC$ be a set, and let $U$ be the set consisting of the elements $x$ that are contained in at least one element of $\cC$. 
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The set $U$ is called the \textit{union of the set $\cC$} and is denoted:
+                \begin{equation*}
+                \begin{split}
+                    U := \bigcup \cC.
+                \end{split}
+                \end{equation*}
+
+            \item If the set $\cC$ consists of only two sets $A$ and $B$, then we write $U:= A \cup B$.
+                \begin{center}
+                \begin{tikzpicture}
+                % Fill left circle
+                \fill[pattern=north east lines] (0,0) circle (1.5cm);
+                % Fill right circle
+                \fill[pattern=north east lines] (2,0) circle (1.5cm);
+
+                % Draw outlines
+                \draw[thick] (0,0) circle (1.5cm) node[left=1.6cm] {$A$};
+                \draw[thick] (2,0) circle (1.5cm) node[right=1.6cm] {$B$};
+
+                % Label
+                \node at (1,-2) {$A \cup B$};
+                \end{tikzpicture}
+                \end{center}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{axiom}[Axiom Schema of Specification]
+        Let $A$ be a set, and let $\varphi$ be a predicate containing the free variable $x$. There exists a subset $B$ of the set $A$ whose members are precisely the elements $x$ of the set $A$ such that the sentence $\varphi(x)$ is true. In other words:
+            \begin{equation*}
+            \begin{split}
+                (\forall A)(\forall \varphi)(\exists B):(B = \{x \in A \mid \varphi(x)\})
+            \end{split}
+            \end{equation*}
+    \end{axiom}
+
+    \begin{proposition}
+        Let $\cC$ be a nonempty set. There exists a set $D$ consisting of the elements $x$ that are contained in all elements of the set $\cC$.
+    \end{proposition}
+        \begin{proof}
+            Let $E \in \cC$. By the Axiom Schema of Specification we have $D := \{c \in E \mid (\forall X)(X \in \cC \Rightarrow c \in X)\}$.
+        \end{proof}
+
+    \begin{definition}
+        Let $\cC$ be a nonempty set, and let $D$ be the set consisting of the elements $x$ that are contained in all elements of the set $\cC$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item The set $D$ is called the \textit{intersection of the set $\cC$} and is denoted:
+                    \begin{equation*}
+                    \begin{split}
+                        D := \bigcap \cC.
+                    \end{split}
+                    \end{equation*}
+                \item If the set $\cC$ contains only two sets $A$ and $B$, then we write $D:= A \cap B$.
+                    \begin{center}
+                    \begin{tikzpicture}
+                    \draw[thick] (0,0) circle (1.5cm) node[left=1.6cm] {$A$};
+                    \draw[thick] (2,0) circle (1.5cm) node[right=1.6cm] {$B$};
+                    \begin{scope}
+                        \clip (0,0) circle (1.5cm);
+                        \fill[pattern=north east lines] (2,0) circle (1.5cm);
+                    \end{scope}
+                    \begin{scope}
+                        \clip (2,0) circle (1.5cm);
+                        \fill[pattern=north east lines] (0,0) circle (1.5cm);
+                    \end{scope}
+                    \node at (1,-2) {$A \cap B$};
+                    \end{tikzpicture}
+                    \end{center}
+            \end{enumerate}
+    \end{definition}
+
+    \begin{axiom}
+        Let $X$ be a set. Then the set of all subsets of $X$ exists.
+    \end{axiom}
+    
+    \begin{definition}
+        Let $X$ be a set. Then the set of all subsets of the set $X$ is called the \textit{power set of the set $X$} and is denoted $\cP(X)$.
+    \end{definition}
+
+    \begin{axiom}[Axiom of Infinity]
+        There is a set that contains all natural numbers.
+    \end{axiom}
+
+    \begin{definition}
+        An \textit{index set} is a nonempty set whose elements label the elements of another set. We denote the collection of objects labeled by elements of $I$ as $\{A_\alpha\}_{\alpha \in I}$.
+    \end{definition}
+
+    With this definition and the Axiom of Infinity, we can extend the concept of unions and intersections to families of sets of arbitrary size.
+
+    \begin{definition}
+        Let $I$ be an index set, let $\{X_\alpha\}_{\alpha \in I}$ be an indexed family of sets, and write $\cX := \{X_\alpha \mid \alpha \in I\}$. Define:
+            \begin{equation*}
+            \begin{split}
+                \bigcup_{\alpha \in I}X_i &:= \bigcup \cX, \\
+                \bigcap_{\alpha \in I}X_i &:= \bigcap \cX.
+            \end{split}
+            \end{equation*}
+    \end{definition}
+
+    \begin{definition}
+        Let $\{X_n\}_{n \in \bfN}$ be a family of sets indexed by the natural numbers.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The \textit{limit superior} of $\{X_n\}_{n \in \bfN}$ is:
+                \begin{equation*}
+                \begin{split}
+                    \limsup X_n 
+                    & := \bigcap_{k = 1}^\infty \left( \bigcup_{n = k}^\infty X_n\right) \\
+                    & = \{x \mid x \in E_n \h3\text{for infinitely many $n$}\h1\}. 
+                \end{split}
+                \end{equation*}
+            \item The \textit{limit inferior} of $\{X_n\}_{n \in \bfN}$ is:
+                \begin{equation*}
+                \begin{split}
+                    \limsup X_n 
+                    & := \bigcup_{k = 1}^\infty \left( \bigcap_{n = k}^\infty X_n\right) \\
+                    & \{x \mid x \not\in E_n \h3\text{for only finitely many $n$}\h1\}
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        Let $A$ and $B$ be two sets. Define the \textit{difference of $A$ and $B$} by $A \setminus B := \{x \in A \mid x \not\in B\}$.
+    \end{definition}
+
+    Note that the difference of two sets exists by the Axiom Schema of Specification.
+
+    \begin{definition}
+        Let $a$ and $b$ be two objects. The \textit{ordered pair} $(a,b)$ is defined by $(a,b) := \{\{a\},\{a,b\}\}$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $A$ and $B$ be sets. There exists a set $E$ containing all ordered pairs $(a,b)$, where $a \in A$ and $b \in B$.
+    \end{proposition}
+        \begin{proof}
+            Let $(a,b)$ be any ordered pair such that $a \in A$ and $b \in B$. By definition $(a,b) = \{\{a\},\{a,b\}\}$. Now $\{a\} \subseteq A$, so $\{a\} \subseteq A \cup B$, hence $\{a\} \in \cP(A \cup B)$. Similarly, $\{a,b\} \subseteq A \cup B$, so $\{a,b\} \in \cP(A \cup B)$. It follows that $\{\{a\},\{a,b\}\} \subseteq \cP(A \cup B)$, hence $\{\{a\},\{a,b\}\} \in \cP(\cP(A \cup B))$. We know all these sets are known to exist by the Axiom of Union and Axiom of Power Set. Then by the Axiom Schema of Specification, there exists a set:
+                \begin{equation*}
+                \begin{split}
+                    E := \{t \in \cP(\cP(A \cup B)) \mid (\exists a)(\exists b)(a \in A \land b \in B \land t = (a,b))\}.
+                \end{split}
+                \end{equation*}
+            Moreover, this set is unique by the Axiom of Extension, and is the set of all ordered pairs $(a,b)$ with $a \in A$ and $b \in B$.
+        \end{proof}
+
+    \begin{definition}
+        Let $A$ and $B$ be two sets, and let $E$ be the set containing all ordered pairs $(a,b)$ where $a \in A$ and $b \in B$. The set $E$ is called the \textit{Cartesian product of $A$ and $B$}, and is denoted $E:= A \times B = \{(a,b) \mid a \in A \land b \in B\}$.
+    \end{definition}
+
+    \begin{definition}
+        Let $X$ and $Y$ be sets. A \textit{relation} from $X$ to $Y$ is a subset $R$ of $X \times Y$. We write $xRy$ to mean $(x,y) \in R$.
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item An \textit{equivalence relation} on $X$ is a relation which is reflexive, transitive, and symmetric. We write $x \sim y$ to mean $xRy$.
+                \item A \textit{function} (or \textit{map}) from $X$ to $Y$, denoted $f:X \rightarrow Y$, is a relation from $X$ to $Y$ such that, for every $x \in X$, there exists a unique $y \in Y$ such that $xRy$. We write $f(x) = y$ to mean $xRy$.
+                \item A \textit{partial order} on $X$ is a relation which is reflexive, transitive, and antisymmetric. We write $x \leq y$ to mean $xRy$, and say that $X$ is an \textit{ordered set}.
+            \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        An equivalent relation on $X$ partitions $X$ into equivalence classes.
+    \end{example}
+
+    \begin{example}
+        Recall that, if $\cC$ and $\cD$ are categories, then a \textit{covariant functor} $T:\cC \rightarrow \cD$ is a map such that:
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \item If $A \in \obj(\cC)$, then $T(A) \in \obj(\cD)$.
+                \item If $f \in \Hom_{\cC}(A,A')$, then $T(f) \in \Hom_{\cD}(T(A),T(A'))$.
+                \item If $f \in \Hom_{\cC}(A,A')$ and $g \in \Hom_{\cC}(A',A'')$, then $T(f) \in \Hom_{\cD}(T(A),T(A'))$ and $T(g) \in \Hom_{\cD}(T(A'),T(A''))$. In particular:
+                    \begin{equation*}
+                    \begin{split}
+                        T(gf) = T(g)T(f).
+                    \end{split}
+                    \end{equation*}
+                \item For every $A \in \obj(\cC)$, $T(\id_A) = \id_{T(A)}$.
+            \end{enumerate}
+        A \textit{contravariant functor} $T:\cC \rightarrow \cD$ is similarly defined, but $(ii)$ and $(iii)$ are instead defined as:
+            \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                \addtocounter{enumi}{1}
+                \item If $f \in \Hom_{\cC}(A,A')$, then $T(f) \in \Hom_{\cD}(T(A'),T(A))$.
+                \item If $f \in \Hom_{\cC}(A,A')$ and $g \in \Hom_{\cC}(A',A'')$, then $T(f) \in \Hom_{\cD}(T(A'),T(A))$ and $T(g) \in \Hom_{\cD}(T(A''),T(A'))$. In particular:
+                    \begin{equation*}
+                    \begin{split}
+                        T(gf) = T(f)T(g).
+                    \end{split}
+                    \end{equation*}
+            \end{enumerate}
+        Given $f:X \rightarrow Y$, the power set gives rise to two functors, the \textit{contravariant power set functor} $\mathbf{Set}^{\text{op}} \rightarrow \mathbf{Set}$ and the \textit{covariant power set functor} $\mathbf{Set} \rightarrow \mathbf{Set}$. The first sends $f:X \rightarrow Y$ to the \textit{preimage} function $f^{-1}:\cP(Y) \rightarrow \cP(X)$, whereas the second sends $f$ to the \textit{image} function $f_\ast:\cP(X) \rightarrow \cP(Y)$. The preimage is more well-behaved, commuting with boolean operations:
+            \begin{equation*}
+            \begin{split}
+                f^{-1}\left( E^c \right) &= \left( f^{-1}(E) \right)^c, \\
+                f^{-1}\left( \bigcup_{\alpha \in I}E_\alpha \right) &= \bigcup_{\alpha \in I} f^{-1}(E_\alpha), \\
+                f^{-1}\left( \bigcap_{\alpha \in I}E_\alpha \right) &= \bigcap_{\alpha \in I} f^{-1}(E_\alpha).  \\
+            \end{split}
+            \end{equation*}
+        This is not necessarily the case for the image function.
+    \end{example}
+
+    \begin{example}
+        Consider the directed acyclic graph:
+            \begin{center}
+            \begin{tikzpicture}[->,>=Stealth]
+                \tikzstyle{vertex}=[circle,fill,inner sep=2pt]
+
+                \node[vertex,label=above:A] (A) {};
+                \node[vertex,label=above:B] (B) [right=2cm of A] {};
+                \node[vertex,label=left:C] (C) [below left=1.2cm and 1cm of A] {};
+                \node[vertex,label=right:D] (D) [below right=1.2cm and 1cm of A] {};
+                \node[vertex,label=right:E] (E) [below=2.5cm of A] {};
+                \node[vertex,label=right:F] (F) [right=2cm of E] {};
+                \node[vertex,label=below:G] (G) [below=1.5cm of E] {};
+                \node[vertex,label=below:H] (H) [below=1.5cm of F] {};
+
+                \draw (A) -- (C);
+                \draw (A) -- (D);
+                \draw (B) -- (D);
+                \draw (C) -- (E);
+                \draw (D) -- (E);
+                \draw (D) -- (F);
+                \draw (E) -- (G);
+                \draw (F) -- (H);
+            \end{tikzpicture}
+            \end{center}
+        Let $G = \{A,B,C,D,E,F,G,H\}$ be the set of vertices of our graph. We can define a partial ordering on $G$ as follows: for any $x,y \in G$, we have $x \leq y$ if and only if there exists a directed path from $x$ to $y$. However, note that not every element of $G$ can be compared.
+    \end{example}
+
+    \begin{definition}
+        An ordering on a set $X$ is said to be \textit{linear} (or \textit{total}) if for every $x,y \in X$, $x \leq y$ or $y \leq x$.
+    \end{definition}
+
+    \begin{definition}
+        Let $X$ be an ordered set. Let $A \subseteq X$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $A$ is called \textit{bounded above} if there exists an element $u \in X$ with $a \leq u$ for all $a \in A$. Such a $u$ is called an \textit{upper bound} for $A$. The set of upper bounds of $A$ is denoted $\cU_A = \{u \in X \mid \text{$u$ is an upper bound of $A$}\}$.
+            \item $A$ is called \textit{bounded below} if there exists an element $v \in X$ with $v \leq a$ for all $a \in A$. Such a $v$ is called a \textit{lower bound} for $A$. The set of lower bounds of $A$ is defined as $\mathscr{L}_A = \{v \in X \mid \text{$v$ is a lower bound of $A$}\}$.
+            \item If $A$ admits an upper bound $u$ with $u \in A$, then $u$ is called \textit{the greatest element of $A$}.
+            \item If $A$ admits a lower bound $v$ with $v \in A$, then $v$ is called \textit{the least element of $A$}.
+            \item If $l$ is the least element of $\cU_A$, we write $l = \sup{(A)}$ and call it the \textit{supremum of $A$}.
+            \item If $g$ is the greatest element of $\mathscr{L}_A$, we write $g = \inf{(A)}$ and call it the \textit{infimum of $A$}.
+            \item A \textit{maximal element of $A$} is an element $m \in A$ such that if $a \geq m$, then $a = m$ (not necessarily unique).
+            \item A \textit{minimal element of $A$} is an element $n \in A$ such that if $a \leq n$, then $a = n$ (not necessarily unique).
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        If a linear order on a set $X$ satisfies the property that every nonempty subset has a minimal element, then we say it is a \textit{well-ordering}.
+    \end{definition}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+
+    include stuff HERE 
+
+    \begin{definition}
+        
+    \end{definition}
+
+
+    do general cartesian product
+    
+    question is it nonempty?
+
+    axiom of choice
+
+    answer: no, axiom of choice says this choice function exists.
+
+    'shoes vs. socks' formulation of the axiom
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[thick] (0.3,0) -- (2.3,0);
+            \node at (2.39, 0) {$/\,$};
+            \node at (2.56, 0) {$/\,$};
+            \draw[thick] (2.6,0) -- (4.6,0);
+        \end{tikzpicture}
+    \end{center}
+

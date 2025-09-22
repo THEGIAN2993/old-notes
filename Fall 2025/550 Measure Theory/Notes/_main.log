@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  13 SEP 2025 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  22 SEP 2025 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Summer 2025/Darboux Integral Notes/main"
-(/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Summer 2025/Darboux Integral Notes/main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Fall 2025/550 Measure Theory/Notes/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Fall 2025/550 Measure Theory/Notes/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -970,43 +970,28 @@ Package: thm-amsthm 2023/05/04 v0.76
 \thmt@style@headstyle=\toks46
 ))
 \c@theorem=\count378
-\c@lemma=\count379
-\c@example=\count380
-\c@definition=\count381
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/unique.sty
-Package: unique 2023/05/04 v0.76
-\uniq@channel=\write4
- (./main.unq)
-\openout4 = `main.unq'.
+\c@example=\count379
+\c@definition=\count380
+\c@exercise=\count381
 
-)
-Package thmtools Info: Automatically pulling in `thmdef-shaded' on input line 78.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/thmtools/thmdef-shaded.sty
-Package: thmdef-shaded 2023/05/04 v0.76
-) (/usr/local/texlive/2024/texmf-dist/tex/latex/shadethm/shadethm.sty
-Package: shadethm 1999/11/23
-\saveparindent=\skip266
-\shadeboxsep=\skip267
-\shadeboxrule=\skip268
-\shadedtextwidth=\skip269
-\shadeleftshift=\skip270
-\shaderightshift=\skip271
-\shadesavebox=\box60
-)
-\c@note=\count382
- (/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
+
+Package amsthm Warning: Unknown theoremstyle `thmstyle numbered=unless unique' on input line 83.
+
+\c@axiom=\count382
+\c@note=\count383
+(/usr/local/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip272
+\labelindent=\skip266
 \enit@outerparindent=\dimen286
 \enit@toks=\toks47
-\enit@inbox=\box61
-\enit@count@id=\count383
-\enitdp@description=\count384
+\enit@inbox=\box60
+\enit@count@id=\count384
+\enitdp@description=\count385
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box62
-\beforetitleunit=\skip273
-\aftertitleunit=\skip274
+\ttl@box=\box61
+\beforetitleunit=\skip267
+\aftertitleunit=\skip268
 \ttl@plus=\dimen287
 \ttl@minus=\dimen288
 \ttl@toksa=\toks48
@@ -1473,7 +1458,7 @@ Now handling font encoding LMX ...
 \pgfutil@tempdima=\dimen292
 \pgfutil@tempdimb=\dimen293
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box63
+\pgfutil@abb=\box62
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
@@ -1509,16 +1494,16 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yc=\dimen303
 \pgf@xd=\dimen304
 \pgf@yd=\dimen305
-\w@pgf@writea=\write5
+\w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count385
-\c@pgf@countb=\count386
-\c@pgf@countc=\count387
-\c@pgf@countd=\count388
+\c@pgf@counta=\count386
+\c@pgf@countb=\count387
+\c@pgf@countc=\count388
+\c@pgf@countd=\count389
 \t@pgf@toka=\toks55
 \t@pgf@tokb=\toks56
 \t@pgf@tokc=\toks57
-\pgf@sys@id@count=\count389
+\pgf@sys@id@count=\count390
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -1529,21 +1514,21 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count390
-\pgfsyssoftpath@bigbuffer@items=\count391
+\pgfsyssoftpath@smallbuffer@items=\count391
+\pgfsyssoftpath@bigbuffer@items=\count392
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen306
-\pgfmath@count=\count392
-\pgfmath@box=\box64
+\pgfmath@count=\count393
+\pgfmath@box=\box63
 \pgfmath@toks=\toks58
 \pgfmath@stack@operand=\toks59
 \pgfmath@stack@operation=\toks60
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count393
+\c@pgfmathroundto@lastzeros=\count394
 )) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen307
@@ -1570,10 +1555,10 @@ File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@shorten@start@additional=\dimen324
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box65
-\pgf@hbox=\box66
-\pgf@layerbox@main=\box67
-\pgf@picture@serial@count=\count394
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count395
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen325
@@ -1594,13 +1579,13 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen330
-\pgf@sys@shading@range@num=\count395
-\pgf@shadingcount=\count396
+\pgf@sys@shading@range@num=\count396
+\pgf@shadingcount=\count397
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box68
+\pgfexternal@startupbox=\box67
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
@@ -1611,7 +1596,7 @@ File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box69
+\pgfnodeparttextbox=\box68
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
@@ -1630,7 +1615,7 @@ Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count397
+\pgf@plot@mark@count=\count398
 \pgfplotmarksize=\dimen335
 )
 \tikz@lastx=\dimen336
@@ -1641,21 +1626,21 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@lastmovetoy=\dimen341
 \tikzleveldistance=\dimen342
 \tikzsiblingdistance=\dimen343
-\tikz@figbox=\box70
-\tikz@figbox@bg=\box71
-\tikz@tempbox=\box72
-\tikz@tempbox@bg=\box73
-\tikztreelevel=\count398
-\tikznumberofchildren=\count399
-\tikznumberofcurrentchild=\count400
-\tikz@fig@count=\count401
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count399
+\tikznumberofchildren=\count400
+\tikznumberofcurrentchild=\count401
+\tikz@fig@count=\count402
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count402
-\pgfmatrixcurrentcolumn=\count403
-\pgf@matrix@numberofcolumns=\count404
+\pgfmatrixcurrentrow=\count403
+\pgfmatrixcurrentcolumn=\count404
+\pgf@matrix@numberofcolumns=\count405
 )
-\tikz@expandcount=\count405
+\tikz@expandcount=\count406
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
@@ -1670,74 +1655,80 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen345
 \pgfarrowwidth=\dimen346
 \pgfarrowlinewidth=\dimen347
-))) (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/wasysym.sty
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 \symwasy=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
 ) (/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/makros.tex)
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 108.
- (./main.aux)
-\openout1 = `main.aux'.
+(Font)              scaled to size 10.0pt on input line 115.
+ (./_main.aux (./preliminaries.aux))
+\openout1 = `_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 108.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 108.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 115.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 108.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 108.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 108.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 108.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 108.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 108.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 108.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 115.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 108.
-Package hyperref Info: Link coloring OFF on input line 108.
- (./main.out) (./main.out)
-\@outlinefile=\write6
-\openout6 = `main.out'.
+LaTeX Font Info:    ... okay on input line 115.
+Package hyperref Info: Link coloring OFF on input line 115.
+ (./_main.out) (./_main.out)
+\@outlinefile=\write5
+\openout5 = `_main.out'.
 
-LaTeX Info: Command `\dddot' is already robust on input line 108.
-LaTeX Info: Command `\ddddot' is already robust on input line 108.
+LaTeX Info: Command `\dddot' is already robust on input line 115.
+LaTeX Info: Command `\ddddot' is already robust on input line 115.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count406
+\scratchcounter=\count407
 \scratchdimen=\dimen348
-\scratchbox=\box74
-\nofMPsegments=\count407
-\nofMParguments=\count408
+\scratchbox=\box73
+\nofMPsegments=\count408
+\nofMParguments=\count409
 \everyMPshowfont=\toks63
-\MPscratchCnt=\count409
+\MPscratchCnt=\count410
 \MPscratchDim=\dimen349
-\MPnumerator=\count410
-\makeMPintoPDFobject=\count411
+\MPnumerator=\count411
+\makeMPintoPDFobject=\count412
 \everyMPtoPDFconversion=\toks64
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1745,8 +1736,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@mv@tabular=\count412
-\c@mv@boldtabular=\count413
+\c@mv@tabular=\count413
+\c@mv@boldtabular=\count414
  (/usr/local/texlive/2024/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
 )
@@ -1784,159 +1775,151 @@ File: fc-english.def 2016/01/12
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 10.0pt on input line 129.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 20.74pt on input line 129.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 24.88pt on input line 129.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 122.
-LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 122.
-LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 126.
-LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 126.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 128.
-LaTeX Font Info:    Trying to load font information for OT1+zpltlf on input line 128.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/ot1zpltlf.fd
+(Font)              scaled to size 20.74pt on input line 134.
+(./_main.toc
+LaTeX Font Info:    Trying to load font information for OT1+zpltlf on input line 1.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/ot1zpltlf.fd
 File: ot1zpltlf.fd 2021/05/25 v1.0 font definition file for OT1/zpl/tlf
 )
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 128.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 128.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
+(Font)              scaled to size 10.0pt on input line 1.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
+(Font)              scaled to size 7.3pt on input line 1.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 128.
+(Font)              scaled to size 5.5pt on input line 1.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 1.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 128.
+(Font)              size <5> substituted on input line 1.
 
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 128.
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 7.3pt on input line 128.
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 128.
+) [1
+
+
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}]
+\openout2 = `preliminaries.aux'.
+
+ (./preliminaries.tex
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 14.4pt on input line 3.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 6.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 130.
-LaTeX Font Info:    Trying to load font information for U+zeuex on input line 153.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeuex.fd
-File: uzeuex.fd 2005/01/11 v4.0 (WaS)
-)
-LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 10.0pt on input line 153.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 7.0pt on input line 153.
-LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 7.0pt on input line 153.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 153.
-LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
-(Font)              scaled to size 6.0pt on input line 153.
-Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 163.
- [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}
-
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] [2]
-LaTeX Font Info:    Trying to load font information for U+eus on input line 254.
+(Font)              scaled to size 10.0pt on input line 6.
+Package hyperref Info: bookmark level for unknown axiom defaults to 0 on input line 11.
+LaTeX Font Info:    Trying to load font information for U+eus on input line 36.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
+) [1
+
+
+{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/px-lms.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}]
+Package hyperref Info: bookmark level for unknown proposition defaults to 0 on input line 92.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 136.
+ [2]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 163.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 163.
+ [3]
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 213.
+ [4]
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 287.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeus.fd
+File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 259.
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 288.
- [3] [4]
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 376.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 10.0pt on input line 287.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 7.3pt on input line 287.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 5.5pt on input line 287.
+ [5]) [6]
+\tf@toc=\write6
+\openout6 = `_main.toc'.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6]
-Underfull \vbox (badness 2269) has occurred while \output is active []
-
- [7]
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 482.
- [8] [9]
-Overfull \hbox (2.20949pt too wide) in paragraph at lines 604--605
-[]\T1/zpltlf/m/n/10 Let $\U/zeur/m/n/10 ^^O \OML/npxmi/m/it/10 > \OT1/zpltlf/m/n/10 0$\T1/zpltlf/m/n/10 . Since $\U/zeur/m/n/10 g$ \T1/zpltlf/m/n/10 is con-tin-u-ous on $\LMS/npxsy/m/n/10 »\U/zeur/m/n/10 c\OT1/zpltlf/m/n/10 , \U/zeur/m/n/10 d\LMS/npxsy/m/n/10 ¼$\T1/zpltlf/m/n/10 , there ex-ists $\U/zeur/m/n/10 K \U/npxsym/m/n/10 ¾ \OT1/zpltlf/m/n/10 0$ \T1/zpltlf/m/n/10 such that $[][] \LMS/npxsy/m/n/10 j\U/zeur/m/n/10 g\LMS/npxsy/m/n/10 ¹\U/zeur/m/n/10 x\LMS/npxsy/m/n/10 ºj \U/npxsym/m/n/10 ¶
- []
-
-[10]
-Underfull \vbox (badness 1609) has occurred while \output is active []
-
- [11] [12] (./main.aux)
+ (./_main.aux (./preliminaries.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1944,24 +1927,24 @@ L3 programming layer <2020/03/25>
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.5pt have occurred.
+(Font)              up to 1.97499pt have occurred.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `_main.out' has not changed.
+(rerunfilecheck)             Checksum: 4FA326925C670736CCAFF8F188384EE4;299.
  ) 
 Here is how much of TeX's memory you used:
- 32340 strings out of 474116
- 571880 string characters out of 5743683
- 1950187 words of memory out of 5000000
- 53989 multiletter control sequences out of 15000+600000
- 607956 words of font info for 116 fonts, out of 8000000 for 9000
+ 32620 strings out of 474116
+ 578959 string characters out of 5743683
+ 1946187 words of memory out of 5000000
+ 54254 multiletter control sequences out of 15000+600000
+ 629944 words of font info for 159 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,21n,107p,1150b,784s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on main.pdf (12 pages, 211901 bytes).
+ 102i,20n,107p,1151b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
+Output written on _main.pdf (7 pages, 179481 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
- 75 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 220 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
