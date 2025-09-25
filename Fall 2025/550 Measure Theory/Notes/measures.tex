@@ -1,0 +1,66 @@
+\chapter{Measures}
+
+Ideally to measure the size of a set, we'd like a function
+    \begin{equation*}
+    \begin{split}
+        \mu:\cP(\bfR^n) \rightarrow [0,\infty]
+    \end{split}
+    \end{equation*}
+to have the following properties:
+    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+        \item The unit cube should have a measure equal to one \textemdash that is, $\mu \left( \{x \in \bfR^n \mid 0 \leq x_j < 1\} \right) =1 $;
+        \item If $E$ and $F$ are congruent (that is, $F$ is a translation, rotation, and/or reflection), then $\mu(E) = \mu(F)$;
+        \item If $E_1,E_2,...$ are pairwise disjoint, then $\mu \left( \bigcup_{j = 1}^\infty E_j \right) = \sum_{j = 1}^\infty \mu(E_j)$.
+    \end{enumerate}
+This is impossible.
+    \begin{theorem}
+        A function $\mu:\cP(\bfR) \rightarrow [0,\infty]$ satisfying (1), (2), and (3) from above does not exist.
+    \end{theorem}
+        \begin{proof}
+            By (1) we have $\mu([0,1)) = 1$. Let $x,y \in [0,1)$. Define a relation on $[0,1)$ as follows: $x \sim y$ if and only if $x - y \in \bfQ$. This is an equivalence relation. Using the Axiom of Choice, let $N$ be a set which contains exactly one element from each equivalence class. For $q \in \bfQ \cap [0,1)$, define:
+                \begin{equation*}
+                \begin{split}
+                    N_q = \{x + q \mid x \in N \cap [0,1-q)\} \cup \{x + q - 1 \mid x\in N \cap [1-q,1)\}
+                \end{split}
+                \end{equation*}
+            That is, $N_q$ is a rotation of $N$ by $q$ units, in which the shifted part that sticks out past $[0,1)$ is shifted back to zero. (include picture of circle here) With this, note that:
+                \begin{equation*}
+                \begin{split}
+                    \mu(N) 
+                    & = \mu \bigl( N \cap [0,1-q) \bigr) + \mu\bigl(N \cap [1-q,1)\bigr) \\
+                    & = \mu\bigl( \{x + q \mid x \in N \cap [0,1-q)\}\bigr) + \mu \bigl( \{x + q - 1 \mid x\in N \cap [1-q,1)\}\bigr) \h9\text{\tiny Translation} \\
+                    & = \mu(N_r).
+                \end{split}
+                \end{equation*}
+            Now let $s,r \in \bfQ \cap [0,1)$. Claim: if $r \neq s$, then $N_r \cap N_q = \emptyset$. Suppose not, that is, let $x \in N_r \cap N_s$. This means $x - r$ and $x-s$ would be distinct elements of $N$. However, notice that $(x-r) - (x-s) = s - r \in \bfQ$. Hence $x-r$ and $x-s$ are in the same equivalence class, which contradicts the way we've defined $N$. (We showed that any two rational rotations of $N$ are disjoint)
+            
+            Now let $y \in [0,1)$. Let $x \in N$ satisfy $x \sim y$. Since $x$ and $y$ are contained in the same equivalence class, we can find $q \in \bfQ$ such that:
+                \begin{equation*}
+                \begin{split}
+                    y =
+                    \begin{cases}
+                        x+q, & x < y \\
+                        x - (q-1) & x > y
+                    \end{cases}.
+                \end{split}
+                \end{equation*}
+            Then $y \in N_q$. (We've shown that if $y$ is in the same equivalence class as a representative $x \in N$, then $y$ is a rotation of $N$ of some rational number).
+        \end{proof}
+
+    Relaxing (3) to be only finitely additive does not help either. 
+
+    \begin{theorem}[Banach-Tarski Paradox]
+        Write this stuff out.
+    \end{theorem}
+
+    This is a true statement... 
+
+    We can't hope to measure every set of $\cP(\bfR^n)$. Some sets are not measurable. We need to restrict $\mu$ to some subset of $\cP(\bfR^n)$. We need to leave some sets out.
+
+
+\section{$\sigma$-Algebras}
+    \begin{definition}
+        Let $X$ be a set. An \textit{algebra} of sets is a subset $\cA \subset \cP(X)$ which is closed under finite unions and complements. If $\cA$ is closed under countable unions, we say $\cA$ is a \textit{$\sigma$-algebra}.
+    \end{definition}
+
+    

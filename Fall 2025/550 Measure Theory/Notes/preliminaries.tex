@@ -525,6 +525,88 @@
             
         \end{proof}
 
+    With a metric we can talk about the distance from a point to a set, as well as a way to define if a set is bounded.
+
+    \begin{definition}
+        Let $(X,\rho)$ be a metric space, $x \in X$, and $E \subset X$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The distance from $x$ to $E$ is $\rho(x,E) := \inf_{y \in E}\rho(x,y)$.
+            \item The \textit{diameter} of $E$ is $\diam(E) = \sup_{x,y \in E}\rho(x,y)$.
+            \item A subset of a metric space is \textit{bounded} if its diameter is finite.
+        \end{enumerate}
+    \end{definition}
+
+    With a notion of distance, we can talk about sequence convergence.
+
+    \begin{definition}
+        Let $(X,\rho)$ be a metric space and $(x_n)_n$ a sequence in $X$. We say $(x_n)_n$ \textit{converges to a point $x_0$} if $\lim_{n \rightarrow \infty}\rho(x_n,x) = 0$.
+    \end{definition}
+
+    \begin{proposition}
+        Let $(X,\rho)$ be a metric space, $E \subset X$, and $x \in X$. The following are equivalent:
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $x \in \overline{E}$;
+            \item For every $r > 0$, $B(r,x) \cap E \neq \emptyset$;
+            \item There is a sequence $(x_n)_n$ in $E$ which converges to $x$
+        \end{enumerate}
+    \end{proposition}
+
+    We can even talk about continuity of functions between metric spaces.
+
+    \begin{definition}
+        Let $(X_1,\rho_1)$ and $(X_2,\rho_2)$ be metric spaces and $f:X_1 \rightarrow X_2$. 
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item We say $f$ is \textit{continuous} if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall c \in X)(\forall \epsilon > 0)(\exists \delta > 0):(\forall x \in X_1)(\rho_1(x,y) < \delta \implies \rho_2(f(x),f(y))<\epsilon).
+                \end{split}
+                \end{equation*}
+            \item We say $f$ is \textit{uniformly continuous} if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall \epsilon > 0)(\exists \delta > 0):(\forall x,y \in X_1)(\rho_1(x,y) < \delta \implies \rho_2(f(x),f(y))<\epsilon).
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    Note that $\delta$ may depend on our point $c$ in the case that $f$ is continuous. A function is uniformly continuous if $\delta$ does not depend on any two points in its domain.
+
+    \begin{proposition}
+        Let $(X_1,\rho_1)$ and $(X_2,\rho_2)$ be metric spaces. $f$ is continuous if and only if the preimage of every open set in $X_2$ is open in $X_1$.
+    \end{proposition}
+
+    Similarly to how every Cauchy sequence in $\bfR$ converges, we can talk about metric spaces which guarantee that same property.
+
+    \begin{definition}
+        \phantom{a}
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item Let $(x_n)_n$ be a sequence in a metric space $(X,\rho)$. We say $(x_n)_n$ is \textit{$\rho$-Cauchy} if:
+                \begin{equation*}
+                \begin{split}
+                    (\forall \epsilon > 0)(\exists N \in \bfN):(\forall n,m \in \bfN)(n > m \geq N \implies \rho(x_n,x_m) < \epsilon).
+                \end{split}
+                \end{equation*}
+            \item A metric space $X$ is called \textit{complete} if every Cauchy sequence converges to a point in $X$.
+        \end{enumerate}
+    \end{definition}
+
+    We can generalize the notion of a set being closed and bounded in $\bfR^n$.
+
+    \begin{proposition}
+        Let $X$ be a metric space. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item Every open cover of $X$ admits a finite subcover;
+                \item Every sequence in $X$ admits a convergent subsequence;
+                \item $X$ is complete and totally bounded.
+            \end{enumerate}
+    \end{proposition}
+
+    \begin{definition}
+        We say a metric space $X$ is \textit{compact} if it satisfies any of the properties in Proposition 1.3.5.
+    \end{definition}
+
     
 
 
