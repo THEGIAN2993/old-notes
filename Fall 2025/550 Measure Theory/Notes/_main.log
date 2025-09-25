@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  22 SEP 2025 14:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  23 SEP 2025 22:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1781,103 +1781,103 @@ LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 20.74pt on input line 129.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 24.88pt on input line 129.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 20.74pt on input line 134.
-(./_main.toc
-LaTeX Font Info:    Trying to load font information for OT1+zpltlf on input line 1.
- (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/ot1zpltlf.fd
+LaTeX Font Info:    Trying to load font information for OT1+zpltlf on input line 130.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/ot1zpltlf.fd
 File: ot1zpltlf.fd 2021/05/25 v1.0 font definition file for OT1/zpl/tlf
 )
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `OML/npxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `LMS/npxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `LMX/npxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 1.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `U/npxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 10.0pt on input line 130.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 7.3pt on input line 1.
+(Font)              scaled to size 7.3pt on input line 130.
 LaTeX Font Info:    Font shape `U/zeur/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 1.
+(Font)              scaled to size 5.5pt on input line 130.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 130.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 
 LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 1.
+(Font)              size <5> substituted on input line 130.
 
-) [1
+[1
 
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 20.74pt on input line 138.
+ (./_main.toc) [2]
 \openout2 = `preliminaries.aux'.
 
  (./preliminaries.tex
@@ -1903,19 +1903,83 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 5.5pt on input line 163.
  [3]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 213.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 224.
  [4]
-LaTeX Font Info:    Trying to load font information for U+zeus on input line 287.
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 298.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 10.0pt on input line 287.
+(Font)              scaled to size 10.0pt on input line 298.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 7.3pt on input line 287.
+(Font)              scaled to size 7.3pt on input line 298.
 LaTeX Font Info:    Font shape `U/zeus/m/n' will be
-(Font)              scaled to size 5.5pt on input line 287.
- [5]) [6]
+(Font)              scaled to size 5.5pt on input line 298.
+ [5]
+LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 355.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/newpx/ts1zpltlf.fd
+File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
+)
+LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 355.
+ [6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/newpx/zpl_TOsF.enc}]
+LaTeX Font Info:    Trying to load font information for U+zeuex on input line 400.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/eulervm/uzeuex.fd
+File: uzeuex.fd 2005/01/11 v4.0 (WaS)
+)
+LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
+(Font)              scaled to size 10.0pt on input line 400.
+LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
+(Font)              scaled to size 7.0pt on input line 400.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 400.
+LaTeX Font Info:    Font shape `U/zeuex/m/n' will be
+(Font)              scaled to size 6.0pt on input line 400.
+ [7] [8]
+LaTeX Font Info:    Freeze math alphabet allocation in version normal.
+(Font)              Allocated math groups: 14 (local: 2) on input line 484.
+LaTeX Font Info:    Font shape `U/euf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 484.
+LaTeX Font Info:    Font shape `U/euf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 484.
+LaTeX Font Info:    Font shape `U/euf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 484.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 7.0pt on input line 484.
+LaTeX Font Info:    Font shape `U/zeus/m/n' will be
+(Font)              scaled to size 6.0pt on input line 484.
+LaTeX Font Info:    Undo math alphabet allocation in version normal on input line 484.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 484.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 488.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 488.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 488.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 492.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 492.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 494.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 494.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 494.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 495.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 495.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 502.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 504.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 504.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 505.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 505.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 509.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 509.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 509.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 510.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 510.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 511.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 511.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 511.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 513.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 518.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 518.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 522.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 522.
+LaTeX Font Info:    No math alphabet change to frozen version normal on input line 522.
+) [9]
 \tf@toc=\write6
 \openout6 = `_main.toc'.
 
@@ -1930,21 +1994,21 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.97499pt have occurred.
 
 Package rerunfilecheck Info: File `_main.out' has not changed.
-(rerunfilecheck)             Checksum: 4FA326925C670736CCAFF8F188384EE4;299.
+(rerunfilecheck)             Checksum: 0E2563971C3DBF068FC18B28E3D16C12;624.
  ) 
 Here is how much of TeX's memory you used:
- 32620 strings out of 474116
- 578959 string characters out of 5743683
+ 32741 strings out of 474116
+ 580880 string characters out of 5743683
  1946187 words of memory out of 5000000
- 54254 multiletter control sequences out of 15000+600000
- 629944 words of font info for 159 fonts, out of 8000000 for 9000
+ 54304 multiletter control sequences out of 15000+600000
+ 636627 words of font info for 173 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,20n,107p,1151b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on _main.pdf (7 pages, 179481 bytes).
+ 102i,20n,107p,1365b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
+Output written on _main.pdf (11 pages, 208372 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 185 compressed objects within 2 object streams
- 91 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

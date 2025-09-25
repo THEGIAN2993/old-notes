@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  17 AUG 2025 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.4)  23 SEP 2025 22:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Spring 2025/Real Analysis II/397 Notes/_main"
-(/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/Spring 2025/Real Analysis II/397 Notes/_main.tex
+**"/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Spring 2025/Real Analysis II/397 Notes/_main"
+(/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/Spring 2025/Real Analysis II/397 Notes/_main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/memoir/memoir.cls
@@ -1675,7 +1675,7 @@ Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
 \symwasy=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
-) (/Users/gcrescenzo/Documents/School/LaTeX Documents/Class Notes/makros.tex)
+) (/Users/gcrescenzo/Documents/School/LaTeX Documents/latex-class-notes/makros.tex)
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 114.
  (./_main.aux (./normed-spaces-algebras.aux) (./metrics.aux) (./measure-and-integration.aux))
@@ -2125,14 +2125,14 @@ Package rerunfilecheck Info: File `_main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  34115 strings out of 474116
- 605773 string characters out of 5743683
+ 605827 string characters out of 5743683
  1953187 words of memory out of 5000000
  54903 multiletter control sequences out of 15000+600000
  679460 words of font info for 255 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,29n,107p,1584b,1305s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,29n,107p,1590b,1305s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/NewPXMI_gnu.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eurm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxmiaX.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/pxsys.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on _main.pdf (79 pages, 524919 bytes).
+Output written on _main.pdf (79 pages, 524921 bytes).
 PDF statistics:
  1559 PDF objects out of 1728 (max. 8388607)
  1425 compressed objects within 15 object streams

@@ -3,7 +3,7 @@
 \section{Set Theory}
 
     \begin{definition}
-        A \textit{set} (typically denoted with capital letters) is a collection of different things; the things are called \textit{elements} (typically denoted with lowercase letters) of the set.
+        A \textit{set} is a collection of different things; the things are called \textit{elements} of the set.
     \end{definition}
 
     Zermelo–Fraenkel set theory introduces eight different axioms which mathematics builds upon. Below is an introduction to the ones which are relevant for the material covered in this course.
@@ -139,7 +139,7 @@
         An \textit{index set} is a nonempty set whose elements label the elements of another set. We denote the collection of objects labeled by elements of $I$ as $\{A_\alpha\}_{\alpha \in I}$.
     \end{definition}
 
-    With this definition and the Axiom of Infinity, we can extend the concept of unions and intersections to families of sets of arbitrary size.
+    With this definition and the Axiom of Infinity, we can extend the concept of unions and intersections to families of sets of arbitrary size.***
 
     \begin{definition}
         Let $I$ be an index set, let $\{X_\alpha\}_{\alpha \in I}$ be an indexed family of sets, and write $\cX := \{X_\alpha \mid \alpha \in I\}$. Define:
@@ -151,7 +151,7 @@
             \end{equation*}
     \end{definition}
 
-    \begin{definition}
+    \begin{definition}***
         Let $\{X_n\}_{n \in \bfN}$ be a family of sets indexed by the natural numbers.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
             \item The \textit{limit superior} of $\{X_n\}_{n \in \bfN}$ is:
@@ -187,7 +187,7 @@
         Let $A$ and $B$ be sets. There exists a set $E$ containing all ordered pairs $(a,b)$, where $a \in A$ and $b \in B$.
     \end{proposition}
         \begin{proof}
-            Let $(a,b)$ be any ordered pair such that $a \in A$ and $b \in B$. By definition $(a,b) = \{\{a\},\{a,b\}\}$. Now $\{a\} \subseteq A$, so $\{a\} \subseteq A \cup B$, hence $\{a\} \in \cP(A \cup B)$. Similarly, $\{a,b\} \subseteq A \cup B$, so $\{a,b\} \in \cP(A \cup B)$. It follows that $\{\{a\},\{a,b\}\} \subseteq \cP(A \cup B)$, hence $\{\{a\},\{a,b\}\} \in \cP(\cP(A \cup B))$. We know all these sets are known to exist by the Axiom of Union and Axiom of Power Set. Then by the Axiom Schema of Specification, there exists a set:
+            Let $(a,b)$ be any ordered pair such that $a \in A$ and $b \in B$. By definition $(a,b) = \{\{a\},\{a,b\}\}$. Now $\{a\} \subset A$, so $\{a\} \subset A \cup B$, hence $\{a\} \in \cP(A \cup B)$. Similarly, $\{a,b\} \subset A \cup B$, so $\{a,b\} \in \cP(A \cup B)$. It follows that $\{\{a\},\{a,b\}\} \subset \cP(A \cup B)$, hence $\{\{a\},\{a,b\}\} \in \cP(\cP(A \cup B))$. We know all these sets are known to exist by the Axiom of Union and Axiom of Power Set. Then by the Axiom Schema of Specification, there exists a set:
                 \begin{equation*}
                 \begin{split}
                     E := \{t \in \cP(\cP(A \cup B)) \mid (\exists a)(\exists b)(a \in A \land b \in B \land t = (a,b))\}.
@@ -208,6 +208,17 @@
                 \item A \textit{partial order} on $X$ is a relation which is reflexive, transitive, and antisymmetric. We write $x \leq y$ to mean $xRy$, and say that $X$ is an \textit{ordered set}.
             \end{enumerate}
     \end{definition}
+
+    \begin{proposition}***
+        Let $X$ be a set. The following are equivalent:
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $S$ is a partition of $X$;
+            \item There exists an equivalence relation $\sim$ on $X$ such that the equivalence classes of $\sim$ are exactly the elements of $S$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            
+        \end{proof}
 
     \begin{example}
         An equivalent relation on $X$ partitions $X$ into equivalence classes.
@@ -248,7 +259,7 @@
         This is not necessarily the case for the image function.
     \end{example}
 
-    \begin{example}
+    \begin{example}***(I don't like the prose here)
         Consider the directed acyclic graph:
             \begin{center}
             \begin{tikzpicture}[->,>=Stealth]
@@ -281,7 +292,7 @@
     \end{definition}
 
     \begin{definition}
-        Let $X$ be an ordered set. Let $A \subseteq X$.
+        Let $X$ be an ordered set. Let $A \subset X$.
         \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
             \item $A$ is called \textit{bounded above} if there exists an element $u \in X$ with $a \leq u$ for all $a \in A$. Such a $u$ is called an \textit{upper bound} for $A$. The set of upper bounds of $A$ is denoted $\cU_A = \{u \in X \mid \text{$u$ is an upper bound of $A$}\}$.
             \item $A$ is called \textit{bounded below} if there exists an element $v \in X$ with $v \leq a$ for all $a \in A$. Such a $v$ is called a \textit{lower bound} for $A$. The set of lower bounds of $A$ is defined as $\mathscr{L}_A = \{v \in X \mid \text{$v$ is a lower bound of $A$}\}$.
@@ -307,7 +318,7 @@
         \end{tikzpicture}
     \end{center}
 
-    include stuff HERE 
+    ***include stuff HERE 
 
     \begin{definition}
         
@@ -332,4 +343,188 @@
             \draw[thick] (2.6,0) -- (4.6,0);
         \end{tikzpicture}
     \end{center}
+
+\section{The Extended Real Numbers***}
+
+\begin{definition}
+    The \textit{extended real number line} is the set $\overline{\bfR} := \bfR \cup \{\infty,\infty\} = [-\infty,\infty]$.
+\end{definition}
+
+    The extended real number line has many unique properties.
+    \begin{itemize}
+        \item For all $x \in \bfR$, we have $-\infty < x < \infty$. This allows us to extend the ordering of $\bfR$ to $\overline{\bfR}$.
+        \item Recall that since $\bfR$ is complete, every \textit{bounded subset} admits a supremum. However, for the extended real number line, \textit{every subset} of $\overline{\bfR}$ admits a supremum.
+            \begin{example}
+                \phantom{a}
+                \begin{enumerate}[label = (\roman*),itemsep=1pt,topsep=3pt]
+                    \item In $\overline{\bfR}$, we have $\sup \bfR = \infty$.
+                    \item $\inf \bfQ \cap (-\infty,0) = -\infty$.
+                    \item $\inf \emptyset = \infty$. This follows from basic intuition: the infimum of a set is the greatest lower bound, so the infimum of the empty set is an element which is a lower bound for nothing. Hence it must be $\infty$.
+                \end{enumerate}
+            \end{example}
+
+        \item In $\bfR$, any sequence which is monotone and bounded converges. However, in $\overline{\bfR}$, \textit{any} monotone sequence converges to a value in $\overline{\bfR}$. 
+        \item For any sequence $(x_n)_n$, we define:
+            \begin{equation*}
+            \begin{split}
+                \limsup x_n &:= \inf_{k \geq 1} \left( \sup_{n \geq k}x_n \right), \\
+                \liminf x_n &:= \sup_{k \geq 1} \left( \inf_{n \geq k}x_n \right).
+            \end{split}
+            \end{equation*}
+        In $\bfR$, it could be the case that each is properly divergent, however in $\overline{\bfR}$ the limit superior and limit inferior \textit{always} exist.
+        \item We can define arithmetic with $-\infty$ and $\infty$. For $x \in \overline{\bfR}$:
+            \begin{equation*}
+            \begin{split}
+                x+ \infty &= \infty, \\
+                x - \infty &= -\infty, \\
+                \infty + \infty &= \infty, \\
+                -\infty - \infty &= -\infty.
+            \end{split}
+            \end{equation*}
+        We don't give any meaning to $\infty-\infty$. If $x > 0$, we define:
+            \begin{equation*}
+            \begin{split}
+                x \cdot \infty &= \infty, \\
+                x \cdot ( -\infty) &= - \infty.
+            \end{split}
+            \end{equation*}
+        If $x < 0$, we define:
+            \begin{equation*}
+            \begin{split}
+                x \cdot \infty & = -\infty, \\
+                x \cdot (-\infty) & = \infty.
+            \end{split}
+            \end{equation*}
+        Unless stated otherwise, we define $0 \cdot \pm \infty = 0$.
+
+        \item Let $X$ be any set and let $f:X \rightarrow [0,\infty]$. We'd like to give some meaning to $\sum_{x \in X}f(x)$. Regardless of the cardinality of $X$, it is a theorem that 
+    \end{itemize}
+
+    This whole section needs to be redone.
+
+    \begin{proposition}***(could be cleaned up)
+        Every open set in $\bfR$ is at most a countable union of disjoint open intervals.
+    \end{proposition}
+        \begin{proof}
+        Let $U \subset \bfR$ be open. Define a binary relation $\sim$ on $U$ as follows: $x \sim y$ if and only if there exists an open interval $I$ such that $\{x,y\} \subset I \subset U$. One can check that this is indeed an equivalence relation, hence $U$ is partitioned by the equivalence classes of $\sim$.
+        
+        We are now going to show that each equivalence class is an open interval. Let $E$ be an equivalence class and let $I = (\inf E, \sup E)$. Clearly $E \subset I$. Let $x \in I$. Then $\inf E < x$ and $x < \sup E$. We can find $u,v \in E$ such that $\inf E < u < x < v < \sup E$. Since $u,v \in E$, we can find an interval $J$ such that $\{u,v\} \subset J \subset U$. But this means $x \in J$, hence $x \sim u$ and $x \sim v$. Thus $x \in E$, giving $I \subset E$ meaning that $E$ is an open interval.
+
+        It remains to show that there are at most a countable number of equivalence classes. Note that each equivalence class contains a rational number, and no two classes can contain the same rational number (otherwise the equivalence classes wouldn't be disjoint). By the Axiom of Choice, we can find a choice function $f:U/\sim \rightarrow \bfQ$ which is injective. Therefor there are at most countably many open intervals.
+        \end{proof}
+
+\section{Metric Spaces}
+    \begin{definition}
+        A \textit{distance function} (or \textit{metric}) on a nonempty set $X$ is a map:
+            \begin{equation*}
+            \begin{split}
+                \rho:X \times X \rightarrow [0,\infty)
+            \end{split}
+            \end{equation*}
+        satisfying for all $x,y,z \in X$:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $\rho(x,x) = 0$;
+                \item $\rho(x,y) = \rho(y,x)$;
+                \item $\rho(x,z) \leq \rho(x,y) + \rho(y,z)$.
+            \end{enumerate}
+        The pair $(X,\rho)$ is called a \textit{metric space}.
+    \end{definition}
+
+    Distance functions let us talk about sets which centered at a point.
+
+    \begin{definition}
+        Let $X$ be a metric space, $x \in X$ and $r > 0$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The \textit{open ball of radius $r$ centered at $x$} is the set $B(r,x):= \{y \in X \mid \rho(x,y) < r\}$.
+            \item  The \textit{closed ball of radius $r$ centered $x$} is the set $V(r,x):= \{y \in X \mid \rho(x,y) \leq r\}$.
+            \item The \textit{sphere of radius $r$ centered at $x$} is the set $S(r,x) := \{y \in X \mid \rho(x,y) = r\}$.
+        \end{enumerate}
+    \end{definition}
+
+    Such distance functions induce a topology on our metric space $X$.
+
+    \begin{definition}
+        Let $X$ be a metric space. 
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item We say $U \subset X$ is \textit{open} if, for all $x \in U$, there exists $r > 0$ such that $B(r,x) \subset U$.
+            \item We say $V \subset X$ is \textit{closed} if $V^c$ is open.
+        \end{enumerate}
+    \end{definition}
+
+    Given a set, we characterize its inside, the smallest closed set containing it, as well as its boundary.
+
+    \begin{definition}
+        Let $X$ be a metric space and $E \subset X$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The \textit{interior of $E$} is the set:
+                \begin{equation*}
+                \begin{split}
+                    E^o := \bigcup \{U \subset E \mid \h2\text{$U$ is open}\h1\}.
+                \end{split}
+                \end{equation*}
+            \item The \textit{closure of $E$} is the set:
+                \begin{equation*}
+                \begin{split}
+                    \overline{E} := \bigcap \{C \supset E \mid \h2\text{$C$ is closed}\h1\}.
+                \end{split}
+                \end{equation*}
+            \item The \textit{boundary of $E$} is the set:
+                \begin{equation*}
+                \begin{split}
+                    \partial E = \overline{E}\setminus E^o.
+                \end{split}
+                \end{equation*}
+        \end{enumerate}
+    \end{definition}
+
+    \begin{proposition}
+        A countable subset of $\bfR$ has an empty interior.
+    \end{proposition}
+        \begin{proof}
+            Let $A$ be a subset of $\bfR$ which has a nonempty interior. Then $A$ contains a non-trivial interval. Hence $\card(A) \geq \fc > \aleph_0$. Thus $A$ is uncountable.
+        \end{proof}
+
+    \begin{example}
+        Let $E = \bfQ \cap (0,1)$. We have $E^o = \emptyset$ and $\overline{E} = [0,1]$.
+    \end{example}
+
+    \begin{definition}
+        Let $X$ be a metric space and $E \subset X$.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $E$ is \textit{dense in $X$} if $\overline{E} = X$.
+            \item $E$ is \textit{nowhere dense} if $(\overline{E})^o = \emptyset$.
+        \end{enumerate}
+    \end{definition}
+
+    Intuitively, a set is nowhere dense if we can't fit an open ball inside it.
+
+    \begin{definition}
+        Let $(X,d)$ be a metric space. 
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item The collection of open sets of $X$ is denoted $\tau_X$.
+            \item A \textit{base} for $\tau_X$ is a family of open subsets $\cB \subseteq \tau_X$ such that:
+                \begin{equation*}
+                \begin{split}
+                    (\forall U \in \tau_X)(\forall x\in U)(\exists B \in \cB):x \in B \subseteq U.
+                \end{split}
+                \end{equation*}
+            Equivalently, for all $U \in \tau_X$, we can write $U = \bigcup_{i \in I}B_i$, where $\{B_i\}_{i \in I} \subseteq \tau_X$.
+
+            \item $X$ is \textit{second countable} if it has a countable base.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}
+        Let $(X,\rho)$ be a metric space. $X$ is \textit{separable} if there exists a countable dense subset.
+    \end{definition}
+
+    \begin{proposition}***
+        Let $(X,\rho)$ be a metric space. $X$ is second countable if and only if $X$ is separable.
+    \end{proposition}
+        \begin{proof}
+            
+        \end{proof}
+
+    
+
 
