@@ -104,15 +104,15 @@
     \end{center}
     \vspace{4pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{problem}
+\begin{problem}[S24, P5]
 Let $T:\bfR^4 \rightarrow \bfR^4$ be an orthogonal projection to the 2-dimensional plane $P$ spanned by the vectors $\vec{v} = (2,0,1,0)$ and $\vec{w} = (-1,0,2,0)$.
-    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+    \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
         \item Find (with proof) all the eigenvalues and eigenvectors, along with their geometric and algebraic multiplicities.
         \item Find the matrix $T$ with respect to the standard basis. Is this matrix diagonalizable? Why or why not?
     \end{enumerate}
 \end{problem}
     \begin{proof}
-        (1) Since $T$ is a projection onto $P$, note that for any vector $v \in \bfR^4$, we have that $T(v) \in P$. Since $T$ acts as the identity map on any vector in $P$, it must be the case that $T^2(v) = T(v)$. 
+        (a) Since $T$ is a projection onto $P$, note that for any vector $v \in \bfR^4$, we have that $T(v) \in P$. Since $T$ acts as the identity map on any vector in $P$, it must be the case that $T^2(v) = T(v)$. 
 
         Let $w$ be an eigenvector of $T$. Since $T^2(v) = T(v)$ for all $v \in \bfR^4$, we get:
             \begin{equation*}
@@ -121,12 +121,109 @@ Let $T:\bfR^4 \rightarrow \bfR^4$ be an orthogonal projection to the 2-dimension
                 T(w) & = T^2(w)  = \lambda^2 w.
             \end{split}
             \end{equation*}
-        It must be the case that $\lambda^2 = \lambda$; i.e., $\lambda = 0$ or $\lambda = 1$. 
+        It must be the case that $\lambda^2 = \lambda$; i.e., $\lambda = 0$ or $\lambda = 1$. Note that $\lambda = 1$ corresponds to the subspace $P$, while $\lambda = 0$ corresponds to the subspace $P^\perp$. Since $P$ is 2-dimensional, the geometric multiplicity of $\lambda = 1$ is 2. Moreover, because $\dim \bfR^4 = \dim P + \dim P^\perp$, we get that $\dim P^\perp = 2$, hence $\lambda = 0$ has a geometric multiplicity of 2.
+
+        Observe that:
+            \begin{equation*}
+            \begin{split}
+                \bmat 2 & 0 & 1 & 0 \\ -1 & 0 & 2 & 0 \emat \bmat x_1 \\ x_2 \\ x_3 \\ x_4 \emat = \bmat 0\\0\emat 
+                & \implies \begin{cases}
+                    2x_1 + x_3 = 0 \\
+                    -x_1 + 2x_3 = 0 
+                \end{cases} \\
+                & \implies \begin{cases}
+                    2x_1 + x_3 = 0 \\
+                    -5x_1 = 0 
+                \end{cases} \\
+                & \implies \begin{cases}
+                    2x_1 = -x_3 \\
+                    x_1 = 0 
+                \end{cases} \\
+            \end{split}
+            \end{equation*}
+        Hence $x_1 = x_3 = 0$. Since $x_2$ and $x_4$ are free variables, we have:
+            \begin{equation*}
+            \begin{split}
+                P^\perp = \Span \left\{\bmat 0 \\ 1 \\ 0 \\ 0 \emat,\bmat 0 \\ 0 \\ 0 \\ 1 \emat \right\}.
+            \end{split}
+            \end{equation*}
+        Since the eigenbasis:
+            \begin{equation*}
+            \begin{split}
+                \cB_\lambda = \left\{ \bmat 2 \\ 0 \\ 1 \\ 0 \emat, \bmat -1 \\ 0 \\ 2 \\ 0 \emat ,\bmat 0 \\ 1 \\ 0 \\ 0 \emat,\bmat 0 \\ 0 \\ 0 \\ 1 \emat\right\}
+            \end{split}
+            \end{equation*}
+        has a dimension of 4, $T$ is diagonalizable. Because $T$ is diagonalizable, the algebraic multiplicities of its eigenvalues equals their geometric multiplicities.
+
+        (b) Let $\cB$ denote the standard basis in $\bfR^4$ and define:
+            \begin{equation*}
+            \begin{split}
+                S = \bmat 2 & -1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 1 & 2 & 0 & 0 \\ 0 & 0 & 0 & 1 \emat.
+            \end{split}
+            \end{equation*}
+        Since $T$ is diagonalizable, this means:
+            \begin{equation*}
+            \begin{split}
+                [T]_{\cB} 
+                & = S \cdot [T]_{\cB_\lambda}\cdot S^{-1} \\
+                &= \bmat 2 & -1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 1 & 2 & 0 & 0 \\ 0 & 0 & 0 & 1 \emat \bmat 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \emat \bmat \frac{2}{5} & 0 & \frac{1}{5} & 0 \\ -\frac{1}{5} & 0 & \frac{2}{5} & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \emat \\
+                & = \bmat1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0  \\ 0 & 0 & 0 & 0 \emat.
+            \end{split}
+            \end{equation*}
         
     \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{problem}
-
+    Let $L$ be the line in $\bfR^2$ defined by $y = -3x$, and let $T:\bfR^2 \rightarrow \bfR^2$ be the linear transformation that orthogonally projects onto $L$ and then stretches along $L$ by a factor of two.
+        \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+            \item Find the eigenvalues and an eigenbasis $\cB$ for $T$.
+            \item Determine the matrix for $T$ with respect to the basis $\cB$.
+            \item Determine the matrix for $T$ with respect to the standard basis.
+        \end{enumerate}
 \end{problem}
+    \begin{proof}
+        (a) Note that $\bfR^2 = L \oplus L^\perp$. Hence for any $v \in \bfR^2$, we can write $v = u + w$, where $u \in L$ and $w \in L^\perp$. This means:
+            \begin{equation*}
+            \begin{split}
+                T(v)
+                & = T(u + w) \\
+                & = T(u) + T(w) \\
+                & = T(u) \\
+                & = 2u.
+            \end{split}
+            \end{equation*}
+        Applying $T$ to both sides yields:
+            \begin{equation*}
+            \begin{split}
+                T^2(v)
+                & = 2T(u) \\
+                & = 2T(v).
+            \end{split}
+            \end{equation*}
+        Whence $T^2 = 2T$. If $x$ is an eigenvector of $T$, then $T(x) = \lambda x$ and $T(x) = \frac{1}{2}T^2(x) = \frac{1}{2}\lambda^2 x$. Thus $\lambda = \frac{1}{2}\lambda^2$, giving $\lambda = 2$ and $\lambda = 0$ as eigenvectors.
+
+        Note that $L = \Span\left\{\bmat 1 \\ -3 \emat \right\}$. Solving the equation $(1,-3) \cdot \bmat x_1 \\ x_2 \emat = (0,0)$ gives $L ^\perp = \Span \left\{ \bmat 3 \\ 1 \emat \right\}$. This means the eigenbasis for $T$ is $\cB = \left\{ \bmat 1 \\ -3 \emat, \bmat 3 \\ 1 \emat \right\}$.
+
+        (b) Since $\dim \cB = \dim \bfR^2$, the matrix for $T$ will be diagonal. In particular, the diagonal entries for $[T]_{\cB}$ will be the eigenvalues of $T$; i.e., $[T]_{\cB} = \bmat 2 & 0 \\ 0 & 0 \emat$.
+
+        (c) Let $\cE$ denote the standard basis in $\bfR^2$. Since $T$ is diagonalizable, we have \nl$[T]_{\cB} = P^{-1} \cdot [T]_\cE \cdot P$, where $P = \bmat 1 & 3 \\ -3 & 1 \emat$. Solving for $[T]_{\cE}$ yields:
+            \begin{equation*}
+            \begin{split}
+                [T]_{\cE}
+                & = P \cdot [T]_\cB \cdot P^{-1} \\
+                & = \bmat 1 & 3 \\ -3 & 1 \emat \bmat 2 & 0 \\ 0 & 0 \emat \bmat \frac{1}{10} & -\frac{3}{10} \\ \frac{3}{10} & \frac{1}{10} \emat \\
+                & = \bmat \frac{1}{5} & -\frac{3}{5} \\ -\frac{3}{5} & \frac{9}{5} \emat.
+            \end{split}
+            \end{equation*}
+    \end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{problem}
+Let $A = \bmat 0 & 0 & -2 \\ 1 & 2 & 1 \\ 1 & 0 & 3 \emat$.
+\begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+    \item Determine whether $A$ is diagonalizable, and if so, give its diagonal form along with a diagonalizing matrix.
+    \item Compute $A^{42}$. Remember to show all work.
+\end{enumerate}
+\end{problem}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

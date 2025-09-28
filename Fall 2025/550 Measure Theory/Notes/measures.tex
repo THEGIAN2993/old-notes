@@ -1,40 +1,39 @@
 \chapter{Measures}
 
-Ideally to measure the size of a set, we'd like a function
-    \begin{equation*}
-    \begin{split}
-        \mu:\cP(\bfR^n) \rightarrow [0,\infty]
-    \end{split}
-    \end{equation*}
-to have the following properties:
-    \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
-        \item The unit cube should have a measure equal to one \textemdash that is, $\mu \left( \{x \in \bfR^n \mid 0 \leq x_j < 1\} \right) =1 $;
-        \item If $E$ and $F$ are congruent (that is, $F$ is a translation, rotation, and/or reflection), then $\mu(E) = \mu(F)$;
+Ideally in $\bfR$, we would like to a have a function $\mu$ that assigns each $E \subset \bfR$ to a number $\mu(E) \in [0,\infty]$. Such a function $\mu$ should possess the "essence" of length:
+    \begin{enumerate}[label = \arabic*.,itemsep=1pt,topsep=3pt]
+        \item The unit cube should have a measure equal to one \textemdash that is, $\mu \left( [0,1)\right) =1 $;
+        \item If $E$ and $F$ are congruent subsets of $\bfR$ (that is, $F$ is a translation, rotation, and/or reflection of $E$), then $\mu(E) = \mu(F)$;
         \item If $E_1,E_2,...$ are pairwise disjoint, then $\mu \left( \bigcup_{j = 1}^\infty E_j \right) = \sum_{j = 1}^\infty \mu(E_j)$.
     \end{enumerate}
-This is impossible.
+Unfortunately, a function possessing all of these traits does not exist. 
     \begin{theorem}
         A function $\mu:\cP(\bfR) \rightarrow [0,\infty]$ satisfying (1), (2), and (3) from above does not exist.
     \end{theorem}
         \begin{proof}
-            By (1) we have $\mu([0,1)) = 1$. Let $x,y \in [0,1)$. Define a relation on $[0,1)$ as follows: $x \sim y$ if and only if $x - y \in \bfQ$. This is an equivalence relation. Using the Axiom of Choice, let $N$ be a set which contains exactly one element from each equivalence class. For $q \in \bfQ \cap [0,1)$, define:
+            Suppose such a function $\mu$ does exist. By (1) we have $\mu([0,1)) = 1$. Define a relation on $[0,1)$ as follows: $x \sim y$ if and only if $x-y \in \bfQ$. This is an equivalence relation. Using the Axiom of Choice, let $N$ be a set which contains exactly one element from each equivalence class. Now for each $q \in \bfQ \cap [0,1)$, define:
                 \begin{equation*}
                 \begin{split}
-                    N_q = \{x + q \mid x \in N \cap [0,1-q)\} \cup \{x + q - 1 \mid x\in N \cap [1-q,1)\}
+                    N_q = \{x + q \mid N \cap [0,1-q)\} \cup \{x + (q-1) \mid x \in N \cap [1-q,1)\}.
                 \end{split}
                 \end{equation*}
-            That is, $N_q$ is a rotation of $N$ by $q$ units, in which the shifted part that sticks out past $[0,1)$ is shifted back to zero. (include picture of circle here) With this, note that:
+            That is, the points in $N_q$ are obtained by "rotating" the points in $N$ by a rational number $q$. Clearly $N_q \subset [0,1)$, hence $\bigcup_{q \in \bfQ \cap [0,1)}N_q \subset [0,1)$. 
+            We have the following three properties:
+                \begin{enumerate}[label = (\alph*),itemsep=1pt,topsep=3pt]
+                    \item For any $q \in \bfQ$, $\mu(N) = \mu(N_q)$
+                    \item If $r,s \in \bfQ$, $r \neq s$, then $N_r \cap N_s = \emptyset$.
+                    \item For every $y \in [0,1)$, there exists a $q \in \bfQ$ such that $y \in N_q$.
+                \end{enumerate}
+            Property (a) follows from the fact that $N$ and $N_r$ are congruent, hence:
                 \begin{equation*}
                 \begin{split}
                     \mu(N) 
                     & = \mu \bigl( N \cap [0,1-q) \bigr) + \mu\bigl(N \cap [1-q,1)\bigr) \\
-                    & = \mu\bigl( \{x + q \mid x \in N \cap [0,1-q)\}\bigr) + \mu \bigl( \{x + q - 1 \mid x\in N \cap [1-q,1)\}\bigr) \h9\text{\tiny Translation} \\
+                    & = \mu\bigl( \{x + q \mid x \in N \cap [0,1-q)\}\bigr) + \mu \bigl( \{x + q - 1 \mid x\in N \cap [1-q,1)\}\bigr) \h9\text{\tiny "Rotation"} \\
                     & = \mu(N_r).
                 \end{split}
                 \end{equation*}
-            Now let $s,r \in \bfQ \cap [0,1)$. Claim: if $r \neq s$, then $N_r \cap N_q = \emptyset$. Suppose not, that is, let $x \in N_r \cap N_s$. This means $x - r$ and $x-s$ would be distinct elements of $N$. However, notice that $(x-r) - (x-s) = s - r \in \bfQ$. Hence $x-r$ and $x-s$ are in the same equivalence class, which contradicts the way we've defined $N$. (We showed that any two rational rotations of $N$ are disjoint)
-            
-            Now let $y \in [0,1)$. Let $x \in N$ satisfy $x \sim y$. Since $x$ and $y$ are contained in the same equivalence class, we can find $q \in \bfQ$ such that:
+            Property (b) follows by contradiction \textemdash if $x \in N_r \cap N_s$, then $x - r$ and $x - s$ would be distinct elements of $N$. However, $(x-r) - (x-s) = s-r \in \bfQ$, so $x-r$ and $x-s$ are in the same equivalence class. But this contradicts the way which we've constructed $N$. For property (c), given $y \in [0,1)$, let $x \in \N$ satisfy $x \sim y$. Since $x$ and $y$ are in the same equivalence class, we can find $q \in \bfQ$ such that:
                 \begin{equation*}
                 \begin{split}
                     y =
@@ -44,23 +43,137 @@ This is impossible.
                     \end{cases}.
                 \end{split}
                 \end{equation*}
-            Then $y \in N_q$. (We've shown that if $y$ is in the same equivalence class as a representative $x \in N$, then $y$ is a rotation of $N$ of some rational number).
+            Hence $y \in N_q$, giving $[0,1) \subset N_q \subset \bigcup_{q \in \bfQ \cap [0,1)}N_q$. We've obtained the equality:
+                \begin{equation*}
+                \begin{split}
+                    \bigcup_{q \in \bfQ \cap [0,1)}N_q = [0,1),
+                \end{split}
+                \end{equation*}
+            and by property (a) this becomes:
+                \begin{equation*}
+                \begin{split}
+                    \bigsqcup_{q \in \bfQ \cap [0,1)}N_q = [0,1).
+                \end{split}
+                \end{equation*}
+            Finally, with property (a), we have:
+                \begin{equation*}
+                \begin{split}
+                    1
+                    & = \mu([0,1)) \\
+                    & = \mu \left( \bigsqcup_{q \in \bfQ \cap [0,1)}N_q \right) \\
+                    & = \sum_{q \in \bfQ \cap [0,1)}\mu(N_q) \\
+                    & = \sum_{n = 1}^\infty \mu(N).
+                \end{split}
+                \end{equation*}
+            This is impossible, hence there does not exist a $\mu$ satisfying (1), (2), and (3).
         \end{proof}
 
-    Relaxing (3) to be only finitely additive does not help either. 
-
-    \begin{theorem}[Banach-Tarski Paradox]
-        Write this stuff out.
-    \end{theorem}
-
-    This is a true statement... 
-
-    We can't hope to measure every set of $\cP(\bfR^n)$. Some sets are not measurable. We need to restrict $\mu$ to some subset of $\cP(\bfR^n)$. We need to leave some sets out.
-
+    One might guess that this inconsistency is a result of assuming countable additivity as opposed to finite additivity. This is not the case, and in dimensions $n \geq 3$ assuming a weak form of $\mu$ leads to the following result:
+        \begin{theorem}[Banach-Tarski]
+            Let $U$ and $V$ be arbitrary bounded open sets in $\bfR^n$ for $n \geq 3$. There exist $k \in \bfN$ and subsets $E_1,...,E_k$, $F_1,...,F_k$ of $\bfR^n$ such that:
+                \begin{itemize}
+                    \item the $E_j$'s are disjoint and their union is $U$;
+                    \item the $F_j$'s are disjoint and their union is $V$;
+                    \item $E_j$ is congruent to $F_j$ for all $1 \leq j \leq k$.
+                \end{itemize}
+        \end{theorem}
+    This result means one can cut up a ball the size of a pea into a finite number of pieces, and rearrange them to form a ball the size of the earth! Ultimately, the problem comes from the fact we defined $\mu$ on \textit{every possible} subset of $\bfR^n$. We can't hope to do this, since as we showed there exists bizarre sets which cannot be measured. Instead, we will define $\mu$ on a special class of subsets of $\bfR^n$.
 
 \section{$\sigma$-Algebras}
     \begin{definition}
-        Let $X$ be a set. An \textit{algebra} of sets is a subset $\cA \subset \cP(X)$ which is closed under finite unions and complements. If $\cA$ is closed under countable unions, we say $\cA$ is a \textit{$\sigma$-algebra}.
+        Let $X$ be a set. An \textit{algebra of sets} $\cA \subset \cP(X)$ is a collection of subsets of $X$ which is:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item closed under finite union: if $E_1,E_2,...,E_n \in \cA$, then $\bigcup_{i = 1}^n E_n \in \cA$;
+                \item closed under complement: if $E \in \cA$, then $E^c \in \cA$.
+            \end{enumerate}
+        We used the ordered pair $(X,\cA)$...If $\cA$ is closed under countable union, then we say $\cA$ is a \textit{$\sigma$-algebra}.
     \end{definition}
+
+    \begin{proposition}
+        Let $\cA$ be an algebra of sets.
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item $\cA$ is closed under finite intersection.
+            \item $\cA$ is closed under set difference.
+            \item $\emptyset \in \cA$ and $X \in \cA$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            (1) Let $E_1,E_2,...,E_n \in \cA$. Then $\bigcap_{i = 1}^n E_i = \left( \bigcup_{i=1}^n E_i^c \right)^c \in \cA$. (2) If $E_1,E_2 \in \cA$, then $E_1 \setminus E_2 = E_1 \cap E_2^c \in \cA$. (3) For any $E \in \cA$, we have $\emptyset = E \cap E^c \in \cA$ and $X = E \cup E^c \in \cA$.
+        \end{proof}
+
+    \begin{proposition}
+        Let $\cA$ be an algebra of sets. The following are equivalent:
+            \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+                \item $\cA$ is a $\sigma$-algebra.
+                \item $\cA$ is closed under countable disjoint union.
+            \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            If $\cA$ is a $\sigma$-algebra, then it is closed under countable union, hence it must be closed under countable disjoint union. Conversely, suppose $\cA$ is closed under countable disjoint union. Let $\{E_n\}_{n = 1}^\infty$ be a family of sets in $\cA$. Define:
+                \begin{equation*}
+                \begin{split}
+                    F_1 &= E_1, \\
+                    F_2 &= E_2 \setminus E_1 \\
+                    F_3 &= E_3 \setminus (E_1 \cup E_2) \\
+                    &\vdots \\
+                    F_n &= E_n \setminus \left( E_1 \cup E_2 \cup ... \cup E_{n-1} \right).
+                \end{split}
+                \end{equation*}
+            Let $i < j$ be natural numbers and consider $F_i \cap F_j$. If $x \in F_i$, then $x \in E_i$. Since $i < j$, we have $x \in E_1 \cup ... \cup E_{j-1}$, hence $x \not\in F_j$. Thus $F_i \cap F_j = \emptyset$. Inductively, $\{F_n\}_{n = 1}^\infty$ is a countable family of disjoint sets.
+
+            Clearly $\bigcup_{n = 1}^\infty F_n \subset \bigcup_{n = 1}^\infty E_n$. Conversely, let $x \in \bigcup_{n = 1}^\infty E_n$. Find the smallest natural number $j$ such that $x \in E_j$. Then $x \not\in E_i$ for $i < j$. Hence $x \in E_j \setminus (E_1 \cup ... \cup E_{j-1}) = F_j \subset \bigcup_{n=1}^\infty F_n$.
+
+            Since $\cA$ is closed under countable disjoint unions, we have $\bigcup_{n = 1}^\infty E_n = \bigcup_{n = 1}^\infty F_n \in \cA$. Since $\{E_n\}_{n = 1}^\infty$ was an arbitrary family of sets, this means $\cA$ is a $\sigma$-algebra.
+        \end{proof}
+
+    \begin{proposition}
+        If $\{\cE_i\}_{i \in I}$ is a family of $\sigma$-algebras, then $\bigcap_{i \in I}\cE_i$ is a $\sigma$-algebra.
+    \end{proposition}
+        \begin{proof}
+            Let $\{E_n\}_{n = 1}^\infty$ be a family of sets contained in $\bigcap_{i \in I}\cE_i$. Then each $\{E_n\}_{n = 1}^\infty$ is contained in $\cE_i$. Since $\cE_i$ is a $\sigma$-algebra for every $i \in I$, we have $\bigcup_{n = 1}^\infty E_n \in \cE_i$ for every $i \in I$, which means $\bigcup_{n = 1}^\infty E_n \in \bigcap_{i \in I}\cE_i$.
+
+            Similarly, let $F \in \bigcap_{i \in I}\cE_i$. Then $F \in \cE_i$ for every $i \in I$. Since $\cE_i$ is a $\sigma$-algebra for every $i \in I$, we have $F^c \in \cE_i$ for every $i \in I$, which means $F^c \in \bigcap_{i \in I}\cE_i$. Thus $\bigcap_{i \in I}\cE_i$ is a $\sigma$-algebra.
+        \end{proof}
+
+    \begin{definition}
+        Let $\cE$ be any nonzero collection of subsets of $X$. The \textit{$\sigma$-algebra generated by $\cE$} is $\fM(\cE) := \bigcap \{\cA \mid \cE \subset \cA, \cA \h1\text{is a $\sigma$-algebra}\h1\}$.
+    \end{definition}
+
+    For a metric space $X$, it'd be nice if we could measure all the open sets.
+
+    \begin{definition}
+        Let $X$ be a metric space and $\tau_X$ the set containing all of its open sets. The \textit{Borel $\sigma$-algebra on $X$} is the set $\cB_X := \fM(\tau_X)$. Members of $\cB_X$ are called \textit{Borel sets}.
+    \end{definition}
+
+    Exposition on appreciating whats inside the borel sets. define was F sigma and G delta sets are. talk about why they are in it and also combinations of them
+
+    \begin{proposition}
+    $\cB_\bfR$ is generated by each of the following:
+        \begin{enumerate}[label = (\arabic*),itemsep=1pt,topsep=3pt]
+            \item the open intervals: $\cE_1 = \{(a,b) \mid a < b\}$,
+            \item the closed intervals: $\cE_2 = \{[a,b] \mid a < b\}$,
+            \item the half-open intervals: $\cE_3 = \{(a,b] \mid a < b\}$ or $\cE_4 = \{[a,b) \mid a < b\}$,
+            \item the open rays: $\cE_5 = \{(a,\infty) \mid a \in \bfR\}$ or $\cE_6 = \{(-\infty,a) \mid a \in \bfR\}$,
+            \item the closed rays: $\cE_7 = \{(a,\infty) \mid a \in \bfR\}$ or $\cE_8 = \{(-\infty,a) \mid a \in \bfR\}$.
+        \end{enumerate}
+    \end{proposition}
+        \begin{proof}
+            We are required to show for each $\cE_i$ that $\fM(\cE_i) = \cB_\bfR$.
+
+            (1) Let $I \in \cE_1$ be an open interval. Then $I \in \cB_\bfR$ because $I$ is an open subset of $\bfR$. From this we have $\cE_1 \subset \cB_\bfR$, but because $\cB_\bfR$ is a $\sigma$-algebra containing $\cE_1$, and $\fM(\cE_1)$ is the smallest $\sigma$-algebra containing $\cE_1$, we have $\fM(\cE_1) \subset \cB_\bfR$. Conversely, let $U \in \tau_\bfR$. Then $U$ is at most the countable union of disjoint open intervals, hence $U \in \fM(\cE_1)$. From this we have $\tau_\bfR \subset \fM(\cE_1)$, but because $\fM(\cE_1)$ is a $\sigma$-algebra containing $\tau_\bfR$, and $\fM(\tau_\bfR)$ is the smallest $\sigma$-algebra containing $\tau_\bfR$, we have $\fM(\tau_\bfR) = \cB_\bfR \subset \fM(\cE_1)$.
+
+            (2) Let $I \in \cE_1$ be an open interval. Then $I^c$ is a closed interval, hence it is contained in $\fM(\cE_2)$. Whence $\fM(\cE_1) \subset \fM(\cE_2)$. Conversely, let $C \in \cE_2$ be a closed interval. Then $C$ can be written as the countable intersection of open sets. This means $C \in \fM(\cE_1)$. Whence $\fM(\cE_2) \subset \fM(\cE_1)$. Thus $\fM(\cE_2) = \fM(\cE_1) = \cB_\bfR$.
+        \end{proof}
+
+    \newpage
+
+    Given two sets $X_1$ and $X_2$ with respective $\sigma$-algebras $\cM_1$ and $\cM_2$, we'd like to understand what a $\sigma$-algebra on $X_1 \times X_2$ looks like. For countably many pairs, we have the following intuitive definition.
+
+    \begin{definition}
+        Let $\{X_n\}_{n \in \bfN}$ be a family of sets. If $\cM_n$ is a $\sigma$-algebra on $X_n$ for each $n$, we define $\bigotimes_{n \in \bfN}\cM_n$ as the $\sigma$-algebra generated by $\bigotimes_{n \in \bfN}\cM_n := \left\{ \prod_{n \in \bfN}X_n \mid X_n \in \cM_n\right\}$.
+    \end{definition}
+
+    Note that this definition assumes each $X_i$ is indexed by a \textit{countable} family of sets. For an uncountable family of sets $\{X_\alpha\}_{\alpha \in I}$
+
 
     

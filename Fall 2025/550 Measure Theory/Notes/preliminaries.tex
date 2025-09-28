@@ -568,6 +568,12 @@
                     (\forall \epsilon > 0)(\exists \delta > 0):(\forall x,y \in X_1)(\rho_1(x,y) < \delta \implies \rho_2(f(x),f(y))<\epsilon).
                 \end{split}
                 \end{equation*}
+            \item We say $f$ is \textit{Lipschitz} if:
+                \begin{equation*}
+                \begin{split}
+                    (\exists C \geq 0):(\forall x,y \in X)(\rho_2(f(x),f(y)) \leq C\cdot\rho_1(x,y)).
+                \end{split}
+                \end{equation*}
         \end{enumerate}
     \end{definition}
 
@@ -605,6 +611,12 @@
 
     \begin{definition}
         We say a metric space $X$ is \textit{compact} if it satisfies any of the properties in Proposition 1.3.5.
+    \end{definition}
+
+    A set may can have more than one metric defined on it. 
+
+    \begin{definition}
+        Let $X$ be a metric space. We say $\rho_1$ and $\rho_2$ are \textit{equivalent metrics on $X$} if $\id:(X,\rho_1) \rightarrow (X,\rho_2)$ and $\id^{-1}:(X,\rho_2) \rightarrow (X,\rho_1)$ are Lipschitz.
     \end{definition}
 
     
